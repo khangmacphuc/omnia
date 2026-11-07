@@ -2,6 +2,8 @@
 
 ## Scope
 
+- Source revision: `e073557dcb32ab3b63bf3f1f690164a62339e5ae`
+
 Exercise the RAG provider contract end to end inside the supported local
 boundary. The adapter consumes only frozen SHA-256 metadata and produces a
 lineage-bound receipt. It does not read source text, resolve credentials, call
