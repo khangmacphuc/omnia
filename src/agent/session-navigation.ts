@@ -27,6 +27,17 @@ export interface SessionNavigationPort {
   save(request: SessionNavigationSaveRequest): Promise<SessionNavigationSave>;
 }
 
+const MAX_RECEIPT_ID_LENGTH = 256;
+
+/** Receipt IDs are opaque native facts, but the renderer still bounds and
+ * rejects malformed values before allowing them to influence reconciliation. */
+export function validateSessionNavigationReceiptId(value: string): string {
+  if (typeof value !== "string" || value.length === 0 || value.length > MAX_RECEIPT_ID_LENGTH || value.trim() !== value || /[\u0000-\u001f\u007f]/.test(value)) {
+    throw new Error("Invalid session navigation receipt.");
+  }
+  return value;
+}
+
 type NavigationOperation =
   | { readonly type: "select"; readonly id: string | null }
   | { readonly type: "close"; readonly id: string }
@@ -55,18 +66,22 @@ export function validateSessionNavigation(value: SessionNavigationSnapshot): Ses
 /** Browser preview keeps the same bounded metadata shape in its own store. */
 export function createBrowserSessionNavigationPort(storage: Pick<Storage, "getItem" | "setItem">): SessionNavigationPort {
   const key = "omnia.agent.session-navigation.v1";
+  const receiptFor = (revision: number) => revision === 0 ? "browser-session-navigation-empty" : `browser-session-navigation-revision-${revision}`;
   const load = (): SessionNavigationSnapshot => {
     const raw = storage.getItem(key);
     return raw === null ? EMPTY_SESSION_NAVIGATION : validateSessionNavigation(JSON.parse(raw) as SessionNavigationSnapshot);
   };
   return {
-    load: async () => ({ snapshot: load(), receiptId: "browser-session-navigation-load" }),
+    load: async () => {
+      const snapshot = load();
+      return { snapshot, receiptId: receiptFor(snapshot.revision) };
+    },
     save: async (request) => {
       const current = load();
-      if (request.expectedRevision !== current.revision) return { status: "conflict", snapshot: current, receiptId: "browser-session-navigation-conflict" };
+      if (request.expectedRevision !== current.revision) return { status: "conflict", snapshot: current, receiptId: receiptFor(current.revision) };
       const snapshot = validateSessionNavigation({ schemaVersion: 1, revision: current.revision + 1, openIds: [...request.openIds], activeId: request.activeId, updatedAtMs: Date.now() });
       storage.setItem(key, JSON.stringify(snapshot));
-      return { status: "saved", snapshot, receiptId: "browser-session-navigation-save" };
+      return { status: "saved", snapshot, receiptId: receiptFor(snapshot.revision) };
     },
   };
 }
@@ -120,6 +135,7 @@ export class SessionNavigationClient {
     if (this.starting) return this.starting;
     this.starting = this.port.load().then((response) => {
       this.base = validateSessionNavigation(response.snapshot);
+      validateSessionNavigationReceiptId(response.receiptId);
       this.loaded = true;
       this.emit();
     }).finally(() => { this.starting = null; });
@@ -151,6 +167,7 @@ export class SessionNavigationClient {
         const desired = this.snapshot;
         const response = await this.port.save({ expectedRevision: this.base.revision, openIds: desired.openIds, activeId: desired.activeId });
         const snapshot = validateSessionNavigation(response.snapshot);
+        validateSessionNavigationReceiptId(response.receiptId);
         if (response.status === "saved") {
           if (snapshot.revision !== this.base.revision + 1 || snapshot.activeId !== desired.activeId || snapshot.openIds.join("\u0000") !== desired.openIds.join("\u0000")) {
             throw new Error("Native navigation receipt does not match the saved tab list.");

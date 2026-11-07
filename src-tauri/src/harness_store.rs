@@ -141,6 +141,26 @@ impl HarnessStore {
                      revision INTEGER NOT NULL CHECK(revision > 0),
                      snapshot_json TEXT NOT NULL
                  );
+                 -- Navigation receipts are immutable facts.  The singleton
+                 -- row above is only the current projection; keeping a
+                 -- receipt row per committed revision means a restart (or a
+                 -- conflict response) can return the same durable identity
+                 -- instead of manufacturing a new UUID for the same state.
+                 CREATE TABLE IF NOT EXISTS agent_session_navigation_receipts (
+                     receipt_id TEXT PRIMARY KEY,
+                     revision INTEGER NOT NULL UNIQUE CHECK(revision > 0),
+                     snapshot_json TEXT NOT NULL
+                 );
+                 -- Databases created before durable receipts existed may
+                 -- already contain one current navigation row.  Preserve
+                 -- that state with a deterministic migration receipt; it is
+                 -- only a compatibility marker and is never reused for a
+                 -- newly committed revision.
+                 INSERT OR IGNORE INTO agent_session_navigation_receipts
+                     (receipt_id, revision, snapshot_json)
+                 SELECT 'session_navigation_legacy_' || revision, revision, snapshot_json
+                   FROM agent_session_navigation
+                  WHERE singleton = 1 AND revision > 0;
                  UPDATE agent_run_state SET status = 'interrupted' WHERE status = 'running';",
             )
             .map_err(storage_error)?;

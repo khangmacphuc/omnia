@@ -270,8 +270,8 @@ describe("CommandPalette", () => {
   it("lists a navigation entry per shell view and calls onNavigate with its id", async () => {
     const props = renderPalette("agent");
     const box = await screen.findByRole("combobox", { name: "Search commands" });
-    fireEvent.change(box, { target: { value: "Go to Home" } });
-    expect(screen.getByRole("option", { name: /Go to Home/ })).toHaveTextContent("current");
+    fireEvent.change(box, { target: { value: "Go to Chat" } });
+    expect(screen.getByRole("option", { name: /Go to Chat/ })).toHaveTextContent("current");
     for (const view of SHELL_VIEWS) {
       const label = `Go to ${view.label}`;
       fireEvent.change(box, { target: { value: label } });
@@ -279,16 +279,16 @@ describe("CommandPalette", () => {
       expect(option).toHaveTextContent(view.id === "agent" ? "current" : view.shortcut);
     }
     fireEvent.change(box, { target: { value: "Go to Projects" } });
-    expect(screen.getByRole("option", { name: /Go to Projects/ })).toHaveTextContent("Alt+2");
+    expect(screen.getByRole("option", { name: /Go to Projects/ })).toBeInTheDocument();
     fireEvent.keyDown(box, { key: "Enter" });
     expect(props.onNavigate).toHaveBeenCalledWith("projects");
     expect(props.onClose).toHaveBeenCalled();
   });
 
-  it("finds Home and Library by their old and tab keywords", async () => {
+  it("finds Chat and Library by their surface and tab keywords", async () => {
     renderPalette("code");
     const box = await screen.findByRole("combobox", { name: "Search commands" });
-    for (const [term, name] of [["chat", /Go to Home/], ["sessions", /Go to Home/], ["memory", /Go to Library/], ["skills", /Go to Library/]] as const) {
+    for (const [term, name] of [["chat", /Go to Chat/], ["sessions", /Go to Chat/], ["memory", /Go to Library/], ["skills", /Go to Library/]] as const) {
       fireEvent.change(box, { target: { value: term } });
       expect(screen.getByRole("option", { name })).toBeInTheDocument();
     }
@@ -313,10 +313,10 @@ describe("CommandPalette", () => {
   it("marks the current workspace view and finds views by keyword", async () => {
     const props = renderPalette("code");
     const box = await screen.findByRole("combobox", { name: "Search commands" });
-    fireEvent.change(box, { target: { value: "Go to Code" } });
-    expect(screen.getByRole("option", { name: /Go to Code/ })).toHaveTextContent("current");
+    fireEvent.change(box, { target: { value: "Go to IDE" } });
+    expect(screen.getByRole("option", { name: /Go to IDE/ })).toHaveTextContent("current");
     fireEvent.change(box, { target: { value: "vs code" } });
-    expect(screen.getByRole("option", { name: /Go to Code/ })).toBeInTheDocument();
+    expect(screen.getByRole("option", { name: /Go to IDE/ })).toBeInTheDocument();
     fireEvent.change(box, { target: { value: "web" } });
     fireEvent.keyDown(box, { key: "Enter" });
     expect(props.onNavigate).toHaveBeenCalledWith("browser");

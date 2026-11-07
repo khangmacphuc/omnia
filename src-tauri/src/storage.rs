@@ -7500,6 +7500,21 @@ impl Storage {
             input.attempt_id,
             &frozen_provider_input_id,
         )?;
+        let context_admission_pointer = context.as_ref().zip(context_manifest.as_ref()).map(
+            |(context, (snapshot_id, snapshot_sha256))| {
+                serde_json::json!({
+                    "contextSnapshotId": snapshot_id,
+                    "contextSnapshotSha256": snapshot_sha256,
+                    "querySha256": context.query_sha256,
+                    "indexSnapshotId": context.index_snapshot_id,
+                    "indexSnapshotSha256": context.index_snapshot_sha256,
+                    "selectedCount": context.selected.len(),
+                    "omittedCount": context.omitted.len(),
+                    "tokenBudget": context.token_budget,
+                    "consumedTokens": context.consumed_tokens,
+                })
+            },
+        );
         let bridge_admission_pointer = if let Some(state) = bridge_state.as_ref() {
             let admission_receipt = state.stage_receipts.last().ok_or_else(|| {
                 NativeError::new(
@@ -7524,6 +7539,7 @@ impl Storage {
             &journal_scope,
             input.provider_profile_id,
             &model_id,
+            context_admission_pointer,
             bridge_admission_pointer,
             now,
         )?;

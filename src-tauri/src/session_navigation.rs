@@ -70,8 +70,31 @@ pub enum AgentSessionNavigationSave {
     },
 }
 
-fn receipt_id() -> String {
+fn new_receipt_id() -> String {
     format!("session_navigation_{}", uuid::Uuid::new_v4().simple())
+}
+
+/// Return the immutable receipt for the current projection.  Revision zero is
+/// the empty state and has a stable synthetic identity because no mutation has
+/// been committed yet.  Receipts for revisions written by older builds are
+/// created by the HarnessStore schema bootstrap migration.
+fn current_receipt_id(connection: &Connection, revision: i64) -> NativeResult<String> {
+    if revision == 0 {
+        return Ok("session_navigation_empty".to_owned());
+    }
+    connection
+        .query_row(
+            "SELECT receipt_id FROM agent_session_navigation_receipts WHERE revision = ?1",
+            [revision],
+            |row| row.get(0),
+        )
+        .optional()?
+        .ok_or_else(|| {
+            NativeError::new(
+                "session_navigation_receipt_missing",
+                "The durable navigation receipt is missing for the current revision",
+            )
+        })
 }
 
 fn validate_navigation(open_ids: &[String], active_id: Option<&str>) -> NativeResult<()> {
@@ -163,9 +186,10 @@ fn read_snapshot(connection: &Connection) -> NativeResult<AgentSessionNavigation
 impl HarnessStore {
     pub fn load_session_navigation(&self) -> NativeResult<AgentSessionNavigationLoad> {
         let connection = self.lock()?;
+        let snapshot = read_snapshot(&connection)?;
         Ok(AgentSessionNavigationLoad {
-            snapshot: read_snapshot(&connection)?,
-            receipt_id: receipt_id(),
+            receipt_id: current_receipt_id(&connection, snapshot.revision)?,
+            snapshot,
         })
     }
 
@@ -184,9 +208,10 @@ impl HarnessStore {
         let tx = connection.transaction_with_behavior(TransactionBehavior::Immediate)?;
         let current = read_snapshot(&tx)?;
         if current.revision != request.expected_revision {
+            let revision = current.revision;
             return Ok(AgentSessionNavigationSave::Conflict {
                 snapshot: current,
-                receipt_id: receipt_id(),
+                receipt_id: current_receipt_id(&tx, revision)?,
             });
         }
         for id in &request.open_ids {
@@ -225,6 +250,12 @@ impl HarnessStore {
                 "Navigation could not be serialized",
             )
         })?;
+        let receipt_id = new_receipt_id();
+        tx.execute(
+            "INSERT INTO agent_session_navigation_receipts
+                (receipt_id, revision, snapshot_json) VALUES (?1, ?2, ?3)",
+            params![receipt_id, revision, raw],
+        )?;
         tx.execute(
             "INSERT INTO agent_session_navigation (singleton, revision, snapshot_json) VALUES (1, ?1, ?2)
              ON CONFLICT(singleton) DO UPDATE SET revision = excluded.revision, snapshot_json = excluded.snapshot_json",
@@ -233,7 +264,7 @@ impl HarnessStore {
         tx.commit()?;
         Ok(AgentSessionNavigationSave::Saved {
             snapshot,
-            receipt_id: receipt_id(),
+            receipt_id,
         })
     }
 }
@@ -307,24 +338,40 @@ mod tests {
                 store.load_session_navigation().unwrap().snapshot.revision,
                 0
             );
+            assert_eq!(
+                store.load_session_navigation().unwrap().receipt_id,
+                "session_navigation_empty"
+            );
             assert!(matches!(
                 store
                     .save_session_navigation(request(0, &["b", "a"], Some("a")))
                     .unwrap(),
                 AgentSessionNavigationSave::Saved { .. }
             ));
+            let first_receipt = match store
+                .save_session_navigation(request(1, &["b", "a"], Some("a")))
+                .unwrap()
+            {
+                AgentSessionNavigationSave::Saved { receipt_id, .. } => receipt_id,
+                AgentSessionNavigationSave::Conflict { .. } => panic!("expected saved receipt"),
+            };
+            assert_ne!(first_receipt, "session_navigation_empty");
+            assert_eq!(
+                store.load_session_navigation().unwrap().receipt_id,
+                first_receipt
+            );
             assert!(matches!(
                 store
-                    .save_session_navigation(request(0, &["a"], Some("a")))
+                    .save_session_navigation(request(1, &["a"], Some("a")))
                     .unwrap(),
-                AgentSessionNavigationSave::Conflict { .. }
+                AgentSessionNavigationSave::Conflict { receipt_id, .. } if receipt_id == first_receipt
             ));
         }
         let store = HarnessStore::open(&path).unwrap();
         let loaded = store.load_session_navigation().unwrap();
         assert_eq!(loaded.snapshot.open_ids, ["b", "a"]);
         assert_eq!(loaded.snapshot.active_id.as_deref(), Some("a"));
-        assert_eq!(loaded.snapshot.revision, 1);
+        assert_eq!(loaded.snapshot.revision, 2);
         drop(store);
         std::fs::remove_file(path).unwrap();
     }

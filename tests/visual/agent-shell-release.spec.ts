@@ -23,18 +23,18 @@ test.use({
 
 /**
  * Release smoke contract for the post-redesign AgentShell:
- * - 6 primary rail views (Home, Projects, Work, Library, Code, Browser) + Alt+1..6 + bottom Settings button
+ * - 3 primary shell surfaces (Chat, Browser, IDE) + Alt+1..3 + Settings button
  * - No legacy header disclosure row or unconditional emergency-stop pill
  * - HomeStart composer and StatusBar in the default view
  * - Consecutive finished tool calls stay collapsed inside .ag-tool-group with (/Explored \d+/ | /Ran \d+ tools/) until expanded
  */
 test.describe("AgentShell release shell", () => {
-  test("exposes the six-view primary activity rail, keyboard shortcuts, and settings dialog", async ({ page }) => {
+  test("exposes the three-surface primary navigation, keyboard shortcuts, and settings dialog", async ({ page }) => {
     await page.goto("/?mock=long&stream=0");
     const rail = page.getByRole("navigation", { name: "Primary" });
     await expect(rail).toBeVisible();
 
-    const views = ["Home", "Projects", "Work", "Library", "Code", "Browser"] as const;
+    const views = ["Chat", "Browser", "IDE"] as const;
     for (const name of views) {
       await expect(rail.getByRole("button", { name, exact: true })).toBeVisible();
     }
@@ -50,7 +50,7 @@ test.describe("AgentShell release shell", () => {
     }
 
     await page.keyboard.press("Alt+1");
-    await expect(rail.getByRole("button", { name: "Home", exact: true })).toHaveAttribute("aria-current", "page");
+    await expect(rail.getByRole("button", { name: "Chat", exact: true })).toHaveAttribute("aria-current", "page");
 
     await rail.getByRole("button", { name: "Settings", exact: true }).click();
     const settings = page.getByRole("dialog", { name: "Settings" });

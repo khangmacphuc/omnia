@@ -875,71 +875,7 @@ pub fn conversation_run_prepare(
     let context = request
         .context_admission
         .map(|admission| {
-            let conversation = state.storage.get_conversation(&request.conversation_id)?;
-            let project_id = conversation.conversation.project_id.as_deref();
-            let grants = state.storage.list_workspace_grants(project_id)?;
-            if !grants.iter().any(|grant| {
-                grant.id == admission.grant_id && grant.project_id.as_deref() == project_id
-            }) {
-                return Err(NativeError::new(
-                    "workspace_retrieval_scope_conflict",
-                    "The retrieval grant is not in the conversation project scope",
-                ));
-            }
-            let root = state.storage.workspace_root_for_read(&admission.grant_id)?;
-            let (_grant_project_id, grant_updated_at_ms, canonical_path_hash) = state
-                .storage
-                .workspace_grant_scope_for_read(&admission.grant_id)?;
-            let index = crate::workspace_indexer::build_workspace_index(
-                &admission.grant_id,
-                project_id,
-                &root,
-                &admission.index_options.unwrap_or_default(),
-            )?;
-            let retrieval = crate::workspace_indexer::retrieve_workspace_chunks(
-                &index.chunks,
-                &admission.query,
-                &admission.retrieval_options.unwrap_or_default(),
-            )?;
-            Ok(ContextAdmissionDraft {
-                grant_id: admission.grant_id,
-                grant_updated_at_ms,
-                canonical_path_hash,
-                query_sha256: retrieval.query_sha256,
-                index_snapshot_id: index.snapshot_id,
-                index_snapshot_sha256: index.snapshot_sha256,
-                indexer_version: index.indexer_version,
-                scorer_version: retrieval.scorer_version,
-                token_budget: retrieval.token_budget,
-                consumed_tokens: retrieval.consumed_tokens,
-                selected: retrieval
-                    .matches
-                    .into_iter()
-                    .map(|matched| ContextAdmissionItem {
-                        chunk_id: matched.chunk.chunk_id,
-                        source_id: matched.chunk.source_id,
-                        relative_path: matched.chunk.relative_path,
-                        content: matched.chunk.content,
-                        content_sha256: matched.chunk.content_sha256,
-                        token_estimate: matched.chunk.token_estimate,
-                        rank: matched.rank,
-                        score: matched.score,
-                        reasons: matched
-                            .reasons
-                            .into_iter()
-                            .map(|reason| reason.as_str().to_owned())
-                            .collect(),
-                    })
-                    .collect(),
-                omitted: retrieval
-                    .omissions
-                    .into_iter()
-                    .map(|omitted| ContextAdmissionOmission {
-                        chunk_id: omitted.chunk_id,
-                        reason: omitted.reason.as_str().to_owned(),
-                    })
-                    .collect(),
-            })
+            compile_context_admission(&state.storage, &request.conversation_id, &admission)
         })
         .transpose()?;
     state
@@ -960,6 +896,82 @@ pub fn conversation_run_prepare(
             &[],
             context,
         )
+}
+
+/// Executes the native retrieval compiler used by run preparation.  Keeping
+/// this behind the storage/grant boundary is important: the renderer supplies
+/// only an opaque grant and query, while the native indexer owns the live
+/// filesystem read, scope check, hashes and bounded selection.
+fn compile_context_admission(
+    storage: &crate::storage::Storage,
+    conversation_id: &str,
+    admission: &ContextAdmissionRequest,
+) -> NativeResult<ContextAdmissionDraft> {
+    let conversation = storage.get_conversation(conversation_id)?;
+    let project_id = conversation.conversation.project_id.as_deref();
+    let grants = storage.list_workspace_grants(project_id)?;
+    if !grants
+        .iter()
+        .any(|grant| grant.id == admission.grant_id && grant.project_id.as_deref() == project_id)
+    {
+        return Err(NativeError::new(
+            "workspace_retrieval_scope_conflict",
+            "The retrieval grant is not in the conversation project scope",
+        ));
+    }
+    let root = storage.workspace_root_for_read(&admission.grant_id)?;
+    let (_grant_project_id, grant_updated_at_ms, canonical_path_hash) =
+        storage.workspace_grant_scope_for_read(&admission.grant_id)?;
+    let index = crate::workspace_indexer::build_workspace_index(
+        &admission.grant_id,
+        project_id,
+        &root,
+        &admission.index_options.clone().unwrap_or_default(),
+    )?;
+    let retrieval = crate::workspace_indexer::retrieve_workspace_chunks(
+        &index.chunks,
+        &admission.query,
+        &admission.retrieval_options.clone().unwrap_or_default(),
+    )?;
+    Ok(ContextAdmissionDraft {
+        grant_id: admission.grant_id.clone(),
+        grant_updated_at_ms,
+        canonical_path_hash,
+        query_sha256: retrieval.query_sha256,
+        index_snapshot_id: index.snapshot_id,
+        index_snapshot_sha256: index.snapshot_sha256,
+        indexer_version: index.indexer_version,
+        scorer_version: retrieval.scorer_version,
+        token_budget: retrieval.token_budget,
+        consumed_tokens: retrieval.consumed_tokens,
+        selected: retrieval
+            .matches
+            .into_iter()
+            .map(|matched| ContextAdmissionItem {
+                chunk_id: matched.chunk.chunk_id,
+                source_id: matched.chunk.source_id,
+                relative_path: matched.chunk.relative_path,
+                content: matched.chunk.content,
+                content_sha256: matched.chunk.content_sha256,
+                token_estimate: matched.chunk.token_estimate,
+                rank: matched.rank,
+                score: matched.score,
+                reasons: matched
+                    .reasons
+                    .into_iter()
+                    .map(|reason| reason.as_str().to_owned())
+                    .collect(),
+            })
+            .collect(),
+        omitted: retrieval
+            .omissions
+            .into_iter()
+            .map(|omitted| ContextAdmissionOmission {
+                chunk_id: omitted.chunk_id,
+                reason: omitted.reason.as_str().to_owned(),
+            })
+            .collect(),
+    })
 }
 
 /// Resolves a renderer run-control intent into the canonical, redacted native
@@ -1453,6 +1465,12 @@ fn is_private_or_local(address: IpAddr) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::{
+        prepared_provider_input::StartPreparedAttemptRequest,
+        storage::{NewProviderProfile, Storage},
+    };
+    use std::fs;
+    use uuid::Uuid;
 
     #[test]
     fn provider_urls_reject_credentials_and_insecure_internet() {
@@ -1522,5 +1540,142 @@ mod tests {
         .expect_err("text-only IPC must reject attachment admission fields");
 
         assert!(error.to_string().contains("attachmentDraftIds"));
+    }
+
+    #[test]
+    fn live_context_admission_populates_frozen_provider_input_and_journal_pointer() {
+        let storage = Storage::in_memory().expect("storage should initialize");
+        let project = storage
+            .create_project("Native live retrieval", None, None)
+            .expect("project should be created");
+        let root = std::env::temp_dir().join(format!("omnia-native-live-rag-{}", Uuid::new_v4()));
+        fs::create_dir(&root).expect("retrieval fixture should be created");
+        fs::write(
+            root.join("grounding.md"),
+            "Native grounding evidence proves provider input admission from a live workspace.",
+        )
+        .expect("retrieval fixture should be written");
+        let cleanup_root = root.clone();
+        let cleanup = || {
+            let temp_root = fs::canonicalize(std::env::temp_dir()).ok();
+            let target = fs::canonicalize(&cleanup_root).ok();
+            if let (Some(temp_root), Some(target)) = (temp_root, target) {
+                if target.parent() == Some(temp_root.as_path())
+                    && target.file_name().is_some_and(|name| {
+                        name.to_string_lossy().starts_with("omnia-native-live-rag-")
+                    })
+                {
+                    let _ = fs::remove_dir_all(target);
+                }
+            }
+        };
+        let grant = storage
+            .add_workspace_grant(Some(&project.id), &root)
+            .expect("workspace grant should be created");
+        let conversation = storage
+            .create_conversation(Some(&project.id), Some("Live retrieval"))
+            .expect("conversation should be created");
+        let provider = storage
+            .save_provider_profile(NewProviderProfile {
+                provider_type: "local",
+                display_name: "Native live retrieval provider",
+                normalized_base_url: "http://127.0.0.1:11434/v1",
+                auth_scheme: "none",
+                organization_id: None,
+                remote_project_id: None,
+                credential_ref: None,
+                local_network_grant: true,
+            })
+            .expect("provider should be created");
+        let admission = ContextAdmissionRequest {
+            grant_id: grant.id.clone(),
+            query: "grounding evidence".to_owned(),
+            index_options: None,
+            retrieval_options: Some(WorkspaceRetrievalOptions {
+                token_budget: 1_000,
+                max_results: 4,
+                max_results_per_source: 2,
+                minimum_score: 0.15,
+                diversity_lambda: 0.82,
+                max_reported_omissions: 100,
+            }),
+        };
+        let context =
+            compile_context_admission(&storage, &conversation.conversation.id, &admission)
+                .expect("native retrieval should compile from the live grant");
+        assert_eq!(context.selected.len(), 1);
+        assert!(context.selected[0]
+            .content
+            .contains("Native grounding evidence"));
+        assert_eq!(context.selected[0].content_sha256.len(), 64);
+
+        let run_id = format!("run_{}", Uuid::new_v4().simple());
+        let attempt_id = format!("attempt_{}", Uuid::new_v4().simple());
+        let user_message_id = format!("message_{}", Uuid::new_v4().simple());
+        let assistant_message_id = format!("message_{}", Uuid::new_v4().simple());
+        let prepared = storage
+            .prepare_conversation_run_with_attachment_drafts_and_context(
+                NewConversationRun {
+                    conversation_id: &conversation.conversation.id,
+                    branch_id: &conversation.conversation.active_branch_id,
+                    run_id: &run_id,
+                    attempt_id: &attempt_id,
+                    user_message_id: &user_message_id,
+                    assistant_message_id: &assistant_message_id,
+                    prompt: "Answer with the grounded evidence.",
+                    provider_profile_id: &provider.id,
+                    model_id: "native-live-rag-model",
+                    request_parameters_json: "{}",
+                },
+                &[],
+                Some(context.clone()),
+            )
+            .expect("prepared run should freeze native context");
+        let frozen = storage
+            .load_prepared_provider_input(&StartPreparedAttemptRequest {
+                attempt_id: attempt_id.clone(),
+                frozen_provider_input_id: prepared.provider_input.id.clone(),
+            })
+            .expect("frozen provider input should be readable before dispatch");
+        let admitted = frozen
+            .messages
+            .iter()
+            .find(|message| message.role == "developer")
+            .expect("retrieval should become a developer context message");
+        assert!(admitted.content.contains("Native grounding evidence"));
+        assert_eq!(
+            frozen.messages.last().unwrap().content,
+            "Answer with the grounded evidence."
+        );
+
+        let event_payload_json: String = storage
+            .with_connection(|connection| {
+                Ok(connection.query_row(
+                    "SELECT payload_json FROM run_events
+                     WHERE run_id = ?1 AND event_type = 'attempt.created'",
+                    [&run_id],
+                    |row| row.get(0),
+                )?)
+            })
+            .expect("attempt journal payload should be readable");
+        let event_payload: serde_json::Value =
+            serde_json::from_str(&event_payload_json).expect("attempt payload should be JSON");
+        let pointer = &event_payload["contextAdmission"];
+        assert!(pointer["contextSnapshotId"]
+            .as_str()
+            .unwrap()
+            .starts_with("context_snapshot_"));
+        assert_eq!(
+            pointer["querySha256"].as_str().unwrap(),
+            context.query_sha256
+        );
+        assert_eq!(
+            pointer["indexSnapshotSha256"].as_str().unwrap(),
+            context.index_snapshot_sha256
+        );
+        let pointer_text = pointer.to_string();
+        assert!(!pointer_text.contains("Native grounding evidence"));
+        assert!(!pointer_text.contains("grounding.md"));
+        cleanup();
     }
 }

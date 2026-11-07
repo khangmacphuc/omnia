@@ -34,6 +34,11 @@ use crate::error::{NativeError, NativeResult};
 use crate::{
     prepared_provider_input::{FrozenProviderInput, StartPreparedAttemptRequest},
     provider_gateway,
+    run_journal::{
+        PreparedRunJournalScope, ProviderAcceptanceEvidence, ProviderAttemptFailureEvidence,
+        ProviderUsageSnapshot,
+    },
+    storage::Storage,
 };
 
 pub const NATIVE_COMPARE_SCHEMA_VERSION: u32 = 1;
@@ -234,6 +239,12 @@ pub async fn native_compare_execute_prepared(
     }
 
     let mut route_ids = BTreeSet::new();
+    let mut attempt_ids = BTreeSet::new();
+    let mut frozen_input_ids = BTreeSet::new();
+    // Resolve and validate every opaque prepared input before mutating any
+    // attempt state.  This keeps the claim boundary all-or-nothing when a
+    // later route has a stale input, malformed parameter projection, or a
+    // conflicting logical digest.
     let mut prepared = Vec::with_capacity(request.routes.len());
     for route in request.routes {
         validate_bounded_text("routeId", &route.route_id, MAX_ROUTE_ID_BYTES)?;
@@ -241,6 +252,18 @@ pub async fn native_compare_execute_prepared(
             return Err(NativeError::invalid(
                 "routes",
                 "route identities must be unique",
+            ));
+        }
+        if !attempt_ids.insert(route.attempt_id.clone()) {
+            return Err(NativeError::invalid(
+                "routes",
+                "prepared attempt identities must be unique",
+            ));
+        }
+        if !frozen_input_ids.insert(route.frozen_provider_input_id.clone()) {
+            return Err(NativeError::invalid(
+                "routes",
+                "frozen provider input identities must be unique",
             ));
         }
         let dispatch = StartPreparedAttemptRequest {
@@ -254,15 +277,14 @@ pub async fn native_compare_execute_prepared(
             .storage
             .load_prepared_provider_dispatch_proof(&dispatch)?;
         let provider_request = provider_request_from_frozen(&input)?;
-        let provider = provider_gateway::harness_provider(&*state, &proof.profile.id, None).await?;
-        prepared.push((route, input, provider, provider_request));
+        prepared.push((route, input, proof, provider_request));
     }
 
     let first_request = prepared
         .first()
         .map(|entry| entry.3.clone())
-        .ok_or_else(|| NativeError::invalid("routes", "must not be empty"))?;
-    let frozen = FrozenCompareInput::freeze(first_request)?;
+        .ok_or_else(|| NativeError::invalid("routes", "must not be empty"));
+    let frozen = first_request.and_then(FrozenCompareInput::freeze)?;
     for (_, _, _, provider_request) in prepared.iter().skip(1) {
         let candidate = FrozenCompareInput::freeze(provider_request.clone())?;
         if candidate.logical_input_sha256() != frozen.logical_input_sha256() {
@@ -273,7 +295,69 @@ pub async fn native_compare_execute_prepared(
         }
     }
 
-    let compare_routes = prepared
+    // Claim every prepared attempt before opening a provider stream.  The
+    // compare command used to load a proof and then call the harness directly,
+    // leaving all rows in `queued`/`created` with a NULL dispatch marker.  A
+    // replay could therefore start the same attempt through the normal
+    // gateway while this fan-out was still running.  The native transition is
+    // linearized per attempt and writes the dispatch journal in the same
+    // transaction as the state change.
+    let mut claimed = Vec::with_capacity(prepared.len());
+    for (_, input, _, _) in &prepared {
+        let dispatch = StartPreparedAttemptRequest {
+            attempt_id: input.attempt_id.clone(),
+            frozen_provider_input_id: input.id.clone(),
+        };
+        if let Err(error) = state.storage.mark_prepared_attempt_dispatching(&dispatch) {
+            // A later route can fail its compare-and-swap after earlier routes
+            // were claimed.  Do not leave those attempts dispatching forever;
+            // the provider was never opened for them, so this is a definitive
+            // pre-dispatch failure and remains safely retryable by policy.
+            for (run_id, attempt_id, input_id) in claimed.drain(..) {
+                if let Ok(scope) = PreparedRunJournalScope::new(run_id, attempt_id, input_id) {
+                    let _ = state.storage.journal_run_failed_with_class(
+                        &scope,
+                        "compare_dispatch_aborted",
+                        None,
+                        ProviderAttemptFailureEvidence::Definitive {
+                            acceptance: ProviderAcceptanceEvidence::NotAccepted,
+                        },
+                        now_ms(),
+                    );
+                }
+            }
+            return Err(error);
+        }
+        claimed.push((
+            input.run_id.clone(),
+            input.attempt_id.clone(),
+            input.id.clone(),
+        ));
+    }
+
+    // Provider construction performs endpoint/DNS/credential checks.  Keep it
+    // after the durable claim so a provider setup failure cannot leave an
+    // attempt looking queued while a native adapter was already consulted.
+    let mut dispatch_ready = Vec::with_capacity(prepared.len());
+    for (route, input, proof, provider_request) in prepared {
+        let provider = match provider_gateway::harness_provider_for_definition(
+            &*state,
+            &proof.profile,
+            &proof.frozen_definition,
+            None,
+        )
+        .await
+        {
+            Ok(provider) => provider,
+            Err(error) => {
+                abort_claimed_compare_attempts(&state.storage, &claimed);
+                return Err(error);
+            }
+        };
+        dispatch_ready.push((route, input, provider, provider_request));
+    }
+
+    let compare_routes = dispatch_ready
         .iter()
         .map(|(route, input, provider, _)| CompareRoute {
             route_id: route.route_id.clone(),
@@ -282,11 +366,60 @@ pub async fn native_compare_execute_prepared(
             provider: provider.clone(),
         })
         .collect::<Vec<_>>();
-    let execution = execute_compare(&request.compare_id, frozen, compare_routes, None).await?;
+    let execution = match execute_compare(&request.compare_id, frozen, compare_routes, None).await {
+        Ok(execution) => execution,
+        Err(error) => {
+            abort_claimed_compare_attempts(&state.storage, &claimed);
+            return Err(error);
+        }
+    };
+
+    // Persist each terminal result through the same native journal used by a
+    // normal prepared run.  Compare output remains in the returned projection,
+    // while durable history stores only bounded message/usage facts and hashes.
+    // If a persistence step fails, best-effort terminalization prevents another
+    // caller from observing a permanently active compare attempt.
+    let mut persistence_error = None;
+    for attempt in &execution.attempts {
+        let Some((_, input, _, _)) = dispatch_ready
+            .iter()
+            .find(|(route, _, _, _)| route.route_id == attempt.route_id)
+        else {
+            persistence_error = Some(NativeError::new(
+                "compare_execution_scope_conflict",
+                "The compare result route is outside the prepared request",
+            ));
+            break;
+        };
+        if let Err(error) = persist_compare_attempt_result(&state.storage, input, attempt) {
+            persistence_error = Some(error);
+            break;
+        }
+    }
+    if let Some(error) = persistence_error {
+        for (_, input, _, _) in &dispatch_ready {
+            if let Ok(scope) = PreparedRunJournalScope::new(
+                input.run_id.clone(),
+                input.attempt_id.clone(),
+                input.id.clone(),
+            ) {
+                let _ = state.storage.journal_run_failed_with_class(
+                    &scope,
+                    "compare_persistence_failed",
+                    None,
+                    ProviderAttemptFailureEvidence::OutcomeUnknown {
+                        acceptance: ProviderAcceptanceEvidence::Unknown,
+                    },
+                    now_ms(),
+                );
+            }
+        }
+        return Err(error);
+    }
 
     let mut attempts = Vec::with_capacity(execution.attempts.len());
     for attempt in execution.attempts {
-        let prepared_attempt_id = prepared
+        let prepared_attempt_id = dispatch_ready
             .iter()
             .find(|(route, _, _, _)| route.route_id == attempt.route_id)
             .map(|(route, _, _, _)| route.attempt_id.clone())
@@ -319,6 +452,137 @@ pub async fn native_compare_execute_prepared(
         attempts,
         completed_at_ms: execution.completed_at_ms,
     })
+}
+
+/// Folds one in-memory compare result into the durable prepared-attempt
+/// lifecycle.  The compare fan-out intentionally batches text in memory, so
+/// this helper appends one bounded delta at the terminal boundary rather than
+/// pretending that renderer-visible chunks were journaled live.
+fn persist_compare_attempt_result(
+    storage: &Storage,
+    input: &FrozenProviderInput,
+    attempt: &CompareAttemptExecution,
+) -> NativeResult<()> {
+    let scope = PreparedRunJournalScope::new(
+        input.run_id.clone(),
+        input.attempt_id.clone(),
+        input.id.clone(),
+    )?;
+
+    match attempt.status {
+        CompareAttemptStatus::Completed => {
+            let _ = storage.journal_provider_started(
+                &scope,
+                &input.provider_profile_id,
+                &input.model,
+                now_ms(),
+            )?;
+            if let Some(output) = attempt.output.as_deref() {
+                if output.len() > crate::storage::MAX_MESSAGE_BYTES {
+                    // The provider has already produced a response, but Omnia
+                    // cannot safely persist it in the assistant projection.
+                    // Preserve the uncertainty instead of truncating content
+                    // and claiming a successful terminal run.
+                    let _ = storage.journal_run_failed_with_class(
+                        &scope,
+                        "compare_output_too_large",
+                        None,
+                        ProviderAttemptFailureEvidence::OutcomeUnknown {
+                            acceptance: ProviderAcceptanceEvidence::Accepted,
+                        },
+                        now_ms(),
+                    )?;
+                    return Err(NativeError::new(
+                        "compare_output_too_large",
+                        "The compare output exceeds the durable assistant-message limit",
+                    ));
+                }
+                if !output.is_empty() {
+                    let _ = storage.journal_assistant_delta(&scope, output, now_ms())?;
+                }
+            }
+            let _ = storage.journal_usage(
+                &scope,
+                ProviderUsageSnapshot {
+                    input_tokens: Some(attempt.usage.input_tokens),
+                    output_tokens: Some(attempt.usage.output_tokens),
+                    cached_input_tokens: Some(attempt.usage.cache_read_tokens),
+                    cache_read_input_tokens: Some(attempt.usage.cache_read_tokens),
+                    cache_write_input_tokens: Some(attempt.usage.cache_write_tokens),
+                    reasoning_tokens: None,
+                },
+                now_ms(),
+            )?;
+            let finish_reason = compare_finish_reason(attempt.stop_reason);
+            let _ = storage.journal_run_completed(&scope, finish_reason, now_ms())?;
+        }
+        CompareAttemptStatus::Cancelled => {
+            let _ = storage.journal_run_completed(&scope, "cancelled", now_ms())?;
+        }
+        CompareAttemptStatus::Failed => {
+            let error_code = attempt
+                .error_code
+                .as_deref()
+                .filter(|value| !value.is_empty())
+                .unwrap_or("compare_attempt_unknown");
+            let _ = storage.journal_run_failed_with_class(
+                &scope,
+                error_code,
+                None,
+                ProviderAttemptFailureEvidence::Definitive {
+                    acceptance: ProviderAcceptanceEvidence::NotAccepted,
+                },
+                now_ms(),
+            )?;
+        }
+        CompareAttemptStatus::Unknown => {
+            let error_code = attempt
+                .error_code
+                .as_deref()
+                .filter(|value| !value.is_empty())
+                .unwrap_or("compare_attempt_unknown");
+            let _ = storage.journal_run_failed_with_class(
+                &scope,
+                error_code,
+                None,
+                ProviderAttemptFailureEvidence::OutcomeUnknown {
+                    acceptance: ProviderAcceptanceEvidence::Accepted,
+                },
+                now_ms(),
+            )?;
+        }
+    }
+    Ok(())
+}
+
+fn abort_claimed_compare_attempts(storage: &Storage, claimed: &[(String, String, String)]) {
+    for (run_id, attempt_id, input_id) in claimed {
+        if let Ok(scope) =
+            PreparedRunJournalScope::new(run_id.clone(), attempt_id.clone(), input_id.clone())
+        {
+            let _ = storage.journal_run_failed_with_class(
+                &scope,
+                "compare_dispatch_aborted",
+                None,
+                ProviderAttemptFailureEvidence::Definitive {
+                    acceptance: ProviderAcceptanceEvidence::NotAccepted,
+                },
+                now_ms(),
+            );
+        }
+    }
+}
+
+fn compare_finish_reason(reason: Option<StopReason>) -> &'static str {
+    match reason {
+        Some(StopReason::EndTurn) => "end_turn",
+        Some(StopReason::ToolUse) => "tool_use",
+        Some(StopReason::MaxTokens) => "max_tokens",
+        Some(StopReason::StopSequence) => "stop_sequence",
+        Some(StopReason::Refusal) => "refusal",
+        Some(StopReason::TurnLimit) => "turn_limit",
+        Some(StopReason::Other) | None => "other",
+    }
 }
 
 /// Converts native frozen messages and an allowlisted parameter subset into

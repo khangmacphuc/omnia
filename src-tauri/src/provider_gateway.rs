@@ -3103,15 +3103,41 @@ pub(crate) async fn harness_provider(
     profile_id: &str,
     request_log: Option<std::sync::Arc<omnia_harness::provider::record::RequestLog>>,
 ) -> NativeResult<std::sync::Arc<dyn omnia_harness::Provider>> {
+    let profile = state.storage.get_provider_profile(profile_id.trim())?;
+    let credential = load_credential(state, &profile)?;
+    build_harness_provider(state, &profile, credential, request_log).await
+}
+
+/// Builds a harness provider from the immutable provider definition captured
+/// for a prepared attempt.  The live profile is used only for safe display and
+/// credential-status metadata; destination, adapter, auth, routing and egress
+/// fields are reconstructed from the frozen definition so a queued compare
+/// cannot drift when the profile is edited between preparation and dispatch.
+pub(crate) async fn harness_provider_for_definition(
+    state: &AppState,
+    live_profile: &ProviderProfileRecord,
+    definition: &crate::provider_definition::FrozenProviderDefinition,
+    request_log: Option<std::sync::Arc<omnia_harness::provider::record::RequestLog>>,
+) -> NativeResult<std::sync::Arc<dyn omnia_harness::Provider>> {
+    definition.validate()?;
+    let profile = dispatch_profile_for_definition(live_profile, definition);
+    let credential = load_credential_for_definition(state, definition)?;
+    build_harness_provider(state, &profile, credential, request_log).await
+}
+
+async fn build_harness_provider(
+    state: &AppState,
+    profile: &ProviderProfileRecord,
+    credential: Option<Zeroizing<String>>,
+    request_log: Option<std::sync::Arc<omnia_harness::provider::record::RequestLog>>,
+) -> NativeResult<std::sync::Arc<dyn omnia_harness::Provider>> {
     use omnia_harness::provider::{
         anthropic::AnthropicProvider, gemini::GeminiProvider, openai_chat::OpenAiChatProvider,
         openai_responses::OpenAiResponsesProvider, ProviderConfig,
     };
 
-    let profile = state.storage.get_provider_profile(profile_id.trim())?;
     let client = validated_client_for_profile(&state.provider_gateway, &profile).await?;
     let family = provider_family(&profile.provider_type).map_err(native_provider_error)?;
-    let credential = load_credential(state, &profile)?;
     let secret = credential.as_deref().map(|secret| secret.to_string());
     let auth_scheme = normalize_identifier(&profile.auth_scheme);
     let mut config = ProviderConfig {

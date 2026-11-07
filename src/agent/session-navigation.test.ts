@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { EMPTY_SESSION_NAVIGATION, SessionNavigationClient, validateSessionNavigation, type SessionNavigationPort, type SessionNavigationSaveRequest, type SessionNavigationSnapshot } from "./session-navigation";
+import { createBrowserSessionNavigationPort, EMPTY_SESSION_NAVIGATION, SessionNavigationClient, validateSessionNavigation, validateSessionNavigationReceiptId, type SessionNavigationPort, type SessionNavigationSaveRequest, type SessionNavigationSnapshot } from "./session-navigation";
 
 function snapshot(revision: number, openIds: string[] = [], activeId: string | null = null): SessionNavigationSnapshot {
   return { schemaVersion: 1, revision, openIds, activeId, updatedAtMs: revision ? 1 : 0 };
@@ -22,6 +22,26 @@ function portFor(initial: SessionNavigationSnapshot = EMPTY_SESSION_NAVIGATION) 
 }
 
 describe("session navigation persistence", () => {
+  it("returns a stable browser receipt for the same persisted revision", async () => {
+    const values = new Map<string, string>();
+    const storage = { getItem: (key: string) => values.get(key) ?? null, setItem: (key: string, value: string) => void values.set(key, value) };
+    const port = createBrowserSessionNavigationPort(storage);
+    const empty = await port.load();
+    expect(empty.receiptId).toBe("browser-session-navigation-empty");
+    const saved = await port.save({ expectedRevision: 0, openIds: ["a"], activeId: "a" });
+    expect((await port.load()).receiptId).toBe(saved.receiptId);
+    expect((await port.save({ expectedRevision: 0, openIds: [], activeId: null })).receiptId).toBe(saved.receiptId);
+  });
+
+  it("fails closed on malformed receipt IDs from a native port", async () => {
+    expect(() => validateSessionNavigationReceiptId(" ")).toThrow();
+    const client = new SessionNavigationClient({
+      load: async () => ({ snapshot: EMPTY_SESSION_NAVIGATION, receiptId: "bad\u0000receipt" }),
+      save: async () => ({ status: "saved", snapshot: snapshot(1, ["a"], "a"), receiptId: "save" }),
+    });
+    await expect(client.start()).rejects.toThrow(/receipt/i);
+  });
+
   it("restores native tab order and preserves clicks made during hydration", async () => {
     const store = portFor(snapshot(7, ["b", "a"], "a"));
     let resolveLoad!: (response: Awaited<ReturnType<SessionNavigationPort["load"]>>) => void;

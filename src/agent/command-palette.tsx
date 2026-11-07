@@ -6,7 +6,7 @@ import { agentApi, errorMessage } from "./agent-api";
 import { useAgentStore } from "./agent-store";
 import { InspectorDialog } from "./inspector-dialog";
 import { SchedulesDialog } from "./schedules-dialog";
-import { SHELL_VIEWS, type ShellView } from "./shell-view";
+import { SECONDARY_SHELL_VIEWS, SHELL_VIEWS, type ShellView } from "./shell-view";
 import type { PermissionMode } from "./types";
 import "./command-palette.css";
 
@@ -52,6 +52,13 @@ const VIEW_KEYWORDS: Partial<Record<ShellView, string>> = {
 };
 
 const VIEW_HINTS: Partial<Record<ShellView, string>> = { library: "Memory, Skills" };
+
+/**
+ * Keep secondary Chat routes discoverable without adding more persistent
+ * chrome. The top-level rail remains three buttons; the palette is the place
+ * for power users to jump directly to Projects, Work or Library.
+ */
+const NAVIGABLE_VIEWS = [...SHELL_VIEWS, ...SECONDARY_SHELL_VIEWS] as const;
 
 const MODES: Array<[PermissionMode, string]> = [
   ["plan", "Plan"],
@@ -182,7 +189,7 @@ export function CommandPalette(props: PaletteHandlers) {
       }
     }
     list.push({ id: "settings", group: "Navigation", label: "Open Settings", hint: "Ctrl+,", keywords: "preferences options configuration providers", run: props.onOpenSettings });
-    for (const view of SHELL_VIEWS) {
+    for (const view of NAVIGABLE_VIEWS) {
       list.push({
         id: `view:${view.id}`,
         group: "Navigation",
