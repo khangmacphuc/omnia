@@ -164,6 +164,61 @@ describe("Run inspector native telemetry projection", () => {
     expect(screen.queryByText("Not calculated")).not.toBeInTheDocument();
   });
 
+  it("keeps a counter-bearing provider-final observation visible when a later invoice is cost-only", () => {
+    const active = conversation();
+    const base = telemetry();
+    const finalObservation = {
+      ...base.attempts[0]!.usageLedger[0]!,
+      sequence: 2,
+      source: "provider-final" as const,
+      authoritative: true,
+      coverage: "complete" as const,
+      counters: {
+        inputTokens: 34,
+        cacheReadInputTokens: 8,
+        cacheWriteInputTokens: 3,
+        outputTokens: 21,
+        reasoningTokens: 5,
+        visibleOutputTokens: 16,
+      },
+      costStatementCount: 0,
+    };
+    const invoiceObservation = {
+      ...finalObservation,
+      sequence: 3,
+      source: "provider-invoice" as const,
+      counters: {
+        inputTokens: null,
+        cacheReadInputTokens: null,
+        cacheWriteInputTokens: null,
+        outputTokens: null,
+        reasoningTokens: null,
+        visibleOutputTokens: null,
+      },
+      costStatementCount: 1,
+    };
+    const snapshot: RunTelemetrySnapshot = {
+      ...base,
+      attempts: [{ ...base.attempts[0]!, usageLedger: [finalObservation, invoiceObservation] }],
+    };
+    useWorkspaceStore.setState({
+      activeConversationId: active.id,
+      conversations: [active],
+      activeRun: null,
+      inspectorOpen: true,
+      inspectorTab: "run",
+      runTelemetryByRunId: { [snapshot.runId]: snapshot },
+    });
+
+    render(<ContextInspectorPanel />);
+
+    const usage = screen.getByTestId("run-usage-observation");
+    expect(usage).toHaveTextContent("provider-final · complete · authoritative · sequence 2");
+    expect(usage).toHaveTextContent("34");
+    expect(usage).toHaveTextContent("21");
+    expect(usage).not.toHaveTextContent("provider-invoice · complete · authoritative · sequence 3");
+  });
+
   it("shows native run-control receipts without turning them into active controls", () => {
     const active = conversation();
     const operation = projectResolvedRunControlOperation(runControlReceipt());
