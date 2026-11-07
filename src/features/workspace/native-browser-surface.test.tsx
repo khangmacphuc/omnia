@@ -298,6 +298,25 @@ describe("NativeBrowserSurface", () => {
         occurredAtMs: 1_735_000_000_000,
       } });
       policy.handler?.({ payload: {
+        receiptId: "browser_policy_new-window",
+        tabKey: "tab-one",
+        leaseId: "lease-one",
+        kind: "new-window-denied",
+        url: "https://example.com/new-window",
+        reason: "New windows are managed as Omnia browser tabs.",
+        occurredAtMs: 1_735_000_000_001,
+      } });
+      policy.handler?.({ payload: {
+        receiptId: "browser_policy_download-failed",
+        tabKey: "tab-one",
+        leaseId: "lease-one",
+        kind: "download-finished",
+        url: "https://example.com/file.zip",
+        success: false,
+        reason: "The native browser reported the download result.",
+        occurredAtMs: 1_735_000_000_002,
+      } });
+      policy.handler?.({ payload: {
         receiptId: "browser_policy_malformed",
         tabKey: "tab-one",
         leaseId: "lease-one",
@@ -307,8 +326,10 @@ describe("NativeBrowserSurface", () => {
         occurredAtMs: 1_735_000_000_000,
       } });
     });
-    expect(onPolicyNotice).toHaveBeenCalledTimes(1);
+    expect(onPolicyNotice).toHaveBeenCalledTimes(3);
     expect(onPolicyNotice).toHaveBeenCalledWith(expect.objectContaining({ receiptId: "browser_policy_valid", success: true }));
+    expect(onPolicyNotice).toHaveBeenCalledWith(expect.objectContaining({ receiptId: "browser_policy_new-window", kind: "new-window-denied" }));
+    expect(onPolicyNotice).toHaveBeenCalledWith(expect.objectContaining({ receiptId: "browser_policy_download-failed", success: false }));
   });
 
   it("forwards the persisted native zoom when an existing tab is reattached", async () => {
@@ -377,6 +398,37 @@ describe("NativeBrowserSurface", () => {
       source: "native-dom-text",
     });
     await expect(controller.capture?.("page")).rejects.toThrow("invalid text capture receipt");
+  });
+
+  it("rejects malformed native capture receipts before they reach the browser copilot", async () => {
+    render(<NativeBrowserSurface {...props} />);
+    await attached();
+    const controller = onController.mock.calls.find(([, value]) => value)?.[1] as NativeBrowserController;
+    const valid = {
+      receiptId: "browser_capture_receipt-valid",
+      tabKey: "tab-one",
+      leaseId: "lease-one",
+      url: "https://example.com/",
+      title: "Example",
+      mode: "page" as const,
+      text: "hello",
+      contentSha256: "a".repeat(64),
+      byteSize: 5,
+      truncated: false,
+      capturedAtMs: 1_735_000_000_000,
+      source: "native-dom-text" as const,
+    };
+    for (const malformed of [
+      { ...valid, receiptId: "capture-no-prefix" },
+      { ...valid, contentSha256: "not-a-sha" },
+      { ...valid, byteSize: 262145 },
+      { ...valid, capturedAtMs: 0 },
+      { ...valid, source: "iframe-text" as const },
+      { ...valid, mode: "selection" as const },
+    ]) {
+      invokeCore.mockResolvedValue(malformed);
+      await expect(controller.capture?.("page")).rejects.toThrow("invalid text capture receipt");
+    }
   });
 
   it("surfaces native errors and explicitly retries the page", async () => {

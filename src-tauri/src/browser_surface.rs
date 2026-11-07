@@ -539,6 +539,15 @@ struct BrowserPolicyNotice {
     occurred_at_ms: i64,
 }
 
+fn policy_reason(kind: &'static str) -> &'static str {
+    match kind {
+        "new-window-denied" => "New windows are managed as Omnia browser tabs.",
+        "download-denied" => "Downloads require an explicit Omnia download approval.",
+        "download-finished" => "The native browser reported the download result.",
+        _ => "The browser capability was denied by native policy.",
+    }
+}
+
 fn emit_navigation(
     manager: &BrowserSurfaceManager,
     app: &tauri::AppHandle,
@@ -605,12 +614,7 @@ fn emit_policy_notice(
         kind,
         url: safe_url,
         success,
-        reason: match kind {
-            "new-window-denied" => "New windows are managed as Omnia browser tabs.",
-            "download-denied" => "Downloads require an explicit Omnia download approval.",
-            "download-finished" => "The native browser reported a denied download request.",
-            _ => "The browser capability was denied by native policy.",
-        },
+        reason: policy_reason(kind),
         occurred_at_ms: crate::storage::now_ms(),
     };
     let _ = app.emit_to(EventTarget::webview("main"), POLICY_EVENT, payload);
@@ -1803,7 +1807,16 @@ mod tests {
 
     #[test]
     fn action_deserialization_is_a_closed_whitelist() {
-        for action in ["back", "forward", "reload", "focus", "devtools"] {
+        for action in [
+            "back",
+            "forward",
+            "reload",
+            "focus",
+            "devtools",
+            "zoom-in",
+            "zoom-out",
+            "zoom-reset",
+        ] {
             assert!(
                 serde_json::from_value::<BrowserSurfaceAction>(serde_json::json!(action)).is_ok()
             );
@@ -1813,5 +1826,25 @@ mod tests {
                 serde_json::from_value::<BrowserSurfaceAction>(serde_json::json!(action)).is_err()
             );
         }
+    }
+
+    #[test]
+    fn policy_receipt_reasons_match_the_observed_boundary_event() {
+        assert_eq!(
+            policy_reason("new-window-denied"),
+            "New windows are managed as Omnia browser tabs."
+        );
+        assert_eq!(
+            policy_reason("download-denied"),
+            "Downloads require an explicit Omnia download approval."
+        );
+        assert_eq!(
+            policy_reason("download-finished"),
+            "The native browser reported the download result."
+        );
+        assert_eq!(
+            policy_reason("unknown"),
+            "The browser capability was denied by native policy."
+        );
     }
 }
