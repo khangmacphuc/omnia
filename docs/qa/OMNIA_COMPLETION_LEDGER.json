@@ -581,7 +581,7 @@
     },
     {
       "command": "npm.cmd run build:renderer",
-      "result": "PASS: 2,097 modules transformed"
+      "result": "PASS: 2,099 modules transformed"
     },
     {
       "command": "npx vitest run compare/retrieval/RAG/browser/session/plugin/settings focused suites --reporter=dot",
@@ -593,7 +593,7 @@
     },
     {
       "command": "npm.cmd run check:command-parity",
-      "result": "PASS: 187 renderer calls, 190 registered, 190 production definitions"
+      "result": "PASS: 188 renderer calls, 191 registered, 191 production definitions"
     },
     {
       "command": "npm.cmd run check:upstream-catalog",

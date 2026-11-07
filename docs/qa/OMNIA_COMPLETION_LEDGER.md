@@ -86,8 +86,8 @@ The current same-snapshot checks are recorded in
 - `npx vitest run` compare/retrieval/RAG/browser/session/plugin/settings focused
   suite — **9 files, 112 tests passing**.
 - Settings/services/plugin/API focused suite — **5 files, 69 tests passing**.
-- `npm.cmd run check:command-parity` — **PASS**, 187 renderer calls / 190
-  registered / 190 production definitions.
+- `npm.cmd run check:command-parity` — **PASS**, 188 renderer calls / 191
+  registered / 191 production definitions.
 - Headless preview evidence — **PASS**, 2,099 renderer modules, zero page errors,
   and a 2,638 ms page-ready p95 against a 3,000 ms target.
 - Native provider-lineage harness — **PASS**, 713 tests; context-manifest fields
