@@ -27,7 +27,7 @@ export function HarnessStatus({ onOpenSettings }: { onOpenSettings?: () => void 
         <div><ShieldCheck size={14} aria-hidden="true" /><span><b>{(settings.toolOutputLimitChars / 1000).toLocaleString()}k</b><small>tool output cap</small></span></div>
         <div><Globe2 size={14} aria-hidden="true" /><span><b>{native ? "Native" : "Preview"}</b><small>RAG/index bridge</small></span></div>
       </div>
-      <div className="ag-harness-status__footer"><span>{settings.autoPlan ? "Plan-first" : "Plan on request"} · {settings.autoResearch ? "research aware" : "research on request"} · {settings.defaultEffort} effort</span>{onOpenSettings ? <button type="button" className="ag-link" onClick={onOpenSettings}>Tune runtime</button> : null}</div>
+      <div className="ag-harness-status__footer"><span>{settings.autoPlan ? "Plan-first" : "Plan on request"} · {settings.autoResearch ? "research aware" : "research on request"} · {settings.defaultEffort} effort · retry {settings.retryPolicy.retryDelaySeconds}s × {settings.retryPolicy.retryMultiplier} · {settings.retryPolicy.maxAttempts ?? "∞"}</span>{onOpenSettings ? <button type="button" className="ag-link" onClick={onOpenSettings}>Tune runtime</button> : null}</div>
     </section>
   );
 }

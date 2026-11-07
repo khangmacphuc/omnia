@@ -33,6 +33,12 @@ export interface OmniaRetryStatusRule {
 export interface OmniaRetryPolicy {
   schemaVersion: 1;
   policyId: string;
+  /** Retry incomplete sessions even when the error is not classified yet. */
+  retryOnAnyError: boolean;
+  /** Delay before the first retry, in seconds. */
+  retryDelaySeconds: number;
+  /** Multiplier applied by a native scheduler to subsequent delays. */
+  retryMultiplier: number;
   maxElapsedSeconds: number;
   maxAttempts: number | null;
   scheduleSeconds: number[];
@@ -62,7 +68,8 @@ export interface OmniaRuntimeSettings {
   retryPolicy: OmniaRetryPolicy;
 }
 
-const DEFAULT_RETRY_SCHEDULE_SECONDS = [1, 3, 5, 10, 15, 30, 60, 120, 300, 600, 900];
+/** User-facing default: retry every five seconds with no attempt cap. */
+export const DEFAULT_RETRY_SCHEDULE_SECONDS = [5] as const;
 
 const DEFAULT_RETRY_STATUS_RULES: OmniaRetryStatusRule[] = [
   { status: 408, action: "retry", retryable: true, requiresIdempotencyEvidence: true },
@@ -90,11 +97,18 @@ export const DEFAULT_RUNTIME_SETTINGS: OmniaRuntimeSettings = {
   retryPolicy: {
     schemaVersion: 1,
     policyId: "default-retry-v1",
-    maxElapsedSeconds: 86_400,
+    retryOnAnyError: true,
+    retryDelaySeconds: 5,
+    retryMultiplier: 1,
+    // Zero means no elapsed-time cap; maxAttempts is also unlimited by
+    // default so an incomplete session can keep retrying until it finishes.
+    maxElapsedSeconds: 0,
     maxAttempts: null,
     scheduleSeconds: [...DEFAULT_RETRY_SCHEDULE_SECONDS],
     maxSingleDelaySeconds: 900,
-    jitter: "decorrelated",
+    // Keep the requested five-second cadence deterministic by default. A
+    // native route may still add provider-mandated jitter when required.
+    jitter: "none",
     honorRetryAfter: true,
     allowProviderFallback: true,
     allowModelFallback: true,
@@ -136,10 +150,10 @@ function normalizeRetryPolicy(value: unknown): OmniaRetryPolicy {
   for (const candidate of rawRules.slice(0, 64)) {
     if (!candidate || typeof candidate !== "object") continue;
     const rule = candidate as Record<string, unknown>;
-    const status = clampInt(rule.status, -1, 100, 599);
-    if (status < 100 || typeof rule.action !== "string" || !RETRY_ACTIONS.includes(rule.action as RetryAction)) continue;
+    const parsedStatus = typeof rule.status === "number" ? rule.status : Number(rule.status);
+    if (!Number.isSafeInteger(parsedStatus) || parsedStatus < 100 || parsedStatus > 599 || typeof rule.action !== "string" || !RETRY_ACTIONS.includes(rule.action as RetryAction)) continue;
     const normalized: OmniaRetryStatusRule = {
-      status,
+      status: parsedStatus,
       action: rule.action as RetryAction,
       ...(typeof rule.retryable === "boolean" ? { retryable: rule.retryable } : {}),
       ...(typeof rule.requiresIdempotencyEvidence === "boolean" ? { requiresIdempotencyEvidence: rule.requiresIdempotencyEvidence } : {}),
@@ -147,6 +161,19 @@ function normalizeRetryPolicy(value: unknown): OmniaRetryPolicy {
     };
     statusRules.push(normalized);
   }
+  const rawRetryDelay = raw.retryDelaySeconds ?? raw.baseDelaySeconds ?? raw.initialDelaySeconds;
+  const parsedRetryDelay = rawRetryDelay === null || rawRetryDelay === undefined || rawRetryDelay === ""
+    ? Number.NaN
+    : typeof rawRetryDelay === "number" ? rawRetryDelay : Number(rawRetryDelay);
+  const retryDelaySeconds = Number.isFinite(parsedRetryDelay)
+    ? clampInt(parsedRetryDelay, DEFAULT_RUNTIME_SETTINGS.retryPolicy.retryDelaySeconds, 1, 900)
+    : DEFAULT_RUNTIME_SETTINGS.retryPolicy.retryDelaySeconds;
+  const retryMultiplierRaw = raw.retryMultiplier === null || raw.retryMultiplier === undefined || raw.retryMultiplier === ""
+    ? Number.NaN
+    : typeof raw.retryMultiplier === "number" ? raw.retryMultiplier : Number(raw.retryMultiplier);
+  const retryMultiplier = Number.isFinite(retryMultiplierRaw)
+    ? Math.min(10, Math.max(0.1, Math.round(retryMultiplierRaw * 10) / 10))
+    : DEFAULT_RUNTIME_SETTINGS.retryPolicy.retryMultiplier;
   const schedule = Array.isArray(raw.scheduleSeconds)
     ? raw.scheduleSeconds
       .map((entry) => clampInt(entry, -1, 0, 900))
@@ -154,18 +181,28 @@ function normalizeRetryPolicy(value: unknown): OmniaRetryPolicy {
       .slice(0, 32)
     : [];
   const maxSingleDelaySeconds = clampInt(raw.maxSingleDelaySeconds, DEFAULT_RUNTIME_SETTINGS.retryPolicy.maxSingleDelaySeconds, 1, 900);
-  const boundedSchedule = (schedule.length > 0 ? schedule : DEFAULT_RETRY_SCHEDULE_SECONDS)
+  const boundedSchedule = (schedule.length > 0 ? schedule : [retryDelaySeconds])
     .map((entry) => Math.min(maxSingleDelaySeconds, entry));
   const rawAttempts = raw.maxAttempts;
+  const parsedAttempts = typeof rawAttempts === "number"
+    ? rawAttempts
+    : typeof rawAttempts === "string" && rawAttempts.trim() !== ""
+      ? Number(rawAttempts)
+      : Number.NaN;
   const maxAttempts = rawAttempts === null || rawAttempts === undefined || rawAttempts === ""
     ? null
-    : clampInt(rawAttempts, DEFAULT_RUNTIME_SETTINGS.retryPolicy.maxAttempts ?? 20, 1, 20);
+    : Number.isFinite(parsedAttempts)
+      ? clampInt(parsedAttempts, 1, 1, 20)
+      : DEFAULT_RUNTIME_SETTINGS.retryPolicy.maxAttempts;
   const policyId = typeof raw.policyId === "string" && raw.policyId.trim().length > 0
     ? raw.policyId.trim().slice(0, 120)
     : DEFAULT_RUNTIME_SETTINGS.retryPolicy.policyId;
   return {
     schemaVersion: 1,
     policyId,
+    retryOnAnyError: bool(raw.retryOnAnyError, DEFAULT_RUNTIME_SETTINGS.retryPolicy.retryOnAnyError),
+    retryDelaySeconds,
+    retryMultiplier,
     maxElapsedSeconds: clampInt(raw.maxElapsedSeconds, DEFAULT_RUNTIME_SETTINGS.retryPolicy.maxElapsedSeconds, 0, 7 * 24 * 60 * 60),
     maxAttempts,
     scheduleSeconds: boundedSchedule,
