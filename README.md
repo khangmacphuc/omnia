@@ -21,6 +21,7 @@ The project exists to make advanced AI work reproducible. A run should show what
 - **Skills, tools, MCP, plugins and subagents:** precedence-aware skill and role discovery, plugin registry, trust-gated MCP status/reload, connector receipts, tool DAGs, parallel task coordination and shared token budgets. Packaged connector execution and live external-service coverage remain contract-level unless a receipt says otherwise.
 - **Artifacts and portability:** bounded artifact preview/export, redacted import/export, encrypted binary preview contracts, checkpoints and review-oriented workspace diffs.
 - **Research and observability:** bounded research fan out with source span receipts, telemetry projections, performance evidence and synthetic provider billing reconciliation fixtures.
+- **Retry posture:** the runtime settings surface defaults to retrying incomplete sessions after errors with a 5 second delay, multiplier 1, no jitter, unlimited attempts and no elapsed-time cap. Provider/model fallback and prompt repair remain explicit opt-ins; native acceptance and idempotency gates still decide whether a resend is safe.
 - **Quality gates:** TypeScript and Rust checks, command parity, ACL/import/typography/hit target checks, upstream catalog determinism, focused Vitest suites and canonical native integration tests.
 
 ## Architecture
