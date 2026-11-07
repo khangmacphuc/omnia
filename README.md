@@ -8,7 +8,7 @@ Omnia is a Windows desktop AI workspace built for people who need more than a ch
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.10 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.14 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
 
 ## Primary surfaces
 
