@@ -8,12 +8,12 @@
   "completionRule": "A criterion is complete only when implementation, focused test, boundary/permission evidence, and same-snapshot receipt all exist.",
   "coverage": {
     "criteriaTotal": 24,
-    "done": 8,
-    "partial": 13,
+    "done": 10,
+    "partial": 11,
     "blocked": 3,
     "planned": 0,
-    "verifiedPercent": 33,
-    "weightedPercent": 60,
+    "verifiedPercent": 42,
+    "weightedPercent": 65,
     "formula": "done + 0.5*partial over criteriaTotal; blocked and planned count as zero"
   },
   "upstreamInventory": {
@@ -413,8 +413,8 @@
     {
       "id": "native-persistence",
       "area": "native persistence and recovery",
-      "status": "partial",
-      "coverage": "9/10",
+      "status": "done",
+      "coverage": "10/10",
       "implementation": [
         "src-tauri/src/app_state_persistence.rs",
         "src-tauri/src/settings_permissions_persistence.rs",
@@ -425,10 +425,11 @@
       ],
       "evidence": [
         "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        ".agents/checkpoints/release-native-ci-gate-20261108.md"
       ],
       "boundary": "native",
-      "gap": "canonical native integration target and persistence suites pass; unsupported library-test loader remains environment-blocked"
+      "gap": "none within the supported canonical native integration and persistence boundary; unsupported legacy library-test target is tracked separately"
     },
     {
       "id": "ui-accessibility",
@@ -483,12 +484,14 @@
     {
       "id": "ci-build-verification",
       "area": "CI, typecheck, build, native checks",
-      "status": "partial",
-      "coverage": "9/10",
+      "status": "done",
+      "coverage": "10/10",
       "implementation": [
         "package.json",
         ".github/workflows",
-        "src-tauri/Cargo.toml"
+        "src-tauri/Cargo.toml",
+        "scripts/upstream-preview/generate-upstream-capability-catalog.cjs",
+        "src/domain/upstream-capability-catalog.snapshot.json"
       ],
       "tests": [
         "npm.cmd run typecheck:app -- --pretty false",
@@ -499,10 +502,12 @@
       "evidence": [
         "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md",
         "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        ".agents/checkpoints/upstream-catalog-reproducibility-20261108.md",
+        ".agents/checkpoints/release-native-ci-gate-20261108.md"
       ],
       "boundary": "both",
-      "gap": "typecheck, build, command parity, catalog, Cargo check and canonical workspace tests pass; unsupported library-test loader remains environment-blocked"
+      "gap": "none within the supported CI workflow; unsupported legacy library-test target is tracked separately"
     },
     {
       "id": "completion-reporting",
@@ -628,12 +633,12 @@
     },
     {
       "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features --offline -- --list",
-      "result": "PASS: 701 tests discovered"
+      "result": "PASS: 713 tests discovered"
     },
     {
       "command": "cargo test -p omnia-desktop --lib --offline",
       "result": "BLOCKED: STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139), unsupported library-test loader target"
     }
   ],
-  "updatedAt": "2026-11-08T02:48:42+07:00"
+  "updatedAt": "2026-11-08T03:05:16+07:00"
 }

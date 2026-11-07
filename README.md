@@ -48,7 +48,7 @@ The renderer never receives provider credentials, raw credential references, unr
 
 `upstream_extractions/` is audited as a source of reusable contracts and test ideas, not copied blindly into the renderer. The current catalog covers **55 modules in 11 categories** including Claude and Codex lifecycle patterns, OpenHands plugin fixtures, MCP transport contracts, skills precedence, subagent roles, reasoning/usage accounting, retrieval workflows, browser surfaces and process adapters.
 
-- Inventory: [`docs/UPSTREAM_INTEGRATION_INVENTORY.md`](docs/UPSTREAM_INTEGRATION_INVENTORY.md)
+- Inventory: [`docs/UPSTREAM_INTEGRATION_INVENTORY.md`](docs/UPSTREAM_INTEGRATION_INVENTORY.md) and the clean-checkout metadata snapshot in `src/domain/upstream-capability-catalog.snapshot.json`
 - Reuse ledger and boundaries: [`docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md`](docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md)
 - Deterministic catalog: `npm run check:upstream-catalog`
 
@@ -85,7 +85,7 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
-The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; the supported native loader discovered 711 integration tests; and the native provider-lineage harness completed 713 tests while preserving context-manifest fields in secret-free receipts. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
+The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; the supported native loader discovered 713 integration tests; and the native provider-lineage harness completed 713 tests while preserving context-manifest fields in secret-free receipts. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
 
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 

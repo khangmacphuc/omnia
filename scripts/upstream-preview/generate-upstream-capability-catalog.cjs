@@ -1,16 +1,23 @@
 #!/usr/bin/env node
 
 /* Generate the small, renderer-safe catalog consumed by Omnia's capability
- * registry. The full inventory remains in artifacts/upstream-ui; this file
- * intentionally omits per-file paths, hashes and sensitive data. */
+ * registry. The full inventory remains in artifacts/upstream-ui when an audit
+ * checkout is present. Release checkouts also carry a compact metadata
+ * snapshot so CI can reproduce the catalog without vendoring raw profiles,
+ * per-file hashes or sensitive data. */
 const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "../..");
 const inputPath = path.join(root, "artifacts", "upstream-ui", "upstream-inventory-current.json");
+const snapshotPath = path.join(root, "src", "domain", "upstream-capability-catalog.snapshot.json");
 const outputPath = path.join(root, "src", "domain", "upstream-capability-catalog.ts");
 const checkOnly = process.argv.includes("--check");
-const input = JSON.parse(fs.readFileSync(inputPath, "utf8"));
+const selectedInputPath = fs.existsSync(inputPath) ? inputPath : snapshotPath;
+if (!fs.existsSync(selectedInputPath)) {
+  throw new Error(`Upstream inventory is missing. Expected ${inputPath} or ${snapshotPath}.`);
+}
+const input = JSON.parse(fs.readFileSync(selectedInputPath, "utf8"));
 
 const modules = input.modules.map((item) => ({
   id: item.id,
@@ -170,7 +177,10 @@ export function upstreamCapabilitySummary(): {
 
 if (checkOnly) {
   const current = fs.readFileSync(outputPath, "utf8");
-  if (current !== generated) {
+  // Windows checkouts may normalize the tracked TypeScript file to CRLF while
+  // the generator emits LF. Compare logical content so the gate is portable
+  // across Windows and Linux runners.
+  if (current.replaceAll("\r\n", "\n") !== generated.replaceAll("\r\n", "\n")) {
     console.error("Upstream capability catalog is stale. Run npm run inventory:catalog.");
     process.exitCode = 1;
   } else {

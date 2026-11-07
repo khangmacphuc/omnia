@@ -11,12 +11,12 @@ same source revision. The machine-readable source is
 | Measure | Value |
 | --- | ---: |
 | Criteria | 24 |
-| Done | 8 |
-| Partial | 13 |
+| Done | 10 |
+| Partial | 11 |
 | Blocked | 3 |
 | Planned | 0 |
-| Strict verified coverage | 33% |
-| Weighted implementation coverage | 60% |
+| Strict verified coverage | 42% |
+| Weighted implementation coverage | 65% |
 | Upstream modules audited | 55 / 55 |
 | Upstream categories | 11 |
 
@@ -45,10 +45,10 @@ met yet.
 | Multimodal media | Partial | 9/10 | Both | Authenticated bounded binary preview, media bridge and capability-gated endpoint planning pass; provider probing/upload/dispatch, artifact persistence/download provenance and universal encrypted decoding remain. |
 | Upstream extraction reuse | **Done** | 55/55 audited | Documented adapter boundary | Catalog, adapter plan, inventory and reuse ledger cover all extracted modules. |
 | Permissions and secrets | **Done** | 9/9 | Native | Approval, trust, secret-store and denial paths are covered by native tests. |
-| Native persistence | Partial | 9/10 | Native | Canonical native persistence suites pass; unsupported library-test loader is blocked in this environment. |
+| Native persistence | **Done** | 10/10 | Native | Canonical native persistence suites pass; the unsupported legacy library-test target is tracked separately. |
 | UI and accessibility | Partial | 7/10 | Renderer | Keyboard, focus, tab/panel semantics and narrow drawer are covered; DPI/high contrast/screen-reader matrix remains. |
 | Performance/resource budget | Partial | 8/9 | Native/renderer | Shared budget and bounded tool policy pass; headless renderer page-ready p95 is 2,638 ms against a 3,000 ms target; packaged endurance/GPU/native working-set profiling remains. |
-| CI/build verification | Partial | 9/10 | Both | Typecheck, renderer build, command parity, catalog and canonical workspace tests pass; unsupported library-test loader remains. |
+| CI/build verification | **Done** | 10/10 | Both | Typecheck, renderer build, command parity, reproducible catalog fallback and canonical native workspace/loader gates pass; unsupported legacy library-test target is tracked separately. |
 | Completion reporting | **Done** | 6/6 | Documentation | DoD, ledger, upstream inventory and evidence receipts are linked. |
 | Native browser gaps | **Blocked** | 4/9 | Native | Requires packaged WebView2 capture/history/zoom evidence. |
 | Live provider billing | **Blocked** | 3/8 | Native/provider | Requires provider account/API invoice fixtures and reconciliation evidence. |
@@ -88,6 +88,8 @@ The current same-snapshot checks are recorded in
 - Settings/services/plugin/API focused suite — **5 files, 69 tests passing**.
 - `npm.cmd run check:command-parity` — **PASS**, 188 renderer calls / 191
   registered / 191 production definitions.
+- `npm.cmd run check:upstream-catalog` — **PASS**, 55 modules from the compact
+  release snapshot when the full audit inventory is absent.
 - Headless preview evidence — **PASS**, 2,099 renderer modules, zero page errors,
   and a 2,638 ms page-ready p95 against a 3,000 ms target.
 - Native provider-lineage harness — **PASS**, 713 tests; context-manifest fields
@@ -109,7 +111,7 @@ The current same-snapshot checks are recorded in
 - `cargo test --test project_file_watch_tests --offline` — **11/11 passing**.
 - `cargo test -p omnia-harness lsp:: --offline --lib` — **27 passing, 1
   ignored**.
-- Canonical `omnia_native -- --list` — **701 tests discovered and loadable**.
+- Canonical `omnia_native -- --list` — **713 tests discovered and loadable**.
 - `cargo test -p omnia-desktop --lib --offline` remains blocked by
   `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)` for that unsupported library-test
   target; it is tracked separately from the canonical integration target.
