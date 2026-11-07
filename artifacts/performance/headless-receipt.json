@@ -1,0 +1,1648 @@
+{
+  "schemaVersion": "omnia.performance-headless.v1",
+  "generatedAt": "2026-11-07T17:30:17.698Z",
+  "status": "pass",
+  "metadata": {
+    "runner": "playwright-chromium-headless",
+    "baseUrl": "http://127.0.0.1:4173/",
+    "headless": true,
+    "chromium": "playwright",
+    "pageCount": 4,
+    "measuredAt": "2026-11-07T17:30:17.698Z",
+    "gitRevision": "working-tree",
+    "pages": 4,
+    "durationMs": 5000,
+    "intervalMs": 250,
+    "scenarios": [
+      {
+        "screen": "chat",
+        "state": "populated"
+      },
+      {
+        "screen": "home",
+        "state": "populated"
+      },
+      {
+        "screen": "projects",
+        "state": "populated"
+      },
+      {
+        "screen": "settings",
+        "state": "populated"
+      }
+    ],
+    "measuredScenarios": [
+      "home:populated",
+      "projects:populated",
+      "settings:populated",
+      "chat:populated"
+    ]
+  },
+  "metrics": {
+    "pageReadyMs": {
+      "id": "pageReadyMs",
+      "label": "headless page ready",
+      "unit": "ms",
+      "sampleCount": 4,
+      "p50": 1688,
+      "p95": 2638,
+      "minimum": 1646,
+      "maximum": 2638,
+      "targetP95": 3000,
+      "status": "pass"
+    },
+    "jsHeapUsedMiB": {
+      "id": "jsHeapUsedMiB",
+      "label": "renderer JavaScript heap",
+      "unit": "MiB",
+      "sampleCount": 72,
+      "p50": 4.879390716552734,
+      "p95": 7.72442626953125,
+      "minimum": 4.3646087646484375,
+      "maximum": 7.809886932373047,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "domNodeCount": {
+      "id": "domNodeCount",
+      "label": "DOM node count",
+      "unit": "nodes",
+      "sampleCount": 72,
+      "p50": 129,
+      "p95": 2896,
+      "minimum": 123,
+      "maximum": 2896,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "longTaskCount": {
+      "id": "longTaskCount",
+      "label": "long task count",
+      "unit": "tasks",
+      "sampleCount": 72,
+      "p50": 2,
+      "p95": 6,
+      "minimum": 1,
+      "maximum": 6,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "longTaskTotalMs": {
+      "id": "longTaskTotalMs",
+      "label": "long task duration",
+      "unit": "ms",
+      "sampleCount": 72,
+      "p50": 115,
+      "p95": 822,
+      "minimum": 101,
+      "maximum": 822,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "frameGapP95Ms": {
+      "id": "frameGapP95Ms",
+      "label": "animation frame gap",
+      "unit": "ms",
+      "sampleCount": 72,
+      "p50": 16.799999999999955,
+      "p95": 50.10000000000002,
+      "minimum": 16.700000000000728,
+      "maximum": 99.99999999999989,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "resourceTransferKiB": {
+      "id": "resourceTransferKiB",
+      "label": "renderer resource transfer",
+      "unit": "KiB",
+      "sampleCount": 72,
+      "p50": 590.8330078125,
+      "p95": 723.6865234375,
+      "minimum": 590.6455078125,
+      "maximum": 723.6865234375,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "rendererTaskDurationMs": {
+      "id": "rendererTaskDurationMs",
+      "label": "renderer main-thread task duration",
+      "unit": "ms",
+      "sampleCount": 72,
+      "p50": 51.69,
+      "p95": 364.026,
+      "minimum": 1.6789999999999998,
+      "maximum": 378.51,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "rendererScriptDurationMs": {
+      "id": "rendererScriptDurationMs",
+      "label": "renderer script duration",
+      "unit": "ms",
+      "sampleCount": 72,
+      "p50": 6.603999999999999,
+      "p95": 30.831,
+      "minimum": 0.02,
+      "maximum": 32.091,
+      "targetP95": null,
+      "status": "observed"
+    },
+    "rendererLayoutDurationMs": {
+      "id": "rendererLayoutDurationMs",
+      "label": "renderer layout duration",
+      "unit": "ms",
+      "sampleCount": 72,
+      "p50": 0,
+      "p95": 165.86200000000002,
+      "minimum": 0,
+      "maximum": 165.86200000000002,
+      "targetP95": null,
+      "status": "observed"
+    }
+  },
+  "events": {
+    "consoleErrors": [],
+    "pageErrors": [],
+    "requestFailures": [],
+    "externalRequests": [],
+    "requestCount": 153
+  },
+  "sampleCount": 76,
+  "samples": [
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072611189,
+      "metrics": {
+        "pageReadyMs": 1646
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072611216,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 99.99999999999989,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.3646087646484375,
+        "rendererTaskDurationMs": 1.6789999999999998,
+        "rendererScriptDurationMs": 0.063,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072611483,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 33.30000000000018,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.376857757568359,
+        "rendererTaskDurationMs": 5.5,
+        "rendererScriptDurationMs": 0.669,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072611769,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.390720367431641,
+        "rendererTaskDurationMs": 9.794,
+        "rendererScriptDurationMs": 1.305,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612042,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.4048004150390625,
+        "rendererTaskDurationMs": 15.547,
+        "rendererScriptDurationMs": 1.842,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612125,
+      "metrics": {
+        "pageReadyMs": 2638
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612163,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 50,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.151927947998047,
+        "rendererTaskDurationMs": 1.6900000000000002,
+        "rendererScriptDurationMs": 0.02,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612234,
+      "metrics": {
+        "pageReadyMs": 2488
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612253,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.459583282470703,
+        "rendererTaskDurationMs": 1.8619999999999999,
+        "rendererScriptDurationMs": 0.057,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612308,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.418510437011719,
+        "rendererTaskDurationMs": 20.346,
+        "rendererScriptDurationMs": 2.541,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612436,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 33.40000000000009,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.168659210205078,
+        "rendererTaskDurationMs": 7.752,
+        "rendererScriptDurationMs": 0.66,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612513,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.477527618408203,
+        "rendererTaskDurationMs": 5.558999999999999,
+        "rendererScriptDurationMs": 0.491,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612584,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.433353424072266,
+        "rendererTaskDurationMs": 24.795,
+        "rendererScriptDurationMs": 3.458,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612596,
+      "metrics": {
+        "pageReadyMs": 1688
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612607,
+      "metrics": {
+        "domNodeCount": 822,
+        "longTaskCount": 5,
+        "longTaskTotalMs": 564,
+        "frameGapP95Ms": 50.10000000000002,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.153743743896484,
+        "rendererTaskDurationMs": 8.764,
+        "rendererScriptDurationMs": 7.446000000000001,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612696,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.1824493408203125,
+        "rendererTaskDurationMs": 14.097999999999999,
+        "rendererScriptDurationMs": 1.2260000000000002,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612780,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.493305206298828,
+        "rendererTaskDurationMs": 8.741999999999999,
+        "rendererScriptDurationMs": 0.862,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612880,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.449604034423828,
+        "rendererTaskDurationMs": 28.762,
+        "rendererScriptDurationMs": 3.9569999999999994,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612904,
+      "metrics": {
+        "domNodeCount": 2869,
+        "longTaskCount": 5,
+        "longTaskTotalMs": 564,
+        "frameGapP95Ms": 50.10000000000002,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.445362091064453,
+        "rendererTaskDurationMs": 285.626,
+        "rendererScriptDurationMs": 24.665,
+        "rendererLayoutDurationMs": 160.903
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072612964,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.1972503662109375,
+        "rendererTaskDurationMs": 18.231,
+        "rendererScriptDurationMs": 1.806,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613041,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.511890411376953,
+        "rendererTaskDurationMs": 11.67,
+        "rendererScriptDurationMs": 1.183,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613161,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.468509674072266,
+        "rendererTaskDurationMs": 33.194,
+        "rendererScriptDurationMs": 4.597,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613186,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 66.59999999999991,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.467571258544922,
+        "rendererTaskDurationMs": 299.419,
+        "rendererScriptDurationMs": 25.605,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613241,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.213184356689453,
+        "rendererTaskDurationMs": 22.582,
+        "rendererScriptDurationMs": 2.464,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613301,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.529808044433594,
+        "rendererTaskDurationMs": 15.98,
+        "rendererScriptDurationMs": 1.578,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613448,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.493831634521484,
+        "rendererTaskDurationMs": 38.019999999999996,
+        "rendererScriptDurationMs": 5.108,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613502,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 50.10000000000002,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.482288360595703,
+        "rendererTaskDurationMs": 304.80800000000005,
+        "rendererScriptDurationMs": 26.009999999999998,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613517,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.231899261474609,
+        "rendererTaskDurationMs": 26.68,
+        "rendererScriptDurationMs": 2.842,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613574,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.548377990722656,
+        "rendererTaskDurationMs": 20.044,
+        "rendererScriptDurationMs": 2.11,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613702,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.513988494873047,
+        "rendererTaskDurationMs": 43.983000000000004,
+        "rendererScriptDurationMs": 5.804,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613786,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 33.40000000000009,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.497516632080078,
+        "rendererTaskDurationMs": 310.465,
+        "rendererScriptDurationMs": 26.426000000000002,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613808,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.250251770019531,
+        "rendererTaskDurationMs": 31.517999999999997,
+        "rendererScriptDurationMs": 3.348,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072613877,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.568607330322266,
+        "rendererTaskDurationMs": 24.478,
+        "rendererScriptDurationMs": 2.615,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614022,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.534980773925781,
+        "rendererTaskDurationMs": 48.937000000000005,
+        "rendererScriptDurationMs": 6.496,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614100,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.513648986816406,
+        "rendererTaskDurationMs": 315.20300000000003,
+        "rendererScriptDurationMs": 26.871,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614114,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.269775390625,
+        "rendererTaskDurationMs": 37.004000000000005,
+        "rendererScriptDurationMs": 4.029,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614167,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.590129852294922,
+        "rendererTaskDurationMs": 28.934,
+        "rendererScriptDurationMs": 3.081,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614300,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.557018280029297,
+        "rendererTaskDurationMs": 53.233000000000004,
+        "rendererScriptDurationMs": 7.074999999999999,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614370,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.532375335693359,
+        "rendererTaskDurationMs": 320.965,
+        "rendererScriptDurationMs": 27.223,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614379,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.29541015625,
+        "rendererTaskDurationMs": 41.737,
+        "rendererScriptDurationMs": 4.719,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614458,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.620616912841797,
+        "rendererTaskDurationMs": 33.084,
+        "rendererScriptDurationMs": 3.8449999999999998,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614614,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.582988739013672,
+        "rendererTaskDurationMs": 58.192,
+        "rendererScriptDurationMs": 7.636,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614658,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.55059814453125,
+        "rendererTaskDurationMs": 326.181,
+        "rendererScriptDurationMs": 27.667,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614669,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.317043304443359,
+        "rendererTaskDurationMs": 46.508,
+        "rendererScriptDurationMs": 5.2379999999999995,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614744,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.644664764404297,
+        "rendererTaskDurationMs": 37.137,
+        "rendererScriptDurationMs": 4.358,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614925,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.607875823974609,
+        "rendererTaskDurationMs": 62.93899999999999,
+        "rendererScriptDurationMs": 8.4,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614960,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.342456817626953,
+        "rendererTaskDurationMs": 51.69,
+        "rendererScriptDurationMs": 5.872999999999999,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072614960,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.57647705078125,
+        "rendererTaskDurationMs": 331.95799999999997,
+        "rendererScriptDurationMs": 28.057,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615012,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.669242858886719,
+        "rendererTaskDurationMs": 40.964,
+        "rendererScriptDurationMs": 5.044,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615240,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.633842468261719,
+        "rendererTaskDurationMs": 67.175,
+        "rendererScriptDurationMs": 8.945,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615250,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.366020202636719,
+        "rendererTaskDurationMs": 56.525,
+        "rendererScriptDurationMs": 6.603999999999999,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615250,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000068,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.597389221191406,
+        "rendererTaskDurationMs": 336.583,
+        "rendererScriptDurationMs": 28.439,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615287,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.695133209228516,
+        "rendererTaskDurationMs": 44.722,
+        "rendererScriptDurationMs": 5.545999999999999,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615545,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.391475677490234,
+        "rendererTaskDurationMs": 60.983999999999995,
+        "rendererScriptDurationMs": 7.077,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615545,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.662113189697266,
+        "rendererTaskDurationMs": 72.599,
+        "rendererScriptDurationMs": 9.737,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615545,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000068,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.620048522949219,
+        "rendererTaskDurationMs": 341.384,
+        "rendererScriptDurationMs": 28.812,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615611,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.722217559814453,
+        "rendererTaskDurationMs": 48.963,
+        "rendererScriptDurationMs": 6.28,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615853,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.417243957519531,
+        "rendererTaskDurationMs": 65.713,
+        "rendererScriptDurationMs": 7.837000000000001,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615853,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.690387725830078,
+        "rendererTaskDurationMs": 78.004,
+        "rendererScriptDurationMs": 10.767000000000001,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615854,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000068,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.646511077880859,
+        "rendererTaskDurationMs": 346.627,
+        "rendererScriptDurationMs": 29.311,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072615902,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.7500762939453125,
+        "rendererTaskDurationMs": 54.027,
+        "rendererScriptDurationMs": 6.947,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616134,
+      "metrics": {
+        "domNodeCount": 123,
+        "longTaskCount": 1,
+        "longTaskTotalMs": 101,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.8330078125,
+        "jsHeapUsedMiB": 4.719387054443359,
+        "rendererTaskDurationMs": 84.419,
+        "rendererScriptDurationMs": 11.668,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616134,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.444297790527344,
+        "rendererTaskDurationMs": 70.71,
+        "rendererScriptDurationMs": 8.325000000000001,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616134,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000068,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.6722564697265625,
+        "rendererTaskDurationMs": 353.656,
+        "rendererScriptDurationMs": 30.029,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616180,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.779239654541016,
+        "rendererTaskDurationMs": 59.223,
+        "rendererScriptDurationMs": 7.648000000000001,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616429,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.4721527099609375,
+        "rendererTaskDurationMs": 75.804,
+        "rendererScriptDurationMs": 8.992,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616429,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.800000000000068,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.69793701171875,
+        "rendererTaskDurationMs": 359.543,
+        "rendererScriptDurationMs": 30.476,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616478,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.810222625732422,
+        "rendererTaskDurationMs": 63.642,
+        "rendererScriptDurationMs": 8.235,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616746,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.5011749267578125,
+        "rendererTaskDurationMs": 80.53200000000001,
+        "rendererScriptDurationMs": 9.443,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616746,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.80000000000001,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.72442626953125,
+        "rendererTaskDurationMs": 364.026,
+        "rendererScriptDurationMs": 30.831,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072616754,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.845790863037109,
+        "rendererTaskDurationMs": 68.206,
+        "rendererScriptDurationMs": 9.121,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072617051,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.799999999999955,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.751522064208984,
+        "rendererTaskDurationMs": 368.973,
+        "rendererScriptDurationMs": 31.272000000000002,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072617051,
+      "metrics": {
+        "domNodeCount": 1858,
+        "longTaskCount": 3,
+        "longTaskTotalMs": 520,
+        "frameGapP95Ms": 16.700000000000728,
+        "resourceTransferKiB": 684.9677734375,
+        "jsHeapUsedMiB": 6.536293029785156,
+        "rendererTaskDurationMs": 85.378,
+        "rendererScriptDurationMs": 10.066,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072617079,
+      "metrics": {
+        "domNodeCount": 129,
+        "longTaskCount": 2,
+        "longTaskTotalMs": 115,
+        "frameGapP95Ms": 16.800000000000182,
+        "resourceTransferKiB": 590.6455078125,
+        "jsHeapUsedMiB": 4.879390716552734,
+        "rendererTaskDurationMs": 72.452,
+        "rendererScriptDurationMs": 9.796,
+        "rendererLayoutDurationMs": 0
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072617341,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.799999999999727,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.7801666259765625,
+        "rendererTaskDurationMs": 373.886,
+        "rendererScriptDurationMs": 31.691999999999997,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "measuredAtMs": 1794072617600,
+      "metrics": {
+        "domNodeCount": 2896,
+        "longTaskCount": 6,
+        "longTaskTotalMs": 822,
+        "frameGapP95Ms": 16.799999999999272,
+        "resourceTransferKiB": 723.6865234375,
+        "jsHeapUsedMiB": 7.809886932373047,
+        "rendererTaskDurationMs": 378.51,
+        "rendererScriptDurationMs": 32.091,
+        "rendererLayoutDurationMs": 165.86200000000002
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageIndex": 1,
+      "scenario": {
+        "screen": "home",
+        "state": "populated"
+      },
+      "sampleCount": 19,
+      "firstSampleAtMs": 1794072611189,
+      "lastSampleAtMs": 1794072616134,
+      "heapFirstMiB": 4.3646087646484375,
+      "heapLastMiB": 4.719387054443359,
+      "heapDeltaMiB": 0.3547782897949219
+    },
+    {
+      "pageIndex": 2,
+      "scenario": {
+        "screen": "projects",
+        "state": "populated"
+      },
+      "sampleCount": 19,
+      "firstSampleAtMs": 1794072612125,
+      "lastSampleAtMs": 1794072617051,
+      "heapFirstMiB": 6.151927947998047,
+      "heapLastMiB": 6.536293029785156,
+      "heapDeltaMiB": 0.3843650817871094
+    },
+    {
+      "pageIndex": 3,
+      "scenario": {
+        "screen": "settings",
+        "state": "populated"
+      },
+      "sampleCount": 19,
+      "firstSampleAtMs": 1794072612234,
+      "lastSampleAtMs": 1794072617079,
+      "heapFirstMiB": 4.459583282470703,
+      "heapLastMiB": 4.879390716552734,
+      "heapDeltaMiB": 0.41980743408203125
+    },
+    {
+      "pageIndex": 0,
+      "scenario": {
+        "screen": "chat",
+        "state": "populated"
+      },
+      "sampleCount": 19,
+      "firstSampleAtMs": 1794072612596,
+      "lastSampleAtMs": 1794072617600,
+      "heapFirstMiB": 7.153743743896484,
+      "heapLastMiB": 7.809886932373047,
+      "heapDeltaMiB": 0.6561431884765625
+    }
+  ],
+  "thresholdFailures": [],
+  "claimBoundary": [
+    "This receipt measures the renderer in isolated headless Chromium against the supplied local URL.",
+    "It does not prove packaged Tauri/WebView2, Windows desktop, GPU, native process working-set, provider, or clean-VM performance.",
+    "External requests are failures; native and provider work are not silently substituted with synthetic samples.",
+    "Missing native, GPU, memory-working-set, and endurance evidence remains outside this receipt.",
+    "Page-ready duration is a fixture navigation measurement, not a cold or warm desktop launch measurement. Each page contributes one page-ready sample.",
+    "Heap deltas include ordinary garbage collection and are observations, not a memory-leak verdict. Renderer task durations are CDP counters, not operating-system CPU percentages."
+  ]
+}

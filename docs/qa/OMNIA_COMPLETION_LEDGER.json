@@ -440,7 +440,7 @@
       "id": "performance-resource-budget",
       "area": "CPU, RAM, GPU, disk, context/tool truncation",
       "status": "partial",
-      "coverage": "7/9",
+      "coverage": "8/9",
       "implementation": [
         "src-tauri/crates/omnia-harness/src/budget.rs",
         "src/domain/harness-throughput-optimizer.ts",
@@ -456,10 +456,11 @@
       "evidence": [
         "D:/Omnia/.agents/checkpoints/harness-shared-budget-result.md",
         "D:/Omnia/.agents/checkpoints/headless-performance-runner-result-20261107.md",
-        "docs/qa/HEADLESS_PERFORMANCE_RUNNER.md"
+        "docs/qa/HEADLESS_PERFORMANCE_RUNNER.md",
+        "artifacts/performance/headless-receipt.json"
       ],
       "boundary": "native/renderer",
-      "gap": "headless renderer collection is implemented and measured, but the page-ready target currently fails; long-running endurance, packaged native working-set, and GPU/display profiling remain"
+      "gap": "headless renderer page-ready target passes at p95 2,638 ms; long-running endurance, packaged native working-set, and GPU/display profiling remain"
     },
     {
       "id": "ci-build-verification",
