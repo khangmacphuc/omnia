@@ -227,6 +227,13 @@ export function validateRagProviderReceipt(receipt: RagProviderReceipt, request:
     assertDomain(Number.isSafeInteger(score.rank) && score.rank > 0, "invalid_argument", "RAG score rank must be positive.");
     assertDomain(Number.isSafeInteger(score.scorePpm) && score.scorePpm >= 0 && score.scorePpm <= 1_000_000, "invalid_argument", "RAG score must be between zero and one million.");
   }
-  if (receipt.state === "completed") assertDomain(receipt.scores.length > 0, "invalid_argument", "Completed RAG receipts require scores.");
+  if (receipt.state === "completed") {
+    // Query-only embedding is valid with no document candidates; the response
+    // hash is the completion evidence in that case. Ranking/document
+    // operations must still return at least one candidate score.
+    const queryOnlyEmbedding = request.operation === "embed-query" && request.candidates.length === 0;
+    assertDomain(queryOnlyEmbedding || receipt.scores.length > 0, "invalid_argument", "Completed RAG receipts require scores unless this is a query-only embedding.");
+    if (queryOnlyEmbedding) assertDomain(receipt.responseSha256 !== undefined, "invalid_argument", "Query-only embedding receipts require a response hash.");
+  }
   if (receipt.state === "failed") assertDomain(receipt.errorCode !== undefined, "invalid_argument", "Failed RAG receipts require an error code.");
 }

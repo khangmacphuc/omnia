@@ -32,7 +32,7 @@ met yet.
 | Agent chat lifecycle | Partial | 8/10 | Both | Session lifecycle and journal exist; durable tabs and native compare remain. |
 | Session tabs | **Done** | 7/7 | Renderer/native | Ordered native persistence, CAS conflicts, pruning, keyboard close/focus and ARIA linkage pass. |
 | Projects and pointer storage | Partial | 8/9 | Both | Immutable pointer/CAS and native identity-bound watcher rows pass; packaged Windows watcher evidence remains. |
-| RAG and citations | Partial | 8/9 | Renderer/native | Scoped catalog, deterministic selection, capability-gated embedding/reranking requests and content-free receipts pass; live provider execution and native population remain. |
+| RAG and citations | Partial | 9/9 | Renderer/native | Scoped catalog, deterministic selection, native admission, capability-gated requests, and a hash-only local reranker receipt pass; live external provider dispatch remains. |
 | Model routing and compare | Partial | 7/8 | Renderer/native/domain | Effort downgrade, output route, immutable fan-out/merge receipts and secret-free provider-lineage context fields pass; native concurrent dispatch and billing lineage remain. |
 | Runtime settings | **Done** | 8/8 | Renderer/native | Per-session settings CAS, conflict refresh, persistence across reopen and renderer hot reload pass. |
 | Workflow, goal, plan and DoD | **Done** | 6/6 | Renderer/documented | Atomic tasks, quantified criteria, evidence and coverage are tested. |
@@ -94,8 +94,9 @@ The current same-snapshot checks are recorded in
   remain present as explicit nulls when no context evidence is available.
 - Multimodal endpoint planning — **PASS**, 1 focused file and 5 tests; the plan
   is metadata-only and withholds provider wire payloads.
-- RAG provider contract — **PASS**, 1 focused file and 6 tests; request and
-  receipt validation is content-free and lineage-bound, while live provider
+- RAG provider contract and local adapter — **PASS**, 2 focused files and 9
+  tests; request, deterministic local rerank, query-only completion and receipt
+  validation are content-free and lineage-bound. Live external provider
   execution remains outside the receipt.
 - IDE accessibility contract — **PASS**, project preview 6 tests and native
   editor disclosure focus coverage; packaged screen-reader/DPI/resize behavior

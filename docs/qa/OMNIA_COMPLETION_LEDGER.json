@@ -114,28 +114,31 @@
       "id": "rag-index-retrieval",
       "area": "RAG and citations",
       "status": "partial",
-      "coverage": "8/9",
+      "coverage": "9/9",
       "implementation": [
         "src/domain/omnia-retrieval-registry.ts",
         "src/domain/omnia-retrieval-memory-adapter.ts",
         "src/domain/omnia-workspace-index.ts",
         "src/domain/retrieval-request-receipt.ts",
         "src/domain/run.ts",
-        "src/domain/rag-provider-contract.ts"
+        "src/domain/rag-provider-contract.ts",
+        "src/domain/rag-provider-local-adapter.ts"
       ],
       "tests": [
         "src/domain/omnia-retrieval-registry.test.ts",
         "src/domain/omnia-retrieval-memory-adapter.test.ts",
         "src/domain/retrieval-request-receipt.test.ts",
-        "src/domain/rag-provider-contract.test.ts"
+        "src/domain/rag-provider-contract.test.ts",
+        "src/domain/rag-provider-local-adapter.test.ts"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/rag-adapter-result-20261107.md",
         "D:/Omnia/.agents/checkpoints/retrieval-request-receipt-result-20261107.md",
-        "D:/Omnia/.agents/checkpoints/rag-provider-contract-result-20261108.md"
+        "D:/Omnia/.agents/checkpoints/rag-provider-contract-result-20261108.md",
+        "D:/Omnia/.agents/checkpoints/rag-local-adapter-result-20261108.md"
       ],
       "boundary": "renderer/native",
-      "gap": "capability-gated embedding/reranker request and receipt validation now pass; live provider execution and native provider population on every request remain unverified"
+      "gap": "native admission and deterministic local reranker execution are receipt-backed; live external embedding/reranker dispatch and provider authentication remain unverified"
     },
     {
       "id": "model-routing-compare",
@@ -632,5 +635,5 @@
       "result": "BLOCKED: STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139), unsupported library-test loader target"
     }
   ],
-  "updatedAt": "2026-11-07T18:45:00+07:00"
+  "updatedAt": "2026-11-08T02:48:42+07:00"
 }

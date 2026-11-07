@@ -17,7 +17,7 @@ Omnia opens in **Chat**, with a non project conversation by default. A project c
 ## What is working in this snapshot
 
 - **Chat and sessions:** non project chat, project chat, durable session tabs, branch/fork/rewind controls, optimistic stream recovery, retry/steer/interrupt flows, and native run journal projections.
-- **Projects and context:** project scoped folders and file pointers, native identity and revision checks, read only workspace grants, lexical workspace indexing, bounded retrieval and immutable context snapshots. A content-free RAG provider contract now validates capability, lineage, budgets and receipts. The current retrieval command records `providerInputAdmission: "not_admitted"`; live provider population is still withheld pending native dispatch evidence.
+- **Projects and context:** project scoped folders and file pointers, native identity and revision checks, read only workspace grants, lexical workspace indexing, bounded retrieval and immutable context snapshots. A content-free RAG provider contract now validates capability, lineage, budgets and receipts; native retrieval admission and a deterministic local reranker are covered by same-snapshot receipts. Live external embedding/reranker dispatch remains explicitly separated until a provider connector is authenticated and observed.
 - **Providers and routing:** OpenAI, Anthropic, Gemini, OpenAI compatible and approved local endpoints through native adapters; capability aware parameters, effort routing, usage projections, provider lineage, and opaque prepared input dispatch.
 - **Native model compare:** the snapshot contains a bounded two-to-four route fan-out engine, route conversion checks, provenance projections and immutable merge receipt types. Durable attempt journaling, live native dispatch and billing lineage remain partial or unverified in the completion ledger, so this is not presented as a fully shipped compare workflow.
 - **IDE surface:** workspace tabs, semantic tab/panel relationships, editor settings focus behavior, editor attachment, LSP configuration and native editor surface contracts with explicit workspace trust and permission boundaries.
@@ -93,7 +93,7 @@ The canonical native integration target is the `omnia_native` test target. On so
 
 1. Start the desktop app in **Chat** for a non project conversation (project sessions use the same surface).
 2. Open **Projects**, create a project and add a read only workspace folder or file pointer.
-3. Send a prompt. Native preparation freezes the run, records bounded project retrieval and context receipts when a readable grant is selected, and keeps the user message last. The current retrieval lane still reports provider-input admission as withheld.
+3. Send a prompt. Native preparation freezes the run, records bounded project retrieval and context receipts when a readable grant is selected, and keeps the user message last. The local deterministic RAG adapter can replay hash-only reranking; external provider admission is shown separately until a live connector receipt exists.
 4. Open the inspector to review model, effort, tools, context and usage receipts.
 5. Open **Services** to inspect skills, subagent roles, plugin and MCP trust state without launching an external connector.
 6. Switch to **IDE** or **Browser** from the top-left primary navigation. The Chat sidebar remains available beside either workbench.

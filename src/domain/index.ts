@@ -135,6 +135,7 @@ export * from "./omnia-provider-catalog";
 export * from "./omnia-retrieval-registry";
 export * from "./retrieval-request-receipt";
 export * from "./rag-provider-contract";
+export * from "./rag-provider-local-adapter";
 export * from "./omnia-provider-registry";
 export * from "./omnia-workspace-index";
 export * from "./parameters";
