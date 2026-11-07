@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/continuation-intent.schema.json",
+  "title": "Omnia no-text continuation intent",
+  "type": "object",
+  "required": ["schemaVersion", "intentId", "rootKind", "rootId", "intentKind", "stateRevisionId", "executionMode", "loopGuard", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "intentId": { "type": "string", "minLength": 1 },
+    "rootKind": { "enum": ["run", "task", "goal", "branch", "checkpoint", "starter-workflow"] },
+    "rootId": { "type": "string", "minLength": 1 },
+    "intentKind": { "enum": ["unfinished-answer", "next-plan-task", "resume-checkpoint", "bootstrap-active-goal", "research-next", "test-next", "review-next", "plan-only", "draft-only"] },
+    "stateRevisionId": { "type": "string", "minLength": 1 },
+    "executionMode": { "enum": ["preview", "plan-only", "draft-only", "execute"] },
+    "modelProfileId": { "type": ["string", "null"] },
+    "effort": { "enum": ["fast", "balanced", "deep", "ultra", "custom"] },
+    "allowedToolIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "budget": { "type": ["object", "null"], "additionalProperties": false, "properties": { "maxTokens": { "type": ["integer", "null"], "minimum": 0 }, "maxCost": { "type": ["string", "null"], "minLength": 1, "maxLength": 128, "pattern": "^(?:0|[0-9]+)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$", "description": "Bounded non-negative decimal/scientific cost text. Native storage keeps this as text to preserve exact canonical replay semantics; exponent magnitude is bounded by the native validator." }, "maxDurationSeconds": { "type": ["integer", "null"], "minimum": 0 }, "maxSegments": { "type": ["integer", "null"], "minimum": 1 } } },
+    "loopGuard": { "type": "object", "required": ["chainId", "duplicateSignature", "maxAutomaticSegments"], "additionalProperties": false, "properties": { "chainId": { "type": "string", "minLength": 1 }, "duplicateSignature": { "type": "string", "minLength": 1 }, "maxAutomaticSegments": { "type": "integer", "minimum": 1 }, "progressScore": { "type": ["string", "null"], "minLength": 1, "maxLength": 128, "pattern": "^-?(?:0|[0-9]+)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$", "description": "Bounded decimal/scientific progress score text. Native storage keeps this as text to preserve exact canonical replay semantics." }, "noProgressCount": { "type": ["integer", "null"], "minimum": 0 } } },
+    "approvalPolicyRevision": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": ["intentKind", "executionMode"],
+        "properties": {
+          "intentKind": { "enum": ["plan-only", "draft-only"] }
+        }
+      },
+      "then": {
+        "not": {
+          "required": ["executionMode"],
+          "properties": {
+            "executionMode": { "const": "execute" }
+          }
+        }
+      }
+    }
+  ]
+}

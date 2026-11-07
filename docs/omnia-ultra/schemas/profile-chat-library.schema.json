@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/profile-chat-library.schema.json",
+  "title": "Omnia standalone Chat library snapshot",
+  "description": "Profile-scoped Inbox/Recent Chat library. Every conversation in this snapshot is standalone and has no Project owner; Project-owned Chat collections use conversation-library.schema.json.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "scope",
+    "profileId",
+    "revisionId",
+    "title",
+    "conversations",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "scope": { "const": "profile" },
+    "profileId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "titlePolicy": {
+      "enum": ["manual", "locked", "suggest_once", "always_ask", "safe_auto"]
+    },
+    "conversations": {
+      "type": "array",
+      "items": { "$ref": "conversation-library.schema.json#/$defs/conversationSummary" }
+    },
+    "memoryScopeId": { "type": ["string", "null"] },
+    "skillScopeId": { "type": ["string", "null"] },
+    "contextProfileId": { "type": ["string", "null"] },
+    "continuation": { "$ref": "conversation-library.schema.json#/$defs/continuationCursor" },
+    "retentionPolicyId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "eventWatermark": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/provider-attempt-lineage.schema.json",
+  "title": "Omnia immutable provider attempt lineage fact",
+  "description": "A content-free, append-only provenance record that freezes the provider, endpoint, adapter, catalog, model, route, policy, parameter, context, authority and price revisions used by one prepared provider attempt. Every declared field is present; unavailable provenance is represented explicitly as JSON null.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "lineageFactId",
+    "frozenProviderInputId",
+    "runId",
+    "attemptId",
+    "providerProfileId",
+    "modelId",
+    "providerDefinitionSchemaVersion",
+    "providerDefinitionSha256",
+    "endpointFingerprintSha256",
+    "adapterRevision",
+    "catalogSnapshotId",
+    "catalogSnapshotSha256",
+    "modelDescriptorRevisionId",
+    "modelDescriptorSha256",
+    "modelCapabilitySnapshotId",
+    "modelCapabilitySnapshotSha256",
+    "routeRevisionId",
+    "routingDecisionReceiptId",
+    "retryPolicyRevisionId",
+    "cachePolicyRevisionId",
+    "cachePlanId",
+    "priceSnapshotId",
+    "priceSnapshotSha256",
+    "parameterProfileRevisionId",
+    "resolvedParametersSha256",
+    "requestedEffort",
+    "effectiveEffort",
+    "contextManifestId",
+    "contextManifestSha256",
+    "authorityContinuityRecordId",
+    "dataClassificationRevisionId",
+    "inputContentSha256",
+    "lineageSha256",
+    "createdAtMs"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1,
+      "description": "Version of the immutable provider-attempt lineage contract."
+    },
+    "lineageFactId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque immutable lineage fact identifier; serialized as lineageFactId, never id."
+    },
+    "frozenProviderInputId": {
+      "$ref": "#/$defs/id",
+      "description": "The exact frozen provider-input preparation covered by this fact."
+    },
+    "runId": {
+      "$ref": "#/$defs/id",
+      "description": "Run scope identifier."
+    },
+    "attemptId": {
+      "$ref": "#/$defs/id",
+      "description": "Provider-attempt scope identifier."
+    },
+    "providerProfileId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque provider profile identifier; no credential material is included."
+    },
+    "modelId": {
+      "$ref": "#/$defs/text",
+      "description": "Provider/model catalog identifier or name used by the frozen input."
+    },
+    "providerDefinitionSchemaVersion": {
+      "const": 1,
+      "description": "The only supported frozen provider-definition schema version in v14."
+    },
+    "providerDefinitionSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Lower-case SHA-256 of the frozen provider definition."
+    },
+    "endpointFingerprintSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Domain-separated SHA-256 endpoint fingerprint; the raw URL is never exposed."
+    },
+    "adapterRevision": {
+      "$ref": "#/$defs/revision",
+      "description": "Immutable adapter revision selected for this attempt."
+    },
+    "catalogSnapshotId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Catalog snapshot identifier, or null when unavailable at preparation time."
+    },
+    "catalogSnapshotSha256": {
+      "$ref": "#/$defs/nullableHash",
+      "description": "Catalog snapshot hash paired with catalogSnapshotId."
+    },
+    "modelDescriptorRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Model descriptor revision identifier, or null when unavailable."
+    },
+    "modelDescriptorSha256": {
+      "$ref": "#/$defs/nullableHash",
+      "description": "Model descriptor hash paired with modelDescriptorRevisionId."
+    },
+    "modelCapabilitySnapshotId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Model capability snapshot identifier, or null when unavailable."
+    },
+    "modelCapabilitySnapshotSha256": {
+      "$ref": "#/$defs/nullableHash",
+      "description": "Model capability snapshot hash paired with modelCapabilitySnapshotId."
+    },
+    "routeRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Routing policy revision identifier, or null when unavailable."
+    },
+    "routingDecisionReceiptId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Routing decision receipt identifier, or null when no immutable receipt existed at preparation time."
+    },
+    "retryPolicyRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Retry policy revision identifier, or null when unavailable."
+    },
+    "cachePolicyRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Cache policy revision identifier, or null when unavailable."
+    },
+    "cachePlanId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Resolved cache plan identifier, or null when unavailable."
+    },
+    "priceSnapshotId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Historical price snapshot identifier, or null when unavailable."
+    },
+    "priceSnapshotSha256": {
+      "$ref": "#/$defs/nullableHash",
+      "description": "Historical price snapshot hash paired with priceSnapshotId."
+    },
+    "parameterProfileRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Parameter-profile revision identifier, or null when unavailable."
+    },
+    "resolvedParametersSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "SHA-256 of the exact canonical resolved parameter bytes used by the frozen input."
+    },
+    "requestedEffort": {
+      "$ref": "#/$defs/nullableEffort",
+      "description": "Explicit Omnia effort requested by the caller, or null when absent."
+    },
+    "effectiveEffort": {
+      "$ref": "#/$defs/nullableText",
+      "description": "Effort actually applied by policy/adapter, preserved as bounded provider-native evidence (or null when not recorded); never inferred from a model default."
+    },
+    "contextManifestId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Context manifest identifier, or null when unavailable."
+    },
+    "contextManifestSha256": {
+      "$ref": "#/$defs/nullableHash",
+      "description": "Context manifest hash paired with contextManifestId."
+    },
+    "authorityContinuityRecordId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Authority-continuity record identifier, or null when unavailable."
+    },
+    "dataClassificationRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Data-classification revision identifier, or null when unavailable."
+    },
+    "inputContentSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "SHA-256 content address of the prepared input; prompt/message bytes are not included."
+    },
+    "lineageSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Canonical SHA-256 integrity hash over the typed immutable lineage material."
+    },
+    "createdAtMs": {
+      "$ref": "#/$defs/positiveUnixMilliseconds",
+      "description": "Durable authority timestamp in positive Unix milliseconds; it exactly equals the frozen input timestamp."
+    }
+  },
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "title": "Catalog evidence unavailable",
+          "properties": {
+            "catalogSnapshotId": { "type": "null" },
+            "catalogSnapshotSha256": { "type": "null" }
+          }
+        },
+        {
+          "title": "Catalog evidence paired",
+          "properties": {
+            "catalogSnapshotId": { "$ref": "#/$defs/id" },
+            "catalogSnapshotSha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Model descriptor evidence unavailable",
+          "properties": {
+            "modelDescriptorRevisionId": { "type": "null" },
+            "modelDescriptorSha256": { "type": "null" }
+          }
+        },
+        {
+          "title": "Model descriptor evidence paired",
+          "properties": {
+            "modelDescriptorRevisionId": { "$ref": "#/$defs/id" },
+            "modelDescriptorSha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Capability evidence unavailable",
+          "properties": {
+            "modelCapabilitySnapshotId": { "type": "null" },
+            "modelCapabilitySnapshotSha256": { "type": "null" }
+          }
+        },
+        {
+          "title": "Capability evidence paired",
+          "properties": {
+            "modelCapabilitySnapshotId": { "$ref": "#/$defs/id" },
+            "modelCapabilitySnapshotSha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Price evidence unavailable",
+          "properties": {
+            "priceSnapshotId": { "type": "null" },
+            "priceSnapshotSha256": { "type": "null" }
+          }
+        },
+        {
+          "title": "Price evidence paired",
+          "properties": {
+            "priceSnapshotId": { "$ref": "#/$defs/id" },
+            "priceSnapshotSha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Context evidence must be paired",
+      "oneOf": [
+        {
+          "title": "Context evidence unavailable",
+          "properties": {
+            "contextManifestId": { "type": "null" },
+            "contextManifestSha256": { "type": "null" }
+          }
+        },
+        {
+          "title": "Context evidence paired",
+          "properties": {
+            "contextManifestId": { "$ref": "#/$defs/id" },
+            "contextManifestSha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,512}$"
+    },
+    "nullableId": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,512}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,512}$"
+    },
+    "hash": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableHash": {
+      "type": ["string", "null"],
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,160}$"
+    },
+    "effort": {
+      "enum": ["fast", "balanced", "deep", "ultra", "custom"]
+    },
+    "nullableEffort": {
+      "type": ["string", "null"],
+      "enum": ["fast", "balanced", "deep", "ultra", "custom", null]
+    },
+    "nullableText": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,80}$"
+    },
+    "positiveUnixMilliseconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9223372036854775807
+    }
+  },
+  "additionalProperties": false
+}

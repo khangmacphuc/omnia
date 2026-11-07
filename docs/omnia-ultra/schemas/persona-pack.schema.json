@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/persona-pack.schema.json",
+  "title": "Omnia presentation persona pack",
+  "description": "A versioned presentation and pedagogy contract. A persona may shape language and workflow defaults, but never grants tools, secrets, sessions, approvals or authority.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "personaId",
+    "revisionId",
+    "lifecycle",
+    "displayName",
+    "purpose",
+    "nonGoals",
+    "language",
+    "voice",
+    "explanationDensity",
+    "pedagogyModes",
+    "presentationDefaults",
+    "workflowDefaults",
+    "examples",
+    "evidence",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "personaId": { "$ref": "#/$defs/id" },
+    "revisionId": { "$ref": "#/$defs/id" },
+    "lifecycle": { "enum": ["draft", "enabled", "disabled", "deprecated", "superseded", "blocked"] },
+    "displayName": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "description": { "type": "string", "maxLength": 2000 },
+    "purpose": { "type": "string", "minLength": 1, "maxLength": 3000 },
+    "nonGoals": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1, "maxLength": 800 },
+      "uniqueItems": true
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 160 },
+      "uniqueItems": true
+    },
+    "language": {
+      "type": "object",
+      "required": ["primary", "fallbacks", "register"],
+      "properties": {
+        "primary": { "type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Z]{2})?$" },
+        "fallbacks": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Z]{2})?$" },
+          "uniqueItems": true
+        },
+        "register": { "enum": ["plain", "technical", "academic", "executive", "conversational"] },
+        "preserveUserLanguage": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "voice": {
+      "type": "object",
+      "required": ["tone", "stance", "directness", "certaintyDiscipline"],
+      "properties": {
+        "tone": { "enum": ["neutral", "warm", "socratic", "precise", "concise", "encouraging", "formal"] },
+        "stance": { "enum": ["coach", "analyst", "reviewer", "collaborator", "editor", "teacher", "facilitator"] },
+        "directness": { "enum": ["gentle", "balanced", "direct", "strict"] },
+        "certaintyDiscipline": { "enum": ["explicit-uncertainty", "evidence-first", "calibrated", "minimal-hedging"] },
+        "avoidPatterns": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 400 }, "uniqueItems": true },
+        "preferredTerms": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 200 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "explanationDensity": { "enum": ["brief", "standard", "deep", "atomic", "exhaustive"] },
+    "pedagogyModes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["direct", "atomic-breakdown", "socratic", "worked-example", "deliberate-practice", "retrieval-practice", "exam-simulation", "review", "research-seminar", "proof-first", "counterexample-first"] },
+      "uniqueItems": true
+    },
+    "presentationDefaults": {
+      "type": "object",
+      "required": ["responseStructure", "showAssumptions", "showOpenQuestions", "citationStyle", "codeStyle", "mathStyle", "artifactPreference"],
+      "properties": {
+        "responseStructure": { "enum": ["narrative", "checklist", "plan-first", "answer-then-detail", "claim-evidence", "theorem-proof", "diagnosis-fix-verify"] },
+        "showAssumptions": { "type": "boolean" },
+        "showOpenQuestions": { "type": "boolean" },
+        "citationStyle": { "enum": ["none", "inline", "footnote", "source-ledger", "claim-level"] },
+        "codeStyle": { "enum": ["minimal", "idiomatic", "production", "teaching", "performance-audited"] },
+        "mathStyle": { "enum": ["plain-text", "latex", "latex-with-derivation", "formal-proof"] },
+        "artifactPreference": { "enum": ["text", "markdown", "html", "notebook", "structured-artifact", "auto"] },
+        "defaultSections": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "renderInline": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "workflowDefaults": {
+      "type": "object",
+      "required": ["interactionMode", "proactiveSuggestions", "reviewCadence", "continuationStyle", "questionPolicy"],
+      "properties": {
+        "interactionMode": { "enum": ["answer", "coach", "pair", "research", "design-review", "implementation"] },
+        "proactiveSuggestions": { "enum": ["off", "low", "contextual", "high"] },
+        "reviewCadence": { "enum": ["none", "checkpoint", "per-artifact", "continuous"] },
+        "continuationStyle": { "enum": ["stop-at-answer", "offer-next-step", "continue-until-complete", "ask-before-expanding"] },
+        "questionPolicy": { "enum": ["avoid-unless-blocked", "ask-when-ambiguous", "socratic", "always-confirm-high-impact"] },
+        "preferredOutputArtifacts": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "examples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scenario", "desiredBehavior"],
+        "properties": {
+          "scenario": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "desiredBehavior": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "uniqueItems": true }
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": { "$ref": "#/$defs/evidence" },
+    "iconId": { "type": ["string", "null"], "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]{1,191}$" },
+    "evidence": {
+      "type": "object",
+      "required": ["evidenceIds", "status", "lastEvaluatedAt", "sourceRefs"],
+      "properties": {
+        "evidenceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "status": { "enum": ["current", "provisional", "stale", "missing"] },
+        "lastEvaluatedAt": { "type": ["string", "null"], "format": "date-time" },
+        "sourceRefs": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    }
+  }
+}

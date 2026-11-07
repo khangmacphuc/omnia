@@ -1,0 +1,115 @@
+name: quality
+
+on:
+  push:
+    branches: [main, master, "codex/**"]
+  pull_request:
+
+concurrency:
+  group: omnia-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  renderer:
+    name: Renderer checks
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+
+  native:
+    name: Native checks
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: cargo fmt --manifest-path src-tauri/Cargo.toml --all --check
+      - run: cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --all-features -- -D warnings
+      # The explicit test target receives Tauri's Windows resource manifest.
+      # Forced `--lib` tests bypass that target and fail before discovery.
+      - name: Verify native test loader
+        run: cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features -- --list
+      - name: Run native workspace tests
+        run: cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features
+
+  storage-contract:
+    name: Storage and lineage contracts
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python docs/validate_storage_schema.py
+      # Exercise the executable v15 SQLite DDL, immutable receipt guards,
+      # idempotency/scope checks, rollback, and file-backed reopen durability.
+      # This remains complementary to native Rust migration/runtime tests.
+      - run: python scripts/verify-run-control-storage.py
+      # Catch missing native helper definitions even on local machines that
+      # do not have the Rust toolchain installed.  cargo remains authoritative
+      # for type-checking and runtime tests in the native job above.
+      - run: python scripts/verify-rust-helper-definitions.py
+      # Exercise adversarial source fixtures so a neighbouring, inactive, or
+      # incorrectly delegated command cannot satisfy another root capability.
+      - run: python -m unittest tests/test_authoritative_root_verifier.py -v
+      # Exercise adversarial run-control fixtures so operation mappings,
+      # revision lineage, retry edges, and read-only projections fail closed.
+      - run: python -m unittest tests/test_run_control_contract.py -v
+      # Require the typed cursor resolver in CI.  The source-only check remains
+      # complementary to Cargo; it must not silently regress to a pending
+      # contract after the native resolver has landed.
+      - run: python scripts/verify-cursor-authority-contract.py --require-implementation
+      # Require the exact native Goal/Task/Starter Workflow command boundary,
+      # including registration and storage delegation.  Cargo remains
+      # authoritative for Rust typing and runtime behavior.
+      - run: python scripts/verify-authoritative-root-contract.py --require-api
+      # Keep the semantic v14 migration/lineage checks in the mandatory CI
+      # path.  The broad storage smoke test above cannot prove migration
+      # rollback, scope binding, immutability, or the JSON contract inventory.
+      - run: python -m py_compile scripts/verify-state-revision-schema.py scripts/verify-provider-attempt-lineage-schema.py
+      - run: python scripts/verify-state-revision-schema.py
+      - run: python scripts/verify-provider-attempt-lineage-schema.py
+      - name: Validate Omnia specification manifest and references
+        shell: pwsh
+        run: ./docs/omnia-ultra/tools/validate-spec.ps1
+
+  visual-contract:
+    name: Visual fixture contract
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # The visual job runs on Windows; --with-deps is intended for Linux
+      # system packages. A browser-only install is the portable Windows path.
+      - run: npx playwright install chromium
+      - run: npm run test:visual
+      - name: Upload visual evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: omnia-visual-evidence-${{ github.run_id }}
+          path: |
+            artifacts/visual/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/capture-session.schema.json",
+  "title": "Omnia targeted capture session",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "captureSessionId",
+    "actorId",
+    "state",
+    "visualSources",
+    "audioSources",
+    "approvalReceiptId",
+    "startedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "captureSessionId": { "type": "string", "minLength": 1 },
+    "actorId": { "type": "string", "minLength": 1 },
+    "taskId": { "type": ["string", "null"] },
+    "state": {
+      "enum": ["starting", "active", "privacy_paused", "source_lost", "stopped", "failed"]
+    },
+    "visualSources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/visualSource" },
+      "maxItems": 8
+    },
+    "audioSources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/audioSource" },
+      "maxItems": 16
+    },
+    "approvalReceiptId": { "type": "string", "minLength": 1 },
+    "inputGrantId": { "type": ["string", "null"] },
+    "retentionPolicyId": { "type": ["string", "null"] },
+    "artifactId": { "type": ["string", "null"] },
+    "privacyIndicatorVisible": { "type": "boolean", "default": true },
+    "droppedVideoFrames": { "type": "integer", "minimum": 0 },
+    "droppedAudioFrames": { "type": "integer", "minimum": 0 },
+    "clockDriftMs": { "type": ["number", "null"] },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "stoppedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "$defs": {
+    "visualSource": {
+      "type": "object",
+      "required": ["sourceId", "kind", "generation", "availability"],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["display", "region", "window", "browser_tab", "virtual_display"] },
+        "generation": { "type": "integer", "minimum": 0 },
+        "processId": { "type": ["integer", "null"], "minimum": 0 },
+        "windowId": { "type": ["string", "null"] },
+        "tabId": { "type": ["string", "null"] },
+        "origin": { "type": ["string", "null"] },
+        "width": { "type": ["integer", "null"], "minimum": 1 },
+        "height": { "type": ["integer", "null"], "minimum": 1 },
+        "frameRate": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "availability": {
+          "enum": ["available", "occluded", "minimized_paused", "protected", "lost", "unsupported"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "audioSource": {
+      "type": "object",
+      "required": ["sourceId", "kind", "generation", "muted"],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": ["microphone", "process_loopback", "browser_tab", "endpoint_loopback", "system_mix"]
+        },
+        "generation": { "type": "integer", "minimum": 0 },
+        "processId": { "type": ["integer", "null"], "minimum": 0 },
+        "tabId": { "type": ["string", "null"] },
+        "endpointId": { "type": ["string", "null"] },
+        "sampleRate": { "type": ["integer", "null"], "minimum": 1 },
+        "channels": { "type": ["integer", "null"], "minimum": 1 },
+        "muted": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

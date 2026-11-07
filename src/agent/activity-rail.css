@@ -1,0 +1,185 @@
+/* Merged shell: activity rail + agent view + workspace views. */
+.ag-shell {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: var(--font-body);
+}
+
+/* Main area: the views stacked above the always-visible status bar. */
+.ag-shell__main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.ag-shell__views {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.ag-shell__views > .ag-app {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ag-rail {
+  position: relative;
+  display: flex;
+  flex: 0 0 44px;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  width: 44px;
+  min-height: 0;
+  padding: var(--space-2) 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-right: 1px solid var(--border-subtle);
+  background: var(--surface-subtle);
+}
+
+.ag-rail__btn {
+  position: relative;
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+/* Portalled outside the rail so short windows can scroll without clipping hints. */
+.ag-rail__tooltip {
+  position: fixed;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-sizing: border-box;
+  max-width: calc(100vw - 16px);
+  padding: var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-control);
+  background: var(--surface-raised, var(--surface));
+  box-shadow: var(--shadow-sm, 0 4px 12px rgb(0 0 0 / 18%));
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: var(--font-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.ag-rail__tooltip kbd {
+  color: var(--text-secondary);
+  font: inherit;
+  white-space: nowrap;
+}
+
+.ag-rail__btn:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.ag-rail__btn--active,
+.ag-rail__btn--active:hover {
+  border-color: var(--border-subtle);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Thin indicator flush with the rail's left edge. */
+.ag-rail__btn--active::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: -7px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--text-secondary);
+}
+
+.ag-rail__spacer {
+  flex: 1 1 auto;
+  min-height: var(--space-2);
+}
+
+.ag-rail__btn:focus-visible {
+  outline: var(--stroke-focus) solid var(--focus);
+  outline-offset: 1px;
+}
+
+.ag-workspace {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.ag-workspace[hidden] {
+  display: none;
+}
+
+.ag-workspace__bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-2) 0 var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ag-workspace__title {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text);
+  font-size: var(--font-control);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ag-workspace__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ag-workspace__body > .ag-empty,
+.ag-workspace__body > .ag-center {
+  height: 100%;
+}
+
+.ag-workspace *:focus-visible {
+  outline: var(--stroke-focus) solid var(--focus);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-rail__btn {
+    transition: none;
+  }
+}

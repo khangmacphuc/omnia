@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/project-overview.schema.json",
+  "title": "Omnia Project Overview revision",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "overviewRevisionId",
+    "projectId",
+    "sourceEventWatermark",
+    "title",
+    "status",
+    "changedFields",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "overviewRevisionId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "sourceEventWatermark": { "type": "integer", "minimum": 0 },
+    "projectTwinRevisionId": { "type": ["string", "null"] },
+    "title": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "titlePolicy": {
+      "enum": ["manual", "locked", "suggest_once", "always_ask", "safe_auto"]
+    },
+    "titleAliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 512 }
+    },
+    "status": {
+      "enum": ["current", "candidate", "stale", "failed", "superseded"]
+    },
+    "summary": { "type": ["string", "null"], "maxLength": 16384 },
+    "goalId": { "type": ["string", "null"] },
+    "phaseId": { "type": ["string", "null"] },
+    "milestoneId": { "type": ["string", "null"] },
+    "nextTaskId": { "type": ["string", "null"] },
+    "activeBranchId": { "type": ["string", "null"] },
+    "machineId": { "type": ["string", "null"] },
+    "modelProfileId": { "type": ["string", "null"] },
+    "contextRevisionId": { "type": ["string", "null"] },
+    "staleNodeCount": { "type": "integer", "minimum": 0 },
+    "changedFields": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "materialityReasons": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "goal",
+          "scope",
+          "workspace_root",
+          "branch",
+          "runtime_policy",
+          "decision",
+          "milestone",
+          "task",
+          "verified_evidence",
+          "source_staleness",
+          "artifact",
+          "budget",
+          "security",
+          "approval"
+        ]
+      }
+    },
+    "pinnedFields": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "generator": {
+      "type": ["object", "null"],
+      "properties": {
+        "kind": { "enum": ["deterministic", "model", "tool", "hybrid"] },
+        "modelProfileId": { "type": ["string", "null"] },
+        "templateHash": { "type": ["string", "null"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "acceptedBy": { "type": ["string", "null"] },
+    "supersedesRevisionId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}
+

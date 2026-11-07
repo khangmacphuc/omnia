@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="920" viewBox="0 0 1440 920" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia coder-modern palette board</title>
+  <desc id="desc">Ten neutral-first palettes with one signal accent each.</desc>
+  <rect width="1440" height="920" fill="#0d1117"/>
+  <text x="72" y="82" fill="#f4f7f8" font-family="Segoe UI, sans-serif" font-size="36" font-weight="700">Omnia palette directions</text>
+  <text x="72" y="120" fill="#9daab5" font-family="Segoe UI, sans-serif" font-size="18">Neutral workspace surfaces + one signal color. No purple AI gradient.</text>
+  <g font-family="Segoe UI, sans-serif" font-size="18" fill="#e7edf0">
+    <text x="72" y="190">P01 Graphite / Signal Mint</text>
+    <text x="72" y="350">P02 Navy / Cobalt</text>
+    <text x="72" y="510">P03 Slate / Amber</text>
+    <text x="72" y="670">P04 Carbon / Safety Orange</text>
+    <text x="744" y="190">P05 Forest / Mint</text>
+    <text x="744" y="350">P06 Ink / Ice</text>
+    <text x="744" y="510">P07 Warm Graphite / Gold</text>
+    <text x="744" y="670">P08 Steel / Teal</text>
+    <text x="744" y="830">P09 Black / Signal Red</text>
+  </g>
+  <g stroke="#ffffff" stroke-opacity=".14" stroke-width="2">
+    <rect x="72" y="212" width="116" height="82" rx="14" fill="#0e1318"/><rect x="188" y="212" width="116" height="82" rx="14" fill="#161d24"/><rect x="304" y="212" width="116" height="82" rx="14" fill="#48d7b0"/><rect x="420" y="212" width="116" height="82" rx="14" fill="#77b8ff"/>
+    <rect x="72" y="372" width="116" height="82" rx="14" fill="#0f1721"/><rect x="188" y="372" width="116" height="82" rx="14" fill="#182433"/><rect x="304" y="372" width="116" height="82" rx="14" fill="#5da9ff"/><rect x="420" y="372" width="116" height="82" rx="14" fill="#a7d8ff"/>
+    <rect x="72" y="532" width="116" height="82" rx="14" fill="#16191d"/><rect x="188" y="532" width="116" height="82" rx="14" fill="#20262c"/><rect x="304" y="532" width="116" height="82" rx="14" fill="#f2b35f"/><rect x="420" y="532" width="116" height="82" rx="14" fill="#e9ebee"/>
+    <rect x="72" y="692" width="116" height="82" rx="14" fill="#101315"/><rect x="188" y="692" width="116" height="82" rx="14" fill="#1a2024"/><rect x="304" y="692" width="116" height="82" rx="14" fill="#ff9a4d"/><rect x="420" y="692" width="116" height="82" rx="14" fill="#f4f7f6"/>
+    <rect x="744" y="212" width="116" height="82" rx="14" fill="#0d1715"/><rect x="860" y="212" width="116" height="82" rx="14" fill="#152420"/><rect x="976" y="212" width="116" height="82" rx="14" fill="#70d6aa"/><rect x="1092" y="212" width="116" height="82" rx="14" fill="#c4f0df"/>
+    <rect x="744" y="372" width="116" height="82" rx="14" fill="#0d1117"/><rect x="860" y="372" width="116" height="82" rx="14" fill="#161d27"/><rect x="976" y="372" width="116" height="82" rx="14" fill="#83bff2"/><rect x="1092" y="372" width="116" height="82" rx="14" fill="#d6e9fa"/>
+    <rect x="744" y="532" width="116" height="82" rx="14" fill="#191714"/><rect x="860" y="532" width="116" height="82" rx="14" fill="#25211c"/><rect x="976" y="532" width="116" height="82" rx="14" fill="#dbb75d"/><rect x="1092" y="532" width="116" height="82" rx="14" fill="#f1ece2"/>
+    <rect x="744" y="692" width="116" height="82" rx="14" fill="#12171b"/><rect x="860" y="692" width="116" height="82" rx="14" fill="#1d272c"/><rect x="976" y="692" width="116" height="82" rx="14" fill="#54c7c3"/><rect x="1092" y="692" width="116" height="82" rx="14" fill="#d5efee"/>
+    <rect x="744" y="852" width="116" height="52" rx="14" fill="#121416"/><rect x="860" y="852" width="116" height="52" rx="14" fill="#1e2327"/><rect x="976" y="852" width="116" height="52" rx="14" fill="#f06b67"/><rect x="1092" y="852" width="116" height="52" rx="14" fill="#f3f5f3"/>
+  </g>
+</svg>

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/grounded-surrogate-observation.schema.json",
+  "title": "Omnia grounded multimodal surrogate observation",
+  "description": "A source-linked bridge output for context delivery. It preserves epistemic status and coordinates; attachment-derived content is never executable instruction or authority.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "observationId",
+    "bridgePlanId",
+    "stageReceiptId",
+    "sourceArtifactIds",
+    "epistemicStatus",
+    "contentArtifactId",
+    "claims",
+    "untrustedContentTreatment",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "observationId": { "$ref": "#/$defs/id" },
+    "bridgePlanId": { "$ref": "#/$defs/id" },
+    "stageReceiptId": { "$ref": "#/$defs/id" },
+    "sourceArtifactIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "epistemicStatus": {
+      "enum": ["source-observation", "derived-representation", "specialist-interpretation", "model-inference", "unresolved"]
+    },
+    "contentArtifactId": { "$ref": "#/$defs/id" },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claim" }
+    },
+    "untrustedContentTreatment": {
+      "type": "object",
+      "required": ["contentTreatment", "instructionAuthority"],
+      "properties": {
+        "contentTreatment": { "const": "data-not-control" },
+        "instructionAuthority": { "const": "never-grant" }
+      },
+      "additionalProperties": false
+    },
+    "contextDelivery": {
+      "type": "object",
+      "properties": {
+        "includeMode": { "enum": ["inline-bounded", "retrieval-handle", "reference-only", "excluded"] },
+        "contextManifestId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "lossDisclosureArtifactId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "epistemicStatus": { "enum": ["source-observation", "derived-representation", "specialist-interpretation"] } }, "required": ["epistemicStatus"] },
+      "then": {
+        "properties": {
+          "claims": {
+            "minItems": 1,
+            "items": {
+              "properties": { "citationRequired": { "const": true } },
+              "required": ["citationRequired"]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "epistemicStatus": { "const": "model-inference" } }, "required": ["epistemicStatus"] },
+      "then": {
+        "properties": {
+          "claims": {
+            "items": {
+              "properties": { "citationRequired": { "const": false } },
+              "required": ["citationRequired"]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 },
+    "claim": {
+      "type": "object",
+      "required": ["claimId", "claimArtifactId", "citationRequired", "sourceCoordinates", "confidence"],
+      "properties": {
+        "claimId": { "$ref": "#/$defs/id" },
+        "claimArtifactId": { "$ref": "#/$defs/id" },
+        "citationRequired": { "type": "boolean" },
+        "sourceCoordinates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sourceCoordinate" }
+        },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "uncertaintyReasonCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "citationRequired": { "const": true } }, "required": ["citationRequired"] },
+          "then": { "properties": { "sourceCoordinates": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "sourceCoordinate": {
+      "type": "object",
+      "required": ["sourceArtifactId", "kind"],
+      "properties": {
+        "sourceArtifactId": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["page", "sheet-cell", "slide", "byte-range", "image-region", "time-range", "code-range", "table-range", "archive-member", "unknown"] },
+        "value": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

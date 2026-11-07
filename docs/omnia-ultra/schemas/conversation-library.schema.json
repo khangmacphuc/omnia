@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/conversation-library.schema.json",
+  "title": "Omnia Project library snapshot",
+  "description": "Project-scoped library snapshot. Standalone Inbox/Recent Chat snapshots use profile-chat-library.schema.json; a null or missing project owner is not represented by this contract.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "revisionId",
+    "title",
+    "roots",
+    "conversations",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "titlePolicy": {
+      "enum": ["manual", "locked", "suggest_once", "always_ask", "safe_auto"]
+    },
+    "status": {
+      "enum": ["active", "paused", "completed", "archived", "deleted"]
+    },
+    "roots": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/workspaceRoot" }
+    },
+    "conversations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conversationSummary" }
+    },
+    "memoryScopeId": { "type": ["string", "null"] },
+    "skillScopeId": { "type": ["string", "null"] },
+    "contextProfileId": { "type": ["string", "null"] },
+    "projectTwinRevisionId": { "type": ["string", "null"] },
+    "continuation": { "$ref": "#/$defs/continuationCursor" },
+    "retentionPolicyId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "eventWatermark": { "type": "integer", "minimum": 0 }
+  },
+  "$defs": {
+    "workspaceRoot": {
+      "type": "object",
+      "required": [
+        "rootId",
+        "kind",
+        "uri",
+        "displayName",
+        "accessMode",
+        "availability",
+        "orderKey"
+      ],
+      "properties": {
+        "rootId": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": [
+            "folder",
+            "repository",
+            "network_drive",
+            "remote",
+            "cloud",
+            "virtual_collection"
+          ]
+        },
+        "uri": { "type": "string", "minLength": 1 },
+        "canonicalIdentity": { "type": ["string", "null"] },
+        "displayName": { "type": "string", "minLength": 1 },
+        "accessMode": { "enum": ["read_only", "read_write", "metadata_only"] },
+        "availability": {
+          "enum": ["available", "offline", "permission_required", "missing", "error"]
+        },
+        "indexPolicy": {
+          "enum": ["disabled", "metadata", "on_demand", "incremental", "full"]
+        },
+        "ignoreRevision": { "type": ["string", "null"] },
+        "indexRevision": { "type": ["string", "null"] },
+        "orderKey": { "type": "string", "minLength": 1 },
+        "enabled": { "type": "boolean", "default": true },
+        "lastScannedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "conversationSummary": {
+      "type": "object",
+      "required": [
+        "conversationId",
+        "title",
+        "activeBranchId",
+        "lifecycle",
+        "updatedAt"
+      ],
+      "properties": {
+        "conversationId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 512 },
+        "activeBranchId": { "type": "string", "minLength": 1 },
+        "lifecycle": {
+          "enum": ["active", "archived", "deleted", "restoring", "importing"]
+        },
+        "pinned": { "type": "boolean", "default": false },
+        "favorite": { "type": "boolean", "default": false },
+        "tagIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "deletedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "continuationCursor": {
+      "type": ["object", "null"],
+      "required": [
+        "sourceRunId",
+        "cursorId",
+        "contextRevisionId",
+        "deduplicationHash",
+        "state"
+      ],
+      "properties": {
+        "sourceRunId": { "type": "string", "minLength": 1 },
+        "cursorId": { "type": "string", "minLength": 1 },
+        "contextRevisionId": { "type": "string", "minLength": 1 },
+        "completedNodeIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "deduplicationHash": { "type": "string", "minLength": 8 },
+        "state": { "enum": ["ready", "running", "paused", "complete", "cancelled"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/request-telemetry.schema.json",
+  "title": "Omnia request telemetry observation",
+  "type": "object",
+  "required": ["schemaVersion", "requestId", "runId", "attemptId", "provider", "model", "timing", "usage"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "requestId": { "type": "string", "minLength": 1 },
+    "runId": { "type": "string", "minLength": 1 },
+    "iterationId": { "type": "string" },
+    "attemptId": { "type": "string", "minLength": 1 },
+    "branchId": { "type": "string" },
+    "agentInstanceId": { "type": "string" },
+    "provider": {
+      "type": "object",
+      "required": ["providerId", "configurationRevisionId"],
+      "properties": {
+        "providerId": { "type": "string", "minLength": 1 },
+        "configurationRevisionId": { "type": "string", "minLength": 1 },
+        "endpointAlias": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": ["modelId", "profileRevisionId", "requestedEffort"],
+      "properties": {
+        "modelId": { "type": "string", "minLength": 1 },
+        "family": { "type": "string" },
+        "profileRevisionId": { "type": "string", "minLength": 1 },
+        "requestedEffort": { "enum": ["fast", "balanced", "deep", "ultra", "custom"] },
+        "effectiveEffort": { "type": ["string", "null"], "maxLength": 128 }
+      },
+      "additionalProperties": false
+    },
+    "timing": { "$ref": "#/$defs/timing" },
+    "usage": { "$ref": "#/$defs/usage" },
+    "throughput": { "$ref": "#/$defs/throughput" },
+    "quota": { "$ref": "#/$defs/quota" },
+    "costStatements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/costStatement" }
+    },
+    "outcome": {
+      "enum": ["queued", "running", "retry_scheduled", "completed", "failed", "cancelled", "outcome_unknown"]
+    },
+    "errorClass": {
+      "type": ["string", "null"],
+      "enum": [
+        "authentication",
+        "authorization",
+        "billing",
+        "rate-limit",
+        "quota",
+        "dns",
+        "tls",
+        "transport",
+        "timeout",
+        "protocol",
+        "schema",
+        "model-unavailable",
+        "content-policy",
+        "cancelled",
+        "unknown",
+        null
+      ]
+    },
+    "retryCount": { "type": "integer", "minimum": 0 },
+    "fallbackCount": { "type": "integer", "minimum": 0 }
+  },
+  "$defs": {
+    "nullableCounter": { "type": ["integer", "null"], "minimum": 0 },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time" },
+        "queuedAt": { "type": ["string", "null"], "format": "date-time" },
+        "startedAt": { "type": ["string", "null"], "format": "date-time" },
+        "dispatchStartedAt": { "type": ["string", "null"], "format": "date-time" },
+        "firstByteAt": { "type": ["string", "null"], "format": "date-time" },
+        "firstProviderOutputAt": { "type": ["string", "null"], "format": "date-time" },
+        "firstReasoningAt": { "type": ["string", "null"], "format": "date-time" },
+        "firstVisibleOutputAt": { "type": ["string", "null"], "format": "date-time" },
+        "lastVisibleOutputAt": { "type": ["string", "null"], "format": "date-time" },
+        "terminalAt": { "type": ["string", "null"], "format": "date-time" },
+        "queueMs": { "$ref": "#/$defs/nullableCounter" },
+        "preparationMs": { "$ref": "#/$defs/nullableCounter" },
+        "approvalWaitMs": { "$ref": "#/$defs/nullableCounter" },
+        "providerMs": { "$ref": "#/$defs/nullableCounter" },
+        "toolMs": { "$ref": "#/$defs/nullableCounter" },
+        "retryWaitMs": { "$ref": "#/$defs/nullableCounter" },
+        "totalWallMs": { "$ref": "#/$defs/nullableCounter" }
+      },
+      "additionalProperties": false
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "inputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "uncachedInputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "cacheReadInputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "cacheWriteInputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "outputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "reasoningTokens": { "$ref": "#/$defs/nullableCounter" },
+        "visibleOutputTokens": { "$ref": "#/$defs/nullableCounter" },
+        "source": { "enum": ["estimate", "provider_incremental", "provider_final", "provider_invoice", "user_correction", "unknown"] }
+      },
+      "additionalProperties": false
+    },
+    "throughput": {
+      "type": "object",
+      "properties": {
+        "visibleTokensPerSecond": { "type": ["number", "null"], "minimum": 0 },
+        "totalGeneratedTokensPerSecond": { "type": ["number", "null"], "minimum": 0 },
+        "averageInterTokenMs": { "type": ["number", "null"], "minimum": 0 },
+        "p95InterTokenMs": { "type": ["number", "null"], "minimum": 0 },
+        "stallCount": { "type": ["integer", "null"], "minimum": 0 },
+        "longestStallMs": { "type": ["integer", "null"], "minimum": 0 },
+        "denominator": { "type": ["string", "null"], "maxLength": 256 }
+      },
+      "additionalProperties": false
+    },
+    "quota": {
+      "type": "object",
+      "properties": {
+        "rpmLimit": { "$ref": "#/$defs/nullableCounter" },
+        "rpmRemaining": { "$ref": "#/$defs/nullableCounter" },
+        "tpmLimit": { "$ref": "#/$defs/nullableCounter" },
+        "tpmRemaining": { "$ref": "#/$defs/nullableCounter" },
+        "concurrencyLimit": { "$ref": "#/$defs/nullableCounter" },
+        "concurrencyRemaining": { "$ref": "#/$defs/nullableCounter" },
+        "resetAt": { "type": ["string", "null"], "format": "date-time" },
+        "retryAfterMs": { "$ref": "#/$defs/nullableCounter" },
+        "source": { "enum": ["provider_header", "provider_api", "configured", "inferred", "unknown"] },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "costStatement": {
+      "type": "object",
+      "required": ["kind", "currency", "microunits", "observedAt"],
+      "properties": {
+        "kind": { "enum": ["estimate", "provider_reported", "invoice", "user_correction"] },
+        "component": { "type": "string", "maxLength": 128 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "microunits": { "type": "integer" },
+        "priceSnapshotId": { "type": ["string", "null"] },
+        "formulaRevision": { "type": ["string", "null"] },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

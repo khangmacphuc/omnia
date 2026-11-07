@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Bracket O</title>
+  <desc id="desc">Warm orange code brackets frame a circular core.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#14191d"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#344049" stroke-width="3"/>
+  <path d="M181 145h-47v222h47M331 145h47v222h-47" fill="none" stroke="#ff9f43" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="83" fill="none" stroke="#f3f7f6" stroke-width="24"/>
+  <circle cx="256" cy="256" r="17" fill="#ff9f43"/>
+</svg>

@@ -1,0 +1,1851 @@
+{
+  "schemaVersion": 1,
+  "projectId": "omnia",
+  "revisionId": "twin-235c930f386cab76",
+  "sourceSnapshot": {
+    "kind": "filesystem",
+    "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+  },
+  "nodes": [
+    {
+      "id": "project.omnia",
+      "type": "project",
+      "label": "Omnia",
+      "status": "preview",
+      "description": "Local-first, provider-neutral AI workspace for Windows 11.",
+      "sourceRefs": [
+        {
+          "path": "README.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b"
+        },
+        {
+          "path": "docs/PRODUCT_SPEC.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16"
+        }
+      ],
+      "evidenceIds": [
+        "ev.readme",
+        "ev.product-spec"
+      ]
+    },
+    {
+      "id": "goal.phase1-preview",
+      "type": "goal",
+      "label": "Phase 1 provider preview",
+      "status": "partial",
+      "description": "A useful unsigned internal preview with a durable foundation, native provider streaming, and explicit boundaries.",
+      "sourceRefs": [
+        {
+          "path": "README.md",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 1,
+          "endLine": 12,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.readme",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "goal.chat-complete",
+      "type": "goal",
+      "label": "Chat Complete 1.0",
+      "status": "planned",
+      "description": "The durable, inspectable chat workbench boundary defined by the product specification.",
+      "sourceRefs": [
+        {
+          "path": "README.md",
+          "startLine": 78,
+          "endLine": 108,
+          "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b"
+        },
+        {
+          "path": "docs/PRODUCT_SPEC.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16"
+        }
+      ],
+      "evidenceIds": [
+        "ev.readme",
+        "ev.product-spec"
+      ]
+    },
+    {
+      "id": "goal.omnia-ultra",
+      "type": "goal",
+      "label": "Omnia Ultra universal workbench",
+      "status": "planned",
+      "description": "The forward product charter unifies chat, research, learning, coding, IDE, browser and machine capabilities, files, automation, agents, Project Twin and adaptive intelligence through dependency-gated phases. It is a normative target, not evidence that those capabilities ship in the current tree.",
+      "sourceRefs": [
+        {
+          "path": "docs/omnia-ultra/01-MASTER-CHARTER.md",
+          "startLine": 9,
+          "endLine": 26,
+          "contentHash": "0974da3edcdd96db3762da0dd7ef835330c7f3a9be3c1691f8f43def31ecfda2"
+        },
+        {
+          "path": "docs/omnia-ultra/delivery/roadmap.md",
+          "startLine": 9,
+          "endLine": 71,
+          "contentHash": "575fb0252e02a26397b659528a35dfa31f401320551549b7912e3f8ee2c78889"
+        }
+      ],
+      "evidenceIds": [
+        "ev.ultra-charter",
+        "ev.ultra-roadmap"
+      ]
+    },
+    {
+      "id": "non-goal.autonomous-coding",
+      "type": "non-goal",
+      "label": "Autonomous coding and machine control",
+      "status": "deferred",
+      "description": "IDE, terminal, browser, computer-use, and autonomous coding remain outside the current Chat Complete boundary.",
+      "sourceRefs": [
+        {
+          "path": "README.md",
+          "startLine": 110,
+          "endLine": 117,
+          "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 46,
+          "endLine": 47,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.readme",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "architecture.tauri-boundary",
+      "type": "architecture",
+      "label": "Tauri renderer/native boundary",
+      "status": "implemented",
+      "description": "Versioned startup negotiation and an allowlisted trusted native core separate browser preview from desktop capabilities.",
+      "sourceRefs": [
+        {
+          "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "71577709e6c1c4bf1760fdd2b64c15d51b0cc8db13b6627dede2f9c0e8231013"
+        },
+        {
+          "path": "src/lib/core-protocol.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "1908765dc90657ac28f4cd2118942edc97605616e5dcc4f9555433599551407b"
+        },
+        {
+          "path": "src-tauri/src/core_protocol.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "02c71970e657c725eb9df314e896bb7967a8e5f454a4e270d5ba4751a685c1ee"
+        }
+      ],
+      "evidenceIds": [
+        "ev.adr-runtime",
+        "ev.renderer-protocol",
+        "ev.native-protocol"
+      ]
+    },
+    {
+      "id": "architecture.storage",
+      "type": "architecture",
+      "label": "Local SQLite storage",
+      "status": "partial",
+      "description": "Native SQLite initialization, integrity checks, migrations, and durable projections exist; full backup, purge, and fault recovery remain incomplete.",
+      "sourceRefs": [
+        {
+          "path": "docs/storage-schema.sql",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "e80871c8929ab2ad479460a6598858472cb48abab1818845630de1d4ef9f4e5c"
+        },
+        {
+          "path": "src-tauri/src/storage.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.storage-schema",
+        "ev.native-storage",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "architecture.provider-gateway",
+      "type": "architecture",
+      "label": "Provider gateway",
+      "status": "implemented",
+      "description": "Provider-neutral adapters normalize discovery, streaming, cancellation, usage, and redacted failures behind the native gateway.",
+      "sourceRefs": [
+        {
+          "path": "docs/PROVIDER_ARCHITECTURE.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "85698df91b7f70cfc1ee01ea5ccfc03dd484ddf5f60ea79d096f1f96ecb95d01"
+        },
+        {
+          "path": "src-tauri/src/provider_gateway.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "b519e9d14a20d1b6b0623cf5054c184422759c91821ae569dfbd72f8e2fa4cdc"
+        },
+        {
+          "path": "src-tauri/src/provider_definition.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "2f7ecfab6e91ea8a2b9774aa53ec118218b2303c6e070dc7ee9b30740442d8fc"
+        }
+      ],
+      "evidenceIds": [
+        "ev.provider-spec",
+        "ev.native-provider"
+      ]
+    },
+    {
+      "id": "architecture.run-journal",
+      "type": "architecture",
+      "label": "Durable run journal and replay",
+      "status": "partial",
+      "description": "Atomic run/attempt projection updates and fixed-watermark renderer replay are wired for the initial text-chat slice.",
+      "sourceRefs": [
+        {
+          "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "ff532c3e4dd34866a99b597a1047e837effba03d86447d05a4149f2990055036"
+        },
+        {
+          "path": "src-tauri/src/run_journal.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "3781f9d594211782647599013d04f3baa8d70ead6a540532043765f05d9ffec6"
+        },
+        {
+          "path": "src/features/workspace/run-journal-projection.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "8fe471a36888a664cafcf65bce79f781dfee505460084f3bdcb462c7830f3b5d"
+        }
+      ],
+      "evidenceIds": [
+        "ev.adr-journal",
+        "ev.native-journal",
+        "ev.renderer-journal"
+      ]
+    },
+    {
+      "id": "architecture.provider-usage-ledger",
+      "type": "architecture",
+      "label": "Attempt-scoped provider usage ledger",
+      "status": "partial",
+      "description": "Provider-stream token observations append a content-free, non-authoritative partial ledger row atomically with the compatibility projection and usage journal event, and a bounded renderer-safe read now exposes that usage slice. Native timing, final or invoice cost, quota, health, retry and fallback observations remain open.",
+      "sourceRefs": [
+        {
+          "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "8c2a3a27ab39648561d42c505a3b56ea44e519f769542806750b721b2bbdf3f2"
+        },
+        {
+          "path": "src-tauri/src/run_journal.rs",
+          "startLine": 467,
+          "endLine": 650,
+          "contentHash": "3781f9d594211782647599013d04f3baa8d70ead6a540532043765f05d9ffec6"
+        },
+        {
+          "path": "docs/audit/NATIVE_RUN_JOURNAL_VERTICAL_SLICE.md",
+          "startLine": 70,
+          "endLine": 110,
+          "contentHash": "473ff907d27ae58b7a48f9a6cdfc1489f889bcfb60bd20497e22483f6d92e5be"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 32,
+          "endLine": 33,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.adr-telemetry",
+        "ev.native-journal",
+        "ev.native-telemetry",
+        "ev.usage-ledger-audit",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "domain.typed-contracts",
+      "type": "domain",
+      "label": "Typed domain contracts",
+      "status": "implemented",
+      "description": "Immutable contracts and invariants cover conversations, runs, providers, parameters, context, projects, memory, skills, content, citations, and grants.",
+      "sourceRefs": [
+        {
+          "path": "src/domain/index.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "687f5f2e56dbc390c637f2d4006e2a54a7ba0b649fe5ed77f9e3ac89fa3ae0e8"
+        },
+        {
+          "path": "src/domain/domain.test.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "aeabe3f393308cb8d513783fea3f4afaf778d4e525ebe0f95ae825f10a948cea"
+        },
+        {
+          "path": "src/domain/project.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "3541b2202efbc1653620c99b7c17622f7723bd620dfa8d6ceaf5f3f10f1211c4"
+        }
+      ],
+      "evidenceIds": [
+        "ev.domain-contracts",
+        "ev.domain-tests"
+      ]
+    },
+    {
+      "id": "component.workspace-shell",
+      "type": "component",
+      "label": "Workspace renderer shell",
+      "status": "partial",
+      "description": "Responsive activity rail, sidebar, workspace, inspector, command palette, themes, density, and reduced-motion controls are present.",
+      "sourceRefs": [
+        {
+          "path": "src/App.tsx",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "a993fd67b98eeeea0f37f4f1c37dc3affaea63c0046079aef90987c6e9563aa5"
+        },
+        {
+          "path": "src/features/workspace/store.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "701d472820a536d3f4cc6be558cc3996b2515eed4194e73c68dcf0311ed3caae"
+        },
+        {
+          "path": "docs/ui/product-ui-spec.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "ba476f8373fa77e289415725ef03eed35a4f432fe1d7e7210e8aafddc54f78ae"
+        }
+      ],
+      "evidenceIds": [
+        "ev.renderer-app",
+        "ev.workspace-store",
+        "ev.ui-spec"
+      ]
+    },
+    {
+      "id": "component.project-persistence",
+      "type": "component",
+      "label": "Project persistence and hydration",
+      "status": "implemented",
+      "description": "Native create/list project commands persist metadata and hydrate the renderer at startup.",
+      "sourceRefs": [
+        {
+          "path": "src/domain/project.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "3541b2202efbc1653620c99b7c17622f7723bd620dfa8d6ceaf5f3f10f1211c4"
+        },
+        {
+          "path": "src/features/workspace/project-catalog.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "fc265cb159910175c47f81f2a64897263ad8d2749aa0d11995e3eda90dc0689d"
+        },
+        {
+          "path": "src-tauri/src/commands.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "23d90bc71d224cdeafa8095703ed1232a5a29f2f6f3e5e29bfc1b25defc4f3d1"
+        }
+      ],
+      "evidenceIds": [
+        "ev.project-domain",
+        "ev.project-catalog",
+        "ev.native-commands"
+      ]
+    },
+    {
+      "id": "component.workspace-grants",
+      "type": "component",
+      "label": "Read-only workspace grants",
+      "status": "implemented",
+      "description": "Folder grants use canonical containment checks and bounded listing/text reads without write, execute, indexing, or symlink following.",
+      "sourceRefs": [
+        {
+          "path": "src-tauri/src/workspace.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "a1ef651211d2eb2efae8a911643f8bf75775536f3fba2b8b90893852c0a6e2e7"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.native-workspace",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "component.provider-streaming",
+      "type": "component",
+      "label": "Live provider text streaming",
+      "status": "implemented",
+      "description": "OpenAI, Anthropic, Gemini, OpenAI-compatible, and explicitly granted local-compatible text streams normalize into durable run events.",
+      "sourceRefs": [
+        {
+          "path": "src-tauri/src/provider_gateway.rs",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "b519e9d14a20d1b6b0623cf5054c184422759c91821ae569dfbd72f8e2fa4cdc"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 32,
+          "endLine": 32,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.native-provider",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "component.context-inspector",
+      "type": "component",
+      "label": "Context and run inspector",
+      "status": "partial",
+      "description": "The renderer inspector now consumes a bounded native telemetry snapshot for partial provider-stream usage observations, while the final context compiler, persisted context snapshot, timing, cost and retrieval provenance remain open.",
+      "sourceRefs": [
+        {
+          "path": "src/features/workspace/inspector.tsx",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 33,
+          "endLine": 33,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 38,
+          "endLine": 38,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.inspector",
+        "ev.status",
+        "ev.telemetry-inspector"
+      ]
+    },
+    {
+      "id": "component.run-telemetry-inspector",
+      "type": "component",
+      "label": "Native run telemetry inspector slice",
+      "status": "partial",
+      "description": "A session-protected native command reads one owned run through a bounded, fail-closed, content-free DTO; the renderer bridge, non-persisted store, replay sync and inspector show real partial non-authoritative provider-stream usage without hidden reasoning content or zero-filled unknowns. Native timing, throughput, RPM/TPM, quota/health, final or invoice cost, retry and fallback telemetry remain unavailable.",
+      "sourceRefs": [
+        {
+          "path": "src-tauri/src/telemetry.rs",
+          "startLine": 234,
+          "endLine": 313,
+          "contentHash": "cde9b0b28eef054879dd8d623cde662d3dba8dba12fb4b9c8562f229051b7c47"
+        },
+        {
+          "path": "src-tauri/src/telemetry.rs",
+          "startLine": 1488,
+          "endLine": 1621,
+          "contentHash": "cde9b0b28eef054879dd8d623cde662d3dba8dba12fb4b9c8562f229051b7c47"
+        },
+        {
+          "path": "src-tauri/src/native_commands.rs",
+          "startLine": 142,
+          "endLine": 150,
+          "contentHash": "115cc274df999bc3aaa283a1f019385cf7689b27db758e2483518a7e275b7f27"
+        },
+        {
+          "path": "src-tauri/src/lib.rs",
+          "startLine": 27,
+          "endLine": 39,
+          "contentHash": "8e51d43ed9c06bcab4f95fe2f2e11802450c0934e01ab99c8332cf2441bd7e30"
+        },
+        {
+          "path": "src-tauri/src/lib.rs",
+          "startLine": 87,
+          "endLine": 89,
+          "contentHash": "8e51d43ed9c06bcab4f95fe2f2e11802450c0934e01ab99c8332cf2441bd7e30"
+        },
+        {
+          "path": "src-tauri/src/ipc_session.rs",
+          "startLine": 181,
+          "endLine": 219,
+          "contentHash": "b9a03ae1a373593b57e5ced4282821a86e5fd39925c4c12d868ea09552d1ce7a"
+        },
+        {
+          "path": "src/lib/desktop.ts",
+          "startLine": 218,
+          "endLine": 311,
+          "contentHash": "bcc71868978119eaebe55bcc65b06e0c6142b6e7162d42e766676c9fca7cf722"
+        },
+        {
+          "path": "src/lib/desktop.ts",
+          "startLine": 805,
+          "endLine": 808,
+          "contentHash": "bcc71868978119eaebe55bcc65b06e0c6142b6e7162d42e766676c9fca7cf722"
+        },
+        {
+          "path": "src/features/workspace/store.ts",
+          "startLine": 82,
+          "endLine": 83,
+          "contentHash": "701d472820a536d3f4cc6be558cc3996b2515eed4194e73c68dcf0311ed3caae"
+        },
+        {
+          "path": "src/features/workspace/store.ts",
+          "startLine": 750,
+          "endLine": 756,
+          "contentHash": "701d472820a536d3f4cc6be558cc3996b2515eed4194e73c68dcf0311ed3caae"
+        },
+        {
+          "path": "src/features/workspace/run-journal-sync.ts",
+          "startLine": 41,
+          "endLine": 56,
+          "contentHash": "1a89abe429b23f4947d6a63443e53f1f7a9d4bccd1ed1d76eb0311614345dc96"
+        },
+        {
+          "path": "src/features/workspace/inspector.tsx",
+          "startLine": 225,
+          "endLine": 367,
+          "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371"
+        },
+        {
+          "path": "src-tauri/src/storage.rs",
+          "startLine": 5180,
+          "endLine": 5270,
+          "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d"
+        },
+        {
+          "path": "src/lib/desktop.native-session.test.ts",
+          "startLine": 159,
+          "endLine": 179,
+          "contentHash": "505b8dde4aa58589c2dd275ea96f7a1a87185a7583ae1d81335197bb6405f891"
+        },
+        {
+          "path": "src/features/workspace/run-telemetry-sync.test.ts",
+          "startLine": 20,
+          "endLine": 42,
+          "contentHash": "7192e85229b39c08f924000df80de1971ec59dc62abf53b8678bb99b2055f920"
+        },
+        {
+          "path": "src/features/workspace/inspector.telemetry.test.tsx",
+          "startLine": 86,
+          "endLine": 111,
+          "contentHash": "94abd1976dbfb71a8557ab22ddfa20faec820157aacfed0bb127484cc4b2284b"
+        }
+      ],
+      "evidenceIds": [
+        "ev.native-telemetry",
+        "ev.native-telemetry-command",
+        "ev.native-app-handler",
+        "ev.native-ipc-session",
+        "ev.renderer-desktop-bridge",
+        "ev.workspace-store",
+        "ev.renderer-telemetry-sync",
+        "ev.telemetry-inspector",
+        "ev.native-telemetry-read-test",
+        "ev.desktop-telemetry-session-test",
+        "ev.telemetry-sync-test",
+        "ev.telemetry-inspector-test"
+      ]
+    },
+    {
+      "id": "test.renderer-suite",
+      "type": "test",
+      "label": "Renderer and domain test suite",
+      "status": "partial",
+      "description": "Renderer, domain, accessibility and truthfulness test sources exist, including focused telemetry bridge, sync and inspector coverage; a current-snapshot full-suite runtime receipt is still required before this aggregate node can be called verified.",
+      "sourceRefs": [
+        {
+          "path": "tests/visual/visual-fixture-contract.spec.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "bd57b78f8bd830d3c35f61ea9841c9aaeb25164bf3e7ad07c2305d3c9efee6b6"
+        },
+        {
+          "path": "src/lib/desktop.native-session.test.ts",
+          "startLine": 159,
+          "endLine": 179,
+          "contentHash": "505b8dde4aa58589c2dd275ea96f7a1a87185a7583ae1d81335197bb6405f891"
+        },
+        {
+          "path": "src/features/workspace/run-telemetry-sync.test.ts",
+          "startLine": 20,
+          "endLine": 42,
+          "contentHash": "7192e85229b39c08f924000df80de1971ec59dc62abf53b8678bb99b2055f920"
+        },
+        {
+          "path": "src/features/workspace/inspector.telemetry.test.tsx",
+          "startLine": 86,
+          "endLine": 111,
+          "contentHash": "94abd1976dbfb71a8557ab22ddfa20faec820157aacfed0bb127484cc4b2284b"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 79,
+          "endLine": 80,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.renderer-tests",
+        "ev.desktop-telemetry-session-test",
+        "ev.telemetry-sync-test",
+        "ev.telemetry-inspector-test",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "test.native-suite",
+      "type": "test",
+      "label": "Native test and packaging gate",
+      "status": "partial",
+      "description": "One rebuilt `omnia_native` focused telemetry-read test now launches and passes directly on this host. Full native-suite, packaged-app and CI verification remain separate gates; an earlier loader failure remains historical evidence for a pre-fix target.",
+      "sourceRefs": [
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 79,
+          "endLine": 88,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        },
+        {
+          "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md",
+          "startLine": 36,
+          "endLine": 59,
+          "contentHash": "db082a3b617d168f98b0135d17ca35b184b822a8f48255ecad7fa5819577e83e"
+        },
+        {
+          "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md",
+          "startLine": 9,
+          "endLine": 40,
+          "contentHash": "e30d78fb5e6f7428ea2e63aa993afe2f77a689a77baa07be1907e886e89491fc"
+        }
+      ],
+      "evidenceIds": [
+        "ev.status",
+        "ev.native-telemetry-read-receipt",
+        "ev.native-test-loader-receipt"
+      ]
+    },
+    {
+      "id": "roadmap.project-intelligence",
+      "type": "roadmap",
+      "label": "Project intelligence",
+      "status": "planned",
+      "description": "Extraction, indexing, retrieval, citations, artifacts, and context compilation follow the durable kernel and provider foundations.",
+      "sourceRefs": [
+        {
+          "path": "docs/omnia-ultra/delivery/roadmap.md",
+          "startLine": 24,
+          "endLine": 35,
+          "contentHash": "575fb0252e02a26397b659528a35dfa31f401320551549b7912e3f8ee2c78889"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_STATUS.md",
+          "startLine": 39,
+          "endLine": 44,
+          "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3"
+        }
+      ],
+      "evidenceIds": [
+        "ev.ultra-roadmap",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "decision.local-first",
+      "type": "decision",
+      "label": "Local-first data and secrets",
+      "status": "accepted",
+      "description": "Implemented project/chat data and preferences remain local by default; provider credentials cross an opaque native Windows-protected boundary.",
+      "sourceRefs": [
+        {
+          "path": "README.md",
+          "startLine": 42,
+          "endLine": 47,
+          "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b"
+        },
+        {
+          "path": "docs/security-storage-architecture.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "520619bfadcdec70dd527b72f94fcd915a51fcce14f71f48252900db433784e1"
+        }
+      ],
+      "evidenceIds": [
+        "ev.readme",
+        "ev.security-storage"
+      ]
+    },
+    {
+      "id": "risk.native-test-loader",
+      "type": "risk",
+      "label": "Historical native test-loader failure",
+      "status": "partial",
+      "description": "A prior `omnia_lib` test target failed before discovery with STATUS_ENTRYPOINT_NOT_FOUND. The rebuilt `omnia_native` focused telemetry-read target now passes directly on this host, so the old failure is retained as historical diagnostic evidence rather than a current blanket blocker.",
+      "sourceRefs": [
+        {
+          "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md",
+          "startLine": 9,
+          "endLine": 40,
+          "contentHash": "e30d78fb5e6f7428ea2e63aa993afe2f77a689a77baa07be1907e886e89491fc"
+        },
+        {
+          "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md",
+          "startLine": 47,
+          "endLine": 65,
+          "contentHash": "db082a3b617d168f98b0135d17ca35b184b822a8f48255ecad7fa5819577e83e"
+        }
+      ],
+      "evidenceIds": [
+        "ev.native-test-loader-receipt",
+        "ev.native-telemetry-read-receipt"
+      ]
+    },
+    {
+      "id": "twin.manifest",
+      "type": "artifact",
+      "label": "Twin manifest",
+      "status": "implemented",
+      "description": "Schema-compatible snapshot manifest with source hash, document/graph/atlas entries, evidence hashes, and user-owned sections.",
+      "sourceRefs": [
+        {
+          "path": "docs/omnia-ultra/schemas/project-twin.schema.json",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "3c3cf5adb98c7d3d3435be0874ee376a5e16c9e510fbd72d24ceb996a2d458b8"
+        },
+        {
+          "path": "docs/project-twin/catalog.json",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4"
+        }
+      ],
+      "evidenceIds": [
+        "ev.twin-schema",
+        "ev.twin-catalog"
+      ]
+    },
+    {
+      "id": "twin.graph",
+      "type": "artifact",
+      "label": "Canonical graph",
+      "status": "implemented",
+      "description": "Evidence-linked node and edge projection for product, architecture, components, tests, roadmap, decisions, risks, and artifacts.",
+      "sourceRefs": [
+        {
+          "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "fab2e5fe02e1421146dae4d98091dc652f8767b71bce83ef101d2fe5b127aa4b"
+        },
+        {
+          "path": "docs/project-twin/catalog.json",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4"
+        }
+      ],
+      "evidenceIds": [
+        "ev.twin-contract",
+        "ev.twin-catalog"
+      ]
+    },
+    {
+      "id": "twin.atlas",
+      "type": "artifact",
+      "label": "Offline accessible atlas",
+      "status": "implemented",
+      "description": "Static HTML/CSS/JavaScript atlas with search, status/type filters, node details, and an evidence-linked edge table.",
+      "sourceRefs": [
+        {
+          "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md",
+          "startLine": 26,
+          "endLine": 31,
+          "contentHash": "fab2e5fe02e1421146dae4d98091dc652f8767b71bce83ef101d2fe5b127aa4b"
+        },
+        {
+          "path": "docs/project-twin/catalog.json",
+          "startLine": 1,
+          "endLine": 1,
+          "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4"
+        }
+      ],
+      "evidenceIds": [
+        "ev.twin-contract",
+        "ev.twin-catalog"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge.project-phase1",
+      "type": "targets",
+      "source": "project.omnia",
+      "target": "goal.phase1-preview",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.readme",
+        "ev.status"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.project-chat-complete",
+      "type": "targets",
+      "source": "project.omnia",
+      "target": "goal.chat-complete",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.readme",
+        "ev.product-spec"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.project-non-goal",
+      "type": "constrains",
+      "source": "project.omnia",
+      "target": "non-goal.autonomous-coding",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.readme",
+        "ev.status"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.phase1-boundary",
+      "type": "implemented_by",
+      "source": "goal.phase1-preview",
+      "target": "architecture.tauri-boundary",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.status",
+        "ev.adr-runtime"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.phase1-storage",
+      "type": "implemented_by",
+      "source": "goal.phase1-preview",
+      "target": "architecture.storage",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.status",
+        "ev.storage-schema"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.phase1-provider",
+      "type": "implemented_by",
+      "source": "goal.phase1-preview",
+      "target": "component.provider-streaming",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.status",
+        "ev.native-provider"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.boundary-shell",
+      "type": "contains",
+      "source": "architecture.tauri-boundary",
+      "target": "component.workspace-shell",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.renderer-app",
+        "ev.native-protocol"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.storage-projects",
+      "type": "persists",
+      "source": "architecture.storage",
+      "target": "component.project-persistence",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.storage-schema",
+        "ev.project-catalog"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.storage-journal",
+      "type": "persists",
+      "source": "architecture.storage",
+      "target": "architecture.run-journal",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.native-storage",
+        "ev.adr-journal"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.storage-usage-ledger",
+      "type": "persists",
+      "source": "architecture.storage",
+      "target": "architecture.provider-usage-ledger",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.storage-schema",
+        "ev.native-telemetry"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.gateway-stream",
+      "type": "normalizes",
+      "source": "architecture.provider-gateway",
+      "target": "component.provider-streaming",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.provider-spec",
+        "ev.native-provider"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.protocol-contracts",
+      "type": "exposes",
+      "source": "architecture.tauri-boundary",
+      "target": "domain.typed-contracts",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.renderer-protocol",
+        "ev.domain-contracts"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.journal-inspector",
+      "type": "projects_to",
+      "source": "architecture.run-journal",
+      "target": "component.context-inspector",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.renderer-journal",
+        "ev.inspector"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.journal-usage-ledger",
+      "type": "records",
+      "source": "architecture.run-journal",
+      "target": "architecture.provider-usage-ledger",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "static_analysis",
+      "evidenceIds": [
+        "ev.native-journal",
+        "ev.native-telemetry",
+        "ev.usage-ledger-audit"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.usage-ledger-telemetry-inspector",
+      "type": "exposed_by",
+      "source": "architecture.provider-usage-ledger",
+      "target": "component.run-telemetry-inspector",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "static_analysis",
+      "evidenceIds": [
+        "ev.native-telemetry",
+        "ev.native-telemetry-command",
+        "ev.renderer-desktop-bridge"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.boundary-telemetry-inspector",
+      "type": "protects",
+      "source": "architecture.tauri-boundary",
+      "target": "component.run-telemetry-inspector",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "static_analysis",
+      "evidenceIds": [
+        "ev.native-app-handler",
+        "ev.native-ipc-session",
+        "ev.native-telemetry-command"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.telemetry-context-inspector",
+      "type": "projects_to",
+      "source": "component.run-telemetry-inspector",
+      "target": "component.context-inspector",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "static_analysis",
+      "evidenceIds": [
+        "ev.renderer-telemetry-sync",
+        "ev.telemetry-inspector"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.telemetry-renderer-tests",
+      "type": "verified_by",
+      "source": "component.run-telemetry-inspector",
+      "target": "test.renderer-suite",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "test",
+      "evidenceIds": [
+        "ev.desktop-telemetry-session-test",
+        "ev.telemetry-sync-test",
+        "ev.telemetry-inspector-test"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.telemetry-native-runtime-risk",
+      "type": "historically_blocked_by",
+      "source": "component.run-telemetry-inspector",
+      "target": "risk.native-test-loader",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "runtime",
+      "evidenceIds": [
+        "ev.native-test-loader-receipt"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.telemetry-native-runtime-verified",
+      "type": "verified_by",
+      "source": "component.run-telemetry-inspector",
+      "target": "test.native-suite",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "runtime",
+      "evidenceIds": [
+        "ev.native-telemetry-read-receipt"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.projects-shell",
+      "type": "hydrates",
+      "source": "component.project-persistence",
+      "target": "component.workspace-shell",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.project-catalog",
+        "ev.renderer-app"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.grants-projects",
+      "type": "scopes",
+      "source": "component.workspace-grants",
+      "target": "component.project-persistence",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.native-workspace",
+        "ev.status"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.contracts-tests",
+      "type": "verified_by",
+      "source": "domain.typed-contracts",
+      "target": "test.renderer-suite",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "test",
+      "evidenceIds": [
+        "ev.domain-tests",
+        "ev.renderer-tests"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.renderer-tests",
+      "type": "verified_by",
+      "source": "component.workspace-shell",
+      "target": "test.renderer-suite",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "test",
+      "evidenceIds": [
+        "ev.renderer-tests",
+        "ev.ui-spec"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.native-risk",
+      "type": "blocked_by",
+      "source": "test.native-suite",
+      "target": "risk.native-test-loader",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "runtime",
+      "evidenceIds": [
+        "ev.native-test-loader-receipt",
+        "ev.status"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.chat-roadmap",
+      "type": "depends_on",
+      "source": "goal.chat-complete",
+      "target": "roadmap.project-intelligence",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.product-spec",
+        "ev.ultra-roadmap"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.ultra-targets-project",
+      "type": "sets_target_for",
+      "source": "goal.omnia-ultra",
+      "target": "project.omnia",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.ultra-charter"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.ultra-roadmap",
+      "type": "phased_by",
+      "source": "goal.omnia-ultra",
+      "target": "roadmap.project-intelligence",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.ultra-charter",
+        "ev.ultra-roadmap"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.local-first",
+      "type": "governed_by",
+      "source": "project.omnia",
+      "target": "decision.local-first",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "source_fact",
+      "evidenceIds": [
+        "ev.readme",
+        "ev.security-storage"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.twin-manifest",
+      "type": "describes",
+      "source": "twin.manifest",
+      "target": "project.omnia",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "user_annotation",
+      "evidenceIds": [
+        "ev.twin-schema",
+        "ev.twin-catalog"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.twin-graph",
+      "type": "projects",
+      "source": "twin.graph",
+      "target": "project.omnia",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "user_annotation",
+      "evidenceIds": [
+        "ev.twin-contract",
+        "ev.twin-catalog"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    },
+    {
+      "id": "edge.twin-atlas",
+      "type": "renders",
+      "source": "twin.atlas",
+      "target": "twin.graph",
+      "provenance": {
+        "kind": "catalog",
+        "path": "docs/project-twin/catalog.json"
+      },
+      "evidenceClass": "user_annotation",
+      "evidenceIds": [
+        "ev.twin-contract",
+        "ev.twin-catalog"
+      ],
+      "sourceSnapshot": {
+        "kind": "filesystem",
+        "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+      },
+      "sourceRevision": "twin-235c930f386cab76",
+      "createdAt": "2026-08-14T00:00:00Z",
+      "stale": false
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev.readme",
+      "class": "source_fact",
+      "path": "README.md",
+      "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b",
+      "stale": false
+    },
+    {
+      "id": "ev.product-spec",
+      "class": "source_fact",
+      "path": "docs/PRODUCT_SPEC.md",
+      "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16",
+      "stale": false
+    },
+    {
+      "id": "ev.status",
+      "class": "audit",
+      "path": "docs/IMPLEMENTATION_STATUS.md",
+      "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3",
+      "stale": false
+    },
+    {
+      "id": "ev.adr-runtime",
+      "class": "source_fact",
+      "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md",
+      "contentHash": "71577709e6c1c4bf1760fdd2b64c15d51b0cc8db13b6627dede2f9c0e8231013",
+      "stale": false
+    },
+    {
+      "id": "ev.adr-journal",
+      "class": "source_fact",
+      "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+      "contentHash": "ff532c3e4dd34866a99b597a1047e837effba03d86447d05a4149f2990055036",
+      "stale": false
+    },
+    {
+      "id": "ev.adr-telemetry",
+      "class": "source_fact",
+      "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+      "contentHash": "8c2a3a27ab39648561d42c505a3b56ea44e519f769542806750b721b2bbdf3f2",
+      "stale": false
+    },
+    {
+      "id": "ev.security-storage",
+      "class": "source_fact",
+      "path": "docs/security-storage-architecture.md",
+      "contentHash": "520619bfadcdec70dd527b72f94fcd915a51fcce14f71f48252900db433784e1",
+      "stale": false
+    },
+    {
+      "id": "ev.storage-schema",
+      "class": "source_fact",
+      "path": "docs/storage-schema.sql",
+      "contentHash": "e80871c8929ab2ad479460a6598858472cb48abab1818845630de1d4ef9f4e5c",
+      "stale": false
+    },
+    {
+      "id": "ev.provider-spec",
+      "class": "source_fact",
+      "path": "docs/PROVIDER_ARCHITECTURE.md",
+      "contentHash": "85698df91b7f70cfc1ee01ea5ccfc03dd484ddf5f60ea79d096f1f96ecb95d01",
+      "stale": false
+    },
+    {
+      "id": "ev.ui-spec",
+      "class": "source_fact",
+      "path": "docs/ui/product-ui-spec.md",
+      "contentHash": "ba476f8373fa77e289415725ef03eed35a4f432fe1d7e7210e8aafddc54f78ae",
+      "stale": false
+    },
+    {
+      "id": "ev.ultra-charter",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/01-MASTER-CHARTER.md",
+      "contentHash": "0974da3edcdd96db3762da0dd7ef835330c7f3a9be3c1691f8f43def31ecfda2",
+      "stale": false
+    },
+    {
+      "id": "ev.ultra-roadmap",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/delivery/roadmap.md",
+      "contentHash": "575fb0252e02a26397b659528a35dfa31f401320551549b7912e3f8ee2c78889",
+      "stale": false
+    },
+    {
+      "id": "ev.twin-schema",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/schemas/project-twin.schema.json",
+      "contentHash": "3c3cf5adb98c7d3d3435be0874ee376a5e16c9e510fbd72d24ceb996a2d458b8",
+      "stale": false
+    },
+    {
+      "id": "ev.twin-contract",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md",
+      "contentHash": "fab2e5fe02e1421146dae4d98091dc652f8767b71bce83ef101d2fe5b127aa4b",
+      "stale": false
+    },
+    {
+      "id": "ev.twin-catalog",
+      "class": "user_annotation",
+      "path": "docs/project-twin/catalog.json",
+      "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-protocol",
+      "class": "static_analysis",
+      "path": "src/lib/core-protocol.ts",
+      "contentHash": "1908765dc90657ac28f4cd2118942edc97605616e5dcc4f9555433599551407b",
+      "stale": false
+    },
+    {
+      "id": "ev.native-protocol",
+      "class": "static_analysis",
+      "path": "src-tauri/src/core_protocol.rs",
+      "contentHash": "02c71970e657c725eb9df314e896bb7967a8e5f454a4e270d5ba4751a685c1ee",
+      "stale": false
+    },
+    {
+      "id": "ev.native-storage",
+      "class": "static_analysis",
+      "path": "src-tauri/src/storage.rs",
+      "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d",
+      "stale": false
+    },
+    {
+      "id": "ev.native-provider",
+      "class": "static_analysis",
+      "path": "src-tauri/src/provider_gateway.rs",
+      "contentHash": "b519e9d14a20d1b6b0623cf5054c184422759c91821ae569dfbd72f8e2fa4cdc",
+      "stale": false
+    },
+    {
+      "id": "ev.native-journal",
+      "class": "static_analysis",
+      "path": "src-tauri/src/run_journal.rs",
+      "contentHash": "3781f9d594211782647599013d04f3baa8d70ead6a540532043765f05d9ffec6",
+      "stale": false
+    },
+    {
+      "id": "ev.native-telemetry",
+      "class": "static_analysis",
+      "path": "src-tauri/src/telemetry.rs",
+      "contentHash": "cde9b0b28eef054879dd8d623cde662d3dba8dba12fb4b9c8562f229051b7c47",
+      "stale": false
+    },
+    {
+      "id": "ev.native-telemetry-command",
+      "class": "static_analysis",
+      "path": "src-tauri/src/native_commands.rs",
+      "contentHash": "115cc274df999bc3aaa283a1f019385cf7689b27db758e2483518a7e275b7f27",
+      "stale": false
+    },
+    {
+      "id": "ev.native-app-handler",
+      "class": "static_analysis",
+      "path": "src-tauri/src/lib.rs",
+      "contentHash": "8e51d43ed9c06bcab4f95fe2f2e11802450c0934e01ab99c8332cf2441bd7e30",
+      "stale": false
+    },
+    {
+      "id": "ev.native-ipc-session",
+      "class": "static_analysis",
+      "path": "src-tauri/src/ipc_session.rs",
+      "contentHash": "b9a03ae1a373593b57e5ced4282821a86e5fd39925c4c12d868ea09552d1ce7a",
+      "stale": false
+    },
+    {
+      "id": "ev.usage-ledger-audit",
+      "class": "audit",
+      "path": "docs/audit/NATIVE_RUN_JOURNAL_VERTICAL_SLICE.md",
+      "contentHash": "473ff907d27ae58b7a48f9a6cdfc1489f889bcfb60bd20497e22483f6d92e5be",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-journal",
+      "class": "static_analysis",
+      "path": "src/features/workspace/run-journal-projection.ts",
+      "contentHash": "8fe471a36888a664cafcf65bce79f781dfee505460084f3bdcb462c7830f3b5d",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-desktop-bridge",
+      "class": "static_analysis",
+      "path": "src/lib/desktop.ts",
+      "contentHash": "bcc71868978119eaebe55bcc65b06e0c6142b6e7162d42e766676c9fca7cf722",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-telemetry-sync",
+      "class": "static_analysis",
+      "path": "src/features/workspace/run-journal-sync.ts",
+      "contentHash": "1a89abe429b23f4947d6a63443e53f1f7a9d4bccd1ed1d76eb0311614345dc96",
+      "stale": false
+    },
+    {
+      "id": "ev.domain-contracts",
+      "class": "static_analysis",
+      "path": "src/domain/index.ts",
+      "contentHash": "687f5f2e56dbc390c637f2d4006e2a54a7ba0b649fe5ed77f9e3ac89fa3ae0e8",
+      "stale": false
+    },
+    {
+      "id": "ev.domain-tests",
+      "class": "test",
+      "path": "src/domain/domain.test.ts",
+      "contentHash": "aeabe3f393308cb8d513783fea3f4afaf778d4e525ebe0f95ae825f10a948cea",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-app",
+      "class": "static_analysis",
+      "path": "src/App.tsx",
+      "contentHash": "a993fd67b98eeeea0f37f4f1c37dc3affaea63c0046079aef90987c6e9563aa5",
+      "stale": false
+    },
+    {
+      "id": "ev.workspace-store",
+      "class": "static_analysis",
+      "path": "src/features/workspace/store.ts",
+      "contentHash": "701d472820a536d3f4cc6be558cc3996b2515eed4194e73c68dcf0311ed3caae",
+      "stale": false
+    },
+    {
+      "id": "ev.project-domain",
+      "class": "static_analysis",
+      "path": "src/domain/project.ts",
+      "contentHash": "3541b2202efbc1653620c99b7c17622f7723bd620dfa8d6ceaf5f3f10f1211c4",
+      "stale": false
+    },
+    {
+      "id": "ev.project-catalog",
+      "class": "static_analysis",
+      "path": "src/features/workspace/project-catalog.ts",
+      "contentHash": "fc265cb159910175c47f81f2a64897263ad8d2749aa0d11995e3eda90dc0689d",
+      "stale": false
+    },
+    {
+      "id": "ev.native-commands",
+      "class": "static_analysis",
+      "path": "src-tauri/src/commands.rs",
+      "contentHash": "23d90bc71d224cdeafa8095703ed1232a5a29f2f6f3e5e29bfc1b25defc4f3d1",
+      "stale": false
+    },
+    {
+      "id": "ev.native-workspace",
+      "class": "static_analysis",
+      "path": "src-tauri/src/workspace.rs",
+      "contentHash": "a1ef651211d2eb2efae8a911643f8bf75775536f3fba2b8b90893852c0a6e2e7",
+      "stale": false
+    },
+    {
+      "id": "ev.inspector",
+      "class": "static_analysis",
+      "path": "src/features/workspace/inspector.tsx",
+      "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371",
+      "stale": false
+    },
+    {
+      "id": "ev.telemetry-inspector",
+      "class": "static_analysis",
+      "path": "src/features/workspace/inspector.tsx",
+      "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371",
+      "stale": false
+    },
+    {
+      "id": "ev.renderer-tests",
+      "class": "test",
+      "path": "tests/visual/visual-fixture-contract.spec.ts",
+      "contentHash": "bd57b78f8bd830d3c35f61ea9841c9aaeb25164bf3e7ad07c2305d3c9efee6b6",
+      "stale": false
+    },
+    {
+      "id": "ev.native-telemetry-read-test",
+      "class": "test",
+      "path": "src-tauri/src/storage.rs",
+      "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d",
+      "stale": false
+    },
+    {
+      "id": "ev.desktop-telemetry-session-test",
+      "class": "test",
+      "path": "src/lib/desktop.native-session.test.ts",
+      "contentHash": "505b8dde4aa58589c2dd275ea96f7a1a87185a7583ae1d81335197bb6405f891",
+      "stale": false
+    },
+    {
+      "id": "ev.telemetry-sync-test",
+      "class": "test",
+      "path": "src/features/workspace/run-telemetry-sync.test.ts",
+      "contentHash": "7192e85229b39c08f924000df80de1971ec59dc62abf53b8678bb99b2055f920",
+      "stale": false
+    },
+    {
+      "id": "ev.telemetry-inspector-test",
+      "class": "test",
+      "path": "src/features/workspace/inspector.telemetry.test.tsx",
+      "contentHash": "94abd1976dbfb71a8557ab22ddfa20faec820157aacfed0bb127484cc4b2284b",
+      "stale": false
+    },
+    {
+      "id": "ev.native-test-loader-receipt",
+      "class": "runtime",
+      "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md",
+      "contentHash": "e30d78fb5e6f7428ea2e63aa993afe2f77a689a77baa07be1907e886e89491fc",
+      "stale": false
+    },
+    {
+      "id": "ev.native-telemetry-read-receipt",
+      "class": "runtime",
+      "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md",
+      "contentHash": "db082a3b617d168f98b0135d17ca35b184b822a8f48255ecad7fa5819577e83e",
+      "stale": false
+    }
+  ]
+}

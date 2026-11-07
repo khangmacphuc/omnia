@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Scanline</title>
+  <desc id="desc">An ice-blue aperture with a restrained terminal scanline.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#12181d"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#2f3e4b" stroke-width="3"/>
+  <circle cx="256" cy="256" r="122" fill="none" stroke="#a7d8ff" stroke-width="25"/>
+  <path d="M145 256h222" stroke="#f2f8fd" stroke-width="20" stroke-linecap="round"/>
+  <path d="M184 209h144M184 303h144" stroke="#a7d8ff" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+  <circle cx="256" cy="256" r="16" fill="#12181d" stroke="#f2f8fd" stroke-width="8"/>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/local-model-catalog-query.schema.json",
+  "title": "Omnia local model catalog search and recommendation query",
+  "type": "object",
+  "required": ["schemaVersion", "queryId", "sources", "filters", "sort", "hardwareProfileRevisionId", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "queryId": { "type": "string", "minLength": 1 },
+    "text": { "type": "string" },
+    "sources": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["hugging-face", "ollama", "lmstudio-local", "local-files", "plugin"] } },
+    "filters": { "type": "object", "properties": { "tasks": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "modalities": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "architectures": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "formats": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "quantizations": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "licenses": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "maxDownloadBytes": { "type": "integer", "minimum": 0 }, "maxEstimatedRamBytes": { "type": "integer", "minimum": 0 }, "maxEstimatedVramBytes": { "type": "integer", "minimum": 0 }, "minContextTokens": { "type": "integer", "minimum": 0 }, "gated": { "type": ["boolean", "null"] } }, "additionalProperties": false },
+    "sort": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["field", "direction"], "properties": { "field": { "enum": ["relevance", "compatibility", "quality", "speed", "memory", "size", "context", "popularity", "freshness", "benchmark"] }, "direction": { "enum": ["asc", "desc"] } }, "additionalProperties": false } },
+    "hardwareProfileRevisionId": { "type": "string", "minLength": 1 },
+    "recommendationPolicyRevisionId": { "type": ["string", "null"] },
+    "pageSize": { "type": "integer", "minimum": 1, "maximum": 200 },
+    "cursor": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

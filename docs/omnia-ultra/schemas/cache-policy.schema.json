@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/cache-policy.schema.json",
+  "title": "Omnia cache policy",
+  "type": "object",
+  "required": ["schemaVersion", "policyId", "revisionId", "scope", "local", "providerNative", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "scope": {
+      "type": "object",
+      "required": ["profileId"],
+      "properties": {
+        "profileId": { "type": "string", "minLength": 1 },
+        "projectId": { "type": ["string", "null"] },
+        "workflowId": { "type": ["string", "null"] },
+        "providerProfileId": { "type": ["string", "null"] },
+        "modelProfileId": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "local": {
+      "type": "object",
+      "required": ["enabled", "encryption", "maxBytes", "eviction", "allowedObjectKinds"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "encryption": { "enum": ["native-profile-key", "project-key", "disabled-by-policy"] },
+        "maxBytes": { "type": "integer", "minimum": 0 },
+        "defaultTtlSeconds": { "type": ["integer", "null"], "minimum": 1 },
+        "eviction": { "enum": ["lru", "ttl-lru", "recompute-cost", "sensitivity-aware", "custom"] },
+        "allowedObjectKinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["original", "extraction", "ocr", "thumbnail", "ast", "embedding", "summary", "retrieval", "compiled-context", "tool-result", "response"]
+          }
+        },
+        "responseReuse": { "enum": ["disabled", "exact-input-review", "freshness-policy-review"] },
+        "secureDelete": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "providerNative": {
+      "type": "object",
+      "required": ["mode", "stablePrefixPlanning", "unsupportedBehavior", "evidencePolicy"],
+      "properties": {
+        "mode": { "enum": ["disabled", "auto", "implicit", "explicit", "provider-default"] },
+        "stablePrefixPlanning": { "type": "boolean" },
+        "ttlSeconds": { "type": ["integer", "null"], "minimum": 1 },
+        "cacheKeyStrategy": { "enum": ["provider-default", "content-hash", "project-route", "manual"] },
+        "cacheBreakpoints": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "unsupportedBehavior": { "enum": ["send-uncached", "local-optimize", "block"] },
+        "evidencePolicy": { "const": "provider-reported-only" },
+        "warmup": { "enum": ["disabled", "on-first-use", "scheduled", "manual"] }
+      },
+      "additionalProperties": false
+    },
+    "dataClassesAllowed": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["public", "internal", "confidential", "restricted"] }
+    },
+    "metricsEnabled": { "type": "boolean" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

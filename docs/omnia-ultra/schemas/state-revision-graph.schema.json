@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/state-revision-graph.schema.json",
+  "title": "Omnia immutable execution state revision graph",
+  "description": "A redacted, materialized projection of typed durable state facts. It is never an untyped second source of truth and never stores raw secrets, provider payloads or unrestricted content.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "graphId",
+    "scope",
+    "projection",
+    "headStateRevisionIds",
+    "stateRevisions",
+    "edges",
+    "integrity",
+    "generatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "graphId": { "$ref": "#/$defs/id" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "projection": { "$ref": "#/$defs/projectionWatermark" },
+    "headStateRevisionIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" },
+      "description": "Accepted, non-superseded state heads visible at the projection watermark. Multiple heads require an explicit compare, merge, promote or user selection policy."
+    },
+    "stateRevisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/stateRevision" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stateEdge" }
+    },
+    "integrity": { "$ref": "#/$defs/graphIntegrity" },
+    "generatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "nullableId": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "scope": {
+      "type": "object",
+      "required": ["profileId", "conversationId", "branchId"],
+      "properties": {
+        "profileId": { "$ref": "#/$defs/id" },
+        "projectId": { "$ref": "#/$defs/nullableId" },
+        "conversationId": { "$ref": "#/$defs/id" },
+        "branchId": { "$ref": "#/$defs/id" },
+        "taskId": { "$ref": "#/$defs/nullableId" },
+        "runId": { "$ref": "#/$defs/nullableId" }
+      },
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["user", "agent", "automation", "recovery", "system"] },
+        "id": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+    "journalCursor": {
+      "type": "object",
+      "required": ["streamKind", "streamId", "sequence"],
+      "properties": {
+        "streamKind": { "enum": ["conversation", "branch", "run", "task", "project", "provider", "recovery"] },
+        "streamId": { "$ref": "#/$defs/id" },
+        "journalEpoch": { "$ref": "#/$defs/nullableId" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "eventId": { "$ref": "#/$defs/nullableId" },
+        "payloadHash": { "type": ["string", "null"], "maxLength": 256 }
+      },
+      "additionalProperties": false
+    },
+    "projectionWatermark": {
+      "type": "object",
+      "required": ["watermarkId", "throughCursors", "materializedAt"],
+      "properties": {
+        "watermarkId": { "$ref": "#/$defs/id" },
+        "throughCursors": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/journalCursor" }
+        },
+        "materializedAt": { "type": "string", "format": "date-time" },
+        "projectionRevision": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+    "causation": {
+      "type": "object",
+      "required": ["operationId", "operationKind", "journalCursors"],
+      "properties": {
+        "operationId": { "$ref": "#/$defs/nullableId" },
+        "operationKind": {
+          "enum": [
+            "bootstrap", "checkpoint", "continue", "resume", "edit", "retry",
+            "branch", "fork", "merge", "promote", "compact", "reconcile", "recovery"
+          ]
+        },
+        "sourceRunId": { "$ref": "#/$defs/nullableId" },
+        "sourceAttemptId": { "$ref": "#/$defs/nullableId" },
+        "journalCursors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/journalCursor" }
+        },
+        "receiptId": { "$ref": "#/$defs/nullableId" },
+        "idempotencyKeyHash": { "type": ["string", "null"], "maxLength": 256 }
+      },
+      "additionalProperties": false
+    },
+    "manifestReferences": {
+      "type": "object",
+      "required": ["manifestRevisionId", "contextManifestId", "sourceManifestId"],
+      "properties": {
+        "manifestRevisionId": { "$ref": "#/$defs/id" },
+        "contextManifestId": { "$ref": "#/$defs/nullableId" },
+        "sourceManifestId": { "$ref": "#/$defs/nullableId" },
+        "goalRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "planRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "taskRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "messageRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "artifactRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "fileRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "citationSnapshotIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "memoryRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "skillRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "agentSnapshotIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "omittedSegmentIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+      },
+      "additionalProperties": false
+    },
+    "authoritySnapshot": {
+      "type": "object",
+      "required": ["policyRevisionId", "approvalSnapshotId", "grantSnapshotId", "dataClasses", "externalEffects"],
+      "properties": {
+        "policyRevisionId": { "$ref": "#/$defs/id" },
+        "approvalSnapshotId": { "$ref": "#/$defs/nullableId" },
+        "grantSnapshotId": { "$ref": "#/$defs/nullableId" },
+        "dataClasses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["public", "private", "restricted", "secret", "regulated"] }
+        },
+        "externalEffects": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/externalEffect" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "externalEffect": {
+      "type": "object",
+      "required": ["effectId", "kind", "state"],
+      "properties": {
+        "effectId": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["provider-request", "tool-call", "file-write", "git-operation", "browser-action", "machine-action", "integration-action", "schedule-action"] },
+        "state": { "enum": ["not-started", "pending", "confirmed", "unknown", "reconciled", "blocked", "cancelled"] },
+        "idempotencyEvidenceId": { "$ref": "#/$defs/nullableId" },
+        "reconciliationRequired": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "routingAndCacheSnapshot": {
+      "type": "object",
+      "required": ["contextPolicyRevisionId", "modelRouteRevisionId", "cachePlanRevisionId"],
+      "properties": {
+        "contextPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "modelRouteRevisionId": { "$ref": "#/$defs/id" },
+        "cachePlanRevisionId": { "$ref": "#/$defs/id" },
+        "providerProfileRevisionId": { "$ref": "#/$defs/nullableId" },
+        "modelProfileRevisionId": { "$ref": "#/$defs/nullableId" },
+        "parameterProfileRevisionId": { "$ref": "#/$defs/nullableId" },
+        "frozenProviderInputId": { "$ref": "#/$defs/nullableId" }
+      },
+      "additionalProperties": false
+    },
+    "stateDigest": {
+      "type": "object",
+      "required": ["algorithm", "canonicalizationRevision", "value"],
+      "properties": {
+        "algorithm": { "enum": ["sha-256", "sha-384", "sha-512", "blake3"] },
+        "canonicalizationRevision": { "$ref": "#/$defs/id" },
+        "value": { "type": "string", "minLength": 16, "maxLength": 512 }
+      },
+      "additionalProperties": false
+    },
+    "stateRevision": {
+      "type": "object",
+      "required": [
+        "stateRevisionId", "scope", "kind", "parentStateRevisionIds", "branchSequence", "stateRead", "status", "createdAt",
+        "createdBy", "causedBy", "manifests", "authority", "routingAndCache", "stateDigest"
+      ],
+      "properties": {
+        "stateRevisionId": { "$ref": "#/$defs/id" },
+        "scope": { "$ref": "#/$defs/scope" },
+        "kind": {
+          "enum": [
+            "root", "checkpoint", "continuation", "resume", "prompt-edit", "retry-result",
+            "branch", "fork", "merge", "promotion", "compaction", "reconciliation", "recovery"
+          ]
+        },
+        "parentStateRevisionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "branchSequence": { "type": "integer", "minimum": 0 },
+        "stateRead": { "$ref": "#/$defs/stateRead" },
+        "status": { "enum": ["candidate", "accepted", "rejected", "superseded", "outcome-unknown", "conflicted", "blocked", "discarded", "invalid"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "createdBy": { "$ref": "#/$defs/actor" },
+        "causedBy": { "$ref": "#/$defs/causation" },
+        "manifests": { "$ref": "#/$defs/manifestReferences" },
+        "authority": { "$ref": "#/$defs/authoritySnapshot" },
+        "routingAndCache": { "$ref": "#/$defs/routingAndCacheSnapshot" },
+        "stateDigest": { "$ref": "#/$defs/stateDigest" },
+        "supersedesStateRevisionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "conflictSetId": { "$ref": "#/$defs/nullableId" },
+        "checkpointId": { "$ref": "#/$defs/nullableId" },
+        "diagnosticId": { "$ref": "#/$defs/nullableId" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "root" } }, "required": ["kind"] },
+          "then": { "properties": { "parentStateRevisionIds": { "maxItems": 0 } } },
+          "else": { "properties": { "parentStateRevisionIds": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "merge" } }, "required": ["kind"] },
+          "then": { "properties": { "parentStateRevisionIds": { "minItems": 2 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "conflicted" } }, "required": ["status"] },
+          "then": { "required": ["conflictSetId"], "properties": { "conflictSetId": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "stateEdge": {
+      "type": "object",
+      "required": ["edgeId", "kind", "fromStateRevisionId", "toStateRevisionId", "operationId", "createdAt", "createdBy", "causalCursor", "policyRevisionId"],
+      "properties": {
+        "edgeId": { "$ref": "#/$defs/id" },
+        "kind": {
+          "enum": [
+            "inherits-from", "checkpoint-of", "continues-from", "resumes-from-checkpoint",
+            "edits", "retries", "branches-from", "forks-from", "merges-from", "promotes",
+            "compacts", "reconciles-external-effect", "supersedes", "conflicts-with", "derives-selected-delta-from"
+          ]
+        },
+        "fromStateRevisionId": { "$ref": "#/$defs/id" },
+        "toStateRevisionId": { "$ref": "#/$defs/id" },
+        "operationId": { "$ref": "#/$defs/nullableId" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "createdBy": { "$ref": "#/$defs/actor" },
+        "causalCursor": { "$ref": "#/$defs/journalCursor" },
+        "policyRevisionId": { "$ref": "#/$defs/id" },
+        "expiresAt": { "type": ["string", "null"], "format": "date-time" },
+        "reason": { "type": ["string", "null"], "maxLength": 4096 }
+      },
+      "additionalProperties": false
+    },
+    "graphIntegrity": {
+      "type": "object",
+      "required": ["state", "checkedAt", "checkerRevision", "diagnosticIds"],
+      "properties": {
+        "state": { "enum": ["valid", "recovering", "invalid"] },
+        "checkedAt": { "type": "string", "format": "date-time" },
+        "checkerRevision": { "$ref": "#/$defs/id" },
+        "diagnosticIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+      },
+      "additionalProperties": false
+    },
+    "stateRead": {
+      "type": "object",
+      "description": "The explicit durable read/capture point used to derive this revision. Null heads mean a root/bootstrap state, never an inferred missing value.",
+      "required": ["watermark", "observedHeadStateRevisionId", "expectedHeadStateRevisionId"],
+      "properties": {
+        "watermark": { "$ref": "#/$defs/projectionWatermark" },
+        "observedHeadStateRevisionId": { "$ref": "#/$defs/nullableId" },
+        "expectedHeadStateRevisionId": { "$ref": "#/$defs/nullableId" }
+      },
+      "additionalProperties": false
+    },
+    "stateBase": {
+      "type": "object",
+      "description": "A fully resolved and pinned input-state selection for a run-control operation. The executor must use this immutable resolution, not a later mutable branch head.",
+      "required": [
+        "mode", "sourceStateRevisionId", "requestedHeadStateRevisionId", "resolvedStateRevisionId",
+        "resolvedStateDigest", "selectedDeltaIds", "contextManifestId", "resolutionReason",
+        "resolvedAt", "resolvedAtCursors"
+      ],
+      "properties": {
+        "mode": { "enum": ["exact-historical", "current-state", "historical-plus-selected-deltas", "fresh-branch", "fresh-goal-start"] },
+        "sourceStateRevisionId": { "$ref": "#/$defs/nullableId" },
+        "requestedHeadStateRevisionId": { "$ref": "#/$defs/nullableId" },
+        "resolvedStateRevisionId": { "$ref": "#/$defs/id" },
+        "resolvedStateDigest": { "$ref": "#/$defs/stateDigest" },
+        "selectedDeltaIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "contextManifestId": { "$ref": "#/$defs/nullableId" },
+        "resolutionReason": { "enum": ["exact-frozen", "current-branch-head", "historical-selected-deltas", "fresh-isolated-bootstrap", "fresh-goal-bootstrap"] },
+        "resolvedAt": { "type": "string", "format": "date-time" },
+        "resolvedAtCursors": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/journalCursor" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "const": "exact-historical" } }, "required": ["mode"] },
+          "then": {
+            "properties": {
+              "sourceStateRevisionId": { "type": "string", "minLength": 1 },
+              "resolutionReason": { "const": "exact-frozen" },
+              "selectedDeltaIds": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "current-state" } }, "required": ["mode"] },
+          "then": {
+            "properties": {
+              "sourceStateRevisionId": { "type": "string", "minLength": 1 },
+              "requestedHeadStateRevisionId": { "type": "string", "minLength": 1 },
+              "resolutionReason": { "const": "current-branch-head" },
+              "selectedDeltaIds": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "historical-plus-selected-deltas" } }, "required": ["mode"] },
+          "then": {
+            "properties": {
+              "sourceStateRevisionId": { "type": "string", "minLength": 1 },
+              "resolutionReason": { "const": "historical-selected-deltas" },
+              "selectedDeltaIds": { "minItems": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "fresh-branch" } }, "required": ["mode"] },
+          "then": {
+            "properties": {
+              "sourceStateRevisionId": { "type": "null" },
+              "selectedDeltaIds": { "maxItems": 0 },
+              "resolutionReason": { "const": "fresh-isolated-bootstrap" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "fresh-goal-start" } }, "required": ["mode"] },
+          "then": {
+            "properties": {
+              "sourceStateRevisionId": { "type": "null" },
+              "selectedDeltaIds": { "maxItems": 0 },
+              "resolutionReason": { "const": "fresh-goal-bootstrap" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

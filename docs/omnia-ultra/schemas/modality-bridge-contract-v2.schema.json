@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/modality-bridge-contract-v2.schema.json",
+  "title": "Omnia multimodal bridge contract v2 envelope",
+  "description": "Immutable cross-record envelope joining a bridge request, frozen capability decision, bridge plan, stage receipts, grounded observations and replay/fidelity evidence. This envelope does not grant authority or prove native modality support by itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "contractRevision",
+    "envelopeId",
+    "bridgeRequestId",
+    "bridgePlanId",
+    "decisionReceiptId",
+    "sourceArtifactIds",
+    "stageReceiptIds",
+    "observationIds",
+    "destination",
+    "route",
+    "boundary",
+    "fidelity",
+    "replay",
+    "untrustedContent",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "contractRevision": { "const": 2 },
+    "envelopeId": { "$ref": "#/$defs/id" },
+    "bridgeRequestId": { "$ref": "#/$defs/id" },
+    "bridgePlanId": { "$ref": "#/$defs/id" },
+    "decisionReceiptId": { "$ref": "#/$defs/id" },
+    "sourceArtifactIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "stageReceiptIds": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "observationIds": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "contextManifestId": {
+      "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+    },
+    "successorEnvelopeId": {
+      "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "providerProfileRevisionId",
+        "operationId",
+        "modelProfileRevisionId",
+        "apiVersion",
+        "capabilitySnapshotRevisionId"
+      ],
+      "properties": {
+        "providerProfileRevisionId": { "$ref": "#/$defs/id" },
+        "operationId": { "$ref": "#/$defs/id" },
+        "modelProfileRevisionId": { "$ref": "#/$defs/id" },
+        "apiVersion": { "type": "string", "minLength": 1 },
+        "capabilitySnapshotRevisionId": { "$ref": "#/$defs/id" },
+        "carrier": { "type": ["string", "null"] },
+        "capabilityFreshnessEvidenceId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requestedMode",
+        "resolvedMode",
+        "candidateSetDigest",
+        "selectedReasonCodes",
+        "rejectedAlternativeCount",
+        "resolutionFrozen"
+      ],
+      "properties": {
+        "requestedMode": {
+          "enum": [
+            "auto",
+            "direct-native",
+            "local-transform",
+            "specialist-bridge-model",
+            "hybrid-ensemble",
+            "surrogate-to-primary",
+            "human-review",
+            "unsupported",
+            "local-only",
+            "direct-only",
+            "cheapest",
+            "highest-quality",
+            "manual"
+          ]
+        },
+        "resolvedMode": {
+          "enum": [
+            "direct-native",
+            "local-transform",
+            "specialist-bridge-model",
+            "hybrid-ensemble",
+            "surrogate-to-primary",
+            "human-review",
+            "unsupported"
+          ]
+        },
+        "candidateSetDigest": { "$ref": "#/$defs/id" },
+        "selectedReasonCodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "rejectedAlternativeCount": { "type": "integer", "minimum": 0 },
+        "resolutionFrozen": { "const": true },
+        "learnedScoreUsed": { "type": "boolean" },
+        "learnedPolicyReleaseId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "learnedScoreUsed": { "const": true } },
+            "required": ["learnedScoreUsed"]
+          },
+          "then": {
+            "properties": {
+              "learnedPolicyReleaseId": { "$ref": "#/$defs/id" }
+            },
+            "required": ["learnedPolicyReleaseId"]
+          }
+        }
+      ]
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataBoundary",
+        "policyRevisionId",
+        "allowedArtifactIds",
+        "egressDecision",
+        "authorityContinuityRecordId"
+      ],
+      "properties": {
+        "dataBoundary": {
+          "enum": ["local-only", "approved-provider", "mixed", "denied", "review-required"]
+        },
+        "policyRevisionId": { "$ref": "#/$defs/id" },
+        "allowedArtifactIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "egressDecision": {
+          "enum": ["not-required", "approved", "denied", "review-required"]
+        },
+        "consentOrApprovalReceiptId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "residencyDecisionRevisionId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "authorityContinuityRecordId": { "$ref": "#/$defs/id" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "egressDecision": { "const": "approved" }
+            },
+            "required": ["egressDecision"]
+          },
+          "then": {
+            "properties": {
+              "consentOrApprovalReceiptId": { "$ref": "#/$defs/id" },
+              "allowedArtifactIds": { "minItems": 1 }
+            },
+            "required": ["consentOrApprovalReceiptId"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "egressDecision": { "enum": ["not-required", "denied"] }
+            },
+            "required": ["egressDecision"]
+          },
+          "then": {
+            "properties": {
+              "allowedArtifactIds": { "maxItems": 0 },
+              "consentOrApprovalReceiptId": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "fidelity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "disposition",
+        "originalsPreserved",
+        "decisiveDimensions",
+        "validatorEvidenceIds"
+      ],
+      "properties": {
+        "disposition": {
+          "enum": [
+            "planned",
+            "processing",
+            "ready",
+            "ready-with-degradation",
+            "review-required",
+            "blocked",
+            "failed",
+            "unsupported"
+          ]
+        },
+        "originalsPreserved": { "const": true },
+        "decisiveDimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fidelityDimension" },
+          "uniqueItems": true
+        },
+        "validatorEvidenceIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "degradationDisclosureArtifactId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "disposition": { "const": "ready" } },
+            "required": ["disposition"]
+          },
+          "then": {
+            "properties": {
+              "decisiveDimensions": {
+                "items": {
+                  "properties": { "status": { "const": "passed" } },
+                  "required": ["status"]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": { "const": "ready-with-degradation" }
+            },
+            "required": ["disposition"]
+          },
+          "then": {
+            "properties": {
+              "degradationDisclosureArtifactId": { "$ref": "#/$defs/id" },
+              "decisiveDimensions": {
+                "contains": {
+                  "type": "object",
+                  "properties": { "status": { "enum": ["degraded", "failed", "unmeasured"] } },
+                  "required": ["status"]
+                }
+              }
+            },
+            "required": ["degradationDisclosureArtifactId"]
+          }
+        }
+      ]
+    },
+    "replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frozenPlanDigest",
+        "sourceManifestDigest",
+        "replayability",
+        "currentAuthorityRecheckRequired",
+        "outcomeUnknownExclusion"
+      ],
+      "properties": {
+        "frozenPlanDigest": { "$ref": "#/$defs/id" },
+        "sourceManifestDigest": { "$ref": "#/$defs/id" },
+        "replayability": {
+          "enum": ["replayable", "replan-required", "review-required", "blocked", "not-replayable"]
+        },
+        "currentAuthorityRecheckRequired": { "const": true },
+        "outcomeUnknownExclusion": { "const": true },
+        "replayReasonCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "stateWatermarkId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        }
+      }
+    },
+    "untrustedContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentTreatment",
+        "instructionAuthority",
+        "activeContentDisposition",
+        "externalReferenceDisposition",
+        "promptInjectionDisposition"
+      ],
+      "properties": {
+        "contentTreatment": { "const": "data-not-control" },
+        "instructionAuthority": { "const": "never-grant" },
+        "activeContentDisposition": {
+          "enum": ["not-executed", "isolated-approved-analysis", "blocked"]
+        },
+        "externalReferenceDisposition": {
+          "enum": ["not-followed", "separate-approved-retrieval", "blocked"]
+        },
+        "promptInjectionDisposition": {
+          "enum": ["none-detected", "contained", "review-required", "blocked"]
+        },
+        "riskSignalCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "route": { "properties": { "resolvedMode": { "const": "unsupported" } } } },
+        "required": ["route"]
+      },
+      "then": {
+        "properties": {
+          "fidelity": {
+            "properties": {
+              "disposition": { "enum": ["unsupported", "blocked", "review-required"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "route": { "properties": { "resolvedMode": { "const": "direct-native" } } } },
+        "required": ["route"]
+      },
+      "then": {
+        "properties": {
+          "stageReceiptIds": { "minItems": 1 }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 },
+    "fidelityDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "status", "impact", "evidenceIds"],
+      "properties": {
+        "dimension": {
+          "enum": [
+            "integrity",
+            "content",
+            "structural",
+            "layout",
+            "spatial",
+            "temporal",
+            "semantic",
+            "numeric",
+            "formula",
+            "code",
+            "citation",
+            "accessibility",
+            "provenance"
+          ]
+        },
+        "status": { "enum": ["passed", "degraded", "failed", "unmeasured", "not-applicable"] },
+        "impact": { "enum": ["decisive", "material", "informational"] },
+        "measurement": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "evidenceIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "uncertaintyReasonCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

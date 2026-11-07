@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/authority-continuity.schema.json",
+  "title": "Omnia authority continuity and side-effect reconciliation record",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "operationId",
+    "actor",
+    "source",
+    "effective",
+    "effect",
+    "secretMaterialMode",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "recordId": { "type": "string", "minLength": 1 },
+    "operationId": { "type": "string", "minLength": 1 },
+    "actor": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["user", "agent", "automation", "recovery"] },
+        "id": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "source": { "$ref": "#/$defs/authoritySnapshot" },
+    "effective": {
+      "type": "object",
+      "required": ["status", "evaluatedAt", "reasonCodes"],
+      "properties": {
+        "status": {
+          "enum": [
+            "not-evaluated",
+            "pending",
+            "allow",
+            "scope-reduced",
+            "requires-approval",
+            "denied",
+            "expired",
+            "revoked",
+            "drift",
+            "unknown"
+          ]
+        },
+        "snapshot": {
+          "anyOf": [
+            { "$ref": "#/$defs/authoritySnapshot" },
+            { "type": "null" }
+          ]
+        },
+        "reasonCodes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "evaluatedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "effect": {
+      "type": "object",
+      "required": ["state", "projectionState", "reconciliation", "idempotency"],
+      "properties": {
+        "state": {
+          "enum": [
+            "none",
+            "not-dispatched",
+            "prepared",
+            "dispatched",
+            "accepted",
+            "succeeded",
+            "failed",
+            "cancelled",
+            "outcome-unknown",
+            "reconciled"
+          ]
+        },
+        "projectionState": {
+          "enum": ["not-started", "pending", "confirmed", "unknown", "reconciled", "blocked", "cancelled"]
+        },
+        "reconciliation": {
+          "enum": ["not-required", "pending", "blocked", "reconciled"]
+        },
+        "idempotency": {
+          "enum": [
+            "none",
+            "same-attempt-key",
+            "provider-confirmed",
+            "tool-confirmed",
+            "unknown"
+          ]
+        },
+        "sameAttemptRetryAllowed": { "type": "boolean" },
+        "receiptIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "reasonCodes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "secretMaterialMode": {
+      "enum": ["none", "opaque-reference-only"]
+    },
+    "secretHandleRefs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "observedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "$defs": {
+    "authoritySnapshot": {
+      "type": "object",
+      "required": [
+        "snapshotId",
+        "policyVersionHash",
+        "capabilitySetHash",
+        "environmentId",
+        "targetScopeHash",
+        "dataClass",
+        "capturedAt"
+      ],
+      "properties": {
+        "snapshotId": { "type": "string", "minLength": 1 },
+        "policyVersionHash": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+        "capabilitySetHash": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+        "workspaceGrantRevisionHashes": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+          "uniqueItems": true
+        },
+        "providerProfileRevisionHash": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "machineRevisionHash": {
+          "type": ["string", "null"],
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "environmentId": { "type": "string", "minLength": 1 },
+        "targetScopeHash": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+        "dataClass": { "type": "string", "minLength": 1 },
+        "approvalReceiptIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "expiresAt": { "type": ["string", "null"], "format": "date-time" },
+        "capturedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

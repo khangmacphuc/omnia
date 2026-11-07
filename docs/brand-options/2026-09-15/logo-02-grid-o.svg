@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Grid O</title>
+  <desc id="desc">A modular three by three grid that forms an open O.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#101923"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#283848" stroke-width="3"/>
+  <g fill="#5da9ff">
+    <rect x="142" y="142" width="62" height="62" rx="14"/>
+    <rect x="225" y="142" width="62" height="62" rx="14"/>
+    <rect x="308" y="142" width="62" height="62" rx="14"/>
+    <rect x="142" y="225" width="62" height="62" rx="14"/>
+    <rect x="308" y="225" width="62" height="62" rx="14"/>
+    <rect x="142" y="308" width="62" height="62" rx="14"/>
+    <rect x="225" y="308" width="62" height="62" rx="14"/>
+    <rect x="308" y="308" width="62" height="62" rx="14"/>
+  </g>
+  <rect x="225" y="225" width="62" height="62" rx="14" fill="#101923" stroke="#d8e9fb" stroke-width="8"/>
+</svg>

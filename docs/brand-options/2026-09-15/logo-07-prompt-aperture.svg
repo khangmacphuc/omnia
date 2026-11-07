@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Prompt Aperture</title>
+  <desc id="desc">A lime prompt chevron wraps an aperture ring and underscore.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#131817"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#2c4435" stroke-width="3"/>
+  <path d="M175 173 104 256l71 83M337 173l71 83-71 83" fill="none" stroke="#c8e36a" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="71" fill="none" stroke="#f0f5e5" stroke-width="20"/>
+  <path d="M225 350h62" stroke="#f0f5e5" stroke-width="18" stroke-linecap="round"/>
+</svg>

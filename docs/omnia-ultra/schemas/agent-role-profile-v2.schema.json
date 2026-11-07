@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/agent-role-profile-v2.schema.json",
+  "title": "Omnia operational agent role profile (v2)",
+  "description": "Immutable, authority-bounded contract for one specialist role revision. A role describes work and constraints; it never grants a live secret, session, credential or authority.",
+  "type": "object",
+  "required": [
+    "schemaVersion", "profileId", "revisionId", "lifecycle", "category",
+    "displayName", "purpose", "nonGoals", "expertiseTags", "inputContract",
+    "outputContract", "modelPolicyId", "contextPolicyId", "memoryPolicyId",
+    "mandatorySourceIds", "toolPolicy", "skillIds", "capabilityCeilingId",
+    "sandboxPolicyId", "budget", "failureModes", "stopConditions",
+    "escalationRules", "handoffContract", "examples", "evaluation", "evidence",
+    "createdAt", "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "profileId": { "$ref": "#/$defs/id" },
+    "revisionId": { "$ref": "#/$defs/id" },
+    "lifecycle": { "enum": ["draft", "enabled", "disabled", "deprecated", "superseded", "blocked"] },
+    "category": {
+      "enum": [
+        "orchestration", "assurance", "design", "content", "learning", "research",
+        "competitive-programming", "mathematics", "science", "software", "cyber-defensive",
+        "ai-data", "engineering", "documents-media", "provider-runtime", "security",
+        "testing", "release"
+      ]
+    },
+    "displayName": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "description": { "type": "string", "maxLength": 2000 },
+    "purpose": { "type": "string", "minLength": 1, "maxLength": 4000 },
+    "nonGoals": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 1000 }, "uniqueItems": true },
+    "expertiseTags": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 120 }, "uniqueItems": true },
+    "aliases": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+    "supersedesRevisionId": { "type": ["string", "null"], "minLength": 1 },
+    "inputContract": { "$ref": "#/$defs/ioContract" },
+    "outputContract": { "$ref": "#/$defs/ioContract" },
+    "modelPolicyId": { "$ref": "#/$defs/id" },
+    "contextPolicyId": { "$ref": "#/$defs/id" },
+    "memoryPolicyId": { "$ref": "#/$defs/id" },
+    "mandatorySourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "toolPolicy": { "$ref": "#/$defs/toolPolicy" },
+    "skillIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "capabilityCeilingId": { "$ref": "#/$defs/id" },
+    "sandboxPolicyId": { "$ref": "#/$defs/id" },
+    "machinePolicyId": { "type": ["string", "null"], "minLength": 1 },
+    "budget": { "$ref": "#/$defs/budget" },
+    "failureModes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/failureMode" } },
+    "stopConditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/condition" } },
+    "escalationRules": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/escalationRule" } },
+    "handoffContract": { "$ref": "#/$defs/handoffContract" },
+    "checklist": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 1000 }, "uniqueItems": true },
+    "examples": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/example" } },
+    "evaluation": { "$ref": "#/$defs/evaluation" },
+    "evidence": { "$ref": "#/$defs/evidence" },
+    "iconId": { "type": ["string", "null"], "minLength": 1 },
+    "runtimeGlyphId": { "type": ["string", "null"], "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]{1,191}$" },
+    "idArray": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "ioContract": {
+      "type": "object",
+      "required": ["schemaId", "contentTypes", "requiredFields", "optionalFields", "maxItems"],
+      "properties": {
+        "schemaId": { "$ref": "#/$defs/id" },
+        "contentTypes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "requiredFields": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "optionalFields": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "maxItems": { "type": "integer", "minimum": 1 },
+        "maxBytes": { "type": ["integer", "null"], "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "toolPolicy": {
+      "type": "object",
+      "required": ["allowedToolClassIds", "forbiddenSideEffectClasses", "allowedDataClassIds", "networkPolicy"],
+      "properties": {
+        "allowedToolClassIds": { "$ref": "#/$defs/idArray" },
+        "forbiddenSideEffectClasses": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "allowedDataClassIds": { "$ref": "#/$defs/idArray" },
+        "networkPolicy": { "enum": ["none", "allowlisted-read", "allowlisted-write", "brokered-external"] },
+        "engagementClass": { "type": ["string", "null"], "enum": ["defensive-analysis", "authorised-lab-training", "incident-response", "forensics-read-only", "none", null] }
+      },
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "required": ["maxCostMicrounits", "maxLatencyMs", "maxInputTokens", "maxOutputTokens", "maxToolInvocations", "maxChildren", "maxRecursionDepth"],
+      "properties": {
+        "maxCostMicrounits": { "type": "integer", "minimum": 0 },
+        "maxLatencyMs": { "type": "integer", "minimum": 0 },
+        "maxInputTokens": { "type": "integer", "minimum": 0 },
+        "maxOutputTokens": { "type": "integer", "minimum": 0 },
+        "maxToolInvocations": { "type": "integer", "minimum": 0 },
+        "maxChildren": { "type": "integer", "minimum": 0 },
+        "maxRecursionDepth": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "failureMode": {
+      "type": "object",
+      "required": ["code", "description", "recoverability", "defaultAction"],
+      "properties": {
+        "code": { "$ref": "#/$defs/id" },
+        "description": { "type": "string", "minLength": 1, "maxLength": 1200 },
+        "recoverability": { "enum": ["retryable", "fallback", "human-review", "terminal"] },
+        "defaultAction": { "type": "string", "minLength": 1, "maxLength": 600 }
+      },
+      "additionalProperties": false
+    },
+    "condition": {
+      "type": "object",
+      "required": ["code", "when", "action"],
+      "properties": {
+        "code": { "$ref": "#/$defs/id" },
+        "when": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "action": { "enum": ["stop", "pause", "escalate", "handoff", "request-approval"] }
+      },
+      "additionalProperties": false
+    },
+    "escalationRule": {
+      "type": "object",
+      "required": ["trigger", "target", "requiredEvidence"],
+      "properties": {
+        "trigger": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "target": { "enum": ["parent-agent", "reviewer", "completion-judge", "human", "trusted-broker"] },
+        "requiredEvidence": { "$ref": "#/$defs/idArray" }
+      },
+      "additionalProperties": false
+    },
+    "handoffContract": {
+      "type": "object",
+      "required": ["artifactTypes", "requiredFields", "includeEvidence", "includeOpenQuestions"],
+      "properties": {
+        "artifactTypes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "requiredFields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "includeEvidence": { "type": "boolean" },
+        "includeOpenQuestions": { "type": "boolean" },
+        "maxBytes": { "type": ["integer", "null"], "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "example": {
+      "type": "object",
+      "required": ["taskShape", "expectedArtifacts", "reviewFocus"],
+      "properties": {
+        "taskShape": { "type": "string", "minLength": 1, "maxLength": 1200 },
+        "expectedArtifacts": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 160 }, "uniqueItems": true },
+        "reviewFocus": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["rubricRevisionId", "suiteIds", "deterministicChecks", "qualityDimensions", "promotionStatus"],
+      "properties": {
+        "rubricRevisionId": { "$ref": "#/$defs/id" },
+        "suiteIds": { "$ref": "#/$defs/idArray" },
+        "deterministicChecks": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 800 }, "uniqueItems": true },
+        "qualityDimensions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 120 }, "uniqueItems": true },
+        "promotionStatus": { "enum": ["not-evaluated", "provisional", "passed", "failed", "stale"] }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidenceIds", "status", "lastEvaluatedAt", "sourceRefs"],
+      "properties": {
+        "evidenceIds": { "$ref": "#/$defs/idArray" },
+        "status": { "enum": ["current", "provisional", "stale", "missing"] },
+        "lastEvaluatedAt": { "type": ["string", "null"], "format": "date-time" },
+        "sourceRefs": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    }
+  }
+}

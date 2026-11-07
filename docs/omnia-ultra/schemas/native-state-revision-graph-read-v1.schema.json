@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/native-state-revision-graph-read-v1.schema.json",
+  "title": "Omnia native state-revision graph read v1",
+  "description": "The bounded, content-free Tauri IPC projection returned by state_revision_graph_read. This is a runtime read contract, not an instance of the richer portable state-revision-graph export schema. The native kernel resolves the branch and fixed watermark from one SQLite snapshot, clamps an over-large watermark to available facts, signs process-bound continuation cursors, and redacts manifests, authority, routing/cache, actors and diagnostics.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "streamId",
+    "conversationId",
+    "branchId",
+    "acceptedHeadStateRevisionId",
+    "acceptedHeadBranchSequence",
+    "throughBranchSequence",
+    "revisions",
+    "edges",
+    "integrity",
+    "revisionsHasMore",
+    "edgesHasMore",
+    "nextRevisionsCursor",
+    "nextEdgesCursor",
+    "revisionsLimit",
+    "edgesLimit",
+    "responseBytes"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "streamId": {
+      "$ref": "#/$defs/id",
+      "description": "Native state-revision stream identifier for the selected profile, conversation and branch."
+    },
+    "conversationId": {
+      "$ref": "#/$defs/id",
+      "description": "Conversation scope revalidated by native storage."
+    },
+    "branchId": {
+      "$ref": "#/$defs/id",
+      "description": "Branch scope revalidated by native storage."
+    },
+    "acceptedHeadStateRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "Latest accepted revision visible at throughBranchSequence. Null means that no accepted revision is visible at the selected watermark; acceptedHeadBranchSequence is then the zero sentinel. This includes an empty stream and candidate-only or otherwise non-accepted history."
+    },
+    "acceptedHeadBranchSequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Branch sequence of acceptedHeadStateRevisionId in this bounded read."
+    },
+    "throughBranchSequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Resolved inclusive branch-sequence watermark. Native storage clamps a requested value to the highest fact in the pinned SQLite snapshot."
+    },
+    "revisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/revision" },
+      "description": "Redacted immutable revision summaries at or before throughBranchSequence, ordered by branch sequence and identifier."
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edge" },
+      "description": "Redacted causal edges whose source and target revisions are both visible in the bounded read. Edge direction is child/derived fact (fromStateRevisionId) to source/parent fact (toStateRevisionId)."
+    },
+    "integrity": {
+      "enum": ["valid", "recovering", "invalid"],
+      "description": "Coarse native projection health. Detailed graph diagnostics are intentionally not exposed by this v1 IPC contract."
+    },
+    "revisionsHasMore": {
+      "type": "boolean",
+      "description": "True when a signed continuation cursor can retrieve more revisions at the same fixed watermark."
+    },
+    "edgesHasMore": {
+      "type": "boolean",
+      "description": "True when a signed continuation cursor can retrieve more edges at the same fixed watermark."
+    },
+    "nextRevisionsCursor": {
+      "type": ["string", "null"],
+      "maxLength": 8192,
+      "description": "Process-bound native continuation cursor for the next revision page; null when the page is complete."
+    },
+    "nextEdgesCursor": {
+      "type": ["string", "null"],
+      "maxLength": 8192,
+      "description": "Process-bound native continuation cursor for the next edge page; null when the page is complete."
+    },
+    "revisionsLimit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "description": "Effective native page size for revision projections."
+    },
+    "edgesLimit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "description": "Effective native page size for edge projections."
+    },
+    "responseBytes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4194304,
+      "description": "UTF-8 serialized response size in bytes, including continuation metadata."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "nullableId": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "revision": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "status",
+        "branchSequence",
+        "stateDigest",
+        "parentStateRevisionIds",
+        "observedHeadStateRevisionId",
+        "expectedHeadStateRevisionId",
+        "createdAtMs"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": {
+          "enum": [
+            "root",
+            "checkpoint",
+            "continuation",
+            "resume",
+            "prompt-edit",
+            "retry-result",
+            "branch",
+            "fork",
+            "merge",
+            "promotion",
+            "compaction",
+            "reconciliation",
+            "recovery"
+          ]
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "accepted",
+            "rejected",
+            "superseded",
+            "outcome-unknown",
+            "conflicted",
+            "blocked",
+            "discarded",
+            "invalid"
+          ]
+        },
+        "branchSequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stateDigest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Redacted digest value; algorithm and canonicalization metadata are intentionally omitted from this projection."
+        },
+        "parentStateRevisionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" },
+          "description": "Visible parent identifiers after native branch-sequence filtering."
+        },
+        "observedHeadStateRevisionId": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "expectedHeadStateRevisionId": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "createdAtMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "fromStateRevisionId",
+        "toStateRevisionId",
+        "operationId",
+        "policyRevisionId",
+        "createdAtMs"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": {
+          "enum": [
+            "inherits-from",
+            "checkpoint-of",
+            "continues-from",
+            "resumes-from-checkpoint",
+            "edits",
+            "retries",
+            "branches-from",
+            "forks-from",
+            "merges-from",
+            "promotes",
+            "compacts",
+            "reconciles-external-effect",
+            "supersedes",
+            "conflicts-with",
+            "derives-selected-delta-from"
+          ]
+        },
+        "fromStateRevisionId": { "$ref": "#/$defs/id" },
+        "toStateRevisionId": { "$ref": "#/$defs/id" },
+        "operationId": { "$ref": "#/$defs/nullableId" },
+        "policyRevisionId": { "$ref": "#/$defs/id" },
+        "createdAtMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

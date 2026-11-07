@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Node Loop</title>
+  <desc id="desc">A green loop with three connected nodes for projects and context.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#0d1917"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#25443c" stroke-width="3"/>
+  <path d="M350 194c-22-39-64-66-112-66-72 0-130 57-130 128s58 128 130 128c48 0 90-27 112-66" fill="none" stroke="#70d6aa" stroke-width="28" stroke-linecap="round"/>
+  <path d="M162 256h188" stroke="#70d6aa" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="162" cy="256" r="29" fill="#0d1917" stroke="#f0fbf6" stroke-width="12"/>
+  <circle cx="350" cy="194" r="29" fill="#0d1917" stroke="#f0fbf6" stroke-width="12"/>
+  <circle cx="350" cy="318" r="29" fill="#0d1917" stroke="#f0fbf6" stroke-width="12"/>
+</svg>

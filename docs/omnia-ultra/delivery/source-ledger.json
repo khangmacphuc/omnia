@@ -1,0 +1,3086 @@
+{
+  "$schema": "../schemas/source-ledger.schema.json",
+  "schemaVersion": 1,
+  "ledgerId": "OMNIA-ULTRA-DELIVERY-SOURCES",
+  "ledgerRevision": "2026-09-14.1",
+  "title": "Omnia Ultra research and source ledger",
+  "status": "research-ledger",
+  "lastReviewedAt": "2026-09-14T00:00:00Z",
+  "scope": {
+    "purpose": "Record the provenance, review state, and evidence boundary of design and contract sources used by Omnia Ultra.",
+    "authority": "design-input-and-contract-discovery",
+    "notEvidenceOf": [
+      "implementation",
+      "compilation",
+      "packaging",
+      "native-runtime",
+      "provider-health",
+      "url-reachability"
+    ]
+  },
+  "policy": {
+    "sourceClasses": [
+      "internal-research",
+      "normative-contract",
+      "informative-register",
+      "pinned-repository",
+      "official-documentation"
+    ],
+    "hashAlgorithm": "sha256",
+    "localFileHashMode": "current-content",
+    "urlReachability": "not-checked",
+    "crosswalk": "requirement-and-capability-mappings-are-not-yet-complete"
+  },
+  "crosswalk": {
+    "status": "not-started",
+    "requirementToSourceMappings": [],
+    "note": "Stable source IDs and typed locators are present; requirement, capability, test, evidence, and Project Twin mappings remain an explicit follow-up workstream."
+  },
+  "sources": [
+    {
+      "sourceId": "src.internal-research.docs-research-official-harness-refresh-2026-08-14-md",
+      "title": "docs/research/OFFICIAL_HARNESS_REFRESH_2026-08-14.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OFFICIAL_HARNESS_REFRESH_2026-08-14.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "694d818c015d5bf8fabb45d1fa90821ea653424c51ca45209094b05b2ec21946"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-official-multimodal-provider-operation-matrix-2026-08-14-md",
+      "title": "docs/research/OFFICIAL_MULTIMODAL_PROVIDER_OPERATION_MATRIX_2026-08-14.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OFFICIAL_MULTIMODAL_PROVIDER_OPERATION_MATRIX_2026-08-14.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "72f37704e66058f9b8de008f7e2b11aef64dedf4280c671219cc978718eacc42"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-provider-telemetry-request-provenance-research-md",
+      "title": "docs/research/PROVIDER_TELEMETRY_REQUEST_PROVENANCE_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/PROVIDER_TELEMETRY_REQUEST_PROVENANCE_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "fac6e131361da94002b30769629c85909bb00cdaaad06722bd4c9b428fd31290"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-provider-cache-context-optimization-research-md",
+      "title": "docs/research/PROVIDER_CACHE_CONTEXT_OPTIMIZATION_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/PROVIDER_CACHE_CONTEXT_OPTIMIZATION_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "80b7c2845dda3081e6202addc6f630d971c0de7c9345789392a9e0e4996aba84"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-openai-codex-harness-research-md",
+      "title": "docs/research/OPENAI_CODEX_HARNESS_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OPENAI_CODEX_HARNESS_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "6a60c16e22554d38bae165016fa3ecc77c7aada6d1fcf18595ad1dfe6a636db0"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-official-ui-reference-refresh-md",
+      "title": "docs/research/OFFICIAL_UI_REFERENCE_REFRESH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OFFICIAL_UI_REFERENCE_REFRESH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "1632160595195a00ba30a38bc5b5a3fccc516238c7def3e3c1d7f3d882761068"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-claude-code-harness-research-md",
+      "title": "docs/research/CLAUDE_CODE_HARNESS_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/CLAUDE_CODE_HARNESS_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "52b9f34cd8c61fe52335fc87ae143efe3f6b45a64b9e4a9165bfb96ed447cd3c"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-claude-code-harness-refresh-2026-10-01-md",
+      "title": "docs/research/CLAUDE_CODE_HARNESS_REFRESH_2026-10-01.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/CLAUDE_CODE_HARNESS_REFRESH_2026-10-01.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "7f82a51c580a7211c12d0cfd1bb68de41262429aacc17c4bd1890f87605e3668"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-openhands-official-harness-research-md",
+      "title": "docs/research/OPENHANDS_OFFICIAL_HARNESS_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OPENHANDS_OFFICIAL_HARNESS_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "77fc21f4d4b25e74438e4318c087099f4b1dfc05475281cea77d5d834a80fc02"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-continue-aider-opencode-harness-research-md",
+      "title": "docs/research/CONTINUE_AIDER_OPENCODE_HARNESS_RESEARCH.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/CONTINUE_AIDER_OPENCODE_HARNESS_RESEARCH.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "a869eede5eb30bd52b957b20f8e2738b4f7dbee7da474ce50ad0c5be28d73647"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-universal-provider-local-model-research-2026-08-14-md",
+      "title": "docs/research/UNIVERSAL_PROVIDER_LOCAL_MODEL_RESEARCH_2026-08-14.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/UNIVERSAL_PROVIDER_LOCAL_MODEL_RESEARCH_2026-08-14.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "758ade38d9c4616b1ae097dd24063e7b62fbde8646d702c159241420104a7899"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-omnia-harness-benchmarks-md",
+      "title": "docs/research/OMNIA_HARNESS_BENCHMARKS.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/OMNIA_HARNESS_BENCHMARKS.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "f16c76fc5496e65dfb0e9d45e445b8c24bd99da53c0e57e65a1f112f4e5003a7"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-research-learning-harness-evaluation-plan-md",
+      "title": "docs/research/LEARNING_HARNESS_EVALUATION_PLAN.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/LEARNING_HARNESS_EVALUATION_PLAN.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "be479ab0817aec5198c15f037de8ce8bd7b628f4204cf25c24cae09d5e0007f6"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-context-compiler-architecture-md",
+      "title": "docs/CONTEXT_COMPILER_ARCHITECTURE.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/CONTEXT_COMPILER_ARCHITECTURE.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "176e2820c8d50e752761b4d8b285a7f1683c4abd534bdc41bb0bb38dc54948db"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-harness-architecture-md",
+      "title": "docs/HARNESS_ARCHITECTURE.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/HARNESS_ARCHITECTURE.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "f3e964e8626d2734084b87aaec44e46bb86b5550eb03e41dfeaed9f81f3aee5e"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-threat-model-md",
+      "title": "docs/THREAT_MODEL.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/THREAT_MODEL.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "b6c109ce16248df7a2d6c2024565e316546eff4169262ee49a45a300880cf3d8"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-adr-0004-durable-run-event-journal-and-cursor-replay-md",
+      "title": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "ff532c3e4dd34866a99b597a1047e837effba03d86447d05a4149f2990055036"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.internal-research.docs-adr-0005-local-first-telemetry-and-usage-ledger-md",
+      "title": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+      "sourceClass": "internal-research",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+        "section": "Existing Omnia primary-source research"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "8c2a3a27ab39648561d42c505a3b56ea44e519f769542806750b721b2bbdf3f2"
+      },
+      "evidenceBoundary": {
+        "classification": "design-input",
+        "limitations": [
+          "Research notes inform design decisions but do not prove that the described capability ships.",
+          "The cited research snapshot may be historical even when the local file is present."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-implementation-status-md",
+      "title": "current implementation/evidence boundary and",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/IMPLEMENTATION_STATUS.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "1c2b0a8981ec7462cb7cf1a9196e994119fa1002e921ac7d0f9c09c2808e6bfc"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-omnia-ultra-04-current-state-bridge-md",
+      "title": "dependency-ordered current-state",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/omnia-ultra/04-CURRENT-STATE-BRIDGE.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "d888e4eac25c1e69ca5271165402e953be131570ffc3b1b1507a793d44a42eeb"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-product-spec-md",
+      "title": "product scope, phases, and release boundary.",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/PRODUCT_SPEC.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-harness-architecture-md",
+      "title": "durable run, provider, context, memory, skill,",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/HARNESS_ARCHITECTURE.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "f3e964e8626d2734084b87aaec44e46bb86b5550eb03e41dfeaed9f81f3aee5e"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-context-compiler-architecture-md",
+      "title": "proposed context-basis/compiler",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/CONTEXT_COMPILER_ARCHITECTURE.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "176e2820c8d50e752761b4d8b285a7f1683c4abd534bdc41bb0bb38dc54948db"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-provider-architecture-md",
+      "title": "BYOK/provider adapter, discovery, routing,",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/PROVIDER_ARCHITECTURE.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "d94740d22dd490851b3dc9dbcbd6ba1790f0a7b06ab007d48ba4246be9bda679"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-provider-multimodal-design-md",
+      "title": "attachment admission, carrier, transform,",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/PROVIDER_MULTIMODAL_DESIGN.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "3e24e69e30cfff8b777735ce8a28f13b883967854d43c2be581c13c6b037fdf2"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-security-storage-architecture-md",
+      "title": "trust, secrets, persistence, and",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/security-storage-architecture.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "520619bfadcdec70dd527b72f94fcd915a51fcce14f71f48252900db433784e1"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-threat-model-md",
+      "title": "capability, approval, privacy, and denial invariants.",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/THREAT_MODEL.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "b6c109ce16248df7a2d6c2024565e316546eff4169262ee49a45a300880cf3d8"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-omnia-ultra-delivery-acceptance-gates-md",
+      "title": "executable evidence and",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/omnia-ultra/delivery/acceptance-gates.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "19316055405e1d387e7fbc5edd9f29b465d620f94a40b596d6d8c28ec8303e30"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-omnia-ultra-delivery-capability-ledger-json",
+      "title": "current capability status",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/omnia-ultra/delivery/capability-ledger.json",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "d36f37bc69d463cf1edd7dcb374f7007ee44b0717c054a20e5a0c1f9fc9b44db"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0001-desktop-runtime-and-core-boundary-md",
+      "title": "docs/adr/0001-desktop-runtime-and-core-boundary.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "71577709e6c1c4bf1760fdd2b64c15d51b0cc8db13b6627dede2f9c0e8231013"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0002-unified-kernel-execution-and-capabilities-md",
+      "title": "docs/adr/0002-unified-kernel-execution-and-capabilities.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0002-unified-kernel-execution-and-capabilities.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "145663b2e64e5765b5ad55267915f094272a2dc732aa5330a58aa2f678e47aeb"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0003-attachment-draft-ownership-and-atomic-bind-md",
+      "title": "docs/adr/0003-attachment-draft-ownership-and-atomic-bind.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0003-attachment-draft-ownership-and-atomic-bind.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "c5852c4cab270bc90c64f6d8797ac897cbd3ea24ed33c35221faa08053f93177"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0004-durable-run-event-journal-and-cursor-replay-md",
+      "title": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "ff532c3e4dd34866a99b597a1047e837effba03d86447d05a4149f2990055036"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0005-local-first-telemetry-and-usage-ledger-md",
+      "title": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "8c2a3a27ab39648561d42c505a3b56ea44e519f769542806750b721b2bbdf3f2"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0005-persistent-isolated-and-auto-machine-runtime-md",
+      "title": "docs/adr/0005-persistent-isolated-and-auto-machine-runtime.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0005-persistent-isolated-and-auto-machine-runtime.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "e5c0ce29297d3dea012531908d8c732ead479bbabd4741ab19961db113d5637d"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0006-native-multimodal-bridge-admission-authority-md",
+      "title": "docs/adr/0006-native-multimodal-bridge-admission-authority.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0006-native-multimodal-bridge-admission-authority.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "b1579acae7da9c330786efb3c008aecee3b236baae0e42db5b4113dc285994ba"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0007-state-revision-graph-and-branch-head-cas-md",
+      "title": "docs/adr/0007-state-revision-graph-and-branch-head-cas.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0007-state-revision-graph-and-branch-head-cas.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "dfb705a9c3de88eeb74024e7548fd7ed81f3083a3c865d18504740a5fb551700"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.normative-contract.docs-adr-0008-run-control-multi-stream-cursor-authority-md",
+      "title": "docs/adr/0008-run-control-multi-stream-cursor-authority.md",
+      "sourceClass": "normative-contract",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/adr/0008-run-control-multi-stream-cursor-authority.md",
+        "section": "Normative Omnia contract sources (not external research evidence)"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "current",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "badb1f1afabde709c284446cd3b79ce133be08dfa3c9d27f634582fa6bb86384"
+      },
+      "evidenceBoundary": {
+        "classification": "normative-contract",
+        "limitations": [
+          "A contract defines intended behavior and does not prove implementation, compilation, packaging, or native runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.informative-register.docs-research-windows-runtime-07-source-register-md",
+      "title": "dated Windows/UI",
+      "sourceClass": "informative-register",
+      "locator": {
+        "kind": "local-file",
+        "path": "docs/research/windows-runtime/07-source-register.md",
+        "section": "Related informative source registers"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Local path and SHA-256 content hash were checked by the generator."
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "contentHash": "353ac1353f8dd9702416aae532585fc09848b11fc8d49562e565a7ee223634dd"
+      },
+      "evidenceBoundary": {
+        "classification": "informative-reference",
+        "limitations": [
+          "The register is design input and does not authorize unsafe capabilities or prove shipped runtime behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.openai-codex-a7b8c074b577f897111c14de3a5e127b91e2a479",
+      "title": "openai/codex",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "openai/codex",
+        "revision": {
+          "type": "git-commit",
+          "value": "a7b8c074b577f897111c14de3a5e127b91e2a479"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.openai-codex-72fa74fbc9c4b72d513304bfa0eda427d2402ed9",
+      "title": "openai/codex",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "openai/codex",
+        "revision": {
+          "type": "git-commit",
+          "value": "72fa74fbc9c4b72d513304bfa0eda427d2402ed9"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.anthropics-claude-code-be90077c6a353f292fa612d97173865a9ab21b83",
+      "title": "anthropics/claude-code",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "anthropics/claude-code",
+        "revision": {
+          "type": "git-commit",
+          "value": "be90077c6a353f292fa612d97173865a9ab21b83"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.anthropics-claude-code-525d3b35312636cf8c001ecb3df2be0324a48b43",
+      "title": "anthropics/claude-code",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "anthropics/claude-code",
+        "revision": {
+          "type": "git-commit",
+          "value": "525d3b35312636cf8c001ecb3df2be0324a48b43"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Captured on 2026-10-01 from the reviewed official repository revision."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.continuedev-continue-5522c6f44ca0ac3528b37244818fbfa39b5af470",
+      "title": "continuedev/continue",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "continuedev/continue",
+        "revision": {
+          "type": "git-commit",
+          "value": "5522c6f44ca0ac3528b37244818fbfa39b5af470"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.aider-ai-aider-5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "title": "Aider-AI/aider",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "Aider-AI/aider",
+        "revision": {
+          "type": "git-commit",
+          "value": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.anomalyco-opencode-cc4b45612974f735ddec46009ede07729511fba4",
+      "title": "anomalyco/opencode",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "anomalyco/opencode",
+        "revision": {
+          "type": "git-commit",
+          "value": "cc4b45612974f735ddec46009ede07729511fba4"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.openhands-agent-canvas-4f465f3ccada5271a3bbe4a0148941b0c40d243b",
+      "title": "OpenHands Agent Canvas",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "OpenHands Agent Canvas",
+        "revision": {
+          "type": "git-commit",
+          "value": "4f465f3ccada5271a3bbe4a0148941b0c40d243b"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.openhands-sdk-131b7523554b88135ab66d5c733d26263260f3bf",
+      "title": "OpenHands SDK",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "OpenHands SDK",
+        "revision": {
+          "type": "git-commit",
+          "value": "131b7523554b88135ab66d5c733d26263260f3bf"
+        },
+        "section": "Pinned official repositories already reviewed"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Reviewed at the 2026-08-14 research snapshot."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.pinned-repository.open-telemetry-semantic-conventions-genai-30182acd5ed78ab5f619041eaec5e95a4eb83a48",
+      "title": "open-telemetry/semantic-conventions-genai",
+      "sourceClass": "pinned-repository",
+      "locator": {
+        "kind": "repository",
+        "repository": "open-telemetry/semantic-conventions-genai",
+        "revision": {
+          "type": "git-commit",
+          "value": "30182acd5ed78ab5f619041eaec5e95a4eb83a48"
+        },
+        "section": "Date-stamped official revisions"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "historical",
+        "retrievalStatus": "verified",
+        "notes": "Captured on 2026-08-14; treated as an optional interoperability projection."
+      },
+      "evidenceBoundary": {
+        "classification": "historical-provenance",
+        "limitations": [
+          "A pinned repository revision is historical design provenance, not a license to copy assets or a proof of current upstream behavior."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-codex-codex-manual-md",
+      "title": "OpenAI Codex Manual",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/codex/codex-manual.md",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-docs-guides-error-codes",
+      "title": "OpenAI API error codes",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/docs/guides/error-codes",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-docs-guides-rate-limits",
+      "title": "OpenAI API rate limits",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/docs/guides/rate-limits",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-reference-responses",
+      "title": "OpenAI API Responses reference",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/reference/responses",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-reference-overview",
+      "title": "OpenAI API reference overview and request identifiers",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/reference/overview/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-docs-guides-prompt-caching",
+      "title": "OpenAI API prompt caching",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-docs-guides-compaction",
+      "title": "OpenAI API compaction",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/docs/guides/compaction",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-developers-openai-com-api-docs-guides-counting-tokens",
+      "title": "OpenAI API counting tokens",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://developers.openai.com/api/docs/guides/counting-tokens",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-openai-github-io-openai-agents-python-tracing",
+      "title": "OpenAI Agents SDK tracing",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://openai.github.io/openai-agents-python/tracing/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-openai-github-io-openai-agents-python-handoffs",
+      "title": "OpenAI Agents SDK handoffs",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://openai.github.io/openai-agents-python/handoffs/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-openai-github-io-openai-agents-python-guardrails",
+      "title": "OpenAI Agents SDK guardrails",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://openai.github.io/openai-agents-python/guardrails/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-help-openai-com-en-articles-10169521-using-projects-in-chatgpt",
+      "title": "OpenAI ChatGPT Projects",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-help-openai-com-en-articles-6825453-chatgpt-release-notes",
+      "title": "OpenAI ChatGPT branching conversations",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-support-anthropic-com-en-articles-9517075-what-are-projects",
+      "title": "Anthropic Claude Projects",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://support.anthropic.com/en/articles/9517075-what-are-projects",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-support-google-com-gemini-answer-13666746",
+      "title": "Google Gemini chat pin/rename/delete",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://support.google.com/gemini/answer/13666746",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-code-claude-com-docs-en-sub-agents",
+      "title": "Anthropic subagents",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://code.claude.com/docs/en/sub-agents",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-code-claude-com-docs-en-agent-view",
+      "title": "Anthropic agent view",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://code.claude.com/docs/en/agent-view",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-code-claude-com-docs-en-agent-teams",
+      "title": "Anthropic teams",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://code.claude.com/docs/en/agent-teams",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-openhands-dev-sdk-guides-convo-fork",
+      "title": "OpenHands conversation fork",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.openhands.dev/sdk/guides/convo-fork",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-openhands-dev-sdk-guides-convo-pause-and-resume",
+      "title": "OpenHands pause/resume",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.openhands.dev/sdk/guides/convo-pause-and-resume",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-openhands-dev-sdk-guides-convo-ask-agent",
+      "title": "OpenHands ask agent",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.openhands.dev/sdk/guides/convo-ask-agent",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-openhands-dev-sdk-guides-critic",
+      "title": "OpenHands critic",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.openhands.dev/sdk/guides/critic",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-opentelemetry-io-docs-specs-semconv-gen-ai",
+      "title": "OpenTelemetry GenAI semantic conventions",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-learn-microsoft-com-en-us-dotnet-framework-ui-automation-ui-automation-overview",
+      "title": "Microsoft UI Automation overview",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://learn.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-overview",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-learn-microsoft-com-en-us-windows-apps-develop-media-authoring-processing-screen-capture",
+      "title": "Microsoft Windows Graphics Capture",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://learn.microsoft.com/en-us/windows/apps/develop/media-authoring-processing/screen-capture",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-learn-microsoft-com-en-us-windows-uwp-audio-video-camera-screen-capture-video",
+      "title": "Microsoft Windows Graphics Capture video",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://learn.microsoft.com/en-us/windows/uwp/audio-video-camera/screen-capture-video",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-learn-microsoft-com-en-us-samples-microsoft-windows-classic-samples-applicationloopbackaudio-sample",
+      "title": "Microsoft application loopback audio sample",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://learn.microsoft.com/en-us/samples/microsoft/windows-classic-samples/applicationloopbackaudio-sample/",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-learn-microsoft-com-en-us-windows-uwp-ui-input-input-injection",
+      "title": "Microsoft Input Injection",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://learn.microsoft.com/en-us/windows/uwp/ui-input/input-injection",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-anthropic-com-en-api-errors",
+      "title": "Anthropic API errors",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.anthropic.com/en/api/errors",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-platform-claude-com-docs-en-build-with-claude-prompt-caching",
+      "title": "Anthropic prompt caching",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-platform-claude-com-docs-en-build-with-claude-context-windows",
+      "title": "Anthropic context windows and compaction",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-platform-claude-com-docs-en-build-with-claude-context-editing",
+      "title": "Anthropic context editing",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-anthropic-com-en-api-rate-limits",
+      "title": "Anthropic rate limits",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.anthropic.com/en/api/rate-limits",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-platform-claude-com-docs-en-build-with-claude-usage-cost-api",
+      "title": "Anthropic Usage and Cost API",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/usage-cost-api",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-anthropic-com-en-docs-claude-code-monitoring-usage",
+      "title": "Anthropic Claude Code monitoring and OpenTelemetry",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.anthropic.com/en/docs/claude-code/monitoring-usage",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-gemini-api-docs-troubleshooting",
+      "title": "Gemini troubleshooting",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/gemini-api/docs/troubleshooting",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-api-generate-content",
+      "title": "Gemini GenerateContent usage metadata",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/api/generate-content",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-gemini-api-docs-tokens",
+      "title": "Gemini token counting",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/gemini-api/docs/tokens",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-gemini-api-docs-rate-limits",
+      "title": "Gemini rate limits",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-gemini-api-docs-models",
+      "title": "Gemini model discovery",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/gemini-api/docs/models",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-ai-google-dev-gemini-api-docs-caching",
+      "title": "Gemini context caching",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://ai.google.dev/gemini-api/docs/caching",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-api-docs-deepseek-com-quick-start-error-codes",
+      "title": "DeepSeek error codes",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://api-docs.deepseek.com/quick_start/error_codes",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-api-docs-deepseek-com-guides-kv-cache",
+      "title": "DeepSeek context-cache usage",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://api-docs.deepseek.com/guides/kv_cache",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-api-docs-deepseek-com-api-list-models",
+      "title": "DeepSeek model discovery",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://api-docs.deepseek.com/api/list-models",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-platform-moonshot-cn-docs-api-chat",
+      "title": "Moonshot/Kimi chat API",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://platform.moonshot.cn/docs/api/chat",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-help-aliyun-com-zh-model-studio-qwen-api-via-openai-chat-completions",
+      "title": "Alibaba Model Studio OpenAI-compatible Qwen API",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    },
+    {
+      "sourceId": "src.official-documentation.https-docs-langchain-com-oss-python-langgraph-persistence",
+      "title": "LangGraph persistence",
+      "sourceClass": "official-documentation",
+      "locator": {
+        "kind": "url",
+        "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "section": "Official public docs"
+      },
+      "review": {
+        "reviewedAt": "2026-09-14T00:00:00Z",
+        "freshness": "unknown",
+        "retrievalStatus": "documented-only",
+        "notes": "URL was transcribed from the prose register; reachability and current content were not checked by this generator."
+      },
+      "evidenceBoundary": {
+        "classification": "official-documentation",
+        "limitations": [
+          "The URL is recorded for review; this ledger does not perform reachability or freshness checks.",
+          "Provider documentation may drift and must be re-reviewed before a current-product claim."
+        ]
+      },
+      "crosswalk": {
+        "status": "unmapped",
+        "claimIds": [],
+        "requirementIds": [],
+        "capabilityIds": [],
+        "evidenceIds": []
+      }
+    }
+  ]
+}

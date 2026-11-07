@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Monogram OM</title>
+  <desc id="desc">A gold O and M monogram for a stronger wordmark identity.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#1a1814"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#49402b" stroke-width="3"/>
+  <path d="M203 351c-48-18-78-55-78-95 0-61 58-111 131-111s131 50 131 111c0 40-30 77-78 95" fill="none" stroke="#dbb75d" stroke-width="26" stroke-linecap="round"/>
+  <path d="M190 343V210l66 73 66-73v133" fill="none" stroke="#f4efe3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

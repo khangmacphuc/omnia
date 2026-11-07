@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Stack Mark</title>
+  <desc id="desc">Layered coral bars form a compact O and suggest stacked context.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#191a1c"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#3b3938" stroke-width="3"/>
+  <g fill="#ff8a70">
+    <rect x="137" y="143" width="238" height="34" rx="17"/>
+    <rect x="137" y="197" width="178" height="34" rx="17"/>
+    <rect x="197" y="251" width="178" height="34" rx="17"/>
+    <rect x="137" y="305" width="178" height="34" rx="17"/>
+    <rect x="137" y="359" width="238" height="34" rx="17"/>
+  </g>
+  <rect x="196" y="197" width="60" height="142" rx="24" fill="#191a1c"/>
+</svg>

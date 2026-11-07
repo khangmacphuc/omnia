@@ -1,0 +1,184 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing semantic-version tag to publish (for example v0.1.0)
+        required: true
+        type: string
+
+concurrency:
+  group: omnia-release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  NODE_VERSION: "24"
+
+jobs:
+  validate:
+    name: Validate release candidate
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout release ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - name: Verify tag and package versions agree
+        shell: pwsh
+        run: |
+          $tag = if ('${{ github.event_name }}' -eq 'workflow_dispatch') { '${{ inputs.tag }}' } else { '${{ github.ref_name }}' }
+          if ($tag -notmatch '^v[0-9]+\.[0-9]+\.[0-9]+$') {
+            Write-Error "Release tag must use semantic version form vMAJOR.MINOR.PATCH: $tag"
+          }
+          $expected = $tag.Substring(1)
+          $packageVersion = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          $tauriVersion = (Get-Content src-tauri\tauri.conf.json -Raw | ConvertFrom-Json).version
+          $cargoVersion = (Select-String -Path src-tauri\Cargo.toml -Pattern '^version\s*=\s*"([^"]+)"' | Select-Object -First 1).Matches.Groups[1].Value
+          $versions = @{
+            package = $packageVersion
+            tauri = $tauriVersion
+            cargo = $cargoVersion
+          }
+          $mismatches = $versions.GetEnumerator() | Where-Object { $_.Value -ne $expected }
+          if ($mismatches) {
+            $details = ($versions.GetEnumerator() | ForEach-Object { "$($_.Key)=$($_.Value)" }) -join ', '
+            Write-Error "Tag $tag does not match manifest versions ($details)"
+          }
+          Write-Output "Release version verified: $tag"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Run renderer and contract gates
+        run: npm run check
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Check native formatting
+        run: cargo fmt --manifest-path src-tauri/Cargo.toml --all --check
+
+      - name: Check native Clippy
+        run: cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --all-features -- -D warnings
+
+      - name: Verify native test loader
+        run: cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features -- --list
+
+      - name: Run native workspace tests
+        run: cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features
+
+      - name: Build web distribution
+        run: npm run build:renderer
+
+      - name: Package web distribution
+        shell: pwsh
+        run: |
+          $tag = if ('${{ github.event_name }}' -eq 'workflow_dispatch') { '${{ inputs.tag }}' } else { '${{ github.ref_name }}' }
+          $archive = "omnia-web-$tag.zip"
+          Compress-Archive -Path dist\* -DestinationPath $archive -CompressionLevel Optimal
+          "WEB_ARCHIVE=$archive" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Upload web distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: omnia-web-${{ github.run_id }}
+          path: ${{ env.WEB_ARCHIVE }}
+          if-no-files-found: error
+          retention-days: 30
+
+  windows-bundle:
+    name: Build signed-ready Windows bundles
+    needs: validate
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout release ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust dependencies
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Publish Tauri bundles
+        uses: tauri-apps/tauri-action@fce9c6108b31ea247710505d3aaaa893ee6768d4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          releaseName: Omnia ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          releaseBody: |
+            Automated Windows release for Omnia.
+
+            This release contains unsigned-ready Tauri bundles produced from the tagged source revision.
+            Verify the generated SHA-256 checksums before distribution.
+          releaseDraft: true
+          prerelease: true
+          includeDebug: false
+          projectPath: .
+
+      - name: Generate bundle checksums
+        shell: pwsh
+        run: |
+          $bundleRoot = Join-Path $env:GITHUB_WORKSPACE 'src-tauri\target\release\bundle'
+          if (-not (Test-Path -LiteralPath $bundleRoot)) {
+            Write-Error "Tauri bundle directory was not produced: $bundleRoot"
+          }
+          $checksums = Get-ChildItem -LiteralPath $bundleRoot -Recurse -File |
+            Get-FileHash -Algorithm SHA256 |
+            ForEach-Object { "{0} *{1}" -f $_.Hash.ToLowerInvariant(), $_.Path.Substring($env:GITHUB_WORKSPACE.Length + 1) }
+          $checksums | Set-Content -LiteralPath (Join-Path $bundleRoot 'SHA256SUMS.txt') -Encoding utf8
+
+      - name: Upload bundle checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: omnia-windows-checksums-${{ github.run_id }}
+          path: src-tauri/target/release/bundle/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Attach bundle checksums to GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $tag = if ('${{ github.event_name }}' -eq 'workflow_dispatch') { '${{ inputs.tag }}' } else { '${{ github.ref_name }}' }
+          gh release upload $tag src-tauri\target\release\bundle\SHA256SUMS.txt --clobber

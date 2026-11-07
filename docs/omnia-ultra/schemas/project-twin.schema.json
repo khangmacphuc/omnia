@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/project-twin.schema.json",
+  "title": "Omnia Living Project Twin manifest",
+  "type": "object",
+  "required": ["schemaVersion", "projectId", "revisionId", "sourceSnapshot", "documents", "graphs", "evidence"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "sourceSnapshot": {
+      "type": "object",
+      "required": ["kind", "hash"],
+      "properties": {
+        "kind": { "enum": ["git_tree", "filesystem", "artifact_set", "learning_plan", "research_bundle"] },
+        "hash": { "type": "string", "minLength": 8 },
+        "commit": { "type": ["string", "null"] },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "documents": { "type": "array", "items": { "$ref": "#/$defs/fileEntry" } },
+    "graphs": { "type": "array", "items": { "$ref": "#/$defs/fileEntry" } },
+    "atlas": { "type": "array", "items": { "$ref": "#/$defs/fileEntry" } },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+    "staleItems": { "type": "array", "items": { "type": "string" } },
+    "userOwnedSections": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "fileEntry": {
+      "type": "object",
+      "required": ["path", "contentHash", "kind"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "contentHash": { "type": "string", "minLength": 8 },
+        "kind": { "type": "string", "minLength": 1 },
+        "generated": { "type": "boolean" },
+        "stale": { "type": "boolean" },
+        "dependsOn": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidenceId", "class", "path", "contentHash"],
+      "properties": {
+        "evidenceId": { "type": "string", "minLength": 1 },
+        "class": { "enum": ["source_fact", "static_analysis", "runtime", "test", "screenshot", "audit", "user_annotation", "ai_interpretation", "inference"] },
+        "path": { "type": "string", "minLength": 1 },
+        "contentHash": { "type": "string", "minLength": 8 },
+        "verifiedAt": { "type": ["string", "null"], "format": "date-time" },
+        "stale": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

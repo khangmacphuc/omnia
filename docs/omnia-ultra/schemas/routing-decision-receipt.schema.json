@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/routing-decision-receipt.schema.json",
+  "title": "Omnia immutable routing decision receipt",
+  "description": "An append-only, redacted record of one constrained routing decision. It contains hashes and revision identifiers rather than raw prompts, secrets, credentials, cookies, or protected capture content.",
+  "type": "object",
+  "required": ["schemaVersion", "receiptId", "decisionEpisodeId", "logicalTaskId", "runId", "attemptId", "branchId", "stateRevisionId", "trigger", "policy", "planning", "candidateSet", "decision", "execution", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "receiptId": { "$ref": "#/$defs/id" },
+    "decisionEpisodeId": { "$ref": "#/$defs/id" },
+    "logicalTaskId": { "$ref": "#/$defs/id" },
+    "runId": { "$ref": "#/$defs/id" },
+    "attemptId": { "$ref": "#/$defs/id" },
+    "branchId": { "$ref": "#/$defs/id" },
+    "stateRevisionId": { "$ref": "#/$defs/id" },
+    "parentReceiptId": { "type": ["string", "null"], "minLength": 1 },
+    "trigger": {
+      "enum": ["initial-dispatch", "user-override", "retry", "fallback", "health-change", "quota-change", "context-overflow", "modality-escalation", "authority-change", "policy-rollout", "restart-recovery", "manual-replan"]
+    },
+    "policy": {
+      "type": "object",
+      "required": ["routingPolicyRevisionId", "policyReleaseId", "executionMode", "constraintCompilerRevisionId", "humanReadableExplanation"],
+      "properties": {
+        "routingPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "policyReleaseId": { "type": ["string", "null"], "minLength": 1 },
+        "baselinePolicyReleaseId": { "type": ["string", "null"], "minLength": 1 },
+        "executionMode": { "enum": ["manual", "baseline", "offline", "shadow", "canary", "promoted"] },
+        "constraintCompilerRevisionId": { "$ref": "#/$defs/id" },
+        "killSwitchState": { "enum": ["clear", "tripped", "baseline-pinned"] },
+        "humanReadableExplanation": { "type": "string", "minLength": 1, "maxLength": 4096 },
+        "reasonCodes": { "$ref": "#/$defs/idArray" }
+      },
+      "additionalProperties": false
+    },
+    "planning": {
+      "type": "object",
+      "required": ["inputManifestHash", "contextManifestId", "cachePlanId", "authorityContinuityRecordId", "capabilitySnapshotId", "healthSnapshotId", "quotaSnapshotId", "priceSnapshotId", "hardwareSnapshotId", "dataHandling", "observedAt", "validUntil"],
+      "properties": {
+        "inputManifestHash": { "$ref": "#/$defs/hash" },
+        "contextManifestId": { "type": ["string", "null"], "minLength": 1 },
+        "cachePlanId": { "type": ["string", "null"], "minLength": 1 },
+        "authorityContinuityRecordId": { "type": ["string", "null"], "minLength": 1 },
+        "capabilitySnapshotId": { "$ref": "#/$defs/id" },
+        "healthSnapshotId": { "$ref": "#/$defs/id" },
+        "quotaSnapshotId": { "type": ["string", "null"], "minLength": 1 },
+        "priceSnapshotId": { "type": ["string", "null"], "minLength": 1 },
+        "hardwareSnapshotId": { "type": ["string", "null"], "minLength": 1 },
+        "dataHandling": {
+          "type": "object",
+          "required": ["classificationRevisionId", "allowedDataClassIds", "localityDecision", "learningEligibility"],
+          "properties": {
+            "classificationRevisionId": { "$ref": "#/$defs/id" },
+            "allowedDataClassIds": { "$ref": "#/$defs/idArray" },
+            "localityDecision": { "enum": ["local-only", "cloud-allowed", "cloud-required", "restricted", "unknown"] },
+            "learningEligibility": { "enum": ["not-eligible", "eligible-local-only", "eligible-approved-remote", "tombstoned", "expired"] },
+            "consentRevisionId": { "type": ["string", "null"], "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "validUntil": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "candidateSet": {
+      "type": "object",
+      "required": ["candidateSetHash", "candidates"],
+      "properties": {
+        "candidateSetHash": { "$ref": "#/$defs/hash" },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/candidate" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "required": ["selectedCandidateId", "selectedRoute", "fallbackCandidateIds", "prediction", "override"],
+      "properties": {
+        "selectedCandidateId": { "$ref": "#/$defs/id" },
+        "selectedRoute": { "$ref": "#/$defs/compositeRoute" },
+        "fallbackCandidateIds": { "$ref": "#/$defs/idArray" },
+        "prediction": { "$ref": "#/$defs/prediction" },
+        "override": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": { "enum": ["none", "user", "deterministic-policy", "budget", "privacy", "authority", "incident-kill-switch"] },
+            "sourceRevisionId": { "type": ["string", "null"], "minLength": 1 },
+            "reasonCode": { "type": ["string", "null"], "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "experiment": {
+      "type": ["object", "null"],
+      "properties": {
+        "experimentId": { "$ref": "#/$defs/id" },
+        "assignmentUnitHash": { "$ref": "#/$defs/hash" },
+        "allocationRuleRevisionId": { "$ref": "#/$defs/id" },
+        "bucket": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "selectedActionPropensity": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "exposureBudgetMicrounits": { "type": "integer", "minimum": 0 },
+        "stoppingRuleRevisionId": { "$ref": "#/$defs/id" }
+      },
+      "required": ["experimentId", "assignmentUnitHash", "allocationRuleRevisionId", "bucket", "selectedActionPropensity", "stoppingRuleRevisionId"],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "required": ["status", "effectCeiling", "preparedInputId"],
+      "properties": {
+        "status": { "enum": ["planned", "prepared", "dispatched", "completed", "replanned", "blocked", "cancelled", "outcome-unknown"] },
+        "effectCeiling": { "enum": ["no-external-effects", "read-only-simulated", "approved-external"] },
+        "preparedInputId": { "type": ["string", "null"], "minLength": 1 },
+        "actualRoute": { "anyOf": [{ "$ref": "#/$defs/compositeRoute" }, { "type": "null" }] },
+        "providerAttemptIds": { "$ref": "#/$defs/idArray" },
+        "telemetryObservationIds": { "$ref": "#/$defs/idArray" },
+        "successorReceiptId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "policy": { "properties": { "executionMode": { "const": "shadow" } }, "required": ["executionMode"] } }, "required": ["policy"] },
+      "then": {
+        "required": ["experiment"],
+        "properties": {
+          "experiment": { "type": "object" },
+          "execution": { "properties": { "effectCeiling": { "const": "no-external-effects" } }, "required": ["effectCeiling"] }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "policy": { "properties": { "executionMode": { "enum": ["canary", "promoted"] } }, "required": ["executionMode"] } }, "required": ["policy"] },
+      "then": { "required": ["experiment"], "properties": { "experiment": { "type": "object" } } }
+    }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "hash": { "type": "string", "minLength": 16, "maxLength": 1024 },
+    "idArray": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+    "prediction": {
+      "type": "object",
+      "required": ["featureSchemaRevisionId", "featureVectorHash", "quality", "groundedness", "reliability", "latencyMs", "costMicrounits", "failureRisk", "uncertainty"],
+      "properties": {
+        "featureSchemaRevisionId": { "$ref": "#/$defs/id" },
+        "featureVectorHash": { "$ref": "#/$defs/hash" },
+        "quality": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "groundedness": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "reliability": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "latencyMs": { "type": ["integer", "null"], "minimum": 0 },
+        "costMicrounits": { "type": ["integer", "null"], "minimum": 0 },
+        "failureRisk": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "uncertainty": { "type": "number", "minimum": 0, "maximum": 1 },
+        "calibrationRevisionId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "compositeRoute": {
+      "type": "object",
+      "required": ["providerConfigurationRevisionId", "modelProfileRevisionId", "effort", "contextPolicyRevisionId", "cachePolicyRevisionId"],
+      "properties": {
+        "providerConfigurationRevisionId": { "$ref": "#/$defs/id" },
+        "modelProfileRevisionId": { "$ref": "#/$defs/id" },
+        "effort": { "enum": ["fast", "balanced", "deep", "ultra", "custom"] },
+        "contextPolicyRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "cachePolicyRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "bridgePlanId": { "type": ["string", "null"], "minLength": 1 },
+        "agentRoleProfileRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "machineProfileRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "workflowRevisionId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["candidateId", "route", "eligible", "exclusionReasonCodes", "prediction"],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/id" },
+        "route": { "$ref": "#/$defs/compositeRoute" },
+        "eligible": { "type": "boolean" },
+        "exclusionReasonCodes": { "$ref": "#/$defs/idArray" },
+        "prediction": { "$ref": "#/$defs/prediction" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Cursor Gate</title>
+  <desc id="desc">Angular code brackets frame a warm amber cursor.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#171a1f"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#343c45" stroke-width="3"/>
+  <path d="M188 155 111 256l77 101M324 155l77 101-77 101" fill="none" stroke="#f2b35f" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M257 166v180" stroke="#eef2f3" stroke-width="26" stroke-linecap="round"/>
+  <path d="M232 347h50" stroke="#eef2f3" stroke-width="18" stroke-linecap="round"/>
+</svg>

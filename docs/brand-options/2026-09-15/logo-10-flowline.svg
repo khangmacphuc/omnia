@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Flowline</title>
+  <desc id="desc">Two calm mint flow lines meet to form a continuous context path.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#101a19"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#29433c" stroke-width="3"/>
+  <path d="M123 180c45-38 92-38 137 0s92 38 129 0" fill="none" stroke="#83e3c8" stroke-width="25" stroke-linecap="round"/>
+  <path d="M123 332c45 38 92 38 137 0s92-38 129 0" fill="none" stroke="#83e3c8" stroke-width="25" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="35" fill="#f0faf6"/>
+  <circle cx="256" cy="256" r="13" fill="#101a19"/>
+</svg>

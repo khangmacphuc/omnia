@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Terminal O</title>
+  <desc id="desc">A mint aperture ring with a terminal prompt and cursor inside.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#0e151a"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#24343a" stroke-width="3"/>
+  <circle cx="256" cy="256" r="130" fill="none" stroke="#48d7b0" stroke-width="28"/>
+  <path d="M187 216 229 256 187 296" fill="none" stroke="#f2f7f4" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252 299h73" stroke="#f2f7f4" stroke-width="24" stroke-linecap="round"/>
+</svg>

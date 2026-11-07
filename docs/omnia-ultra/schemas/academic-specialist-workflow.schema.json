@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/academic-specialist-workflow.schema.json",
+  "title": "Omnia academic and technical specialist workflow plan",
+  "description": "An inspectable, authority-bounded work plan for academic, scientific and technical specialist teams.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "planId",
+    "purpose",
+    "workUnits",
+    "teamTopology",
+    "roleAssignments",
+    "contextManifestId",
+    "evaluationPlanId",
+    "authorityCeilingId",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "planId": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "learnerProfileRef": { "type": ["string", "null"] },
+    "sourcePolicyId": { "type": ["string", "null"] },
+    "contextManifestId": { "type": "string", "minLength": 1 },
+    "authorityCeilingId": { "type": "string", "minLength": 1 },
+    "teamTopology": {
+      "enum": ["single", "review-pair", "panel", "pipeline", "research-team", "debate", "swarm", "custom-dag"]
+    },
+    "workUnits": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/workUnit" }
+    },
+    "roleAssignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/roleAssignment" }
+    },
+    "modalityBridgePlanIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "evaluationPlanId": { "type": "string", "minLength": 1 },
+    "budget": { "$ref": "#/$defs/budget" },
+    "selectionEvidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/selectionEvidence" }
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "workUnit": {
+      "type": "object",
+      "required": [
+        "workUnitId",
+        "objective",
+        "domainTags",
+        "workUnitType",
+        "successCriteria",
+        "outputArtifactTypes"
+      ],
+      "properties": {
+        "workUnitId": { "type": "string", "minLength": 1 },
+        "objective": { "type": "string", "minLength": 1 },
+        "domainTags": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "workUnitType": {
+          "enum": ["diagnose", "explain", "derive", "prove", "classify", "solve", "implement", "inspect", "simulate", "experiment", "review", "assess", "communicate"]
+        },
+        "pedagogyModes": {
+          "type": "array",
+          "items": { "enum": ["direct", "atomic-breakdown", "socratic", "worked-example", "deliberate-practice", "retrieval-practice", "exam-simulation", "review"] },
+          "uniqueItems": true
+        },
+        "attachmentRefs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "successCriteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "outputArtifactTypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "riskClass": { "enum": ["low", "moderate", "high", "regulated"] },
+        "stopCondition": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "roleAssignment": {
+      "type": "object",
+      "required": [
+        "assignmentId",
+        "roleId",
+        "roleRevisionId",
+        "assignmentKind",
+        "workUnitIds",
+        "modelPolicyId",
+        "contextPolicyId",
+        "capabilityCeilingId",
+        "handoffRequired"
+      ],
+      "properties": {
+        "assignmentId": { "type": "string", "minLength": 1 },
+        "roleId": { "type": "string", "minLength": 1 },
+        "roleRevisionId": { "type": "string", "minLength": 1 },
+        "assignmentKind": { "enum": ["planner", "producer", "reviewer", "verifier", "presenter", "judge"] },
+        "workUnitIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "modelPolicyId": { "type": "string", "minLength": 1 },
+        "contextPolicyId": { "type": "string", "minLength": 1 },
+        "capabilityCeilingId": { "type": "string", "minLength": 1 },
+        "handoffRequired": { "type": "boolean" },
+        "requiredRubricIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "dependsOnAssignmentIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "maxCostMicros": { "type": "integer", "minimum": 0 },
+        "maxLatencyMs": { "type": "integer", "minimum": 0 },
+        "maxTokens": { "type": "integer", "minimum": 0 },
+        "maxSubagents": { "type": "integer", "minimum": 1 },
+        "maxRecursionDepth": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "selectionEvidence": {
+      "type": "object",
+      "required": ["roleId", "decision", "rationale"],
+      "properties": {
+        "roleId": { "type": "string", "minLength": 1 },
+        "decision": { "enum": ["selected", "rejected", "fallback", "pinned"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "featureRevisionId": { "type": ["string", "null"] },
+        "evaluationReceiptId": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

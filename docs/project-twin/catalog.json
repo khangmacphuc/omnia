@@ -1,0 +1,436 @@
+{
+  "$schema": "./catalog.schema.json",
+  "schemaVersion": 1,
+  "projectId": "omnia",
+  "title": "Omnia current-tree Project Twin catalog",
+  "nodes": [
+    {
+      "id": "project.omnia",
+      "type": "project",
+      "label": "Omnia",
+      "status": "preview",
+      "description": "Local-first, provider-neutral AI workspace for Windows 11.",
+      "sourceRefs": [
+        { "path": "README.md", "startLine": 1, "endLine": 1 },
+        { "path": "docs/PRODUCT_SPEC.md", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.readme", "ev.product-spec"]
+    },
+    {
+      "id": "goal.phase1-preview",
+      "type": "goal",
+      "label": "Phase 1 provider preview",
+      "status": "partial",
+      "description": "A useful unsigned internal preview with a durable foundation, native provider streaming, and explicit boundaries.",
+      "sourceRefs": [
+        { "path": "README.md", "startLine": 5, "endLine": 5 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 1, "endLine": 12 }
+      ],
+      "evidenceIds": ["ev.readme", "ev.status"]
+    },
+    {
+      "id": "goal.chat-complete",
+      "type": "goal",
+      "label": "Chat Complete 1.0",
+      "status": "planned",
+      "description": "The durable, inspectable chat workbench boundary defined by the product specification.",
+      "sourceRefs": [
+        { "path": "README.md", "startLine": 78, "endLine": 108 },
+        { "path": "docs/PRODUCT_SPEC.md", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.readme", "ev.product-spec"]
+    },
+    {
+      "id": "goal.omnia-ultra",
+      "type": "goal",
+      "label": "Omnia Ultra universal workbench",
+      "status": "planned",
+      "description": "The forward product charter unifies chat, research, learning, coding, IDE, browser and machine capabilities, files, automation, agents, Project Twin and adaptive intelligence through dependency-gated phases. It is a normative target, not evidence that those capabilities ship in the current tree.",
+      "sourceRefs": [
+        { "path": "docs/omnia-ultra/01-MASTER-CHARTER.md", "startLine": 9, "endLine": 26 },
+        { "path": "docs/omnia-ultra/delivery/roadmap.md", "startLine": 9, "endLine": 71 }
+      ],
+      "evidenceIds": ["ev.ultra-charter", "ev.ultra-roadmap"]
+    },
+    {
+      "id": "non-goal.autonomous-coding",
+      "type": "non-goal",
+      "label": "Autonomous coding and machine control",
+      "status": "deferred",
+      "description": "IDE, terminal, browser, computer-use, and autonomous coding remain outside the current Chat Complete boundary.",
+      "sourceRefs": [
+        { "path": "README.md", "startLine": 110, "endLine": 117 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 46, "endLine": 47 }
+      ],
+      "evidenceIds": ["ev.readme", "ev.status"]
+    },
+    {
+      "id": "architecture.tauri-boundary",
+      "type": "architecture",
+      "label": "Tauri renderer/native boundary",
+      "status": "implemented",
+      "description": "Versioned startup negotiation and an allowlisted trusted native core separate browser preview from desktop capabilities.",
+      "sourceRefs": [
+        { "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md", "startLine": 1, "endLine": 1 },
+        { "path": "src/lib/core-protocol.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/core_protocol.rs", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.adr-runtime", "ev.renderer-protocol", "ev.native-protocol"]
+    },
+    {
+      "id": "architecture.storage",
+      "type": "architecture",
+      "label": "Local SQLite storage",
+      "status": "partial",
+      "description": "Native SQLite initialization, integrity checks, migrations, and durable projections exist; full backup, purge, and fault recovery remain incomplete.",
+      "sourceRefs": [
+        { "path": "docs/storage-schema.sql", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/storage.rs", "startLine": 1, "endLine": 1 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 26, "endLine": 26 }
+      ],
+      "evidenceIds": ["ev.storage-schema", "ev.native-storage", "ev.status"]
+    },
+    {
+      "id": "architecture.provider-gateway",
+      "type": "architecture",
+      "label": "Provider gateway",
+      "status": "implemented",
+      "description": "Provider-neutral adapters normalize discovery, streaming, cancellation, usage, and redacted failures behind the native gateway.",
+      "sourceRefs": [
+        { "path": "docs/PROVIDER_ARCHITECTURE.md", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/provider_gateway.rs", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/provider_definition.rs", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.provider-spec", "ev.native-provider"]
+    },
+    {
+      "id": "architecture.run-journal",
+      "type": "architecture",
+      "label": "Durable run journal and replay",
+      "status": "partial",
+      "description": "Atomic run/attempt projection updates and fixed-watermark renderer replay are wired for the initial text-chat slice.",
+      "sourceRefs": [
+        { "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/run_journal.rs", "startLine": 1, "endLine": 1 },
+        { "path": "src/features/workspace/run-journal-projection.ts", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.adr-journal", "ev.native-journal", "ev.renderer-journal"]
+    },
+    {
+      "id": "architecture.provider-usage-ledger",
+      "type": "architecture",
+      "label": "Attempt-scoped provider usage ledger",
+      "status": "partial",
+      "description": "Provider-stream token observations append a content-free, non-authoritative partial ledger row atomically with the compatibility projection and usage journal event, and a bounded renderer-safe read now exposes that usage slice. Native timing, final or invoice cost, quota, health, retry and fallback observations remain open.",
+      "sourceRefs": [
+        { "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/run_journal.rs", "startLine": 467, "endLine": 650 },
+        { "path": "docs/audit/NATIVE_RUN_JOURNAL_VERTICAL_SLICE.md", "startLine": 70, "endLine": 110 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 32, "endLine": 33 }
+      ],
+      "evidenceIds": ["ev.adr-telemetry", "ev.native-journal", "ev.native-telemetry", "ev.usage-ledger-audit", "ev.status"]
+    },
+    {
+      "id": "domain.typed-contracts",
+      "type": "domain",
+      "label": "Typed domain contracts",
+      "status": "implemented",
+      "description": "Immutable contracts and invariants cover conversations, runs, providers, parameters, context, projects, memory, skills, content, citations, and grants.",
+      "sourceRefs": [
+        { "path": "src/domain/index.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src/domain/domain.test.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src/domain/project.ts", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.domain-contracts", "ev.domain-tests"]
+    },
+    {
+      "id": "component.workspace-shell",
+      "type": "component",
+      "label": "Workspace renderer shell",
+      "status": "partial",
+      "description": "Responsive activity rail, sidebar, workspace, inspector, command palette, themes, density, and reduced-motion controls are present.",
+      "sourceRefs": [
+        { "path": "src/App.tsx", "startLine": 1, "endLine": 1 },
+        { "path": "src/features/workspace/store.ts", "startLine": 1, "endLine": 1 },
+        { "path": "docs/ui/product-ui-spec.md", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.renderer-app", "ev.workspace-store", "ev.ui-spec"]
+    },
+    {
+      "id": "component.project-persistence",
+      "type": "component",
+      "label": "Project persistence and hydration",
+      "status": "implemented",
+      "description": "Native create/list project commands persist metadata and hydrate the renderer at startup.",
+      "sourceRefs": [
+        { "path": "src/domain/project.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src/features/workspace/project-catalog.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src-tauri/src/commands.rs", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.project-domain", "ev.project-catalog", "ev.native-commands"]
+    },
+    {
+      "id": "component.workspace-grants",
+      "type": "component",
+      "label": "Read-only workspace grants",
+      "status": "implemented",
+      "description": "Folder grants use canonical containment checks and bounded listing/text reads without write, execute, indexing, or symlink following.",
+      "sourceRefs": [
+        { "path": "src-tauri/src/workspace.rs", "startLine": 1, "endLine": 1 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 28, "endLine": 28 }
+      ],
+      "evidenceIds": ["ev.native-workspace", "ev.status"]
+    },
+    {
+      "id": "component.provider-streaming",
+      "type": "component",
+      "label": "Live provider text streaming",
+      "status": "implemented",
+      "description": "OpenAI, Anthropic, Gemini, OpenAI-compatible, and explicitly granted local-compatible text streams normalize into durable run events.",
+      "sourceRefs": [
+        { "path": "src-tauri/src/provider_gateway.rs", "startLine": 1, "endLine": 1 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 32, "endLine": 32 }
+      ],
+      "evidenceIds": ["ev.native-provider", "ev.status"]
+    },
+    {
+      "id": "component.context-inspector",
+      "type": "component",
+      "label": "Context and run inspector",
+      "status": "partial",
+      "description": "The renderer inspector now consumes a bounded native telemetry snapshot for partial provider-stream usage observations, while the final context compiler, persisted context snapshot, timing, cost and retrieval provenance remain open.",
+      "sourceRefs": [
+        { "path": "src/features/workspace/inspector.tsx", "startLine": 1, "endLine": 1 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 33, "endLine": 33 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 38, "endLine": 38 }
+      ],
+      "evidenceIds": ["ev.inspector", "ev.status", "ev.telemetry-inspector"]
+    },
+    {
+      "id": "component.run-telemetry-inspector",
+      "type": "component",
+      "label": "Native run telemetry inspector slice",
+      "status": "partial",
+      "description": "A session-protected native command reads one owned run through a bounded, fail-closed, content-free DTO; the renderer bridge, non-persisted store, replay sync and inspector show real partial non-authoritative provider-stream usage without hidden reasoning content or zero-filled unknowns. Native timing, throughput, RPM/TPM, quota/health, final or invoice cost, retry and fallback telemetry remain unavailable.",
+      "sourceRefs": [
+        { "path": "src-tauri/src/telemetry.rs", "startLine": 234, "endLine": 313 },
+        { "path": "src-tauri/src/telemetry.rs", "startLine": 1488, "endLine": 1621 },
+        { "path": "src-tauri/src/native_commands.rs", "startLine": 142, "endLine": 150 },
+        { "path": "src-tauri/src/lib.rs", "startLine": 27, "endLine": 39 },
+        { "path": "src-tauri/src/lib.rs", "startLine": 87, "endLine": 89 },
+        { "path": "src-tauri/src/ipc_session.rs", "startLine": 181, "endLine": 219 },
+        { "path": "src/lib/desktop.ts", "startLine": 218, "endLine": 311 },
+        { "path": "src/lib/desktop.ts", "startLine": 805, "endLine": 808 },
+        { "path": "src/features/workspace/store.ts", "startLine": 82, "endLine": 83 },
+        { "path": "src/features/workspace/store.ts", "startLine": 750, "endLine": 756 },
+        { "path": "src/features/workspace/run-journal-sync.ts", "startLine": 41, "endLine": 56 },
+        { "path": "src/features/workspace/inspector.tsx", "startLine": 225, "endLine": 367 },
+        { "path": "src-tauri/src/storage.rs", "startLine": 5180, "endLine": 5270 },
+        { "path": "src/lib/desktop.native-session.test.ts", "startLine": 159, "endLine": 179 },
+        { "path": "src/features/workspace/run-telemetry-sync.test.ts", "startLine": 20, "endLine": 42 },
+        { "path": "src/features/workspace/inspector.telemetry.test.tsx", "startLine": 86, "endLine": 111 }
+      ],
+      "evidenceIds": [
+        "ev.native-telemetry",
+        "ev.native-telemetry-command",
+        "ev.native-app-handler",
+        "ev.native-ipc-session",
+        "ev.renderer-desktop-bridge",
+        "ev.workspace-store",
+        "ev.renderer-telemetry-sync",
+        "ev.telemetry-inspector",
+        "ev.native-telemetry-read-test",
+        "ev.desktop-telemetry-session-test",
+        "ev.telemetry-sync-test",
+        "ev.telemetry-inspector-test"
+      ]
+    },
+    {
+      "id": "test.renderer-suite",
+      "type": "test",
+      "label": "Renderer and domain test suite",
+      "status": "partial",
+      "description": "Renderer, domain, accessibility and truthfulness test sources exist, including focused telemetry bridge, sync and inspector coverage; a current-snapshot full-suite runtime receipt is still required before this aggregate node can be called verified.",
+      "sourceRefs": [
+        { "path": "tests/visual/visual-fixture-contract.spec.ts", "startLine": 1, "endLine": 1 },
+        { "path": "src/lib/desktop.native-session.test.ts", "startLine": 159, "endLine": 179 },
+        { "path": "src/features/workspace/run-telemetry-sync.test.ts", "startLine": 20, "endLine": 42 },
+        { "path": "src/features/workspace/inspector.telemetry.test.tsx", "startLine": 86, "endLine": 111 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 79, "endLine": 80 }
+      ],
+      "evidenceIds": [
+        "ev.renderer-tests",
+        "ev.desktop-telemetry-session-test",
+        "ev.telemetry-sync-test",
+        "ev.telemetry-inspector-test",
+        "ev.status"
+      ]
+    },
+    {
+      "id": "test.native-suite",
+      "type": "test",
+      "label": "Native test and packaging gate",
+      "status": "partial",
+      "description": "One rebuilt `omnia_native` focused telemetry-read test now launches and passes directly on this host. Full native-suite, packaged-app and CI verification remain separate gates; an earlier loader failure remains historical evidence for a pre-fix target.",
+      "sourceRefs": [
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 79, "endLine": 88 },
+        { "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md", "startLine": 36, "endLine": 59 },
+        { "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md", "startLine": 9, "endLine": 40 }
+      ],
+      "evidenceIds": ["ev.status", "ev.native-telemetry-read-receipt", "ev.native-test-loader-receipt"]
+    },
+    {
+      "id": "roadmap.project-intelligence",
+      "type": "roadmap",
+      "label": "Project intelligence",
+      "status": "planned",
+      "description": "Extraction, indexing, retrieval, citations, artifacts, and context compilation follow the durable kernel and provider foundations.",
+      "sourceRefs": [
+        { "path": "docs/omnia-ultra/delivery/roadmap.md", "startLine": 24, "endLine": 35 },
+        { "path": "docs/IMPLEMENTATION_STATUS.md", "startLine": 39, "endLine": 44 }
+      ],
+      "evidenceIds": ["ev.ultra-roadmap", "ev.status"]
+    },
+    {
+      "id": "decision.local-first",
+      "type": "decision",
+      "label": "Local-first data and secrets",
+      "status": "accepted",
+      "description": "Implemented project/chat data and preferences remain local by default; provider credentials cross an opaque native Windows-protected boundary.",
+      "sourceRefs": [
+        { "path": "README.md", "startLine": 42, "endLine": 47 },
+        { "path": "docs/security-storage-architecture.md", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.readme", "ev.security-storage"]
+    },
+    {
+      "id": "risk.native-test-loader",
+      "type": "risk",
+      "label": "Historical native test-loader failure",
+      "status": "partial",
+      "description": "A prior `omnia_lib` test target failed before discovery with STATUS_ENTRYPOINT_NOT_FOUND. The rebuilt `omnia_native` focused telemetry-read target now passes directly on this host, so the old failure is retained as historical diagnostic evidence rather than a current blanket blocker.",
+      "sourceRefs": [
+        { "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md", "startLine": 9, "endLine": 40 },
+        { "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md", "startLine": 47, "endLine": 65 }
+      ],
+      "evidenceIds": ["ev.native-test-loader-receipt", "ev.native-telemetry-read-receipt"]
+    },
+    {
+      "id": "twin.manifest",
+      "type": "artifact",
+      "label": "Twin manifest",
+      "status": "implemented",
+      "description": "Schema-compatible snapshot manifest with source hash, document/graph/atlas entries, evidence hashes, and user-owned sections.",
+      "sourceRefs": [
+        { "path": "docs/omnia-ultra/schemas/project-twin.schema.json", "startLine": 1, "endLine": 1 },
+        { "path": "docs/project-twin/catalog.json", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.twin-schema", "ev.twin-catalog"]
+    },
+    {
+      "id": "twin.graph",
+      "type": "artifact",
+      "label": "Canonical graph",
+      "status": "implemented",
+      "description": "Evidence-linked node and edge projection for product, architecture, components, tests, roadmap, decisions, risks, and artifacts.",
+      "sourceRefs": [
+        { "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md", "startLine": 1, "endLine": 1 },
+        { "path": "docs/project-twin/catalog.json", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.twin-contract", "ev.twin-catalog"]
+    },
+    {
+      "id": "twin.atlas",
+      "type": "artifact",
+      "label": "Offline accessible atlas",
+      "status": "implemented",
+      "description": "Static HTML/CSS/JavaScript atlas with search, status/type filters, node details, and an evidence-linked edge table.",
+      "sourceRefs": [
+        { "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md", "startLine": 26, "endLine": 31 },
+        { "path": "docs/project-twin/catalog.json", "startLine": 1, "endLine": 1 }
+      ],
+      "evidenceIds": ["ev.twin-contract", "ev.twin-catalog"]
+    }
+  ],
+  "edges": [
+    { "id": "edge.project-phase1", "type": "targets", "source": "project.omnia", "target": "goal.phase1-preview", "evidenceClass": "source_fact", "evidenceIds": ["ev.readme", "ev.status"] },
+    { "id": "edge.project-chat-complete", "type": "targets", "source": "project.omnia", "target": "goal.chat-complete", "evidenceClass": "source_fact", "evidenceIds": ["ev.readme", "ev.product-spec"] },
+    { "id": "edge.project-non-goal", "type": "constrains", "source": "project.omnia", "target": "non-goal.autonomous-coding", "evidenceClass": "source_fact", "evidenceIds": ["ev.readme", "ev.status"] },
+    { "id": "edge.phase1-boundary", "type": "implemented_by", "source": "goal.phase1-preview", "target": "architecture.tauri-boundary", "evidenceClass": "source_fact", "evidenceIds": ["ev.status", "ev.adr-runtime"] },
+    { "id": "edge.phase1-storage", "type": "implemented_by", "source": "goal.phase1-preview", "target": "architecture.storage", "evidenceClass": "source_fact", "evidenceIds": ["ev.status", "ev.storage-schema"] },
+    { "id": "edge.phase1-provider", "type": "implemented_by", "source": "goal.phase1-preview", "target": "component.provider-streaming", "evidenceClass": "source_fact", "evidenceIds": ["ev.status", "ev.native-provider"] },
+    { "id": "edge.boundary-shell", "type": "contains", "source": "architecture.tauri-boundary", "target": "component.workspace-shell", "evidenceClass": "source_fact", "evidenceIds": ["ev.renderer-app", "ev.native-protocol"] },
+    { "id": "edge.storage-projects", "type": "persists", "source": "architecture.storage", "target": "component.project-persistence", "evidenceClass": "source_fact", "evidenceIds": ["ev.storage-schema", "ev.project-catalog"] },
+    { "id": "edge.storage-journal", "type": "persists", "source": "architecture.storage", "target": "architecture.run-journal", "evidenceClass": "source_fact", "evidenceIds": ["ev.native-storage", "ev.adr-journal"] },
+    { "id": "edge.storage-usage-ledger", "type": "persists", "source": "architecture.storage", "target": "architecture.provider-usage-ledger", "evidenceClass": "source_fact", "evidenceIds": ["ev.storage-schema", "ev.native-telemetry"] },
+    { "id": "edge.gateway-stream", "type": "normalizes", "source": "architecture.provider-gateway", "target": "component.provider-streaming", "evidenceClass": "source_fact", "evidenceIds": ["ev.provider-spec", "ev.native-provider"] },
+    { "id": "edge.protocol-contracts", "type": "exposes", "source": "architecture.tauri-boundary", "target": "domain.typed-contracts", "evidenceClass": "source_fact", "evidenceIds": ["ev.renderer-protocol", "ev.domain-contracts"] },
+    { "id": "edge.journal-inspector", "type": "projects_to", "source": "architecture.run-journal", "target": "component.context-inspector", "evidenceClass": "source_fact", "evidenceIds": ["ev.renderer-journal", "ev.inspector"] },
+    { "id": "edge.journal-usage-ledger", "type": "records", "source": "architecture.run-journal", "target": "architecture.provider-usage-ledger", "evidenceClass": "static_analysis", "evidenceIds": ["ev.native-journal", "ev.native-telemetry", "ev.usage-ledger-audit"] },
+    { "id": "edge.usage-ledger-telemetry-inspector", "type": "exposed_by", "source": "architecture.provider-usage-ledger", "target": "component.run-telemetry-inspector", "evidenceClass": "static_analysis", "evidenceIds": ["ev.native-telemetry", "ev.native-telemetry-command", "ev.renderer-desktop-bridge"] },
+    { "id": "edge.boundary-telemetry-inspector", "type": "protects", "source": "architecture.tauri-boundary", "target": "component.run-telemetry-inspector", "evidenceClass": "static_analysis", "evidenceIds": ["ev.native-app-handler", "ev.native-ipc-session", "ev.native-telemetry-command"] },
+    { "id": "edge.telemetry-context-inspector", "type": "projects_to", "source": "component.run-telemetry-inspector", "target": "component.context-inspector", "evidenceClass": "static_analysis", "evidenceIds": ["ev.renderer-telemetry-sync", "ev.telemetry-inspector"] },
+    { "id": "edge.telemetry-renderer-tests", "type": "verified_by", "source": "component.run-telemetry-inspector", "target": "test.renderer-suite", "evidenceClass": "test", "evidenceIds": ["ev.desktop-telemetry-session-test", "ev.telemetry-sync-test", "ev.telemetry-inspector-test"] },
+    { "id": "edge.telemetry-native-runtime-risk", "type": "historically_blocked_by", "source": "component.run-telemetry-inspector", "target": "risk.native-test-loader", "evidenceClass": "runtime", "evidenceIds": ["ev.native-test-loader-receipt"] },
+    { "id": "edge.telemetry-native-runtime-verified", "type": "verified_by", "source": "component.run-telemetry-inspector", "target": "test.native-suite", "evidenceClass": "runtime", "evidenceIds": ["ev.native-telemetry-read-receipt"] },
+    { "id": "edge.projects-shell", "type": "hydrates", "source": "component.project-persistence", "target": "component.workspace-shell", "evidenceClass": "source_fact", "evidenceIds": ["ev.project-catalog", "ev.renderer-app"] },
+    { "id": "edge.grants-projects", "type": "scopes", "source": "component.workspace-grants", "target": "component.project-persistence", "evidenceClass": "source_fact", "evidenceIds": ["ev.native-workspace", "ev.status"] },
+    { "id": "edge.contracts-tests", "type": "verified_by", "source": "domain.typed-contracts", "target": "test.renderer-suite", "evidenceClass": "test", "evidenceIds": ["ev.domain-tests", "ev.renderer-tests"] },
+    { "id": "edge.renderer-tests", "type": "verified_by", "source": "component.workspace-shell", "target": "test.renderer-suite", "evidenceClass": "test", "evidenceIds": ["ev.renderer-tests", "ev.ui-spec"] },
+    { "id": "edge.native-risk", "type": "blocked_by", "source": "test.native-suite", "target": "risk.native-test-loader", "evidenceClass": "runtime", "evidenceIds": ["ev.native-test-loader-receipt", "ev.status"] },
+    { "id": "edge.chat-roadmap", "type": "depends_on", "source": "goal.chat-complete", "target": "roadmap.project-intelligence", "evidenceClass": "source_fact", "evidenceIds": ["ev.product-spec", "ev.ultra-roadmap"] },
+    { "id": "edge.ultra-targets-project", "type": "sets_target_for", "source": "goal.omnia-ultra", "target": "project.omnia", "evidenceClass": "source_fact", "evidenceIds": ["ev.ultra-charter"] },
+    { "id": "edge.ultra-roadmap", "type": "phased_by", "source": "goal.omnia-ultra", "target": "roadmap.project-intelligence", "evidenceClass": "source_fact", "evidenceIds": ["ev.ultra-charter", "ev.ultra-roadmap"] },
+    { "id": "edge.local-first", "type": "governed_by", "source": "project.omnia", "target": "decision.local-first", "evidenceClass": "source_fact", "evidenceIds": ["ev.readme", "ev.security-storage"] },
+    { "id": "edge.twin-manifest", "type": "describes", "source": "twin.manifest", "target": "project.omnia", "evidenceClass": "user_annotation", "evidenceIds": ["ev.twin-schema", "ev.twin-catalog"] },
+    { "id": "edge.twin-graph", "type": "projects", "source": "twin.graph", "target": "project.omnia", "evidenceClass": "user_annotation", "evidenceIds": ["ev.twin-contract", "ev.twin-catalog"] },
+    { "id": "edge.twin-atlas", "type": "renders", "source": "twin.atlas", "target": "twin.graph", "evidenceClass": "user_annotation", "evidenceIds": ["ev.twin-contract", "ev.twin-catalog"] }
+  ],
+  "evidence": [
+    { "id": "ev.readme", "class": "source_fact", "path": "README.md" },
+    { "id": "ev.product-spec", "class": "source_fact", "path": "docs/PRODUCT_SPEC.md" },
+    { "id": "ev.status", "class": "audit", "path": "docs/IMPLEMENTATION_STATUS.md" },
+    { "id": "ev.adr-runtime", "class": "source_fact", "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md" },
+    { "id": "ev.adr-journal", "class": "source_fact", "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md" },
+    { "id": "ev.adr-telemetry", "class": "source_fact", "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md" },
+    { "id": "ev.security-storage", "class": "source_fact", "path": "docs/security-storage-architecture.md" },
+    { "id": "ev.storage-schema", "class": "source_fact", "path": "docs/storage-schema.sql" },
+    { "id": "ev.provider-spec", "class": "source_fact", "path": "docs/PROVIDER_ARCHITECTURE.md" },
+    { "id": "ev.ui-spec", "class": "source_fact", "path": "docs/ui/product-ui-spec.md" },
+    { "id": "ev.ultra-charter", "class": "source_fact", "path": "docs/omnia-ultra/01-MASTER-CHARTER.md" },
+    { "id": "ev.ultra-roadmap", "class": "source_fact", "path": "docs/omnia-ultra/delivery/roadmap.md" },
+    { "id": "ev.twin-schema", "class": "source_fact", "path": "docs/omnia-ultra/schemas/project-twin.schema.json" },
+    { "id": "ev.twin-contract", "class": "source_fact", "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md" },
+    { "id": "ev.twin-catalog", "class": "user_annotation", "path": "docs/project-twin/catalog.json" },
+    { "id": "ev.renderer-protocol", "class": "static_analysis", "path": "src/lib/core-protocol.ts" },
+    { "id": "ev.native-protocol", "class": "static_analysis", "path": "src-tauri/src/core_protocol.rs" },
+    { "id": "ev.native-storage", "class": "static_analysis", "path": "src-tauri/src/storage.rs" },
+    { "id": "ev.native-provider", "class": "static_analysis", "path": "src-tauri/src/provider_gateway.rs" },
+    { "id": "ev.native-journal", "class": "static_analysis", "path": "src-tauri/src/run_journal.rs" },
+    { "id": "ev.native-telemetry", "class": "static_analysis", "path": "src-tauri/src/telemetry.rs" },
+    { "id": "ev.native-telemetry-command", "class": "static_analysis", "path": "src-tauri/src/native_commands.rs" },
+    { "id": "ev.native-app-handler", "class": "static_analysis", "path": "src-tauri/src/lib.rs" },
+    { "id": "ev.native-ipc-session", "class": "static_analysis", "path": "src-tauri/src/ipc_session.rs" },
+    { "id": "ev.usage-ledger-audit", "class": "audit", "path": "docs/audit/NATIVE_RUN_JOURNAL_VERTICAL_SLICE.md" },
+    { "id": "ev.renderer-journal", "class": "static_analysis", "path": "src/features/workspace/run-journal-projection.ts" },
+    { "id": "ev.renderer-desktop-bridge", "class": "static_analysis", "path": "src/lib/desktop.ts" },
+    { "id": "ev.renderer-telemetry-sync", "class": "static_analysis", "path": "src/features/workspace/run-journal-sync.ts" },
+    { "id": "ev.domain-contracts", "class": "static_analysis", "path": "src/domain/index.ts" },
+    { "id": "ev.domain-tests", "class": "test", "path": "src/domain/domain.test.ts" },
+    { "id": "ev.renderer-app", "class": "static_analysis", "path": "src/App.tsx" },
+    { "id": "ev.workspace-store", "class": "static_analysis", "path": "src/features/workspace/store.ts" },
+    { "id": "ev.project-domain", "class": "static_analysis", "path": "src/domain/project.ts" },
+    { "id": "ev.project-catalog", "class": "static_analysis", "path": "src/features/workspace/project-catalog.ts" },
+    { "id": "ev.native-commands", "class": "static_analysis", "path": "src-tauri/src/commands.rs" },
+    { "id": "ev.native-workspace", "class": "static_analysis", "path": "src-tauri/src/workspace.rs" },
+    { "id": "ev.inspector", "class": "static_analysis", "path": "src/features/workspace/inspector.tsx" },
+    { "id": "ev.telemetry-inspector", "class": "static_analysis", "path": "src/features/workspace/inspector.tsx" },
+    { "id": "ev.renderer-tests", "class": "test", "path": "tests/visual/visual-fixture-contract.spec.ts" },
+    { "id": "ev.native-telemetry-read-test", "class": "test", "path": "src-tauri/src/storage.rs" },
+    { "id": "ev.desktop-telemetry-session-test", "class": "test", "path": "src/lib/desktop.native-session.test.ts" },
+    { "id": "ev.telemetry-sync-test", "class": "test", "path": "src/features/workspace/run-telemetry-sync.test.ts" },
+    { "id": "ev.telemetry-inspector-test", "class": "test", "path": "src/features/workspace/inspector.telemetry.test.tsx" },
+    { "id": "ev.native-test-loader-receipt", "class": "runtime", "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md" },
+    { "id": "ev.native-telemetry-read-receipt", "class": "runtime", "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md" }
+  ]
+}

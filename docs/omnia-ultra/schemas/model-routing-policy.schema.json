@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/model-routing-policy.schema.json",
+  "title": "Omnia main and subagent model routing policy",
+  "type": "object",
+  "required": ["schemaVersion", "policyId", "revisionId", "mainDefault", "subagentDefault", "precedence", "autoPolicy", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "mainDefault": { "$ref": "#/$defs/routeChoice" },
+    "subagentDefault": { "$ref": "#/$defs/routeChoice" },
+    "roleOverrides": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/routeChoice" }
+    },
+    "precedence": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["prompt", "task", "agent-instance", "role", "persona", "workflow", "skill", "project", "profile", "global", "auto"] }
+    },
+    "autoPolicy": {
+      "type": "object",
+      "required": ["enabled", "candidateProfileIds", "objectiveWeights", "experimentMode", "minimumConfidence"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "candidateProfileIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "objectiveWeights": {
+          "type": "object",
+          "properties": {
+            "quality": { "type": "number", "minimum": 0 },
+            "cost": { "type": "number", "minimum": 0 },
+            "latency": { "type": "number", "minimum": 0 },
+            "reliability": { "type": "number", "minimum": 0 },
+            "privacy": { "type": "number", "minimum": 0 }
+          },
+          "additionalProperties": false
+        },
+        "maximumCostMicrounits": { "type": ["integer", "null"], "minimum": 0 },
+        "maximumLatencyMs": { "type": ["integer", "null"], "minimum": 0 },
+        "allowedLocality": { "enum": ["local-only", "cloud-only", "local-preferred", "cloud-preferred", "hybrid"] },
+        "experimentMode": { "enum": ["off", "offline", "shadow", "ab", "promoted"] },
+        "minimumConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "fallbackProfileIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "routeChoice": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["auto", "explicit", "pool"] },
+        "providerProfileId": { "type": ["string", "null"] },
+        "modelProfileId": { "type": ["string", "null"] },
+        "candidateProfileIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "effort": { "enum": ["fast", "balanced", "deep", "ultra", "custom"] },
+        "contextPolicyId": { "type": ["string", "null"] },
+        "cachePolicyId": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "const": "explicit" } }, "required": ["mode"] },
+          "then": { "required": ["modelProfileId"] }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "pool" } }, "required": ["mode"] },
+          "then": {
+            "required": ["candidateProfileIds"],
+            "properties": { "candidateProfileIds": { "minItems": 1 } }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

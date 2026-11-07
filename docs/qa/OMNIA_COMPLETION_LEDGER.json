@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-07T16:45:00+07:00",
+  "repository": "D:/Omnia/repos/omnia",
+  "sourceRevision": "55f21dacf5acb2c6f386aff1ece6a5245bad0fc4+final-verification-20261107",
+  "goal": "Hoàn thiện Omnia theo ma trận DoD toàn diện và không claim capability chưa có bằng chứng.",
+  "status": "in_progress",
+  "completionRule": "A criterion is complete only when implementation, focused test, boundary/permission evidence, and same-snapshot receipt all exist.",
+  "coverage": {
+    "criteriaTotal": 24,
+    "done": 8,
+    "partial": 13,
+    "blocked": 3,
+    "planned": 0,
+    "verifiedPercent": 33,
+    "weightedPercent": 60,
+    "formula": "done + 0.5*partial over criteriaTotal; blocked and planned count as zero"
+  },
+  "upstreamInventory": {
+    "categories": 11,
+    "modulesAudited": 55,
+    "filesRepresented": 7469,
+    "sourceLikeFiles": 109161,
+    "sensitiveFilesWithheld": 9914,
+    "inventoryDocument": "docs/UPSTREAM_INTEGRATION_INVENTORY.md",
+    "catalogSource": "src/domain/upstream-capability-catalog.ts",
+    "reuseLedger": "docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md",
+    "shippedAdapterFamilies": [
+      "skills-discovery",
+      "subagent-role-discovery",
+      "mcp-trust-boundary",
+      "plugin-registry",
+      "provider-routing",
+      "artifact-and-checkpoint-lifecycle",
+      "retrieval-catalog",
+      "browser-workbench"
+    ],
+    "evidenceOnlyFamilies": [
+      "runtime profiles",
+      "credential-shaped state",
+      "proprietary desktop binaries",
+      "full OpenHands server",
+      "Antigravity ConnectRPC"
+    ]
+  },
+  "criteria": [
+    {
+      "id": "agent-chat-lifecycle",
+      "area": "agent chat",
+      "status": "partial",
+      "coverage": "8/10",
+      "implementation": [
+        "src/agent/agent-shell.tsx",
+        "src/agent/agent-store.ts",
+        "src-tauri/src/harness_bridge.rs",
+        "src-tauri/src/run_journal.rs"
+      ],
+      "tests": [
+        "src/agent/agent-shell.test.tsx",
+        "src/agent/home-start.test.tsx"
+      ],
+      "evidence": [
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "durable renderer tab state and native multi-model compare are not fully verified"
+    },
+    {
+      "id": "session-tabs",
+      "area": "session navigation",
+      "status": "done",
+      "coverage": "7/7",
+      "implementation": [
+        "src/agent/session-navigation.ts",
+        "src/agent/use-session-navigation.ts",
+        "src/agent/session-tabs.tsx",
+        "src-tauri/src/session_navigation.rs"
+      ],
+      "tests": [
+        "src/agent/session-tabs.test.tsx",
+        "src/agent/session-navigation.test.ts",
+        "src-tauri/src/session_navigation.rs tests"
+      ],
+      "evidence": [
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "renderer/native",
+      "gap": "none within the supported renderer/native snapshot boundary"
+    },
+    {
+      "id": "project-pointer-storage",
+      "area": "projects and files",
+      "status": "partial",
+      "coverage": "8/9",
+      "implementation": [
+        "src/agent/project-file-pointers.ts",
+        "src/domain/virtual-pointer.ts",
+        "src/domain/virtual-pointer.test.ts",
+        "src-tauri/src/workspace_indexer.rs"
+      ],
+      "tests": [
+        "src/domain/virtual-pointer.test.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/pointer-storage-result-20261107.md",
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "renderer pointer/CAS plus native identity-bound watcher rows, rename/delete retention and encryption tests pass; packaged Windows watcher evidence remains"
+    },
+    {
+      "id": "rag-index-retrieval",
+      "area": "RAG and citations",
+      "status": "partial",
+      "coverage": "8/9",
+      "implementation": [
+        "src/domain/omnia-retrieval-registry.ts",
+        "src/domain/omnia-retrieval-memory-adapter.ts",
+        "src/domain/omnia-workspace-index.ts",
+        "src/domain/retrieval-request-receipt.ts",
+        "src/domain/run.ts"
+      ],
+      "tests": [
+        "src/domain/omnia-retrieval-registry.test.ts",
+        "src/domain/omnia-retrieval-memory-adapter.test.ts",
+        "src/domain/retrieval-request-receipt.test.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/rag-adapter-result-20261107.md",
+        "D:/Omnia/.agents/checkpoints/retrieval-request-receipt-result-20261107.md"
+      ],
+      "boundary": "renderer/native",
+      "gap": "embedding/reranker provider execution and native provider population on every live request remain unverified"
+    },
+    {
+      "id": "model-routing-compare",
+      "area": "model routing and compare",
+      "status": "partial",
+      "coverage": "7/8",
+      "implementation": [
+        "src/agent/model-routing.ts",
+        "src/domain/output-route.ts",
+        "src/domain/run.ts",
+        "src/domain/model-compare.ts"
+      ],
+      "tests": [
+        "src/agent/intelligence-contracts.test.ts",
+        "src/domain/output-route.test.ts",
+        "src/domain/model-compare.test.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/routing-result-20261107.md",
+        "D:/Omnia/.agents/checkpoints/model-compare-receipt-result-20261107.md"
+      ],
+      "boundary": "renderer/domain",
+      "gap": "native concurrent provider dispatch and live billing lineage remain unverified"
+    },
+    {
+      "id": "runtime-settings-hot-reload",
+      "area": "runtime settings",
+      "status": "done",
+      "coverage": "8/8",
+      "implementation": [
+        "src/agent/runtime-settings.ts",
+        "src/agent/settings-dialog.tsx",
+        "src/agent/session-settings-dialog.tsx",
+        "src/agent/agent-store.ts",
+        "src-tauri/src/harness_store.rs",
+        "src-tauri/src/harness_bridge.rs"
+      ],
+      "tests": [
+        "src/agent/intelligence-contracts.test.ts",
+        "src/agent/session-settings-dialog.test.tsx",
+        "src/agent/settings-dialog.test.tsx",
+        "src-tauri/src/harness_store.rs tests"
+      ],
+      "evidence": [
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "renderer/native",
+      "gap": "none within the supported per-session CAS and hot-reload boundary"
+    },
+    {
+      "id": "workflow-goal-plan-dod",
+      "area": "workflow, goal, plan, DoD",
+      "status": "done",
+      "coverage": "6/6",
+      "implementation": [
+        "src/agent/workflow-contract.ts",
+        "docs/qa/DEFINITION_OF_DONE.md"
+      ],
+      "tests": [
+        "src/agent/intelligence-contracts.test.ts"
+      ],
+      "evidence": [
+        "docs/qa/DEFINITION_OF_DONE.md",
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md"
+      ],
+      "boundary": "renderer/documented native boundary"
+    },
+    {
+      "id": "observability-usage-billing",
+      "area": "observability",
+      "status": "partial",
+      "coverage": "7/8",
+      "implementation": [
+        "src/agent/observability.ts",
+        "src/domain/provider-telemetry-projection.ts",
+        "src/features/workspace/inspector.tsx",
+        "src/features/workspace/project-runtime-posture.tsx",
+        "src-tauri/src/telemetry.rs"
+      ],
+      "tests": [
+        "src/features/workspace/project-runtime-posture.test.tsx",
+        "src/domain/provider-telemetry-projection.test.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/observability-audit-result.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "bounded provider billing reconciliation fixture and telemetry projection pass; live account/invoice reconciliation remains unverified"
+    },
+    {
+      "id": "skills-subagents-mcp-plugins",
+      "area": "skills, tools, MCP, plugins, subagents",
+      "status": "partial",
+      "coverage": "9/10",
+      "implementation": [
+        "src-tauri/src/harness_bridge.rs",
+        "src-tauri/src/plugin_bridge.rs",
+        "src-tauri/src/mcp_server.rs",
+        "src/agent/agent-api.ts"
+      ],
+      "tests": [
+        "src/agent/agent-api.test.ts",
+        "src-tauri/crates/omnia-harness/src/plugins.rs"
+      ],
+      "evidence": [
+        "docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "native skills/roles/plugin receipt inspection and trust filtering pass; external service login/credential and live provider evidence remain"
+    },
+    {
+      "id": "ide-surface",
+      "area": "IDE/editor",
+      "status": "partial",
+      "coverage": "6/7",
+      "implementation": [
+        "src/features/workspace/sovereign-ide-workbench.tsx",
+        "src-tauri/src/editor_surface.rs",
+        "src-tauri/src/editor_server.rs"
+      ],
+      "tests": [
+        "src/domain/omnia-editor-runtime-adapter.test.ts",
+        "tests/visual/visual-fixture-contract.spec.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/next-ide-product-audit.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "immutable LSP snapshot/dispatch and native editor tests pass; packaged editor/WebView2 resize matrix remains"
+    },
+    {
+      "id": "browser-computer-harness",
+      "area": "browser and computer use",
+      "status": "partial",
+      "coverage": "9/12",
+      "implementation": [
+        "src/features/workspace/sovereign-browser-workbench.tsx",
+        "src-tauri/src/browser_surface.rs",
+        "src/domain/virtual-pointer.ts"
+      ],
+      "tests": [
+        "src/features/workspace/sovereign-browser-workbench.test.tsx",
+        "src-tauri/tests/native_subsystem_tests.rs"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/next-browser-product-audit.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "native capture receipt, zoom bounds, lifecycle forwarding and browser persistence pass; packaged WebView2 target-blank/download/history evidence remains"
+    },
+    {
+      "id": "browser-persistence-validation",
+      "area": "browser local persistence",
+      "status": "done",
+      "coverage": "3/3",
+      "implementation": [
+        "src/features/workspace/sovereign-browser-workbench.tsx"
+      ],
+      "tests": [
+        "src/features/workspace/sovereign-browser-workbench.test.tsx"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/browser-persistence-result.md"
+      ],
+      "boundary": "renderer",
+      "gap": "native browser surface gaps are tracked separately"
+    },
+    {
+      "id": "session-portability",
+      "area": "export, import, branch, rewind",
+      "status": "done",
+      "coverage": "8/8",
+      "implementation": [
+        "src/agent/session-portability.ts",
+        "src-tauri/src/data_portability.rs",
+        "src-tauri/src/attachment_commands.rs",
+        "src-tauri/src/attachment_repository.rs",
+        "src/domain/session-dfs-tree.ts"
+      ],
+      "tests": [
+        "src/agent/intelligence-contracts.test.ts",
+        "src/agent/settings-dialog.test.tsx",
+        "src/features/workspace/attachment-binary-preview.test.ts",
+        "src-tauri/tests/native_subsystem_tests.rs",
+        "src-tauri/src/attachment_repository.rs tests"
+      ],
+      "evidence": [
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "renderer/native",
+      "gap": "none within the supported redacted import/export, branch/rewind, and authenticated attachment-preview boundary"
+    },
+    {
+      "id": "multimodal-media",
+      "area": "image, audio, video and files",
+      "status": "partial",
+      "coverage": "8/10",
+      "implementation": [
+        "src/domain/multimodal-bridge.ts",
+        "src/domain/omnia-media-pipeline.ts",
+        "src-tauri/src/multimodal_bridge.rs"
+      ],
+      "tests": [
+        "src/domain/multimodal-bridge.test.ts",
+        "src/domain/omnia-media-runtime-adapter.test.ts"
+      ],
+      "evidence": [
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "authenticated bounded binary preview and renderer media bridge pass; provider-specific generation endpoints and universal encrypted document decoding remain"
+    },
+    {
+      "id": "upstream-extraction-reuse",
+      "area": "all upstream_extractions",
+      "status": "done",
+      "coverage": "55/55 audited; 8 capability families connected",
+      "implementation": [
+        "src/domain/upstream-capability-catalog.ts",
+        "src/domain/upstream-capability-catalog.test.ts",
+        "docs/UPSTREAM_INTEGRATION_INVENTORY.md",
+        "docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md"
+      ],
+      "tests": [
+        "src/domain/upstream-capability-catalog.test.ts"
+      ],
+      "evidence": [
+        "docs/UPSTREAM_INTEGRATION_INVENTORY.md",
+        "docs/UPSTREAM_HARNESS_INTEGRATION_20261107.md"
+      ],
+      "boundary": "documented adapter boundary",
+      "gap": "runtime-state and proprietary binaries remain evidence-only by policy"
+    },
+    {
+      "id": "permissions-security",
+      "area": "trust, approvals, secret boundary",
+      "status": "done",
+      "coverage": "9/9",
+      "implementation": [
+        "src-tauri/src/exact_approval_broker.rs",
+        "src-tauri/src/harness_permissions.rs",
+        "src-tauri/src/secret_store.rs",
+        "src/domain/omnia-permission-policy.ts"
+      ],
+      "tests": [
+        "src-tauri/tests/native_subsystem_tests.rs",
+        "src/domain/omnia-permission-policy.test.ts"
+      ],
+      "evidence": [
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md"
+      ],
+      "boundary": "native"
+    },
+    {
+      "id": "native-persistence",
+      "area": "native persistence and recovery",
+      "status": "partial",
+      "coverage": "9/10",
+      "implementation": [
+        "src-tauri/src/app_state_persistence.rs",
+        "src-tauri/src/settings_permissions_persistence.rs",
+        "src-tauri/src/storage.rs"
+      ],
+      "tests": [
+        "src-tauri/tests/native_subsystem_tests.rs"
+      ],
+      "evidence": [
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "native",
+      "gap": "canonical native integration target and persistence suites pass; unsupported library-test loader remains environment-blocked"
+    },
+    {
+      "id": "ui-accessibility",
+      "area": "UI, keyboard, focus, DPI, high contrast",
+      "status": "partial",
+      "coverage": "7/10",
+      "implementation": [
+        "src/agent/agent-shell.tsx",
+        "src/agent/session-tabs.tsx",
+        "src/features/workspace"
+      ],
+      "tests": [
+        "src/agent/agent-shell.test.tsx",
+        "tests/visual/visual-fixture-contract.spec.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/renderer-accessibility-review.md"
+      ],
+      "boundary": "renderer",
+      "gap": "full DPI/high-contrast/screen-reader matrix is not current-snapshot verified"
+    },
+    {
+      "id": "performance-resource-budget",
+      "area": "CPU, RAM, GPU, disk, context/tool truncation",
+      "status": "partial",
+      "coverage": "7/9",
+      "implementation": [
+        "src-tauri/crates/omnia-harness/src/budget.rs",
+        "src/domain/harness-throughput-optimizer.ts",
+        "src/agent/runtime-settings.ts",
+        "scripts/perf-headless-runner.mjs",
+        "scripts/perf-headless-runner-lib.mjs"
+      ],
+      "tests": [
+        "cargo test -p omnia-harness budget::tests --lib",
+        "cargo test -p omnia-harness --test eval_suite -- --nocapture",
+        "node --test scripts/perf-headless-runner.test.mjs"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/harness-shared-budget-result.md",
+        "D:/Omnia/.agents/checkpoints/headless-performance-runner-result-20261107.md",
+        "docs/qa/HEADLESS_PERFORMANCE_RUNNER.md"
+      ],
+      "boundary": "native/renderer",
+      "gap": "headless renderer collection is implemented and measured, but the page-ready target currently fails; long-running endurance, packaged native working-set, and GPU/display profiling remain"
+    },
+    {
+      "id": "ci-build-verification",
+      "area": "CI, typecheck, build, native checks",
+      "status": "partial",
+      "coverage": "9/10",
+      "implementation": [
+        "package.json",
+        ".github/workflows",
+        "src-tauri/Cargo.toml"
+      ],
+      "tests": [
+        "npm.cmd run typecheck:app -- --pretty false",
+        "npm.cmd run build:renderer",
+        "cargo check --manifest-path src-tauri/Cargo.toml --offline",
+        "cargo test --workspace --offline"
+      ],
+      "evidence": [
+        "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md",
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+      ],
+      "boundary": "both",
+      "gap": "typecheck, build, command parity, catalog, Cargo check and canonical workspace tests pass; unsupported library-test loader remains environment-blocked"
+    },
+    {
+      "id": "completion-reporting",
+      "area": "receipts, audit, status and handoff",
+      "status": "done",
+      "coverage": "6/6",
+      "implementation": [
+        "docs/qa/DEFINITION_OF_DONE.md",
+        "docs/qa/OMNIA_COMPLETION_LEDGER.json",
+        "docs/qa/OMNIA_COMPLETION_LEDGER.md"
+      ],
+      "tests": [
+        "ledger reviewed against current source revision"
+      ],
+      "evidence": [
+        "docs/qa/DEFINITION_OF_DONE.md"
+      ],
+      "boundary": "documented"
+    },
+    {
+      "id": "native-browser-gaps",
+      "area": "browser native remaining gaps",
+      "status": "blocked",
+      "coverage": "4/9",
+      "implementation": [
+        "src/features/workspace/sovereign-browser-workbench.tsx",
+        "src-tauri/src/browser_surface.rs"
+      ],
+      "tests": [
+        "src/features/workspace/sovereign-browser-workbench.test.tsx"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/next-browser-product-audit.md"
+      ],
+      "boundary": "native",
+      "gap": "requires packaged WebView2/capture/history/zoom evidence unavailable in current preview"
+    },
+    {
+      "id": "provider-live-billing",
+      "area": "live provider billing",
+      "status": "blocked",
+      "coverage": "3/8",
+      "implementation": [
+        "src-tauri/src/telemetry.rs",
+        "src/domain/provider-telemetry-projection.ts"
+      ],
+      "tests": [
+        "src/domain/provider-telemetry-projection.test.ts"
+      ],
+      "evidence": [
+        "D:/Omnia/.agents/checkpoints/observability-audit-result.md"
+      ],
+      "boundary": "native/provider",
+      "gap": "requires provider account/API invoice fixture and live reconciliation evidence"
+    },
+    {
+      "id": "desktop-loader-environment",
+      "area": "Windows desktop test loader",
+      "status": "blocked",
+      "coverage": "0/1",
+      "implementation": [
+        "src-tauri/Cargo.toml"
+      ],
+      "tests": [
+        "cargo test -p omnia-desktop --lib --offline (compiles, executable exits before discovery)"
+      ],
+      "evidence": [
+        "docs/NATIVE_INTEGRATION_AUDIT_20261107.md"
+      ],
+      "boundary": "native",
+      "gap": "STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139) must be resolved on a compatible Windows runtime"
+    }
+  ],
+  "verificationCommands": [
+    {
+      "command": "npm.cmd run typecheck:app -- --pretty false",
+      "result": "PASS"
+    },
+    {
+      "command": "npm.cmd run build:renderer",
+      "result": "PASS: 2,097 modules transformed"
+    },
+    {
+      "command": "npx vitest run compare/retrieval/RAG/browser/session/plugin/settings focused suites --reporter=dot",
+      "result": "PASS: 9 files, 112 tests"
+    },
+    {
+      "command": "npx vitest run settings/services/plugin/API focused suite --reporter=dot",
+      "result": "PASS: 5 files, 69 tests"
+    },
+    {
+      "command": "npm.cmd run check:command-parity",
+      "result": "PASS: 187 renderer calls, 190 registered, 190 production definitions"
+    },
+    {
+      "command": "npm.cmd run check:upstream-catalog",
+      "result": "PASS: 55 modules"
+    },
+    {
+      "command": "node --test scripts/perf-headless-runner.test.mjs",
+      "result": "PASS: 7 tests"
+    },
+    {
+      "command": "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check",
+      "result": "PASS"
+    },
+    {
+      "command": "cargo check --manifest-path src-tauri/Cargo.toml --offline",
+      "result": "PASS"
+    },
+    {
+      "command": "cargo test --manifest-path src-tauri/Cargo.toml --workspace --offline",
+      "result": "PASS: all workspace targets; 701 canonical native tests passed, plus browser/computer/harness/subsystem suites"
+    },
+    {
+      "command": "cargo test --manifest-path src-tauri/Cargo.toml --test project_file_watch_tests --offline",
+      "result": "PASS: 11 tests"
+    },
+    {
+      "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness lsp:: --offline --lib",
+      "result": "PASS: 27 passed, 1 ignored"
+    },
+    {
+      "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features --offline -- --list",
+      "result": "PASS: 701 tests discovered"
+    },
+    {
+      "command": "cargo test -p omnia-desktop --lib --offline",
+      "result": "BLOCKED: STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139), unsupported library-test loader target"
+    }
+  ],
+  "updatedAt": "2026-11-07T18:45:00+07:00"
+}

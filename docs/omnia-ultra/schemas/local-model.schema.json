@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/local-model.schema.json",
+  "title": "Omnia local model registry record",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "localModelId",
+    "family",
+    "revision",
+    "contentHashes",
+    "license",
+    "runtime",
+    "health",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "localModelId": { "type": "string", "minLength": 1 },
+    "family": { "type": "string", "minLength": 1 },
+    "revision": { "type": "string", "minLength": 1 },
+    "sourceUri": { "type": ["string", "null"] },
+    "contentHashes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string", "minLength": 8 }
+    },
+    "license": {
+      "type": "object",
+      "required": ["identifier", "accepted"],
+      "properties": {
+        "identifier": { "type": "string", "minLength": 1 },
+        "sourceUri": { "type": ["string", "null"] },
+        "accepted": { "type": "boolean" },
+        "acceptedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "chat",
+          "code",
+          "embedding",
+          "rerank",
+          "classification",
+          "vision",
+          "speech_to_text",
+          "text_to_speech",
+          "audio",
+          "image"
+        ]
+      }
+    },
+    "precision": { "type": ["string", "null"] },
+    "quantization": { "type": ["string", "null"] },
+    "diskBytes": { "type": ["integer", "null"], "minimum": 0 },
+    "estimatedRamBytes": { "type": ["integer", "null"], "minimum": 0 },
+    "estimatedVramBytes": { "type": ["integer", "null"], "minimum": 0 },
+    "runtime": {
+      "type": "object",
+      "required": ["adapter", "version", "state"],
+      "properties": {
+        "adapter": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "endpoint": { "type": ["string", "null"] },
+        "state": {
+          "enum": ["installed", "loading", "warming", "ready", "degraded", "evicting", "stopped", "failed"]
+        },
+        "device": { "type": ["string", "null"] },
+        "ramBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "vramBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "loadDurationMs": { "type": ["number", "null"], "minimum": 0 },
+        "prefillTokensPerSecond": { "type": ["number", "null"], "minimum": 0 },
+        "decodeTokensPerSecond": { "type": ["number", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "health": {
+      "type": "object",
+      "required": ["state", "observedAt", "source"],
+      "properties": {
+        "state": {
+          "enum": ["healthy", "degraded", "loading", "unavailable", "unknown", "incompatible"]
+        },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "source": { "enum": ["runtime", "smoke_test", "benchmark", "manual"] },
+        "detail": { "type": ["string", "null"], "maxLength": 4096 }
+      },
+      "additionalProperties": false
+    },
+    "evaluationRevisionId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}
+

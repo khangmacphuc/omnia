@@ -1,0 +1,484 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/modality-bridge-plan.schema.json",
+  "title": "Omnia multimodal capability bridge plan",
+  "description": "Durable, inspectable bridge plan. It records a resolved route, data-boundary decisions, untrusted-content containment and modality-specific fidelity evidence; it is not a blanket permission to transform or transmit an attachment.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "planId",
+    "sourceArtifacts",
+    "destinationModelProfileRevisionId",
+    "destinationCapabilitySnapshotRevisionId",
+    "requestedMode",
+    "resolvedMode",
+    "routeDecision",
+    "stages",
+    "egress",
+    "untrustedContentSafety",
+    "fidelityGate",
+    "policyRevisionId",
+    "finalDisposition",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "planId": { "$ref": "#/$defs/id" },
+    "sourceArtifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceArtifact" },
+      "uniqueItems": true
+    },
+    "destinationModelProfileRevisionId": { "$ref": "#/$defs/id" },
+    "destinationCapabilitySnapshotRevisionId": { "$ref": "#/$defs/id" },
+    "requestedMode": {
+      "enum": [
+        "auto",
+        "direct-native",
+        "local-transform",
+        "specialist-bridge-model",
+        "hybrid-ensemble",
+        "surrogate-to-primary",
+        "human-review",
+        "unsupported",
+        "local-only",
+        "direct-only",
+        "cheapest",
+        "highest-quality",
+        "manual"
+      ]
+    },
+    "resolvedMode": {
+      "enum": [
+        "direct-native",
+        "local-transform",
+        "specialist-bridge-model",
+        "hybrid-ensemble",
+        "surrogate-to-primary",
+        "human-review",
+        "unsupported"
+      ]
+    },
+    "routeDecision": {
+      "type": "object",
+      "required": [
+        "decisionReceiptId",
+        "plannerRevisionId",
+        "consideredRouteIds",
+        "selectedReasonCodes",
+        "rejectedAlternatives",
+        "decidedAt"
+      ],
+      "properties": {
+        "decisionReceiptId": { "$ref": "#/$defs/id" },
+        "plannerRevisionId": { "$ref": "#/$defs/id" },
+        "consideredRouteIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "selectedReasonCodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "rejectedAlternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["routeId", "reasonCodes"],
+            "properties": {
+              "routeId": { "$ref": "#/$defs/id" },
+              "reasonCodes": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/id" },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "decidedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/stage" }
+    },
+    "egress": { "$ref": "#/$defs/egress" },
+    "untrustedContentSafety": { "$ref": "#/$defs/untrustedContentSafety" },
+    "fidelityGate": { "$ref": "#/$defs/fidelityGate" },
+    "policyRevisionId": { "$ref": "#/$defs/id" },
+    "contextManifestId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "estimatedCost": { "type": ["number", "null"], "minimum": 0 },
+    "actualCost": { "type": ["number", "null"], "minimum": 0 },
+    "finalDisposition": {
+      "enum": ["planned", "processing", "ready", "ready-with-degradation", "review-required", "blocked", "failed"]
+    },
+    "blockOrReviewReasonCodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "requestedMode": { "const": "direct-only" } }, "required": ["requestedMode"] },
+      "then": {
+        "properties": {
+          "resolvedMode": { "enum": ["direct-native", "human-review", "unsupported"] }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "requestedMode": { "const": "local-only" } }, "required": ["requestedMode"] },
+      "then": {
+        "properties": {
+          "resolvedMode": { "enum": ["local-transform", "human-review", "unsupported"] }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "finalDisposition": { "const": "ready" } }, "required": ["finalDisposition"] },
+      "then": {
+        "properties": {
+          "fidelityGate": {
+            "properties": { "status": { "const": "passed" } },
+            "required": ["status"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "finalDisposition": { "const": "ready-with-degradation" } }, "required": ["finalDisposition"] },
+      "then": {
+        "properties": {
+          "fidelityGate": {
+            "properties": { "status": { "const": "degraded" } },
+            "required": ["status"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "finalDisposition": { "enum": ["review-required", "blocked"] } }, "required": ["finalDisposition"] },
+      "then": { "required": ["blockOrReviewReasonCodes"] }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 },
+    "sourceArtifact": {
+      "type": "object",
+      "required": ["artifactId", "mimeType", "sourceHash", "byteSize", "artifactRole", "dataClass"],
+      "properties": {
+        "artifactId": { "$ref": "#/$defs/id" },
+        "mimeType": { "type": "string", "minLength": 1 },
+        "sourceHash": { "$ref": "#/$defs/id" },
+        "byteSize": { "type": "integer", "minimum": 0 },
+        "artifactRole": { "enum": ["original", "derivative", "provider-file-handle", "external-reference-metadata"] },
+        "dataClass": { "enum": ["public", "internal", "confidential", "restricted", "secret", "unknown"] },
+        "originalArtifactId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "retentionPolicyRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "required": [
+        "stageId",
+        "kind",
+        "inputArtifactIds",
+        "outputArtifactIds",
+        "status",
+        "executionBoundary",
+        "representation",
+        "lossDeclaration",
+        "citationReferences"
+      ],
+      "properties": {
+        "stageId": { "$ref": "#/$defs/id" },
+        "kind": {
+          "enum": [
+            "upload", "render", "extract", "ocr", "asr", "diarize", "keyframe", "vision",
+            "video-analysis", "document-analysis", "table-analysis", "archive-analysis",
+            "code-analysis", "scientific-analysis", "validate", "summarize", "retrieve", "human-review"
+          ]
+        },
+        "toolOrModelRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "parameterProfileRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "inputArtifactIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "outputArtifactIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "status": { "enum": ["planned", "running", "completed", "failed", "blocked", "review-required", "skipped"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "executionBoundary": {
+          "type": "object",
+          "required": ["location", "dataEgressDecision", "contentTreatment"],
+          "properties": {
+            "location": { "enum": ["local-sandbox", "local-runtime", "approved-provider", "trusted-broker"] },
+            "dataEgressDecision": { "enum": ["not-applicable", "allowed", "denied", "review-required"] },
+            "contentTreatment": { "const": "untrusted-data-not-control" },
+            "approvalReceiptId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+          },
+          "additionalProperties": false
+        },
+        "representation": { "enum": ["native-original", "rendered", "parsed", "structured-extract", "grounded-surrogate", "retrieval-handle", "observation"] },
+        "lossDeclaration": {
+          "type": "object",
+          "required": ["lossClass", "userDisclosure"],
+          "properties": {
+            "lossClass": { "enum": ["none-known", "reversible", "lossy", "unknown"] },
+            "userDisclosure": { "enum": ["not-needed", "visible", "review-required"] },
+            "reasonCodes": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/id" },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "citationReferences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/citationReference" }
+        },
+        "validatorEvidenceIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "warningCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "executionBoundary": {
+                "type": "object",
+                "properties": { "location": { "const": "approved-provider" } },
+                "required": ["location"]
+              }
+            },
+            "required": ["executionBoundary"]
+          },
+          "then": {
+            "properties": {
+              "executionBoundary": {
+                "properties": {
+                  "dataEgressDecision": { "const": "allowed" },
+                  "approvalReceiptId": { "$ref": "#/$defs/id" }
+                },
+                "required": ["dataEgressDecision", "approvalReceiptId"]
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "representation": { "const": "grounded-surrogate" } }, "required": ["representation"] },
+          "then": {
+            "properties": {
+              "lossDeclaration": {
+                "properties": { "userDisclosure": { "enum": ["visible", "review-required"] } },
+                "required": ["userDisclosure"]
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "citationReference": {
+      "type": "object",
+      "required": ["sourceArtifactId", "evidenceKind", "coordinate"],
+      "properties": {
+        "sourceArtifactId": { "$ref": "#/$defs/id" },
+        "evidenceKind": { "enum": ["source-observation", "derived-representation", "specialist-interpretation", "model-inference"] },
+        "coordinate": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": { "enum": ["page", "sheet-cell", "slide", "byte-range", "image-region", "time-range", "code-range", "table-range", "archive-member", "unknown"] },
+            "value": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "egress": {
+      "type": "object",
+      "required": [
+        "boundaryStatus",
+        "allowedDestinationProfileRevisionIds",
+        "allowedArtifactIds",
+        "redactionArtifactIds",
+        "retentionPolicyRevisionId",
+        "consentOrApprovalReceiptId"
+      ],
+      "properties": {
+        "boundaryStatus": { "enum": ["local-only", "not-required", "approved", "denied", "review-required", "blocked"] },
+        "allowedDestinationProfileRevisionIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "allowedArtifactIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "redactionArtifactIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "retentionPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "consentOrApprovalReceiptId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "residencyDecisionRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "boundaryStatus": { "enum": ["local-only", "not-required", "denied", "blocked"] } },
+            "required": ["boundaryStatus"]
+          },
+          "then": {
+            "properties": {
+              "allowedDestinationProfileRevisionIds": { "maxItems": 0 },
+              "allowedArtifactIds": { "maxItems": 0 },
+              "consentOrApprovalReceiptId": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "boundaryStatus": { "const": "approved" } }, "required": ["boundaryStatus"] },
+          "then": {
+            "properties": {
+              "allowedDestinationProfileRevisionIds": { "minItems": 1 },
+              "allowedArtifactIds": { "minItems": 1 },
+              "consentOrApprovalReceiptId": { "$ref": "#/$defs/id" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "untrustedContentSafety": {
+      "type": "object",
+      "required": [
+        "contentTreatment",
+        "instructionAuthority",
+        "embeddedActiveContentPolicy",
+        "externalReferencePolicy",
+        "promptInjectionDisposition"
+      ],
+      "properties": {
+        "contentTreatment": { "const": "data-not-control" },
+        "instructionAuthority": { "const": "never-grant" },
+        "embeddedActiveContentPolicy": { "enum": ["not-executed", "isolated-approved-analysis", "blocked"] },
+        "externalReferencePolicy": { "enum": ["not-followed", "separate-approved-retrieval", "blocked"] },
+        "promptInjectionDisposition": { "enum": ["none-detected", "contained", "review-required", "blocked"] },
+        "riskSignalCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fidelityGate": {
+      "type": "object",
+      "required": ["status", "dimensions", "validatorEvidenceIds", "originalsPreserved"],
+      "properties": {
+        "status": { "enum": ["not-started", "passed", "degraded", "failed", "unmeasured", "review-required", "not-applicable"] },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["dimension", "status", "impact", "evidenceIds"],
+            "properties": {
+              "dimension": { "enum": ["integrity", "content", "structural", "layout", "spatial", "temporal", "semantic", "numeric", "formula", "code", "citation", "accessibility", "provenance"] },
+              "status": { "enum": ["passed", "degraded", "failed", "unmeasured", "not-applicable"] },
+              "impact": { "enum": ["decisive", "material", "informational"] },
+              "measurement": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+              "threshold": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+              "evidenceIds": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/id" },
+                "uniqueItems": true
+              },
+              "uncertaintyReasonCodes": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/id" },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "validatorEvidenceIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "originalsPreserved": { "const": true },
+        "degradationDisclosure": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "passed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "dimensions": {
+                "not": {
+                  "contains": {
+                    "type": "object",
+                    "properties": { "status": { "enum": ["degraded", "failed", "unmeasured"] } },
+                    "required": ["status"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "degraded" } }, "required": ["status"] },
+          "then": {
+            "required": ["degradationDisclosure"],
+            "properties": {
+              "dimensions": {
+                "contains": {
+                  "type": "object",
+                  "properties": { "status": { "enum": ["degraded", "failed", "unmeasured"] } },
+                  "required": ["status"]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

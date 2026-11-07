@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/modality-bridge-execution-receipt.schema.json",
+  "title": "Omnia multimodal bridge stage execution receipt",
+  "description": "Immutable execution evidence for one bridge-plan stage attempt. A plan authorizes no work by itself: the trusted broker records this receipt after fresh policy and authority evaluation.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "receiptId",
+    "bridgePlanId",
+    "stageId",
+    "bridgeRunId",
+    "stageAttemptId",
+    "frozenPlanDigest",
+    "executionStatus",
+    "executionBoundary",
+    "idempotency",
+    "providerAcceptance",
+    "inputArtifactIds",
+    "outputArtifactIds",
+    "reconciliation",
+    "startedAt",
+    "observedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "receiptId": { "$ref": "#/$defs/id" },
+    "bridgePlanId": { "$ref": "#/$defs/id" },
+    "stageId": { "$ref": "#/$defs/id" },
+    "bridgeRunId": { "$ref": "#/$defs/id" },
+    "stageAttemptId": { "$ref": "#/$defs/id" },
+    "frozenPlanDigest": { "$ref": "#/$defs/id" },
+    "executionStatus": {
+      "enum": [
+        "prepared",
+        "dispatched",
+        "running",
+        "checkpointed",
+        "completed",
+        "failed",
+        "cancelled",
+        "outcome-unknown",
+        "reconcile-required",
+        "reconciled"
+      ]
+    },
+    "executionBoundary": {
+      "type": "object",
+      "required": ["location", "policyRevisionId", "authorityContinuityRecordId", "dataEgressDecision"],
+      "properties": {
+        "location": { "enum": ["local-sandbox", "local-runtime", "approved-provider", "trusted-broker"] },
+        "policyRevisionId": { "$ref": "#/$defs/id" },
+        "authorityContinuityRecordId": { "$ref": "#/$defs/id" },
+        "dataEgressDecision": { "enum": ["not-applicable", "allowed"] },
+        "approvalReceiptId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "providerProfileRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "modelProfileRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "endpointCapabilitySnapshotRevisionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "idempotency": {
+      "type": "object",
+      "required": ["key", "scope", "duplicateChargeOrEffectRisk"],
+      "properties": {
+        "key": { "$ref": "#/$defs/id" },
+        "scope": { "enum": ["local-stage", "provider-upload", "provider-job", "provider-inference", "reconciliation"] },
+        "duplicateChargeOrEffectRisk": { "enum": ["none", "bounded", "material", "unknown"] },
+        "providerIdempotencyEvidenceId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "providerAcceptance": {
+      "enum": ["not-applicable", "not-dispatched", "accepted", "rejected", "unknown"]
+    },
+    "inputArtifactIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "outputArtifactIds": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "checkpoint": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["checkpointId", "stageCursor", "recoverySnapshotId", "safeBoundary"],
+          "properties": {
+            "checkpointId": { "$ref": "#/$defs/id" },
+            "stageCursor": { "$ref": "#/$defs/id" },
+            "recoverySnapshotId": { "$ref": "#/$defs/id" },
+            "safeBoundary": { "enum": ["before-dispatch", "provider-accepted", "local-unit", "provider-poll", "output-verified", "unknown"] }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "reconciliation": {
+      "type": "object",
+      "required": ["required", "status", "reasonCodes", "recordId"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "status": { "enum": ["not-required", "pending", "in-progress", "resolved", "blocked"] },
+        "reasonCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "recordId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "resolutionEvidenceIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "inputBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "outputBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "inputTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "outputTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "cost": { "type": ["number", "null"], "minimum": 0 },
+        "usageAuthority": { "enum": ["measured-local", "provider-reported", "estimated", "unknown"] }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["classification", "redactedMessageArtifactId"],
+          "properties": {
+            "classification": { "enum": ["policy", "capability", "validation", "network", "provider", "resource", "cancelled", "unknown"] },
+            "redactedMessageArtifactId": { "$ref": "#/$defs/id" },
+            "retryDecisionRecordId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": ["string", "null"], "format": "date-time" },
+    "observedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "executionBoundary": {
+            "properties": { "location": { "const": "approved-provider" } },
+            "required": ["location"]
+          }
+        },
+        "required": ["executionBoundary"]
+      },
+      "then": {
+        "properties": {
+          "executionBoundary": {
+            "properties": {
+              "dataEgressDecision": { "const": "allowed" },
+              "approvalReceiptId": { "$ref": "#/$defs/id" },
+              "providerProfileRevisionId": { "$ref": "#/$defs/id" },
+              "modelProfileRevisionId": { "$ref": "#/$defs/id" },
+              "endpointCapabilitySnapshotRevisionId": { "$ref": "#/$defs/id" }
+            },
+            "required": ["dataEgressDecision", "approvalReceiptId", "providerProfileRevisionId", "modelProfileRevisionId", "endpointCapabilitySnapshotRevisionId"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "executionStatus": { "enum": ["outcome-unknown", "reconcile-required"] } }, "required": ["executionStatus"] },
+      "then": {
+        "properties": {
+          "reconciliation": {
+            "properties": {
+              "required": { "const": true },
+              "status": { "enum": ["pending", "in-progress", "blocked"] },
+              "recordId": { "$ref": "#/$defs/id" }
+            },
+            "required": ["required", "status", "recordId"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "executionStatus": { "const": "completed" } }, "required": ["executionStatus"] },
+      "then": {
+        "properties": {
+          "reconciliation": {
+            "properties": { "required": { "const": false }, "status": { "const": "not-required" }, "recordId": { "type": "null" } },
+            "required": ["required", "status", "recordId"]
+          },
+          "completedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["completedAt"]
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 }
+  }
+}

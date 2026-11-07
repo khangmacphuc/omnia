@@ -1,0 +1,48 @@
+node_modules/
+dist/
+.vite/
+coverage/
+playwright-report/
+test-results/
+artifacts/visual/
+*.log
+
+# Rust / Tauri
+src-tauri/target/
+target/
+.cargo-target-test/
+.cargo-target-verify/
+
+# Local application data and secrets
+.env
+.env.*
+!.env.example
+.omnia/
+*.db
+*.db-shm
+*.db-wal
+
+# Editors / OS
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# Build caches and local reference material (never commit)
+.toolchains/
+.cargo-target-*/
+research/upstreams/
+artifacts/
+__pycache__/
+*.pyc
+omnia.code-workspace
+
+
+# Upstream extractions raw assets, sub-repos and node_modules
+upstream_extractions/**/node_modules/
+upstream_extractions/**/assets/
+upstream_extractions/harnesses/opencode/
+upstream_extractions/harnesses/hermes-agent/
+upstream_extractions/harnesses/codex-app-unpacked/webview/

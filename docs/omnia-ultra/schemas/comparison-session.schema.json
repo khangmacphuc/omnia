@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/comparison-session.schema.json",
+  "title": "Omnia pinned comparison session",
+  "type": "object",
+  "required": ["schemaVersion", "comparisonId", "targets", "baselineWatermark", "mode", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "comparisonId": { "type": "string", "minLength": 1 },
+    "targets": { "type": "array", "minItems": 2, "items": { "type": "object", "required": ["label", "branchId", "stateRevisionId", "eventCursor"], "additionalProperties": false, "properties": { "label": { "type": "string", "minLength": 1 }, "branchId": { "type": "string", "minLength": 1 }, "stateRevisionId": { "type": "string", "minLength": 1 }, "eventCursor": { "type": "integer", "minimum": 0 } } } },
+    "baselineWatermark": { "type": "integer", "minimum": 0 },
+    "mode": { "enum": ["pinned", "live-follow"] },
+    "redactionClass": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

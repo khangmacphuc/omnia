@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/message-revision.schema.json",
+  "title": "Omnia immutable message and prompt revision",
+  "type": "object",
+  "required": ["schemaVersion", "revisionId", "messageId", "kind", "effect", "sourceCursor", "contentHash", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "messageId": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["draft", "user", "assistant", "tool", "system", "annotation"] },
+    "effect": { "enum": ["edit-draft", "replace-queued", "edit-as-branch", "replay-historical", "retry-current-state", "selected-delta-retry", "annotation-or-correction"] },
+    "parentRevisionId": { "type": ["string", "null"] },
+    "sourceCursor": { "type": "integer", "minimum": 0 },
+    "destinationBranchId": { "type": ["string", "null"] },
+    "contentHash": { "type": "string", "minLength": 1 },
+    "redactionClass": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

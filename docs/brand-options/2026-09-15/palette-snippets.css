@@ -1,0 +1,55 @@
+/* Candidate palettes. Copy one block into tokens.css only after choosing a direction. */
+
+:root[data-brand="p01-graphite-mint"] {
+  --canvas: #0e1318; --surface: #161d24; --surface-elevated: #1d2830;
+  --brand: #48d7b0; --brand-bright: #83e3c8; --brand-pressed: #2db795;
+  --focus: #77b8ff; --text: #eff4f2; --text-secondary: #b7c5c3;
+}
+
+:root[data-brand="p02-navy-cobalt"] {
+  --canvas: #0f1721; --surface: #182433; --surface-elevated: #223247;
+  --brand: #5da9ff; --brand-bright: #a7d8ff; --brand-pressed: #3988e2;
+  --focus: #83d1ff; --text: #edf4fb; --text-secondary: #b6c5d5;
+}
+
+:root[data-brand="p03-slate-amber"] {
+  --canvas: #16191d; --surface: #20262c; --surface-elevated: #2a323a;
+  --brand: #f2b35f; --brand-bright: #ffd38d; --brand-pressed: #d28c35;
+  --focus: #f5cc8e; --text: #f0f2f4; --text-secondary: #bec5cc;
+}
+
+:root[data-brand="p04-carbon-orange"] {
+  --canvas: #101315; --surface: #1a2024; --surface-elevated: #242c30;
+  --brand: #ff9a4d; --brand-bright: #ffc086; --brand-pressed: #df722b;
+  --focus: #ffbd7c; --text: #f4f7f6; --text-secondary: #bac5c8;
+}
+
+:root[data-brand="p05-forest-mint"] {
+  --canvas: #0d1715; --surface: #152420; --surface-elevated: #1e302a;
+  --brand: #70d6aa; --brand-bright: #c4f0df; --brand-pressed: #46b883;
+  --focus: #a3e8d0; --text: #eff8f3; --text-secondary: #b3cfc1;
+}
+
+:root[data-brand="p06-ink-ice"] {
+  --canvas: #0d1117; --surface: #161d27; --surface-elevated: #202b38;
+  --brand: #83bff2; --brand-bright: #d6e9fa; --brand-pressed: #5798d1;
+  --focus: #a9ddff; --text: #edf4fb; --text-secondary: #b4c2d1;
+}
+
+:root[data-brand="p07-warm-graphite-gold"] {
+  --canvas: #191714; --surface: #25211c; --surface-elevated: #312a22;
+  --brand: #dbb75d; --brand-bright: #f1ece2; --brand-pressed: #b38d35;
+  --focus: #efcf7a; --text: #f4f0e8; --text-secondary: #c8beb0;
+}
+
+:root[data-brand="p08-steel-teal"] {
+  --canvas: #12171b; --surface: #1d272c; --surface-elevated: #27353b;
+  --brand: #54c7c3; --brand-bright: #d5efee; --brand-pressed: #329b98;
+  --focus: #8be1df; --text: #eff7f7; --text-secondary: #b5c8c8;
+}
+
+:root[data-brand="p09-black-signal-red"] {
+  --canvas: #121416; --surface: #1e2327; --surface-elevated: #292f34;
+  --brand: #f06b67; --brand-bright: #ffb4ad; --brand-pressed: #c94b49;
+  --focus: #ff9b93; --text: #f3f5f3; --text-secondary: #bec5c4;
+}

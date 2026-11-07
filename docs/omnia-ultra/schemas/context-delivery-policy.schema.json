@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/context-delivery-policy.schema.json",
+  "title": "Omnia context delivery and compaction policy",
+  "type": "object",
+  "required": ["schemaVersion", "policyId", "revisionId", "mode", "budgets", "compaction", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "mode": { "enum": ["full", "partial", "auto", "summary-plus-sources", "manifest-only", "retrieval-on-demand", "fresh", "forked-snapshot"] },
+    "selectedSegmentIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "budgets": {
+      "type": "object",
+      "required": ["maximumInputTokens", "reservedOutputTokens"],
+      "properties": {
+        "maximumInputTokens": { "type": "integer", "minimum": 1 },
+        "reservedOutputTokens": { "type": "integer", "minimum": 0 },
+        "systemAndSafetyTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "conversationTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "fileAndSourceTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "memorySkillToolTokens": { "type": ["integer", "null"], "minimum": 0 },
+        "agentHandoffTokens": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "retrieval": {
+      "type": "object",
+      "properties": {
+        "lexical": { "type": "boolean" },
+        "dense": { "type": "boolean" },
+        "graph": { "type": "boolean" },
+        "codeSymbols": { "type": "boolean" },
+        "maximumCandidates": { "type": "integer", "minimum": 1 },
+        "minimumScore": { "type": ["number", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "compaction": {
+      "type": "object",
+      "required": ["mode", "preserveRawJournal", "minimumFidelity"],
+      "properties": {
+        "mode": { "enum": ["disabled", "manual", "prompt-triggered", "threshold", "predictive", "auto"] },
+        "tokenThreshold": { "type": ["integer", "null"], "minimum": 1 },
+        "contextPercentageThreshold": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "costThresholdMicrounits": { "type": ["integer", "null"], "minimum": 0 },
+        "latencyThresholdMs": { "type": ["integer", "null"], "minimum": 0 },
+        "preserveRawJournal": { "const": true },
+        "minimumFidelity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "providerNativeAllowed": { "type": "boolean" },
+        "lowConfidenceBehavior": { "enum": ["use-fuller-context", "retrieval-on-demand", "ask-user", "block"] }
+      },
+      "additionalProperties": false
+    },
+    "mandatorySurvivalKinds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["security-policy", "user-correction", "project-instruction", "goal", "task", "approval", "external-effect", "citation", "memory-supersession", "branch-lineage", "continuation-cursor"] }
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

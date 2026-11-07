@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/run-checkpoint.schema.json",
+  "title": "Omnia durable run checkpoint",
+  "type": "object",
+  "required": ["schemaVersion", "checkpointId", "runId", "stateRevisionId", "status", "disposition", "cursor", "contentHash", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "checkpointId": { "type": "string", "minLength": 1 },
+    "runId": { "type": "string", "minLength": 1 },
+    "attemptId": { "type": ["string", "null"] },
+    "agentInstanceId": { "type": ["string", "null"] },
+    "stateRevisionId": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["requested", "checkpointing", "paused", "resuming", "expired", "blocked", "invalidated"] },
+    "disposition": { "enum": ["cooperative-checkpoint", "provider-supported-suspend", "cancel-then-reconcile", "pending-effect-checkpoint", "held", "outcome-unknown"] },
+    "cursor": { "type": "integer", "minimum": 0 },
+    "partialOutputPolicy": { "enum": ["exclude", "durable-only", "include-as-interrupted-artifact", "wait-safe-boundary"] },
+    "frozenProviderInputId": { "type": ["string", "null"] },
+    "providerAcceptance": { "enum": ["not-sent", "accepted", "rejected", "unknown"] },
+    "pendingReconciliationIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "leaseEpoch": { "type": ["integer", "null"], "minimum": 0 },
+    "telemetryWatermark": { "type": ["integer", "null"], "minimum": 0 },
+    "contentHash": { "type": "string", "minLength": 1 },
+    "idempotencyKey": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

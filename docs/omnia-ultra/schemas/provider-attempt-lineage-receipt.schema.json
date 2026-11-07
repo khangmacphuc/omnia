@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/provider-attempt-lineage-receipt.schema.json",
+  "title": "Omnia renderer-safe provider attempt lineage receipt",
+  "description": "A bounded, content-free projection of one immutable provider-attempt lineage fact. This receipt is safe for renderer diagnostics and exports: it contains opaque identifiers, revisions and hashes only, never raw URLs, credentials, headers, cookies, prompts, responses, reasoning, attachment bytes, request bodies or local paths.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "lineageFactId",
+    "frozenProviderInputId",
+    "runId",
+    "attemptId",
+    "providerProfileId",
+    "modelId",
+    "providerDefinitionSchemaVersion",
+    "providerDefinitionSha256",
+    "endpointFingerprintSha256",
+    "adapterRevision",
+    "requestedEffort",
+    "effectiveEffort",
+    "resolvedParametersSha256",
+    "inputContentSha256",
+    "createdAtMs"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1,
+      "description": "Version of the renderer-safe receipt contract."
+    },
+    "lineageFactId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque identifier of the immutable native lineage fact."
+    },
+    "frozenProviderInputId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque identifier of the exact frozen provider-input preparation."
+    },
+    "runId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque run scope identifier."
+    },
+    "attemptId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque provider-attempt scope identifier."
+    },
+    "providerProfileId": {
+      "$ref": "#/$defs/id",
+      "description": "Opaque provider profile identifier; no credential reference is included."
+    },
+    "modelId": {
+      "$ref": "#/$defs/text",
+      "description": "Provider/model identifier used by the frozen input."
+    },
+    "providerDefinitionSchemaVersion": {
+      "const": 1,
+      "description": "The supported frozen provider-definition schema version."
+    },
+    "providerDefinitionSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Lower-case SHA-256 address of the frozen provider definition."
+    },
+    "endpointFingerprintSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Domain-separated endpoint fingerprint; the raw endpoint is intentionally absent."
+    },
+    "adapterRevision": {
+      "$ref": "#/$defs/revision",
+      "description": "Immutable provider adapter revision."
+    },
+    "requestedEffort": {
+      "$ref": "#/$defs/nullableEffort",
+      "description": "Explicit Omnia effort requested by the caller, or null when unknown."
+    },
+    "effectiveEffort": {
+      "$ref": "#/$defs/nullableText",
+      "description": "Effort applied by policy/adapter, preserved as bounded provider-native evidence, or null when not recorded."
+    },
+    "resolvedParametersSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "SHA-256 of the exact canonical resolved parameters."
+    },
+    "inputContentSha256": {
+      "$ref": "#/$defs/hash",
+      "description": "Content address of the prepared input; input bytes are not included."
+    },
+    "createdAtMs": {
+      "$ref": "#/$defs/positiveUnixMilliseconds",
+      "description": "Durable preparation timestamp in positive Unix milliseconds, copied from the frozen input."
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,512}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,512}$"
+    },
+    "hash": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,160}$"
+    },
+    "nullableEffort": {
+      "type": ["string", "null"],
+      "enum": ["fast", "balanced", "deep", "ultra", "custom", null]
+    },
+    "nullableText": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^(?!\\s)[^\\r\\n\\t]{1,80}$"
+    },
+    "positiveUnixMilliseconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9223372036854775807
+    }
+  },
+  "additionalProperties": false
+}

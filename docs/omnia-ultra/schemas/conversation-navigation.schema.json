@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/conversation-navigation.schema.json",
+  "title": "Omnia conversation navigation contract",
+  "type": "object",
+  "required": ["schemaVersion", "operationId", "kind", "source", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "operationId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "kind": {
+      "enum": [
+        "jump", "copy", "duplicate_prompt", "branch", "fork", "retry",
+        "regenerate", "replay", "compare", "promote", "merge", "rebase",
+        "queue", "steer", "btw", "parallel", "scheduled"
+      ]
+    },
+    "source": { "$ref": "#/$defs/anchor" },
+    "target": { "$ref": "#/$defs/anchor" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "minLength": 1 },
+    "reason": { "type": "string", "maxLength": 4096 },
+    "idempotencyKey": { "type": "string", "minLength": 8, "maxLength": 256 },
+    "expectedConversationVersion": { "type": "integer", "minimum": 0 },
+    "activeProducerPolicy": {
+      "enum": ["completed_only", "interrupt_then_fork", "include_partial_as_interrupted"]
+    },
+    "activate": { "type": "boolean" },
+    "authorityInheritance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "copyContent": { "type": "boolean", "default": true },
+        "copySecrets": { "const": false },
+        "copyApprovals": { "const": false },
+        "copyActiveGrants": { "const": false },
+        "copySessions": { "const": false }
+      }
+    },
+    "queue": { "$ref": "#/$defs/queueItem" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": { "enum": ["queue", "steer", "btw", "parallel", "scheduled"] }
+        }
+      },
+      "then": { "required": ["queue"] }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "queue" } } },
+      "then": {
+        "properties": { "queue": { "properties": { "mode": { "const": "queue" } } } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "steer" } } },
+      "then": {
+        "properties": { "queue": { "properties": { "mode": { "const": "steer" } } } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "btw" } } },
+      "then": {
+        "properties": { "queue": { "properties": { "mode": { "const": "btw" } } } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "parallel" } } },
+      "then": {
+        "properties": { "queue": { "properties": { "mode": { "const": "parallel" } } } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "scheduled" } } },
+      "then": {
+        "properties": { "queue": { "properties": { "mode": { "const": "scheduled" } } } }
+      }
+    }
+  ],
+  "$defs": {
+    "anchor": {
+      "type": "object",
+      "required": ["conversationId", "branchId", "eventCursor"],
+      "properties": {
+        "conversationId": { "type": "string", "minLength": 1 },
+        "branchId": { "type": "string", "minLength": 1 },
+        "messageId": { "type": "string" },
+        "messageRevisionId": { "type": "string" },
+        "runId": { "type": "string" },
+        "attemptId": { "type": "string" },
+        "selectionId": { "type": "string" },
+        "eventCursor": { "type": "integer", "minimum": 0 },
+        "timestampMs": { "type": "integer", "minimum": 0 },
+        "semanticFingerprint": { "type": "string", "maxLength": 256 },
+        "stale": { "type": "boolean", "default": false }
+      },
+      "additionalProperties": false
+    },
+    "queueItem": {
+      "type": "object",
+      "required": ["itemId", "mode", "orderKey", "priority"],
+      "properties": {
+        "itemId": { "type": "string", "minLength": 1 },
+        "mode": { "enum": ["interrupt", "steer", "queue", "btw", "parallel", "scheduled", "draft"] },
+        "orderKey": { "type": "string", "minLength": 1 },
+        "priority": { "type": "integer", "minimum": -1000, "maximum": 1000 },
+        "dependencyIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "scheduledAt": { "type": "string", "format": "date-time" },
+        "deadlineAt": { "type": "string", "format": "date-time" },
+        "modelProfileId": { "type": "string" },
+        "effort": { "enum": ["fast", "balanced", "deep", "ultra", "custom"] },
+        "machineMode": { "enum": ["none", "local_interactive", "local_background", "isolated", "persistent", "remote", "hybrid", "auto"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "mode": { "const": "scheduled" } } },
+          "then": { "required": ["scheduledAt"] }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

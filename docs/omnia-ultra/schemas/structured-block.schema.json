@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/structured-block.schema.json",
+  "title": "Omnia structured input, output and log block",
+  "type": "object",
+  "required": ["schemaVersion", "blockId", "sourceKind", "format", "sourceHash", "streamState", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "blockId": { "type": "string", "minLength": 1 },
+    "sourceKind": { "enum": ["prompt", "assistant", "tool-input", "tool-output", "command", "stdout", "stderr", "build-log", "test-log", "trace", "artifact", "request", "response"] },
+    "format": { "enum": ["plain", "markdown", "latex", "code", "shell", "ansi", "json", "jsonl", "yaml", "toml", "xml", "html", "css", "sql", "csv", "tsv", "diff", "patch", "stack-trace", "test-report", "compiler-diagnostic", "http", "sse", "table", "binary-metadata", "unknown"] },
+    "language": { "type": ["string", "null"] },
+    "detectionConfidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "sourceHash": { "type": "string", "minLength": 1 },
+    "parserRevision": { "type": ["string", "null"] },
+    "highlighterRevision": { "type": ["string", "null"] },
+    "streamState": { "enum": ["complete", "streaming", "truncated", "interrupted", "malformed"] },
+    "channel": { "enum": ["input", "output", "stdout", "stderr", "system", "tool", "trace", "mixed"] },
+    "redactionClass": { "type": ["string", "null"] },
+    "lineCount": { "type": ["integer", "null"], "minimum": 0 },
+    "byteCount": { "type": ["integer", "null"], "minimum": 0 },
+    "sourceArtifactId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

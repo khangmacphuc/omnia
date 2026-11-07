@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/model-profile.schema.json",
+  "title": "Omnia model profile",
+  "type": "object",
+  "required": ["schemaVersion", "profileId", "revisionId", "providerId", "modelId", "effortProfiles", "capabilities"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "profileId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "providerId": { "type": "string", "minLength": 1 },
+    "modelId": { "type": "string", "minLength": 1 },
+    "family": { "type": "string" },
+    "status": { "enum": ["provisional", "verified", "deprecated", "disabled"] },
+    "sourceProfileId": { "type": ["string", "null"] },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "boolean" },
+        "vision": { "type": "boolean" },
+        "audioInput": { "type": "boolean" },
+        "audioOutput": { "type": "boolean" },
+        "files": { "type": "boolean" },
+        "tools": { "type": "boolean" },
+        "parallelTools": { "type": "boolean" },
+        "structuredOutput": { "type": "boolean" },
+        "reasoning": { "type": "boolean" },
+        "streaming": { "type": "boolean" },
+        "contextWindow": { "type": ["integer", "null"], "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "effortProfiles": {
+      "type": "object",
+      "required": ["fast", "balanced", "deep", "ultra"],
+      "properties": {
+        "fast": { "$ref": "#/$defs/effort" },
+        "balanced": { "$ref": "#/$defs/effort" },
+        "deep": { "$ref": "#/$defs/effort" },
+        "ultra": { "$ref": "#/$defs/effort" }
+      },
+      "additionalProperties": true
+    },
+    "healthProbe": {
+      "type": "object",
+      "properties": {
+        "mode": { "enum": ["passive", "catalog", "low_cost_probe", "disabled"] },
+        "ttlSeconds": { "type": "integer", "minimum": 1 },
+        "budgetMicrounits": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "effort": {
+      "type": "object",
+      "properties": {
+        "reasoningEffort": { "type": ["string", "null"] },
+        "thinkingBudget": { "type": ["integer", "null"], "minimum": 0 },
+        "temperature": { "type": ["number", "null"] },
+        "topP": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "topK": { "type": ["integer", "null"], "minimum": 0 },
+        "maxOutputTokens": { "type": ["integer", "null"], "minimum": 1 },
+        "maxToolIterations": { "type": ["integer", "null"], "minimum": 0 },
+        "timeoutSeconds": { "type": ["integer", "null"], "minimum": 1 },
+        "retryPolicyId": { "type": ["string", "null"] },
+        "contextStrategy": { "type": ["string", "null"] },
+        "workflowPreset": { "type": ["string", "null"] },
+        "providerNative": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

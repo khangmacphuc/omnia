@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "catalog.omnia-builtins",
+  "revisionId": "catalog.omnia-builtins:20260910",
+  "lifecycle": "enabled",
+  "sourceManifestRevisionId": "omnia-ultra.manifest:1.6.0",
+  "profileRefs": [
+    { "id": "role.goal-architect", "revisionId": "role.goal-architect:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "6e9b959df97f58df7a9c022f3d760b382e693ddbca996b779f3199a6a0d3ae70", "differentiationHash": "9d5835efa20513003233de9cc8a0a7a6558c1782160006933775f528188ff3df", "category": "orchestration" },
+    { "id": "role.evidence-researcher", "revisionId": "role.evidence-researcher:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "84efa722d5152767e49e7d2b7a4829805f82cba4b7f525cc150efe272228c509", "differentiationHash": "f25c77ba38c2440b6fa9ea7be79b692f17e490b2bf93024a678f344df1096b77", "category": "research" },
+    { "id": "role.competitive-programming-coach", "revisionId": "role.competitive-programming-coach:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "8fb031cc90c47e1ee67808c65e059e840aa4917e6dfdfb1260e849fd794caf40", "differentiationHash": "0ae5f2966ce5246a46c72fa5b571743af5b602dda269a5362d046ac58cf18742", "category": "competitive-programming" },
+    { "id": "role.mathematics-proof-checker", "revisionId": "role.mathematics-proof-checker:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "4d723b85b6cff96744dd5b3623b2ebf095f3655840bba956af8c7d8efda36cc6", "differentiationHash": "db5211b45a58d286fd2a9731278d747c002d860fcc97ba2fd19e4640f1974d95", "category": "mathematics" },
+    { "id": "role.physics-modeler", "revisionId": "role.physics-modeler:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "8c78536de03ff09ebb50dd2b20c55405e12fceba5172508ff2e8f723fab68c6d", "differentiationHash": "54ef7e9640b999d711526d5f1b20638bd41375883b5a8c73025d5917764aa82b", "category": "science" },
+    { "id": "role.production-rust-engineer", "revisionId": "role.production-rust-engineer:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "00f4a0b04e62f47873842bad526830ee5deb1726d627710c10b9b3e52ed83a1b", "differentiationHash": "e4099ee323a5fb83febbeedb4ba3d71369d563c876c90c3cf2f5b90b837c5f6f", "category": "software" },
+    { "id": "role.multimodal-evaluator", "revisionId": "role.multimodal-evaluator:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "6ac65ff1b3b8447df622b1a4036fbecdd71c4b7c80e2b64f79b09685c21d4e3d", "differentiationHash": "056a6cebed487dfb8b8b3edccc9beba9b65d2a39e538d942605f23f9ea6b7808", "category": "assurance" },
+    { "id": "role.defensive-security-reviewer", "revisionId": "role.defensive-security-reviewer:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "54e207a681edf978e089dd244c824f01cecc3dbe82af47db2299424974dda408", "differentiationHash": "78cb54eb4e08fa9844060ae15b1dc42a185512b3f3f8e6384226ba268a11b5b4", "category": "cyber-defensive" },
+    { "id": "role.accessible-product-designer", "revisionId": "role.accessible-product-designer:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "bed69205a21396a2f2b52896afdde56fd1805df51a2ed95ab63ce2780e100bfe", "differentiationHash": "5e344d9adb28d95092042084b1c02422afe6baba2b3bfecf71f78c75efb454cd", "category": "design" },
+    { "id": "role.artifact-render-verifier", "revisionId": "role.artifact-render-verifier:20260910", "path": "harness/catalog/role-profiles.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "c2d570bbd3622568ef24fba76c48690d395199e24e02a6c89dde36be9e79da78", "differentiationHash": "263c46459c0de4a817c65c085565465dfe7c3aa7ed125414108d201932a35131", "category": "testing" }
+  ],
+  "personaRefs": [
+    { "id": "persona.evidence-first-researcher", "revisionId": "persona.evidence-first-researcher:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "d487c7fbde2be489ae2cd4c76239abee55597642fec5adeb69a5ac0b194d84cb", "differentiationHash": "f98fdb0e31f2cfad92d5f3fd7bc0873085f6a80ced141068177544c453ff4b4d", "category": null },
+    { "id": "persona.socratic-tutor", "revisionId": "persona.socratic-tutor:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "a5d9a5d6af7e9d8d34b419473c93bf75ae1d9b25f261daa356f02fb01862ad67", "differentiationHash": "0846b86a793a3874be87863ce885a4a3648bb8abd976d8e796868c6cb8a5854b", "category": null },
+    { "id": "persona.proof-first-mathematician", "revisionId": "persona.proof-first-mathematician:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "a175f9ae65e960c43dbaf3a5d0938e88e2754141e5325fcd0562c9f5b7106a9b", "differentiationHash": "ade45e3292abdf434d7687fd3f943a0f30487bac14c13dd9d57671ee17b99031", "category": null },
+    { "id": "persona.production-engineer", "revisionId": "persona.production-engineer:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "86d62959b761afe9cf2500d2a0d188447ac865d3fdc43509e393346f9c895666", "differentiationHash": "57549b57f1b2bdf92588a13c1382e117878f484794a8060612a0fbcae7fc2b28", "category": null },
+    { "id": "persona.accessible-product-designer", "revisionId": "persona.accessible-product-designer:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "4f1733e493c66d0c3d746186775368296d2b47955e3174c0cb9645695ca6909a", "differentiationHash": "83ae140a4ce099e45d86f66fc4249d483d8ac7726d40dd16f6774660ff69358d", "category": null },
+    { "id": "persona.defensive-security-reviewer", "revisionId": "persona.defensive-security-reviewer:20260910", "path": "harness/catalog/persona-packs.json", "lifecycle": "enabled", "alias": false, "evidenceStatus": "current", "canonicalHash": "d8637eff27f455565de1bdaaffee380ab73a000a9bf86021a3a607bc62a02bed", "differentiationHash": "01cd48c83a2ca750ae72c66981f0e2936ca6877d9acbd62edad40c86231b312e", "category": null }
+  ],
+  "countPolicy": {
+    "countedLifecycle": ["enabled"],
+    "excludedLifecycle": ["draft", "disabled", "deprecated", "superseded", "blocked"],
+    "requireCurrentEvidence": true,
+    "excludeAliases": true,
+    "requireDifferentiation": true
+  },
+  "milestoneTargets": { "minimumRoleProfiles": 100, "minimumPersonaPacks": 40 },
+  "derivedCounts": { "enabledRoleProfiles": 10, "enabledPersonaPacks": 6, "draftRoleProfiles": 0, "draftPersonaPacks": 0, "excludedRoleProfiles": 0, "excludedPersonaPacks": 0, "duplicateCanonicalProfiles": 0, "duplicateCanonicalPersonas": 0 },
+  "evidence": { "evidenceIds": ["evidence.catalog.snapshot.20260910"], "status": "current", "lastEvaluatedAt": "2026-09-10T00:00:00Z", "sourceRefs": ["harness/specialist-agent-persona-catalog.md", "harness/agents-subagents-personas.md", "harness/academic-specialist-taxonomy.md"] },
+  "createdAt": "2026-09-10T00:00:00Z",
+  "updatedAt": "2026-09-10T00:00:00Z"
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Omnia Dual Chevron</title>
+  <desc id="desc">Two blue chevrons create a precise angular aperture.</desc>
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#151a21"/>
+  <rect x="33.5" y="33.5" width="445" height="445" rx="126.5" fill="none" stroke="#303e4f" stroke-width="3"/>
+  <path d="M210 145 118 256l92 111M302 145l92 111-92 111" fill="none" stroke="#6da8ff" stroke-width="36" stroke-linecap="square" stroke-linejoin="bevel"/>
+  <path d="M228 256h56" stroke="#f1f6fb" stroke-width="22" stroke-linecap="round"/>
+</svg>

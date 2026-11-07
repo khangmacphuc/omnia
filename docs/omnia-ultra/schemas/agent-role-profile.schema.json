@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/agent-role-profile.schema.json",
+  "title": "Omnia specialist agent role profile",
+  "type": "object",
+  "required": ["schemaVersion", "roleId", "revisionId", "category", "purpose", "modelPolicyId", "contextPolicyId", "capabilityCeilingId", "evaluationRubricId", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "roleId": { "type": "string", "minLength": 1 },
+    "revisionId": { "type": "string", "minLength": 1 },
+    "category": { "enum": ["orchestration", "assurance", "design", "content", "learning", "research", "competitive-programming", "mathematics", "science", "software", "cyber-defensive", "ai-data", "engineering", "documents-media", "provider-runtime", "security", "testing", "release"] },
+    "purpose": { "type": "string", "minLength": 1 },
+    "nonGoals": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "expertiseTags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "modelPolicyId": { "type": "string", "minLength": 1 },
+    "contextPolicyId": { "type": "string", "minLength": 1 },
+    "toolIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "skillIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "capabilityCeilingId": { "type": "string", "minLength": 1 },
+    "evaluationRubricId": { "type": "string", "minLength": 1 },
+    "iconId": { "type": ["string", "null"] },
+    "runtimeGlyphId": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

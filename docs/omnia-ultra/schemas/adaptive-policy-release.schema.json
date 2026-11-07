@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/adaptive-policy-release.schema.json",
+  "title": "Omnia adaptive policy release record",
+  "description": "Immutable release evidence for an adaptive policy. One record describes one revision/state; state changes create a successor record instead of rewriting historical evidence.",
+  "type": "object",
+  "required": ["schemaVersion", "policyReleaseId", "policyId", "policyRevisionId", "kind", "state", "baseline", "data", "training", "evaluation", "rollout", "rollback", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyReleaseId": { "$ref": "#/$defs/id" },
+    "policyId": { "$ref": "#/$defs/id" },
+    "policyRevisionId": { "$ref": "#/$defs/id" },
+    "parentPolicyReleaseId": { "type": ["string", "null"], "minLength": 1 },
+    "kind": { "enum": ["model-router", "context-router", "bridge-router", "retry-advisor", "agent-scheduler", "retrieval-ranker", "personalization-ranker", "resource-planner"] },
+    "state": { "enum": ["draft", "offline-evaluated", "shadow", "canary", "promoted", "paused", "rolled-back", "retired"] },
+    "baseline": {
+      "type": "object",
+      "required": ["baselinePolicyReleaseId", "baselineType", "comparisonProtocolRevisionId"],
+      "properties": {
+        "baselinePolicyReleaseId": { "type": ["string", "null"], "minLength": 1 },
+        "baselineType": { "enum": ["deterministic-rules", "previous-promoted", "manual-routing", "none"] },
+        "comparisonProtocolRevisionId": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+    "data": {
+      "type": "object",
+      "required": ["datasetManifestId", "featureSchemaRevisionId", "labelDefinitionRevisionId", "trainingEligibilityPolicyRevisionId", "redactionRevisionId", "retentionPolicyRevisionId", "unlearningPolicyRevisionId", "tombstoneWatermark"],
+      "properties": {
+        "datasetManifestId": { "type": ["string", "null"], "minLength": 1 },
+        "featureSchemaRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "labelDefinitionRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "trainingEligibilityPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "redactionRevisionId": { "$ref": "#/$defs/id" },
+        "retentionPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "unlearningPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "tombstoneWatermark": { "$ref": "#/$defs/id" },
+        "purposeIds": { "$ref": "#/$defs/idArray" }
+      },
+      "additionalProperties": false
+    },
+    "training": {
+      "type": "object",
+      "required": ["method", "objectiveRevisionId", "trainerRevisionId", "environmentManifestHash", "randomSeed", "resourceBudget"],
+      "properties": {
+        "method": { "enum": ["deterministic-rules", "calibrated-heuristic", "linear-ranking", "gradient-boosted-ranking", "contextual-bandit", "supervised", "offline-rl", "preference-learning", "bayesian-optimization", "hybrid"] },
+        "objectiveRevisionId": { "$ref": "#/$defs/id" },
+        "trainerRevisionId": { "$ref": "#/$defs/id" },
+        "environmentManifestHash": { "$ref": "#/$defs/hash" },
+        "randomSeed": { "type": ["string", "integer", "null"] },
+        "resourceBudget": {
+          "type": "object",
+          "required": ["maximumCostMicrounits", "maximumWallMs"],
+          "properties": {
+            "maximumCostMicrounits": { "type": ["integer", "null"], "minimum": 0 },
+            "maximumWallMs": { "type": ["integer", "null"], "minimum": 0 },
+            "localOnly": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["fixtureSetRevisionIds", "evaluatorRevisionIds", "resultsArtifactId", "deterministicGateIds", "sliceDefinitionRevisionId", "independenceDeclaration"],
+      "properties": {
+        "fixtureSetRevisionIds": { "$ref": "#/$defs/idArray" },
+        "evaluatorRevisionIds": { "$ref": "#/$defs/idArray" },
+        "resultsArtifactId": { "type": ["string", "null"], "minLength": 1 },
+        "deterministicGateIds": { "$ref": "#/$defs/idArray" },
+        "sliceDefinitionRevisionId": { "$ref": "#/$defs/id" },
+        "independenceDeclaration": { "enum": ["deterministic-only", "independent-evaluator", "mixed-and-calibrated", "not-yet-evaluated"] },
+        "practicalNonInferiorityPassed": { "type": ["boolean", "null"] },
+        "safetyGatePassed": { "type": ["boolean", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "rollout": {
+      "type": "object",
+      "required": ["mode", "assignmentRuleRevisionId", "exposureBudgetMicrounits", "driftMonitorRevisionIds", "incidentPolicyRevisionId"],
+      "properties": {
+        "mode": { "enum": ["off", "offline", "shadow", "canary", "promoted", "disabled"] },
+        "assignmentRuleRevisionId": { "$ref": "#/$defs/id" },
+        "exposureBudgetMicrounits": { "type": ["integer", "null"], "minimum": 0 },
+        "driftMonitorRevisionIds": { "$ref": "#/$defs/idArray" },
+        "incidentPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "ownerApprovalReceiptId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["lastKnownGoodPolicyReleaseId", "circuitBreakerRevisionId", "automaticRollbackTriggerIds"],
+      "properties": {
+        "lastKnownGoodPolicyReleaseId": { "type": ["string", "null"], "minLength": 1 },
+        "circuitBreakerRevisionId": { "$ref": "#/$defs/id" },
+        "automaticRollbackTriggerIds": { "$ref": "#/$defs/idArray" },
+        "rollbackReasonCode": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "state": { "enum": ["shadow", "canary", "promoted"] } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "data": {
+            "properties": {
+              "datasetManifestId": { "type": "string", "minLength": 1 },
+              "featureSchemaRevisionId": { "type": "string", "minLength": 1 },
+              "labelDefinitionRevisionId": { "type": "string", "minLength": 1 }
+            },
+            "required": ["datasetManifestId", "featureSchemaRevisionId", "labelDefinitionRevisionId"]
+          },
+          "evaluation": {
+            "properties": {
+              "fixtureSetRevisionIds": { "minItems": 1 },
+              "evaluatorRevisionIds": { "minItems": 1 },
+              "resultsArtifactId": { "type": "string", "minLength": 1 },
+              "deterministicGateIds": { "minItems": 1 },
+              "practicalNonInferiorityPassed": { "const": true },
+              "safetyGatePassed": { "const": true }
+            },
+            "required": ["resultsArtifactId", "practicalNonInferiorityPassed", "safetyGatePassed"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "const": "offline-evaluated" } }, "required": ["state"] },
+      "then": { "properties": { "rollout": { "properties": { "mode": { "const": "offline" } }, "required": ["mode"] } } }
+    },
+    {
+      "if": { "properties": { "state": { "const": "shadow" } }, "required": ["state"] },
+      "then": { "properties": { "rollout": { "properties": { "mode": { "const": "shadow" } }, "required": ["mode"] } } }
+    },
+    {
+      "if": { "properties": { "state": { "const": "canary" } }, "required": ["state"] },
+      "then": { "properties": { "rollout": { "properties": { "mode": { "const": "canary" } }, "required": ["mode"] } } }
+    },
+    {
+      "if": { "properties": { "state": { "const": "promoted" } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "rollout": {
+            "properties": {
+              "mode": { "const": "promoted" },
+              "ownerApprovalReceiptId": { "type": "string", "minLength": 1 }
+            },
+            "required": ["mode", "ownerApprovalReceiptId"]
+          },
+          "rollback": {
+            "properties": { "lastKnownGoodPolicyReleaseId": { "type": "string", "minLength": 1 } },
+            "required": ["lastKnownGoodPolicyReleaseId"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "enum": ["rolled-back", "retired"] } }, "required": ["state"] },
+      "then": { "properties": { "rollout": { "properties": { "mode": { "const": "disabled" } }, "required": ["mode"] } } }
+    }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "hash": { "type": "string", "minLength": 16, "maxLength": 1024 },
+    "idArray": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true }
+  },
+  "additionalProperties": false
+}

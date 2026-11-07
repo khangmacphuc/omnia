@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "projectId": "omnia",
+  "revisionId": "twin-235c930f386cab76",
+  "sourceSnapshot": {
+    "kind": "filesystem",
+    "hash": "235c930f386cab761799942c92e3e0bf0e377d0bee3442b2da8581f12fc2ec77"
+  },
+  "documents": [
+    {
+      "path": "README.md",
+      "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b",
+      "kind": "root-readme",
+      "generated": false
+    },
+    {
+      "path": "docs/PRODUCT_SPEC.md",
+      "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16",
+      "kind": "product-spec",
+      "generated": false
+    },
+    {
+      "path": "docs/IMPLEMENTATION_STATUS.md",
+      "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3",
+      "kind": "implementation-status",
+      "generated": false
+    },
+    {
+      "path": "docs/project-twin/catalog.json",
+      "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4",
+      "kind": "twin-catalog",
+      "generated": false
+    },
+    {
+      "path": "docs/project-twin/catalog.schema.json",
+      "contentHash": "982b2b584110f780f812f2b195370236d2a198afdd52a020d8bb13a298f39226",
+      "kind": "twin-catalog-schema",
+      "generated": false
+    },
+    {
+      "path": "docs/project-twin/README.md",
+      "contentHash": "b5b06ad34b2ab4a96203719ea980cb297435dc1dacbd97cd5dce33356a0d2185",
+      "kind": "twin-overview",
+      "generated": false
+    },
+    {
+      "path": "docs/project-twin/graph.schema.json",
+      "contentHash": "5ab516bc804411ff35add4f0bf171d7a83f95547952be79c0d6a63b3eef0297e",
+      "kind": "twin-graph-schema",
+      "generated": false
+    },
+    {
+      "path": "docs/omnia-ultra/project-twin/README.md",
+      "contentHash": "28708907be1b3b8833161a72a70f028a3ac12633d98f746c606be6f5adbf8e2c",
+      "kind": "normative-twin-contract",
+      "generated": false
+    },
+    {
+      "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md",
+      "contentHash": "fab2e5fe02e1421146dae4d98091dc652f8767b71bce83ef101d2fe5b127aa4b",
+      "kind": "normative-graph-contract",
+      "generated": false
+    },
+    {
+      "path": "docs/omnia-ultra/project-twin/update-provenance-staleness.md",
+      "contentHash": "971d60c50f50c4ce578f51a043d6d3117d2269fc90baec79bb82d6ba77fa6d76",
+      "kind": "normative-staleness-contract",
+      "generated": false
+    }
+  ],
+  "graphs": [
+    {
+      "path": "docs/project-twin/graph.json",
+      "contentHash": "ea85340ae2fcb896fbb759bbd2b854e4684c82e5a72f7283c0ac27e4d3887f09",
+      "kind": "canonical-graph",
+      "generated": true,
+      "dependsOn": [
+        "docs/project-twin/catalog.json"
+      ]
+    }
+  ],
+  "atlas": [
+    {
+      "path": "docs/project-twin/atlas.html",
+      "contentHash": "19cdb3f72e09433f8f1604030323ca1f743a390d0ef301e4a838d2aef4333661",
+      "kind": "atlas-html",
+      "generated": true,
+      "dependsOn": [
+        "docs/project-twin/graph.json"
+      ]
+    },
+    {
+      "path": "docs/project-twin/atlas.css",
+      "contentHash": "bb65ac9f1478dc56b13286853718ecfa3c497b7c4802ed19a03e631c9af58abb",
+      "kind": "atlas-css",
+      "generated": true
+    },
+    {
+      "path": "docs/project-twin/atlas.js",
+      "contentHash": "4bdf618d499af82d98393ca11cda79b9a5e408d629a62de4e61eb1139bfc77c6",
+      "kind": "atlas-javascript",
+      "generated": true,
+      "dependsOn": [
+        "docs/project-twin/graph.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev.readme",
+      "class": "source_fact",
+      "path": "README.md",
+      "contentHash": "69db597f0609f656cdff87c6e15df673993adf9ad09a371959ce862c89f0f10b",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.product-spec",
+      "class": "source_fact",
+      "path": "docs/PRODUCT_SPEC.md",
+      "contentHash": "8e466577b5b0ff664e16ab5fda1e2bc9f11a65d487a078dd317577896a070a16",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.status",
+      "class": "audit",
+      "path": "docs/IMPLEMENTATION_STATUS.md",
+      "contentHash": "bee372b084b0c84e7a2144d981a16e03d9f2b38cd25c9b4b456982e2d5ce0ed3",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.adr-runtime",
+      "class": "source_fact",
+      "path": "docs/adr/0001-desktop-runtime-and-core-boundary.md",
+      "contentHash": "71577709e6c1c4bf1760fdd2b64c15d51b0cc8db13b6627dede2f9c0e8231013",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.adr-journal",
+      "class": "source_fact",
+      "path": "docs/adr/0004-durable-run-event-journal-and-cursor-replay.md",
+      "contentHash": "ff532c3e4dd34866a99b597a1047e837effba03d86447d05a4149f2990055036",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.adr-telemetry",
+      "class": "source_fact",
+      "path": "docs/adr/0005-local-first-telemetry-and-usage-ledger.md",
+      "contentHash": "8c2a3a27ab39648561d42c505a3b56ea44e519f769542806750b721b2bbdf3f2",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.security-storage",
+      "class": "source_fact",
+      "path": "docs/security-storage-architecture.md",
+      "contentHash": "520619bfadcdec70dd527b72f94fcd915a51fcce14f71f48252900db433784e1",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.storage-schema",
+      "class": "source_fact",
+      "path": "docs/storage-schema.sql",
+      "contentHash": "e80871c8929ab2ad479460a6598858472cb48abab1818845630de1d4ef9f4e5c",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.provider-spec",
+      "class": "source_fact",
+      "path": "docs/PROVIDER_ARCHITECTURE.md",
+      "contentHash": "85698df91b7f70cfc1ee01ea5ccfc03dd484ddf5f60ea79d096f1f96ecb95d01",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.ui-spec",
+      "class": "source_fact",
+      "path": "docs/ui/product-ui-spec.md",
+      "contentHash": "ba476f8373fa77e289415725ef03eed35a4f432fe1d7e7210e8aafddc54f78ae",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.ultra-charter",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/01-MASTER-CHARTER.md",
+      "contentHash": "0974da3edcdd96db3762da0dd7ef835330c7f3a9be3c1691f8f43def31ecfda2",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.ultra-roadmap",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/delivery/roadmap.md",
+      "contentHash": "575fb0252e02a26397b659528a35dfa31f401320551549b7912e3f8ee2c78889",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.twin-schema",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/schemas/project-twin.schema.json",
+      "contentHash": "3c3cf5adb98c7d3d3435be0874ee376a5e16c9e510fbd72d24ceb996a2d458b8",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.twin-contract",
+      "class": "source_fact",
+      "path": "docs/omnia-ultra/project-twin/graph-and-atlas.md",
+      "contentHash": "fab2e5fe02e1421146dae4d98091dc652f8767b71bce83ef101d2fe5b127aa4b",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.twin-catalog",
+      "class": "user_annotation",
+      "path": "docs/project-twin/catalog.json",
+      "contentHash": "fa0a5270cbc1ff83d7c10a564963f29dca064b4beb5b6de57a50a33ba56faaf4",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-protocol",
+      "class": "static_analysis",
+      "path": "src/lib/core-protocol.ts",
+      "contentHash": "1908765dc90657ac28f4cd2118942edc97605616e5dcc4f9555433599551407b",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-protocol",
+      "class": "static_analysis",
+      "path": "src-tauri/src/core_protocol.rs",
+      "contentHash": "02c71970e657c725eb9df314e896bb7967a8e5f454a4e270d5ba4751a685c1ee",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-storage",
+      "class": "static_analysis",
+      "path": "src-tauri/src/storage.rs",
+      "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-provider",
+      "class": "static_analysis",
+      "path": "src-tauri/src/provider_gateway.rs",
+      "contentHash": "b519e9d14a20d1b6b0623cf5054c184422759c91821ae569dfbd72f8e2fa4cdc",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-journal",
+      "class": "static_analysis",
+      "path": "src-tauri/src/run_journal.rs",
+      "contentHash": "3781f9d594211782647599013d04f3baa8d70ead6a540532043765f05d9ffec6",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-telemetry",
+      "class": "static_analysis",
+      "path": "src-tauri/src/telemetry.rs",
+      "contentHash": "cde9b0b28eef054879dd8d623cde662d3dba8dba12fb4b9c8562f229051b7c47",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-telemetry-command",
+      "class": "static_analysis",
+      "path": "src-tauri/src/native_commands.rs",
+      "contentHash": "115cc274df999bc3aaa283a1f019385cf7689b27db758e2483518a7e275b7f27",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-app-handler",
+      "class": "static_analysis",
+      "path": "src-tauri/src/lib.rs",
+      "contentHash": "8e51d43ed9c06bcab4f95fe2f2e11802450c0934e01ab99c8332cf2441bd7e30",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-ipc-session",
+      "class": "static_analysis",
+      "path": "src-tauri/src/ipc_session.rs",
+      "contentHash": "b9a03ae1a373593b57e5ced4282821a86e5fd39925c4c12d868ea09552d1ce7a",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.usage-ledger-audit",
+      "class": "audit",
+      "path": "docs/audit/NATIVE_RUN_JOURNAL_VERTICAL_SLICE.md",
+      "contentHash": "473ff907d27ae58b7a48f9a6cdfc1489f889bcfb60bd20497e22483f6d92e5be",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-journal",
+      "class": "static_analysis",
+      "path": "src/features/workspace/run-journal-projection.ts",
+      "contentHash": "8fe471a36888a664cafcf65bce79f781dfee505460084f3bdcb462c7830f3b5d",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-desktop-bridge",
+      "class": "static_analysis",
+      "path": "src/lib/desktop.ts",
+      "contentHash": "bcc71868978119eaebe55bcc65b06e0c6142b6e7162d42e766676c9fca7cf722",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-telemetry-sync",
+      "class": "static_analysis",
+      "path": "src/features/workspace/run-journal-sync.ts",
+      "contentHash": "1a89abe429b23f4947d6a63443e53f1f7a9d4bccd1ed1d76eb0311614345dc96",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.domain-contracts",
+      "class": "static_analysis",
+      "path": "src/domain/index.ts",
+      "contentHash": "687f5f2e56dbc390c637f2d4006e2a54a7ba0b649fe5ed77f9e3ac89fa3ae0e8",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.domain-tests",
+      "class": "test",
+      "path": "src/domain/domain.test.ts",
+      "contentHash": "aeabe3f393308cb8d513783fea3f4afaf778d4e525ebe0f95ae825f10a948cea",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-app",
+      "class": "static_analysis",
+      "path": "src/App.tsx",
+      "contentHash": "a993fd67b98eeeea0f37f4f1c37dc3affaea63c0046079aef90987c6e9563aa5",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.workspace-store",
+      "class": "static_analysis",
+      "path": "src/features/workspace/store.ts",
+      "contentHash": "701d472820a536d3f4cc6be558cc3996b2515eed4194e73c68dcf0311ed3caae",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.project-domain",
+      "class": "static_analysis",
+      "path": "src/domain/project.ts",
+      "contentHash": "3541b2202efbc1653620c99b7c17622f7723bd620dfa8d6ceaf5f3f10f1211c4",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.project-catalog",
+      "class": "static_analysis",
+      "path": "src/features/workspace/project-catalog.ts",
+      "contentHash": "fc265cb159910175c47f81f2a64897263ad8d2749aa0d11995e3eda90dc0689d",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-commands",
+      "class": "static_analysis",
+      "path": "src-tauri/src/commands.rs",
+      "contentHash": "23d90bc71d224cdeafa8095703ed1232a5a29f2f6f3e5e29bfc1b25defc4f3d1",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-workspace",
+      "class": "static_analysis",
+      "path": "src-tauri/src/workspace.rs",
+      "contentHash": "a1ef651211d2eb2efae8a911643f8bf75775536f3fba2b8b90893852c0a6e2e7",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.inspector",
+      "class": "static_analysis",
+      "path": "src/features/workspace/inspector.tsx",
+      "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.telemetry-inspector",
+      "class": "static_analysis",
+      "path": "src/features/workspace/inspector.tsx",
+      "contentHash": "f8b5f45c6134d64722b2af6538ee64e7e019c702e3f15c1135f28ee89a082371",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.renderer-tests",
+      "class": "test",
+      "path": "tests/visual/visual-fixture-contract.spec.ts",
+      "contentHash": "bd57b78f8bd830d3c35f61ea9841c9aaeb25164bf3e7ad07c2305d3c9efee6b6",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-telemetry-read-test",
+      "class": "test",
+      "path": "src-tauri/src/storage.rs",
+      "contentHash": "1a3ae5418a6b4b95a1a345d3e4166a08f9aee49db673621632b6adaa06c72b3d",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.desktop-telemetry-session-test",
+      "class": "test",
+      "path": "src/lib/desktop.native-session.test.ts",
+      "contentHash": "505b8dde4aa58589c2dd275ea96f7a1a87185a7583ae1d81335197bb6405f891",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.telemetry-sync-test",
+      "class": "test",
+      "path": "src/features/workspace/run-telemetry-sync.test.ts",
+      "contentHash": "7192e85229b39c08f924000df80de1971ec59dc62abf53b8678bb99b2055f920",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.telemetry-inspector-test",
+      "class": "test",
+      "path": "src/features/workspace/inspector.telemetry.test.tsx",
+      "contentHash": "94abd1976dbfb71a8557ab22ddfa20faec820157aacfed0bb127484cc4b2284b",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-test-loader-receipt",
+      "class": "runtime",
+      "path": "docs/audit/NATIVE_TEST_LOADER_RECEIPT.md",
+      "contentHash": "e30d78fb5e6f7428ea2e63aa993afe2f77a689a77baa07be1907e886e89491fc",
+      "stale": false
+    },
+    {
+      "evidenceId": "ev.native-telemetry-read-receipt",
+      "class": "runtime",
+      "path": "docs/audit/NATIVE_TELEMETRY_READ_TEST_RECEIPT_2026-08-14.md",
+      "contentHash": "db082a3b617d168f98b0135d17ca35b184b822a8f48255ecad7fa5819577e83e",
+      "stale": false
+    }
+  ],
+  "staleItems": [],
+  "userOwnedSections": [
+    "docs/project-twin/catalog.json",
+    "docs/project-twin/catalog.schema.json",
+    "docs/project-twin/README.md"
+  ]
+}

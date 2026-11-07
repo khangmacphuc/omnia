@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/agent-profile-resolution-receipt.schema.json",
+  "title": "Omnia immutable agent profile-resolution receipt",
+  "description": "Redacted, replayable evidence of how a role and optional persona were resolved for one run. It contains revision identifiers and hashes, never raw prompts, credentials, cookies, sessions or protected file content.",
+  "type": "object",
+  "required": ["schemaVersion", "receiptId", "resolutionId", "logicalTaskId", "runId", "catalog", "role", "policies", "context", "authority", "budget", "evaluation", "selection", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "receiptId": { "$ref": "#/$defs/id" },
+    "resolutionId": { "$ref": "#/$defs/id" },
+    "logicalTaskId": { "$ref": "#/$defs/id" },
+    "runId": { "$ref": "#/$defs/id" },
+    "parentResolutionReceiptId": { "type": ["string", "null"], "minLength": 1 },
+    "catalog": {
+      "type": "object",
+      "required": ["catalogId", "catalogRevisionId", "catalogContentHash", "countPolicyRevisionId"],
+      "properties": {
+        "catalogId": { "$ref": "#/$defs/id" },
+        "catalogRevisionId": { "$ref": "#/$defs/id" },
+        "catalogContentHash": { "$ref": "#/$defs/hash" },
+        "countPolicyRevisionId": { "$ref": "#/$defs/id" }
+      },
+      "additionalProperties": false
+    },
+    "role": {
+      "type": "object",
+      "required": ["profileId", "profileRevisionId", "lifecycle", "canonicalHash", "differentiationHash"],
+      "properties": {
+        "profileId": { "$ref": "#/$defs/id" },
+        "profileRevisionId": { "$ref": "#/$defs/id" },
+        "lifecycle": { "enum": ["enabled", "disabled", "deprecated", "superseded", "blocked"] },
+        "canonicalHash": { "$ref": "#/$defs/hash" },
+        "differentiationHash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "persona": {
+      "type": ["object", "null"],
+      "properties": {
+        "personaId": { "$ref": "#/$defs/id" },
+        "personaRevisionId": { "$ref": "#/$defs/id" },
+        "lifecycle": { "enum": ["enabled", "disabled", "deprecated", "superseded", "blocked"] },
+        "canonicalHash": { "$ref": "#/$defs/hash" },
+        "differentiationHash": { "$ref": "#/$defs/hash" }
+      },
+      "required": ["personaId", "personaRevisionId", "lifecycle", "canonicalHash", "differentiationHash"],
+      "additionalProperties": false
+    },
+    "policies": {
+      "type": "object",
+      "required": ["modelPolicyRevisionId", "contextPolicyRevisionId", "memoryPolicyRevisionId", "skillSetRevisionId"],
+      "properties": {
+        "modelPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "contextPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "memoryPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "skillSetRevisionId": { "$ref": "#/$defs/id" },
+        "routeDecisionReceiptId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "required": ["mode", "manifestId", "manifestHash", "selectedSourceIds", "omittedSourceIds", "selectionPolicyRevisionId"],
+      "properties": {
+        "mode": { "enum": ["auto", "partial", "full", "minimal"] },
+        "manifestId": { "$ref": "#/$defs/id" },
+        "manifestHash": { "$ref": "#/$defs/hash" },
+        "selectedSourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "omittedSourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "selectionPolicyRevisionId": { "$ref": "#/$defs/id" },
+        "compactionReceiptId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "required": ["parentCeilingId", "derivedCeilingId", "attenuationRules", "wideningRejected"],
+      "properties": {
+        "parentCeilingId": { "$ref": "#/$defs/id" },
+        "derivedCeilingId": { "$ref": "#/$defs/id" },
+        "attenuationRules": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "wideningRejected": { "type": "boolean" },
+        "approvalSnapshotId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "required": ["maxCostMicrounits", "maxLatencyMs", "maxInputTokens", "maxOutputTokens", "maxToolInvocations", "maxChildren", "maxRecursionDepth"],
+      "properties": {
+        "maxCostMicrounits": { "type": "integer", "minimum": 0 },
+        "maxLatencyMs": { "type": "integer", "minimum": 0 },
+        "maxInputTokens": { "type": "integer", "minimum": 0 },
+        "maxOutputTokens": { "type": "integer", "minimum": 0 },
+        "maxToolInvocations": { "type": "integer", "minimum": 0 },
+        "maxChildren": { "type": "integer", "minimum": 0 },
+        "maxRecursionDepth": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["rubricRevisionId", "suiteIds", "minimumQuality", "evidenceStatus"],
+      "properties": {
+        "rubricRevisionId": { "$ref": "#/$defs/id" },
+        "suiteIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "minimumQuality": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evidenceStatus": { "enum": ["current", "provisional", "stale"] }
+      },
+      "additionalProperties": false
+    },
+    "selection": {
+      "type": "object",
+      "required": ["mode", "rationaleCodes", "rationaleHash", "resolvedAt"],
+      "properties": {
+        "mode": { "enum": ["pinned", "manual", "baseline", "auto", "fallback"] },
+        "rationaleCodes": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "rationaleHash": { "$ref": "#/$defs/hash" },
+        "resolvedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]{1,191}$" },
+    "hash": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" }
+  }
+}

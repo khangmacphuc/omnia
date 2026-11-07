@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/run-control-operation.schema.json",
+  "title": "Omnia resolved pause, continue, edit and retry operation",
+  "description": "A durable, native-resolved run-control operation. User intent is captured before resolution; this DTO is emitted only after an immutable state base and preconditions have been resolved at committed journal watermarks.",
+  "type": "object",
+  "required": [
+    "schemaVersion", "operationId", "kind", "operationState", "conversationId", "branchId",
+    "stateBase", "activeRunPolicy", "actor", "idempotencyKey", "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "operationId": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "receiptId": { "type": ["string", "null"], "minLength": 1, "maxLength": 256 },
+    "authorityContinuityRecordId": { "type": ["string", "null"], "minLength": 1, "maxLength": 256 },
+    "kind": { "enum": ["pause", "resume", "continue", "edit", "retry", "copy", "duplicate", "branch", "fork", "compare", "promote", "merge"] },
+    "operationState": { "enum": ["resolved", "applied", "blocked", "rejected", "cancelled", "failed"] },
+    "conversationId": { "type": "string", "minLength": 1 },
+    "branchId": { "type": "string", "minLength": 1 },
+    "sourceRunId": { "type": ["string", "null"], "minLength": 1 },
+    "sourceAttemptId": { "type": ["string", "null"], "minLength": 1 },
+    "sourceMessageId": { "type": ["string", "null"], "minLength": 1 },
+    "sourcePromptRevisionId": { "type": ["string", "null"], "minLength": 1 },
+    "stateBase": { "$ref": "state-revision-graph.schema.json#/$defs/stateBase" },
+    "editRevisionId": { "type": ["string", "null"], "minLength": 1 },
+    "continuationIntent": { "enum": ["none", "next-best-action", "unfinished-answer", "next-plan-task", "resume-checkpoint", "bootstrap-active-goal", "starter-workflow"] },
+    "activeRunPolicy": { "enum": ["apply-at-safe-boundary", "interrupt-new-attempt", "queue-after-terminal", "fork-parallel", "not-applicable"] },
+    "expectedActiveRunId": { "type": ["string", "null"], "minLength": 1 },
+    "expectedConversationVersion": { "type": ["integer", "null"], "minimum": 0 },
+    "expectedBranchCursor": {
+      "type": ["object", "null"],
+      "required": ["streamKind", "streamId", "sequence"],
+      "properties": {
+        "streamKind": { "enum": ["conversation", "branch", "run", "task", "project", "provider", "recovery"] },
+        "streamId": { "type": "string", "minLength": 1 },
+        "journalEpoch": { "type": ["string", "null"], "minLength": 1 },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "eventId": { "type": ["string", "null"], "minLength": 1 },
+        "payloadHash": { "type": ["string", "null"], "maxLength": 256 }
+      },
+      "additionalProperties": false
+    },
+    "compareStateRevisionIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "mergeStateRevisionIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "result": {
+      "type": ["object", "null"],
+      "properties": {
+        "resultStateRevisionId": { "type": ["string", "null"], "minLength": 1 },
+        "resultRunId": { "type": ["string", "null"], "minLength": 1 },
+        "resultAttemptId": { "type": ["string", "null"], "minLength": 1 },
+        "resultCheckpointId": { "type": ["string", "null"], "minLength": 1 },
+        "resultBranchId": { "type": ["string", "null"], "minLength": 1 },
+        "sourceBranchCursor": {
+          "oneOf": [
+            { "$ref": "state-revision-graph.schema.json#/$defs/journalCursor" },
+            { "type": "null" }
+          ]
+        },
+        "destinationBranchCursor": {
+          "oneOf": [
+            { "$ref": "state-revision-graph.schema.json#/$defs/journalCursor" },
+            { "type": "null" }
+          ]
+        },
+        "blockedReason": { "type": ["string", "null"], "maxLength": 4096 },
+        "diagnosticId": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["user", "agent", "automation", "recovery"] },
+        "id": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "idempotencyKey": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "pause" } }, "required": ["kind"] },
+      "then": {
+        "required": ["sourceRunId"],
+        "properties": { "sourceRunId": { "type": "string", "minLength": 1 } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "resume" } }, "required": ["kind"] },
+      "then": {
+        "required": ["sourceRunId", "continuationIntent"],
+        "properties": {
+          "sourceRunId": { "type": "string", "minLength": 1 },
+          "continuationIntent": { "const": "resume-checkpoint" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "continue" } }, "required": ["kind"] },
+      "then": {
+        "required": ["continuationIntent"],
+        "properties": { "continuationIntent": { "not": { "const": "none" } } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "edit" } }, "required": ["kind"] },
+      "then": {
+        "required": ["sourceMessageId", "sourcePromptRevisionId", "editRevisionId"],
+        "properties": {
+          "sourceMessageId": { "type": "string", "minLength": 1 },
+          "sourcePromptRevisionId": { "type": "string", "minLength": 1 },
+          "editRevisionId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "retry" } }, "required": ["kind"] },
+      "then": {
+        "required": ["sourceAttemptId", "sourcePromptRevisionId"],
+        "properties": {
+          "sourceAttemptId": { "type": "string", "minLength": 1 },
+          "sourcePromptRevisionId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "compare" } }, "required": ["kind"] },
+      "then": {
+        "required": ["compareStateRevisionIds"],
+        "properties": { "compareStateRevisionIds": { "minItems": 2 } }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "enum": ["merge", "promote"] } }, "required": ["kind"] },
+      "then": {
+        "required": ["mergeStateRevisionIds"],
+        "properties": { "mergeStateRevisionIds": { "minItems": 2 } }
+      }
+    },
+    {
+      "if": { "properties": { "operationState": { "const": "blocked" } }, "required": ["operationState"] },
+      "then": {
+        "required": ["result"],
+        "properties": {
+          "result": {
+            "type": "object",
+            "required": ["blockedReason"],
+            "properties": { "blockedReason": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

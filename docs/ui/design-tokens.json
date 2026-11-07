@@ -1,0 +1,179 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "Omnia Desktop semantic tokens",
+    "platform": "Windows 11 desktop",
+    "notes": "This file is the executable source of truth for generated CSS and TypeScript tokens. Use semantic tokens in components. Provider brand colors and status colors must not replace semantic interaction colors. Values are logical pixels unless otherwise stated."
+  },
+  "font": {
+    "family": {
+      "ui": { "$type": "fontFamily", "$value": ["Segoe UI Variable", "Segoe UI", "system-ui", "sans-serif"] },
+      "mono": { "$type": "fontFamily", "$value": ["Cascadia Code", "Cascadia Mono", "Consolas", "monospace"] }
+    },
+    "size": {
+      "micro": { "$type": "dimension", "$value": "11px" },
+      "caption": { "$type": "dimension", "$value": "12px" },
+      "control": { "$type": "dimension", "$value": "13px" },
+      "body": { "$type": "dimension", "$value": "14px" },
+      "bodyLarge": { "$type": "dimension", "$value": "16px" },
+      "titleSmall": { "$type": "dimension", "$value": "18px" },
+      "title": { "$type": "dimension", "$value": "22px" },
+      "display": { "$type": "dimension", "$value": "32px" }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium": { "$type": "fontWeight", "$value": 500 },
+      "semibold": { "$type": "fontWeight", "$value": 600 }
+    },
+    "lineHeight": {
+      "compact": { "$type": "number", "$value": 1.25 },
+      "body": { "$type": "number", "$value": 1.5 },
+      "reading": { "$type": "number", "$value": 1.65 }
+    }
+  },
+  "space": {
+    "0": { "$type": "dimension", "$value": "0px" },
+    "1": { "$type": "dimension", "$value": "4px" },
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "5": { "$type": "dimension", "$value": "20px" },
+    "6": { "$type": "dimension", "$value": "24px" },
+    "8": { "$type": "dimension", "$value": "32px" },
+    "10": { "$type": "dimension", "$value": "40px" },
+    "12": { "$type": "dimension", "$value": "48px" },
+    "16": { "$type": "dimension", "$value": "64px" }
+  },
+  "radius": {
+    "controlSmall": { "$type": "dimension", "$value": "6px" },
+    "control": { "$type": "dimension", "$value": "8px" },
+    "surface": { "$type": "dimension", "$value": "12px" },
+    "dialog": { "$type": "dimension", "$value": "16px" },
+    "pill": { "$type": "dimension", "$value": "999px" }
+  },
+  "size": {
+    "controlCompact": { "$type": "dimension", "$value": "32px" },
+    "control": { "$type": "dimension", "$value": "40px" },
+    "controlTouch": { "$type": "dimension", "$value": "44px" },
+    "targetInline": { "$type": "dimension", "$value": "32px" },
+    "targetComfortable": { "$type": "dimension", "$value": "40px" },
+    "targetTouch": { "$type": "dimension", "$value": "44px" },
+    "activityRail": { "$type": "dimension", "$value": "48px" },
+    "titlebar": { "$type": "dimension", "$value": "46px" },
+    "status": { "$type": "dimension", "$value": "23px" },
+    "toolbar": { "$type": "dimension", "$value": "58px" },
+    "sidebarDefault": { "$type": "dimension", "$value": "264px" },
+    "inspectorDefault": { "$type": "dimension", "$value": "336px" },
+    "readingColumn": { "$type": "dimension", "$value": "820px" }
+  },
+  "stroke": {
+    "hairline": { "$type": "dimension", "$value": "1px" },
+    "focus": { "$type": "dimension", "$value": "2px" }
+  },
+  "duration": {
+    "instant": { "$type": "duration", "$value": "80ms" },
+    "fast": { "$type": "duration", "$value": "120ms" },
+    "normal": { "$type": "duration", "$value": "180ms" },
+    "panel": { "$type": "duration", "$value": "220ms" }
+  },
+  "easing": {
+    "standard": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] },
+    "exit": { "$type": "cubicBezier", "$value": [0.4, 0, 1, 1] }
+  },
+  "breakpoint": {
+    "minimum": { "$type": "dimension", "$value": "800px" },
+    "compact": { "$type": "dimension", "$value": "920px" },
+    "inspectorOverlay": { "$type": "dimension", "$value": "1120px" },
+    "wide": { "$type": "dimension", "$value": "1400px" }
+  },
+  "theme": {
+    "light": {
+      "color": {
+        "canvas": { "$type": "color", "$value": "#F4F7FC" },
+        "chrome": { "$type": "color", "$value": "#F1F1F5E8" },
+        "surface": { "$type": "color", "$value": "#FFFFFF" },
+        "surfaceSubtle": { "$type": "color", "$value": "#F4F4F7" },
+        "surfaceElevated": { "$type": "color", "$value": "#FFFFFF" },
+        "surfaceInteractive": { "$type": "color", "$value": "#ECECF2" },
+        "surfaceInteractiveStrong": { "$type": "color", "$value": "#E0E0E8" },
+        "surfaceHover": { "$type": "color", "$value": "#E6E6ED" },
+        "surfaceSelected": { "$type": "color", "$value": "#DDEAFF" },
+        "text": { "$type": "color", "$value": "#111B2A" },
+        "textSecondary": { "$type": "color", "$value": "#5A6D87" },
+        "textTertiary": { "$type": "color", "$value": "#687C96" },
+        "textDisabled": { "$type": "color", "$value": "#A0A0AA" },
+        "border": { "$type": "color", "$value": "#DDDDE4" },
+        "borderSubtle": { "$type": "color", "$value": "#13131913" },
+        "borderStrong": { "$type": "color", "$value": "#C6C6D0" },
+        "brand": { "$type": "color", "$value": "#3B82F6" },
+        "brandBright": { "$type": "color", "$value": "#2563EB" },
+        "brandHover": { "$type": "color", "$value": "#2563EB" },
+        "brandPressed": { "$type": "color", "$value": "#1D4ED8" },
+        "brandMuted": { "$type": "color", "$value": "#3B82F614" },
+        "brandMutedStrong": { "$type": "color", "$value": "#3B82F626" },
+        "onBrand": { "$type": "color", "$value": "#FFFFFF" },
+        "focus": { "$type": "color", "$value": "#2563EB" },
+        "success": { "$type": "color", "$value": "#16764A" },
+        "successMuted": { "$type": "color", "$value": "#16764A14" },
+        "warning": { "$type": "color", "$value": "#9A5B00" },
+        "warningMuted": { "$type": "color", "$value": "#9A5B0014" },
+        "danger": { "$type": "color", "$value": "#C52A3A" },
+        "dangerMuted": { "$type": "color", "$value": "#C52A3A14" },
+        "info": { "$type": "color", "$value": "#1769AA" },
+        "infoMuted": { "$type": "color", "$value": "#1769AA14" },
+        "scrim": { "$type": "color", "$value": "#11111866" },
+        "selection": { "$type": "color", "$value": "#BBD7FF" }
+      }
+    },
+    "dark": {
+      "color": {
+        "canvas": { "$type": "color", "$value": "#0D0D0F" },
+        "chrome": { "$type": "color", "$value": "#111114E8" },
+        "surface": { "$type": "color", "$value": "#141417" },
+        "surfaceSubtle": { "$type": "color", "$value": "#18181C" },
+        "surfaceElevated": { "$type": "color", "$value": "#1D1D22" },
+        "surfaceInteractive": { "$type": "color", "$value": "#222228" },
+        "surfaceInteractiveStrong": { "$type": "color", "$value": "#2C2C34" },
+        "surfaceHover": { "$type": "color", "$value": "#25252C" },
+        "surfaceSelected": { "$type": "color", "$value": "#27272F" },
+        "text": { "$type": "color", "$value": "#F4F4F6" },
+        "textSecondary": { "$type": "color", "$value": "#B4B4BE" },
+        "textTertiary": { "$type": "color", "$value": "#8E8E99" },
+        "textDisabled": { "$type": "color", "$value": "#5E5E68" },
+        "border": { "$type": "color", "$value": "#27272E" },
+        "borderSubtle": { "$type": "color", "$value": "#FFFFFF12" },
+        "borderStrong": { "$type": "color", "$value": "#383842" },
+        "brand": { "$type": "color", "$value": "#E4E4E9" },
+        "brandBright": { "$type": "color", "$value": "#FFFFFF" },
+        "brandHover": { "$type": "color", "$value": "#F4F4F7" },
+        "brandPressed": { "$type": "color", "$value": "#CFCFD8" },
+        "brandMuted": { "$type": "color", "$value": "#FFFFFF14" },
+        "brandMutedStrong": { "$type": "color", "$value": "#FFFFFF24" },
+        "onBrand": { "$type": "color", "$value": "#0D0D0F" },
+        "focus": { "$type": "color", "$value": "#A1A1AA" },
+        "success": { "$type": "color", "$value": "#34D399" },
+        "successMuted": { "$type": "color", "$value": "#34D3991F" },
+        "warning": { "$type": "color", "$value": "#FBBF24" },
+        "warningMuted": { "$type": "color", "$value": "#FBBF241F" },
+        "danger": { "$type": "color", "$value": "#F87171" },
+        "dangerMuted": { "$type": "color", "$value": "#F871711F" },
+        "info": { "$type": "color", "$value": "#93C5FD" },
+        "infoMuted": { "$type": "color", "$value": "#93C5FD1F" },
+        "scrim": { "$type": "color", "$value": "#000000A6" },
+        "selection": { "$type": "color", "$value": "#3F3F46" }
+      }
+    }
+  },
+  "elevation": {
+    "light": {
+      "popover": { "$type": "shadow", "$value": { "color": "#16162024", "offsetX": "0px", "offsetY": "8px", "blur": "24px", "spread": "0px" } },
+      "dialog": { "$type": "shadow", "$value": { "color": "#16162033", "offsetX": "0px", "offsetY": "16px", "blur": "48px", "spread": "0px" } },
+      "composer": { "$type": "shadow", "$value": { "color": "#16162017", "offsetX": "0px", "offsetY": "16px", "blur": "45px", "spread": "0px" } }
+    },
+    "dark": {
+      "popover": { "$type": "shadow", "$value": { "color": "#00000080", "offsetX": "0px", "offsetY": "8px", "blur": "28px", "spread": "0px" } },
+      "dialog": { "$type": "shadow", "$value": { "color": "#00000099", "offsetX": "0px", "offsetY": "16px", "blur": "52px", "spread": "0px" } },
+      "composer": { "$type": "shadow", "$value": { "color": "#0000004D", "offsetX": "0px", "offsetY": "16px", "blur": "45px", "spread": "0px" } }
+    }
+  }
+}

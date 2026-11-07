@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/media-generation-job.schema.json",
+  "title": "Omnia image and video generation job",
+  "type": "object",
+  "required": ["schemaVersion", "jobId", "modality", "operation", "status", "providerProfileRevisionId", "modelProfileRevisionId", "promptRevisionId", "parameters", "authority", "createdAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "jobId": { "type": "string", "minLength": 1 },
+    "attemptId": { "type": ["string", "null"] },
+    "modality": { "enum": ["image", "video", "document"] },
+    "operation": { "enum": ["text-to-image", "image-variation", "inpaint", "outpaint", "background-remove", "background-replace", "upscale", "object-cleanup", "authorized-watermark-cleanup", "text-to-video", "image-to-video", "video-extend", "video-interpolate", "storyboard", "lip-sync", "compose"] },
+    "status": { "enum": ["draft", "validating", "uploading", "queued", "accepted", "generating", "post-processing", "downloading", "verified", "completed", "retry-wait", "cancelled", "failed", "outcome-unknown", "reconcile-required"] },
+    "providerProfileRevisionId": { "type": "string", "minLength": 1 },
+    "modelProfileRevisionId": { "type": "string", "minLength": 1 },
+    "capabilitySnapshotRevisionId": { "type": "string", "minLength": 1 },
+    "promptRevisionId": { "type": "string", "minLength": 1 },
+    "negativePromptRevisionId": { "type": ["string", "null"] },
+    "inputArtifactIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "maskArtifactIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "parameters": { "type": "object", "required": ["aspectRatio"], "properties": { "aspectRatio": { "type": "string", "minLength": 1 }, "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 }, "durationSeconds": { "type": "number", "minimum": 0 }, "fps": { "type": "number", "minimum": 0 }, "seed": { "type": ["integer", "null"] }, "variantCount": { "type": "integer", "minimum": 1 } }, "additionalProperties": true },
+    "providerJobHandle": { "type": ["string", "null"] },
+    "providerAcceptance": { "enum": ["not-sent", "accepted", "rejected", "unknown"] },
+    "progress": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "outputArtifactIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "authority": { "type": "object", "required": ["policyRevisionId", "watermarkAuthorization"], "properties": { "policyRevisionId": { "type": "string", "minLength": 1 }, "watermarkAuthorization": { "enum": ["not-applicable", "user-owned", "licensed", "explicit-permission", "denied", "unknown"] } }, "additionalProperties": false },
+    "idempotencyKey": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}

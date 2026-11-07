@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/project-twin-catalog.schema.json",
+  "title": "Omnia human-owned Project Twin catalog",
+  "type": "object",
+  "required": ["$schema", "schemaVersion", "projectId", "title", "nodes", "edges", "evidence"],
+  "properties": {
+    "$schema": { "const": "./catalog.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "projectId": { "const": "omnia" },
+    "title": { "type": "string", "minLength": 1 },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/edge" }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidence" }
+    }
+  },
+  "$defs": {
+    "safeId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "workspacePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*/$).+$"
+    },
+    "status": {
+      "enum": ["accepted", "implemented", "verified", "partial", "preview", "planned", "deferred", "blocked"]
+    },
+    "evidenceClass": {
+      "enum": ["source_fact", "static_analysis", "runtime", "test", "screenshot", "audit", "user_annotation", "ai_interpretation", "inference"]
+    },
+    "sourceRef": {
+      "type": "object",
+      "required": ["path", "startLine", "endLine"],
+      "properties": {
+        "path": { "$ref": "#/$defs/workspacePath" },
+        "startLine": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "label", "status", "description", "sourceRefs", "evidenceIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/safeId" },
+        "type": { "$ref": "#/$defs/safeId" },
+        "label": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/status" },
+        "description": { "type": "string", "minLength": 1 },
+        "sourceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/sourceRef" }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/safeId" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": ["id", "type", "source", "target", "evidenceClass", "evidenceIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/safeId" },
+        "type": { "$ref": "#/$defs/safeId" },
+        "source": { "$ref": "#/$defs/safeId" },
+        "target": { "$ref": "#/$defs/safeId" },
+        "evidenceClass": { "$ref": "#/$defs/evidenceClass" },
+        "evidenceIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/safeId" }
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "evidenceClass": { "const": "inference" } } },
+          "then": { "required": ["confidence"] },
+          "else": { "not": { "required": ["confidence"] } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["id", "class", "path"],
+      "properties": {
+        "id": { "$ref": "#/$defs/safeId" },
+        "class": { "$ref": "#/$defs/evidenceClass" },
+        "path": { "$ref": "#/$defs/workspacePath" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

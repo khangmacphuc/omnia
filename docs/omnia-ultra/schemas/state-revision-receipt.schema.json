@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/state-revision-receipt.schema.json",
+  "title": "Omnia immutable state-revision idempotency receipt",
+  "description": "A private, redacted receipt for one committed state-revision mutation. The receipt is immutable and is used to replay the original operation without rereading or overwriting its historical result. A v12 receipt on a complete journal includes the exact journal cursor (journalEpoch, journalSequence and journalEventId). A receipt inherited from a v11 stream migrated as legacy-partial may omit all three cursor fields because no historical event is fabricated. Partial cursors are never valid. This is not the mutable current-head projection and must not contain secrets, credentials, cookies, provider payloads, raw file bytes or sensitive paths.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1,
+      "description": "Version of this receipt contract, independent of the SQLite schema version."
+    },
+    "outcome": {
+      "const": "applied",
+      "description": "The durable mutation was committed. API replay outcomes such as already-applied and payload-drift are derived responses and never rewrite this stored value."
+    },
+    "revisionId": {
+      "$ref": "#/$defs/id",
+      "description": "The immutable revision created by the original operation."
+    },
+    "streamId": {
+      "$ref": "#/$defs/id",
+      "description": "The native state-revision stream that owns revisionId."
+    },
+    "acceptedHeadStateRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "The accepted head after the original mutation committed. This is historical receipt data and must remain distinct from the live current head returned during replay. It may remain null when the mutation creates only a candidate or otherwise leaves an empty accepted head."
+    },
+    "expectedHeadStateRevisionId": {
+      "$ref": "#/$defs/nullableId",
+      "description": "The effective compare-and-swap expectation bound by the original operation after implicit-parent resolution."
+    },
+    "branchSequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The immutable branch sequence assigned to revisionId. It is not a live-head sequence and must not be replaced by a later sequence during replay."
+    },
+    "canonicalPayloadHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Lower-case SHA-256 hash of the canonical semantic mutation payload. The idempotency key is addressed separately and is excluded from this hash."
+    },
+    "journalEpoch": {
+      "$ref": "#/$defs/id",
+      "description": "Immutable journal epoch that owns the original mutation event. Required together with journalSequence and journalEventId for complete v12 streams."
+    },
+    "journalSequence": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Gap-free, one-based sequence number of the original mutation event within journalEpoch."
+    },
+    "journalEventId": {
+      "$ref": "#/$defs/id",
+      "description": "Immutable event identifier of the original state.revision_appended journal fact."
+    }
+  },
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "title": "Complete v12 receipt",
+      "required": [
+        "schemaVersion",
+        "outcome",
+        "revisionId",
+        "streamId",
+        "acceptedHeadStateRevisionId",
+        "expectedHeadStateRevisionId",
+        "branchSequence",
+        "canonicalPayloadHash",
+        "journalEpoch",
+        "journalSequence",
+        "journalEventId"
+      ]
+    },
+    {
+      "title": "Legacy-partial v11 receipt",
+      "required": [
+        "schemaVersion",
+        "outcome",
+        "revisionId",
+        "streamId",
+        "acceptedHeadStateRevisionId",
+        "expectedHeadStateRevisionId",
+        "branchSequence",
+        "canonicalPayloadHash"
+      ],
+      "not": {
+        "anyOf": [
+          { "required": ["journalEpoch"] },
+          { "required": ["journalSequence"] },
+          { "required": ["journalEventId"] }
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "nullableId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 256
+    }
+  }
+}

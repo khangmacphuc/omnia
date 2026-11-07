@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/agent-catalog.schema.json",
+  "title": "Omnia versioned agent and persona catalog",
+  "description": "A deterministic registry of role-profile and presentation-persona revisions. Counts are derived from validated, enabled, evidence-qualified, non-alias entries only.",
+  "type": "object",
+  "required": ["schemaVersion", "catalogId", "revisionId", "lifecycle", "profileRefs", "personaRefs", "countPolicy", "milestoneTargets", "derivedCounts", "evidence", "createdAt", "updatedAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "catalogId": { "$ref": "#/$defs/id" },
+    "revisionId": { "$ref": "#/$defs/id" },
+    "lifecycle": { "enum": ["draft", "enabled", "superseded", "archived"] },
+    "sourceManifestRevisionId": { "type": ["string", "null"], "minLength": 1 },
+    "profileRefs": { "type": "array", "items": { "$ref": "#/$defs/entryRef" } },
+    "personaRefs": { "type": "array", "items": { "$ref": "#/$defs/entryRef" } },
+    "countPolicy": {
+      "type": "object",
+      "required": ["countedLifecycle", "excludedLifecycle", "requireCurrentEvidence", "excludeAliases", "requireDifferentiation"],
+      "properties": {
+        "countedLifecycle": { "const": ["enabled"] },
+        "excludedLifecycle": { "type": "array", "items": { "enum": ["draft", "disabled", "deprecated", "superseded", "blocked"] }, "uniqueItems": true },
+        "requireCurrentEvidence": { "type": "boolean" },
+        "excludeAliases": { "type": "boolean" },
+        "requireDifferentiation": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "milestoneTargets": {
+      "type": "object",
+      "required": ["minimumRoleProfiles", "minimumPersonaPacks"],
+      "properties": {
+        "minimumRoleProfiles": { "type": "integer", "minimum": 0 },
+        "minimumPersonaPacks": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "derivedCounts": {
+      "type": "object",
+      "required": ["enabledRoleProfiles", "enabledPersonaPacks", "draftRoleProfiles", "draftPersonaPacks", "excludedRoleProfiles", "excludedPersonaPacks", "duplicateCanonicalProfiles", "duplicateCanonicalPersonas"],
+      "properties": {
+        "enabledRoleProfiles": { "type": "integer", "minimum": 0 },
+        "enabledPersonaPacks": { "type": "integer", "minimum": 0 },
+        "draftRoleProfiles": { "type": "integer", "minimum": 0 },
+        "draftPersonaPacks": { "type": "integer", "minimum": 0 },
+        "excludedRoleProfiles": { "type": "integer", "minimum": 0 },
+        "excludedPersonaPacks": { "type": "integer", "minimum": 0 },
+        "duplicateCanonicalProfiles": { "type": "integer", "minimum": 0 },
+        "duplicateCanonicalPersonas": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "evidence": { "$ref": "#/$defs/evidence" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]{1,191}$" },
+    "entryRef": {
+      "type": "object",
+      "required": ["id", "revisionId", "path", "lifecycle", "alias", "evidenceStatus", "canonicalHash", "differentiationHash"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "revisionId": { "$ref": "#/$defs/id" },
+        "path": { "type": "string", "pattern": "^[^\\\\]+(?:/[^\\\\]+)+\\.json$" },
+        "lifecycle": { "enum": ["draft", "enabled", "disabled", "deprecated", "superseded", "blocked", "alias"] },
+        "alias": { "type": "boolean" },
+        "aliasOf": { "type": ["string", "null"], "minLength": 1 },
+        "evidenceStatus": { "enum": ["current", "provisional", "stale", "missing"] },
+        "canonicalHash": { "$ref": "#/$defs/hash" },
+        "differentiationHash": { "$ref": "#/$defs/hash" },
+        "category": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "alias": { "const": true } }, "required": ["alias"] },
+          "then": { "required": ["aliasOf"] }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "hash": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+    "evidence": {
+      "type": "object",
+      "required": ["evidenceIds", "status", "lastEvaluatedAt", "sourceRefs"],
+      "properties": {
+        "evidenceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "status": { "enum": ["current", "provisional", "stale", "missing"] },
+        "lastEvaluatedAt": { "type": ["string", "null"], "format": "date-time" },
+        "sourceRefs": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 600 }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    }
+  }
+}

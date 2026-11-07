@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omnia.local/schemas/local-multimodal-transform-receipt.schema.json",
+  "title": "Omnia local multimodal transform receipt",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "receiptId",
+    "planId",
+    "stageId",
+    "attemptId",
+    "status",
+    "inputArtifacts",
+    "execution",
+    "policy",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "receiptId": { "type": "string", "minLength": 1 },
+    "planId": { "type": "string", "minLength": 1 },
+    "stageId": { "type": "string", "minLength": 1 },
+    "attemptId": { "type": "string", "minLength": 1 },
+    "status": {
+      "enum": [
+        "queued",
+        "running",
+        "completed",
+        "failed",
+        "cancelled",
+        "blocked",
+        "outcome-unknown",
+        "superseded"
+      ]
+    },
+    "inputArtifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/artifactRef" }
+    },
+    "outputArtifacts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/artifactRef" }
+    },
+    "execution": {
+      "type": "object",
+      "required": ["executorKind", "identityRevisionId", "locality", "isolationProfileRevisionId"],
+      "properties": {
+        "executorKind": {
+          "enum": [
+            "deterministic-tool",
+            "local-model",
+            "provider-specialist",
+            "hybrid-ensemble",
+            "human-review"
+          ]
+        },
+        "identityRevisionId": { "type": "string", "minLength": 1 },
+        "locality": { "enum": ["local", "approved-provider", "hybrid"] },
+        "isolationProfileRevisionId": { "type": "string", "minLength": 1 },
+        "runtimeLeaseId": { "type": ["string", "null"] },
+        "deviceId": { "type": ["string", "null"] },
+        "networkEgress": { "enum": ["none", "approved-endpoint", "not-applicable"] }
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": ["policyRevisionId", "grantRevisionId", "dataClass", "retentionClass"],
+      "properties": {
+        "policyRevisionId": { "type": "string", "minLength": 1 },
+        "grantRevisionId": { "type": "string", "minLength": 1 },
+        "dataClass": { "type": "string", "minLength": 1 },
+        "retentionClass": { "type": "string", "minLength": 1 },
+        "providerSharingApproved": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "coordinateTransforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fromCoordinateSystem", "toCoordinateSystem", "transformRevisionId"],
+        "properties": {
+          "fromCoordinateSystem": { "type": "string", "minLength": 1 },
+          "toCoordinateSystem": { "type": "string", "minLength": 1 },
+          "transformRevisionId": { "type": "string", "minLength": 1 },
+          "lossy": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "quality": {
+      "type": ["object", "null"],
+      "properties": {
+        "status": { "enum": ["sufficient", "degraded", "insufficient", "ambiguous", "blocked", "not-applicable"] },
+        "coverage": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "validatorRevisionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "warnings": { "type": "array", "items": { "type": "string", "maxLength": 4096 } }
+      },
+      "additionalProperties": false
+    },
+    "resourceUsage": {
+      "type": ["object", "null"],
+      "properties": {
+        "inputBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "outputBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "peakRamBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "peakVramBytes": { "type": ["integer", "null"], "minimum": 0 },
+        "durationMs": { "type": ["number", "null"], "minimum": 0 },
+        "estimatedCost": { "type": ["number", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "contextManifestId": { "type": ["string", "null"] },
+    "cacheEntryId": { "type": ["string", "null"] },
+    "providerRequestAttemptId": { "type": ["string", "null"] },
+    "failure": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "retryable": { "type": "boolean" },
+        "reconciliationRequired": { "type": "boolean" },
+        "safeDetail": { "type": ["string", "null"], "maxLength": 4096 }
+      },
+      "additionalProperties": false
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "$defs": {
+    "artifactRef": {
+      "type": "object",
+      "required": ["artifactId", "contentHash", "mimeType"],
+      "properties": {
+        "artifactId": { "type": "string", "minLength": 1 },
+        "contentHash": { "type": "string", "minLength": 8 },
+        "mimeType": { "type": "string", "minLength": 1 },
+        "coordinateRef": { "type": ["string", "null"] },
+        "representationKind": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "completed" } } },
+      "then": {
+        "required": ["outputArtifacts", "quality", "completedAt"],
+        "properties": {
+          "outputArtifacts": { "minItems": 1 },
+          "quality": { "type": "object", "required": ["status"] },
+          "completedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "enum": ["failed", "blocked", "outcome-unknown"] } } },
+      "then": {
+        "required": ["failure"],
+        "properties": { "failure": { "type": "object", "required": ["code", "retryable", "reconciliationRequired"] } }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "outcome-unknown" } } },
+      "then": {
+        "properties": {
+          "failure": {
+            "type": "object",
+            "properties": { "reconciliationRequired": { "const": true } },
+            "required": ["reconciliationRequired"]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}
