@@ -8,7 +8,7 @@ Omnia is a Windows desktop AI workspace built for people who need more than a ch
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.4 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.7 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
 
 ## Primary surfaces
 
@@ -24,6 +24,7 @@ Omnia opens in **Chat**, with a non project conversation by default. A project c
 - **Browser and computer harness:** dedicated browser workbench, navigation and bounded capture receipts, zoom/lifecycle persistence, downloads, recording and computer permission contracts. The browser preview is deterministic and local; packaged WebView2 and external-service evidence remains in the ledger as partial.
 - **Skills, tools, MCP, plugins and subagents:** precedence-aware skill and role discovery, plugin registry, trust-gated MCP status/reload, connector receipts, tool DAGs, parallel task coordination and shared token budgets. Packaged connector execution and live external-service coverage remain contract-level unless a receipt says otherwise.
 - **Artifacts and portability:** bounded artifact preview/export, redacted import/export, encrypted binary preview contracts, checkpoints and review-oriented workspace diffs.
+- **Multimodal planning:** capability-gated image, video, audio and document endpoint plans with deterministic fingerprints and idempotency keys. Provider wire payloads, upload bytes and credentials remain native-only until a live adapter receipt exists.
 - **Research and observability:** bounded research fan out with source span receipts, telemetry projections, performance evidence and synthetic provider billing reconciliation fixtures.
 - **Retry posture:** the runtime settings surface defaults to retrying incomplete sessions after errors with a 5 second delay, multiplier 1, no jitter, unlimited attempts and no elapsed-time cap. Provider/model fallback and prompt repair remain explicit opt-ins; native acceptance and idempotency gates still decide whether a resend is safe.
 - **Quality gates:** TypeScript and Rust checks, command parity, ACL/import/typography/hit target checks, upstream catalog determinism, focused Vitest suites and canonical native integration tests.

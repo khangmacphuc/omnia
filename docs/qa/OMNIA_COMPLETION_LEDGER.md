@@ -42,7 +42,7 @@ met yet.
 | Browser/computer harness | Partial | 9/12 | Both | Native capture receipts, zoom bounds, lifecycle forwarding and persistence pass; packaged WebView2 target-blank/download/history evidence remains. |
 | Browser local persistence | **Done** | 3/3 | Renderer | Empty and malformed bookmark/userscript collections are validated and survive remount. |
 | Session portability | **Done** | 8/8 | Both | Redacted import/export, cross-version conflict receipts, branch/rewind lineage and authenticated binary preview pass. |
-| Multimodal media | Partial | 8/10 | Both | Authenticated bounded binary preview and media bridge pass; provider generation endpoints and universal encrypted decoding remain. |
+| Multimodal media | Partial | 9/10 | Both | Authenticated bounded binary preview, media bridge and capability-gated endpoint planning pass; provider probing/upload/dispatch, artifact persistence/download provenance and universal encrypted decoding remain. |
 | Upstream extraction reuse | **Done** | 55/55 audited | Documented adapter boundary | Catalog, adapter plan, inventory and reuse ledger cover all extracted modules. |
 | Permissions and secrets | **Done** | 9/9 | Native | Approval, trust, secret-store and denial paths are covered by native tests. |
 | Native persistence | Partial | 9/10 | Native | Canonical native persistence suites pass; unsupported library-test loader is blocked in this environment. |
@@ -92,6 +92,8 @@ The current same-snapshot checks are recorded in
   and a 2,638 ms page-ready p95 against a 3,000 ms target.
 - Native provider-lineage harness — **PASS**, 713 tests; context-manifest fields
   remain present as explicit nulls when no context evidence is available.
+- Multimodal endpoint planning — **PASS**, 1 focused file and 5 tests; the plan
+  is metadata-only and withholds provider wire payloads.
 - `npm.cmd run check:upstream-catalog` — **PASS**, 55 modules.
 - `node --test scripts/perf-headless-runner.test.mjs` — **7/7 passing**.
 - `cargo fmt`, `cargo check`, and `cargo test --workspace --offline` —
