@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedAt": "2026-11-07T16:45:00+07:00",
   "repository": "D:/Omnia/repos/omnia",
-  "sourceRevision": "126658d74cba1bae64de2c2b7b4ae91b13905ff5+release-evidence-20261108",
+  "sourceRevision": "74bf31db75ccedcf83640c195749a376ab02fcb6+release-evidence-20261108",
   "goal": "Hoàn thiện Omnia theo ma trận DoD toàn diện và không claim capability chưa có bằng chứng.",
   "status": "in_progress",
   "completionRule": "A criterion is complete only when implementation, focused test, boundary/permission evidence, and same-snapshot receipt all exist.",
@@ -48,7 +48,7 @@
       "id": "agent-chat-lifecycle",
       "area": "agent chat",
       "status": "partial",
-      "coverage": "8/10",
+      "coverage": "9/10",
       "implementation": [
         "src/agent/agent-shell.tsx",
         "src/agent/agent-store.ts",
@@ -57,13 +57,15 @@
       ],
       "tests": [
         "src/agent/agent-shell.test.tsx",
-        "src/agent/home-start.test.tsx"
+        "src/agent/home-start.test.tsx",
+        "src/agent/session-tabs.test.tsx",
+        "src/agent/session-navigation.test.ts"
       ],
       "evidence": [
         "docs/OMNIA_VERTICAL_SLICE_DOD_20261107.md"
       ],
       "boundary": "both",
-      "gap": "durable renderer tab state and native multi-model compare are not fully verified"
+      "gap": "native multi-model compare dispatch and full terminal lifecycle remain unverified; durable session tabs are covered by the dedicated criterion"
     },
     {
       "id": "session-tabs",
@@ -640,5 +642,5 @@
       "result": "BLOCKED: STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139), unsupported library-test loader target"
     }
   ],
-  "updatedAt": "2026-11-08T03:15:51+07:00"
+  "updatedAt": "2026-11-08T03:17:21+07:00"
 }

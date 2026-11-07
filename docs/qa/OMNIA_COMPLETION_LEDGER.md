@@ -29,7 +29,7 @@ met yet.
 
 | Area | Status | Coverage | Boundary | Main evidence or gap |
 | --- | --- | ---: | --- | --- |
-| Agent chat lifecycle | Partial | 8/10 | Both | Session lifecycle and journal exist; durable tabs and native compare remain. |
+| Agent chat lifecycle | Partial | 9/10 | Both | Session lifecycle, journal and durable tabs pass; native multi-model compare remains. |
 | Session tabs | **Done** | 7/7 | Renderer/native | Ordered native persistence, CAS conflicts, pruning, keyboard close/focus and ARIA linkage pass. |
 | Projects and pointer storage | Partial | 8/9 | Both | Immutable pointer/CAS and native identity-bound watcher rows pass; packaged Windows watcher evidence remains. |
 | RAG and citations | Partial | 9/9 | Renderer/native | Scoped catalog, deterministic selection, native admission, capability-gated requests, and a hash-only local reranker receipt pass; live external provider dispatch remains. |
