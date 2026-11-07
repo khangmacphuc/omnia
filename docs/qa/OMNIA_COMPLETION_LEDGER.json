@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedAt": "2026-11-07T16:45:00+07:00",
   "repository": "D:/Omnia/repos/omnia",
-  "sourceRevision": "e073557dcb32ab3b63bf3f1f690164a62339e5ae",
+  "sourceRevision": "126658d74cba1bae64de2c2b7b4ae91b13905ff5+release-evidence-20261108",
   "goal": "Hoàn thiện Omnia theo ma trận DoD toàn diện và không claim capability chưa có bằng chứng.",
   "status": "in_progress",
   "completionRule": "A criterion is complete only when implementation, focused test, boundary/permission evidence, and same-snapshot receipt all exist.",
@@ -640,5 +640,5 @@
       "result": "BLOCKED: STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139), unsupported library-test loader target"
     }
   ],
-  "updatedAt": "2026-11-08T03:05:16+07:00"
+  "updatedAt": "2026-11-08T03:15:51+07:00"
 }
