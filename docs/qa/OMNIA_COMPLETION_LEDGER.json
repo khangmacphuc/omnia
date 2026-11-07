@@ -216,11 +216,13 @@
       ],
       "tests": [
         "src/features/workspace/project-runtime-posture.test.tsx",
-        "src/domain/provider-telemetry-projection.test.ts"
+        "src/domain/provider-telemetry-projection.test.ts",
+        "src/features/workspace/inspector.telemetry.test.tsx"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/observability-audit-result.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        "D:/Omnia/.agents/checkpoints/observability-projection-fix-result-20261108.md"
       ],
       "boundary": "both",
       "gap": "bounded provider billing reconciliation fixture and telemetry projection pass; live account/invoice reconciliation remains unverified"
