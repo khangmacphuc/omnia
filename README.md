@@ -8,7 +8,7 @@ Omnia is a Windows desktop AI workspace built for people who need more than a ch
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.7 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.10 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
 
 ## Primary surfaces
 
@@ -17,10 +17,10 @@ Omnia opens in **Chat**, with a non project conversation by default. A project c
 ## What is working in this snapshot
 
 - **Chat and sessions:** non project chat, project chat, durable session tabs, branch/fork/rewind controls, optimistic stream recovery, retry/steer/interrupt flows, and native run journal projections.
-- **Projects and context:** project scoped folders and file pointers, native identity and revision checks, read only workspace grants, lexical workspace indexing, bounded retrieval and immutable context snapshots. The current retrieval command records `providerInputAdmission: "not_admitted"`; provider-input admission is intentionally still withheld pending the remaining native dispatch evidence.
+- **Projects and context:** project scoped folders and file pointers, native identity and revision checks, read only workspace grants, lexical workspace indexing, bounded retrieval and immutable context snapshots. A content-free RAG provider contract now validates capability, lineage, budgets and receipts. The current retrieval command records `providerInputAdmission: "not_admitted"`; live provider population is still withheld pending native dispatch evidence.
 - **Providers and routing:** OpenAI, Anthropic, Gemini, OpenAI compatible and approved local endpoints through native adapters; capability aware parameters, effort routing, usage projections, provider lineage, and opaque prepared input dispatch.
 - **Native model compare:** the snapshot contains a bounded two-to-four route fan-out engine, route conversion checks, provenance projections and immutable merge receipt types. Durable attempt journaling, live native dispatch and billing lineage remain partial or unverified in the completion ledger, so this is not presented as a fully shipped compare workflow.
-- **IDE surface:** workspace tabs, editor attachment, LSP configuration and native editor surface contracts with explicit workspace trust and permission boundaries.
+- **IDE surface:** workspace tabs, semantic tab/panel relationships, editor settings focus behavior, editor attachment, LSP configuration and native editor surface contracts with explicit workspace trust and permission boundaries.
 - **Browser and computer harness:** dedicated browser workbench, navigation and bounded capture receipts, zoom/lifecycle persistence, downloads, recording and computer permission contracts. The browser preview is deterministic and local; packaged WebView2 and external-service evidence remains in the ledger as partial.
 - **Skills, tools, MCP, plugins and subagents:** precedence-aware skill and role discovery, plugin registry, trust-gated MCP status/reload, connector receipts, tool DAGs, parallel task coordination and shared token budgets. Packaged connector execution and live external-service coverage remain contract-level unless a receipt says otherwise.
 - **Artifacts and portability:** bounded artifact preview/export, redacted import/export, encrypted binary preview contracts, checkpoints and review-oriented workspace diffs.
