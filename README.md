@@ -8,7 +8,7 @@ Omnia is a Windows desktop AI workspace built for people who need more than a ch
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.2 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.4 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
 
 ## Primary surfaces
 
@@ -84,7 +84,7 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
-The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; and the supported native loader discovered 711 integration tests. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
+The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; the supported native loader discovered 711 integration tests; and the native provider-lineage harness completed 713 tests while preserving context-manifest fields in secret-free receipts. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
 
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 

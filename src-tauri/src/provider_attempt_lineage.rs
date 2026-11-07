@@ -62,9 +62,7 @@ pub struct ProviderAttemptLineageFact {
     pub resolved_parameters_sha256: String,
     pub requested_effort: Option<String>,
     pub effective_effort: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     pub context_manifest_id: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     pub context_manifest_sha256: Option<String>,
     pub authority_continuity_record_id: Option<String>,
     pub data_classification_revision_id: Option<String>,
@@ -718,6 +716,8 @@ mod tests {
         }
         assert!(fact_object["routingDecisionReceiptId"].is_null());
         assert!(fact_object["cachePlanId"].is_null());
+        assert!(fact_object["contextManifestId"].is_null());
+        assert!(fact_object["contextManifestSha256"].is_null());
         let fact_serialized = serde_json::to_string(&first).expect("fact should serialize");
         for forbidden in [
             "api.example.com",
@@ -759,6 +759,8 @@ mod tests {
             "requestedEffort",
             "effectiveEffort",
             "resolvedParametersSha256",
+            "contextManifestId",
+            "contextManifestSha256",
             "inputContentSha256",
             "createdAtMs",
         ];

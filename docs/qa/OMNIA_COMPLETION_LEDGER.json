@@ -152,7 +152,8 @@
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/routing-result-20261107.md",
-        "D:/Omnia/.agents/checkpoints/model-compare-receipt-result-20261107.md"
+        "D:/Omnia/.agents/checkpoints/model-compare-receipt-result-20261107.md",
+        ".agents/checkpoints/provider-lineage-receipt-fix-20261108.md"
       ],
       "boundary": "renderer/domain",
       "gap": "native concurrent provider dispatch and live billing lineage remain unverified"

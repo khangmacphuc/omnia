@@ -1,4 +1,4 @@
-# Omnia completion ledger — 2026-11-07
+# Omnia completion ledger — 2026-11-08
 
 This ledger is the current same-snapshot status for the Omnia goal. It is a
 completion contract, not a product claim. A row becomes `done` only after the
@@ -33,7 +33,7 @@ met yet.
 | Session tabs | **Done** | 7/7 | Renderer/native | Ordered native persistence, CAS conflicts, pruning, keyboard close/focus and ARIA linkage pass. |
 | Projects and pointer storage | Partial | 8/9 | Both | Immutable pointer/CAS and native identity-bound watcher rows pass; packaged Windows watcher evidence remains. |
 | RAG and citations | Partial | 8/9 | Renderer/native | Scoped catalog, deterministic selection and content-free request receipts pass; embedding/reranking and native population remain. |
-| Model routing and compare | Partial | 7/8 | Renderer/domain | Effort downgrade, output route and immutable fan-out/merge receipts pass; native dispatch and billing lineage remain. |
+| Model routing and compare | Partial | 7/8 | Renderer/native/domain | Effort downgrade, output route, immutable fan-out/merge receipts and secret-free provider-lineage context fields pass; native concurrent dispatch and billing lineage remain. |
 | Runtime settings | **Done** | 8/8 | Renderer/native | Per-session settings CAS, conflict refresh, persistence across reopen and renderer hot reload pass. |
 | Workflow, goal, plan and DoD | **Done** | 6/6 | Renderer/documented | Atomic tasks, quantified criteria, evidence and coverage are tested. |
 | Observability | Partial | 7/8 | Both | Bounded native read, telemetry projection and synthetic billing reconciliation pass; live billing remains. |
@@ -47,7 +47,7 @@ met yet.
 | Permissions and secrets | **Done** | 9/9 | Native | Approval, trust, secret-store and denial paths are covered by native tests. |
 | Native persistence | Partial | 9/10 | Native | Canonical native persistence suites pass; unsupported library-test loader is blocked in this environment. |
 | UI and accessibility | Partial | 7/10 | Renderer | Keyboard, focus and narrow drawer are covered; DPI/high contrast/screen-reader matrix remains. |
-| Performance/resource budget | Partial | 7/9 | Native/renderer | Shared budget and bounded tool policy pass; headless renderer collection is measured, but its page-ready target currently fails and packaged endurance/GPU/native working-set profiling remains. |
+| Performance/resource budget | Partial | 8/9 | Native/renderer | Shared budget and bounded tool policy pass; headless renderer page-ready p95 is 2,638 ms against a 3,000 ms target; packaged endurance/GPU/native working-set profiling remains. |
 | CI/build verification | Partial | 9/10 | Both | Typecheck, renderer build, command parity, catalog and canonical workspace tests pass; unsupported library-test loader remains. |
 | Completion reporting | **Done** | 6/6 | Documentation | DoD, ledger, upstream inventory and evidence receipts are linked. |
 | Native browser gaps | **Blocked** | 4/9 | Native | Requires packaged WebView2 capture/history/zoom evidence. |
@@ -88,6 +88,10 @@ The current same-snapshot checks are recorded in
 - Settings/services/plugin/API focused suite — **5 files, 69 tests passing**.
 - `npm.cmd run check:command-parity` — **PASS**, 187 renderer calls / 190
   registered / 190 production definitions.
+- Headless preview evidence — **PASS**, 2,099 renderer modules, zero page errors,
+  and a 2,638 ms page-ready p95 against a 3,000 ms target.
+- Native provider-lineage harness — **PASS**, 713 tests; context-manifest fields
+  remain present as explicit nulls when no context evidence is available.
 - `npm.cmd run check:upstream-catalog` — **PASS**, 55 modules.
 - `node --test scripts/perf-headless-runner.test.mjs` — **7/7 passing**.
 - `cargo fmt`, `cargo check`, and `cargo test --workspace --offline` —
