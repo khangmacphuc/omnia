@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedAt": "2026-11-07T16:45:00+07:00",
   "repository": "D:/Omnia/repos/omnia",
-  "sourceRevision": "55f21dacf5acb2c6f386aff1ece6a5245bad0fc4+final-verification-20261107",
+  "sourceRevision": "d34dad07b2b6dff37177ef1cade45af9e2f9cdac+release-evidence-20261108",
   "goal": "Hoàn thiện Omnia theo ma trận DoD toàn diện và không claim capability chưa có bằng chứng.",
   "status": "in_progress",
   "completionRule": "A criterion is complete only when implementation, focused test, boundary/permission evidence, and same-snapshot receipt all exist.",
@@ -430,7 +430,8 @@
         "tests/visual/visual-fixture-contract.spec.ts"
       ],
       "evidence": [
-        "D:/Omnia/.agents/checkpoints/renderer-accessibility-review.md"
+        "D:/Omnia/.agents/checkpoints/renderer-accessibility-review.md",
+        ".agents/checkpoints/fresh-preview-evidence-20261108.md"
       ],
       "boundary": "renderer",
       "gap": "full DPI/high-contrast/screen-reader matrix is not current-snapshot verified"

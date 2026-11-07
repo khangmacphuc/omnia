@@ -24,8 +24,14 @@ void (async () => {
   // bridge. Treat that as a browser preview too; checking only for `undefined`
   // leaves the shell trying to call an absent transformCallback and renders a
   // misleading "agent unavailable" state.
-  const hasTauriCallbackBridge = typeof window.__TAURI_INTERNALS__?.transformCallback === "function";
-  if (import.meta.env.DEV && !visualFixture && !hasTauriCallbackBridge && new URLSearchParams(window.location.search).has("mock")) {
+  const requestedMock = new URLSearchParams(window.location.search).has("mock");
+  // A `?mock` URL is an explicit request for the deterministic browser harness.
+  // Honor it even when an embedded host pre-injects a partial Tauri marker: some
+  // WebViews expose `__TAURI_INTERNALS__` before the callback bridge is ready,
+  // which otherwise races the mock install and produces a misleading startup
+  // error (`transformCallback` is undefined). A real desktop session never adds
+  // this query parameter, so the override is scoped to the preview harness.
+  if (import.meta.env.DEV && !visualFixture && requestedMock) {
     const devMock = await import("./agent/dev-mock");
     const scenario = devMock.parseScenario(window.location.search);
     if (scenario) afterMount = devMock.installDevMock(scenario);

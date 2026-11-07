@@ -1,16 +1,18 @@
 # Omnia
 
-**Local first AI workbench with one workspace for Chat, Browser and IDE workflows.**
+**Local first AI workbench for chat, projects, IDE and browser workflows.**
 
 ![Omnia app overview](docs/assets/omnia-app-overview.png)
 
-Omnia is a Windows desktop AI workspace built for people who need more than a chat box. It combines durable conversations, project and non project sessions in one Chat mode, a native trust boundary, IDE and Browser surfaces with an integrated chat sidebar, and an inspectable harness for plans, tools, skills, MCP servers, plugins and subagents.
-
-The primary chrome is intentionally small: **Chat**, **Browser** and **IDE** are the only persistent mode buttons. Project routes, memory, skills and work views stay inside Chat and remain available from the command palette and deep links. The same session list stays visible beside the Browser and IDE workbenches, so changing surfaces does not discard the active context.
+Omnia is a Windows desktop AI workspace built for people who need more than a chat box. It combines durable conversations, project scoped context, provider neutral model routing, a native trust boundary, IDE and browser surfaces, and an inspectable harness for plans, tools, skills, MCP servers, plugins and subagents.
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.0 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.2 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+
+## Primary surfaces
+
+Omnia opens in **Chat**, with a non project conversation by default. A project can be selected from the same Chat surface, so project and non project sessions share one session list and one workflow. **Browser** and **IDE** are the other two persistent top level modes; each keeps the shared Chat session sidebar available while its workbench is open. Projects, Work, Library, Memory and Skills remain Chat routes rather than separate top level products. The shell supports light and dark themes, keyboard navigation and a compact glass style that keeps the work area in focus.
 
 ## What is working in this snapshot
 
@@ -82,12 +84,14 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
+The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; and the supported native loader discovered 711 integration tests. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
+
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 
 ## First walkthrough
 
 1. Start the desktop app in **Chat** for a non project conversation (project sessions use the same surface).
-2. Open **Projects** from the Chat workspace, create a project and add a read only workspace folder or file pointer.
+2. Open **Projects**, create a project and add a read only workspace folder or file pointer.
 3. Send a prompt. Native preparation freezes the run, records bounded project retrieval and context receipts when a readable grant is selected, and keeps the user message last. The current retrieval lane still reports provider-input admission as withheld.
 4. Open the inspector to review model, effort, tools, context and usage receipts.
 5. Open **Services** to inspect skills, subagent roles, plugin and MCP trust state without launching an external connector.
