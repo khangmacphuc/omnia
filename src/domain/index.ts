@@ -30,6 +30,7 @@ export * from "./machine-runtime";
 export * from "./omnia-runtime-controller";
 export * from "./omnia-runtime-manifest-adapter";
 export * from "./media-generation-job";
+export * from "./media-generation-endpoint";
 export * from "./memory";
 export * from "./multimodal-bridge";
 export * from "./omnia-agent-scheduler";

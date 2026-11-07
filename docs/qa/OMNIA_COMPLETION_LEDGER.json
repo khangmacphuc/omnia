@@ -340,22 +340,25 @@
       "id": "multimodal-media",
       "area": "image, audio, video and files",
       "status": "partial",
-      "coverage": "8/10",
+      "coverage": "9/10",
       "implementation": [
         "src/domain/multimodal-bridge.ts",
         "src/domain/omnia-media-pipeline.ts",
-        "src-tauri/src/multimodal_bridge.rs"
+        "src-tauri/src/multimodal_bridge.rs",
+        "src/domain/media-generation-endpoint.ts"
       ],
       "tests": [
         "src/domain/multimodal-bridge.test.ts",
-        "src/domain/omnia-media-runtime-adapter.test.ts"
+        "src/domain/omnia-media-runtime-adapter.test.ts",
+        "src/domain/media-generation-endpoint.test.ts"
       ],
       "evidence": [
         "docs/NATIVE_INTEGRATION_AUDIT_20261107.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        ".agents/checkpoints/multimodal-endpoint-slice-result-20261108.md"
       ],
       "boundary": "both",
-      "gap": "authenticated bounded binary preview and renderer media bridge pass; provider-specific generation endpoints and universal encrypted document decoding remain"
+      "gap": "capability-gated endpoint planning now passes; provider probing/upload/dispatch, artifact persistence/download provenance and universal encrypted document decoding remain"
     },
     {
       "id": "upstream-extraction-reuse",
