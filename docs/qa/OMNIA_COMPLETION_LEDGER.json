@@ -279,11 +279,13 @@
       ],
       "tests": [
         "src/features/workspace/sovereign-browser-workbench.test.tsx",
+        "src/features/workspace/native-browser-surface.test.tsx",
         "src-tauri/tests/native_subsystem_tests.rs"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/next-browser-product-audit.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        "docs/audit/NATIVE_BROWSER_CONTRACT_RECEIPT_20261108.md"
       ],
       "boundary": "both",
       "gap": "native capture receipt, zoom bounds, lifecycle forwarding and browser persistence pass; packaged WebView2 target-blank/download/history evidence remains"
@@ -513,7 +515,8 @@
         "src/features/workspace/sovereign-browser-workbench.test.tsx"
       ],
       "evidence": [
-        "D:/Omnia/.agents/checkpoints/next-browser-product-audit.md"
+        "D:/Omnia/.agents/checkpoints/next-browser-product-audit.md",
+        "docs/audit/NATIVE_BROWSER_CONTRACT_RECEIPT_20261108.md"
       ],
       "boundary": "native",
       "gap": "requires packaged WebView2/capture/history/zoom evidence unavailable in current preview"

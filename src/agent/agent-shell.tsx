@@ -1,4 +1,4 @@
-import { ChevronRight, Download, FileOutput, Folder, GitCompare, MoreHorizontal, OctagonX, PanelLeft } from "lucide-react";
+import { ChevronRight, Download, FileOutput, Folder, GitCompare, GitCompareArrows, MoreHorizontal, OctagonX, PanelLeft } from "lucide-react";
 import { Component, Fragment, lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 import { WorkbenchWindowControls } from "@/features/workspace/workbench-window-controls";
@@ -16,7 +16,7 @@ import { SplitDivider } from "./split-divider";
 import { startAgentAppearance } from "./appearance";
 import { isNarrowPanelViewport, isNarrowWidth, visibleSessionIds } from "./split";
 import { Popover, ConfirmDialog } from "./ui";
-import { isWorkspaceView, SHELL_VIEWS, shellViewLabel, type ShellView, type WorkspaceView } from "./shell-view";
+import { isWorkspaceView, primarySurfaceForView, PRIMARY_SURFACE_VIEWS, shellViewLabel, type ShellView, type WorkspaceView } from "./shell-view";
 import { HomeStart } from "./home-start";
 import { StatusBar } from "./status-bar";
 import { SessionTabs } from "./session-tabs";
@@ -96,6 +96,7 @@ const ArtifactsPanel = lazy(() => import("./artifacts-panel").then((module) => (
 const DownloadsPanel = lazy(() => import("./downloads-panel").then((module) => ({ default: module.DownloadsPanel })));
 const WorkspaceTrustDialog = lazy(() => import("./workspace-trust-dialog").then((module) => ({ default: module.WorkspaceTrustDialog })));
 const ServicesDialog = lazy(() => import("./services-dialog").then((module) => ({ default: module.ServicesDialog })));
+const CompareSessionDialog = lazy(() => import("./compare-session-dialog").then((module) => ({ default: module.CompareSessionDialog })));
 const SettingsDialog = lazy(() => import("./settings-dialog").then((module) => ({ default: module.SettingsDialog })));
 const CommandPalette = lazy(() => import("./command-palette").then((module) => ({ default: module.CommandPalette })));
 
@@ -166,7 +167,7 @@ export function AgentShell() {
   const { sessions, activeId, live, ready, startupError, notice, split, narrow } = store;
   const narrowPanel = useNarrowPanelViewport();
   const [sidebarOpen, setSidebarOpen] = useState(() => readPrefs().sidebarOpen !== false);
-  const [dialog, setDialog] = useState<"new" | "settings" | "trust" | "services" | "session" | null>(null);
+  const [dialog, setDialog] = useState<"new" | "settings" | "trust" | "services" | "compare" | "session" | null>(null);
   const [view, setView] = useState<ShellView>("agent");
   // Last workspace view shown; once set the surface stays mounted (hidden) so switching back is instant.
   const [workspaceView, setWorkspaceView] = useState<WorkspaceView | null>(null);
@@ -230,7 +231,10 @@ export function AgentShell() {
     if (isWorkspaceView(next)) setWorkspaceView(next);
   }, []);
   const showAgent = useCallback(() => setView("agent"), []);
+  // Projects/work/library are secondary Chat routes. Keep Chat highlighted in
+  // the primary chrome while Browser and IDE remain the only other modes.
   const agentView = view === "agent";
+  const primaryView = primarySurfaceForView(view);
 
   const openSession = useCallback((id: string, closeDrawer = true) => {
     openSessionTab(id);
@@ -262,9 +266,9 @@ export function AgentShell() {
         if (!document.querySelector('[role="dialog"]')) setDialog("settings");
         return;
       }
-      // Alt+1..6 switches top-level views in rail order (also from inputs).
+      // Alt+1..3 switches the three primary surfaces (also from inputs).
       if (event.altKey && !mod && !event.shiftKey && /^Digit[1-9]$/.test(event.code)) {
-        const target = SHELL_VIEWS[Number(event.code.slice(5)) - 1];
+        const target = PRIMARY_SURFACE_VIEWS[Number(event.code.slice(5)) - 1];
         if (target && !document.querySelector('[role="dialog"]')) {
           event.preventDefault();
           navigate(target.id);
@@ -332,7 +336,7 @@ export function AgentShell() {
   return (
     <>
       <div className="ag-shell">
-        <ActivityRail view={view} onNavigate={navigate} onOpenSettings={() => setDialog("settings")} />
+        <ActivityRail view={primaryView} onNavigate={navigate} onOpenSettings={() => setDialog("settings")} />
         <div className="ag-shell__main">
         <div className="ag-shell__views">
         <div className="ag-app" hidden={!agentView} aria-hidden={!agentView || undefined}>
@@ -415,6 +419,18 @@ export function AgentShell() {
                     </button>
                   ))}
                 </div>
+              ) : null}
+              {session ? (
+                <button
+                  type="button"
+                  className="ag-icon-btn ag-header__compare"
+                  aria-label="Compare provider models"
+                  aria-haspopup="dialog"
+                  title="Compare provider models"
+                  onClick={() => setDialog("compare")}
+                >
+                  <GitCompareArrows size={15} aria-hidden="true" />
+                </button>
               ) : null}
               {session ? (
                 <Popover label="More session actions" className="ag-icon-btn ag-header__more" placement="down" trigger={<MoreHorizontal size={16} aria-hidden="true" />}>
@@ -514,17 +530,43 @@ export function AgentShell() {
             aria-hidden={agentView || undefined}
           >
             <header className="ag-workspace__bar" data-tauri-drag-region>
+              {!sidebarOpen ? (
+                <button type="button" className="ag-icon-btn" aria-label="Show chat sidebar" title="Show chat sidebar" onClick={() => toggleSidebar(true)}>
+                  <PanelLeft size={16} aria-hidden="true" />
+                </button>
+              ) : null}
               <h1 className="ag-workspace__title" data-tauri-drag-region>{shellViewLabel(workspaceView)}</h1>
               <span className="ag-spacer" data-tauri-drag-region />
               <EmergencyStop />
               <WorkbenchWindowControls />
             </header>
             <div className="ag-workspace__body">
-              <SurfaceErrorBoundary label={shellViewLabel(workspaceView)} onClose={showAgent}>
-                <Suspense fallback={<p className="ag-muted ag-center" role="status">Opening {shellViewLabel(workspaceView).toLowerCase()}…</p>}>
-                  <WorkspaceSurface view={workspaceView} onNavigate={navigate} />
-                </Suspense>
-              </SurfaceErrorBoundary>
+              {sidebarOpen ? (
+                <aside className="ag-workspace__chat-sidebar" aria-label="Chat sessions">
+                  <Sidebar
+                    sessions={sessions}
+                    activeId={activeId}
+                    visibleIds={visibleIds}
+                    splitOpen={splitPanes !== null}
+                    onOpenInSplit={(id) => store.openInSplit(id)}
+                    onNew={() => setDialog("new")}
+                    onOpen={(id) => openSession(id)}
+                    onRename={(id, title) => void store.rename(id, title)}
+                    onFork={(id) => void store.fork(id)}
+                    onDelete={(id) => void store.remove(id)}
+                    onUpdates={() => setDialog("settings")}
+                    awaitingIds={awaitingIds}
+                    onCollapse={() => toggleSidebar(false)}
+                  />
+                </aside>
+              ) : null}
+              <div className="ag-workspace__surface">
+                <SurfaceErrorBoundary label={shellViewLabel(workspaceView)} onClose={showAgent}>
+                  <Suspense fallback={<p className="ag-muted ag-center" role="status">Opening {shellViewLabel(workspaceView).toLowerCase()}…</p>}>
+                    <WorkspaceSurface view={workspaceView} onNavigate={navigate} />
+                  </Suspense>
+                </SurfaceErrorBoundary>
+              </div>
             </div>
           </section>
         ) : null}
@@ -548,6 +590,11 @@ export function AgentShell() {
       {dialog === "services" && session ? (
         <Suspense fallback={<DialogFallback label="Session services" />}>
           <ServicesDialog key={session.id} sessionId={session.id} onClose={() => setDialog(null)} />
+        </Suspense>
+      ) : null}
+      {dialog === "compare" && session ? (
+        <Suspense fallback={<DialogFallback label="Compare provider models" />}>
+          <CompareSessionDialog key={session.id} session={session} onClose={() => setDialog(null)} />
         </Suspense>
       ) : null}
       {dialog === "session" && session ? <SessionSettingsDialog key={session.id} session={session} onClose={() => setDialog(null)} /> : null}
@@ -590,6 +637,10 @@ export function AgentShell() {
             onOpenArtifacts={() => {
               showAgent();
               setRightPanel("artifacts");
+            }}
+            onOpenCompare={() => {
+              showAgent();
+              if (session) setDialog("compare");
             }}
             onOpenWorkspaceTrust={() => setDialog("trust")}
             onOpenServices={() => setDialog("services")}

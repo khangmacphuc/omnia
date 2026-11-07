@@ -1,10 +1,12 @@
 # Omnia
 
-**Local first AI workbench for chat, projects, IDE and browser workflows.**
+**Local first AI workbench with one workspace for Chat, Browser and IDE workflows.**
 
 ![Omnia app overview](docs/assets/omnia-app-overview.png)
 
-Omnia is a Windows desktop AI workspace built for people who need more than a chat box. It combines durable conversations, project scoped context, provider neutral model routing, a native trust boundary, IDE and browser surfaces, and an inspectable harness for plans, tools, skills, MCP servers, plugins and subagents.
+Omnia is a Windows desktop AI workspace built for people who need more than a chat box. It combines durable conversations, project and non project sessions in one Chat mode, a native trust boundary, IDE and Browser surfaces with an integrated chat sidebar, and an inspectable harness for plans, tools, skills, MCP servers, plugins and subagents.
+
+The primary chrome is intentionally small: **Chat**, **Browser** and **IDE** are the only persistent mode buttons. Project routes, memory, skills and work views stay inside Chat and remain available from the command palette and deep links. The same session list stays visible beside the Browser and IDE workbenches, so changing surfaces does not discard the active context.
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
@@ -84,12 +86,12 @@ The canonical native integration target is the `omnia_native` test target. On so
 
 ## First walkthrough
 
-1. Start the desktop app and open **Chats** for a non project conversation.
-2. Open **Projects**, create a project and add a read only workspace folder or file pointer.
+1. Start the desktop app in **Chat** for a non project conversation (project sessions use the same surface).
+2. Open **Projects** from the Chat workspace, create a project and add a read only workspace folder or file pointer.
 3. Send a prompt. Native preparation freezes the run, records bounded project retrieval and context receipts when a readable grant is selected, and keeps the user message last. The current retrieval lane still reports provider-input admission as withheld.
 4. Open the inspector to review model, effort, tools, context and usage receipts.
 5. Open **Services** to inspect skills, subagent roles, plugin and MCP trust state without launching an external connector.
-6. Switch to **IDE** or **Browser** from the workspace tabs when the relevant native surface is enabled.
+6. Switch to **IDE** or **Browser** from the top-left primary navigation. The Chat sidebar remains available beside either workbench.
 
 Useful shortcuts:
 

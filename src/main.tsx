@@ -20,7 +20,12 @@ if (!visualFixture) {
 void (async () => {
   // DEV-only browser mock backend (`?mock=long|empty|error`); Vite drops this branch from production builds.
   let afterMount: (() => void) | undefined;
-  if (import.meta.env.DEV && !visualFixture && window.__TAURI_INTERNALS__ === undefined && new URLSearchParams(window.location.search).has("mock")) {
+  // Some browser hosts expose a partial Tauri marker without the callback
+  // bridge. Treat that as a browser preview too; checking only for `undefined`
+  // leaves the shell trying to call an absent transformCallback and renders a
+  // misleading "agent unavailable" state.
+  const hasTauriCallbackBridge = typeof window.__TAURI_INTERNALS__?.transformCallback === "function";
+  if (import.meta.env.DEV && !visualFixture && !hasTauriCallbackBridge && new URLSearchParams(window.location.search).has("mock")) {
     const devMock = await import("./agent/dev-mock");
     const scenario = devMock.parseScenario(window.location.search);
     if (scenario) afterMount = devMock.installDevMock(scenario);

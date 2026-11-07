@@ -12,7 +12,7 @@ describe("ActivityRail", () => {
     const nav = screen.getByRole("navigation", { name: "Primary" });
     const buttons = nav.querySelectorAll("button");
     expect(buttons).toHaveLength(SHELL_VIEWS.length + 1);
-    expect(SHELL_VIEWS.map((entry) => entry.label)).toEqual(["Home", "Projects", "Work", "Library", "Code", "Browser"]);
+    expect(SHELL_VIEWS.map((entry) => entry.label)).toEqual(["Chat", "Browser", "IDE"]);
     for (const entry of SHELL_VIEWS) {
       const button = screen.getByRole("button", { name: entry.label });
       expect(button).toHaveAttribute("aria-keyshortcuts", entry.shortcut);
@@ -38,25 +38,25 @@ describe("ActivityRail", () => {
   });
 
   it("marks only the active view with aria-current=page", () => {
-    render(<ActivityRail view="library" onNavigate={noop} onOpenSettings={noop} />);
-    expect(screen.getByRole("button", { name: "Library" })).toHaveAttribute("aria-current", "page");
-    expect(screen.getByRole("button", { name: "Home" })).not.toHaveAttribute("aria-current");
-    expect(screen.getByRole("button", { name: "Library" })).toHaveAttribute("tabindex", "0");
-    expect(screen.getByRole("button", { name: "Home" })).toHaveAttribute("tabindex", "-1");
+    render(<ActivityRail view="browser" onNavigate={noop} onOpenSettings={noop} />);
+    expect(screen.getByRole("button", { name: "Browser" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("button", { name: "Chat" })).not.toHaveAttribute("aria-current");
+    expect(screen.getByRole("button", { name: "Browser" })).toHaveAttribute("tabindex", "0");
+    expect(screen.getByRole("button", { name: "Chat" })).toHaveAttribute("tabindex", "-1");
   });
 
   it("navigates on click", () => {
     const onNavigate = vi.fn();
     render(<ActivityRail view="agent" onNavigate={onNavigate} onOpenSettings={noop} />);
-    fireEvent.click(screen.getByRole("button", { name: "Work" }));
-    expect(onNavigate).toHaveBeenCalledWith("work");
+    fireEvent.click(screen.getByRole("button", { name: "IDE" }));
+    expect(onNavigate).toHaveBeenCalledWith("code");
   });
 
   it("moves focus with ArrowUp/ArrowDown, wrapping, plus Home/End", () => {
     render(<ActivityRail view="agent" onNavigate={noop} onOpenSettings={noop} />);
-    const home = screen.getByRole("button", { name: "Home" });
-    const projects = screen.getByRole("button", { name: "Projects" });
-    const browser = screen.getByRole("button", { name: "Browser" });
+    const home = screen.getByRole("button", { name: "Chat" });
+    const projects = screen.getByRole("button", { name: "Browser" });
+    const browser = screen.getByRole("button", { name: "IDE" });
 
     home.focus();
     fireEvent.keyDown(home, { key: "ArrowDown" });
@@ -79,10 +79,10 @@ describe("ActivityRail", () => {
   it("describes focused controls with a tooltip outside the scrolling rail and dismisses it with Escape", () => {
     const onNavigate = vi.fn();
     render(<ActivityRail view="agent" onNavigate={onNavigate} onOpenSettings={noop} />);
-    const code = screen.getByRole("button", { name: "Code" });
+    const code = screen.getByRole("button", { name: "IDE" });
     act(() => code.focus());
     const hint = screen.getByRole("tooltip");
-    expect(hint).toHaveTextContent("CodeAlt+5");
+    expect(hint).toHaveTextContent("IDEAlt+3");
     expect(code).toHaveAttribute("aria-describedby", hint.id);
     expect(screen.getByRole("navigation", { name: "Primary" })).not.toContainElement(hint);
     expect(code).toHaveAttribute("tabindex", "0");

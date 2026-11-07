@@ -1,16 +1,13 @@
-import { Activity, Code2, FolderKanban, Globe, House, Library, Settings, type LucideIcon } from "lucide-react";
+import { Code2, Globe, MessageSquare, Settings, type LucideIcon } from "lucide-react";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 
-import { SHELL_VIEWS, type ShellView } from "./shell-view";
+import { PRIMARY_SURFACE_VIEWS, primarySurfaceForView, type ShellView, type PrimarySurfaceView } from "./shell-view";
 
 import "./activity-rail.css";
 
-const ICONS: Record<ShellView, LucideIcon> = {
-  agent: House,
-  projects: FolderKanban,
-  work: Activity,
-  library: Library,
+const ICONS: Record<PrimarySurfaceView, LucideIcon> = {
+  agent: MessageSquare,
   code: Code2,
   browser: Globe,
 };
@@ -38,9 +35,11 @@ function RailTooltip({ hint, id, onEnter, onLeave }: {
     const right = left + (viewport?.width ?? window.innerWidth) - 16;
     const bottom = top + (viewport?.height ?? window.innerHeight) - 16;
     const bounds = panel.current.getBoundingClientRect();
+    // The primary nav is horizontal, so keep hints below the button. The
+    // viewport clamps the panel for narrow windows and right-to-left layouts.
     setPosition({
-      left: Math.max(left, Math.min(anchor.right + 8, right - bounds.width)),
-      top: Math.max(top, Math.min(anchor.top + (anchor.height - bounds.height) / 2, bottom - bounds.height)),
+      left: Math.max(left, Math.min(anchor.left + (anchor.width - bounds.width) / 2, right - bounds.width)),
+      top: Math.max(top, Math.min(anchor.bottom + 8, bottom - bounds.height)),
     });
   }, [hint]);
 
@@ -60,7 +59,11 @@ export interface ActivityRailProps {
   onOpenSettings: () => void;
 }
 
-/** Slim vertical rail on the far left: one button per top-level shell view, Settings pinned at the bottom. */
+/**
+ * The stable shell navigation. Internal Chat routes (projects, work, library,
+ * memory and skills) intentionally share the Chat button so the top-level
+ * chrome stays predictable while those routes remain addressable.
+ */
 export function ActivityRail({ view, onNavigate, onOpenSettings }: ActivityRailProps) {
   const buttons = useRef<Array<HTMLButtonElement | null>>([]);
   const [hint, setHint] = useState<RailHint | null>(null);
@@ -108,16 +111,17 @@ export function ActivityRail({ view, onNavigate, onOpenSettings }: ActivityRailP
       window.visualViewport?.removeEventListener("scroll", dismissHint);
     };
   }, [hint, dismissHint]);
-  const activeIndex = Math.max(0, SHELL_VIEWS.findIndex((entry) => entry.id === view));
-  // Roving tabindex: one tab stop, which follows arrow-key focus and resets to the active view.
+  const primaryView = primarySurfaceForView(view);
+  const activeIndex = Math.max(0, PRIMARY_SURFACE_VIEWS.findIndex((entry) => entry.id === primaryView));
+  // Roving tabindex: one tab stop, which follows arrow-key focus and resets to the active surface.
   const [focusIndex, setFocusIndex] = useState(activeIndex);
   useEffect(() => setFocusIndex(activeIndex), [activeIndex]);
 
   const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    const count = SHELL_VIEWS.length;
+    const count = PRIMARY_SURFACE_VIEWS.length;
     let next: number | null = null;
-    if (event.key === "ArrowDown") next = (index + 1) % count;
-    else if (event.key === "ArrowUp") next = (index - 1 + count) % count;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % count;
+    else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index - 1 + count) % count;
     else if (event.key === "Home") next = 0;
     else if (event.key === "End") next = count - 1;
     if (next === null) return;
@@ -128,9 +132,9 @@ export function ActivityRail({ view, onNavigate, onOpenSettings }: ActivityRailP
 
   return (
     <nav className="ag-rail" aria-label="Primary" data-tauri-drag-region>
-      {SHELL_VIEWS.map((entry, index) => {
+      {PRIMARY_SURFACE_VIEWS.map((entry, index) => {
         const Icon = ICONS[entry.id];
-        const active = entry.id === view;
+        const active = entry.id === primaryView;
         return (
           <button
             key={entry.id}
@@ -159,6 +163,7 @@ export function ActivityRail({ view, onNavigate, onOpenSettings }: ActivityRailP
             onKeyDown={(event) => onKeyDown(event, index)}
           >
             <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+            <span className="ag-rail__label">{entry.label}</span>
           </button>
         );
       })}
@@ -182,6 +187,7 @@ export function ActivityRail({ view, onNavigate, onOpenSettings }: ActivityRailP
         onClick={() => { dismissHint(); onOpenSettings(); }}
       >
         <Settings size={18} strokeWidth={1.75} aria-hidden="true" />
+        <span className="ag-rail__label">Settings</span>
       </button>
       {hint ? <RailTooltip hint={hint} id={hintId}
         onEnter={() => { hovered.current = true; cancelHide(); }}

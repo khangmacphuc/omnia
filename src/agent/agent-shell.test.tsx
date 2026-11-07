@@ -148,54 +148,54 @@ describe("AgentShell session panels", () => {
     const paneNode = screen.getByTestId("session-pane");
     const appRoot = container.querySelector(".ag-app");
     expect(appRoot).not.toHaveAttribute("hidden");
-    expect(screen.getByRole("button", { name: "Home" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("button", { name: "Chat" })).toHaveAttribute("aria-current", "page");
     // The workspace surface is lazy: nothing mounts until a workspace view is opened.
     expect(screen.queryByTestId("workspace-surface")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Library" }));
-    expect(await screen.findByTestId("workspace-surface")).toHaveAttribute("data-view", "library");
-    expect(screen.getByRole("button", { name: "Library" })).toHaveAttribute("aria-current", "page");
-    expect(screen.getByRole("heading", { name: "Library" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Browser" }));
+    expect(await screen.findByTestId("workspace-surface")).toHaveAttribute("data-view", "browser");
+    expect(screen.getByRole("button", { name: "Browser" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("heading", { name: "Browser" })).toBeInTheDocument();
     expect(appRoot).toHaveAttribute("hidden");
     expect(screen.getByTestId("session-pane")).toBe(paneNode);
 
-    fireEvent.click(screen.getByRole("button", { name: "Home" }));
+    fireEvent.click(screen.getByRole("button", { name: "Chat" }));
     expect(appRoot).not.toHaveAttribute("hidden");
     expect(screen.getByTestId("session-pane")).toBe(paneNode);
   });
 
   it("mounts the workspace surface once and keeps it mounted (hidden) across view switches", async () => {
     const { container } = render(<AgentShell />);
-    fireEvent.click(screen.getByRole("button", { name: "Projects" }));
+    fireEvent.click(screen.getByRole("button", { name: "Browser" }));
     const surface = await screen.findByTestId("workspace-surface");
     expect(surfaceMounts.count).toBe(1);
 
-    fireEvent.click(screen.getByRole("button", { name: "Home" }));
+    fireEvent.click(screen.getByRole("button", { name: "Chat" }));
     const workspace = container.querySelector(".ag-workspace");
     expect(workspace).toHaveAttribute("hidden");
     expect(screen.getByTestId("workspace-surface")).toBe(surface);
 
-    fireEvent.click(screen.getByRole("button", { name: "Library" }));
+    fireEvent.click(screen.getByRole("button", { name: "IDE" }));
     expect(workspace).not.toHaveAttribute("hidden");
     expect(screen.getByTestId("workspace-surface")).toBe(surface);
-    expect(surface).toHaveAttribute("data-view", "library");
+    expect(surface).toHaveAttribute("data-view", "code");
     expect(surfaceMounts.count).toBe(1);
   });
 
-  it("switches views with Alt+1..6 in rail order, also from inside text fields", async () => {
+  it("switches the three primary surfaces with Alt+1..3, also from inside text fields", async () => {
     const { container } = render(<AgentShell />);
     const appRoot = container.querySelector(".ag-app");
 
     fireEvent.keyDown(window, { key: "2", code: "Digit2", altKey: true });
-    expect(await screen.findByTestId("workspace-surface")).toHaveAttribute("data-view", "projects");
+    expect(await screen.findByTestId("workspace-surface")).toHaveAttribute("data-view", "browser");
     expect(appRoot).toHaveAttribute("hidden");
 
-    fireEvent.keyDown(window, { key: "6", code: "Digit6", altKey: true });
-    expect(screen.getByTestId("workspace-surface")).toHaveAttribute("data-view", "browser");
+    fireEvent.keyDown(window, { key: "3", code: "Digit3", altKey: true });
+    expect(screen.getByTestId("workspace-surface")).toHaveAttribute("data-view", "code");
 
     // Past the last view nothing happens.
     fireEvent.keyDown(window, { key: "7", code: "Digit7", altKey: true });
-    expect(screen.getByTestId("workspace-surface")).toHaveAttribute("data-view", "browser");
+    expect(screen.getByTestId("workspace-surface")).toHaveAttribute("data-view", "code");
 
     // Modified combos are left alone.
     fireEvent.keyDown(window, { key: "1", code: "Digit1", altKey: true, ctrlKey: true });
@@ -305,7 +305,7 @@ describe("AgentShell session panels", () => {
 
   it("opens Settings with Ctrl+, in a workspace view", async () => {
     render(<AgentShell />);
-    fireEvent.click(screen.getByRole("button", { name: "Code" }));
+    fireEvent.click(screen.getByRole("button", { name: "IDE" }));
     await screen.findByTestId("workspace-surface");
     fireEvent.keyDown(window, { key: ",", code: "Comma", ctrlKey: true });
     expect(await screen.findByRole("dialog", { name: "Settings dialog" })).toBeInTheDocument();
@@ -313,7 +313,7 @@ describe("AgentShell session panels", () => {
 
   it("opens the Changes panel on the omnia:open-changes window event, also from a workspace view", async () => {
     const { container } = render(<AgentShell />);
-    fireEvent.click(screen.getByRole("button", { name: "Projects" }));
+    fireEvent.click(screen.getByRole("button", { name: "Browser" }));
     await screen.findByTestId("workspace-surface");
     act(() => {
       window.dispatchEvent(new CustomEvent("omnia:open-changes", { detail: { path: "src/a.ts" } }));
@@ -327,11 +327,11 @@ describe("AgentShell session panels", () => {
     render(<AgentShell />);
     expect(screen.getAllByTestId("status-bar")).toHaveLength(1);
     expect(screen.getByTestId("status-bar")).toHaveAttribute("data-view", "agent");
-    for (const label of ["Projects", "Work", "Library", "Code", "Browser"]) {
+    for (const label of ["Browser", "IDE"]) {
       fireEvent.click(screen.getByRole("button", { name: label }));
       await screen.findByTestId("workspace-surface");
       expect(screen.getAllByTestId("status-bar")).toHaveLength(1);
-      expect(screen.getByTestId("status-bar")).toHaveAttribute("data-view", label.toLowerCase());
+      expect(screen.getByTestId("status-bar")).toHaveAttribute("data-view", label === "IDE" ? "code" : "browser");
     }
   });
 
@@ -352,7 +352,7 @@ describe("AgentShell session panels", () => {
     const { container } = render(<AgentShell />);
     const appRoot = container.querySelector(".ag-app")!;
 
-    fireEvent.click(screen.getByRole("button", { name: "Work" }));
+    fireEvent.click(screen.getByRole("button", { name: "Browser" }));
     expect(await screen.findByTestId("workspace-surface")).toBeInTheDocument();
     expect(appRoot).toHaveAttribute("hidden");
 
@@ -378,7 +378,7 @@ describe("AgentShell session panels", () => {
   it("returns to the agent view when an agent panel is opened from the command palette", async () => {
     const { container } = render(<AgentShell />);
     const appRoot = container.querySelector(".ag-app")!;
-    fireEvent.click(screen.getByRole("button", { name: "Code" }));
+    fireEvent.click(screen.getByRole("button", { name: "IDE" }));
     expect(await screen.findByTestId("workspace-surface")).toBeInTheDocument();
 
     fireEvent.keyDown(window, { key: "k", ctrlKey: true });
@@ -388,7 +388,7 @@ describe("AgentShell session panels", () => {
 
     expect(appRoot).not.toHaveAttribute("hidden");
     expect(screen.getByRole("button", { name: "Artifacts" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByRole("button", { name: "Home" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("button", { name: "Chat" })).toHaveAttribute("aria-current", "page");
   });
 });
 
