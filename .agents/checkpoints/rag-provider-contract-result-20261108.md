@@ -30,4 +30,3 @@ PASS
 ## Boundary
 
 This is a contract and validator only. It does not perform embedding/reranker network calls, decrypt source text, select credentials, or claim provider acceptance. Native adapters remain responsible for resolving frozen snapshot content and dispatching under provider policy.
-

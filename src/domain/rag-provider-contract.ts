@@ -230,4 +230,3 @@ export function validateRagProviderReceipt(receipt: RagProviderReceipt, request:
   if (receipt.state === "completed") assertDomain(receipt.scores.length > 0, "invalid_argument", "Completed RAG receipts require scores.");
   if (receipt.state === "failed") assertDomain(receipt.errorCode !== undefined, "invalid_argument", "Failed RAG receipts require an error code.");
 }
-

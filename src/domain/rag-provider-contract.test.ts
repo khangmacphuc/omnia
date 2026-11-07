@@ -85,4 +85,3 @@ describe("RAG provider contract", () => {
     expect(request.candidates).toHaveLength(0);
   });
 });
-
