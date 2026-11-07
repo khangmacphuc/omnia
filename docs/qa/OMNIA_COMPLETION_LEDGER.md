@@ -32,13 +32,13 @@ met yet.
 | Agent chat lifecycle | Partial | 8/10 | Both | Session lifecycle and journal exist; durable tabs and native compare remain. |
 | Session tabs | **Done** | 7/7 | Renderer/native | Ordered native persistence, CAS conflicts, pruning, keyboard close/focus and ARIA linkage pass. |
 | Projects and pointer storage | Partial | 8/9 | Both | Immutable pointer/CAS and native identity-bound watcher rows pass; packaged Windows watcher evidence remains. |
-| RAG and citations | Partial | 8/9 | Renderer/native | Scoped catalog, deterministic selection and content-free request receipts pass; embedding/reranking and native population remain. |
+| RAG and citations | Partial | 8/9 | Renderer/native | Scoped catalog, deterministic selection, capability-gated embedding/reranking requests and content-free receipts pass; live provider execution and native population remain. |
 | Model routing and compare | Partial | 7/8 | Renderer/native/domain | Effort downgrade, output route, immutable fan-out/merge receipts and secret-free provider-lineage context fields pass; native concurrent dispatch and billing lineage remain. |
 | Runtime settings | **Done** | 8/8 | Renderer/native | Per-session settings CAS, conflict refresh, persistence across reopen and renderer hot reload pass. |
 | Workflow, goal, plan and DoD | **Done** | 6/6 | Renderer/documented | Atomic tasks, quantified criteria, evidence and coverage are tested. |
 | Observability | Partial | 7/8 | Both | Bounded native read, telemetry projection and synthetic billing reconciliation pass; live billing remains. |
 | Skills, MCP, plugins and subagents | Partial | 9/10 | Both | Native catalogs, plugin receipt inspection and trust filtering pass; external connector login remains unverified. |
-| IDE | Partial | 6/7 | Both | Immutable LSP snapshot/dispatch and native editor tests pass; packaged editor/resize evidence remains. |
+| IDE | Partial | 6/7 | Both | Immutable LSP snapshot/dispatch, semantic tab/panel wiring and editor disclosure focus tests pass; packaged editor/WebView2 screen-reader, DPI and resize evidence remains. |
 | Browser/computer harness | Partial | 9/12 | Both | Native capture receipts, zoom bounds, lifecycle forwarding and persistence pass; packaged WebView2 target-blank/download/history evidence remains. |
 | Browser local persistence | **Done** | 3/3 | Renderer | Empty and malformed bookmark/userscript collections are validated and survive remount. |
 | Session portability | **Done** | 8/8 | Both | Redacted import/export, cross-version conflict receipts, branch/rewind lineage and authenticated binary preview pass. |
@@ -46,7 +46,7 @@ met yet.
 | Upstream extraction reuse | **Done** | 55/55 audited | Documented adapter boundary | Catalog, adapter plan, inventory and reuse ledger cover all extracted modules. |
 | Permissions and secrets | **Done** | 9/9 | Native | Approval, trust, secret-store and denial paths are covered by native tests. |
 | Native persistence | Partial | 9/10 | Native | Canonical native persistence suites pass; unsupported library-test loader is blocked in this environment. |
-| UI and accessibility | Partial | 7/10 | Renderer | Keyboard, focus and narrow drawer are covered; DPI/high contrast/screen-reader matrix remains. |
+| UI and accessibility | Partial | 7/10 | Renderer | Keyboard, focus, tab/panel semantics and narrow drawer are covered; DPI/high contrast/screen-reader matrix remains. |
 | Performance/resource budget | Partial | 8/9 | Native/renderer | Shared budget and bounded tool policy pass; headless renderer page-ready p95 is 2,638 ms against a 3,000 ms target; packaged endurance/GPU/native working-set profiling remains. |
 | CI/build verification | Partial | 9/10 | Both | Typecheck, renderer build, command parity, catalog and canonical workspace tests pass; unsupported library-test loader remains. |
 | Completion reporting | **Done** | 6/6 | Documentation | DoD, ledger, upstream inventory and evidence receipts are linked. |
@@ -94,6 +94,12 @@ The current same-snapshot checks are recorded in
   remain present as explicit nulls when no context evidence is available.
 - Multimodal endpoint planning — **PASS**, 1 focused file and 5 tests; the plan
   is metadata-only and withholds provider wire payloads.
+- RAG provider contract — **PASS**, 1 focused file and 6 tests; request and
+  receipt validation is content-free and lineage-bound, while live provider
+  execution remains outside the receipt.
+- IDE accessibility contract — **PASS**, project preview 6 tests and native
+  editor disclosure focus coverage; packaged screen-reader/DPI/resize behavior
+  remains outside the receipt.
 - `npm.cmd run check:upstream-catalog` — **PASS**, 55 modules.
 - `node --test scripts/perf-headless-runner.test.mjs` — **7/7 passing**.
 - `cargo fmt`, `cargo check`, and `cargo test --workspace --offline` —

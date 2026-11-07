@@ -173,6 +173,15 @@ export function ProjectIdePreview({ project }: { readonly project: ProjectView }
   }, [ideView, selectedId]);
 
   useEffect(() => {
+    if (!editorSettingsOpen) return;
+    // Move focus into the settings dialog so keyboard and assistive technology
+    // users receive an immediate context change after opening the popover.
+    const firstControl = editorSettingsPanelRef.current?.querySelector<HTMLElement>("input")
+      ?? editorSettingsPanelRef.current?.querySelector<HTMLElement>("button");
+    firstControl?.focus();
+  }, [editorSettingsOpen]);
+
+  useEffect(() => {
     function handleKeyboardShortcut(event: KeyboardEvent) {
       if (!(event.ctrlKey || event.metaKey)) return;
       const key = event.key.toLowerCase();
@@ -297,12 +306,12 @@ export function ProjectIdePreview({ project }: { readonly project: ProjectView }
         <div className="project-ide-preview__toolbar-actions">
           <button type="button" className="button button--ghost" onClick={() => void copyPath()} aria-label={`Copy path for ${selectedFile.path}`}><Clipboard size={13} /> Path</button>
           <button ref={editorSettingsTriggerRef} type="button" className="button button--ghost" onClick={() => setEditorSettingsOpen((value) => !value)} aria-label="Open editor preview settings" aria-expanded={editorSettingsOpen} aria-controls="project-ide-editor-settings" aria-haspopup="dialog" title="Open editor preview settings"><Settings2 size={13} /> Editor</button>
-          {editorSettingsOpen ? <div ref={editorSettingsPanelRef} id="project-ide-editor-settings" className="project-ide-preview__settings" role="dialog" aria-label="Editor preview settings">
+          {editorSettingsOpen ? <div ref={editorSettingsPanelRef} id="project-ide-editor-settings" className="project-ide-preview__settings" role="dialog" aria-modal="false" aria-label="Editor preview settings" aria-describedby="project-ide-editor-settings-help">
             <div className="project-ide-preview__settings-heading"><strong>Editor preview</strong><button type="button" className="button button--ghost" onClick={resetEditorPreferences}>Reset</button></div>
             <label><input type="checkbox" checked={editorPreferences.lineNumbers} onChange={() => toggleEditorPreference("lineNumbers")} /> Show line numbers</label>
             <label><input type="checkbox" checked={editorPreferences.wordWrap} onChange={() => toggleEditorPreference("wordWrap")} /> Word wrap <WrapText size={12} /></label>
             <label><input type="checkbox" checked={editorPreferences.showWhitespace} onChange={() => toggleEditorPreference("showWhitespace")} /> Show whitespace</label>
-            <small>Ctrl+S is a save rehearsal; it never writes the workspace.</small>
+            <small id="project-ide-editor-settings-help">Ctrl+S is a save rehearsal; it never writes the workspace.</small>
           </div> : null}
         </div>
         <button type="button" className="button button--ghost" onClick={undoEdit} disabled={history.length === 0} aria-label="Undo IDE preview edit"><Undo2 size={13} /> Undo</button>
@@ -341,10 +350,11 @@ export function ProjectIdePreview({ project }: { readonly project: ProjectView }
 
         <div className="project-ide-preview__main">
           <div className="project-ide-preview__tabs" role="tablist" aria-label="Open preview files">
-            <button type="button" role="tab" aria-selected="true" className="is-active" title="Keep the current preview file active" onClick={() => setStatus(`${selectedFile.path} is already the active preview file.`)}><span className={`project-ide-preview__file-icon project-ide-preview__file-icon--${selectedFile.kind}`}>{fileIcon(selectedFile)}</span>{selectedFile.name}{changed ? <em>•</em> : null}</button>
+            <button id={`project-ide-tab-${selectedFile.id}`} type="button" role="tab" aria-selected="true" aria-controls="project-ide-file-panel" tabIndex={0} className="is-active" title="Keep the current preview file active" onClick={() => setStatus(`${selectedFile.path} is already the active preview file.`)}><span className={`project-ide-preview__file-icon project-ide-preview__file-icon--${selectedFile.kind}`} aria-hidden="true">{fileIcon(selectedFile)}</span>{selectedFile.name}{changed ? <em aria-label="unsaved changes">•</em> : null}</button>
             <span className="project-ide-preview__path">{selectedFile.path}</span>
           </div>
 
+          <div id="project-ide-file-panel" role="tabpanel" aria-labelledby={`project-ide-tab-${selectedFile.id}`} tabIndex={0} className="project-ide-preview__file-panel">
           {ideView === "editor" ? <div className="project-ide-preview__editor-shell">
             <div className="project-ide-preview__editor-toolbar"><span><span className="status-dot status-dot--success" />{editing ? "Editing preview" : "Read-only preview"}</span><div><button type="button" className="button button--ghost" onClick={() => void copyCode()} aria-label={`Copy code for ${selectedFile.path}`} title="Copy the selected preview code"><Copy size={13} /> Copy</button><button type="button" className="button button--ghost" onClick={() => setEditing((value) => !value)} aria-label={editing ? "Done" : "Edit preview"} title={editing ? "Finish the renderer-local edit" : "Edit the renderer-local preview file"}>{editing ? <Check size={13} /> : <Code2 size={13} />}{editing ? "Done" : "Edit preview"}</button></div></div>
             {editing ? <textarea aria-label={`Edit ${selectedFile.path}`} className={`project-ide-preview__code-input${editorPreferences.wordWrap ? " project-ide-preview__code-input--wrap" : ""}`} value={selectedContent} onChange={(event) => updateContent(event.target.value)} spellCheck={false} /> : <pre className={`project-ide-preview__code${editorPreferences.wordWrap ? " project-ide-preview__code--wrap" : ""}${editorPreferences.showWhitespace ? " project-ide-preview__code--whitespace" : ""}`} tabIndex={0} aria-label={`Preview code for ${selectedFile.path}`}>{selectedContent.split("\n").map((line, index) => <span key={`${selectedFile.id}-${index}`}><b className={editorPreferences.lineNumbers ? undefined : "is-hidden"}>{String(index + 1).padStart(2, "0")}</b><code>{editorPreferences.showWhitespace ? (line ? line.replace(/\t/g, "→").replace(/ /g, "·") : "·") : (line || " ")}</code></span>)}</pre>}
@@ -359,6 +369,7 @@ export function ProjectIdePreview({ project }: { readonly project: ProjectView }
           {ideView === "terminal" ? <TerminalCompilerPreview projectName={project.name} filePath={selectedFile.path} /> : null}
 
           {ideView === "ship" ? <GitCiWorkbenchPreview projectName={project.name} /> : null}
+          </div>
 
           <div className="project-ide-preview__actions" role="toolbar" aria-label="IDE preview run actions"><span><TerminalSquare size={13} /> Actions are rehearsals only</span><button type="button" className="button button--secondary" onClick={() => setStatus("Run preview queued · no process was started")} title="Queue a renderer-local run rehearsal"><Play size={13} /> Run preview</button><button type="button" className="button button--ghost" onClick={() => setStatus("Review request prepared in renderer preview")} title="Prepare a renderer-local review request">Request review</button><span className="project-ide-preview__status" role="status" aria-live="polite">{status}</span></div>
         </div>

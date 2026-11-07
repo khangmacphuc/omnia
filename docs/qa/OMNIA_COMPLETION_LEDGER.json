@@ -120,19 +120,22 @@
         "src/domain/omnia-retrieval-memory-adapter.ts",
         "src/domain/omnia-workspace-index.ts",
         "src/domain/retrieval-request-receipt.ts",
-        "src/domain/run.ts"
+        "src/domain/run.ts",
+        "src/domain/rag-provider-contract.ts"
       ],
       "tests": [
         "src/domain/omnia-retrieval-registry.test.ts",
         "src/domain/omnia-retrieval-memory-adapter.test.ts",
-        "src/domain/retrieval-request-receipt.test.ts"
+        "src/domain/retrieval-request-receipt.test.ts",
+        "src/domain/rag-provider-contract.test.ts"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/rag-adapter-result-20261107.md",
-        "D:/Omnia/.agents/checkpoints/retrieval-request-receipt-result-20261107.md"
+        "D:/Omnia/.agents/checkpoints/retrieval-request-receipt-result-20261107.md",
+        "D:/Omnia/.agents/checkpoints/rag-provider-contract-result-20261108.md"
       ],
       "boundary": "renderer/native",
-      "gap": "embedding/reranker provider execution and native provider population on every live request remain unverified"
+      "gap": "capability-gated embedding/reranker request and receipt validation now pass; live provider execution and native provider population on every request remain unverified"
     },
     {
       "id": "model-routing-compare",
@@ -261,14 +264,17 @@
       ],
       "tests": [
         "src/domain/omnia-editor-runtime-adapter.test.ts",
-        "tests/visual/visual-fixture-contract.spec.ts"
+        "tests/visual/visual-fixture-contract.spec.ts",
+        "src/features/workspace/project-ide-preview.test.tsx",
+        "src/features/workspace/sovereign-ide-remote-workbench.test.tsx"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/next-ide-product-audit.md",
-        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md"
+        "docs/audit/FINAL_VERIFICATION_RECEIPT_20261107.md",
+        "D:/Omnia/.agents/checkpoints/ide-accessibility-contract-20261108.md"
       ],
       "boundary": "both",
-      "gap": "immutable LSP snapshot/dispatch and native editor tests pass; packaged editor/WebView2 resize matrix remains"
+      "gap": "renderer tab/panel semantics and editor disclosure focus pass; immutable LSP/native editor contracts pass; packaged editor/WebView2 screen-reader, DPI and resize matrix remains"
     },
     {
       "id": "browser-computer-harness",
@@ -433,11 +439,14 @@
       ],
       "tests": [
         "src/agent/agent-shell.test.tsx",
-        "tests/visual/visual-fixture-contract.spec.ts"
+        "tests/visual/visual-fixture-contract.spec.ts",
+        "src/features/workspace/project-ide-preview.test.tsx",
+        "src/features/workspace/sovereign-ide-remote-workbench.test.tsx"
       ],
       "evidence": [
         "D:/Omnia/.agents/checkpoints/renderer-accessibility-review.md",
-        ".agents/checkpoints/fresh-preview-evidence-20261108.md"
+        ".agents/checkpoints/fresh-preview-evidence-20261108.md",
+        "D:/Omnia/.agents/checkpoints/ide-accessibility-contract-20261108.md"
       ],
       "boundary": "renderer",
       "gap": "full DPI/high-contrast/screen-reader matrix is not current-snapshot verified"

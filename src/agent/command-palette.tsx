@@ -29,6 +29,8 @@ export interface PaletteHandlers {
   onOpenDownloads: () => void;
   onOpenChanges: () => void;
   onOpenArtifacts: () => void;
+  /** Opens the bounded multi-provider compare workflow when available. */
+  onOpenCompare?: () => void;
   onOpenWorkspaceTrust: () => void;
   onOpenServices: () => void;
   onOpenSessionSettings: () => void;
@@ -194,6 +196,9 @@ export function CommandPalette(props: PaletteHandlers) {
       list.push({ id: "downloads", group: "Navigation", label: "Open Downloads panel", run: props.onOpenDownloads });
       list.push({ id: "changes", group: "Navigation", label: "Open Changes panel", run: props.onOpenChanges });
       list.push({ id: "artifacts", group: "Navigation", label: "Open Artifacts panel", run: props.onOpenArtifacts });
+      if (props.onOpenCompare) {
+        list.push({ id: "compare", group: "Session", label: "Compare provider models", keywords: "multi model fan out", run: props.onOpenCompare });
+      }
       list.push({ id: "workspace-trust", group: "Session", label: "Workspace trust", run: props.onOpenWorkspaceTrust });
       list.push({ id: "session-settings", group: "Session", label: "Session settings (system prompt, fallbacks, budget)", run: props.onOpenSessionSettings });
       list.push({ id: "services", group: "Services", label: "Open Services", run: props.onOpenServices });

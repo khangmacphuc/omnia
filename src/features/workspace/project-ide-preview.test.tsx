@@ -77,6 +77,7 @@ describe("Project IDE preview", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "Open editor preview settings" }));
     const settings = screen.getByRole("dialog", { name: "Editor preview settings" });
+    expect(settings).toHaveAttribute("aria-describedby", "project-ide-editor-settings-help");
     expect(within(settings).getByRole("checkbox", { name: "Show line numbers" })).toBeChecked();
     fireEvent.click(within(settings).getByRole("checkbox", { name: "Word wrap" }));
     fireEvent.click(within(settings).getByRole("checkbox", { name: "Show whitespace" }));
@@ -89,6 +90,20 @@ describe("Project IDE preview", () => {
     expect(screen.getByRole("status")).toHaveTextContent(/save rehearsal acknowledged/i);
     fireEvent.click(within(settings).getByRole("button", { name: "Reset" }));
     expect(code).not.toHaveClass("project-ide-preview__code--wrap");
+  });
+
+  it("connects the open-file tab to its panel and moves focus into settings", () => {
+    const project = useWorkspaceStore.getState().projects[0]!;
+    render(<ProjectIdePreview project={project} />);
+
+    const tab = screen.getByRole("tab", { name: /main\.ts/i });
+    const panel = screen.getByRole("tabpanel");
+    expect(tab).toHaveAttribute("aria-controls", panel.id);
+    expect(panel).toHaveAttribute("aria-labelledby", tab.id);
+
+    fireEvent.click(screen.getByRole("button", { name: "Open editor preview settings" }));
+    const settings = screen.getByRole("dialog", { name: "Editor preview settings" });
+    expect(within(settings).getByRole("checkbox", { name: "Show line numbers" })).toHaveFocus();
   });
 
   it("dismisses editor settings without leaving a stale overlay over another IDE surface", () => {

@@ -591,6 +591,7 @@ describe("SovereignIdeRemoteWorkbench", () => {
     fireEvent.click(screen.getByRole("button", { name: "More panels" }));
     const menu = screen.getByTestId("ide-more-panels-menu");
     expect(menu).toBeVisible();
+    expect(screen.getByRole("button", { name: "More panels" })).toHaveAttribute("aria-controls", menu.id);
     expect(within(menu).getByRole("checkbox", { name: "File tree" })).toBeChecked();
     for (const name of ["Terminal & problems", "Search & diff", "Outline", "Activity bar (SCM, debug, remote)", "AI assistant"]) {
       expect(within(menu).getByRole("checkbox", { name })).not.toBeChecked();
