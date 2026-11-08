@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "stage": "synthesize",
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T07:08:00Z",
+  "observations": [
+    {
+      "source": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "litellm/router.py",
+      "observation": "Routing is keyed by a stable provider/model identity and records retry, cooldown, fallback, health and snapshot state.",
+      "strength": "Catalog and route decisions are explicit and auditable.",
+      "weakness": "A Python gateway is not proof of Omnia's native provider boundary or credentials handling.",
+      "decision": "Translate identity, snapshot lineage, stale-model state and typed retry decisions into an Omnia-owned adapter; do not vendor LiteLLM.",
+      "criteria": [
+        "ADVSET-003",
+        "ADVSET-001"
+      ]
+    },
+    {
+      "source": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/models/fallback.py",
+      "observation": "Fallback and run lifecycle preserve typed attempt lineage, cancellation and retry predicates rather than hiding failures behind text.",
+      "strength": "Continuation and cancellation boundaries are explicit.",
+      "weakness": "The Python adapter does not prove Tauri/Rust or live-provider behavior.",
+      "decision": "Adopt typed effective-effort and retry outcomes with session/run lineage and bounded recovery; keep native gaps visible.",
+      "criteria": [
+        "ADVSET-001"
+      ]
+    },
+    {
+      "source": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "src/pydantic_ai_harness/pydantic_ai_harness/ask_user/_toolset.py",
+      "observation": "Ask-user is a typed suspension/resume boundary with bounded options, free text, explicit approval outcomes and run binding.",
+      "strength": "Stale, duplicate and unknown decisions can be rejected without parsing sentinel text.",
+      "weakness": "Packaged Windows delivery and live provider execution remain unproven.",
+      "decision": "Keep the native broker contract typed and add packaged-boundary evidence before changing CHAT-008 to Done.",
+      "criteria": [
+        "CHAT-008"
+      ]
+    }
+  ],
+  "workbench": {
+    "sourceFiles": [
+      {
+        "path": "src/rebuild/rebuild-app.tsx",
+        "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+      }
+    ],
+    "buildEvidence": {
+      "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
+      "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c",
+      "kind": "build",
+      "limitation": "Cycle 6 receipt is preview/renderer evidence only; it does not prove native or live provider behavior."
+    }
+  },
+  "decisions": [
+    "Keep catalog identity and snapshot lineage separate from renderer display state.",
+    "Resolve requested effort to an explicit effective value with unsupported capability evidence; never silently claim xhigh or ultra support.",
+    "Carry provider profile and model identity on the session route so Chat, Browser and IDE can share a stable run context.",
+    "Retain CHAT-008 as partial until a packaged Tauri command/UI boundary is exercised; native broker unit tests are insufficient."
+  ]
+}

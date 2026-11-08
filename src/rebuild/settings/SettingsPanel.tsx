@@ -4,7 +4,7 @@ import { useRebuildSettings, type RebuildSettings, type ReasoningEffort } from "
 import { ModelDiscoveryPanel } from "./ModelDiscoveryPanel";
 import "./settings.css";
 
-export interface SettingsPanelProps { onClose: () => void; }
+export interface SettingsPanelProps { onClose: () => void; onChooseModel?: (selection: { profileId: string; modelId: string }) => void; }
 type Tab = "runtime" | "workflow" | "tools" | "privacy" | "appearance";
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "runtime", label: "Runtime" }, { id: "workflow", label: "Workflow" }, { id: "tools", label: "Tools & RAG" }, { id: "privacy", label: "Privacy" }, { id: "appearance", label: "Appearance" },
@@ -22,7 +22,7 @@ function updateSection<K extends keyof RebuildSettings>(update: (patch: Partial<
   update((current) => ({ ...current, [section]: { ...(current[section] as object), [field]: value } } as RebuildSettings));
 }
 
-export function SettingsPanel({ onClose }: SettingsPanelProps) {
+export function SettingsPanel({ onClose, onChooseModel }: SettingsPanelProps) {
   const { settings, update, reset, importSettings, exportSettings } = useRebuildSettings();
   const [tab, setTab] = useState<Tab>("runtime");
   const [query, setQuery] = useState("");
@@ -44,7 +44,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
       <div className="settings-tabs" role="tablist" aria-label="Settings sections">{tabs.map((entry) => <button key={entry.id} className="settings-tab" type="button" role="tab" aria-selected={tab === entry.id} aria-controls={`settings-panel-${entry.id}`} onClick={() => setTab(entry.id)}>{entry.label}</button>)}</div>
       <div className="settings-body" id={`settings-panel-${tab}`} role="tabpanel">
         {tab === "runtime" && runtimeSearch ? <>
-          <ModelDiscoveryPanel currentModel={model.defaultModel} currentProfileId={model.providerProfileId} onChooseModel={({ profileId, modelId }) => update((current) => ({ ...current, model: { ...current.model, providerProfileId: profileId, defaultModel: modelId } }))} />
+          <ModelDiscoveryPanel currentModel={model.defaultModel} currentProfileId={model.providerProfileId} onChooseModel={({ profileId, modelId }) => { update((current) => ({ ...current, model: { ...current.model, providerProfileId: profileId, defaultModel: modelId } })); onChooseModel?.({ profileId, modelId }); }} />
           <section className="settings-section"><h3>Context and model</h3><div className="settings-grid">
             <label className="settings-field"><span>Default model</span><input className="settings-control" value={model.defaultModel} onChange={(event) => updateSection(update, "model", "defaultModel", event.target.value)} /></label>
             <label className="settings-field"><span>Default reasoning effort</span><select className="settings-select" value={model.defaultEffort} onChange={(event) => updateSection(update, "model", "defaultEffort", event.target.value as ReasoningEffort)}>{["none", "minimal", "low", "medium", "high", "xhigh", "max", "ultra"].map((effort) => <option key={effort}>{effort}</option>)}</select><small className="settings-help">Ultra resolves to this model's highest supported effort and enables dynamic workflow escalation.</small></label>

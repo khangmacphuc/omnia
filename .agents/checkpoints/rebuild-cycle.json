@@ -1,84 +1,76 @@
 {
   "schemaVersion": 1,
-  "id": "rebuild-0006",
+  "id": "rebuild-0007",
   "author": "/root",
   "criteria": [
-    "UI-009",
-    "UI-012",
-    "UI-015",
     "ADVSET-003",
+    "ADVSET-001",
     "CHAT-008"
   ],
   "revision": null,
-  "createdAt": "2026-11-08T05:56:14.702Z",
-  "status": "completed",
-  "stage": "next",
+  "createdAt": "2026-11-08T06:46:38.998Z",
+  "status": "active",
+  "stage": "publish",
   "generation": 1,
   "history": [
     {
       "stage": "resume",
       "generation": 1,
-      "at": "2026-11-08T05:56:14.702Z",
+      "at": "2026-11-08T06:46:38.998Z",
       "event": "started"
     },
     {
       "stage": "audit",
       "generation": 1,
-      "at": "2026-11-08T06:16:13.891Z",
+      "at": "2026-11-08T06:46:55.474Z",
       "event": "advance"
     },
     {
       "stage": "research",
       "generation": 1,
-      "at": "2026-11-08T06:16:43.143Z",
+      "at": "2026-11-08T06:47:30.552Z",
       "event": "advance"
     },
     {
       "stage": "synthesize",
       "generation": 1,
-      "at": "2026-11-08T06:17:25.567Z",
+      "at": "2026-11-08T06:57:52.092Z",
       "event": "advance"
     },
     {
       "stage": "plan",
       "generation": 1,
-      "at": "2026-11-08T06:20:01.855Z",
+      "at": "2026-11-08T07:00:25.875Z",
       "event": "advance"
     },
     {
       "stage": "implement",
       "generation": 1,
-      "at": "2026-11-08T06:20:37.274Z",
+      "at": "2026-11-08T07:03:01.204Z",
       "event": "advance"
     },
     {
       "stage": "verify",
       "generation": 1,
-      "at": "2026-11-08T06:20:44.409Z",
+      "at": "2026-11-08T07:29:38.742Z",
       "event": "advance"
     },
     {
       "stage": "review",
       "generation": 1,
-      "at": "2026-11-08T06:22:19.801Z",
+      "at": "2026-11-08T07:30:00.808Z",
       "event": "advance"
     },
     {
       "stage": "document",
       "generation": 1,
-      "at": "2026-11-08T06:24:34.567Z",
+      "at": "2026-11-08T07:46:21.941Z",
       "event": "advance"
     },
     {
       "stage": "publish",
       "generation": 1,
-      "at": "2026-11-08T06:39:23.671Z",
-      "event": "advance"
-    },
-    {
-      "stage": "next",
-      "generation": 1,
-      "at": "2026-11-08T06:43:47.595Z",
+      "at": "2026-11-08T07:53:21.973Z",
       "event": "advance"
     }
   ],
@@ -110,11 +102,11 @@
       },
       {
         "path": "docs/rebuild/SOURCE_REGISTER.json",
-        "sha256": "6f689f89e7f8b68cf9f7ab0724f68764d9c25c1f856b1245f585ed0c1b45698e"
+        "sha256": "9ce90cc65486ea900b86b71265920bf56dd14c64e184fb0eaf53c2db1d01a789"
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "66f47176740c4a55d159b03efc3cd57a78c16241457cbd0ab7a59b8f88f5fa05"
+        "sha256": "84ef5ca8624c1fedce2a9d50506286b747290a8e640777d4bab27b1c83e30ebb"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
@@ -132,7 +124,7 @@
       },
       {
         "path": "docs/rebuild/GOAL.md",
-        "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+        "sha256": "ce1d87564ee9404b5bdd9a7224d68dd2bfa4225df71c861bfe3698399759fce6"
       },
       {
         "path": "docs/rebuild/WORKFLOW.md",
@@ -140,19 +132,19 @@
       },
       {
         "path": "docs/rebuild/SPEC.md",
-        "sha256": "fcacb907aa71f709d79c2e9e35f60134a63f28591c007006e5973eb0f847cfd1"
+        "sha256": "c137ad2c96cfe3b76e0350d8c21c5a6bff8459768603b473a0b5ef81ce398e2c"
       },
       {
         "path": "docs/rebuild/DOD.json",
-        "sha256": "2a074c6a701081fdebe22070cdeb1c69c434fb379e4f696c22f163aa835c9764"
+        "sha256": "a53df33b0f681c136fd5a15f1729a11a0957499d1fac3b2855489f3df2272588"
       },
       {
         "path": "docs/rebuild/SOURCE_REGISTER.json",
-        "sha256": "6f689f89e7f8b68cf9f7ab0724f68764d9c25c1f856b1245f585ed0c1b45698e"
+        "sha256": "9ce90cc65486ea900b86b71265920bf56dd14c64e184fb0eaf53c2db1d01a789"
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "84ef5ca8624c1fedce2a9d50506286b747290a8e640777d4bab27b1c83e30ebb"
+        "sha256": "564fc32baf0253440e4c2f9f91abb607646c019c90b06fb1f2c7e3c95f2a7f19"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
@@ -194,14 +186,14 @@
       "canonicalRepo": "https://github.com/kirodotdev/powers",
       "revision": "91d8b241dea7107a119c78aeb49dd2d3fab48da8",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "80EBC3EFC8B2E7655AB140862C35F83CBC09E37E38178A6ADED540A9B10256C9"
     },
     {
       "sourceId": "oss-power-agent-powershell-20261108",
       "canonicalRepo": "https://github.com/nakasyou/power-agent",
       "revision": "a258539983e3ffbcb04f7762d73f98b67940e5b8",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "0396a57db2edf08e0a03a0f0d73ff31f77bddaa595f6bd218416b46ff3a14bed"
     },
     {
       "sourceId": "oss-azure-agents-control-plane-20261108",
@@ -229,14 +221,14 @@
       "canonicalRepo": "https://github.com/vercel-labs/agent-desktop",
       "revision": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "373b4616cbdb558318b5ad7b70b0a7086e58833d60646c36a81deae655d82365"
     },
     {
       "sourceId": "new-openviking-20261108",
       "canonicalRepo": "https://github.com/volcengine/OpenViking",
       "revision": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "8d76530b5f69d15b973af456400f909a121ae63bc66dcc1ae78c80190245ec3e"
     },
     {
       "sourceId": "new-openviking-20261108",
@@ -257,14 +249,14 @@
       "canonicalRepo": "https://github.com/ragleap/ragleap-core",
       "revision": "24b2e7f998ecabf7147b3232aa94f6c1528e41ae",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "82df0380209c791d88ecc54f68857d1e1cbc259be364c391ee23645190c5c0ba"
     },
     {
       "sourceId": "new-superclaude-20261108",
       "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
       "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "f477b0310168ab45c9bc9aa507a570814813dcdf3a92ab4992810f9ba53cdc30"
     },
     {
       "sourceId": "new-everything-claude-code-20261108",
@@ -278,14 +270,14 @@
       "canonicalRepo": "https://github.com/salmandev/everything-gemini",
       "revision": "903bb8db6f2ee47a1b1a8bb24a48e2961c4cfa4e",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "ebe497d65117b692c89cfbf24f9a2eec7aa000c1f09db5264a95294bffa67d15"
     },
     {
       "sourceId": "new-openbrowse-compaction-cycle2-20261108",
       "canonicalRepo": "https://github.com/openbrowse-ai/openbrowse",
       "revision": "9c1bec9d9278969c1fc15f244711fa7e0a415b7a",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "85bc0c607fbb78c2cfc651d09ad8a39cdf6febcb97c5ea4c123efbd01f3017a7"
     },
     {
       "sourceId": "new-openbrowse-compaction-cycle2-20261108",
@@ -299,7 +291,7 @@
       "canonicalRepo": "https://github.com/Backboard-io/Backboard-Desktop",
       "revision": "af5489c6cb81d23ed6675756a9dadbe370434678",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "60b276f7bbe0791fe36b9ff4d28655de3f3a3522063c5bc48cbf4782b898b8b0"
     },
     {
       "sourceId": "new-backboard-desktop-capability-cycle2-20261108",
@@ -313,7 +305,7 @@
       "canonicalRepo": "https://github.com/browser-use/terminal",
       "revision": "16cdd3ac47261292d88f410abb1f0234577850ce",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "70392f0919aa417827ff3cb548a60efa6726ec1517d4a69542601608b5944240"
     },
     {
       "sourceId": "new-browser-use-terminal-cycle3-20261108",
@@ -341,7 +333,7 @@
       "canonicalRepo": "https://github.com/suitedaces/computer-agent",
       "revision": "92795e717b5bd254d1894d46d180eb29b690525b",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "e6f3c696e6735c7c2f2bffa745aa901073efe9cb54c31c7dcb835dde740df266"
     },
     {
       "sourceId": "new-computer-agent-cycle3-20261108",
@@ -355,14 +347,14 @@
       "canonicalRepo": "https://github.com/suitedaces/computer-agent",
       "revision": "92795e717b5bd254d1894d46d180eb29b690525b",
       "path": "src-tauri/src/storage.rs",
-      "sha256": "29053c1b27907f2b35e58d99c58f95681ce99bc410b8fdee1d60b59f80c6de23"
+      "sha256": "c02edadfb1ae72037d3569be37742c04e67ae07a7c2dbd689b12f32ff042dc29"
     },
     {
       "sourceId": "new-atlas-agent-cycle3-20261108",
       "canonicalRepo": "https://github.com/wede-wx/atlas-agent",
       "revision": "8ccacf2d828bb245c3d687576485dea603d14f64",
       "path": "README.md",
-      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
+      "sha256": "d2e053606b0105ab27ce44d47e6a98e7d9bc78f522a24030fcad5875ef38c94a"
     },
     {
       "sourceId": "new-atlas-agent-cycle3-20261108",
@@ -384,116 +376,204 @@
       "revision": "e5e37b5d70dbfd93c7006bd90a658c6179a95946",
       "path": "libs/langgraph/langgraph/pregel/_checkpoint.py",
       "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8"
+    },
+    {
+      "sourceId": "new-mastra-workflow-cycle6-20261108",
+      "canonicalRepo": "https://github.com/mastra-ai/mastra",
+      "revision": "9a85fd4c5c5de81ce7632ea35ba1b79e4357b9c5",
+      "path": "LICENSE.md",
+      "sha256": "f0351b469d1548e547882f01d2486a90f6bd0ff3c89defec841bbf5641265776"
+    },
+    {
+      "sourceId": "new-mastra-workflow-cycle6-20261108",
+      "canonicalRepo": "https://github.com/mastra-ai/mastra",
+      "revision": "9a85fd4c5c5de81ce7632ea35ba1b79e4357b9c5",
+      "path": "packages/core/src/workflows/workflow.ts",
+      "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "README.md",
+      "sha256": "333e7215227199c4ba97ec927bb09cfcf69b297ba3be108e866aed735a312822"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "LICENSE.txt",
+      "sha256": "33e4ff1a06ef62ba21788ea162564ee8165269a24a9ce6ef301837447eab0ac6"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/index.ts",
+      "sha256": "ead6d33f8e2476f85a50f00aca1c2baa435bd77f7b42965d68b06e2b899c2405"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/editor.ts",
+      "sha256": "88d06a5841b601a83d99ea07e5ab9167d2a5481c7222f0eeb050f77c7c254f43"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/internal/common/workers.ts",
+      "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/internal/common/initialize.ts",
+      "sha256": "568577928e4d220ee294e6a50dc169cb2f7918c3cfe6551e44a463a0c4d20a98"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/features/register.all.ts",
+      "sha256": "10f7def79370b9c52a282f2e99ad4eefe1aa722e5b847f4747b5a29ed9d63a30"
+    },
+    {
+      "sourceId": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/languages/register.all.ts",
+      "sha256": "de2e073bb967d66e295116512e69e9c6d162f51ae077d63e6e83c1aa17ed89d3"
     }
   ],
   "research": [
     {
-      "canonicalRepo": "https://github.com/mastra-ai/mastra",
-      "revision": "9a85fd4c5c5de81ce7632ea35ba1b79e4357b9c5",
-      "path": "packages/core/src/workflows/workflow.ts",
-      "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "litellm/router.py",
+      "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8",
       "sourceEvidence": {
-        "path": "docs/rebuild/research/snapshots/cycle6/mastra-workflow/workflow.ts.txt",
-        "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9"
-      },
-      "license": "Apache-2.0",
-      "query": "everything super power pro max agent workflow architecture open source Mastra",
-      "retrievedAt": "2026-11-08T05:59:16.0111051Z",
-      "decision": "apply",
-      "observation": "Mastra workflow source persists journal headers, nested cancellation, ownership claims, bounded recovery and retry metadata.",
-      "strength": "Durable lineage and fenced recovery patterns are explicit in source.",
-      "weakness": "Framework source is not Omnia native/runtime proof and unfenced adapters can duplicate work.",
-      "impact": "Translate run receipts, child-first cancellation and explicit unknown/unfenced state into Omnia-owned contracts."
-    },
-    {
-      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
-      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
-      "path": "src/internal/common/workers.ts",
-      "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc",
-      "sourceEvidence": {
-        "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__internal__common__workers.ts",
-        "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc"
+        "path": "docs/rebuild/research/snapshots/cycle7/litellm/router.py",
+        "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8"
       },
       "license": "MIT",
-      "query": "site:github.com microsoft monaco-editor source editor model worker undo stack architecture 2026; open source Monaco editor everything super power pro max agent IDE",
-      "retrievedAt": "2026-11-08T06:09:01Z",
+      "query": "open source everything super power pro max model routing provider catalog retries cooldown latency routing architecture",
+      "retrievedAt": "2026-11-08T06:54:40.18Z",
       "decision": "apply",
-      "observation": "Worker creation is host-configurable, explicit and fail-closed, with bounded idle model sync.",
-      "strength": "URI/model identity and lifecycle boundaries separate buffers, views and providers.",
-      "weakness": "Browser editor source does not prove Tauri native persistence or worker packaging.",
-      "impact": "Use canonical pointer identity, explicit activation/disposal and unavailable worker states in Omnia IDE contracts."
+      "observation": "Router makes model alias identity, retry, cooldown, fallback, health and bounded routing strategy explicit.",
+      "strength": "Typed routing and bounded samples are inspectable.",
+      "weakness": "Python gateway and live provider behavior are not Omnia native proof.",
+      "impact": "Use stable profile/model route identity, snapshot lineage, stale state and typed retry/fallback in the catalog adapter."
+    },
+    {
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/models/fallback.py",
+      "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-fallback.py.txt",
+        "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf"
+      },
+      "license": "MIT",
+      "query": "everything super power pro max open source agent workflow model routing fallback capability negotiation PydanticAI",
+      "retrievedAt": "2026-11-08T06:54:40.181Z",
+      "decision": "apply",
+      "observation": "Fallback uses typed exception/response predicates with continuation and cancellation lineage.",
+      "strength": "Retry and fallback decisions are explicit and cancellable.",
+      "weakness": "Python adapter cannot prove Omnia native provider safety.",
+      "impact": "Resolve effort and retry from typed capabilities and retain retryable/permanent/cancelled/unknown outcome receipts."
+    },
+    {
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "src/pydantic_ai_harness/pydantic_ai_harness/ask_user/_toolset.py",
+      "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__ask_user___toolset.py.txt",
+        "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944"
+      },
+      "license": "MIT",
+      "query": "site:github.com pydantic-ai harness approval reviewer ask user human in the loop tool approval everything super power pro max model workflow architecture open source",
+      "retrievedAt": "2026-11-08T06:54:40.181Z",
+      "decision": "apply",
+      "observation": "Ask-user is a typed toolset boundary with structured options, free text and continuation.",
+      "strength": "Suspension/resume avoids parsing text sentinels.",
+      "weakness": "Transport still needs lease/run/session validation and stale decision rejection.",
+      "impact": "Adopt typed ask-user envelopes and explicit approve/reject/edit/cancel decisions while keeping packaged evidence blocked."
     }
   ],
   "artifacts": [
     {
-      "path": "docs/rebuild/audit/CYCLE6_AUDIT_20261108.json",
-      "sha256": "2c3715a332fbe21337b9964a0c40a2e8d80bcd248558bda04cafac367cfe3d9f",
-      "kind": "audit",
+      "path": "docs/rebuild/audit/CYCLE7_AUDIT_20261108.json",
+      "sha256": "67ff11d32278be14bd75acdc1aaa405cadf24beb612ba86fae41bf118ad28361",
       "stage": "audit",
-      "generation": 1
+      "generation": 1,
+      "kind": "audit"
     },
     {
-      "path": "docs/rebuild/research/CYCLE6_RESEARCH.md",
-      "sha256": "43518a628ea8a85260f651cd93a5465dd9bd64bb085b713c6c2e2ac9fcddc4dd",
-      "kind": "research",
-      "stage": "audit",
-      "generation": 1
-    },
-    {
-      "path": "docs/rebuild/research/CYCLE6_RESEARCH.md",
-      "sha256": "43518a628ea8a85260f651cd93a5465dd9bd64bb085b713c6c2e2ac9fcddc4dd",
+      "path": "docs/rebuild/research/NEW_ROUTING_OSS_20261108.md",
+      "sha256": "26ea940fed49f6c57703124b69305996725daf673ed9b6dd660990dd523c5d36",
       "stage": "research",
       "generation": 1,
       "kind": "research"
     },
     {
-      "path": "docs/rebuild/receipts/cycle6-renderer-tests.json",
-      "sha256": "6dcb7e8de3adf769f3d30bd57738eaefa510d9b886013fd18be0275a6034dcbc",
-      "stage": "verify",
+      "path": "docs/rebuild/research/NEW_WORKFLOW_OSS_20261108.md",
+      "sha256": "f9e3ebe18c42e5d9373566e08391228928d3c97f25625a8444779eefdd0e9344",
+      "stage": "research",
       "generation": 1,
-      "kind": "test"
+      "kind": "research"
     },
     {
-      "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
-      "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
-      "stage": "verify",
+      "path": "docs/rebuild/research/NEW_ASK_USER_OSS_20261108.md",
+      "sha256": "77f9fc3d2b781c44131d88bd6808f203f32508b3bc27202ff63a8ea46462af0e",
+      "stage": "research",
       "generation": 1,
-      "kind": "capture"
+      "kind": "research"
     },
     {
-      "path": "docs/rebuild/synthesis-cycle6.json",
-      "sha256": "165e6c4999fb93f629cdbf14dc0af0af52c65f28b29fcca5d6c473445edef544",
+      "path": "docs/rebuild/synthesis-cycle7.json",
+      "sha256": "0e003b0ab22a9c3e56885e71d9ce1209258b8e73230eddd6eaaf054420531909",
       "stage": "synthesize",
       "generation": 1,
       "kind": "synthesis"
     },
     {
-      "path": "docs/rebuild/plan-cycle6.json",
-      "sha256": "801c35df19dfca7aea5b8fa6ada77de711f276fd0f38da808c1fab8cc272b73d",
+      "path": "docs/rebuild/plan-cycle7.json",
+      "sha256": "8c9b59c6a45e9b6975824d06a1acfffcd43c573c752c3d31c1c62c8e7c54f105",
       "stage": "plan",
       "generation": 1,
       "kind": "plan"
     },
     {
-      "path": "docs/rebuild/implementation-cycle6.json",
-      "sha256": "e058f18cf2af2f901c13ca89590e92fac51881d99dbf776dc0fb640d20c78cb3",
+      "path": "docs/rebuild/implementation-cycle7.json",
+      "sha256": "6b88916f258aefbbcb0e5a6df0c2af43c69dd8f0f1eb1884d9747bde59d16361",
       "stage": "implement",
       "generation": 1,
       "kind": "implementation"
     },
     {
-      "path": "docs/rebuild/document-cycle6.json",
-      "sha256": "0618b0b9f1b8660a4b2ea4b68dd37eabd38f5131774a3192671c02e0f33b5c0f",
+      "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+      "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+      "stage": "verify",
+      "generation": 1,
+      "kind": "test"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
+      "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c",
+      "stage": "verify",
+      "generation": 1,
+      "kind": "build"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle7-document.json",
+      "sha256": "d3a013ab87a3978672146d59e6e160bc17702cf28bd7aca65ef611b804a9298d",
       "stage": "document",
       "generation": 1,
       "kind": "document"
-    },
-    {
-      "path": "docs/rebuild/receipts/cycle6-publication.json",
-      "sha256": "6ad9f266b055a724cc581534aeb105368dfa30fe276e254389f9d189788e5710",
-      "stage": "publish",
-      "generation": 1,
-      "kind": "publish"
     }
   ],
   "checklist": {
@@ -509,77 +589,70 @@
     "readme_release_consistent": true
   },
   "review": {
-    "reviewer": "/root/cycle6_ui_audit",
     "author": "/root",
-    "reviewedAt": "2026-11-08T06:40:00.000Z",
+    "reviewer": "/root/cycle7_review_replacement",
+    "reviewedAt": "2026-11-08T07:40:25.1029441Z",
     "result": "passed",
     "unresolved": [],
     "evidence": {
-      "path": "docs/rebuild/audit/REVIEW_CYCLE6_20261108.json",
-      "sha256": "74cbb0e7a43fa9328cd2c6fcf084e778ed64ec6d0a9f709a1c098f883e84f8e0"
+      "path": "docs/rebuild/audit/REVIEW_CYCLE7_20261108.json",
+      "sha256": "7b30d67e17bb4eb7d372254ec90b1f00ee4840df99a709ded081d2dd723af0a3",
+      "kind": "review"
     },
     "sourceFiles": [
       {
-        "path": "src/main.tsx",
-        "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+        "path": "src/rebuild/chat/ask-user-envelope.ts",
+        "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
       },
       {
-        "path": "src/rebuild/rebuild-app.css",
-        "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+        "path": "src/rebuild/chat/ask-user-envelope.test.ts",
+        "sha256": "8e57e88aa28ffb5a7be42842505e2f75941bccecccecdff98ac926fce9846e8a"
       },
       {
-        "path": "src/rebuild/chat/chat-view.css",
-        "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
+        "path": "src/rebuild/settings/catalog-route-adapter.ts",
+        "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8"
       },
       {
-        "path": "src/rebuild/browser/browser-workspace.css",
-        "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
+        "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
+        "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff"
       },
       {
-        "path": "tests/rebuild-ui-browser-independent.mjs",
-        "sha256": "17e4a0159b57f3c607f39cdbe39a0a7d318dd34ce3a99c45b0b4f050c87e1719"
+        "path": "src/rebuild/settings/effort-resolution.ts",
+        "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6"
+      },
+      {
+        "path": "src/rebuild/settings/effort-resolution.test.ts",
+        "sha256": "5645c92e2e40d84aa5ed048a2f28bd6059037ea9e57975711394f28d1eca7690"
+      },
+      {
+        "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+        "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c"
       },
       {
         "path": "src/rebuild/settings/SettingsPanel.tsx",
-        "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+        "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
       },
       {
-        "path": "src/rebuild/settings/model-discovery.ts",
-        "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
+        "path": "src/rebuild/settings/index.ts",
+        "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
       },
       {
-        "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
-        "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
-      },
-      {
-        "path": "src-tauri/crates/omnia-harness/src/user_input/tests.rs",
-        "sha256": "8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1"
-      },
-      {
-        "path": "src-tauri/src/harness_bridge.rs",
-        "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+        "path": "src/rebuild/chat/chat-controller.ts",
+        "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
       },
       {
         "path": "src/rebuild/rebuild-app.tsx",
-        "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
-      },
-      {
-        "path": "src/rebuild/chat/chat-view.tsx",
-        "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
-      },
-      {
-        "path": "src/rebuild/browser/browser-workspace.tsx",
-        "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+        "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
       }
     ],
     "testEvidence": [
       {
-        "path": "docs/rebuild/receipts/cycle6-renderer-tests.json",
-        "sha256": "6dcb7e8de3adf769f3d30bd57738eaefa510d9b886013fd18be0275a6034dcbc"
+        "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+        "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6"
       },
       {
-        "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
-        "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5"
+        "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
+        "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c"
       }
     ]
   }

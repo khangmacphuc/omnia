@@ -57,7 +57,7 @@ export function RebuildApp() {
       {surface === "ide" ? <IdeWorkspace /> : null}
       {surface !== "chat" ? <aside id="rb-chat-companion" className={`rb-companion-chat${companionOpen ? " is-open" : ""}`} aria-label="Chat companion"><div className="rb-companion-header"><span>Chat · {controller.activeSession.title}</span><button type="button" className="rb-top-icon" aria-label="Close chat companion" onClick={() => { setCompanionOpen(false); companionToggle.current?.focus(); }}><X size={16} /></button></div><ChatView controller={controller} compact onOpenSettings={() => setSettingsOpen(true)} onOpenIde={() => setSurface("ide")} /></aside> : null}
     </main>
-    {settingsOpen ? <div ref={modalRef} tabIndex={-1} className="rb-overlay"><SettingsPanel onClose={dismissModal} /></div> : null}
+    {settingsOpen ? <div ref={modalRef} tabIndex={-1} className="rb-overlay"><SettingsPanel onClose={dismissModal} onChooseModel={({ profileId, modelId }) => { void controller.updateSettings({ profileId, model: modelId }); }} /></div> : null}
     {researchOpen ? <div ref={modalRef} tabIndex={-1} className="rb-overlay rb-overlay--research" role="dialog" aria-modal="true" aria-label="Reference workbench"><button type="button" className="rb-research-close" onClick={dismissModal} aria-label="Close research workbench"><X size={16} /></button><ReferenceWorkbench onClose={dismissModal} /></div> : null}
   </div>;
 }

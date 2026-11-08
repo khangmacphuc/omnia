@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "stage": "research",
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T06:54:30Z",
+  "owner": "/root/cycle7researchrouting",
+  "result": "completed",
+  "scope": [
+    "docs/rebuild/research/NEW_ROUTING_OSS_20261108.md",
+    "docs/rebuild/research/CYCLE7_ROUTING_RECEIPT.json",
+    "docs/rebuild/research/snapshots/cycle7/litellm"
+  ],
+  "source": "https://github.com/BerriAI/litellm",
+  "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+  "license": "MIT (inspected non-enterprise files)",
+  "validation": [
+    {
+      "exitCode": 0,
+      "command": "node -e JSON parse and shape check",
+      "output": "valid new-litellm-router-cycle7-20261108 4"
+    },
+    {
+      "exitCode": 0,
+      "command": "Get-FileHash CYCLE7_ROUTING_RECEIPT.json",
+      "output": "8781d1f77f72cbb596c45ff334ead47d216f7c0232b42e71ba6edbd7364af983"
+    }
+  ],
+  "decision": "apply-as-reference",
+  "limitations": [
+    "No native Rust/Tauri/provider/live evidence",
+    "Source register and checkpoint remain root-owned",
+    "No product code, credentials, profiles or upstream scripts used"
+  ]
+}

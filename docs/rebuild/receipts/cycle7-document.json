@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "stage": "document",
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T08:10:55.630Z",
+  "criteria": [
+    "ADVSET-003",
+    "ADVSET-001",
+    "CHAT-008"
+  ],
+  "documents": [
+    {
+      "path": "docs/rebuild/GOAL.md",
+      "sha256": "ce1d87564ee9404b5bdd9a7224d68dd2bfa4225df71c861bfe3698399759fce6"
+    },
+    {
+      "path": "docs/rebuild/SPEC.md",
+      "sha256": "c137ad2c96cfe3b76e0350d8c21c5a6bff8459768603b473a0b5ef81ce398e2c"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "a53df33b0f681c136fd5a15f1729a11a0957499d1fac3b2855489f3df2272588"
+    },
+    {
+      "path": "docs/rebuild/CHECKPOINT.md",
+      "sha256": "564fc32baf0253440e4c2f9f91abb607646c019c90b06fb1f2c7e3c95f2a7f19"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0adbb272ed05aecab442992c3a082397396363ded59f023efd790eb0a4ed064e"
+    }
+  ],
+  "checklist": {
+    "requirements_traced": true,
+    "input_changes_reviewed": true,
+    "contracts_and_resources": true,
+    "ui_states_and_tokens": true,
+    "tests_match_source": true,
+    "claims_are_scoped": true,
+    "negative_cases_and_gaps": true,
+    "independent_review": true,
+    "canonical_docs_reread": true,
+    "readme_release_consistent": true
+  },
+  "claims": [
+    "Renderer and preview evidence remain distinct from native/package/live evidence.",
+    "DoD statuses remain 0 Done, 24 Partial, 7 Blocked, 209 Planned.",
+    "Superseded stale preview receipts were removed from active DoD evidence; current source hashes are refreshed.",
+    "README reflects Cycle 7 counts and limitations."
+  ]
+}

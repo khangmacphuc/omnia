@@ -57,7 +57,7 @@ export interface ChatController {
   selectSession: (id: string) => void;
   createSession: (cwd?: string) => Promise<ChatSession>;
   renameSession: (title: string) => Promise<void>;
-  updateSettings: (input: { model?: string; effort?: ChatEffort; permissionMode?: string }) => Promise<void>;
+  updateSettings: (input: { profileId?: string; model?: string; effort?: ChatEffort; permissionMode?: string }) => Promise<void>;
   send: () => Promise<void>;
   steer: (text: string) => Promise<void>;
   interrupt: () => Promise<void>;
@@ -358,10 +358,10 @@ export function useChatWorkspace(): ChatController {
     if (!activeSession.localOnly && isDesktopRuntime()) await invokeCore("agent_session_update", { request: { sessionId: activeId, expectedSettingsRevision: activeSession.settingsRevision, title: clean } });
   }, [activeId, activeSession.localOnly, activeSession.settingsRevision]);
 
-  const updateSettings = useCallback(async (input: { model?: string; effort?: ChatEffort; permissionMode?: string }) => {
-    setSessions((current) => current.map((session) => session.id === activeId ? { ...session, ...(input.model ? { model: input.model } : {}), ...(input.effort ? { effort: input.effort } : {}), ...(input.permissionMode ? { permissionMode: input.permissionMode } : {}), settingsRevision: session.settingsRevision + 1 } : session));
+  const updateSettings = useCallback(async (input: { profileId?: string; model?: string; effort?: ChatEffort; permissionMode?: string }) => {
+    setSessions((current) => current.map((session) => session.id === activeId ? { ...session, ...(input.profileId ? { profileId: input.profileId } : {}), ...(input.model ? { model: input.model } : {}), ...(input.effort ? { effort: input.effort } : {}), ...(input.permissionMode ? { permissionMode: input.permissionMode } : {}), settingsRevision: session.settingsRevision + 1 } : session));
     if (!activeSession.localOnly && isDesktopRuntime()) {
-      await invokeCore("agent_session_update", { request: { sessionId: activeId, expectedSettingsRevision: activeSession.settingsRevision, ...(input.model ? { model: input.model } : {}), ...(input.effort ? { reasoningEffort: input.effort } : {}), ...(input.permissionMode ? { permissionMode: input.permissionMode } : {}) } });
+      await invokeCore("agent_session_update", { request: { sessionId: activeId, expectedSettingsRevision: activeSession.settingsRevision, ...(input.profileId ? { profileId: input.profileId } : {}), ...(input.model ? { model: input.model } : {}), ...(input.effort ? { reasoningEffort: input.effort } : {}), ...(input.permissionMode ? { permissionMode: input.permissionMode } : {}) } });
     }
   }, [activeId, activeSession.localOnly, activeSession.settingsRevision]);
 

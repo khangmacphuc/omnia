@@ -104,7 +104,7 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
-The current rebuild cycle has dated receipts for a 55-test renderer suite, TypeScript typecheck, renderer build, architecture/import guard, 32 workflow-gate tests, UI captures at 800×600 and 1440×900, and 10 native ask-user broker tests. These receipts cover local renderer and provider-neutral native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long-running endurance evidence remain explicitly tracked as partial or blocked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
+The current rebuild cycle has dated receipts for a 63-test renderer suite, TypeScript typecheck, renderer build, architecture/import guard, 32 workflow-gate tests, UI captures at 800×600 and 1440×900, and 10 native ask-user broker tests plus the Cycle 7 renderer routing/ask-user contracts. These receipts cover local renderer and provider-neutral native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long-running endurance evidence remain explicitly tracked as partial or blocked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
 
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 
@@ -130,7 +130,7 @@ Useful shortcuts:
 
 ## Honest status and next work
 
-Omnia is intentionally reported as a matrix instead of a marketing claim. The rebuild DoD records implementation, focused tests, boundary evidence and same-snapshot receipts for every criterion. The current cycle is **0/240 Done, 23 Partial, 8 Blocked and 209 Planned**. Remaining work includes packaged WebView2 capture/history/download evidence, live provider account billing reconciliation, packaged editor and DPI/accessibility evidence, long-running native performance profiling, durable compare attempt journaling, pointer/RAG runtime proof, and native model discovery refresh.
+Omnia is intentionally reported as a matrix instead of a marketing claim. The rebuild DoD records implementation, focused tests, boundary evidence and same-snapshot receipts for every criterion. The current cycle is **0/240 Done, 24 Partial, 7 Blocked and 209 Planned**. Remaining work includes packaged WebView2 capture/history/download evidence, live provider account billing reconciliation, packaged editor and DPI/accessibility evidence, long-running native performance profiling, durable compare attempt journaling, pointer/RAG runtime proof, and native model discovery refresh.
 
 - Rebuild completion matrix: [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json)
 - Rebuild workflow: [`docs/rebuild/WORKFLOW.md`](docs/rebuild/WORKFLOW.md)
@@ -156,3 +156,16 @@ This repository is an active internship portfolio project. Read the DoD and secu
 ### Rebuild cycle 0006 status
 
 Cycle 0006 adds fresh OSS research (Mastra workflow durability and Monaco editor lifecycle) and refreshed clean-room UI evidence. The browser-preview report records the latest independent checks across 16 states with zero axe violations; it does not represent packaged/native/live provider proof. Current DoD counts are tracked in docs/rebuild/DOD.json and remain incomplete by design.
+
+### Rebuild cycle 0007 status
+
+Cycle 0007 adds the original renderer's catalog route lineage, requested/effective
+reasoning-effort resolution and typed ask-user envelope. The focused renderer
+receipt reports **63/63 tests passed**, the app typecheck and renderer build pass,
+and the independent evidence review is recorded in
+[`docs/rebuild/audit/REVIEW_CYCLE7_20261108.json`](docs/rebuild/audit/REVIEW_CYCLE7_20261108.json).
+These are renderer and contract receipts. Durable native catalog snapshot
+persistence, native `xhigh`/`ultra` adapter behavior, packaged Windows ask-user
+UI and live provider execution remain open in the DoD. A stale catalog model can
+remain a requested default for continuity, but dispatch remains guarded until a
+fresh route is available.

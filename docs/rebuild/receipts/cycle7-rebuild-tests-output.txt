@@ -1,0 +1,17 @@
+npm warn cli npm v12.2.1 does not support Node.js v27.0.0-nightly202610263983092f63. This version of npm supports the following node versions: `^22.22.2 || ^24.15.0 || >=26.0.0`. You can find the latest version at https://nodejs.org/.
+npm notice run omnia-desktop@0.1.0 npx
+npm notice run vitest run src/rebuild/settings src/rebuild/chat --reporter=dot
+
+ RUN  v3.2.7 C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+(node:37672) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35136) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+·······························································
+
+ Test Files  9 passed (9)
+      Tests  63 passed (63)
+   Start at  14:27:50
+   Duration  4.53s (transform 1.05s, setup 3.35s, collect 2.43s, tests 2.47s, environment 10.65s, prepare 1.78s)
+

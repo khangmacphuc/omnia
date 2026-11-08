@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "author": "/root",
+  "reviewer": "/root/cycle7_review_replacement",
+  "reviewedAt": "2026-11-08T07:40:25.1029441Z",
+  "scope": "Independent Cycle 7 evidence-integrity review of catalog routing, effort capability resolution and ask-user envelope. Renderer and build evidence are checked against current source; native/package/live limits remain explicit. This is review approval for cycle progression, not product completion.",
+  "criteria": [
+    {
+      "id": "ADVSET-003",
+      "result": "passed",
+      "unresolved": []
+    },
+    {
+      "id": "ADVSET-001",
+      "result": "passed",
+      "unresolved": []
+    },
+    {
+      "id": "CHAT-008",
+      "result": "passed",
+      "unresolved": []
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.test.ts",
+      "sha256": "8e57e88aa28ffb5a7be42842505e2f75941bccecccecdff98ac926fce9846e8a"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.ts",
+      "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
+      "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff"
+    },
+    {
+      "path": "src/rebuild/settings/effort-resolution.ts",
+      "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6"
+    },
+    {
+      "path": "src/rebuild/settings/effort-resolution.test.ts",
+      "sha256": "5645c92e2e40d84aa5ed048a2f28bd6059037ea9e57975711394f28d1eca7690"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+    },
+    {
+      "path": "src/rebuild/settings/index.ts",
+      "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+    }
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+      "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
+      "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c"
+    }
+  ],
+  "observations": [
+    "Current implementation and renderer verification receipt source hashes match the files on disk for all three selected criteria.",
+    "Focused renderer receipt reports 9 files and 63 passing tests, including negative/stale/unsupported/duplicate/cancellation cases; build receipt reports 1690 transformed modules.",
+    "Catalog routing binds providerProfileId plus modelId, snapshot lineage and stale/disappeared states; selecting a stale model is allowed only as a requested default while dispatch remains guarded.",
+    "Effort resolution represents none, minimal, low, medium, high, xhigh, max and ultra, with explicit requested/effective state and no silent unsupported claim.",
+    "Ask-user envelope binds session, run and revision, bounds fields, rejects stale/duplicate/unknown decisions and records expiry/cancellation semantics."
+  ],
+  "negativeCases": [
+    "Stale catalog selection versus dispatch guard is covered by focused renderer tests.",
+    "Unknown/disappeared routes and duplicate catalog records are rejected.",
+    "Unsupported effort and unsupported ultra resolution are explicit states.",
+    "Ask-user stale revision, duplicate, unknown request, expiry, late answer and cancellation paths are covered."
+  ],
+  "claimBoundaries": [
+    "No packaged Tauri command/UI evidence or Windows UI automation was exercised in this review.",
+    "No live provider authentication, catalog refresh persistence, or live ask-user execution was exercised.",
+    "Native capability audit still reports missing durable catalog snapshot persistence and native xhigh/ultra adapter proof; criteria remain Partial/Blocked in DoD until those evidence requirements are met.",
+    "npm.cmd run rebuild:check currently fails on a pre-existing stale receipt hash for src/rebuild/rebuild-app.tsx; cycle validator itself passes and this review does not hide the gate failure."
+  ],
+  "findings": [],
+  "unresolved": []
+}
+
+

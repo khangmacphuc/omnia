@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "stage": "implement",
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T07:29:07.6432137Z",
+  "changes": [
+    {
+      "owner": "/root/cycle7_catalog_route_adapter",
+      "summary": "Added credential-free catalog snapshot lineage and provider/model route reconciliation with stale, disappeared and unknown states; wired settings discovery selection through the route guard.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/settings/catalog-route-adapter.ts",
+          "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8"
+        },
+        {
+          "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
+          "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff"
+        },
+        {
+          "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+          "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c"
+        },
+        {
+          "path": "src/rebuild/settings/index.ts",
+          "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
+        }
+      ],
+      "criteria": [
+        "ADVSET-003"
+      ]
+    },
+    {
+      "owner": "/root/cycle7_effort_capability",
+      "summary": "Added explicit requested/effective reasoning-effort resolution including ultra policy, capability evidence and fail-closed unsupported states.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/settings/effort-resolution.ts",
+          "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6"
+        },
+        {
+          "path": "src/rebuild/settings/effort-resolution.test.ts",
+          "sha256": "5645c92e2e40d84aa5ed048a2f28bd6059037ea9e57975711394f28d1eca7690"
+        },
+        {
+          "path": "src/rebuild/settings/index.ts",
+          "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
+        }
+      ],
+      "criteria": [
+        "ADVSET-001"
+      ]
+    },
+    {
+      "owner": "/root/cycle7_ask_user_envelope",
+      "summary": "Added typed ask-user request/decision envelopes with bounded fields, session/run/revision binding, stale/duplicate/expiry/cancellation handling and defensive snapshots.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.ts",
+          "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+        },
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.test.ts",
+          "sha256": "8e57e88aa28ffb5a7be42842505e2f75941bccecccecdff98ac926fce9846e8a"
+        }
+      ],
+      "criteria": [
+        "CHAT-008"
+      ]
+    },
+    {
+      "owner": "/root",
+      "summary": "Bound discovered provider/model selection to the active Chat session and native agent_session_update profile/model fields.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+        },
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+        }
+      ],
+      "criteria": [
+        "ADVSET-003",
+        "ADVSET-001"
+      ]
+    }
+  ],
+  "limitations": [
+    "Renderer and preview evidence only for the new modules; packaged Tauri ask-user delivery and live provider authentication/execution remain unproven.",
+    "Native catalog persistence of snapshot hash and xhigh/ultra adapter support remain open and are recorded in the Cycle 7 native capability audit.",
+    "A stale catalog may be selected as a requested default, but dispatch remains guarded until a fresh route is available."
+  ],
+  "acceptance": {
+    "effortValues": 8,
+    "routeIdentity": "providerProfileId+modelId",
+    "askUserActions": 6
+  }
+}

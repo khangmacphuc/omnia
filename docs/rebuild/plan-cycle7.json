@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "stage": "plan",
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T07:14:00.000Z",
+  "passBudget": 3,
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Keep catalog identity, capability resolution and ask-user continuation as separate typed modules so stale responses and unsupported native claims cannot leak into Chat state."
+    },
+    {
+      "index": 2,
+      "decision": "Bind provider profile/model and requested/effective effort to the session route through an explicit adapter; preserve preview/native/live evidence boundaries and avoid changing the legacy renderer."
+    },
+    {
+      "index": 3,
+      "decision": "Require positive, stale, disappeared-model, unsupported-effort, duplicate-answer and cancellation tests before attempting native or packaged claims; stop after no new decision."
+    }
+  ],
+  "stopReason": "budget-exhausted",
+  "tasks": [
+    {
+      "id": "catalog-route-adapter",
+      "owner": "/root/cycle7_catalog_route_adapter",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/synthesis-cycle7.json",
+        "src/rebuild/settings/model-discovery.ts",
+        "src/lib/desktop.ts"
+      ],
+      "outputs": [
+        "src/rebuild/settings/catalog-route-adapter.ts",
+        "src/rebuild/settings/catalog-route-adapter.test.ts"
+      ],
+      "acceptance": [
+        {"metric": "typed route identity includes provider profile and model", "operator": "eq", "value": 1},
+        {"metric": "snapshot lineage hash and stale/disappeared model states covered", "operator": "gte", "value": 3},
+        {"metric": "focused adapter tests passed", "operator": "gte", "value": 8}
+      ],
+      "verification": [
+        {"command": "npm.cmd exec -- vitest run src/rebuild/settings/catalog-route-adapter.test.ts --reporter=dot", "expectedExitCode": 0}
+      ],
+      "criteria": ["ADVSET-003", "ADVSET-001"]
+    },
+    {
+      "id": "effort-capability-resolution",
+      "owner": "/root/cycle7_effort_capability",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/research/NEW_ROUTING_OSS_20261108.md",
+        "src/rebuild/settings/settings.ts"
+      ],
+      "outputs": [
+        "src/rebuild/settings/effort-resolution.ts",
+        "src/rebuild/settings/effort-resolution.test.ts"
+      ],
+      "acceptance": [
+        {"metric": "requested effort values represented", "operator": "eq", "value": 8},
+        {"metric": "ultra resolves to highest supported effort with explicit evidence", "operator": "eq", "value": 1},
+        {"metric": "unsupported effort never silently claims support", "operator": "eq", "value": 1}
+      ],
+      "verification": [
+        {"command": "npm.cmd exec -- vitest run src/rebuild/settings/effort-resolution.test.ts --reporter=dot", "expectedExitCode": 0}
+      ],
+      "criteria": ["ADVSET-001"]
+    },
+    {
+      "id": "ask-user-envelope",
+      "owner": "/root/cycle7_ask_user_envelope",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/research/NEW_ASK_USER_OSS_20261108.md",
+        "src/rebuild/chat/chat-controller.ts",
+        "src-tauri/crates/omnia-harness/src/user_input.rs"
+      ],
+      "outputs": [
+        "src/rebuild/chat/ask-user-envelope.ts",
+        "src/rebuild/chat/ask-user-envelope.test.ts"
+      ],
+      "acceptance": [
+        {"metric": "typed option/free-text/cancel outcomes", "operator": "gte", "value": 4},
+        {"metric": "stale duplicate and unknown decisions rejected", "operator": "eq", "value": 1},
+        {"metric": "focused envelope tests passed", "operator": "gte", "value": 8}
+      ],
+      "verification": [
+        {"command": "npm.cmd exec -- vitest run src/rebuild/chat/ask-user-envelope.test.ts --reporter=dot", "expectedExitCode": 0}
+      ],
+      "criteria": ["CHAT-008"]
+    }
+  ]
+}

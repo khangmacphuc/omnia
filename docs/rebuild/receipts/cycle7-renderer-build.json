@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-build",
+  "recordedAt": "2026-11-08T07:28:35.2452326Z",
+  "command": "npm.cmd run build:renderer",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle7-renderer-build-output.txt",
+    "sha256": "1f061207f4742d28b1b622a77f966f70df161f899f7c0eeefbff5a4404b14833"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+    },
+    {
+      "path": "src/rebuild/settings/index.ts",
+      "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.ts",
+      "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8"
+    },
+    {
+      "path": "src/rebuild/settings/effort-resolution.ts",
+      "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    }
+  ],
+  "summary": {
+    "modulesTransformed": 1690,
+    "nativeOrLiveProof": false
+  }
+}

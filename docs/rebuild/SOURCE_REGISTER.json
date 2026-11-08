@@ -809,6 +809,161 @@
       "evidence": [
         "docs/rebuild/research/NEW_MONACO_OSS_20261108.md"
       ]
+    },
+    {
+      "id": "new-litellm-routing-cycle7-20261108",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "license": "MIT",
+      "query": "open source everything super power pro max model routing provider catalog retries cooldown latency routing architecture",
+      "retrievedAt": "2026-11-08T06:54:40.153Z",
+      "paths": [
+        {
+          "path": "LICENSE",
+          "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/litellm/LICENSE",
+            "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273"
+          }
+        },
+        {
+          "path": "README.md",
+          "sha256": "374d8fdb228a6d528cdcf075aa807b43c5cec7669ee3adf0b21aedbbafd90e7b",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/litellm/README.md",
+            "sha256": "374d8fdb228a6d528cdcf075aa807b43c5cec7669ee3adf0b21aedbbafd90e7b"
+          }
+        },
+        {
+          "path": "litellm/router.py",
+          "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/litellm/router.py",
+            "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8"
+          }
+        },
+        {
+          "path": "litellm/router_strategy/lowest_latency.py",
+          "sha256": "4c4b703ed7ab5f9986405625fbcd07b6607f36e1908d5be1a4d6654d4e56d05b",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/litellm/lowest_latency.py",
+            "sha256": "4c4b703ed7ab5f9986405625fbcd07b6607f36e1908d5be1a4d6654d4e56d05b"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuples in rebuild-0007; LiteLLM is absent from prior registry.",
+      "strengths": [
+        "Stable model alias routing",
+        "Typed retry/cooldown/fallback policy",
+        "Bounded latency samples"
+      ],
+      "weaknesses": [
+        "Python gateway is not Omnia native proof",
+        "Provider credentials and external services require Omnia boundaries"
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use route identity, catalog snapshot lineage, stale model states, typed retry/fallback and bounded health hints without vendoring LiteLLM.",
+      "evidence": [
+        "Snapshot: docs/rebuild/research/snapshots/cycle7/litellm/LICENSE, docs/rebuild/research/snapshots/cycle7/litellm/README.md, docs/rebuild/research/snapshots/cycle7/litellm/router.py, docs/rebuild/research/snapshots/cycle7/litellm/lowest_latency.py"
+      ]
+    },
+    {
+      "id": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "license": "MIT",
+      "query": "everything super power pro max open source agent workflow model routing fallback capability negotiation human approval ask user",
+      "retrievedAt": "2026-11-08T06:54:40.168Z",
+      "paths": [
+        {
+          "path": "LICENSE",
+          "sha256": "398f82aee5bd500f39ec1cc84e2b878a34a78be1bc1e6da038f7e73a758bca0a",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/LICENSE.txt",
+            "sha256": "398f82aee5bd500f39ec1cc84e2b878a34a78be1bc1e6da038f7e73a758bca0a"
+          }
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/agent/abstract.py",
+          "sha256": "a9c6706a17a6136f0685a9b1af3c5750ba7cb58c699cac6a90b2f98ca667db86",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/agent-abstract.py.txt",
+            "sha256": "a9c6706a17a6136f0685a9b1af3c5750ba7cb58c699cac6a90b2f98ca667db86"
+          }
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/models/_abstract.py",
+          "sha256": "1ffb7dec8c323eaa18cdafb48ca40648232ec8bde0709182acff727e72c0d433",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-abstract.py.txt",
+            "sha256": "1ffb7dec8c323eaa18cdafb48ca40648232ec8bde0709182acff727e72c0d433"
+          }
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/models/fallback.py",
+          "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-fallback.py.txt",
+            "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf"
+          }
+        },
+        {
+          "path": "docs/harness/approval-reviewer.md",
+          "sha256": "39dac7d85bd63ca1f2c6948bdec8bc19f02d3493f4f8038019212ad508755da1",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/docs__harness__approval-reviewer.md.txt",
+            "sha256": "39dac7d85bd63ca1f2c6948bdec8bc19f02d3493f4f8038019212ad508755da1"
+          }
+        },
+        {
+          "path": "src/pydantic_ai_harness/pydantic_ai_harness/ask_user/_toolset.py",
+          "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__ask_user___toolset.py.txt",
+            "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944"
+          }
+        },
+        {
+          "path": "src/pydantic_ai_harness/pydantic_ai_harness/approval_reviewer/_capability.py",
+          "sha256": "b3f944a8d055b76120d003ac00abd9972e2a8af02ea753d8bf15e470dc669dd2",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__approval_reviewer___capability.py.txt",
+            "sha256": "b3f944a8d055b76120d003ac00abd9972e2a8af02ea753d8bf15e470dc669dd2"
+          }
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/toolsets/approval_required.py",
+          "sha256": "cf2606131d95aa9acb79dd7a397835416afcd6b9c00740a60334dec9027d038a",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/pydantic_ai_slim__pydantic_ai__toolsets__approval_required.py.txt",
+            "sha256": "cf2606131d95aa9acb79dd7a397835416afcd6b9c00740a60334dec9027d038a"
+          }
+        },
+        {
+          "path": "examples/pydantic_ai_examples/ag_ui/api/tool_approval.py",
+          "sha256": "d53ed0053b0a35086013576ef42aa5dcb489e69d5bfea7d78fa20f1bb9a5b992",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/examples__pydantic_ai_examples__ag_ui__api__tool_approval.py.txt",
+            "sha256": "d53ed0053b0a35086013576ef42aa5dcb489e69d5bfea7d78fa20f1bb9a5b992"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuples in rebuild-0007; PydanticAI is absent from prior registry.",
+      "strengths": [
+        "Cancellation and run binding are explicit",
+        "Typed fallback predicates and attempt lineage",
+        "Structured ask-user and approval suspension/resume"
+      ],
+      "weaknesses": [
+        "Python/AG-UI source is not Tauri/Rust runtime proof",
+        "Adapters can duplicate side effects without fencing",
+        "No Omnia catalog persistence or packaged UI evidence"
+      ],
+      "decision": "apply",
+      "omniaApplication": "Translate cancellation, typed fallback, effort resolution, approval and ask-user lineage into Omnia-owned contracts; do not vendor or embed PydanticAI.",
+      "evidence": [
+        "Snapshot: docs/rebuild/research/snapshots/cycle7/pydantic-ai/LICENSE.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/agent-abstract.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-abstract.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-fallback.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/docs__harness__approval-reviewer.md.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__ask_user___toolset.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__approval_reviewer___capability.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/pydantic_ai_slim__pydantic_ai__toolsets__approval_required.py.txt, docs/rebuild/research/snapshots/cycle7/pydantic-ai/examples__pydantic_ai_examples__ag_ui__api__tool_approval.py.txt"
+      ]
     }
   ]
 }

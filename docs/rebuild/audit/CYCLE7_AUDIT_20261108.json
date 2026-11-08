@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "cycleId": "rebuild-0007",
+  "stage": "audit",
+  "recordedAt": "2026-11-08T06:47:30.381Z",
+  "criteria": [
+    "ADVSET-003",
+    "ADVSET-001",
+    "CHAT-008"
+  ],
+  "result": "gaps-found",
+  "requirementGaps": [
+    {
+      "criterion": "ADVSET-003",
+      "gap": "Settings model discovery is renderer-local; provider_profiles/model catalog is not bound to Chat route selection, durable snapshot lineage or pagination."
+    },
+    {
+      "criterion": "ADVSET-001",
+      "gap": "Generation settings validate in the renderer but native capability negotiation and per-session hot-change receipts are absent."
+    },
+    {
+      "criterion": "CHAT-008",
+      "gap": "Native ask-user broker is tested, while packaged Tauri command/UI delivery and live provider interaction remain unproven."
+    }
+  ],
+  "evidenceReviewed": [
+    "src/rebuild/settings/model-discovery.ts",
+    "src/rebuild/settings/SettingsPanel.tsx",
+    "src/rebuild/chat/chat-controller.ts",
+    "src/rebuild/chat/chat-view.tsx",
+    "src-tauri/src/harness_bridge.rs",
+    "src-tauri/crates/omnia-harness/src/user_input.rs",
+    "docs/rebuild/audit/NATIVE_MODEL_AUDIT_CYCLE6_20261108.md"
+  ],
+  "acceptanceThresholds": {
+    "catalog": "Provider catalog snapshot ID/hash and stale/disappeared state survive refresh; Chat route carries profile/model binding.",
+    "settings": "Effective per-session model/effort/generation config is explicit and hot-changeable only for future work.",
+    "askUser": "Options/free text/cancel are validated across native broker and a packaged command boundary where available.",
+    "honesty": "Unavailable native/live boundaries remain visible; no preview claim is promoted."
+  },
+  "nextActions": [
+    "Research a genuinely new open-source model routing/catalog or ask-user runtime source.",
+    "Build a catalog-to-chat route adapter with effort compatibility resolution and tests.",
+    "Add native/runtime receipt or retain explicit blocker with attempted evidence.",
+    "Review source/evidence bindings independently before publication."
+  ]
+}

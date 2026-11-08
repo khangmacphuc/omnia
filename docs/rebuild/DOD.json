@@ -475,18 +475,13 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
           "path": "src/rebuild/rebuild-app.test.tsx",
           "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
-          "kind": "capture"
         }
       ],
       "blockers": [
@@ -518,18 +513,13 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
           "path": "src/rebuild/rebuild-app.test.tsx",
           "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
-          "kind": "capture"
         }
       ],
       "blockers": [
@@ -561,7 +551,7 @@
       "evidence": [
         {
           "path": "src/rebuild/chat/chat-controller.ts",
-          "sha256": "f635a6c2578f1fe1282304e89f087faf0b8e30b4ee70095e675e1aeab1da2633",
+          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
           "kind": "source"
         },
         {
@@ -604,13 +594,8 @@
         },
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/architecture-current-20261108.json",
-          "sha256": "07fd064c52882efe03699233cfe481dcd91cc9b7c1ad93e44b3dce3ade4d4f20",
-          "kind": "test"
         }
       ],
       "blockers": [
@@ -682,11 +667,6 @@
           "path": "src/rebuild/ide/ide-workspace.tsx",
           "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/architecture-current-20261108.json",
-          "sha256": "07fd064c52882efe03699233cfe481dcd91cc9b7c1ad93e44b3dce3ade4d4f20",
-          "kind": "test"
         }
       ],
       "blockers": [
@@ -718,18 +698,13 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
           "path": "src/rebuild/rebuild-app.test.tsx",
           "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
-          "sha256": "38b8d543bdb0f89f738c866e1c4fe981d034406af13c5eb2f1955656e693016f",
-          "kind": "test"
         }
       ],
       "blockers": [
@@ -763,11 +738,6 @@
           "path": "src/rebuild/rebuild-app.css",
           "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
-        },
-        {
-          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
-          "kind": "capture"
         }
       ],
       "blockers": [
@@ -804,7 +774,7 @@
         },
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
@@ -933,7 +903,7 @@
         },
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
@@ -1092,7 +1062,7 @@
         },
         {
           "path": "src/rebuild/rebuild-app.tsx",
-          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
           "kind": "source"
         },
         {
@@ -1279,14 +1249,31 @@
           "path": "docs/rebuild/receipts/ask-user-native-cycle5.json",
           "sha256": "5ee8ddf8f790dcf84f4511ba666dcfdd31c0ededa02dcb9c528cdea8cd98b93a",
           "kind": "native"
+        },
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.ts",
+          "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.test.ts",
+          "sha256": "8e57e88aa28ffb5a7be42842505e2f75941bccecccecdff98ac926fce9846e8a",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+          "kind": "test"
         }
       ],
       "blockers": [
         {
-          "cause": "Native broker/tool behavior is verified, but packaged Tauri command delivery, Windows UI delivery and live provider execution are not proven.",
+          "cause": "Native broker/tool behavior and renderer ask-user envelopes are verified, but packaged Tauri command delivery, Windows UI delivery and live provider execution are not proven.",
           "attempts": [
             "10 focused native user_input tests passed",
-            "Strict request/run/session validation and journal ordering are covered"
+            "Strict request/run/session validation and journal ordering are covered",
+            "11 renderer ask-user envelope tests passed, including stale, duplicate, expiry, late-answer and cancellation cases",
+            "Two-read recovery hash check remained stable and typecheck/architecture gates passed"
           ],
           "resolution": "Add packaged command/UI evidence and a live provider ask-user run.",
           "workaround": "Keep ask-user in an explicit capability-gated state when packaged native delivery is unavailable.",
@@ -4280,25 +4267,62 @@
         },
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
         },
         {
           "path": "src/rebuild/settings/settings.test.ts",
           "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d",
           "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/effort-resolution.ts",
+          "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/effort-resolution.test.ts",
+          "sha256": "5645c92e2e40d84aa5ed048a2f28bd6059037ea9e57975711394f28d1eca7690",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/index.ts",
+          "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+          "kind": "test"
+        },
+        {
+          "path": "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md",
+          "sha256": "8a3db7b7660500c0f8e8e25a5787c9fa3f587054a3d8870c3c94e4ddd5a7bef5",
+          "kind": "audit"
         }
       ],
       "blockers": [
         {
-          "cause": "No provider capability negotiation or native per-session runtime receipt.",
+          "cause": "Renderer requested/effective effort resolution and CAS-scoped session model/profile updates are verified, but native capability negotiation and a native per-session runtime receipt are not proven.",
           "attempts": [
             "Validated schema and UI controls exist",
-            "Settings tests pass"
+            "Settings tests pass",
+            "11 focused effort-resolution tests pass for eight requested values, ultra policy and unsupported states",
+            "Renderer route update passes app typecheck and the Cycle 7 independent review"
           ],
           "resolution": "Add native capability negotiation and hot-change receipt.",
           "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
-          "nextAction": "Add native capability negotiation and hot-change receipt."
+          "nextAction": "Add native capability negotiation and hot-change receipt, including explicit xhigh/ultra adapter behavior."
         }
       ]
     },
@@ -4319,7 +4343,7 @@
       "evidence": [
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
         }
       ],
@@ -4353,20 +4377,67 @@
       "evidence": [
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/catalog-route-adapter.ts",
+          "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
+          "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+          "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/index.ts",
+          "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da",
+          "kind": "source"
+        },
+        {
+          "path": "src-tauri/src/provider_gateway.rs",
+          "sha256": "f1962a00dc30946d82de835109d156b6dd36cb032ed1cdfaf0d70a72f1d3172a",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
+          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+          "kind": "test"
+        },
+        {
+          "path": "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md",
+          "sha256": "8a3db7b7660500c0f8e8e25a5787c9fa3f587054a3d8870c3c94e4ddd5a7bef5",
+          "kind": "audit"
         }
       ],
       "blockers": [
         {
-          "cause": "No live model discovery/refresh contract.",
+          "cause": "Renderer catalog snapshots, route identity and native provider model discovery source exist, but durable native snapshot persistence/lineage and packaged/live refresh behavior remain unproven.",
           "attempts": [
-            "Model picker is local policy UI",
-            "No live catalog IPC in clean-room shell"
+            "Model picker previously exposed only local policy UI",
+            "Native provider_models_list source and parser evidence were audited",
+            "Catalog route adapter tests cover lineage, stale/disappeared/unknown routes and provider-profile isolation",
+            "Cycle 7 renderer tests, typecheck, build and independent review passed"
           ],
-          "resolution": "Add provider catalog refresh and running-attempt preservation tests.",
-          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
-          "nextAction": "Add provider catalog refresh and running-attempt preservation tests."
+          "resolution": "Persist provider catalog snapshots and bind snapshot ID/hash and route identity into native prepared-attempt lineage; capture packaged/live refresh evidence.",
+          "workaround": "Allow a stale catalog model to remain a requested default for user continuity, but reject it at dispatch and show an explicit unavailable state.",
+          "nextAction": "Implement native catalog snapshot persistence and running-attempt preservation, then run packaged/live refresh tests."
         }
       ]
     },
@@ -4426,7 +4497,7 @@
         },
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
         }
       ],
@@ -4567,7 +4638,7 @@
         },
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
         },
         {
@@ -4611,7 +4682,7 @@
         },
         {
           "path": "src/rebuild/settings/SettingsPanel.tsx",
-          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08",
           "kind": "source"
         },
         {

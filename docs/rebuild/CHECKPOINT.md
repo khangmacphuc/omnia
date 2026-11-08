@@ -82,3 +82,49 @@ version tag, push verification and a final canonical-document reread.
 ## Cycle 0006 in progress
 
 Cycle 0006 current evidence: new Mastra and Monaco source snapshots; clean-room UI reset/contrast/tab geometry changes; renderer tests, typecheck, build and architecture guard pass. DoD remains incomplete; UI criteria are Partial with native/package evidence still required, ADVSET-003 remains Blocked, and CHAT-008 remains Partial pending packaged/live delivery.
+
+## Cycle 0007 evidence update (2026-11-08)
+
+Cycle **rebuild-0007** is at the `document` stage after an independent review
+passed. It covers `ADVSET-003`, `ADVSET-001` and `CHAT-008`. The cycle review
+receipt is `docs/rebuild/audit/REVIEW_CYCLE7_20261108.json` (current SHA-256
+`7b30d67e17bb4eb7d372254ec90b1f00ee4840df99a709ded081d2dd723af0a3`) and binds
+11 implementation source files plus the two Cycle 7 verification receipts.
+
+### Verified in this cycle
+
+- Catalog route adapter: stable provider-profile/model identity, deterministic
+  snapshot lineage, stale/disappeared/unknown route states and dispatch guard.
+- Effort capability resolver: eight requested values, explicit requested/effective
+  result, `ultra` policy resolution and fail-closed unsupported states.
+- Ask-user envelope: bounded typed options/free text/approval decisions, session/run/
+  revision binding, stale/duplicate/unknown/expired/late-answer rejection and
+  cancellation/close receipts.
+- Renderer verification: **9 files / 63 tests passed**.
+- App typecheck: exit 0. Renderer build: exit 0, 1690 modules transformed.
+- Architecture guard: exit 0 with no legacy renderer import/copy/live-embed violation.
+- Recovery receipt `docs/rebuild/receipts/native-ask-user-envelope-recovery-20261108.md`
+  confirms the ask-user source/test files remained byte-stable across two reads.
+
+### Current truth and blockers
+
+DoD remains **0 Done / 24 Partial / 7 Blocked / 209 Planned (240 total)**. The
+three selected criteria remain intentionally incomplete:
+
+- `ADVSET-003`: **Blocked** until native catalog snapshots and prepared-attempt
+  lineage are durable and packaged/live refresh behavior is captured.
+- `ADVSET-001`: **Partial** until native capability negotiation and per-session
+  runtime receipts exist, including explicit native `xhigh`/`ultra` behavior.
+- `CHAT-008`: **Partial** until packaged Tauri command/UI delivery and live provider
+  ask-user execution are exercised.
+
+Preview and renderer receipts do not promote native, Windows UI, or live-provider
+claims. No credentials, profiles, cookies or private transcripts are included.
+
+### Next loop
+
+Complete the document checklist and reread all canonical documents, then run the
+cycle validator, rebuild gates, architecture guard, app typecheck, renderer build
+and diff check. Publish only a reviewed milestone with explicit open criteria;
+continue into the next cycle for native catalog persistence, native effort
+capability receipts and packaged/live ask-user evidence.

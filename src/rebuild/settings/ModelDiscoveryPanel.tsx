@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { RefreshCw, Search, Square } from "lucide-react";
 import { ModelDiscoveryController, nativeModelDiscoveryService, type ModelDiscoveryService } from "./model-discovery";
+import { CatalogRouteAdapter, createCatalogSnapshot, type CatalogSnapshot } from "./catalog-route-adapter";
 
 export interface ModelDiscoveryPanelProps {
   currentModel: string;
@@ -13,9 +14,26 @@ const capability = (value: boolean | null): string => value === null ? "unknown"
 
 export function ModelDiscoveryPanel({ currentModel, currentProfileId, onChooseModel, service }: ModelDiscoveryPanelProps) {
   const [controller] = useState(() => new ModelDiscoveryController(service ?? nativeModelDiscoveryService(), currentProfileId));
+  const [routeAdapter] = useState(() => new CatalogRouteAdapter());
+  const [catalogSnapshot, setCatalogSnapshot] = useState<CatalogSnapshot | null>(null);
   const state = useSyncExternalStore(controller.subscribe, controller.getSnapshot, controller.getSnapshot);
   const [query, setQuery] = useState("");
   useEffect(() => { void controller.refreshProfiles(); return controller.cancel; }, [controller]);
+  useEffect(() => {
+    let cancelled = false;
+    if (!state.catalog) {
+      setCatalogSnapshot(null);
+      return () => { cancelled = true; };
+    }
+    void createCatalogSnapshot(state.catalog).then((snapshot) => {
+      if (cancelled) return;
+      routeAdapter.setSnapshot(snapshot);
+      setCatalogSnapshot(snapshot);
+    }).catch(() => {
+      if (!cancelled) setCatalogSnapshot(null);
+    });
+    return () => { cancelled = true; };
+  }, [routeAdapter, state.catalog]);
   const loading = state.phase === "loading-profiles" || state.phase === "loading-models";
   const available = state.phase !== "unavailable";
   const profile = state.profiles.find((entry) => entry.id === state.selectedProfileId);
@@ -39,9 +57,9 @@ export function ModelDiscoveryPanel({ currentModel, currentProfileId, onChooseMo
       {!available ? "Native model discovery is unavailable in browser preview. No provider catalog is fabricated." : state.error ?? (state.phase === "loading-profiles" ? "Reading native provider profiles…" : state.phase === "loading-models" ? "Discovering models through the native provider gateway…" : state.phase === "cancelled" ? "Stopped waiting. A native request may still finish; its result will be ignored." : !state.profiles.length ? "No native provider profiles are configured. Create a profile in native provider configuration before discovery." : !state.catalog ? "Choose a provider, then discover its current model catalog." : `${state.catalog.models.length} models received from the native gateway.`)}
     </div>
     {state.catalog ? <>
-      <div className="settings-grid"><label className="settings-field"><span><Search size={12} aria-hidden="true" /> Filter discovered models</span><input className="settings-control" aria-label="Filter discovered models" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Model name or ID" /></label><label className="settings-field"><span>Discovered model</span><select className="settings-select" aria-label="Discovered model" disabled={!visibleModels.length} value={selectedVisible ? currentModel : ""} onChange={(event) => { if (state.catalog?.models.some((entry) => entry.id === event.target.value)) onChooseModel({ profileId: state.catalog.profileId, modelId: event.target.value }); }}><option value="">Choose to apply as default</option>{visibleModels.map((entry) => <option key={entry.id} value={entry.id}>{entry.displayName} · {entry.id}</option>)}</select></label></div>
+      <div className="settings-grid"><label className="settings-field"><span><Search size={12} aria-hidden="true" /> Filter discovered models</span><input className="settings-control" aria-label="Filter discovered models" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Model name or ID" /></label><label className="settings-field"><span>Discovered model</span><select className="settings-select" aria-label="Discovered model" disabled={!visibleModels.length} value={selectedVisible ? currentModel : ""} onChange={(event) => { const modelId = event.target.value; if (!state.catalog || !modelId) return; const profileId = state.catalog.profileId; const resolution = catalogSnapshot ? routeAdapter.resolve({ providerProfileId: profileId, modelId }) : null; if (!resolution || resolution.state === "available" || resolution.state === "stale") onChooseModel({ profileId, modelId }); }}><option value="">Choose to apply as default</option>{visibleModels.map((entry) => <option key={entry.id} value={entry.id}>{entry.displayName} · {entry.id}</option>)}</select></label></div>
       <p className="settings-help">Showing {visibleModels.length} of {models.length} matching models. Filter to narrow large catalogs. Choosing a model updates the requested default immediately; active runs keep their current route.</p>
-      <div className="settings-discovery-provenance"><span>Native discovery timestamp</span><time dateTime={state.catalog.discoveredAt}>{new Date(state.catalog.discoveredAt).toLocaleString()}</time><span>Capability source: {sources.join(", ") || "not supplied"}</span></div>
+      <div className="settings-discovery-provenance"><span>Native discovery timestamp</span><time dateTime={state.catalog.discoveredAt}>{new Date(state.catalog.discoveredAt).toLocaleString()}</time><span>Catalog snapshot: {catalogSnapshot?.snapshotId ?? "lineage pending"}</span><span>Capability source: {sources.join(", ") || "not supplied"}</span></div>
       {inspectedModel ? <p className="settings-help">Streaming {capability(inspectedModel.capabilities.streaming)} · Tools {capability(inspectedModel.capabilities.tools)} · Vision {capability(inspectedModel.capabilities.vision)} · Reasoning {capability(inspectedModel.capabilities.reasoning)}</p> : null}
       <p className="settings-help">Effort values are not supplied by this catalog contract. Native capability negotiation and dispatch validation remain authoritative.</p>
     </> : null}

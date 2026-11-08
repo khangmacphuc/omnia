@@ -14,3 +14,7 @@ export type { RebuildSettings, RebuildTheme, ReasoningEffort, RetryJitter } from
 export { ModelDiscoveryPanel } from "./ModelDiscoveryPanel";
 export { ModelDiscoveryController, nativeModelDiscoveryService } from "./model-discovery";
 export type { DiscoveryCatalog, DiscoveryModel, DiscoveryProfile, ModelDiscoveryService, ModelDiscoverySnapshot } from "./model-discovery";
+export { CatalogRouteAdapter, createCatalogSnapshot, reconcileCatalogRoutes, resolveCatalogRoute } from "./catalog-route-adapter";
+export type { CatalogRoute, CatalogRouteIdentity, CatalogRouteState, CatalogSnapshot, RouteResolution } from "./catalog-route-adapter";
+export { highestSupportedEffort, resolveReasoningEffort, REASONING_EFFORTS } from "./effort-resolution";
+export type { EffortCapabilities, EffortResolution, EffortResolutionEvidence, EffectiveReasoningEffort, RequestedReasoningEffort } from "./effort-resolution";

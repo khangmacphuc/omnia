@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "cycleId": "rebuild-0007",
+  "recordedAt": "2026-11-08T06:52:49Z",
+  "sourceId": "new-litellm-router-cycle7-20261108",
+  "canonicalRepo": "https://github.com/BerriAI/litellm",
+  "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+  "license": "MIT (enterprise features separately licensed; inspected files outside enterprise)",
+  "query": "open source everything super power pro max model routing provider catalog retries cooldown latency routing architecture",
+  "paths": [
+    {
+      "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273",
+      "path": "LICENSE"
+    },
+    {
+      "sha256": "374d8fdb228a6d528cdcf075aa807b43c5cec7669ee3adf0b21aedbbafd90e7b",
+      "path": "README.md"
+    },
+    {
+      "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8",
+      "path": "litellm/router.py"
+    },
+    {
+      "sha256": "4c4b703ed7ab5f9986405625fbcd07b6607f36e1908d5be1a4d6654d4e56d05b",
+      "path": "litellm/router_strategy/lowest_latency.py"
+    }
+  ],
+  "novelty": "New repository/revision/path tuples for cycle 0007; no LiteLLM path appears in prior cycle baseline or SOURCE_REGISTER",
+  "strengths": [
+    "Explicit stable model aliases and routing groups with retry, fallback, cooldown and health policy controls",
+    "Bounded rolling latency samples make routing hints inspectable and treat unobserved deployments explicitly"
+  ],
+  "weaknesses": [
+    "Python gateway is not Omnia Rust/Tauri proof",
+    "Provider credentials, external services and enterprise features are outside the clean-room boundary"
+  ],
+  "decision": "apply-as-reference",
+  "evidence": [
+    "docs/rebuild/research/NEW_ROUTING_OSS_20261108.md",
+    "docs/rebuild/research/snapshots/cycle7/litellm"
+  ]
+}

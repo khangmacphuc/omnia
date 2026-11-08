@@ -118,3 +118,42 @@ therefore still **0/240 Done** and the goal remains active.
 ## Cycle 0006 evidence update (2026-11-08)
 
 Cycle 0006 added Mastra workflow durability research and Monaco model/worker research with pinned source snapshots. The clean-room renderer now imports its reset before lazy render, uses a semantic light-theme primary ink token, enforces 36px browser tabs, and records refreshed independent browser checks across 16 states. These remain Vite preview evidence; packaged Tauri/WebView2, live provider model discovery, native ask-user delivery, pointer storage and RAG runtime remain open.
+
+## Cycle 0007 evidence update (2026-11-08)
+
+Cycle 0007 adds three renderer contracts while preserving the clean-room boundary.
+The catalog route adapter treats `(providerProfileId, modelId)` as a stable route
+identity and records a deterministic catalog snapshot ID/hash, previous snapshot,
+stale state and disappeared model state. A stale model may remain a requested
+default so a user does not lose intent during refresh, but the dispatch guard
+rejects stale, disappeared and unknown routes until a current catalog proves the
+route.
+
+The effort resolver represents all requested values `none`, `minimal`, `low`,
+`medium`, `high`, `xhigh`, `max` and `ultra`. It always returns requested and
+effective values plus capability evidence. `ultra` is a policy that resolves to
+the highest explicitly supported effort; unsupported values remain explicit
+fail-closed states. This renderer contract does not claim that native adapters
+accept `xhigh` or `ultra`.
+
+The ask-user envelope binds a request and decision to session, run and revision
+identities. It bounds text and option counts, rejects unknown fields, stale
+revisions, duplicate or unknown requests and late answers, and records expiry,
+cancellation and close receipts. Supported decisions are `select`, `free_text`,
+`approve`, `reject`, `edit` and `cancel`. Renderer tests cover the positive and
+negative paths; packaged Tauri command delivery, Windows UI behavior and live
+provider execution remain unproven.
+
+Cycle 0007 verification is **9 files / 63 renderer tests passed**, app typecheck
+passed and the renderer build transformed 1690 modules. The independent review
+`docs/rebuild/audit/REVIEW_CYCLE7_20261108.json` passed with current source and
+receipt hashes. The recovery receipt
+`docs/rebuild/receipts/native-ask-user-envelope-recovery-20261108.md` records a
+stable two-read hash check and repeats the renderer boundary.
+
+The native capability audit still finds no durable native catalog snapshot
+record/lineage, no native `xhigh`/`ultra` adapter proof and no packaged/live
+provider evidence. Therefore `ADVSET-003` remains Blocked, `ADVSET-001` remains
+Partial and `CHAT-008` remains Partial. These are explicit blockers, not preview
+claims. The next cycle must add native persistence/capability receipts or retain
+the blocker with a fresh attempt and next action.
