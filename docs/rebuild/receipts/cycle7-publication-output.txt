@@ -1,0 +1,6 @@
+command: git push origin codex/omnia-original-rebuild; git push origin v0.1.0-rebuild-0007; git ls-remote origin refs/heads/codex/omnia-original-rebuild refs/tags/v0.1.0-rebuild-0007 refs/tags/v0.1.0-rebuild-0007^{}
+recordedAt: 2026-11-08T08:13:12.1047761Z
+commit: ecc08053b48aecd0f1847caa2e87f8c5d0349524
+ecc08053b48aecd0f1847caa2e87f8c5d0349524	refs/heads/codex/omnia-original-rebuild
+ff1a495ff6b05b1253a3d06bbb54e1dae9bbd509	refs/tags/v0.1.0-rebuild-0007
+ecc08053b48aecd0f1847caa2e87f8c5d0349524	refs/tags/v0.1.0-rebuild-0007^{}
