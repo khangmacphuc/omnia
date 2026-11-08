@@ -1083,6 +1083,13 @@
       "stage": "document",
       "generation": 1,
       "kind": "documentation"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle8-publication.json",
+      "sha256": "46034333157b3ffd8c811708119739336a355e8cfa6fccaa6b56ae91f78a1cd1",
+      "stage": "publish",
+      "generation": 1,
+      "kind": "publish"
     }
   ],
   "checklist": {
