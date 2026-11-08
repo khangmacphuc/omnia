@@ -489,6 +489,13 @@
       "stage": "document",
       "generation": 1,
       "kind": "document"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle5-publication.json",
+      "sha256": "03d5e47129b9ddba6ae76e77d4cc8b4ed9e2d15df3fe95a3c874f4ee2c55abe2",
+      "stage": "publish",
+      "generation": 1,
+      "kind": "publish"
     }
   ],
   "checklist": {
