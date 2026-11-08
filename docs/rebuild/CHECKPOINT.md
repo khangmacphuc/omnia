@@ -128,3 +128,14 @@ cycle validator, rebuild gates, architecture guard, app typecheck, renderer buil
 and diff check. Publish only a reviewed milestone with explicit open criteria;
 continue into the next cycle for native catalog persistence, native effort
 capability receipts and packaged/live ask-user evidence.
+
+## Cycle 0007 publication
+
+Cycle `rebuild-0007` completed its evidence loop and published a reviewed
+milestone. Code commit: `ecc08053b48aecd0f1847caa2e87f8c5d0349524`; tag:
+`v0.1.0-rebuild-0007`; publication proof is
+`docs/rebuild/receipts/cycle7-publication.json`. The branch and peeled tag were
+verified against GitHub. The milestone preserves the open matrix rather than
+claiming product completion: **0 Done / 24 Partial / 7 Blocked / 209 Planned**.
+The next cycle starts with native catalog snapshot persistence and route lineage,
+native effort capability receipts, and packaged/live ask-user evidence.

@@ -9,8 +9,8 @@
   ],
   "revision": null,
   "createdAt": "2026-11-08T06:46:38.998Z",
-  "status": "active",
-  "stage": "publish",
+  "status": "completed",
+  "stage": "next",
   "generation": 1,
   "history": [
     {
@@ -71,6 +71,12 @@
       "stage": "publish",
       "generation": 1,
       "at": "2026-11-08T07:53:21.973Z",
+      "event": "advance"
+    },
+    {
+      "stage": "next",
+      "generation": 1,
+      "at": "2026-11-08T08:15:09.325Z",
       "event": "advance"
     }
   ],

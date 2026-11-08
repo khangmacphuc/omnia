@@ -1,6 +1,6 @@
 # Omnia original rebuild goal
 
-**Status:** ACTIVE — no completion claim. **Cycle:** rebuild-0007 (document stage). **Owner:** root integrator.
+**Status:** ACTIVE — no completion claim. **Cycle:** rebuild-0007 published; next evidence cycle pending. **Owner:** root integrator.
 
 Omnia is being rebuilt as a new local-first technical AI workspace. This goal is
 separate from historical renderer work and does not inherit any old UI Done state.
@@ -85,4 +85,4 @@ its required evidence paths and a reviewer distinct from its implementer. Partia
 blocked, planned and stale evidence remain visible. Goal completion requires strict
 Done for all mandatory criteria, current README/screenshots, verified commit/push/
 tag, and a final reread of all canonical documents. Until then report counts as
-`done/partial/blocked/planned` and continue.`r`n
+`done/partial/blocked/planned` and continue.`r`n`r`n
