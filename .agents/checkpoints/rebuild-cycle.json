@@ -12,7 +12,7 @@
   "revision": null,
   "createdAt": "2026-11-08T05:56:14.702Z",
   "status": "active",
-  "stage": "resume",
+  "stage": "publish",
   "generation": 1,
   "history": [
     {
@@ -20,6 +20,60 @@
       "generation": 1,
       "at": "2026-11-08T05:56:14.702Z",
       "event": "started"
+    },
+    {
+      "stage": "audit",
+      "generation": 1,
+      "at": "2026-11-08T06:16:13.891Z",
+      "event": "advance"
+    },
+    {
+      "stage": "research",
+      "generation": 1,
+      "at": "2026-11-08T06:16:43.143Z",
+      "event": "advance"
+    },
+    {
+      "stage": "synthesize",
+      "generation": 1,
+      "at": "2026-11-08T06:17:25.567Z",
+      "event": "advance"
+    },
+    {
+      "stage": "plan",
+      "generation": 1,
+      "at": "2026-11-08T06:20:01.855Z",
+      "event": "advance"
+    },
+    {
+      "stage": "implement",
+      "generation": 1,
+      "at": "2026-11-08T06:20:37.274Z",
+      "event": "advance"
+    },
+    {
+      "stage": "verify",
+      "generation": 1,
+      "at": "2026-11-08T06:20:44.409Z",
+      "event": "advance"
+    },
+    {
+      "stage": "review",
+      "generation": 1,
+      "at": "2026-11-08T06:22:19.801Z",
+      "event": "advance"
+    },
+    {
+      "stage": "document",
+      "generation": 1,
+      "at": "2026-11-08T06:24:34.567Z",
+      "event": "advance"
+    },
+    {
+      "stage": "publish",
+      "generation": 1,
+      "at": "2026-11-08T06:39:23.671Z",
+      "event": "advance"
     }
   ],
   "reads": {
@@ -42,26 +96,63 @@
       },
       {
         "path": "docs/rebuild/SPEC.md",
-        "sha256": "5eb4970e9279b3ce361108b19a584d63c92c14c4b4a7c09bf549c0abceb66bf0"
+        "sha256": "fcacb907aa71f709d79c2e9e35f60134a63f28591c007006e5973eb0f847cfd1"
       },
       {
         "path": "docs/rebuild/DOD.json",
-        "sha256": "5aae8ba75d563922c25e0a923b83cea751d5120498390c21ff541831fd7708ab"
+        "sha256": "2a074c6a701081fdebe22070cdeb1c69c434fb379e4f696c22f163aa835c9764"
       },
       {
         "path": "docs/rebuild/SOURCE_REGISTER.json",
-        "sha256": "8d021bf042e4bb799580d69e69641615493f404e84c924870333231615ab869a"
+        "sha256": "6f689f89e7f8b68cf9f7ab0724f68764d9c25c1f856b1245f585ed0c1b45698e"
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "d3c1f25f00979d0fdf79cbf183cafd02650150ca5e41c8653664f775bbf63e2a"
+        "sha256": "66f47176740c4a55d159b03efc3cd57a78c16241457cbd0ab7a59b8f88f5fa05"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
         "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
       }
     ],
-    "after": []
+    "after": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+      },
+      {
+        "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+        "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+      },
+      {
+        "path": "docs/rebuild/GOAL.md",
+        "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+      },
+      {
+        "path": "docs/rebuild/WORKFLOW.md",
+        "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+      },
+      {
+        "path": "docs/rebuild/SPEC.md",
+        "sha256": "fcacb907aa71f709d79c2e9e35f60134a63f28591c007006e5973eb0f847cfd1"
+      },
+      {
+        "path": "docs/rebuild/DOD.json",
+        "sha256": "2a074c6a701081fdebe22070cdeb1c69c434fb379e4f696c22f163aa835c9764"
+      },
+      {
+        "path": "docs/rebuild/SOURCE_REGISTER.json",
+        "sha256": "6f689f89e7f8b68cf9f7ab0724f68764d9c25c1f856b1245f585ed0c1b45698e"
+      },
+      {
+        "path": "docs/rebuild/CHECKPOINT.md",
+        "sha256": "66f47176740c4a55d159b03efc3cd57a78c16241457cbd0ab7a59b8f88f5fa05"
+      },
+      {
+        "path": "docs/rebuild/ASSIGNMENTS.md",
+        "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
+      }
+    ]
   },
   "baselineResearch": [
     {
@@ -97,14 +188,14 @@
       "canonicalRepo": "https://github.com/kirodotdev/powers",
       "revision": "91d8b241dea7107a119c78aeb49dd2d3fab48da8",
       "path": "README.md",
-      "sha256": "80EBC3EFC8B2E7655AB140862C35F83CBC09E37E38178A6ADED540A9B10256C9"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "oss-power-agent-powershell-20261108",
       "canonicalRepo": "https://github.com/nakasyou/power-agent",
       "revision": "a258539983e3ffbcb04f7762d73f98b67940e5b8",
       "path": "README.md",
-      "sha256": "0396a57db2edf08e0a03a0f0d73ff31f77bddaa595f6bd218416b46ff3a14bed"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "oss-azure-agents-control-plane-20261108",
@@ -132,14 +223,14 @@
       "canonicalRepo": "https://github.com/vercel-labs/agent-desktop",
       "revision": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
       "path": "README.md",
-      "sha256": "373b4616cbdb558318b5ad7b70b0a7086e58833d60646c36a81deae655d82365"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-openviking-20261108",
       "canonicalRepo": "https://github.com/volcengine/OpenViking",
       "revision": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
       "path": "README.md",
-      "sha256": "8d76530b5f69d15b973af456400f909a121ae63bc66dcc1ae78c80190245ec3e"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-openviking-20261108",
@@ -160,14 +251,14 @@
       "canonicalRepo": "https://github.com/ragleap/ragleap-core",
       "revision": "24b2e7f998ecabf7147b3232aa94f6c1528e41ae",
       "path": "README.md",
-      "sha256": "82df0380209c791d88ecc54f68857d1e1cbc259be364c391ee23645190c5c0ba"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-superclaude-20261108",
       "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
       "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
       "path": "README.md",
-      "sha256": "f477b0310168ab45c9bc9aa507a570814813dcdf3a92ab4992810f9ba53cdc30"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-everything-claude-code-20261108",
@@ -181,14 +272,14 @@
       "canonicalRepo": "https://github.com/salmandev/everything-gemini",
       "revision": "903bb8db6f2ee47a1b1a8bb24a48e2961c4cfa4e",
       "path": "README.md",
-      "sha256": "ebe497d65117b692c89cfbf24f9a2eec7aa000c1f09db5264a95294bffa67d15"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-openbrowse-compaction-cycle2-20261108",
       "canonicalRepo": "https://github.com/openbrowse-ai/openbrowse",
       "revision": "9c1bec9d9278969c1fc15f244711fa7e0a415b7a",
       "path": "README.md",
-      "sha256": "85bc0c607fbb78c2cfc651d09ad8a39cdf6febcb97c5ea4c123efbd01f3017a7"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-openbrowse-compaction-cycle2-20261108",
@@ -202,7 +293,7 @@
       "canonicalRepo": "https://github.com/Backboard-io/Backboard-Desktop",
       "revision": "af5489c6cb81d23ed6675756a9dadbe370434678",
       "path": "README.md",
-      "sha256": "60b276f7bbe0791fe36b9ff4d28655de3f3a3522063c5bc48cbf4782b898b8b0"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-backboard-desktop-capability-cycle2-20261108",
@@ -216,7 +307,7 @@
       "canonicalRepo": "https://github.com/browser-use/terminal",
       "revision": "16cdd3ac47261292d88f410abb1f0234577850ce",
       "path": "README.md",
-      "sha256": "70392f0919aa417827ff3cb548a60efa6726ec1517d4a69542601608b5944240"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-browser-use-terminal-cycle3-20261108",
@@ -244,7 +335,7 @@
       "canonicalRepo": "https://github.com/suitedaces/computer-agent",
       "revision": "92795e717b5bd254d1894d46d180eb29b690525b",
       "path": "README.md",
-      "sha256": "e6f3c696e6735c7c2f2bffa745aa901073efe9cb54c31c7dcb835dde740df266"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-computer-agent-cycle3-20261108",
@@ -258,14 +349,14 @@
       "canonicalRepo": "https://github.com/suitedaces/computer-agent",
       "revision": "92795e717b5bd254d1894d46d180eb29b690525b",
       "path": "src-tauri/src/storage.rs",
-      "sha256": "c02edadfb1ae72037d3569be37742c04e67ae07a7c2dbd689b12f32ff042dc29"
+      "sha256": "29053c1b27907f2b35e58d99c58f95681ce99bc410b8fdee1d60b59f80c6de23"
     },
     {
       "sourceId": "new-atlas-agent-cycle3-20261108",
       "canonicalRepo": "https://github.com/wede-wx/atlas-agent",
       "revision": "8ccacf2d828bb245c3d687576485dea603d14f64",
       "path": "README.md",
-      "sha256": "d2e053606b0105ab27ce44d47e6a98e7d9bc78f522a24030fcad5875ef38c94a"
+      "sha256": "5fb7de2ad94ae8240cc0e44b028b74874da23078fbb503a2239c5f456e0bd0e4"
     },
     {
       "sourceId": "new-atlas-agent-cycle3-20261108",
@@ -289,8 +380,194 @@
       "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8"
     }
   ],
-  "research": [],
-  "artifacts": [],
-  "checklist": {},
-  "review": null
+  "research": [
+    {
+      "canonicalRepo": "https://github.com/mastra-ai/mastra",
+      "revision": "9a85fd4c5c5de81ce7632ea35ba1b79e4357b9c5",
+      "path": "packages/core/src/workflows/workflow.ts",
+      "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle6/mastra-workflow/workflow.ts.txt",
+        "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9"
+      },
+      "license": "Apache-2.0",
+      "query": "everything super power pro max agent workflow architecture open source Mastra",
+      "retrievedAt": "2026-11-08T05:59:16.0111051Z",
+      "decision": "apply",
+      "observation": "Mastra workflow source persists journal headers, nested cancellation, ownership claims, bounded recovery and retry metadata.",
+      "strength": "Durable lineage and fenced recovery patterns are explicit in source.",
+      "weakness": "Framework source is not Omnia native/runtime proof and unfenced adapters can duplicate work.",
+      "impact": "Translate run receipts, child-first cancellation and explicit unknown/unfenced state into Omnia-owned contracts."
+    },
+    {
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "path": "src/internal/common/workers.ts",
+      "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__internal__common__workers.ts",
+        "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc"
+      },
+      "license": "MIT",
+      "query": "site:github.com microsoft monaco-editor source editor model worker undo stack architecture 2026; open source Monaco editor everything super power pro max agent IDE",
+      "retrievedAt": "2026-11-08T06:09:01Z",
+      "decision": "apply",
+      "observation": "Worker creation is host-configurable, explicit and fail-closed, with bounded idle model sync.",
+      "strength": "URI/model identity and lifecycle boundaries separate buffers, views and providers.",
+      "weakness": "Browser editor source does not prove Tauri native persistence or worker packaging.",
+      "impact": "Use canonical pointer identity, explicit activation/disposal and unavailable worker states in Omnia IDE contracts."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/rebuild/audit/CYCLE6_AUDIT_20261108.json",
+      "sha256": "2c3715a332fbe21337b9964a0c40a2e8d80bcd248558bda04cafac367cfe3d9f",
+      "kind": "audit",
+      "stage": "audit",
+      "generation": 1
+    },
+    {
+      "path": "docs/rebuild/research/CYCLE6_RESEARCH.md",
+      "sha256": "43518a628ea8a85260f651cd93a5465dd9bd64bb085b713c6c2e2ac9fcddc4dd",
+      "kind": "research",
+      "stage": "audit",
+      "generation": 1
+    },
+    {
+      "path": "docs/rebuild/research/CYCLE6_RESEARCH.md",
+      "sha256": "43518a628ea8a85260f651cd93a5465dd9bd64bb085b713c6c2e2ac9fcddc4dd",
+      "stage": "research",
+      "generation": 1,
+      "kind": "research"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle6-renderer-tests.json",
+      "sha256": "6dcb7e8de3adf769f3d30bd57738eaefa510d9b886013fd18be0275a6034dcbc",
+      "stage": "verify",
+      "generation": 1,
+      "kind": "test"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
+      "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+      "stage": "verify",
+      "generation": 1,
+      "kind": "capture"
+    },
+    {
+      "path": "docs/rebuild/synthesis-cycle6.json",
+      "sha256": "165e6c4999fb93f629cdbf14dc0af0af52c65f28b29fcca5d6c473445edef544",
+      "stage": "synthesize",
+      "generation": 1,
+      "kind": "synthesis"
+    },
+    {
+      "path": "docs/rebuild/plan-cycle6.json",
+      "sha256": "801c35df19dfca7aea5b8fa6ada77de711f276fd0f38da808c1fab8cc272b73d",
+      "stage": "plan",
+      "generation": 1,
+      "kind": "plan"
+    },
+    {
+      "path": "docs/rebuild/implementation-cycle6.json",
+      "sha256": "e058f18cf2af2f901c13ca89590e92fac51881d99dbf776dc0fb640d20c78cb3",
+      "stage": "implement",
+      "generation": 1,
+      "kind": "implementation"
+    },
+    {
+      "path": "docs/rebuild/document-cycle6.json",
+      "sha256": "0618b0b9f1b8660a4b2ea4b68dd37eabd38f5131774a3192671c02e0f33b5c0f",
+      "stage": "document",
+      "generation": 1,
+      "kind": "document"
+    }
+  ],
+  "checklist": {
+    "requirements_traced": true,
+    "input_changes_reviewed": true,
+    "contracts_and_resources": true,
+    "ui_states_and_tokens": true,
+    "tests_match_source": true,
+    "claims_are_scoped": true,
+    "negative_cases_and_gaps": true,
+    "independent_review": true,
+    "canonical_docs_reread": true,
+    "readme_release_consistent": true
+  },
+  "review": {
+    "reviewer": "/root/cycle6_ui_audit",
+    "author": "/root",
+    "reviewedAt": "2026-11-08T06:40:00.000Z",
+    "result": "passed",
+    "unresolved": [],
+    "evidence": {
+      "path": "docs/rebuild/audit/REVIEW_CYCLE6_20261108.json",
+      "sha256": "74cbb0e7a43fa9328cd2c6fcf084e778ed64ec6d0a9f709a1c098f883e84f8e0"
+    },
+    "sourceFiles": [
+      {
+        "path": "src/main.tsx",
+        "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+      },
+      {
+        "path": "src/rebuild/rebuild-app.css",
+        "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+      },
+      {
+        "path": "src/rebuild/chat/chat-view.css",
+        "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
+      },
+      {
+        "path": "src/rebuild/browser/browser-workspace.css",
+        "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
+      },
+      {
+        "path": "tests/rebuild-ui-browser-independent.mjs",
+        "sha256": "17e4a0159b57f3c607f39cdbe39a0a7d318dd34ce3a99c45b0b4f050c87e1719"
+      },
+      {
+        "path": "src/rebuild/settings/SettingsPanel.tsx",
+        "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+      },
+      {
+        "path": "src/rebuild/settings/model-discovery.ts",
+        "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
+      },
+      {
+        "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+        "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
+      },
+      {
+        "path": "src-tauri/crates/omnia-harness/src/user_input/tests.rs",
+        "sha256": "8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1"
+      },
+      {
+        "path": "src-tauri/src/harness_bridge.rs",
+        "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+      },
+      {
+        "path": "src/rebuild/rebuild-app.tsx",
+        "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+      },
+      {
+        "path": "src/rebuild/chat/chat-view.tsx",
+        "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+      },
+      {
+        "path": "src/rebuild/browser/browser-workspace.tsx",
+        "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+      }
+    ],
+    "testEvidence": [
+      {
+        "path": "docs/rebuild/receipts/cycle6-renderer-tests.json",
+        "sha256": "6dcb7e8de3adf769f3d30bd57738eaefa510d9b886013fd18be0275a6034dcbc"
+      },
+      {
+        "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
+        "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5"
+      }
+    ]
+  }
 }

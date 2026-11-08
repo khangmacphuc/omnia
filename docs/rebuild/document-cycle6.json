@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "stage": "document",
+  "cycleId": "rebuild-0006",
+  "recordedAt": "2026-11-08T06:45:00.000Z",
+  "result": "updated",
+  "updated": [
+    "docs/rebuild/SPEC.md",
+    "docs/rebuild/CHECKPOINT.md",
+    "docs/rebuild/DOD.json",
+    "docs/rebuild/SOURCE_REGISTER.json",
+    "README.md"
+  ],
+  "counts": {
+    "planned": 209,
+    "partial": 24,
+    "blocked": 7
+  },
+  "limitations": [
+    "Product remains incomplete; preview evidence is not native/live proof.",
+    "ADVSET-003 and CHAT-008 retain explicit blockers."
+  ]
+}

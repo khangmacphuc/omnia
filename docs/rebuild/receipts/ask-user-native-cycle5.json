@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "result": "passed",
   "scope": "native",
-  "recordedAt": "2026-11-08T05:39:00.000Z",
+  "recordedAt": "2026-11-08T06:34:18.655Z",
   "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input -- --nocapture",
   "exitCode": 0,
   "output": {
     "path": "docs/rebuild/receipts/ask-user-native-cycle5.txt",
-    "sha256": "afee01ed0c719589023178d831df97f02af752571eaa4e4cf1789d1017c83516"
+    "sha256": "52312f489ab318746093b1b5c585c69ce5930019c61b3682b22d1b76d8d67faf"
   },
   "sourceFiles": [
     {

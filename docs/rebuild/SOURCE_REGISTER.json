@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T04:03:45.9297794Z",
-  "cycle": "rebuild-0003",
+  "generatedAt": "2026-11-08T06:15:11.764Z",
+  "cycle": "rebuild-0006",
   "corpusInventory": {
     "path": "docs/rebuild/research/CORPUS_INVENTORY.json",
     "generatedBy": "scripts/rebuild/source-inventory.mjs",
@@ -678,6 +678,136 @@
       "omniaApplication": "Use checkpoint lineage and explicit state persistence as design input for Omnia session and workflow receipts; implement independently in Rust/TypeScript.",
       "evidence": [
         "docs/rebuild/research/CYCLE5_FETCH_RECEIPT.json"
+      ]
+    },
+    {
+      "id": "new-mastra-workflow-cycle6-20261108",
+      "canonicalRepo": "https://github.com/mastra-ai/mastra",
+      "revision": "9a85fd4c5c5de81ce7632ea35ba1b79e4357b9c5",
+      "license": "Apache-2.0",
+      "query": "everything super power pro max agent workflow architecture open source Mastra",
+      "retrievedAt": "2026-11-08T05:59:16.0111051Z",
+      "paths": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "f0351b469d1548e547882f01d2486a90f6bd0ff3c89defec841bbf5641265776",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/mastra-workflow/LICENSE.md.txt",
+            "sha256": "f0351b469d1548e547882f01d2486a90f6bd0ff3c89defec841bbf5641265776"
+          }
+        },
+        {
+          "path": "packages/core/src/workflows/workflow.ts",
+          "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/mastra-workflow/workflow.ts.txt",
+            "sha256": "55ff8cc5148bf57aa167a475f0dc75adff75632c47d4b8f674e678d7f61f4da9"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0006; not in the prior source register.",
+      "strengths": [
+        "Persisted run journal with v1/v2 negotiation",
+        "Child-first nested cancellation and ownership fencing",
+        "Bounded recovery concurrency and retry lineage"
+      ],
+      "weaknesses": [
+        "TypeScript framework source is not Omnia native/runtime proof",
+        "Adapter capabilities can leave unfenced duplicate execution"
+      ],
+      "decision": "apply-as-reference",
+      "omniaApplication": "Translate run headers, step receipts, compare-and-set leases, child-first cancellation, bounded recovery and retry/trace metadata into Omnia-owned Rust/TypeScript contracts without vendoring source.",
+      "evidence": [
+        "docs/rebuild/research/CYCLE6_RESEARCH.md"
+      ]
+    },
+    {
+      "id": "new-monaco-editor-cycle6-20261108",
+      "canonicalRepo": "https://github.com/microsoft/monaco-editor",
+      "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
+      "license": "MIT",
+      "query": "site:github.com microsoft monaco-editor source editor model worker undo stack architecture 2026; open source Monaco editor everything super power pro max agent IDE",
+      "retrievedAt": "2026-11-08T06:09:01Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "333e7215227199c4ba97ec927bb09cfcf69b297ba3be108e866aed735a312822",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/README.md",
+            "sha256": "333e7215227199c4ba97ec927bb09cfcf69b297ba3be108e866aed735a312822"
+          }
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "33e4ff1a06ef62ba21788ea162564ee8165269a24a9ce6ef301837447eab0ac6",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/LICENSE.txt",
+            "sha256": "33e4ff1a06ef62ba21788ea162564ee8165269a24a9ce6ef301837447eab0ac6"
+          }
+        },
+        {
+          "path": "src/index.ts",
+          "sha256": "ead6d33f8e2476f85a50f00aca1c2baa435bd77f7b42965d68b06e2b899c2405",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__index.ts",
+            "sha256": "ead6d33f8e2476f85a50f00aca1c2baa435bd77f7b42965d68b06e2b899c2405"
+          }
+        },
+        {
+          "path": "src/editor.ts",
+          "sha256": "88d06a5841b601a83d99ea07e5ab9167d2a5481c7222f0eeb050f77c7c254f43",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__editor.ts",
+            "sha256": "88d06a5841b601a83d99ea07e5ab9167d2a5481c7222f0eeb050f77c7c254f43"
+          }
+        },
+        {
+          "path": "src/internal/common/workers.ts",
+          "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__internal__common__workers.ts",
+            "sha256": "b114be059cdb6d8f37ae3d198c702adaedb46abe7a215b21fff7fdb558935adc"
+          }
+        },
+        {
+          "path": "src/internal/common/initialize.ts",
+          "sha256": "568577928e4d220ee294e6a50dc169cb2f7918c3cfe6551e44a463a0c4d20a98",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__internal__common__initialize.ts",
+            "sha256": "568577928e4d220ee294e6a50dc169cb2f7918c3cfe6551e44a463a0c4d20a98"
+          }
+        },
+        {
+          "path": "src/features/register.all.ts",
+          "sha256": "10f7def79370b9c52a282f2e99ad4eefe1aa722e5b847f4747b5a29ed9d63a30",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__features__register.all.ts",
+            "sha256": "10f7def79370b9c52a282f2e99ad4eefe1aa722e5b847f4747b5a29ed9d63a30"
+          }
+        },
+        {
+          "path": "src/languages/register.all.ts",
+          "sha256": "de2e073bb967d66e295116512e69e9c6d162f51ae077d63e6e83c1aa17ed89d3",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle6/monaco-editor/src__languages__register.all.ts",
+            "sha256": "de2e073bb967d66e295116512e69e9c6d162f51ae077d63e6e83c1aa17ed89d3"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuples in rebuild-0006; no prior Monaco source entry.",
+      "strengths": [
+        "URI-keyed model identity separates buffers and views",
+        "Explicit worker/language registration and disposal boundaries",
+        "Fail-closed unavailable worker behavior"
+      ],
+      "weaknesses": [
+        "Browser editor source does not prove Tauri/native persistence",
+        "Worker and provider behavior requires uninspected dependencies"
+      ],
+      "decision": "apply-as-reference",
+      "omniaApplication": "Use canonical pointer/buffer identity, separate tab/view disposal, explicit provider activation, bounded idle sync and truthful unavailable worker state in Omnia's own IDE contracts; do not vendor or embed Monaco.",
+      "evidence": [
+        "docs/rebuild/research/NEW_MONACO_OSS_20261108.md"
       ]
     }
   ]

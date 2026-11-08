@@ -3,29 +3,29 @@
   "result": "passed",
   "scope": "preview",
   "environment": "Vite local preview at 127.0.0.1:1420, headless Chromium, 1440x900, 2026-11-08 Asia/Bangkok",
-  "recordedAt": "2026-11-08T04:07:27.3202377Z",
+  "recordedAt": "2026-11-08T06:34:18.655Z",
   "media": [
     {
       "path": "docs/assets/omnia-rebuild-chat.png",
-      "sha256": "9d8fe3fa599d264b743a05afb8870098cc962db94ed3f81df9ddeb348b1443e1"
+      "sha256": "e0746af4d8584db6c6e2199586426d37c085be2e3a734a85504c3f00483d53b4"
     },
     {
       "path": "docs/assets/omnia-rebuild-browser.png",
-      "sha256": "209fce74cc297ee57a21685031704e76ec6cc24251a5177b225c2f25e94efd6e"
+      "sha256": "e7dd763023bddcd2479430312c72397e54e5cfeaa3d0d2c6fe9a2c230ed66748"
     },
     {
       "path": "docs/assets/omnia-rebuild-ide.png",
-      "sha256": "b0d6a7947525dafd98e366b57390748d930fe3ef1d0020da938cc4741fe9e95a"
+      "sha256": "8e20cd58ea089067ae3d0ce4fd4e5a02faedb41ab8f135a82dba06c150f0dacd"
     },
     {
       "path": "docs/assets/omnia-rebuild-settings.png",
-      "sha256": "6ce4967b0d7356431ec9096299a3e3a6fced64131fd1c79799ed2b21d8fe67c2"
+      "sha256": "45ee8a2ac265c3b6692be995519c47abf46ddf5e7ab5e19a2774cdfe7d92b592"
     }
   ],
   "sourceFiles": [
     {
       "path": "src/main.tsx",
-      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
     },
     {
       "path": "src/rebuild/rebuild-app.tsx",
@@ -33,7 +33,7 @@
     },
     {
       "path": "src/rebuild/rebuild-app.css",
-      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
     },
     {
       "path": "src/rebuild/chat/chat-view.tsx",

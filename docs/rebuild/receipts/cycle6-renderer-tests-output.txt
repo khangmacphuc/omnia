@@ -1,0 +1,9 @@
+
+ RUN  v3.2.7 C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+·······················································
+
+ Test Files  12 passed (12)
+      Tests  55 passed (55)
+   Start at  13:36:04
+   Duration  13.09s (transform 6.24s, setup 6.54s, collect 9.41s, tests 16.18s, environment 35.56s, prepare 4.93s)

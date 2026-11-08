@@ -153,3 +153,6 @@ The project does not treat a specification, an extracted repository or a UI plac
 ## License and contribution
 
 This repository is an active internship portfolio project. Read the DoD and security/storage documents before adding a connector, provider, tool or native command. Changes that widen filesystem, process, browser, computer or network access must include an explicit policy boundary and a redacted receipt test.
+### Rebuild cycle 0006 status
+
+Cycle 0006 adds fresh OSS research (Mastra workflow durability and Monaco editor lifecycle) and refreshed clean-room UI evidence. The browser-preview report records the latest independent checks across 16 states with zero axe violations; it does not represent packaged/native/live provider proof. Current DoD counts are tracked in docs/rebuild/DOD.json and remain incomplete by design.

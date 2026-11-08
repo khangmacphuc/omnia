@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "title": "Omnia original rebuild acceptance matrix",
-  "generatedAt": "2026-11-08T04:11:09.916362Z",
+  "generatedAt": "2026-11-08T06:23:20.975Z",
   "statusPolicy": "Every criterion remains incomplete until its required evidence kinds, current hashes, dependencies and independent review are satisfied; no legacy UI claim carries forward.",
   "criteria": [
     {
@@ -78,7 +78,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
-          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "sha256": "4077c59ae79b5b4dc6ecaca7418394ccbe1cbcb9458811d96cf3578128054db6",
           "kind": "test"
         }
       ],
@@ -121,7 +121,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
-          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "sha256": "4077c59ae79b5b4dc6ecaca7418394ccbe1cbcb9458811d96cf3578128054db6",
           "kind": "test"
         }
       ],
@@ -180,7 +180,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
-          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "sha256": "4077c59ae79b5b4dc6ecaca7418394ccbe1cbcb9458811d96cf3578128054db6",
           "kind": "test"
         }
       ],
@@ -223,7 +223,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
-          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "sha256": "4077c59ae79b5b4dc6ecaca7418394ccbe1cbcb9458811d96cf3578128054db6",
           "kind": "test"
         }
       ],
@@ -266,7 +266,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
-          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "sha256": "4077c59ae79b5b4dc6ecaca7418394ccbe1cbcb9458811d96cf3578128054db6",
           "kind": "test"
         }
       ],
@@ -485,7 +485,7 @@
         },
         {
           "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
           "kind": "capture"
         }
       ],
@@ -528,7 +528,7 @@
         },
         {
           "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
           "kind": "capture"
         }
       ],
@@ -599,7 +599,7 @@
       "evidence": [
         {
           "path": "src/main.tsx",
-          "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398",
+          "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246",
           "kind": "source"
         },
         {
@@ -609,7 +609,7 @@
         },
         {
           "path": "docs/rebuild/receipts/architecture-current-20261108.json",
-          "sha256": "dc43f31800d83211efcdb1031ef85c893784c31ca2358485a5c55cca9eaae203",
+          "sha256": "07fd064c52882efe03699233cfe481dcd91cc9b7c1ad93e44b3dce3ade4d4f20",
           "kind": "test"
         }
       ],
@@ -685,7 +685,7 @@
         },
         {
           "path": "docs/rebuild/receipts/architecture-current-20261108.json",
-          "sha256": "dc43f31800d83211efcdb1031ef85c893784c31ca2358485a5c55cca9eaae203",
+          "sha256": "07fd064c52882efe03699233cfe481dcd91cc9b7c1ad93e44b3dce3ade4d4f20",
           "kind": "test"
         }
       ],
@@ -728,7 +728,7 @@
         },
         {
           "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
-          "sha256": "8848883255c5bc8c811a589b133cfdfdccf1168840c7ffb8d59b7decb35c6e60",
+          "sha256": "38b8d543bdb0f89f738c866e1c4fe981d034406af13c5eb2f1955656e693016f",
           "kind": "test"
         }
       ],
@@ -761,12 +761,12 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
         },
         {
           "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
-          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "sha256": "e7c6583034e6592b32fa0b3127fc9c5ff9bab37ca9913102b7c6bce94e09f1e9",
           "kind": "capture"
         }
       ],
@@ -799,25 +799,40 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
         },
         {
           "path": "src/rebuild/rebuild-app.tsx",
           "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
           "kind": "source"
+        },
+        {
+          "path": "src/main.tsx",
+          "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.css",
+          "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
+          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "kind": "capture"
         }
       ],
       "blockers": [
         {
-          "cause": "No light-theme capture or contrast/axe receipt.",
+          "cause": "Clean-room browser preview evidence now passes, but packaged Tauri/WebView2/native accessibility and desktop geometry are not proven.",
           "attempts": [
-            "Light token branch exists",
-            "Theme toggle is wired"
+            "Cycle-0006 153/153 browser checks pass across 16 states",
+            "Architecture guard and renderer tests pass"
           ],
-          "resolution": "Capture light theme and run contrast/axe receipt.",
-          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
-          "nextAction": "Capture light theme and run contrast/axe receipt."
+          "resolution": "Capture packaged desktop/native UI and retain separate receipts for preview versus native.",
+          "workaround": "Keep the capability explicitly labelled preview/unavailable when native runtime is absent.",
+          "nextAction": "Run packaged desktop UI QA and record native geometry/accessibility evidence."
         }
       ]
     },
@@ -837,7 +852,7 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
         },
         {
@@ -875,12 +890,12 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
         },
         {
           "path": "src/rebuild/chat/chat-view.css",
-          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5",
           "kind": "source"
         }
       ],
@@ -913,30 +928,50 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "src/main.tsx",
+          "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246",
           "kind": "source"
         },
         {
           "path": "src/rebuild/chat/chat-view.css",
-          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5",
           "kind": "source"
         },
         {
-          "path": "src/rebuild/ide/ide-workspace.css",
-          "sha256": "532b5f3c4c6dc8220ccbd69883b7d45335c37b0dd4b44f0e64ea405496869f83",
+          "path": "src/rebuild/browser/browser-workspace.css",
+          "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf",
           "kind": "source"
+        },
+        {
+          "path": "tests/rebuild-ui-browser-independent.mjs",
+          "sha256": "17e4a0159b57f3c607f39cdbe39a0a7d318dd34ce3a99c45b0b4f050c87e1719",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
+          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "kind": "capture"
         }
       ],
       "blockers": [
         {
-          "cause": "No measured geometry receipt at desktop baseline.",
+          "cause": "Clean-room browser preview evidence now passes, but packaged Tauri/WebView2/native accessibility and desktop geometry are not proven.",
           "attempts": [
-            "Header/sidebar/tab dimensions are declared",
-            "Preview is 1440x900"
+            "Cycle-0006 153/153 browser checks pass across 16 states",
+            "Architecture guard and renderer tests pass"
           ],
-          "resolution": "Add measured geometry capture receipt.",
-          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
-          "nextAction": "Add measured geometry capture receipt."
+          "resolution": "Capture packaged desktop/native UI and retain separate receipts for preview versus native.",
+          "workaround": "Keep the capability explicitly labelled preview/unavailable when native runtime is absent.",
+          "nextAction": "Run packaged desktop UI QA and record native geometry/accessibility evidence."
         }
       ]
     },
@@ -956,12 +991,12 @@
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
         },
         {
           "path": "src/rebuild/chat/chat-view.css",
-          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5",
           "kind": "source"
         },
         {
@@ -1048,24 +1083,54 @@
       ],
       "dependencies": [],
       "owner": "/root",
-      "status": "blocked",
+      "status": "partial",
       "evidence": [
         {
           "path": "src/rebuild/rebuild-app.css",
-          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6",
           "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "src/main.tsx",
+          "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.css",
+          "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.css",
+          "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf",
+          "kind": "source"
+        },
+        {
+          "path": "tests/rebuild-ui-browser-independent.mjs",
+          "sha256": "17e4a0159b57f3c607f39cdbe39a0a7d318dd34ce3a99c45b0b4f050c87e1719",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
+          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "kind": "capture"
         }
       ],
       "blockers": [
         {
-          "cause": "800px responsive capture and accessibility check are missing.",
+          "cause": "Clean-room browser preview evidence now passes, but packaged Tauri/WebView2/native accessibility and desktop geometry are not proven.",
           "attempts": [
-            "Responsive CSS exists",
-            "Desktop preview captured"
+            "Cycle-0006 153/153 browser checks pass across 16 states",
+            "Architecture guard and renderer tests pass"
           ],
-          "resolution": "Capture 800x600 and run keyboard/axe checks before reopening.",
-          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
-          "nextAction": "Capture 800x600 and run keyboard/axe checks before reopening."
+          "resolution": "Capture packaged desktop/native UI and retain separate receipts for preview versus native.",
+          "workaround": "Keep the capability explicitly labelled preview/unavailable when native runtime is absent.",
+          "nextAction": "Run packaged desktop UI QA and record native geometry/accessibility evidence."
         }
       ]
     },
@@ -1212,7 +1277,7 @@
         },
         {
           "path": "docs/rebuild/receipts/ask-user-native-cycle5.json",
-          "sha256": "e6ac95b7bfe1a44771b17f1d4ef3383da9798bc6b07692577617c9d0ab7320e8",
+          "sha256": "5ee8ddf8f790dcf84f4511ba666dcfdd31c0ededa02dcb9c528cdea8cd98b93a",
           "kind": "native"
         }
       ],

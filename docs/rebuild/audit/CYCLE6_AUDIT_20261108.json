@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "cycleId": "rebuild-0006",
+  "stage": "audit",
+  "recordedAt": "2026-11-08T06:20:00.000Z",
+  "criteria": [
+    "UI-009",
+    "UI-012",
+    "UI-015",
+    "ADVSET-003",
+    "CHAT-008"
+  ],
+  "result": "gaps-found",
+  "requirementGaps": [
+    {
+      "criterion": "UI-009",
+      "gap": "The current clean-room source now includes a light primary ink token and a refreshed preview report; a dedicated contrast receipt is still required before Done."
+    },
+    {
+      "criterion": "UI-012",
+      "gap": "Header is measured at 48px and browser tabs are now authored at 36px, but a receipt must bind the measurements to current source hashes."
+    },
+    {
+      "criterion": "UI-015",
+      "gap": "The refreshed headless report covers 800x600 and 1440x900, dark/light, overflow, focus and axe; packaged/native evidence remains outside this scope."
+    },
+    {
+      "criterion": "ADVSET-003",
+      "gap": "The settings model picker remains a local policy surface; no live provider catalog IPC or refresh lifecycle is proven."
+    },
+    {
+      "criterion": "CHAT-008",
+      "gap": "Native ask-user broker tests pass, but packaged Tauri command delivery and live provider/UI interaction remain unverified."
+    }
+  ],
+  "sourceGaps": [
+    "Cycle-0006 adds Mastra workflow durability and Monaco editor lifecycle research; neither source is vendored or executed.",
+    "Historical extraction inventory remains bounded and excludes Zalo; missing/truncated source remains an explicit limitation."
+  ],
+  "runtimeGaps": [
+    "Vite preview is not packaged Tauri/WebView2 evidence.",
+    "Live provider, OS permission, pointer storage/RAG backend and model discovery remain unverified."
+  ],
+  "evidenceReviewed": [
+    "docs/rebuild/audit/ui-browser-20261108-current/report.json",
+    "docs/rebuild/receipts/ask-user-native-cycle5.json",
+    "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
+    "src/main.tsx",
+    "src/rebuild/rebuild-app.css",
+    "src/rebuild/browser/browser-workspace.css"
+  ],
+  "acceptanceThresholds": {
+    "uiQa": "141/141 checks pass across 16 states; axe violations 0; overflow 0 at 800x600 and 1440x900.",
+    "geometry": "header computed height 48px; browser tab computed height 36px; no document overflow.",
+    "verification": "renderer focused tests 55/55; gate tests 32/32; architecture guard passes.",
+    "honesty": "no native/live claim is promoted from browser preview evidence."
+  },
+  "nextActions": [
+    "Bind new source research to the registry and cycle manifest.",
+    "Create synthesis and three-pass atomic plan.",
+    "Run current focused tests and refreshed UI capture, then independently review the source/evidence bindings.",
+    "Keep ADVSET-003 and CHAT-008 partial/blocked until live boundaries are proven."
+  ]
+}

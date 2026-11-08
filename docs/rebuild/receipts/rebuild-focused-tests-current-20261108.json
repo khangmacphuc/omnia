@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "result": "passed",
   "scope": "renderer-focused-tests",
-  "recordedAt": "2026-11-08T04:07:27.2787760Z",
+  "recordedAt": "2026-11-08T06:34:18.655Z",
   "command": "node_modules/.bin/vitest run src/rebuild/chat/chat-view.test.tsx src/rebuild/browser/browser-controller.test.ts src/rebuild/browser/browser-workspace.test.tsx src/rebuild/ide/ide-model.test.ts src/rebuild/ide/ide-workspace.test.tsx src/rebuild/settings/settings.test.ts src/rebuild/settings/SettingsPanel.test.tsx src/rebuild/reference/reference-workbench.test.tsx src/rebuild/rebuild-app.test.tsx --reporter=dot",
   "exitCode": 0,
   "output": {

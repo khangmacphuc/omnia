@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-focused-tests",
+  "recordedAt": "2026-11-08T06:30:00.000Z",
+  "command": "npm.cmd exec -- vitest run src/rebuild --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle6-renderer-tests-output.txt",
+    "sha256": "3fd033b7190979e9922effd9be510d6f95799c718779233f0baf36a07097a383"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+node tests/rebuild-ui-browser-independent.mjs
+141 checks; 141 passed; 16 states; axe violations 0; exitCode=0

@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "result": "passed",
   "scope": "rebuild-gates",
-  "recordedAt": "2026-11-08T05:11:01.696Z",
+  "recordedAt": "2026-11-08T06:34:18.655Z",
   "command": "npm.cmd run test:rebuild-gates",
   "exitCode": 0,
   "output": {
     "path": "docs/rebuild/receipts/cycle5-workflow-gates.txt",
-    "sha256": "f3cd4ebf754443f65ac3a09b29ac9a930dd871182deb4de757ceda4225b30018"
+    "sha256": "2e3cca6c8638c99e73429a9eee36cc81eb0986612b3a16e3ecf96c0675280fd2"
   },
   "sourceFiles": [
     {

@@ -59,6 +59,12 @@ async function snapshot(page, key) {
   check(`${key}/document-overflow`, layout.documentOverflow.x === 0 && layout.documentOverflow.y === 0, layout.documentOverflow);
   check(`${key}/axe-serious-critical`, !violations.some((v) => v.impact === "serious" || v.impact === "critical"), violations);
   check(`${key}/header-48px`, Math.abs((layout.header?.box.height ?? 0) - 48) < 1, layout.header);
+  if (layout.browserTab) {
+    check(`${key}/browser-tab-36px`, Math.abs((layout.browserTab.box.height ?? 0) - 36) < 1, layout.browserTab);
+  }
+  if (layout.sessionSidebar && layout.viewport.width >= 1200) {
+    check(`${key}/session-sidebar-240px`, Math.abs((layout.sessionSidebar.box.width ?? 0) - 240) < 1, layout.sessionSidebar);
+  }
   if (!key.endsWith("settings")) {
     const composer = layout.controls.find((c) => c.name === "Message composer");
     check(`${key}/composer-visible`, Boolean(composer?.withinViewport), composer ?? "No visible composer");

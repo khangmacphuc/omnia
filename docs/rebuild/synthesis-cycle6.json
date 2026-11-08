@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "stage": "synthesize",
+  "cycleId": "rebuild-0006",
+  "recordedAt": "2026-11-08T06:31:00.000Z",
+  "observations": [
+    {
+      "source": "https://github.com/mastra-ai/mastra",
+      "observation": "Persisted workflow journals, child-first cancellation, compare-and-set ownership and bounded recovery are explicit in workflow.ts.",
+      "strength": "Durable lineage and restart safety are inspectable.",
+      "weakness": "Adapter limitations can leave unfenced duplicate work.",
+      "decision": "Translate into Omnia receipts and explicit unknown state; do not vendor.",
+      "criteria": [
+        "CHAT-008"
+      ]
+    },
+    {
+      "source": "https://github.com/microsoft/monaco-editor",
+      "observation": "URI-keyed models, explicit worker registration and fail-closed worker errors separate buffer/view lifecycle.",
+      "strength": "Stable file identity and resource-aware editor lifecycle.",
+      "weakness": "Browser worker source is not native Tauri proof.",
+      "decision": "Use pointer/buffer identity and unavailable provider states in Omnia-owned IDE contracts.",
+      "criteria": [
+        "UI-012",
+        "UI-015"
+      ]
+    }
+  ],
+  "workbench": {
+    "sourceFiles": [
+      {
+        "path": "src/rebuild/rebuild-app.tsx",
+        "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+      }
+    ],
+    "buildEvidence": {
+      "path": "docs/rebuild/receipts/cycle6-renderer-build.json",
+      "sha256": "91ce70793ec07059c1b71bca9f2321e921bdc6cd5129710dcef00d6d8d21bcf8",
+      "kind": "build"
+    }
+  }
+}

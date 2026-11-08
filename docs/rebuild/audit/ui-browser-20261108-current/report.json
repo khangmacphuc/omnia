@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "reviewer": "/root/rebuild_independent_audit",
-  "recordedAt": "2026-11-08T05:23:18.705Z",
+  "recordedAt": "2026-11-08T06:16:17.075Z",
   "scope": "Live browser renderer only; fresh local Vite source, no native mocks, no provider dispatch, no packaged/native/permission claim",
   "baseURL": "http://127.0.0.1:1432/",
   "command": "node tests/rebuild-ui-browser-independent.mjs",
   "sourceFiles": [
     {
       "path": "src/main.tsx",
-      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
     },
     {
       "path": "src/rebuild/rebuild-app.tsx",
@@ -16,7 +16,7 @@
     },
     {
       "path": "src/rebuild/rebuild-app.css",
-      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
     },
     {
       "path": "src/rebuild/chat/chat-controller.ts",
@@ -28,7 +28,7 @@
     },
     {
       "path": "src/rebuild/chat/chat-view.css",
-      "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d"
+      "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
     },
     {
       "path": "src/rebuild/browser/browser-workspace.tsx",
@@ -36,7 +36,7 @@
     },
     {
       "path": "src/rebuild/browser/browser-workspace.css",
-      "sha256": "4054fea4c3e335fefb019d86a8aeb2f7be8b01b7b219fd26f042282792073584"
+      "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
     },
     {
       "path": "src/rebuild/ide/ide-workspace.tsx",
@@ -74,7 +74,7 @@
   "sourceFilesAfter": [
     {
       "path": "src/main.tsx",
-      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
     },
     {
       "path": "src/rebuild/rebuild-app.tsx",
@@ -82,7 +82,7 @@
     },
     {
       "path": "src/rebuild/rebuild-app.css",
-      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
     },
     {
       "path": "src/rebuild/chat/chat-controller.ts",
@@ -94,7 +94,7 @@
     },
     {
       "path": "src/rebuild/chat/chat-view.css",
-      "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d"
+      "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
     },
     {
       "path": "src/rebuild/browser/browser-workspace.tsx",
@@ -102,7 +102,7 @@
     },
     {
       "path": "src/rebuild/browser/browser-workspace.css",
-      "sha256": "4054fea4c3e335fefb019d86a8aeb2f7be8b01b7b219fd26f042282792073584"
+      "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
     },
     {
       "path": "src/rebuild/ide/ide-workspace.tsx",
@@ -137,20 +137,20 @@
       "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
     }
   ],
-  "result": "failed_with_findings",
+  "result": "passed",
   "summary": {
-    "checks": 141,
-    "passed": 136,
-    "failed": 5,
+    "checks": 153,
+    "passed": 153,
+    "failed": 0,
     "states": 16
   },
   "checks": [
     {
       "id": "1440x900-dark-chat/document-overflow",
-      "pass": false,
+      "pass": true,
       "detail": {
-        "x": 8,
-        "y": 8
+        "x": 0,
+        "y": 0
       }
     },
     {
@@ -163,18 +163,37 @@
       "pass": true,
       "detail": {
         "box": {
-          "x": 8,
-          "y": 8,
+          "x": 0,
+          "y": 0,
           "width": 1440,
           "height": 48,
-          "right": 1448,
-          "bottom": 56
+          "right": 1440,
+          "bottom": 48
         },
         "display": "flex",
         "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-dark-chat/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -187,12 +206,12 @@
         "disabled": false,
         "tabIndex": 0,
         "box": {
-          "x": 305.59375,
-          "y": 737.609375,
+          "x": 297.59375,
+          "y": 729.609375,
           "width": 1084.8125,
           "height": 100,
-          "right": 1390.40625,
-          "bottom": 837.609375
+          "right": 1382.40625,
+          "bottom": 829.609375
         },
         "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
         "withinViewport": true
@@ -233,6 +252,44 @@
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-dark-browser/browser-tab-36px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 414.234375,
+          "y": 89.5,
+          "width": 110.203125,
+          "height": 36,
+          "right": 524.4375,
+          "bottom": 125.5
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "7px 7px 0px 0px",
+        "gap": "7px",
+        "padding": "0px 9px"
+      }
+    },
+    {
+      "id": "1440x900-dark-browser/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -294,6 +351,25 @@
       }
     },
     {
+      "id": "1440x900-dark-ide/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
+      }
+    },
+    {
       "id": "1440x900-dark-ide/composer-visible",
       "pass": true,
       "detail": {
@@ -349,6 +425,25 @@
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-dark-settings/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -474,6 +569,25 @@
       }
     },
     {
+      "id": "1440x900-light-chat/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
+      }
+    },
+    {
       "id": "1440x900-light-chat/composer-visible",
       "pass": true,
       "detail": {
@@ -509,23 +623,8 @@
     },
     {
       "id": "1440x900-light-browser/axe-serious-critical",
-      "pass": false,
-      "detail": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-          "nodes": [
-            {
-              "target": [
-                ".rb-primary-button"
-              ],
-              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-            }
-          ]
-        }
-      ]
+      "pass": true,
+      "detail": []
     },
     {
       "id": "1440x900-light-browser/header-48px",
@@ -544,6 +643,44 @@
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-light-browser/browser-tab-36px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 414.234375,
+          "y": 89.5,
+          "width": 110.203125,
+          "height": 36,
+          "right": 524.4375,
+          "bottom": 125.5
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "7px 7px 0px 0px",
+        "gap": "7px",
+        "padding": "0px 9px"
+      }
+    },
+    {
+      "id": "1440x900-light-browser/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -582,23 +719,8 @@
     },
     {
       "id": "1440x900-light-ide/axe-serious-critical",
-      "pass": false,
-      "detail": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-          "nodes": [
-            {
-              "target": [
-                ".rb-primary-button"
-              ],
-              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-            }
-          ]
-        }
-      ]
+      "pass": true,
+      "detail": []
     },
     {
       "id": "1440x900-light-ide/header-48px",
@@ -617,6 +739,25 @@
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-light-ide/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -675,6 +816,25 @@
         "borderRadius": "0px",
         "gap": "18px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "1440x900-light-settings/session-sidebar-240px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 0,
+          "y": 86,
+          "width": 240,
+          "height": 814,
+          "right": 240,
+          "bottom": 900
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "0px",
+        "gap": "normal",
+        "padding": "0px"
       }
     },
     {
@@ -860,6 +1020,25 @@
         "borderRadius": "0px",
         "gap": "5px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "800x600-dark-browser/browser-tab-36px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 364.234375,
+          "y": 89.5,
+          "width": 110.203125,
+          "height": 36,
+          "right": 474.4375,
+          "bottom": 125.5
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "7px 7px 0px 0px",
+        "gap": "7px",
+        "padding": "0px 9px"
       }
     },
     {
@@ -1166,23 +1345,8 @@
     },
     {
       "id": "800x600-light-browser/axe-serious-critical",
-      "pass": false,
-      "detail": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-          "nodes": [
-            {
-              "target": [
-                ".rb-primary-button"
-              ],
-              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-            }
-          ]
-        }
-      ]
+      "pass": true,
+      "detail": []
     },
     {
       "id": "800x600-light-browser/header-48px",
@@ -1201,6 +1365,25 @@
         "borderRadius": "0px",
         "gap": "5px",
         "padding": "0px 16px"
+      }
+    },
+    {
+      "id": "800x600-light-browser/browser-tab-36px",
+      "pass": true,
+      "detail": {
+        "box": {
+          "x": 364.234375,
+          "y": 89.5,
+          "width": 110.203125,
+          "height": 36,
+          "right": 474.4375,
+          "bottom": 125.5
+        },
+        "display": "flex",
+        "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
+        "borderRadius": "7px 7px 0px 0px",
+        "gap": "7px",
+        "padding": "0px 9px"
       }
     },
     {
@@ -1254,23 +1437,8 @@
     },
     {
       "id": "800x600-light-ide/axe-serious-critical",
-      "pass": false,
-      "detail": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-          "nodes": [
-            {
-              "target": [
-                ".rb-primary-button"
-              ],
-              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-            }
-          ]
-        }
-      ]
+      "pass": true,
+      "detail": []
     },
     {
       "id": "800x600-light-ide/header-48px",
@@ -1465,8 +1633,8 @@
         },
         "theme": "dark",
         "documentOverflow": {
-          "x": 8,
-          "y": 8
+          "x": 0,
+          "y": 0
         },
         "landmarks": [
           {
@@ -1474,12 +1642,12 @@
             "role": null,
             "label": "Primary surfaces",
             "box": {
-              "x": 282,
-              "y": 8,
+              "x": 274,
+              "y": 0,
               "width": 250.390625,
               "height": 47,
-              "right": 532.390625,
-              "bottom": 55
+              "right": 524.390625,
+              "bottom": 47
             }
           },
           {
@@ -1487,12 +1655,12 @@
             "role": null,
             "label": null,
             "box": {
-              "x": 8,
-              "y": 94,
+              "x": 0,
+              "y": 86,
               "width": 1440,
               "height": 814,
-              "right": 1448,
-              "bottom": 908
+              "right": 1440,
+              "bottom": 900
             }
           },
           {
@@ -1500,23 +1668,23 @@
             "role": null,
             "label": "Sessions",
             "box": {
-              "x": 8,
-              "y": 94,
+              "x": 0,
+              "y": 86,
               "width": 240,
               "height": 814,
-              "right": 248,
-              "bottom": 908
+              "right": 240,
+              "bottom": 900
             }
           }
         ],
         "header": {
           "box": {
-            "x": 8,
-            "y": 8,
+            "x": 0,
+            "y": 0,
             "width": 1440,
             "height": 48,
-            "right": 1448,
-            "bottom": 56
+            "right": 1440,
+            "bottom": 48
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -1526,12 +1694,12 @@
         },
         "sessionSidebar": {
           "box": {
-            "x": 8,
-            "y": 94,
+            "x": 0,
+            "y": 86,
             "width": 240,
             "height": 814,
-            "right": 248,
-            "bottom": 908
+            "right": 240,
+            "bottom": 900
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -1544,12 +1712,12 @@
         "settingsTabs": null,
         "composer": {
           "box": {
-            "x": 305.59375,
-            "y": 737.609375,
+            "x": 297.59375,
+            "y": 729.609375,
             "width": 1084.8125,
             "height": 100,
-            "right": 1390.40625,
-            "bottom": 837.609375
+            "right": 1382.40625,
+            "bottom": 829.609375
           },
           "display": "block",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -1565,12 +1733,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 282,
-              "y": 8,
+              "x": 274,
+              "y": 0,
               "width": 78.40625,
               "height": 47,
-              "right": 360.40625,
-              "bottom": 55
+              "right": 352.40625,
+              "bottom": 47
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1582,12 +1750,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 362.40625,
-              "y": 8,
+              "x": 354.40625,
+              "y": 0,
               "width": 96.296875,
               "height": 47,
-              "right": 458.703125,
-              "bottom": 55
+              "right": 450.703125,
+              "bottom": 47
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1599,12 +1767,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 460.703125,
-              "y": 8,
+              "x": 452.703125,
+              "y": 0,
               "width": 71.6875,
               "height": 47,
-              "right": 532.390625,
-              "bottom": 55
+              "right": 524.390625,
+              "bottom": 47
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1616,12 +1784,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1334,
-              "y": 16.5,
+              "x": 1326,
+              "y": 8.5,
               "width": 30,
               "height": 30,
-              "right": 1364,
-              "bottom": 46.5
+              "right": 1356,
+              "bottom": 38.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1633,12 +1801,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1368,
-              "y": 16.5,
+              "x": 1360,
+              "y": 8.5,
               "width": 30,
               "height": 30,
-              "right": 1398,
-              "bottom": 46.5
+              "right": 1390,
+              "bottom": 38.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1650,12 +1818,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1402,
-              "y": 16.5,
+              "x": 1394,
+              "y": 8.5,
               "width": 30,
               "height": 30,
-              "right": 1432,
-              "bottom": 46.5
+              "right": 1424,
+              "bottom": 38.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1667,12 +1835,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 201,
-              "y": 110,
+              "x": 193,
+              "y": 102,
               "width": 30,
               "height": 30,
-              "right": 231,
-              "bottom": 140
+              "right": 223,
+              "bottom": 132
             },
             "fontFamily": "\"Cascadia Code\", monospace",
             "withinViewport": true
@@ -1684,12 +1852,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 16,
-              "y": 165,
+              "x": 8,
+              "y": 157,
               "width": 223,
               "height": 56.890625,
-              "right": 239,
-              "bottom": 221.890625
+              "right": 231,
+              "bottom": 213.890625
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1701,12 +1869,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1183.484375,
-              "y": 118,
+              "x": 1175.484375,
+              "y": 110,
               "width": 113.28125,
               "height": 33.390625,
-              "right": 1296.765625,
-              "bottom": 151.390625
+              "right": 1288.765625,
+              "bottom": 143.390625
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1718,12 +1886,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1304.765625,
-              "y": 118,
+              "x": 1296.765625,
+              "y": 110,
               "width": 85.640625,
               "height": 33.390625,
-              "right": 1390.40625,
-              "bottom": 151.390625
+              "right": 1382.40625,
+              "bottom": 143.390625
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1735,12 +1903,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 1360.40625,
-              "y": 216.296875,
+              "x": 1352.40625,
+              "y": 208.296875,
               "width": 30,
               "height": 30,
-              "right": 1390.40625,
-              "bottom": 246.296875
+              "right": 1382.40625,
+              "bottom": 238.296875
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1752,12 +1920,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 352.8125,
-              "y": 712.609375,
+              "x": 344.8125,
+              "y": 704.609375,
               "width": 83,
               "height": 17,
-              "right": 435.8125,
-              "bottom": 729.609375
+              "right": 427.8125,
+              "bottom": 721.609375
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1769,12 +1937,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 479.265625,
-              "y": 712.609375,
+              "x": 471.265625,
+              "y": 704.609375,
               "width": 92,
               "height": 17,
-              "right": 571.265625,
-              "bottom": 729.609375
+              "right": 563.265625,
+              "bottom": 721.609375
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1786,12 +1954,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 305.59375,
-              "y": 737.609375,
+              "x": 297.59375,
+              "y": 729.609375,
               "width": 1084.8125,
               "height": 100,
-              "right": 1390.40625,
-              "bottom": 837.609375
+              "right": 1382.40625,
+              "bottom": 829.609375
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1803,12 +1971,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 305.59375,
-              "y": 848.296875,
+              "x": 297.59375,
+              "y": 840.296875,
               "width": 30,
               "height": 30,
-              "right": 335.59375,
-              "bottom": 878.296875
+              "right": 327.59375,
+              "bottom": 870.296875
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1820,12 +1988,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 340.59375,
-              "y": 846.609375,
+              "x": 332.59375,
+              "y": 838.609375,
               "width": 78.1875,
               "height": 33.390625,
-              "right": 418.78125,
-              "bottom": 880
+              "right": 410.78125,
+              "bottom": 872
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1837,12 +2005,12 @@
             "disabled": false,
             "tabIndex": 0,
             "box": {
-              "x": 423.78125,
-              "y": 846.609375,
+              "x": 415.78125,
+              "y": 838.609375,
               "width": 117.65625,
               "height": 33.390625,
-              "right": 541.4375,
-              "bottom": 880
+              "right": 533.4375,
+              "bottom": 872
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1854,12 +2022,12 @@
             "disabled": true,
             "tabIndex": 0,
             "box": {
-              "x": 1318.484375,
-              "y": 846.609375,
+              "x": 1310.484375,
+              "y": 838.609375,
               "width": 71.921875,
               "height": 33.390625,
-              "right": 1390.40625,
-              "bottom": 880
+              "right": 1382.40625,
+              "bottom": 872
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -1943,7 +2111,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-chat.png",
-        "sha256": "b87b94de7c27d755c4fd917c30b85e567fd952f264d658df17fa17ffdf1ec0a6"
+        "sha256": "ddc66dbbb4d64cb1ea82d5de5e05e8418d63137d90c417f6b56c18f1fe29b71c"
       }
     },
     {
@@ -2060,11 +2228,11 @@
         "browserTab": {
           "box": {
             "x": 414.234375,
-            "y": 91.5,
+            "y": 89.5,
             "width": 110.203125,
-            "height": 32,
+            "height": 36,
             "right": 524.4375,
-            "bottom": 123.5
+            "bottom": 125.5
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -2233,11 +2401,11 @@
             "tabIndex": 0,
             "box": {
               "x": 414.234375,
-              "y": 91.5,
+              "y": 89.5,
               "width": 110.203125,
-              "height": 32,
+              "height": 36,
               "right": 524.4375,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -2250,11 +2418,11 @@
             "tabIndex": 0,
             "box": {
               "x": 934.6875,
-              "y": 91.5,
+              "y": 89.5,
               "width": 30,
-              "height": 32,
+              "height": 36,
               "right": 964.6875,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -2677,7 +2845,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-browser.png",
-        "sha256": "60873316a994904492005fb808f6f7c66db298d701693f84923fd3b6e795bc25"
+        "sha256": "5b0719f490196e173190d8408dbf2f11c8fc6ec64c01b5de243de72aa7188e08"
       }
     },
     {
@@ -4618,7 +4786,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-chat.png",
-        "sha256": "f074815629f57653ceaa23b05334ce7518bb26aed668b600a7bfbd18032b614d"
+        "sha256": "e0746af4d8584db6c6e2199586426d37c085be2e3a734a85504c3f00483d53b4"
       }
     },
     {
@@ -4735,11 +4903,11 @@
         "browserTab": {
           "box": {
             "x": 414.234375,
-            "y": 91.5,
+            "y": 89.5,
             "width": 110.203125,
-            "height": 32,
+            "height": 36,
             "right": 524.4375,
-            "bottom": 123.5
+            "bottom": 125.5
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -4908,11 +5076,11 @@
             "tabIndex": 0,
             "box": {
               "x": 414.234375,
-              "y": 91.5,
+              "y": 89.5,
               "width": 110.203125,
-              "height": 32,
+              "height": 36,
               "right": 524.4375,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -4925,11 +5093,11 @@
             "tabIndex": 0,
             "box": {
               "x": 934.6875,
-              "y": 91.5,
+              "y": 89.5,
               "width": 30,
-              "height": 32,
+              "height": 36,
               "right": 964.6875,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -5294,22 +5462,7 @@
         ]
       },
       "accessibility": {
-        "violations": [
-          {
-            "id": "color-contrast",
-            "impact": "serious",
-            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-            "nodes": [
-              {
-                "target": [
-                  ".rb-primary-button"
-                ],
-                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-              }
-            ]
-          }
-        ],
+        "violations": [],
         "passes": 24,
         "incomplete": [
           {
@@ -5367,7 +5520,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-browser.png",
-        "sha256": "dd0af0d628a46beef64dc4f4abfb6463a39c44065ed8d8cf559a3e8799f6badf"
+        "sha256": "e7dd763023bddcd2479430312c72397e54e5cfeaa3d0d2c6fe9a2c230ed66748"
       }
     },
     {
@@ -5885,22 +6038,7 @@
         ]
       },
       "accessibility": {
-        "violations": [
-          {
-            "id": "color-contrast",
-            "impact": "serious",
-            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-            "nodes": [
-              {
-                "target": [
-                  ".rb-primary-button"
-                ],
-                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-              }
-            ]
-          }
-        ],
+        "violations": [],
         "passes": 19,
         "incomplete": [
           {
@@ -5961,7 +6099,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-ide.png",
-        "sha256": "841f45227c4082980f469e4fc5fb0877cd77f0907b5416a586d2f106e746f23c"
+        "sha256": "8e20cd58ea089067ae3d0ce4fd4e5a02faedb41ab8f135a82dba06c150f0dacd"
       }
     },
     {
@@ -6833,7 +6971,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-settings.png",
-        "sha256": "34d8995f27bfa1b049caf0cafbbea9e176e499b9f65466dcf84296980395fae1"
+        "sha256": "45ee8a2ac265c3b6692be995519c47abf46ddf5e7ab5e19a2774cdfe7d92b592"
       }
     },
     {
@@ -7314,7 +7452,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-chat.png",
-        "sha256": "c6e28585fda9496ec2655a8c9fdc9aca23fb200e5b9325f28a61e308739694f1"
+        "sha256": "89bd2254a79e6115411bb333a1f9a5c0d8d8d0dc6bd0ea77cdaaa5c34423abfd"
       }
     },
     {
@@ -7431,11 +7569,11 @@
         "browserTab": {
           "box": {
             "x": 364.234375,
-            "y": 91.5,
+            "y": 89.5,
             "width": 110.203125,
-            "height": 32,
+            "height": 36,
             "right": 474.4375,
-            "bottom": 123.5
+            "bottom": 125.5
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -7621,11 +7759,11 @@
             "tabIndex": 0,
             "box": {
               "x": 364.234375,
-              "y": 91.5,
+              "y": 89.5,
               "width": 110.203125,
-              "height": 32,
+              "height": 36,
               "right": 474.4375,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -7638,11 +7776,11 @@
             "tabIndex": 0,
             "box": {
               "x": 654.6875,
-              "y": 91.5,
+              "y": 89.5,
               "width": 30,
-              "height": 32,
+              "height": 36,
               "right": 684.6875,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -8100,7 +8238,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-browser.png",
-        "sha256": "48922b152793faa571a8909a2d14a7e25ad7fe3966ce9a2bec8a7152bc8f3b82"
+        "sha256": "63bf6b3eb4cd1df1a2006c91d780715ec72f74e3b04162917ada746f85c4569f"
       }
     },
     {
@@ -10060,7 +10198,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-chat.png",
-        "sha256": "514b7c05865c2dcaa1ff076801aaf69e531fd032c244f95846830649e595c7e0"
+        "sha256": "b9b88c3d6df65af079b7d5cbe38b44523cadb21adc9185762723182222398762"
       }
     },
     {
@@ -10177,11 +10315,11 @@
         "browserTab": {
           "box": {
             "x": 364.234375,
-            "y": 91.5,
+            "y": 89.5,
             "width": 110.203125,
-            "height": 32,
+            "height": 36,
             "right": 474.4375,
-            "bottom": 123.5
+            "bottom": 125.5
           },
           "display": "flex",
           "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
@@ -10367,11 +10505,11 @@
             "tabIndex": 0,
             "box": {
               "x": 364.234375,
-              "y": 91.5,
+              "y": 89.5,
               "width": 110.203125,
-              "height": 32,
+              "height": 36,
               "right": 474.4375,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -10384,11 +10522,11 @@
             "tabIndex": 0,
             "box": {
               "x": 654.6875,
-              "y": 91.5,
+              "y": 89.5,
               "width": 30,
-              "height": 32,
+              "height": 36,
               "right": 684.6875,
-              "bottom": 123.5
+              "bottom": 125.5
             },
             "fontFamily": "\"Segoe UI Variable\", \"Segoe UI\", sans-serif",
             "withinViewport": true
@@ -10770,22 +10908,7 @@
         ]
       },
       "accessibility": {
-        "violations": [
-          {
-            "id": "color-contrast",
-            "impact": "serious",
-            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-            "nodes": [
-              {
-                "target": [
-                  ".rb-primary-button"
-                ],
-                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-              }
-            ]
-          }
-        ],
+        "violations": [],
         "passes": 24,
         "incomplete": [
           {
@@ -10861,7 +10984,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-browser.png",
-        "sha256": "9bbfe030fc33fcf5ac7c3b09d6e06f6de7ce25f7642784152b43fc0b66b2714a"
+        "sha256": "79654a213705d8097acd2f3b488273f409ae7cd42a478786d0a537cd2e4b6b60"
       }
     },
     {
@@ -11413,22 +11536,7 @@
         ]
       },
       "accessibility": {
-        "violations": [
-          {
-            "id": "color-contrast",
-            "impact": "serious",
-            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
-            "nodes": [
-              {
-                "target": [
-                  ".rb-primary-button"
-                ],
-                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.81 (foreground color: #071411, background color: #087f6b, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
-              }
-            ]
-          }
-        ],
+        "violations": [],
         "passes": 19,
         "incomplete": [
           {
@@ -11483,7 +11591,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-ide.png",
-        "sha256": "4fd7c6fd272598c51ca1c21b6ef23d7dd0c3387e89619879a0d67feb31b9aa45"
+        "sha256": "0005763f3376dee535fc2b1c01cbc52c949ab99a9c4443d02a3d4f5c31de32d4"
       }
     },
     {
@@ -12355,7 +12463,7 @@
       },
       "screenshot": {
         "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-settings.png",
-        "sha256": "ce64c79aa03179806819fbfcfba973feccdf7d0bd10775518d8439aca1efb738"
+        "sha256": "83e7f863dfe0c7b6d6396cf9b950b3014f2c5bb2a7d0d5d299c545d73c504629"
       }
     }
   ]

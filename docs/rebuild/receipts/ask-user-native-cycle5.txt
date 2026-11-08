@@ -1,15 +1,29 @@
-Omnia native ask-user verification receipt
-Recorded: 2026-11-08 12:39 Asia/Bangkok
-Workspace: C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
 
-Command: cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input -- --nocapture
-Exit: 0
-Result: 10 passed; 0 failed; 313 filtered out; user_input broker/tool tests executed in native Rust crate.
+running 10 tests
+test user_input::tests::close_terminalizes_pending_requests_and_prevents_future_requests ... ok
+test user_input::tests::channel_exists_before_request_is_published_and_answer_is_journaled ... ok
+test user_input::tests::duplicate_stale_and_cross_run_answers_are_rejected_without_extra_events ... ok
+test user_input::tests::invalid_or_unbounded_inputs_never_publish_a_request ... ok
+test user_input::tests::free_text_and_explicit_cancel_are_distinct ... ok
+test user_input::tests::failed_request_journal_removes_pending_and_cancels_run ... ok
+test user_input::tests::failed_answer_journal_preserves_pending_request_and_does_not_deliver ... ok
+test user_input::tests::pending_question_limit_is_bounded_before_publication ... ok
+test user_input::tests::question_tool_observes_cancellation_and_cleans_up ... ok
+test user_input::tests::tool_requires_its_own_session_and_preserves_user_cancel_as_result ... ok
 
-Claim boundary: This proves the provider-neutral native broker/tool unit behavior. It does not prove packaged Tauri command dispatch, Windows UI delivery, live provider execution, or browser/computer runtime.
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 313 filtered out; finished in 0.00s
 
-src-tauri/crates/omnia-harness/src/user_input.rs fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff
-src-tauri/crates/omnia-harness/src/user_input/tests.rs 8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1
-src-tauri/crates/omnia-harness/src/lib.rs 83d8d9589962b4c036c29d63ed9418a2a5321b679508806c017080fdbd045c7c
-src-tauri/src/harness_bridge.rs 045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b
-src-tauri/src/lib.rs 7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s

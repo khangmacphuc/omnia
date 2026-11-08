@@ -1,0 +1,17 @@
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 1689 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.64 kB │ gzip:  0.38 kB
+dist/.vite/manifest.json                  1.49 kB │ gzip:  0.39 kB
+dist/assets/index-TknyvRzS.css            6.97 kB │ gzip:  2.13 kB
+dist/assets/rebuild-app-cwYMGwr6.css     33.47 kB │ gzip:  6.78 kB
+dist/assets/core-protocol-BdhX-5SY.js     0.73 kB │ gzip:  0.40 kB
+dist/assets/vendor-tauri-BPbctHHY.js      1.11 kB │ gzip:  0.55 kB
+dist/assets/index-kW7hO5Ce.js             1.69 kB │ gzip:  0.93 kB
+dist/assets/vendor-icons-B5Y4QzKp.js     10.54 kB │ gzip:  3.96 kB
+dist/assets/desktop-client-CQa5nKw6.js   13.77 kB │ gzip:  3.77 kB
+dist/assets/rebuild-app-J0fiT-qO.js     101.08 kB │ gzip: 29.97 kB
+dist/assets/vendor-react-Diwmnjaz.js    187.13 kB │ gzip: 59.91 kB
+✓ built in 20.18s

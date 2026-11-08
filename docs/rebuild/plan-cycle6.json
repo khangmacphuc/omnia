@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "stage": "plan",
+  "cycleId": "rebuild-0006",
+  "recordedAt": "2026-11-08T06:32:00.000Z",
+  "passBudget": 3,
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Keep the UI changes narrowly scoped to first-paint reset, light primary contrast and 36px browser tabs; preserve existing clean-room boundaries."
+    },
+    {
+      "index": 2,
+      "decision": "Use current 141-check browser report plus fresh renderer tests as evidence, while keeping model discovery and packaged ask-user claims open."
+    },
+    {
+      "index": 3,
+      "decision": "Require independent source/evidence review and canonical document reread before publication; do not promote preview evidence to native/live."
+    }
+  ],
+  "stopReason": "budget-exhausted",
+  "tasks": [
+    {
+      "id": "ui-css",
+      "owner": "/root",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/audit/CYCLE6_AUDIT_20261108.json",
+        "docs/rebuild/research/CYCLE6_RESEARCH.md"
+      ],
+      "outputs": [
+        "src/main.tsx",
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/browser/browser-workspace.css"
+      ],
+      "acceptance": [
+        {
+          "metric": "global reset imported before lazy renderer",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "metric": "browser tab height px",
+          "operator": "eq",
+          "value": 36
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run typecheck:app -- --pretty false",
+          "expectedExitCode": 0
+        }
+      ],
+      "criteria": [
+        "UI-009",
+        "UI-012"
+      ]
+    },
+    {
+      "id": "ui-evidence",
+      "owner": "/root",
+      "dependencies": [
+        "ui-css"
+      ],
+      "inputs": [
+        "docs/rebuild/audit/ui-browser-20261108-current/report.json"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/cycle6-ui-20261108.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "browser QA checks passed",
+          "operator": "eq",
+          "value": 141
+        },
+        {
+          "metric": "axe violations",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "node tests/rebuild-ui-browser-independent.mjs",
+          "expectedExitCode": 0
+        }
+      ],
+      "criteria": [
+        "UI-015"
+      ]
+    },
+    {
+      "id": "model-boundary",
+      "owner": "/root/rebuild_settings",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/research/NEW_MONACO_OSS_20261108.md"
+      ],
+      "outputs": [
+        "docs/rebuild/audit/MODEL_DISCOVERY_CYCLE6_20261108.md"
+      ],
+      "acceptance": [
+        {
+          "metric": "live catalog IPC proven",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd exec -- vitest run src/rebuild/settings --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ],
+      "criteria": [
+        "ADVSET-003"
+      ]
+    },
+    {
+      "id": "ask-user-boundary",
+      "owner": "/root",
+      "dependencies": [],
+      "inputs": [
+        "docs/rebuild/receipts/ask-user-native-cycle5.json"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/ask-user-native-cycle5.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "native broker tests passed",
+          "operator": "eq",
+          "value": 10
+        },
+        {
+          "metric": "packaged provider run proven",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input -- --nocapture",
+          "expectedExitCode": 0
+        }
+      ],
+      "criteria": [
+        "CHAT-008"
+      ]
+    },
+    {
+      "id": "docs-loop",
+      "owner": "/root",
+      "dependencies": [
+        "ui-evidence",
+        "model-boundary",
+        "ask-user-boundary"
+      ],
+      "inputs": [
+        "docs/rebuild/SPEC.md",
+        "docs/rebuild/DOD.json"
+      ],
+      "outputs": [
+        "docs/rebuild/CHECKPOINT.md",
+        "README.md"
+      ],
+      "acceptance": [
+        {
+          "metric": "canonical docs reread checklist",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "metric": "open criteria retained",
+          "operator": "gte",
+          "value": 1
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run test:rebuild-gates",
+          "expectedExitCode": 0
+        }
+      ],
+      "criteria": [
+        "UI-009",
+        "UI-012",
+        "UI-015",
+        "ADVSET-003",
+        "CHAT-008"
+      ]
+    }
+  ]
+}

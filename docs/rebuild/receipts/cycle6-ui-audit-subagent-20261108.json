@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "cycleId": "rebuild-0006",
+  "reviewer": "/root/cycle6_ui_audit",
+  "recordedAt": "2026-11-08T06:19:13Z",
+  "result": "passed_with_boundaries",
+  "scope": "Fresh local Vite browser preview of the clean-room renderer at 800x600 reduced-motion and light-theme states, plus source-focused renderer checks. No native, provider, packaged Tauri, WebView2 or OS permission claim.",
+  "criteriaReviewed": [
+    "UI-009",
+    "UI-012",
+    "UI-015"
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/main.tsx",
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.css",
+      "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.css",
+      "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
+    }
+  ],
+  "commands": [
+    {
+      "id": "browser-independent-qa",
+      "command": "$env:OMNIA_REBUILD_AUDIT_URL='http://127.0.0.1:1432/'; $env:OMNIA_REBUILD_AUDIT_DIR='artifacts/rebuild-qa/cycle6-ui-audit'; node tests/rebuild-ui-browser-independent.mjs",
+      "exitCode": 0,
+      "outputPath": "artifacts/rebuild-qa/cycle6-ui-audit/report.json",
+      "outputSha256": "8063f13e035b44042fb67f778af22f233514c31a2a9394457a79919b55d99272",
+      "summary": "141 checks passed, 16 states, 0 failed; axe serious/critical violations 0; no document overflow at 800x600 or 1440x900."
+    },
+    {
+      "id": "first-paint-targeted-probe",
+      "command": "node artifacts/rebuild-qa/cycle6-ui-targeted.mjs > artifacts/rebuild-qa/cycle6-ui-targeted.json",
+      "exitCode": 0,
+      "outputPath": "artifacts/rebuild-qa/cycle6-ui-targeted.json",
+      "outputSha256": "06d2131c4ae0f56e15026a505d3a0e027a5ba3f9779e32b095bd64bcf1ec79b5",
+      "summary": "At DOMContentLoaded and after two animation frames, body/html margin is 0px, overflow is hidden, root/app is 800x600 when mounted, and document geometry remains 800x600. Light Send and chat-companion action foreground/background measure 4.93:1."
+    },
+    {
+      "id": "renderer-focused-tests",
+      "command": "node_modules/.bin/vitest.cmd run src/rebuild --reporter=dot",
+      "exitCode": 0,
+      "outputPath": "artifacts/rebuild-qa/cycle6-vitest.log",
+      "outputSha256": "491025c9aaf2e27108a84b974eef6b3f360ed97eaf6544875b641df1c7f11eca",
+      "summary": "12 files and 55 tests passed."
+    },
+    {
+      "id": "app-typecheck",
+      "command": "node_modules/.bin/tsc.cmd -p tsconfig.app.json --noEmit --pretty false",
+      "exitCode": 0,
+      "outputPath": "artifacts/rebuild-qa/cycle6-typecheck.log",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": "TypeScript app typecheck passed."
+    },
+    {
+      "id": "architecture-guard",
+      "command": "node scripts/rebuild/architecture-guard.mjs",
+      "exitCode": 0,
+      "outputPath": "artifacts/rebuild-qa/cycle6-architecture.log",
+      "outputSha256": "ad6fd742c2542d4c8750b2c26a0d8e663f1415d765bb137b92cdd07bdd70ee78",
+      "summary": "Clean-room graph passed with no legacy UI import, copied block or live embed violation."
+    }
+  ],
+  "limitations": [
+    "The preview is browser-only and does not prove packaged Tauri/WebView2, Windows UIA, native browser attach, provider execution, project pointer storage, RAG retrieval, OS permissions or model discovery.",
+    "The contrast probe computes opaque solid foreground/background pairs only; transparent or color-mix controls remain covered by axe plus visual inspection rather than a universal WCAG calculation.",
+    "The existing cycle6 receipt's npm.cmd EINVAL is a launcher invocation failure; equivalent direct binaries above passed and should be used for current evidence."
+  ],
+  "claimBoundary": "This receipt supports current renderer preview behavior and source-level clean-room checks only. It does not mark any DoD criterion Done or claim product completion."
+}

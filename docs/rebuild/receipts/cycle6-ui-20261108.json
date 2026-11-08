@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "recordedAt": "2026-11-08T06:34:18.655Z",
+  "scope": "Cycle 0006 UI blockers UI-009 light-theme contrast, UI-012 measurable geometry, and UI-015 800px responsive access; clean-room renderer in a fresh local Vite browser preview.",
+  "criteria": [
+    {
+      "id": "UI-009",
+      "status": "evidence-passed",
+      "evidence": "Independent light/dark 1440x900 and 800x600 browser preview axe checks; semantic primary-button foreground token is white in light theme."
+    },
+    {
+      "id": "UI-012",
+      "status": "evidence-passed",
+      "evidence": "Independent browser QA checks 48px header, 36px browser tabs and 240px desktop session sidebar at each applicable snapshot."
+    },
+    {
+      "id": "UI-015",
+      "status": "evidence-passed",
+      "evidence": "Independent 800x600 browser/IDE companion route, draft continuity, Escape close/focus restore, no overflow and axe checks."
+    }
+  ],
+  "commands": [
+    {
+      "id": "renderer-tests",
+      "command": "npm.cmd exec -- vitest run src/rebuild --reporter=dot",
+      "exitCode": 0,
+      "outputPath": "docs/rebuild/audit/cycle6-ui-20261108/renderer-tests.log",
+      "outputSha256": "d27d3ae8bad3d12ff26ccc97d27ccb44ae3a491368fb6ced48e8871a82b7769c"
+    },
+    {
+      "id": "typecheck-app",
+      "command": "npm.cmd run typecheck:app -- --pretty false",
+      "exitCode": 0,
+      "outputPath": "docs/rebuild/audit/cycle6-ui-20261108/typecheck-app.log",
+      "outputSha256": "e2974a48de76609f3d6a28f47f77427e89ca903f25da40d5e26a6a22ac6618ec"
+    },
+    {
+      "id": "architecture-guard",
+      "command": "npm.cmd run rebuild:architecture",
+      "exitCode": 0,
+      "outputPath": "docs/rebuild/audit/cycle6-ui-20261108/architecture-guard.log",
+      "outputSha256": "341d257ae007071d2966750cc27f00428e1826d64fb5dcec958e6bcd284ae5b5"
+    },
+    {
+      "id": "browser-ui-qa",
+      "command": "node tests/rebuild-ui-browser-independent.mjs",
+      "exitCode": 0,
+      "outputPath": "docs/rebuild/audit/cycle6-ui-20261108/browser-ui-qa.log",
+      "outputSha256": "fad932d050d278cafbb9493887f3669d263510a7a84b67774fc299c919d3d506"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/main.tsx",
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.css",
+      "sha256": "bc1d9f6c77c7f2e51973bacd0cec82788770c65acce0a54706a431430bb77df5"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.css",
+      "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
+    },
+    {
+      "path": "tests/rebuild-ui-browser-independent.mjs",
+      "sha256": "17e4a0159b57f3c607f39cdbe39a0a7d318dd34ce3a99c45b0b4f050c87e1719"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/report.json",
+      "sha256": "7882d4a5d876c0b7027305c704bb0953acb9439e277b30be6209b8aa7c593a9a"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-browser.png",
+      "sha256": "5b0719f490196e173190d8408dbf2f11c8fc6ec64c01b5de243de72aa7188e08"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-chat.png",
+      "sha256": "ddc66dbbb4d64cb1ea82d5de5e05e8418d63137d90c417f6b56c18f1fe29b71c"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-ide.png",
+      "sha256": "d29d5bbce75ccc2417b05f3043b16515c0e8384a346d477c4be107979b4eb83f"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-settings.png",
+      "sha256": "ca70db5338d9defb589ac36e7dcc14fd8ef3e6290c564003d8e02d51097279b6"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-browser.png",
+      "sha256": "e7dd763023bddcd2479430312c72397e54e5cfeaa3d0d2c6fe9a2c230ed66748"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-chat.png",
+      "sha256": "e0746af4d8584db6c6e2199586426d37c085be2e3a734a85504c3f00483d53b4"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-ide.png",
+      "sha256": "8e20cd58ea089067ae3d0ce4fd4e5a02faedb41ab8f135a82dba06c150f0dacd"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-settings.png",
+      "sha256": "45ee8a2ac265c3b6692be995519c47abf46ddf5e7ab5e19a2774cdfe7d92b592"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-browser.png",
+      "sha256": "63bf6b3eb4cd1df1a2006c91d780715ec72f74e3b04162917ada746f85c4569f"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-chat.png",
+      "sha256": "89bd2254a79e6115411bb333a1f9a5c0d8d8d0dc6bd0ea77cdaaa5c34423abfd"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-ide.png",
+      "sha256": "b09acb5c7ec88cfbb8e5b69d522e7cc53edf0391242046f515bd0281251e10b1"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-settings.png",
+      "sha256": "c9164f57819d787ef9bd3d9632ea49097ab0293fa774e179a244a991e33d8819"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-browser.png",
+      "sha256": "79654a213705d8097acd2f3b488273f409ae7cd42a478786d0a537cd2e4b6b60"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-chat.png",
+      "sha256": "b9b88c3d6df65af079b7d5cbe38b44523cadb21adc9185762723182222398762"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-ide.png",
+      "sha256": "0005763f3376dee535fc2b1c01cbc52c949ab99a9c4443d02a3d4f5c31de32d4"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-settings.png",
+      "sha256": "83e7f863dfe0c7b6d6396cf9b950b3014f2c5bb2a7d0d5d299c545d73c504629"
+    }
+  ],
+  "qaSummary": {
+    "checks": 153,
+    "passed": 153,
+    "failed": 0,
+    "states": 16
+  },
+  "limitations": [
+    "Browser QA is a local Vite renderer preview in disposable headless Chromium; it does not prove packaged Tauri/WebView2/native UIA behavior.",
+    "No provider dispatch, native browser attach, OS permission grant, project pointer, RAG retrieval, or external account was invoked.",
+    "The receipt proves selected UI criteria only; remaining DoD criteria and native/live integrations remain incomplete."
+  ],
+  "claimBoundaries": [
+    "Light-theme contrast and responsive behavior are directly evidenced by the independent browser report.",
+    "Geometry checks are renderer-preview measurements, not packaged desktop measurement.",
+    "No completion claim for the Omnia product or cycle is made."
+  ],
+  "output": {
+    "path": "docs/rebuild/receipts/cycle6-ui-qa-output.txt",
+    "sha256": "5694fefdbbb134252a767b7c778afc694ca525e96b00ab8d29f40ce698350d43"
+  },
+  "environment": "Vite browser preview via headless Chromium at 800x600 and 1440x900; clean-room renderer only; packaged/native/provider excluded",
+  "media": [
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/report.json",
+      "sha256": "7882d4a5d876c0b7027305c704bb0953acb9439e277b30be6209b8aa7c593a9a"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-browser.png",
+      "sha256": "5b0719f490196e173190d8408dbf2f11c8fc6ec64c01b5de243de72aa7188e08"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-chat.png",
+      "sha256": "ddc66dbbb4d64cb1ea82d5de5e05e8418d63137d90c417f6b56c18f1fe29b71c"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-ide.png",
+      "sha256": "d29d5bbce75ccc2417b05f3043b16515c0e8384a346d477c4be107979b4eb83f"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-settings.png",
+      "sha256": "ca70db5338d9defb589ac36e7dcc14fd8ef3e6290c564003d8e02d51097279b6"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-browser.png",
+      "sha256": "e7dd763023bddcd2479430312c72397e54e5cfeaa3d0d2c6fe9a2c230ed66748"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-chat.png",
+      "sha256": "e0746af4d8584db6c6e2199586426d37c085be2e3a734a85504c3f00483d53b4"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-ide.png",
+      "sha256": "8e20cd58ea089067ae3d0ce4fd4e5a02faedb41ab8f135a82dba06c150f0dacd"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-light-settings.png",
+      "sha256": "45ee8a2ac265c3b6692be995519c47abf46ddf5e7ab5e19a2774cdfe7d92b592"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-browser.png",
+      "sha256": "63bf6b3eb4cd1df1a2006c91d780715ec72f74e3b04162917ada746f85c4569f"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-chat.png",
+      "sha256": "89bd2254a79e6115411bb333a1f9a5c0d8d8d0dc6bd0ea77cdaaa5c34423abfd"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-ide.png",
+      "sha256": "b09acb5c7ec88cfbb8e5b69d522e7cc53edf0391242046f515bd0281251e10b1"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-dark-settings.png",
+      "sha256": "c9164f57819d787ef9bd3d9632ea49097ab0293fa774e179a244a991e33d8819"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-browser.png",
+      "sha256": "79654a213705d8097acd2f3b488273f409ae7cd42a478786d0a537cd2e4b6b60"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-chat.png",
+      "sha256": "b9b88c3d6df65af079b7d5cbe38b44523cadb21adc9185762723182222398762"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-ide.png",
+      "sha256": "0005763f3376dee535fc2b1c01cbc52c949ab99a9c4443d02a3d4f5c31de32d4"
+    },
+    {
+      "path": "docs/rebuild/audit/ui-browser-20261108-current/800x600-light-settings.png",
+      "sha256": "83e7f863dfe0c7b6d6396cf9b950b3014f2c5bb2a7d0d5d299c545d73c504629"
+    }
+  ]
+}

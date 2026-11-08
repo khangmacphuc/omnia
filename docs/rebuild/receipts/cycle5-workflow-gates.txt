@@ -1,3 +1,40 @@
-npm.cmd run test:rebuild-gates
-exitCode=0
-32 Node workflow and architecture gate tests passed.
+✔ accepts an original rebuild entry and rejects legacy renderer import (61.6551ms)
+✔ rejects external app embedding and computed module paths (47.1727ms)
+✔ canonical repo and source identity normalization are stable (1.5603ms)
+✔ evidence hash changes when evidence changes (15.4228ms)
+✔ entry graph reports missing relative imports (5.2897ms)
+✔ canonical hashes include only existing documents (4.2528ms)
+✔ forged done criterion without evidence or independent review is rejected (3.1492ms)
+✔ changed evidence is rejected by stored hash (7.0838ms)
+✔ stage jumps and initial non-resume transitions are rejected (0.4581ms)
+✔ research identity repeats are rejected (1.4127ms)
+✔ rejects forged Done without evidence and independent review (35.3856ms)
+✔ rejects duplicate or pre-cycle research and requires source snapshot (23.7954ms)
+✔ rejects skipped stages and cancellation requires a reason (24.0672ms)
+✔ cycle failure creates a new generation and returns to implementation (31.5431ms)
+✔ failure recovery reuses immutable pre-implementation artifacts and validates (106.0128ms)
+✔ failure recovery rejects changed carried source instead of inventing a new audit (89.4001ms)
+✔ completed and cancelled statuses must agree with stage and history (23.3206ms)
+✔ Done review covers the criterion source and tested source (53.507ms)
+✔ review declaration cannot overrule unresolved or mismatching receipt (43.0501ms)
+✔ review must bind required criterion IDs and command receipts (100.0029ms)
+✔ all blocker records require real attempts, workaround and next action (20.5655ms)
+✔ typed plan rejects arbitrary Markdown, excess passes and unbounded tasks (113.6291ms)
+✔ synthesis must bind runnable workbench source and passing build (47.4623ms)
+✔ publication exit cannot be satisfied with an arbitrary hashed file (100.9309ms)
+✔ default check rejects stale cycle while structural-only diagnostic is explicit (1052.3167ms)
+✔ default registry check rejects malformed source hashes (504.018ms)
+✔ structural-only mode intentionally skips receipt freshness but still checks references (16.7562ms)
+✔ full failure recovery advances through independent review and document reread (148.1952ms)
+✔ cycle review cannot bind an unrelated implementation or test (81.2225ms)
+✔ planning rejects cycles and criteria omitted from atomic tasks (87.5113ms)
+✔ synthesis rejects source observations outside reviewed research (74.5558ms)
+✔ structural-only mode cannot be combined with milestone or completion (1007.6569ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3997.2616

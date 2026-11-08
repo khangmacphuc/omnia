@@ -115,3 +115,6 @@ action measures 3.81:1 against the 4.5:1 WCAG AA target. Native pointer/RAG
 runtime, live provider refresh/execution, packaged WebView2/computer use, and
 full packaged keyboard/accessibility evidence remain incomplete. The DoD is
 therefore still **0/240 Done** and the goal remains active.
+## Cycle 0006 evidence update (2026-11-08)
+
+Cycle 0006 added Mastra workflow durability research and Monaco model/worker research with pinned source snapshots. The clean-room renderer now imports its reset before lazy render, uses a semantic light-theme primary ink token, enforces 36px browser tabs, and records refreshed independent browser checks across 16 states. These remain Vite preview evidence; packaged Tauri/WebView2, live provider model discovery, native ask-user delivery, pointer storage and RAG runtime remain open.

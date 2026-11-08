@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-build",
+  "recordedAt": "2026-11-08T06:30:00.000Z",
+  "command": "npm.cmd run build:renderer",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle6-renderer-build-output.txt",
+    "sha256": "dd77dbbfbf22a28baf7de65a4097ebb00e8440f02e73948b4cd374159cebec4a"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.css",
+      "sha256": "564c54c5e46220434cedaee317c4750ce57abf6ffbab5d7c395849822f2d5caf"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    }
+  ],
+  "stage": "synthesize",
+  "cycleId": "rebuild-0006"
+}
