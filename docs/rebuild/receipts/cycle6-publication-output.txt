@@ -1,0 +1,25 @@
+Publication proof generated 2026-11-08T06:42:52.028Z
+remote: https://github.com/khangmacphuc/omnia.git
+branch: codex/omnia-original-rebuild
+tag: v0.1.0-rebuild-0006
+commit: 5d0ccddbc1f0dd7c34cd8153a64443531f5b876e
+
+$ git push origin codex/omnia-original-rebuild
+
+
+$ git push origin v0.1.0-rebuild-0006
+
+
+$ git ls-remote origin refs/heads/codex/omnia-original-rebuild refs/tags/v0.1.0-rebuild-0006 refs/tags/v0.1.0-rebuild-0006^{}
+5d0ccddbc1f0dd7c34cd8153a64443531f5b876e	refs/heads/codex/omnia-original-rebuild
+99ccca0f875a96cfa809fb80c42d0a5b04e1842d	refs/tags/v0.1.0-rebuild-0006
+5d0ccddbc1f0dd7c34cd8153a64443531f5b876e	refs/tags/v0.1.0-rebuild-0006^{}
+
+$ git show --format=fuller --no-patch HEAD
+commit 5d0ccddbc1f0dd7c34cd8153a64443531f5b876e
+Author:     Omnia Codex <codex@local.invalid>
+AuthorDate: Sun Nov 8 13:42:08 2026 +0700
+Commit:     Omnia Codex <codex@local.invalid>
+CommitDate: Sun Nov 8 13:42:08 2026 +0700
+
+    feat: publish omnia rebuild cycle 0006

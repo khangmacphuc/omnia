@@ -11,8 +11,8 @@
   ],
   "revision": null,
   "createdAt": "2026-11-08T05:56:14.702Z",
-  "status": "active",
-  "stage": "publish",
+  "status": "completed",
+  "stage": "next",
   "generation": 1,
   "history": [
     {
@@ -73,6 +73,12 @@
       "stage": "publish",
       "generation": 1,
       "at": "2026-11-08T06:39:23.671Z",
+      "event": "advance"
+    },
+    {
+      "stage": "next",
+      "generation": 1,
+      "at": "2026-11-08T06:43:47.595Z",
       "event": "advance"
     }
   ],
@@ -146,7 +152,7 @@
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "66f47176740c4a55d159b03efc3cd57a78c16241457cbd0ab7a59b8f88f5fa05"
+        "sha256": "84ef5ca8624c1fedce2a9d50506286b747290a8e640777d4bab27b1c83e30ebb"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
@@ -481,6 +487,13 @@
       "stage": "document",
       "generation": 1,
       "kind": "document"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle6-publication.json",
+      "sha256": "6ad9f266b055a724cc581534aeb105368dfa30fe276e254389f9d189788e5710",
+      "stage": "publish",
+      "generation": 1,
+      "kind": "publish"
     }
   ],
   "checklist": {

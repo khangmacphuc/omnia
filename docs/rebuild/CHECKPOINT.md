@@ -1,12 +1,13 @@
 # Omnia rebuild checkpoint
 
-Updated: 2026-11-08. Cycle: **rebuild-0006**. Stage: **publish**. Status:
-**active**; the product goal is not complete.
+Updated: 2026-11-08. Cycle: **rebuild-0006**. Stage: **next**. Status:
+**completed**; the product goal is not complete.
 
 ## Current truth
 
-- Branch `codex/omnia-original-rebuild`, cycle-6 publication is being prepared from
-  the current working snapshot; the prior published milestone remains
+- Branch `codex/omnia-original-rebuild`; cycle 0006 publication commit is
+  `5d0ccddbc1f0dd7c34cd8153a64443531f5b876e`, tagged
+  `v0.1.0-rebuild-0006`. The prior published milestone remains
   `v0.1.0-rebuild-0005`.
 - Clean-room renderer entry graph is active from `src/main.tsx`; the architecture
   guard passes with no legacy UI imports, copied renderer components or live
@@ -46,6 +47,7 @@ Updated: 2026-11-08. Cycle: **rebuild-0006**. Stage: **publish**. Status:
 | `docs/rebuild/receipts/cycle6-renderer-build.json` | pass | current renderer bundle |
 | `docs/rebuild/receipts/cycle6-ui-20261108.json` | 153 checks, axe 0 | browser preview only |
 | `docs/rebuild/audit/REVIEW_CYCLE6_20261108.json` | independent pass | current evidence review, not completion |
+| `docs/rebuild/receipts/cycle6-publication.json` | branch/tag/README/screenshot proof | reviewed milestone, not product completion |
 
 Cycle 0006 receipts add the Mastra and Monaco research snapshots, current
 renderer test/build/typecheck outputs, the 153-check browser preview capture,
@@ -68,7 +70,7 @@ explicitly scoped: browser preview is not packaged/native/live provider proof.
 
 ## Durable loop resume
 
-After publication, reread `AGENTS.md`, the evidence-loop skill, `GOAL.md`,
+For the next cycle, reread `AGENTS.md`, the evidence-loop skill, `GOAL.md`,
 `WORKFLOW.md`, `SPEC.md`, `DOD.json`, `SOURCE_REGISTER.json`, this checkpoint and
 `ASSIGNMENTS.md`. Start with a new audit and genuinely new OSS research. Keep the
 reviewer distinct from the implementer, refresh hashes after every source freeze,
