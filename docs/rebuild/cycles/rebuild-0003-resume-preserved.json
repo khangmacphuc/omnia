@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "id": "rebuild-0003",
+  "author": "/root",
+  "criteria": [
+    "UI-001",
+    "UI-002",
+    "UI-003",
+    "UI-004",
+    "UI-005",
+    "UI-006",
+    "UI-007",
+    "UI-008",
+    "UI-009",
+    "UI-010",
+    "UI-011",
+    "UI-012",
+    "UI-013",
+    "UI-014",
+    "UI-015",
+    "ADVSET-009",
+    "ADVSET-010"
+  ],
+  "revision": null,
+  "createdAt": "2026-11-08T03:55:44.261Z",
+  "status": "active",
+  "stage": "resume",
+  "generation": 1,
+  "history": [
+    {
+      "stage": "resume",
+      "generation": 1,
+      "at": "2026-11-08T03:55:44.261Z",
+      "event": "started"
+    }
+  ],
+  "reads": {
+    "before": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+      },
+      {
+        "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+        "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+      },
+      {
+        "path": "docs/rebuild/GOAL.md",
+        "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+      },
+      {
+        "path": "docs/rebuild/WORKFLOW.md",
+        "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+      },
+      {
+        "path": "docs/rebuild/SPEC.md",
+        "sha256": "39ed159f6a428f7a447c42357dc942b418c6ba3d071c761b719b075ed0b99ae0"
+      },
+      {
+        "path": "docs/rebuild/DOD.json",
+        "sha256": "2c64504f1a22faa78868be8d2a64a050120401ceced91592dcbb7d522800cbd6"
+      },
+      {
+        "path": "docs/rebuild/SOURCE_REGISTER.json",
+        "sha256": "5ac6b22374bb8d4ed8695a422f263e3ef6a9b1540346b934f87a7b92fcbf7fd4"
+      },
+      {
+        "path": "docs/rebuild/CHECKPOINT.md",
+        "sha256": "840bf7c9bbb3758b1460a2f0358663a1aba5045a2e820b2473edc9adbf341288"
+      },
+      {
+        "path": "docs/rebuild/ASSIGNMENTS.md",
+        "sha256": "daa5e7ac95882cf264229d6216c2127ea4d40f51b9e02257c4e363ed1d964a55"
+      }
+    ],
+    "after": []
+  },
+  "baselineResearch": [
+    {
+      "sourceId": "oss-spec-kit-agentic-sdd-20261108",
+      "canonicalRepo": "https://github.com/github/spec-kit",
+      "revision": "c43849408ac0de2ca6a52f14eaae71449776057b",
+      "path": "docs/reference/agentic-sdd.md",
+      "sha256": "A4F5949EC5890EBD6F822204C69F7E7EC0E5AB9EE958FCB4768AF36B32FF59A3"
+    },
+    {
+      "sourceId": "oss-get-shit-done-verification-20261108",
+      "canonicalRepo": "https://github.com/gsd-build/get-shit-done",
+      "revision": "bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815",
+      "path": "docs/FEATURES.md",
+      "sha256": "61EDC3296BF4EF591D33619CC636F09EE0F1C5E7F6EFA257BE1536B819F28E69"
+    },
+    {
+      "sourceId": "oss-get-shit-done-verification-20261108",
+      "canonicalRepo": "https://github.com/gsd-build/get-shit-done",
+      "revision": "bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815",
+      "path": "commands/gsd/verify-work.md",
+      "sha256": "not-hashed-web-search-observation"
+    },
+    {
+      "sourceId": "oss-superclaude-context-architecture-20261108",
+      "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
+      "path": "docs/developer-guide/technical-architecture.md",
+      "sha256": "A36EDAE2CEE164B280CFB06104A9024352F5E935F7122B21D1696F3FF66BA59F"
+    },
+    {
+      "sourceId": "oss-kiro-powers-registry-20261108",
+      "canonicalRepo": "https://github.com/kirodotdev/powers",
+      "revision": "91d8b241dea7107a119c78aeb49dd2d3fab48da8",
+      "path": "README.md",
+      "sha256": "80EBC3EFC8B2E7655AB140862C35F83CBC09E37E38178A6ADED540A9B10256C9"
+    },
+    {
+      "sourceId": "oss-power-agent-powershell-20261108",
+      "canonicalRepo": "https://github.com/nakasyou/power-agent",
+      "revision": "a258539983e3ffbcb04f7762d73f98b67940e5b8",
+      "path": "README.md",
+      "sha256": "0396A57DB2EDF08E0A03A0F0D73FF31F77BDDAA595F6BD218416B46F3A14BED"
+    },
+    {
+      "sourceId": "oss-azure-agents-control-plane-20261108",
+      "canonicalRepo": "https://github.com/microsoft/azure-agents-control-plane",
+      "revision": "efc3f85e2f1786e7b415ff6e66138a7dbdb316c0",
+      "path": "docs/AGENTS_ARCHITECTURE.md",
+      "sha256": "86AA8E641493B4F17F1E0C2ECCD0FD1D8AC38AC3A364D85E055127C407D9EDC2"
+    },
+    {
+      "sourceId": "new-microsoft-agent-framework-20261108",
+      "canonicalRepo": "https://github.com/microsoft/agent-framework",
+      "revision": "924a6e50ec0336f3c965ee8b1151c54085888b6e",
+      "path": "python/packages/declarative/AGENTS.md",
+      "sha256": "a896a5311eb921b075b01bb0bee99056b30d50ff9ce0e826d830372dfd06bab3"
+    },
+    {
+      "sourceId": "new-ui-ux-pro-max-20261108",
+      "canonicalRepo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b",
+      "path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "sha256": "14f43337edfbf7822e091428e4ae0c6f92f86e3353deda6a30f6613121e2cf2d"
+    },
+    {
+      "sourceId": "new-agent-desktop-20261108",
+      "canonicalRepo": "https://github.com/vercel-labs/agent-desktop",
+      "revision": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
+      "path": "README.md",
+      "sha256": "373b4616cbdb558318b5ad7b70b0a7086e58833d60646c36a81deae655d82365"
+    },
+    {
+      "sourceId": "new-openviking-20261108",
+      "canonicalRepo": "https://github.com/volcengine/OpenViking",
+      "revision": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "path": "README.md",
+      "sha256": "8d76530b5f69d15b973af456400f909a121ae63bc66dcc1ae78c80190245ec3e"
+    },
+    {
+      "sourceId": "new-openviking-20261108",
+      "canonicalRepo": "https://github.com/volcengine/OpenViking",
+      "revision": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "path": "LICENSE",
+      "sha256": "1bd87fa6d9a5c79daf0c2af042b6725c9773bf095cc3d1bdf3656e66d1c3e5b1"
+    },
+    {
+      "sourceId": "new-agentic-rag-20261108",
+      "canonicalRepo": "https://github.com/phense/agentic-rag",
+      "revision": "b2c2529d82d1a3cd93e216a9d0ea3f12aca8ed26",
+      "path": "agentic_rag/retrieval.py",
+      "sha256": "0476b66af0af4b8d923ff6b1de9fc1b723f59917baec06a2f79c80eeb6069490"
+    },
+    {
+      "sourceId": "new-ragleap-20261108",
+      "canonicalRepo": "https://github.com/ragleap/ragleap-core",
+      "revision": "24b2e7f998ecabf7147b3232aa94f6c1528e41ae",
+      "path": "README.md",
+      "sha256": "82df0380209c791d88ecc54f68857d1e1cbc259be364c391ee23645190c5c0ba"
+    },
+    {
+      "sourceId": "new-superclaude-20261108",
+      "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
+      "path": "README.md",
+      "sha256": "f477b0310168ab45c9bc9aa507a570814813dcdf3a92ab4992810f9ba53cdc30"
+    },
+    {
+      "sourceId": "new-everything-claude-code-20261108",
+      "canonicalRepo": "https://github.com/affaan-m/everything-claude-code",
+      "revision": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+      "path": ".agents/skills/strategic-compact/SKILL.md",
+      "sha256": "bf1429dbc4ece055ba2ff79b9dc3e926cfa1a39101a88ee8467de062d1a0e7f3"
+    },
+    {
+      "sourceId": "new-everything-gemini-cycle2-20261108",
+      "canonicalRepo": "https://github.com/salmandev/everything-gemini",
+      "revision": "903bb8db6f2ee47a1b1a8bb24a48e2961c4cfa4e",
+      "path": "README.md",
+      "sha256": "ebe497d65117b692c89cfbf24f9a2eec7aa000c1f09db5264a95294bffa67d15"
+    },
+    {
+      "sourceId": "new-openbrowse-compaction-cycle2-20261108",
+      "canonicalRepo": "https://github.com/openbrowse-ai/openbrowse",
+      "revision": "9c1bec9d9278969c1fc15f244711fa7e0a415b7a",
+      "path": "README.md",
+      "sha256": "85bc0c607fbb78c2cfc651d09ad8a39cdf6febcb97c5ea4c123efbd01f3017a7"
+    },
+    {
+      "sourceId": "new-openbrowse-compaction-cycle2-20261108",
+      "canonicalRepo": "https://github.com/openbrowse-ai/openbrowse",
+      "revision": "9c1bec9d9278969c1fc15f244711fa7e0a415b7a",
+      "path": "apps/extension/src/lib/agent/compaction.ts",
+      "sha256": "836371b6ca65c6ee8419a3c620ca5fe4fd1396d6d002fc7a61146fc2529040d2"
+    },
+    {
+      "sourceId": "new-backboard-desktop-capability-cycle2-20261108",
+      "canonicalRepo": "https://github.com/Backboard-io/Backboard-Desktop",
+      "revision": "af5489c6cb81d23ed6675756a9dadbe370434678",
+      "path": "README.md",
+      "sha256": "60b276f7bbe0791fe36b9ff4d28655de3f3a3522063c5bc48cbf4782b898b8b0"
+    },
+    {
+      "sourceId": "new-backboard-desktop-capability-cycle2-20261108",
+      "canonicalRepo": "https://github.com/Backboard-io/Backboard-Desktop",
+      "revision": "af5489c6cb81d23ed6675756a9dadbe370434678",
+      "path": "backboard/package.json",
+      "sha256": "035a0c3bc29565804c312491828bab350088fbd7b49e1c4384d00fff2f04901e"
+    }
+  ],
+  "research": [],
+  "artifacts": [],
+  "checklist": {},
+  "review": null
+}

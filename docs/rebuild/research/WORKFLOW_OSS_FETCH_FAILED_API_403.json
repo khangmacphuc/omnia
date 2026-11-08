@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-11-07T21:12:46.888Z",
+  "scope": "new workflow research source acquisition; no upstream code executed",
+  "sources": [
+    {
+      "canonicalRepo": "https://github.com/github/spec-kit",
+      "revision": null,
+      "paths": [],
+      "errors": [
+        {
+          "message": "revision lookup HTTP 403"
+        }
+      ]
+    },
+    {
+      "canonicalRepo": "https://github.com/gsd-build/get-shit-done",
+      "revision": null,
+      "paths": [],
+      "errors": [
+        {
+          "message": "revision lookup HTTP 403"
+        }
+      ]
+    },
+    {
+      "canonicalRepo": "https://github.com/affaan-m/everything-claude-code",
+      "revision": null,
+      "paths": [],
+      "errors": [
+        {
+          "message": "revision lookup HTTP 403"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+npm warn cli npm v12.2.1 does not support Node.js v27.0.0-nightly202610263983092f63. This version of npm supports the following node versions: `^22.22.2 || ^24.15.0 || >=26.0.0`. You can find the latest version at https://nodejs.org/.
+npm notice run omnia-desktop@0.1.0 test:rebuild-gates
+npm notice run node --test scripts/rebuild/*.test.mjs
+✔ accepts an original rebuild entry and rejects legacy renderer import (234.3846ms)
+✔ rejects external app embedding and computed module paths (21.3971ms)
+✔ canonical repo and source identity normalization are stable (1.6692ms)
+✔ evidence hash changes when evidence changes (6.8806ms)
+✔ entry graph reports missing relative imports (6.6155ms)
+✔ canonical hashes include only existing documents (3.633ms)
+✔ forged done criterion without evidence or independent review is rejected (2.1995ms)
+✔ changed evidence is rejected by stored hash (7.475ms)
+✔ stage jumps and initial non-resume transitions are rejected (0.3823ms)
+✔ research identity repeats are rejected (0.6154ms)
+✔ rejects forged Done without evidence and independent review (129.2489ms)
+✔ rejects duplicate or pre-cycle research and requires source snapshot (17.2386ms)
+✔ rejects skipped stages and cancellation requires a reason (11.3025ms)
+✔ cycle failure creates a new generation and returns to implementation (10.5669ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1035.6987
+EXIT=0

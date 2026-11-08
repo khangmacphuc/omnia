@@ -25,6 +25,7 @@ pub mod skills;
 pub mod subagent;
 pub mod tool;
 pub mod tools;
+pub mod user_input;
 
 pub use tokio_util::sync::CancellationToken;
 

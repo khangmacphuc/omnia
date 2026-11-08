@@ -1,0 +1,46 @@
+Omnia independent UI/settings verification snapshot
+Recorded: 2026-11-08 11:53 Asia/Bangkok (04:53 UTC)
+Workspace: C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+Command: npm.cmd test -- --run src/rebuild --reporter=dot
+Exit: 0
+Result: 12 test files; 54 tests passed.
+
+Command: node --test tests/rebuild-independent-audit.test.mjs
+Exit: 0
+Result: 6 tests passed; 0 failed.
+
+Command: npm.cmd run rebuild:architecture
+Exit: 0
+Result: architecture guard passed; no violations.
+
+Command: git diff --check
+Exit: 0
+Result: pass; existing LF→CRLF warning for docs/PRODUCT_SPEC.md only.
+
+Command: node_modules/.bin/tsc -p tsconfig.app.json --noEmit --pretty false
+Exit: 1
+Result: browser-workspace.test.tsx lines 49 and 52 pass HTMLElement|undefined to fireEvent.keyDown; strict TypeScript requires a narrowed element.
+
+Command: node tests/rebuild-ui-browser-independent.mjs
+Exit: 1 (findings retained)
+Result: 141 checks; 116 passed; 25 failed; 16 state captures.
+Report: docs/rebuild/audit/ui-browser-20261108-current/report.json
+Report SHA-256: c53587ca6d72676b8fb6f86b149851e200fee3a3db2406db1301beb0d881fa6d
+
+Evidence boundary: these are renderer/preview and source-boundary checks only. They do not prove packaged Tauri/WebView2, native provider execution, permissions, pointer storage or OS automation.
+
+Follow-up after Browser test narrowing and Settings grid correction (2026-11-08 12:03 Asia/Bangkok):
+- `npm.cmd test -- --run src/rebuild --reporter=dot`: exit 0; 12 files, 55 tests passed.
+- `npm.cmd test -- --run src/rebuild/browser/browser-workspace.test.tsx --reporter=dot`: exit 0; 1 file, 4 tests passed.
+- `node_modules/.bin/tsc -p tsconfig.app.json --noEmit --pretty false`: exit 0.
+- `node tests/rebuild-ui-browser-independent.mjs`: exit 1 with 141 checks, 136 passed, 5 failed; report hash `4a9e056404d773d222102d6d345816fb52c65ef85818bfd54b282f50fe7a7a9d`.
+- Remaining browser findings: Chat document-overflow probe at 1440x900 and light Browser/IDE primary-action contrast 3.81:1.
+
+Latest independent rerun (2026-11-08 05:23 UTC / 12:23 Asia/Bangkok):
+- `node tests/rebuild-ui-browser-independent.mjs`: exit 1 with 141 checks, 136 passed, 5 failed; 16 state captures.
+- Report hash: `81b2350470150be73a26a80f17dd9ae41d35f472749ee465595c87bf4957a572`.
+- Remaining findings are unchanged: first reduced-motion Chat body-margin/document-overflow race (`x=8,y=8`) and four light Browser/IDE `.rb-primary-button` axe contrast findings (`3.81:1`, required `4.5:1`).
+- `npm.cmd test -- --run src/rebuild --reporter=dot`: exit 0; 12 files, 55 tests passed.
+- `node_modules/.bin/tsc -p tsconfig.app.json --noEmit --pretty false`: exit 0.
+- Source hashes remained stable during the browser capture. Evidence remains limited to the local renderer; no packaged/native/provider claim is made.

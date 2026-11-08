@@ -1,0 +1,684 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T04:03:45.9297794Z",
+  "cycle": "rebuild-0003",
+  "corpusInventory": {
+    "path": "docs/rebuild/research/CORPUS_INVENTORY.json",
+    "generatedBy": "scripts/rebuild/source-inventory.mjs",
+    "excluded": [
+      "desktop-apps/zalo-desktop"
+    ],
+    "observedCategories": 11,
+    "observedModules": 54,
+    "readableModules": 54,
+    "substantialReadableModules": 21,
+    "truncatedModules": 14,
+    "interpretation": "Bounded filesystem observation, not complete extraction or behavioral parity. Truncated modules require follow-up before source-complete claims."
+  },
+  "sources": [
+    {
+      "id": "oss-spec-kit-agentic-sdd-20261108",
+      "canonicalRepo": "https://github.com/github/spec-kit",
+      "revision": "c43849408ac0de2ca6a52f14eaae71449776057b",
+      "license": "MIT",
+      "query": "site:github.com github spec-kit agentic SDD workflow",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "docs/reference/agentic-sdd.md",
+          "sha256": "A4F5949EC5890EBD6F822204C69F7E7EC0E5AB9EE958FCB4768AF36B32FF59A3"
+        }
+      ],
+      "novelty": "New source for this rebuild cycle; not in the prior Omnia source register.",
+      "strengths": [
+        "Explicit specify/clarify/plan/tasks/analyze/implement/converge artifact chain",
+        "Consistency analysis is a named quality gate"
+      ],
+      "weaknesses": [
+        "Workflow commands are host-agent integrations, not an Omnia runtime",
+        "Source does not prove UI or native persistence"
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use ordered stage transitions and a spec/plan/tasks consistency gate in scripts/rebuild; keep it adapted to Omnia DoD receipts.",
+      "evidence": [
+        "Web raw source fetched HTTP 200",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "oss-get-shit-done-verification-20261108",
+      "canonicalRepo": "https://github.com/gsd-build/get-shit-done",
+      "revision": "bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815",
+      "license": "MIT",
+      "query": "site:github.com gsd-build get-shit-done verify-work persistent UAT",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "docs/FEATURES.md",
+          "sha256": "61EDC3296BF4EF591D33619CC636F09EE0F1C5E7F6EFA257BE1536B819F28E69"
+        },
+        {
+          "path": "commands/gsd/verify-work.md",
+          "sha256": "e51c337793b20f922c398a30a7036b616b8e1d2de48692093875c4e886ba8a7a",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle4/oss-get-shit-done-verification-20261108-commands_gsd_verify-work.md.txt",
+            "sha256": "e51c337793b20f922c398a30a7036b616b8e1d2de48692093875c4e886ba8a7a"
+          },
+          "hashCorrection": {
+            "previousDeclaredSha256": "not-hashed-web-search-observation",
+            "retrievedAt": "2026-11-08T04:39:07.898Z"
+          }
+        }
+      ],
+      "novelty": "New workflow research this cycle; exact repository/revision/path not present in the existing inventory.",
+      "strengths": [
+        "Persistent UAT artifact survives context clearing",
+        "Each plan task requires an executable verify command",
+        "User-facing conversational verification records expected versus observed"
+      ],
+      "weaknesses": [
+        "Claude-specific command/runtime assumptions",
+        "Interactive UAT still depends on a human for live confirmation"
+      ],
+      "decision": "apply",
+      "omniaApplication": "Add durable UAT receipts and require an observable verification command per atomic DoD criterion; do not treat a green structural gate as live UAT.",
+      "evidence": [
+        "Web raw source fetched HTTP 200",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "oss-superclaude-context-architecture-20261108",
+      "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
+      "license": "MIT",
+      "query": "site:github.com SuperClaude Framework context architecture skills",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "docs/developer-guide/technical-architecture.md",
+          "sha256": "A36EDAE2CEE164B280CFB06104A9024352F5E935F7122B21D1696F3FF66BA59F"
+        }
+      ],
+      "novelty": "New context-architecture source; no matching pinned path existed in the prior registry.",
+      "strengths": [
+        "Context-oriented configuration separates behavior, roles and components",
+        "Documents precedence and composition rather than only a prompt template"
+      ],
+      "weaknesses": [
+        "Configuration injection is not proof of safe tool execution",
+        "Claude Code assumptions and no native Omnia persistence"
+      ],
+      "decision": "apply-with-boundary",
+      "omniaApplication": "Model skills/personas as versioned, provenance-bearing capabilities loaded by policy; preserve permission and tool contracts outside prompt text.",
+      "evidence": [
+        "Web raw source fetched HTTP 200",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "oss-kiro-powers-registry-20261108",
+      "canonicalRepo": "https://github.com/kirodotdev/powers",
+      "revision": "91d8b241dea7107a119c78aeb49dd2d3fab48da8",
+      "license": "unknown",
+      "query": "site:github.com kirodotdev powers agent skills POWER.md",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "80EBC3EFC8B2E7655AB140862C35F83CBC09E37E38178A6ADED540A9B10256C9"
+        }
+      ],
+      "novelty": "New named powers registry candidate; exact source path was not previously recorded.",
+      "strengths": [
+        "Specialized powers are discoverable and activated on demand",
+        "Separates knowledge-base powers from MCP servers to reduce context overload"
+      ],
+      "weaknesses": [
+        "Repository does not expose a license file at the pinned path",
+        "README alone is insufficient to adopt a power safely"
+      ],
+      "decision": "defer-license-review",
+      "omniaApplication": "Adopt the on-demand capability index concept only after license and individual power provenance are verified; keep unknown-license sources reference-only.",
+      "evidence": [
+        "Web raw README fetched HTTP 200",
+        "LICENSE and LICENSE.md returned 404",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "oss-power-agent-powershell-20261108",
+      "canonicalRepo": "https://github.com/nakasyou/power-agent",
+      "revision": "a258539983e3ffbcb04f7762d73f98b67940e5b8",
+      "license": "MIT",
+      "query": "site:github.com power-agent PowerShell coding agent MCP",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "0396a57db2edf08e0a03a0f0d73ff31f77bddaa595f6bd218416b46ff3a14bed",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle4/oss-power-agent-powershell-20261108-README.md.txt",
+            "sha256": "0396a57db2edf08e0a03a0f0d73ff31f77bddaa595f6bd218416b46ff3a14bed"
+          },
+          "hashCorrection": {
+            "previousDeclaredSha256": "0396A57DB2EDF08E0A03A0F0D73FF31F77BDDAA595F6BD218416B46F3A14BED",
+            "retrievedAt": "2026-11-08T04:39:08.321Z"
+          }
+        }
+      ],
+      "novelty": "New local Windows harness reference; no matching pinned revision in the prior registry.",
+      "strengths": [
+        "PowerShell-only process boundary fits Windows local execution",
+        "Workspace-scoped MCP configuration is explicit"
+      ],
+      "weaknesses": [
+        "Single runtime and provider assumptions",
+        "README is not enough to prove permission isolation or cancellation"
+      ],
+      "decision": "apply-as-adapter-reference",
+      "omniaApplication": "Use workspace-over-global tool configuration precedence as a settings design input; keep OS execution behind Omnia permission/native boundary and test cancellation.",
+      "evidence": [
+        "Web raw README fetched HTTP 200",
+        "MIT LICENSE fetched HTTP 200",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "oss-azure-agents-control-plane-20261108",
+      "canonicalRepo": "https://github.com/microsoft/azure-agents-control-plane",
+      "revision": "efc3f85e2f1786e7b415ff6e66138a7dbdb316c0",
+      "license": "MIT",
+      "query": "site:github.com microsoft azure agents control plane MCP architecture",
+      "retrievedAt": "2026-11-08T04:15:00+07:00",
+      "paths": [
+        {
+          "path": "docs/AGENTS_ARCHITECTURE.md",
+          "sha256": "86AA8E641493B4F17F1E0C2ECCD0FD1D8AC38AC3A364D85E055127C407D9EDC2"
+        }
+      ],
+      "novelty": "New control-plane architecture source; not present in prior Omnia extracted modules.",
+      "strengths": [
+        "Separates agent API, APIM policy, MCP capability and runtime deployment",
+        "Documents identity/observability boundaries in architecture diagrams"
+      ],
+      "weaknesses": [
+        "Azure/AKS assumptions are heavy for local Omnia",
+        "Architecture documentation is not an implementation or desktop proof"
+      ],
+      "decision": "apply-conceptually",
+      "omniaApplication": "Represent provider/model/tool execution as a policy-controlled control plane with explicit permission, lineage and telemetry edges; use local adapters rather than Azure dependencies.",
+      "evidence": [
+        "Web raw source fetched HTTP 200",
+        "MIT LICENSE fetched HTTP 200",
+        "git ls-remote HEAD verified"
+      ]
+    },
+    {
+      "id": "new-microsoft-agent-framework-20261108",
+      "canonicalRepo": "https://github.com/microsoft/agent-framework",
+      "revision": "924a6e50ec0336f3c965ee8b1151c54085888b6e",
+      "license": "MIT",
+      "query": "everything agent framework open source MCP workflow",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "python/packages/declarative/AGENTS.md",
+          "sha256": "a896a5311eb921b075b01bb0bee99056b30d50ff9ce0e826d830372dfd06bab3"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "checkpoint-backed declarative workflow state",
+        "pluggable MCP and HTTP handlers",
+        "human external-input contract"
+      ],
+      "weaknesses": [
+        "contract file does not prove runtime parity"
+      ],
+      "decision": "apply",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-ui-ux-pro-max-20261108",
+      "canonicalRepo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b",
+      "license": "MIT",
+      "query": "pro max UI UX skill open source",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+          "sha256": "14f43337edfbf7822e091428e4ae0c6f92f86e3353deda6a30f6613121e2cf2d"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "searchable design-system guidance",
+        "accessibility and stack routing"
+      ],
+      "weaknesses": [
+        "guidance is not product evidence"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-agent-desktop-20261108",
+      "canonicalRepo": "https://github.com/vercel-labs/agent-desktop",
+      "revision": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
+      "license": "Apache-2.0",
+      "query": "agent desktop computer use Windows open source",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "373b4616cbdb558318b5ad7b70b0a7086e58833d60646c36a81deae655d82365"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "accessibility tree refs",
+        "bounded JSON snapshots",
+        "cross-platform command split"
+      ],
+      "weaknesses": [
+        "README does not establish all platform behavior"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-openviking-20261108",
+      "canonicalRepo": "https://github.com/volcengine/OpenViking",
+      "revision": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "license": "AGPL-3.0",
+      "query": "everything context database agent memory skills",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "8d76530b5f69d15b973af456400f909a121ae63bc66dcc1ae78c80190245ec3e"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1bd87fa6d9a5c79daf0c2af042b6725c9773bf095cc3d1bdf3656e66d1c3e5b1"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "inspectable virtual filesystem context",
+        "summary-first navigation"
+      ],
+      "weaknesses": [
+        "AGPL-3.0 obligations require legal review before linking or distributing code"
+      ],
+      "decision": "apply-concepts-only; defer-vendoring",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-agentic-rag-20261108",
+      "canonicalRepo": "https://github.com/phense/agentic-rag",
+      "revision": "b2c2529d82d1a3cd93e216a9d0ea3f12aca8ed26",
+      "license": "MIT",
+      "query": "open source RAG memory context compaction",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "agentic_rag/retrieval.py",
+          "sha256": "0476b66af0af4b8d923ff6b1de9fc1b723f59917baec06a2f79c80eeb6069490"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "deterministic term/symbol matching",
+        "contiguous evidence spans"
+      ],
+      "weaknesses": [
+        "Python/Postgres implementation not portable by itself"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-ragleap-20261108",
+      "canonicalRepo": "https://github.com/ragleap/ragleap-core",
+      "revision": "24b2e7f998ecabf7147b3232aa94f6c1528e41ae",
+      "license": "MIT",
+      "query": "super power approval gated AI agent open source",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "82df0380209c791d88ecc54f68857d1e1cbc259be364c391ee23645190c5c0ba"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "approval-gated autonomy",
+        "untrusted tool results",
+        "least privilege"
+      ],
+      "weaknesses": [
+        "README-level evidence only"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-superclaude-20261108",
+      "canonicalRepo": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
+      "revision": "fe68862c8ed9e2afb8120c2d9e27d0c3a7ce73a2",
+      "license": "MIT",
+      "query": "super agent development workflow framework",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "f477b0310168ab45c9bc9aa507a570814813dcdf3a92ab4992810f9ba53cdc30"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "structured role and command methodology"
+      ],
+      "weaknesses": [
+        "source/runtime quality needs further review"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-everything-claude-code-20261108",
+      "canonicalRepo": "https://github.com/affaan-m/everything-claude-code",
+      "revision": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+      "license": "MIT",
+      "query": "everything agent harness strategic compact",
+      "retrievedAt": "2026-11-08T04:24:00+07:00",
+      "paths": [
+        {
+          "path": ".agents/skills/strategic-compact/SKILL.md",
+          "sha256": "bf1429dbc4ece055ba2ff79b9dc3e926cfa1a39101a88ee8467de062d1a0e7f3",
+          "contentSha256": "bf1429dbc4ece055ba2ff79b9dc3e926cfa1a39101a88ee8467de062d1a0e7f3"
+        }
+      ],
+      "novelty": "new exact revision/path in rebuild-0001",
+      "strengths": [
+        "phase-aware compaction",
+        "planner and continuous learning structure"
+      ],
+      "weaknesses": [
+        "skill suggestions cannot enforce model compliance"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS.md"
+      ]
+    },
+    {
+      "id": "new-everything-gemini-cycle2-20261108",
+      "canonicalRepo": "https://github.com/salmandev/everything-gemini",
+      "revision": "903bb8db6f2ee47a1b1a8bb24a48e2961c4cfa4e",
+      "license": "Apache-2.0",
+      "query": "everything super power pro max agent harness IDE browser open source 2026",
+      "retrievedAt": "2026-11-08T10:28:01+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "ebe497d65117b692c89cfbf24f9a2eec7aa000c1f09db5264a95294bffa67d15",
+          "contentSha256": "ebe497d65117b692c89cfbf24f9a2eec7aa000c1f09db5264a95294bffa67d15"
+        }
+      ],
+      "novelty": "new repository+revision+path in rebuild-0002",
+      "strengths": [
+        "progressive disclosure skills",
+        "lifecycle hook and subagent handoff vocabulary"
+      ],
+      "weaknesses": [
+        "README-level behavior evidence",
+        "installer not executed"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE2_20261108.md"
+      ]
+    },
+    {
+      "id": "new-openbrowse-compaction-cycle2-20261108",
+      "canonicalRepo": "https://github.com/openbrowse-ai/openbrowse",
+      "revision": "9c1bec9d9278969c1fc15f244711fa7e0a415b7a",
+      "license": "MIT",
+      "query": "site:github.com everything super power pro max agent harness IDE browser open source 2026",
+      "retrievedAt": "2026-11-08T10:28:01+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "85bc0c607fbb78c2cfc651d09ad8a39cdf6febcb97c5ea4c123efbd01f3017a7",
+          "contentSha256": "85bc0c607fbb78c2cfc651d09ad8a39cdf6febcb97c5ea4c123efbd01f3017a7"
+        },
+        {
+          "path": "apps/extension/src/lib/agent/compaction.ts",
+          "sha256": "836371b6ca65c6ee8419a3c620ca5fe4fd1396d6d002fc7a61146fc2529040d2",
+          "contentSha256": "836371b6ca65c6ee8419a3c620ca5fe4fd1396d6d002fc7a61146fc2529040d2"
+        }
+      ],
+      "novelty": "new repository+revision+paths in rebuild-0002",
+      "strengths": [
+        "separate compaction and tool transport",
+        "conversation-local virtual workspace"
+      ],
+      "weaknesses": [
+        "extension OPFS is not native persistence proof",
+        "provider semantics differ"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE2_20261108.md"
+      ]
+    },
+    {
+      "id": "new-backboard-desktop-capability-cycle2-20261108",
+      "canonicalRepo": "https://github.com/Backboard-io/Backboard-Desktop",
+      "revision": "af5489c6cb81d23ed6675756a9dadbe370434678",
+      "license": "MIT",
+      "query": "site:github.com power max AI IDE browser agent open source",
+      "retrievedAt": "2026-11-08T10:28:01+07:00",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "60b276f7bbe0791fe36b9ff4d28655de3f3a3522063c5bc48cbf4782b898b8b0",
+          "contentSha256": "60b276f7bbe0791fe36b9ff4d28655de3f3a3522063c5bc48cbf4782b898b8b0"
+        },
+        {
+          "path": "backboard/package.json",
+          "sha256": "035a0c3bc29565804c312491828bab350088fbd7b49e1c4384d00fff2f04901e",
+          "contentSha256": "035a0c3bc29565804c312491828bab350088fbd7b49e1c4384d00fff2f04901e"
+        }
+      ],
+      "novelty": "new repository+revision+paths in rebuild-0002",
+      "strengths": [
+        "cross-vertical capability matrix",
+        "explicit upstream/license disclosure"
+      ],
+      "weaknesses": [
+        "Code-OSS/Electron shell is not Omnia native evidence",
+        "README capability claims need runtime proof"
+      ],
+      "decision": "defer-compare",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE2_20261108.md"
+      ]
+    },
+    {
+      "id": "new-browser-use-terminal-cycle3-20261108",
+      "canonicalRepo": "https://github.com/browser-use/terminal",
+      "revision": "16cdd3ac47261292d88f410abb1f0234577850ce",
+      "license": "MIT",
+      "query": "site:github.com open source browser computer harness Rust Tauri agent 2025 super power max",
+      "retrievedAt": "2026-11-08T04:00:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "70392f0919aa417827ff3cb548a60efa6726ec1517d4a69542601608b5944240",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle4/new-browser-use-terminal-cycle3-20261108-README.md.txt",
+            "sha256": "70392f0919aa417827ff3cb548a60efa6726ec1517d4a69542601608b5944240"
+          },
+          "hashCorrection": {
+            "previousDeclaredSha256": "51b335df27e00813d45b3898424adffd8edf0843eacf46a7072cb9dc8d77690",
+            "retrievedAt": "2026-11-08T04:39:08.718Z"
+          }
+        },
+        {
+          "path": "crates/browser-use-agent/src/execpolicy/policy.rs",
+          "sha256": "d0a6bc393553872ff3687752a89dbeec551f1f2b5083e8f2afa62a3083484310"
+        },
+        {
+          "path": "crates/browser-use-agent/src/goals/steering.rs",
+          "sha256": "a4d0bbad6767203e9f52ff9dcdf8d5f04c50eac5832de8bc41b0aa096520383b"
+        },
+        {
+          "path": "crates/browser-use-agent/src/infra/persistence.rs",
+          "sha256": "8707a61472027e67f23338ef93d10805b0f63823ff22738d3c7b54628b499f01"
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0003; absent from prior SOURCE_REGISTER",
+      "strengths": [
+        "Restrictive Allow/Prompt/Forbidden policy ordering",
+        "Crossing-only goal steering",
+        "Bounded artifact spill and durable event receipts"
+      ],
+      "weaknesses": [
+        "CDP/TUI is not Windows WebView2 proof",
+        "Upstream cost/speed claims are not Omnia measurements"
+      ],
+      "decision": "apply-as-reference",
+      "omniaApplication": "Reimplement restrictive policy ordering, crossing-only steering and bounded artifact receipts in native Omnia contracts; do not copy UI or lifecycle",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE3_20261108.md"
+      ]
+    },
+    {
+      "id": "new-computer-agent-cycle3-20261108",
+      "canonicalRepo": "https://github.com/suitedaces/computer-agent",
+      "revision": "92795e717b5bd254d1894d46d180eb29b690525b",
+      "license": "Apache-2.0 with additional derivative provisions",
+      "query": "site:github.com open source agent workspace MCP permission architecture 2026 super power max",
+      "retrievedAt": "2026-11-08T04:05:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "e6f3c696e6735c7c2f2bffa745aa901073efe9cb54c31c7dcb835dde740df266"
+        },
+        {
+          "path": "src-tauri/src/permissions.rs",
+          "sha256": "53c87ccb63c129d7a0c7e7f07937e6b1a70af9adeec15939876b349a4a291274",
+          "hashCorrection": {
+            "previousDeclaredSha256": "deaa3232828485ab5f523c072ff1e4cb398a589ce19c1bf97392efc96a736ec",
+            "retrievedAt": "2026-11-08T04:39:09.065Z"
+          },
+          "sourceEvidenceOmitted": "Snapshot omitted due to additional derivative license provisions; retained pinned hash and metadata only."
+        },
+        {
+          "path": "src-tauri/src/storage.rs",
+          "sha256": "c02edadfb1ae72037d3569be37742c04e67ae07a7c2dbd689b12f32ff042dc29"
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0003; absent from prior SOURCE_REGISTER",
+      "strengths": [
+        "Explicit permission states",
+        "Durable per-turn usage and cache metadata"
+      ],
+      "weaknesses": [
+        "Permission implementation is primarily macOS-specific",
+        "Custom license provisions require legal review",
+        "README does not prove Windows runtime"
+      ],
+      "decision": "defer-license-review",
+      "omniaApplication": "Use permission/usage receipt concepts only; keep independent Windows-native implementation and do not vendor source",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE3_20261108.md"
+      ]
+    },
+    {
+      "id": "new-atlas-agent-cycle3-20261108",
+      "canonicalRepo": "https://github.com/wede-wx/atlas-agent",
+      "revision": "8ccacf2d828bb245c3d687576485dea603d14f64",
+      "license": "Apache-2.0",
+      "query": "site:github.com open source AI IDE agent workspace accessibility React 2026",
+      "retrievedAt": "2026-11-08T04:15:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "d2e053606b0105ab27ce44d47e6a98e7d9bc78f522a24030fcad5875ef38c94a"
+        },
+        {
+          "path": "src-tauri/src/agent/atlas_harness/goal_contract.rs",
+          "sha256": "020dfa05b2ec8fb687f313b6e5e990b454fcc54b87c29c308b4fa4fb8f5fa66c"
+        },
+        {
+          "path": "src-tauri/src/agent/atlas_harness/completion_gate.rs",
+          "sha256": "7150acbd354718e204ae3246e895070530a1054f36d9d97199853783f2ade5d5"
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0003; absent from prior SOURCE_REGISTER",
+      "strengths": [
+        "Goal contract preserves must/must-not and source quotes",
+        "Completion gate requires verified evidence ID"
+      ],
+      "weaknesses": [
+        "Prototype gates are not fully wired",
+        "Not native/live Omnia evidence"
+      ],
+      "decision": "apply-as-reference",
+      "omniaApplication": "Use contract-backed DoD and verification IDs as a design input while retaining Omnia reviewer/stage gates",
+      "evidence": [
+        "docs/rebuild/research/NEW_OSS_CYCLE3_20261108.md"
+      ]
+    },
+    {
+      "id": "new-langgraph-checkpoint-cycle5-20261108",
+      "canonicalRepo": "https://github.com/langchain-ai/langgraph",
+      "revision": "e5e37b5d70dbfd93c7006bd90a658c6179a95946",
+      "license": "MIT",
+      "query": "everything super power pro max agent checkpoint durable workflow OSS GitHub",
+      "retrievedAt": "2026-11-08T05:02:08.793Z",
+      "paths": [
+        {
+          "path": "libs/langgraph/langgraph/pregel/_checkpoint.py",
+          "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle5/langgraph-pregel-checkpoint.py.txt",
+            "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path fetched after rebuild-0005 creation; not present in SOURCE_REGISTER.",
+      "strengths": [
+        "Durable checkpoint and state lineage primitives expose explicit persistence boundaries for long-running agent runs."
+      ],
+      "weaknesses": [
+        "Python graph runtime is not Windows Tauri evidence and requires adaptation; source inspection does not prove Omnia integration."
+      ],
+      "decision": "apply-as-reference",
+      "omniaApplication": "Use checkpoint lineage and explicit state persistence as design input for Omnia session and workflow receipts; implement independently in Rust/TypeScript.",
+      "evidence": [
+        "docs/rebuild/research/CYCLE5_FETCH_RECEIPT.json"
+      ]
+    }
+  ]
+}

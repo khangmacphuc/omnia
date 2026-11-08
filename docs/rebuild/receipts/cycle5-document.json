@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "stage": "document",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:55:00.000Z",
+  "checklist": {
+    "requirements_traced": true,
+    "input_changes_reviewed": true,
+    "contracts_and_resources": true,
+    "ui_states_and_tokens": true,
+    "tests_match_source": true,
+    "claims_are_scoped": true,
+    "negative_cases_and_gaps": true,
+    "independent_review": true,
+    "canonical_docs_reread": true,
+    "readme_release_consistent": true
+  },
+  "readsAfter": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+    },
+    {
+      "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+      "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+    },
+    {
+      "path": "docs/rebuild/GOAL.md",
+      "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+    },
+    {
+      "path": "docs/rebuild/WORKFLOW.md",
+      "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+    },
+    {
+      "path": "docs/rebuild/SPEC.md",
+      "sha256": "5eb4970e9279b3ce361108b19a584d63c92c14c4b4a7c09bf549c0abceb66bf0"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "5aae8ba75d563922c25e0a923b83cea751d5120498390c21ff541831fd7708ab"
+    },
+    {
+      "path": "docs/rebuild/SOURCE_REGISTER.json",
+      "sha256": "8d021bf042e4bb799580d69e69641615493f404e84c924870333231615ab869a"
+    },
+    {
+      "path": "docs/rebuild/CHECKPOINT.md",
+      "sha256": "d3c1f25f00979d0fdf79cbf183cafd02650150ca5e41c8653664f775bbf63e2a"
+    },
+    {
+      "path": "docs/rebuild/ASSIGNMENTS.md",
+      "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
+    }
+  ],
+  "dodCounts": {
+    "planned": 209,
+    "in_progress": 0,
+    "partial": 23,
+    "blocked": 8,
+    "done": 0,
+    "total": 240,
+    "mandatoryDone": 0,
+    "mandatoryTotal": 240
+  },
+  "notes": [
+    "Cycle 0005 evidence and native ask-user receipt were reread after the source freeze.",
+    "README now references existing rebuild screenshots and reports current DoD counts.",
+    "Preview/native/live claim boundaries remain explicit; goal remains active."
+  ]
+}

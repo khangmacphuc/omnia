@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-focused-tests",
+  "recordedAt": "2026-11-08T04:07:27.2787760Z",
+  "command": "node_modules/.bin/vitest run src/rebuild/chat/chat-view.test.tsx src/rebuild/browser/browser-controller.test.ts src/rebuild/browser/browser-workspace.test.tsx src/rebuild/ide/ide-model.test.ts src/rebuild/ide/ide-workspace.test.tsx src/rebuild/settings/settings.test.ts src/rebuild/settings/SettingsPanel.test.tsx src/rebuild/reference/reference-workbench.test.tsx src/rebuild/rebuild-app.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.txt",
+    "sha256": "71b4d22e2ce5ff24ecae10c750ca7b5285295157990368fe02ebccc8ae7dfe5c"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.ts",
+      "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.ts",
+      "sha256": "2d976b896a4ff43e09459d506c1a3c7f52d0a04a195ec938b41726cc1c7c79c0"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/settings.test.ts",
+      "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.test.tsx",
+      "sha256": "9f6f9d7c5dc19a03ea6092fcacb1a1cd6b42aee8889a0260fb0237f0d2ed3450"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.tsx",
+      "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.test.tsx",
+      "sha256": "a563ef296fdb0f046e3a06269c997c1ab89da9eea3c321a513d6b3f58a019969"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.test.tsx",
+      "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40"
+    }
+  ]
+}

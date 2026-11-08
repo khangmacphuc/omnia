@@ -1,0 +1,4 @@
+npm.cmd run build:renderer
+exitCode=0
+1689 modules transformed
+Vite production bundle emitted dist assets after Settings/browser clean-room fixes.

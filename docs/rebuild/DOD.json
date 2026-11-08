@@ -1,0 +1,4807 @@
+{
+  "schemaVersion": 1,
+  "title": "Omnia original rebuild acceptance matrix",
+  "generatedAt": "2026-11-08T04:11:09.916362Z",
+  "statusPolicy": "Every criterion remains incomplete until its required evidence kinds, current hashes, dependencies and independent review are satisfied; no legacy UI claim carries forward.",
+  "criteria": [
+    {
+      "id": "GOVERNANCE-001",
+      "category": "governance",
+      "requirement": "Canonical goal is persisted",
+      "acceptance": "docs/rebuild/GOAL.md states scope, exclusions, completion rule, and active status",
+      "verification": "document-read + hash",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "GOVERNANCE-002",
+      "category": "governance",
+      "requirement": "Requirements retain provenance",
+      "acceptance": "Every user requirement maps to a stable criterion ID and source note",
+      "verification": "traceability check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "GOVERNANCE-003",
+      "category": "governance",
+      "requirement": "Three-pass planning is bounded",
+      "acceptance": "Each cycle records up to three useful improvements and a decision per pass",
+      "verification": "cycle receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "GOVERNANCE-004",
+      "category": "governance",
+      "requirement": "Stage transitions are ordered",
+      "acceptance": "Resume/audit/research/synthesize/plan/implement/verify/review/document/publish/next cannot be skipped",
+      "verification": "gate test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1",
+          "kind": "source"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Cycle gate behavior is verified, but the full product goal still has incomplete mandatory criteria and the cycle has not reached publication.",
+          "attempts": [
+            "32 workflow gate tests passed",
+            "Active-cycle stale-hash and review-binding guards passed"
+          ],
+          "resolution": "Keep the governance criterion Partial until all mandatory product criteria and the reviewed publication milestone are complete.",
+          "workaround": "Use the active-cycle validator and report open criteria explicitly.",
+          "nextAction": "Finish remaining vertical slices, rerun gates and publish only after document and publication evidence pass."
+        }
+      ]
+    },
+    {
+      "id": "GOVERNANCE-005",
+      "category": "governance",
+      "requirement": "Spec reread is required",
+      "acceptance": "Cycle gate rejects a completion record without post-edit spec hashes",
+      "verification": "gate test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1",
+          "kind": "source"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Cycle gate behavior is verified, but the full product goal still has incomplete mandatory criteria and the cycle has not reached publication.",
+          "attempts": [
+            "32 workflow gate tests passed",
+            "Active-cycle stale-hash and review-binding guards passed"
+          ],
+          "resolution": "Keep the governance criterion Partial until all mandatory product criteria and the reviewed publication milestone are complete.",
+          "workaround": "Use the active-cycle validator and report open criteria explicitly.",
+          "nextAction": "Finish remaining vertical slices, rerun gates and publish only after document and publication evidence pass."
+        }
+      ]
+    },
+    {
+      "id": "GOVERNANCE-006",
+      "category": "governance",
+      "requirement": "Honest status counts",
+      "acceptance": "Reports separate done, partial, blocked, planned with xx/yy counts",
+      "verification": "report test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "GOVERNANCE-007",
+      "category": "governance",
+      "requirement": "Blockers are actionable",
+      "acceptance": "Blocked criterion records cause, attempts, workaround and next action",
+      "verification": "schema check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1",
+          "kind": "source"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Cycle gate behavior is verified, but the full product goal still has incomplete mandatory criteria and the cycle has not reached publication.",
+          "attempts": [
+            "32 workflow gate tests passed",
+            "Active-cycle stale-hash and review-binding guards passed"
+          ],
+          "resolution": "Keep the governance criterion Partial until all mandatory product criteria and the reviewed publication milestone are complete.",
+          "workaround": "Use the active-cycle validator and report open criteria explicitly.",
+          "nextAction": "Finish remaining vertical slices, rerun gates and publish only after document and publication evidence pass."
+        }
+      ]
+    },
+    {
+      "id": "GOVERNANCE-008",
+      "category": "governance",
+      "requirement": "No false completion",
+      "acceptance": "Goal cannot complete while mandatory criteria are missing evidence",
+      "verification": "gate test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1",
+          "kind": "source"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Cycle gate behavior is verified, but the full product goal still has incomplete mandatory criteria and the cycle has not reached publication.",
+          "attempts": [
+            "32 workflow gate tests passed",
+            "Active-cycle stale-hash and review-binding guards passed"
+          ],
+          "resolution": "Keep the governance criterion Partial until all mandatory product criteria and the reviewed publication milestone are complete.",
+          "workaround": "Use the active-cycle validator and report open criteria explicitly.",
+          "nextAction": "Finish remaining vertical slices, rerun gates and publish only after document and publication evidence pass."
+        }
+      ]
+    },
+    {
+      "id": "GOVERNANCE-009",
+      "category": "governance",
+      "requirement": "Review is independent",
+      "acceptance": "A reviewer identity differs from author for Done criteria",
+      "verification": "gate test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1",
+          "kind": "source"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+          "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Cycle gate behavior is verified, but the full product goal still has incomplete mandatory criteria and the cycle has not reached publication.",
+          "attempts": [
+            "32 workflow gate tests passed",
+            "Active-cycle stale-hash and review-binding guards passed"
+          ],
+          "resolution": "Keep the governance criterion Partial until all mandatory product criteria and the reviewed publication milestone are complete.",
+          "workaround": "Use the active-cycle validator and report open criteria explicitly.",
+          "nextAction": "Finish remaining vertical slices, rerun gates and publish only after document and publication evidence pass."
+        }
+      ]
+    },
+    {
+      "id": "GOVERNANCE-010",
+      "category": "governance",
+      "requirement": "Milestones preserve remaining work",
+      "acceptance": "Publish receipt includes open criteria and does not mark goal complete",
+      "verification": "receipt check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-001",
+      "category": "research",
+      "requirement": "Fresh OSS search each cycle",
+      "acceptance": "Cycle has a timestamped query and at least one novel source revision/path",
+      "verification": "research receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-002",
+      "category": "research",
+      "requirement": "Everything/super terms are searched",
+      "acceptance": "Research manifest records dedicated everything/super/power/pro/max queries",
+      "verification": "manifest check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-003",
+      "category": "research",
+      "requirement": "Source revisions are pinned",
+      "acceptance": "Each adopted source has canonical repository, commit/tag and license",
+      "verification": "source register",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-004",
+      "category": "research",
+      "requirement": "Exact source is read",
+      "acceptance": "Source entry lists files actually inspected and SHA-256 hashes",
+      "verification": "source register",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-005",
+      "category": "research",
+      "requirement": "Research is deduplicated",
+      "acceptance": "Repeated repository/revision/path is rejected as novel",
+      "verification": "gate test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-006",
+      "category": "research",
+      "requirement": "Strengths are recorded",
+      "acceptance": "Each source has observed strengths tied to exact code",
+      "verification": "research review",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-007",
+      "category": "research",
+      "requirement": "Weaknesses are recorded",
+      "acceptance": "Each source has limits or missing behavior tied to evidence",
+      "verification": "research review",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-008",
+      "category": "research",
+      "requirement": "Decisions are explicit",
+      "acceptance": "Apply/reject/defer decision names the Omnia gap and impacted criterion",
+      "verification": "research review",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-009",
+      "category": "research",
+      "requirement": "Extraction corpus is audited",
+      "acceptance": "All non-Zalo extraction categories have freshness and readability status",
+      "verification": "inventory receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RESEARCH-010",
+      "category": "research",
+      "requirement": "ChatGPT Store freshness is checked",
+      "acceptance": "Installed package metadata is compared read-only with extracted metadata",
+      "verification": "platform receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_source_research",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "UI-001",
+      "category": "ui",
+      "requirement": "Three top modes exist",
+      "acceptance": "Upper-left navigation exposes exactly Chat, Browser and IDE",
+      "verification": "UI capture + test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.test.tsx",
+          "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
+          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "kind": "capture"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Preview proves three buttons but packaged/native launch is not captured.",
+          "attempts": [
+            "Rebuild shell test passed",
+            "1440x900 preview captured"
+          ],
+          "resolution": "Capture packaged desktop launch and independent review with current hashes.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Capture packaged desktop launch and independent review with current hashes."
+        }
+      ]
+    },
+    {
+      "id": "UI-002",
+      "category": "ui",
+      "requirement": "Chat is default",
+      "acceptance": "Fresh launch selects Chat without a project",
+      "verification": "UI capture + test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.test.tsx",
+          "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
+          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "kind": "capture"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Fresh native launch without a project is not runtime-proven.",
+          "attempts": [
+            "Local controller defaults to non-project",
+            "Preview capture shows Non-project chat"
+          ],
+          "resolution": "Add packaged launch receipt with no project and reload evidence.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add packaged launch receipt with no project and reload evidence."
+        }
+      ]
+    },
+    {
+      "id": "UI-003",
+      "category": "ui",
+      "requirement": "Project and non-project unify",
+      "acceptance": "One session model represents both scopes with optional project pointer",
+      "verification": "state test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "f635a6c2578f1fe1282304e89f087faf0b8e30b4ee70095e675e1aeab1da2633",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.test.tsx",
+          "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Project/non-project coexistence and pointer persistence are not native-tested.",
+          "attempts": [
+            "Controller models both scopes",
+            "Attach project path now requires explicit user input"
+          ],
+          "resolution": "Implement native pointer identity/rename/delete snapshot and reload tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Implement native pointer identity/rename/delete snapshot and reload tests."
+        }
+      ]
+    },
+    {
+      "id": "UI-004",
+      "category": "ui",
+      "requirement": "UI renderer is original",
+      "acceptance": "New entry graph imports only src/rebuild UI modules",
+      "verification": "architecture gate",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/main.tsx",
+          "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/architecture-current-20261108.json",
+          "sha256": "dc43f31800d83211efcdb1031ef85c893784c31ca2358485a5c55cca9eaae203",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Architecture receipt is structural evidence only.",
+          "attempts": [
+            "Architecture guard passed",
+            "Independent graph audit passed"
+          ],
+          "resolution": "Add packaged runtime receipt and keep graph guard current.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add packaged runtime receipt and keep graph guard current."
+        }
+      ]
+    },
+    {
+      "id": "UI-005",
+      "category": "ui",
+      "requirement": "Legacy UI is excluded",
+      "acceptance": "No src/rebuild import reaches old components/styles/tokens/fixtures",
+      "verification": "architecture gate",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "scripts/rebuild/architecture-guard.mjs",
+          "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc",
+          "kind": "source"
+        },
+        {
+          "path": "tests/rebuild-independent-audit.test.mjs",
+          "sha256": "6064255064ec2dce7a295d4ea5988a8215efe135ecd5074abaf25e28d53c9091",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Legacy source remains on disk by contract; only the new entry graph is excluded.",
+          "attempts": [
+            "Import/copy guard passed",
+            "Independent source-boundary test passed"
+          ],
+          "resolution": "Retain graph-scoped exclusion and document legacy boundary in package evidence.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Retain graph-scoped exclusion and document legacy boundary in package evidence."
+        }
+      ]
+    },
+    {
+      "id": "UI-006",
+      "category": "ui",
+      "requirement": "No live editor embed exists",
+      "acceptance": "New IDE has no remote editor iframe or hosted app surface",
+      "verification": "source scan",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/ide/ide-workspace.tsx",
+          "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/architecture-current-20261108.json",
+          "sha256": "dc43f31800d83211efcdb1031ef85c893784c31ca2358485a5c55cca9eaae203",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No packaged IDE runtime receipt exists.",
+          "attempts": [
+            "Architecture scan rejects iframe/embed",
+            "IDE source owns editor chrome"
+          ],
+          "resolution": "Capture packaged IDE startup and file edit permission behavior.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Capture packaged IDE startup and file edit permission behavior."
+        }
+      ]
+    },
+    {
+      "id": "UI-007",
+      "category": "ui",
+      "requirement": "Browser and IDE keep chat",
+      "acceptance": "Both workspaces expose the selected session and composer",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.test.tsx",
+          "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
+          "sha256": "8848883255c5bc8c811a589b133cfdfdccf1168840c7ffb8d59b7decb35c6e60",
+          "kind": "test"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Companion ChatView/composer now renders beside Browser/IDE, but native session continuity is not proven.",
+          "attempts": [
+            "Added companion ChatView to Browser/IDE grid",
+            "Shell test asserts companion and composer"
+          ],
+          "resolution": "Capture packaged surface switching with persistent session and native event replay.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Capture packaged surface switching with persistent session and native event replay."
+        }
+      ]
+    },
+    {
+      "id": "UI-008",
+      "category": "ui",
+      "requirement": "Dark theme is specified",
+      "acceptance": "Dark graphite tokens and contrast targets are defined and applied",
+      "verification": "visual + axe",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
+          "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a",
+          "kind": "capture"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No automated contrast/axe receipt for dark theme.",
+          "attempts": [
+            "Graphite tokens applied",
+            "Dark preview captured"
+          ],
+          "resolution": "Run axe/contrast and keyboard receipt on packaged or preview dark theme.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Run axe/contrast and keyboard receipt on packaged or preview dark theme."
+        }
+      ]
+    },
+    {
+      "id": "UI-009",
+      "category": "ui",
+      "requirement": "Light theme is specified",
+      "acceptance": "Light tokens have readable contrast and identical interaction semantics",
+      "verification": "visual + axe",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No light-theme capture or contrast/axe receipt.",
+          "attempts": [
+            "Light token branch exists",
+            "Theme toggle is wired"
+          ],
+          "resolution": "Capture light theme and run contrast/axe receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Capture light theme and run contrast/axe receipt."
+        }
+      ]
+    },
+    {
+      "id": "UI-010",
+      "category": "ui",
+      "requirement": "Technical typography is stable",
+      "acceptance": "Segoe UI Variable and Cascadia Code roles are applied consistently",
+      "verification": "computed-style check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/ide/ide-workspace.css",
+          "sha256": "532b5f3c4c6dc8220ccbd69883b7d45335c37b0dd4b44f0e64ea405496869f83",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No computed-style test across representative controls.",
+          "attempts": [
+            "Segoe UI Variable and Cascadia Code roles are declared",
+            "IDE code surface uses Cascadia"
+          ],
+          "resolution": "Add computed-style test receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add computed-style test receipt."
+        }
+      ]
+    },
+    {
+      "id": "UI-011",
+      "category": "ui",
+      "requirement": "Spacing is measurable",
+      "acceptance": "4/8/12/16/24 spacing scale is used by layout primitives",
+      "verification": "token test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.css",
+          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Spacing values exist but no token coverage test proves the 4/8/12/16/24 scale.",
+          "attempts": [
+            "CSS spacing inspected",
+            "Preview geometry captured"
+          ],
+          "resolution": "Add token coverage test and receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add token coverage test and receipt."
+        }
+      ]
+    },
+    {
+      "id": "UI-012",
+      "category": "ui",
+      "requirement": "Geometry is measurable",
+      "acceptance": "48 header, 240 sidebar and 36 tabs are enforced at desktop baseline",
+      "verification": "visual measurement",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.css",
+          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/ide/ide-workspace.css",
+          "sha256": "532b5f3c4c6dc8220ccbd69883b7d45335c37b0dd4b44f0e64ea405496869f83",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No measured geometry receipt at desktop baseline.",
+          "attempts": [
+            "Header/sidebar/tab dimensions are declared",
+            "Preview is 1440x900"
+          ],
+          "resolution": "Add measured geometry capture receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add measured geometry capture receipt."
+        }
+      ]
+    },
+    {
+      "id": "UI-013",
+      "category": "ui",
+      "requirement": "Focus is visible",
+      "acceptance": "Keyboard focus indicator is visible in both themes and every interactive region",
+      "verification": "axe + keyboard",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.css",
+          "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/settings.css",
+          "sha256": "36712f0c1f287da825a3f10a032b6c0d72708c91225bb48e6c9a4dbdfde41fcb",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Focus CSS exists but no complete keyboard traversal and axe receipt exists.",
+          "attempts": [
+            "Focus-visible selectors present",
+            "Focused component tests pass"
+          ],
+          "resolution": "Run keyboard traversal and axe evidence across all surfaces.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Run keyboard traversal and axe evidence across all surfaces."
+        }
+      ]
+    },
+    {
+      "id": "UI-014",
+      "category": "ui",
+      "requirement": "No dead controls",
+      "acceptance": "Every rendered control has a tested action or explicit disabled reason",
+      "verification": "interaction audit",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.test.tsx",
+          "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.test.tsx",
+          "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.test.tsx",
+          "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/ide/ide-workspace.test.tsx",
+          "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.test.tsx",
+          "sha256": "9f6f9d7c5dc19a03ea6092fcacb1a1cd6b42aee8889a0260fb0237f0d2ed3450",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No complete control inventory covers disabled, error, modal and narrow states.",
+          "attempts": [
+            "Focused suites cover 35 tests",
+            "Independent audit covers graph controls"
+          ],
+          "resolution": "Complete control inventory and negative-state UI QA.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Complete control inventory and negative-state UI QA."
+        }
+      ]
+    },
+    {
+      "id": "UI-015",
+      "category": "ui",
+      "requirement": "Narrow layout works",
+      "acceptance": "At 800px minimum no critical control is clipped or inaccessible",
+      "verification": "responsive capture",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "800px responsive capture and accessibility check are missing.",
+          "attempts": [
+            "Responsive CSS exists",
+            "Desktop preview captured"
+          ],
+          "resolution": "Capture 800x600 and run keyboard/axe checks before reopening.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Capture 800x600 and run keyboard/axe checks before reopening."
+        }
+      ]
+    },
+    {
+      "id": "CHAT-001",
+      "category": "chat",
+      "requirement": "Non-project creation works",
+      "acceptance": "Create session does not invent a recent folder and leaves cwd optional",
+      "verification": "unit + native contract",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-002",
+      "category": "chat",
+      "requirement": "Project creation works",
+      "acceptance": "Create session with selected project pointer persists scope",
+      "verification": "native integration",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-003",
+      "category": "chat",
+      "requirement": "Session list is durable",
+      "acceptance": "Reload restores sessions from authoritative native state",
+      "verification": "reload receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-004",
+      "category": "chat",
+      "requirement": "Session tabs are durable",
+      "acceptance": "Open chat tabs restore order and selected tab after reload",
+      "verification": "reload test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-005",
+      "category": "chat",
+      "requirement": "Streaming is incremental",
+      "acceptance": "Agent events append ordered deltas without duplicate messages",
+      "verification": "event test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-006",
+      "category": "chat",
+      "requirement": "Queue is visible",
+      "acceptance": "Queued prompts show position, cancellation and terminal outcome",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-007",
+      "category": "chat",
+      "requirement": "Steer is explicit",
+      "acceptance": "Steer action sends a separate event and records lineage",
+      "verification": "native receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-008",
+      "category": "chat",
+      "requirement": "Ask-user supports options",
+      "acceptance": "Multiple recommended options and free text produce one validated answer",
+      "verification": "interaction test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+          "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff",
+          "kind": "source"
+        },
+        {
+          "path": "src-tauri/crates/omnia-harness/src/user_input/tests.rs",
+          "sha256": "8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1",
+          "kind": "source"
+        },
+        {
+          "path": "src-tauri/src/harness_bridge.rs",
+          "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b",
+          "kind": "source"
+        },
+        {
+          "path": "docs/rebuild/receipts/ask-user-native-cycle5.json",
+          "sha256": "e6ac95b7bfe1a44771b17f1d4ef3383da9798bc6b07692577617c9d0ab7320e8",
+          "kind": "native"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Native broker/tool behavior is verified, but packaged Tauri command delivery, Windows UI delivery and live provider execution are not proven.",
+          "attempts": [
+            "10 focused native user_input tests passed",
+            "Strict request/run/session validation and journal ordering are covered"
+          ],
+          "resolution": "Add packaged command/UI evidence and a live provider ask-user run.",
+          "workaround": "Keep ask-user in an explicit capability-gated state when packaged native delivery is unavailable.",
+          "nextAction": "Run packaged Tauri ask-user interaction and record live provider evidence."
+        }
+      ]
+    },
+    {
+      "id": "CHAT-009",
+      "category": "chat",
+      "requirement": "Approval is permissioned",
+      "acceptance": "Approval dialog states scope, risk and deny path before native action",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-010",
+      "category": "chat",
+      "requirement": "Cancel is terminal",
+      "acceptance": "Interrupt transitions run to terminal state and prevents stale output",
+      "verification": "race test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-011",
+      "category": "chat",
+      "requirement": "Model is per session",
+      "acceptance": "Changing model affects selected session only and survives reload",
+      "verification": "state test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-012",
+      "category": "chat",
+      "requirement": "Effort is per session",
+      "acceptance": "All requested effort values validate against model capabilities",
+      "verification": "validation test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-013",
+      "category": "chat",
+      "requirement": "Tools are inspectable",
+      "acceptance": "Tool calls show bounded arguments/output with explicit expansion",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-014",
+      "category": "chat",
+      "requirement": "Artifacts reopen",
+      "acceptance": "Message artifact links reopen in workspace with originating session",
+      "verification": "integration test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "CHAT-015",
+      "category": "chat",
+      "requirement": "Transcript actions work",
+      "acceptance": "Copy, rename, archive, fork, move, delete, revert and export have receipts",
+      "verification": "behavior matrix",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-001",
+      "category": "storage",
+      "requirement": "Folder pointers are stable",
+      "acceptance": "Adding a folder records stable identity plus current path",
+      "verification": "native test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-002",
+      "category": "storage",
+      "requirement": "File pointers are stable",
+      "acceptance": "Adding a file copies snapshot and records origin identity/hash",
+      "verification": "native test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-003",
+      "category": "storage",
+      "requirement": "Rename follows pointer",
+      "acceptance": "Origin rename updates pointer label without losing identity",
+      "verification": "mutation test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-004",
+      "category": "storage",
+      "requirement": "Content refresh follows pointer",
+      "acceptance": "Origin content change creates new snapshot and receipt",
+      "verification": "mutation test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-005",
+      "category": "storage",
+      "requirement": "Deleted origin is safe",
+      "acceptance": "Deleted origin retains latest Omnia snapshot and marks source missing",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-006",
+      "category": "storage",
+      "requirement": "Duplicate origins dedupe",
+      "acceptance": "Same origin identity cannot create conflicting pointers",
+      "verification": "constraint test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-007",
+      "category": "storage",
+      "requirement": "Traversal is rejected",
+      "acceptance": "Paths outside approved roots are refused",
+      "verification": "security test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-008",
+      "category": "storage",
+      "requirement": "Storage is native",
+      "acceptance": "Pointer and snapshot metadata persists in native storage",
+      "verification": "reload receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-009",
+      "category": "storage",
+      "requirement": "Export preserves lineage",
+      "acceptance": "Export includes origin identity, snapshot hash and timestamp",
+      "verification": "export test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "STORAGE-010",
+      "category": "storage",
+      "requirement": "Permission errors are visible",
+      "acceptance": "Denied filesystem access has actionable state and no silent fallback",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-001",
+      "category": "rag",
+      "requirement": "Ingestion has receipts",
+      "acceptance": "Each document ingestion stores source hash, parser, version and timestamp",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-002",
+      "category": "rag",
+      "requirement": "Formats are bounded",
+      "acceptance": "PDF, markdown, text, code and office ingestion report supported/unsupported status",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-003",
+      "category": "rag",
+      "requirement": "Chunks preserve provenance",
+      "acceptance": "Every chunk references document and byte/page location",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-004",
+      "category": "rag",
+      "requirement": "Retrieval returns citations",
+      "acceptance": "Top results include chunk IDs, scores and source links",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-005",
+      "category": "rag",
+      "requirement": "Retrieval is deterministic",
+      "acceptance": "Frozen fixture query returns stable ordering under same index revision",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-006",
+      "category": "rag",
+      "requirement": "Index updates incrementally",
+      "acceptance": "Changed source reindexes affected documents only",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-007",
+      "category": "rag",
+      "requirement": "Deletion removes active chunks",
+      "acceptance": "Deleted pointer is excluded from new retrieval while snapshot remains",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-008",
+      "category": "rag",
+      "requirement": "Sensitive paths are excluded",
+      "acceptance": "Keys, cookies and profiles never enter index",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-009",
+      "category": "rag",
+      "requirement": "Context budget is enforced",
+      "acceptance": "Prompt assembly respects 200k compact target and reports truncation",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "RAG-010",
+      "category": "rag",
+      "requirement": "RAG errors are explicit",
+      "acceptance": "Unavailable index/provider state never becomes invented context",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-001",
+      "category": "routing",
+      "requirement": "Provider profiles are explicit",
+      "acceptance": "Each route names provider, model and permission profile",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-002",
+      "category": "routing",
+      "requirement": "Fallback is bounded",
+      "acceptance": "Fallback order and retry policy are persisted and observable",
+      "verification": "settings test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-003",
+      "category": "routing",
+      "requirement": "Compare freezes input",
+      "acceptance": "Multiple routes receive one logical input hash",
+      "verification": "native receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-004",
+      "category": "routing",
+      "requirement": "Compare lineage is durable",
+      "acceptance": "Each attempt links run, provider, model and output hash",
+      "verification": "native receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-005",
+      "category": "routing",
+      "requirement": "Best-of is honest",
+      "acceptance": "Best-of selection records selected attempt and reviewer",
+      "verification": "merge receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-006",
+      "category": "routing",
+      "requirement": "Consensus needs synthesis",
+      "acceptance": "Consensus cannot be labeled without a synthesis run",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-007",
+      "category": "routing",
+      "requirement": "Outcome unknown is safe",
+      "acceptance": "Accepted-then-failed requests are not blindly replayed",
+      "verification": "failure test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-008",
+      "category": "routing",
+      "requirement": "Cancellation fans out",
+      "acceptance": "Canceling compare reaches all owned routes",
+      "verification": "race test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-009",
+      "category": "routing",
+      "requirement": "Usage is separated",
+      "acceptance": "Provider counters and invoice/cost observations retain source precedence",
+      "verification": "observability test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ROUTING-010",
+      "category": "routing",
+      "requirement": "Routing changes hot apply",
+      "acceptance": "Changing route settings affects future sends without restart",
+      "verification": "hot reload test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-001",
+      "category": "workflow",
+      "requirement": "Goal is durable",
+      "acceptance": "Goal state and objective survive compaction/reload",
+      "verification": "persistence test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-002",
+      "category": "workflow",
+      "requirement": "Plans are atomic",
+      "acceptance": "Every plan task has owner, files, input, output and verification",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-003",
+      "category": "workflow",
+      "requirement": "DoD is measurable",
+      "acceptance": "Criteria specify threshold and evidence type",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-004",
+      "category": "workflow",
+      "requirement": "Subagents have roles",
+      "acceptance": "Spawn records role, model, effort, scope and parent",
+      "verification": "native receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-005",
+      "category": "workflow",
+      "requirement": "Subagents communicate",
+      "acceptance": "Parent can receive bounded progress and final evidence",
+      "verification": "event test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-006",
+      "category": "workflow",
+      "requirement": "Parallel work is isolated",
+      "acceptance": "Assignments reject overlapping mutable ownership",
+      "verification": "audit test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-007",
+      "category": "workflow",
+      "requirement": "Plan updates are audited",
+      "acceptance": "Plan revisions retain reason and changed criteria",
+      "verification": "revision test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-008",
+      "category": "workflow",
+      "requirement": "Reports show evidence",
+      "acceptance": "Completion report links direct receipts and limitations",
+      "verification": "report test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-009",
+      "category": "workflow",
+      "requirement": "Human input pauses",
+      "acceptance": "Ask-user state stops dependent work without pretending success",
+      "verification": "state test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "WORKFLOW-010",
+      "category": "workflow",
+      "requirement": "Self-improvement needs consent",
+      "acceptance": "Update workflow requires explicit user approval and rollback snapshot",
+      "verification": "security test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-001",
+      "category": "observability",
+      "requirement": "Requests are correlated",
+      "acceptance": "Every request has opaque ID and session/goal linkage",
+      "verification": "trace test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-002",
+      "category": "observability",
+      "requirement": "Token usage is recorded",
+      "acceptance": "Input/output/cache counters store source and timestamp",
+      "verification": "telemetry test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-003",
+      "category": "observability",
+      "requirement": "Cost is separated",
+      "acceptance": "Estimated cost never overwrites provider invoice evidence",
+      "verification": "telemetry test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-004",
+      "category": "observability",
+      "requirement": "Latency is measured",
+      "acceptance": "Queue, first token and completion timings are recorded",
+      "verification": "performance receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-005",
+      "category": "observability",
+      "requirement": "Logs are bounded",
+      "acceptance": "Sensitive prompt/content is redacted or opt-in before persistence",
+      "verification": "privacy test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-006",
+      "category": "observability",
+      "requirement": "Dashboards are inspectable",
+      "acceptance": "User can filter metrics by session/model/goal",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-007",
+      "category": "observability",
+      "requirement": "Cache behavior is visible",
+      "acceptance": "Cache hit/miss and invalidation reason are shown",
+      "verification": "telemetry test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-008",
+      "category": "observability",
+      "requirement": "Errors classify",
+      "acceptance": "Provider/network/storage/permission errors retain normalized class",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-009",
+      "category": "observability",
+      "requirement": "Export is portable",
+      "acceptance": "Observability export is versioned JSON with checksums",
+      "verification": "export test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "OBSERVABILITY-010",
+      "category": "observability",
+      "requirement": "Unknown remains unknown",
+      "acceptance": "Missing billing/account proof is never shown as reconciled",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-001",
+      "category": "ide",
+      "requirement": "Explorer reads approved roots",
+      "acceptance": "Directory tree only exposes granted project roots",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-002",
+      "category": "ide",
+      "requirement": "Editor is local",
+      "acceptance": "Editor renders source owned by Omnia without external iframe",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-003",
+      "category": "ide",
+      "requirement": "File tabs are durable",
+      "acceptance": "Open file tabs restore path, dirty state and selection",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-004",
+      "category": "ide",
+      "requirement": "Save is explicit",
+      "acceptance": "Save writes through permission-checked native command",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-005",
+      "category": "ide",
+      "requirement": "Dirty conflicts are handled",
+      "acceptance": "External change prompts reload/merge choice",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-006",
+      "category": "ide",
+      "requirement": "Syntax rendering is safe",
+      "acceptance": "Code is escaped and highlighting cannot execute source",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-007",
+      "category": "ide",
+      "requirement": "Search is bounded",
+      "acceptance": "Find respects current root and reports result count/limit",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-008",
+      "category": "ide",
+      "requirement": "Diagnostics are visible",
+      "acceptance": "Compiler/linter diagnostics link to file and line",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-009",
+      "category": "ide",
+      "requirement": "Preview is honest",
+      "acceptance": "Unsupported/binary/encrypted content shows status and required passphrase",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "IDE-010",
+      "category": "ide",
+      "requirement": "Keyboard works",
+      "acceptance": "Common editor navigation/save/focus shortcuts are tested",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_ide",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-001",
+      "category": "browser",
+      "requirement": "Native browser lease is explicit",
+      "acceptance": "Attach/update/release uses tab key and lease guards",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-002",
+      "category": "browser",
+      "requirement": "Address navigation is validated",
+      "acceptance": "Only allowed URL schemes and no embedded credentials pass",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-003",
+      "category": "browser",
+      "requirement": "Tabs are durable",
+      "acceptance": "Browser tab order and active tab persist",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-004",
+      "category": "browser",
+      "requirement": "Back/forward/reload work",
+      "acceptance": "Native actions update observable navigation state",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-005",
+      "category": "browser",
+      "requirement": "Capture is permissioned",
+      "acceptance": "Page text capture requires active eligible lease",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-006",
+      "category": "browser",
+      "requirement": "Capture is bounded",
+      "acceptance": "Receipt includes URL, timestamp, bytes and content hash",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-007",
+      "category": "browser",
+      "requirement": "Layered DOM reads are bounded",
+      "acceptance": "Outer-to-inner DOM inspection pages results under truncation",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-008",
+      "category": "browser",
+      "requirement": "Pointer overlay does not steal capture",
+      "acceptance": "Capture remains valid when AI overlay is visible",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-009",
+      "category": "browser",
+      "requirement": "Navigation invalidates stale capture",
+      "acceptance": "Pending result is dropped on URL/document change",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "BROWSER-010",
+      "category": "browser",
+      "requirement": "Computer use is lazy",
+      "acceptance": "Desktop automation activates only when request requires it",
+      "verification": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-001",
+      "category": "tools",
+      "requirement": "Skills have provenance",
+      "acceptance": "Installed skill records source, revision, license and hash",
+      "verification": "registry test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-002",
+      "category": "tools",
+      "requirement": "MCP status is explicit",
+      "acceptance": "Server connection/capability/permission state is visible",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-003",
+      "category": "tools",
+      "requirement": "Plugins are permissioned",
+      "acceptance": "Plugin capabilities require explicit allowlist",
+      "verification": "security test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-004",
+      "category": "tools",
+      "requirement": "Tool schemas validate",
+      "acceptance": "Arguments reject unknown or unsafe fields before dispatch",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-005",
+      "category": "tools",
+      "requirement": "Tool output truncates",
+      "acceptance": "Default display cap is 10k with paging and full-output opt-in",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-006",
+      "category": "tools",
+      "requirement": "Web search is real",
+      "acceptance": "Search adapter records query, engine, time and citations",
+      "verification": "integration receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-007",
+      "category": "tools",
+      "requirement": "Research freshness is shown",
+      "acceptance": "Sources display retrieved/updated timestamps when available",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-008",
+      "category": "tools",
+      "requirement": "Downloader is bounded",
+      "acceptance": "Download jobs expose destination, progress, cancel and checksum",
+      "verification": "integration test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-009",
+      "category": "tools",
+      "requirement": "Tool cancellation works",
+      "acceptance": "Long tool calls can be canceled and terminalized",
+      "verification": "race test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "TOOLS-010",
+      "category": "tools",
+      "requirement": "External data is untrusted",
+      "acceptance": "Web/tool content is labeled and cannot override system permissions",
+      "verification": "security test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-001",
+      "category": "settings",
+      "requirement": "Settings schema is versioned",
+      "acceptance": "Import/export validates version and migrates supported revisions",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-002",
+      "category": "settings",
+      "requirement": "Hot reload works",
+      "acceptance": "Changed settings apply without app restart where supported",
+      "verification": "runtime test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-003",
+      "category": "settings",
+      "requirement": "Theme switch is immediate",
+      "acceptance": "Dark/light switch updates active shell in one render cycle",
+      "verification": "UI test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-004",
+      "category": "settings",
+      "requirement": "Context defaults are exact",
+      "acceptance": "Compact target is 200000 and tool output target is 10000",
+      "verification": "settings test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-005",
+      "category": "settings",
+      "requirement": "Retry defaults are exact",
+      "acceptance": "Delay 5 seconds, multiplier 1, unlimited attempts are persisted",
+      "verification": "settings test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-006",
+      "category": "settings",
+      "requirement": "Retry safety is enforced",
+      "acceptance": "Permission denied/canceled/unknown outcomes are excluded from blind retry",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-007",
+      "category": "settings",
+      "requirement": "Effort enum is validated",
+      "acceptance": "none through max and ultra mapping reject unsupported values",
+      "verification": "schema test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-008",
+      "category": "settings",
+      "requirement": "Resource flags are lazy",
+      "acceptance": "Browser/computer/GPU features activate only when enabled by workflow",
+      "verification": "resource test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-009",
+      "category": "settings",
+      "requirement": "Privacy controls work",
+      "acceptance": "Telemetry, storage and external access toggles have effective states",
+      "verification": "settings test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SETTINGS-010",
+      "category": "settings",
+      "requirement": "Corrupt settings recover",
+      "acceptance": "Partial/invalid snapshot falls back to safe defaults with receipt",
+      "verification": "negative test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-001",
+      "category": "accessibility",
+      "requirement": "Semantic landmarks exist",
+      "acceptance": "Header, navigation, sidebar, main and dialog use accessible landmarks",
+      "verification": "axe test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-002",
+      "category": "accessibility",
+      "requirement": "Names are meaningful",
+      "acceptance": "Icon-only controls have accessible names and tooltips",
+      "verification": "axe test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-003",
+      "category": "accessibility",
+      "requirement": "Tab order is logical",
+      "acceptance": "Keyboard traversal follows visual order and skips inert content",
+      "verification": "keyboard test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-004",
+      "category": "accessibility",
+      "requirement": "Escape closes transient UI",
+      "acceptance": "Dialogs/menus/composer suggestions close without data loss",
+      "verification": "keyboard test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-005",
+      "category": "accessibility",
+      "requirement": "Reduced motion is respected",
+      "acceptance": "Animations disable or reduce under prefers-reduced-motion",
+      "verification": "visual test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-006",
+      "category": "accessibility",
+      "requirement": "Contrast meets target",
+      "acceptance": "Body text meets >=7:1 and nontext focus meets >=3:1",
+      "verification": "axe + sample",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-007",
+      "category": "accessibility",
+      "requirement": "Zoom survives",
+      "acceptance": "100–200% zoom keeps critical controls usable",
+      "verification": "visual capture",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-008",
+      "category": "accessibility",
+      "requirement": "Screen reader text is concise",
+      "acceptance": "Status updates are live-region bounded and nonduplicative",
+      "verification": "a11y test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-009",
+      "category": "accessibility",
+      "requirement": "Error focus is placed",
+      "acceptance": "Validation errors move focus to actionable field",
+      "verification": "interaction test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ACCESSIBILITY-010",
+      "category": "accessibility",
+      "requirement": "Pointer targets are usable",
+      "acceptance": "Interactive targets meet minimum size at desktop and narrow widths",
+      "verification": "geometry test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-001",
+      "category": "performance",
+      "requirement": "Cold start is measured",
+      "acceptance": "Packaged startup to interactive shell has an environment-stamped measurement",
+      "verification": "desktop receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-002",
+      "category": "performance",
+      "requirement": "Input latency is measured",
+      "acceptance": "Chat/editor keystrokes remain under defined p95 threshold",
+      "verification": "perf receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-003",
+      "category": "performance",
+      "requirement": "Idle memory is measured",
+      "acceptance": "Chat/browser/IDE idle working set is recorded and compared to target",
+      "verification": "desktop receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-004",
+      "category": "performance",
+      "requirement": "Virtual lists scale",
+      "acceptance": "Large session/file lists do not render unbounded DOM rows",
+      "verification": "perf test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-005",
+      "category": "performance",
+      "requirement": "Context compaction is bounded",
+      "acceptance": "Compaction reports input/output tokens and preserves required state",
+      "verification": "runtime test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-006",
+      "category": "performance",
+      "requirement": "Browser DOM paging is bounded",
+      "acceptance": "No tool result exceeds configured truncation without opt-in",
+      "verification": "browser test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-007",
+      "category": "performance",
+      "requirement": "Concurrent sessions remain responsive",
+      "acceptance": "Configured parallel sessions do not block shell interaction",
+      "verification": "stress receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-008",
+      "category": "performance",
+      "requirement": "Disk cache is bounded",
+      "acceptance": "Cache quota and eviction policy are observable",
+      "verification": "storage test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-009",
+      "category": "performance",
+      "requirement": "Network retries back off safely",
+      "acceptance": "Retry schedule follows policy and caps single delay",
+      "verification": "settings + runtime",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PERFORMANCE-010",
+      "category": "performance",
+      "requirement": "Build budget is tracked",
+      "acceptance": "Renderer bundle and native package size have recorded thresholds",
+      "verification": "CI receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-001",
+      "category": "portability",
+      "requirement": "Native persistence survives restart",
+      "acceptance": "Authoritative state reloads after packaged app restart",
+      "verification": "desktop receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-002",
+      "category": "portability",
+      "requirement": "Permission boundary is explicit",
+      "acceptance": "Commands reject missing/expired core session headers",
+      "verification": "native test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-003",
+      "category": "portability",
+      "requirement": "Portable export imports",
+      "acceptance": "Workspace/session export restores on a clean profile",
+      "verification": "integration test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-004",
+      "category": "portability",
+      "requirement": "Path separators normalize",
+      "acceptance": "Windows path variants retain one pointer identity",
+      "verification": "native test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-005",
+      "category": "portability",
+      "requirement": "Version migration is safe",
+      "acceptance": "Older state snapshots migrate or fail with recovery path",
+      "verification": "migration test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-006",
+      "category": "portability",
+      "requirement": "No secrets ship",
+      "acceptance": "Build artifact excludes cookies, tokens, profiles and personal transcripts",
+      "verification": "artifact scan",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-007",
+      "category": "portability",
+      "requirement": "Updater is recoverable",
+      "acceptance": "Failed migration/update retains prior snapshot and rollback tag",
+      "verification": "release test",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-008",
+      "category": "portability",
+      "requirement": "Preview labels are honest",
+      "acceptance": "Browser preview and packaged desktop are distinct status labels",
+      "verification": "receipt check",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-009",
+      "category": "portability",
+      "requirement": "CI is reproducible",
+      "acceptance": "Pinned tool/runtime versions and lockfile produce repeatable checks",
+      "verification": "CI receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "PORTABILITY-010",
+      "category": "portability",
+      "requirement": "Release metadata agrees",
+      "acceptance": "Package, Tauri, Cargo and tag versions match",
+      "verification": "release gate",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-001",
+      "category": "artifacts",
+      "requirement": "Markdown is source-faithful",
+      "acceptance": "Render headings, tables, code and citations from the immutable raw message; copy/export reproduces the source.",
+      "verification": "Streamed Markdown fixtures, raw-copy comparison and UI inspection",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-002",
+      "category": "artifacts",
+      "requirement": "Streaming syntax is safe",
+      "acceptance": "Unclosed code/math blocks and hostile HTML never execute scripts or break later message rendering.",
+      "verification": "XSS payloads and incremental chunk-boundary tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-003",
+      "category": "artifacts",
+      "requirement": "Code canvas is isolated",
+      "acceptance": "Local code previews use an explicitly sandboxed artifact surface with capability and network policy; no external app/editor UI is embedded.",
+      "verification": "Sandbox escape, network policy and preview lifecycle tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-004",
+      "category": "artifacts",
+      "requirement": "Binary inspector is bounded",
+      "acceptance": "Unsupported binary content has MIME/size/hash and a paged hex/text inspection path; opening never executes the binary.",
+      "verification": "Binary fixtures, paging and execution-denial tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-005",
+      "category": "artifacts",
+      "requirement": "Encrypted content unlock is scoped",
+      "acceptance": "Unlock asks for a passphrase and stores it only with explicit per-content policy in OS-protected storage; wrong password and forget/revoke work.",
+      "verification": "Native protected-store and wrong-password/revoke/reload tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-006",
+      "category": "artifacts",
+      "requirement": "Media capability catalog is honest",
+      "acceptance": "Every advertised image/audio/video format has a renderer/parser test; unsupported formats expose a clear fallback.",
+      "verification": "Versioned format catalog and media success/failure matrix",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-007",
+      "category": "artifacts",
+      "requirement": "Image generation has lineage",
+      "acceptance": "A supported image-generation route records job/attempt/model/input/output hashes and renders success, failure and cancel states.",
+      "verification": "Provider fixture plus live authorized image-job receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-008",
+      "category": "artifacts",
+      "requirement": "Video generation has lifecycle",
+      "acceptance": "A supported video-generation route records asynchronous job status and polling/cancel/output provenance without blocking the shell.",
+      "verification": "Job replay/reload/cancel and live authorized target receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-009",
+      "category": "artifacts",
+      "requirement": "Attachments enter frozen input",
+      "acceptance": "Attachments selected by the user are content-hashed, validated and linked to the exact attempt input; omitted attachments are reported.",
+      "verification": "Mixed MIME/size-limit/duplicate/frozen-input tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-010",
+      "category": "artifacts",
+      "requirement": "Command output retains raw evidence",
+      "acceptance": "Formatted stdout/stderr views preserve immutable raw bytes, exit code, timing and tool correlation with copy/export.",
+      "verification": "ANSI sanitization, truncation and raw-output round-trip tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-011",
+      "category": "artifacts",
+      "requirement": "Selection actions preserve source range",
+      "acceptance": "Reply to selection, select all and ask in side chat capture stable message/range identity and visibly quote the selected text.",
+      "verification": "Keyboard/pointer selection, stale-range and new-sidechat tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ARTIFACTS-012",
+      "category": "artifacts",
+      "requirement": "Math rendering degrades safely",
+      "acceptance": "LaTeX renders supported expressions and reports parse/unsupported-command errors while retaining raw source.",
+      "verification": "Malformed/long/math-code boundary tests and UI capture",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-001",
+      "category": "sessions",
+      "requirement": "Automatic title can refresh",
+      "acceptance": "After compact or meaningful context change a title proposal is generated with request provenance; it never overwrites a user-locked title.",
+      "verification": "Title refresh/reload/user-rename precedence tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-002",
+      "category": "sessions",
+      "requirement": "Session ID can be copied",
+      "acceptance": "Copy session ID writes the opaque authoritative ID and shows accessible success/failure feedback.",
+      "verification": "Clipboard success/denial and identifier tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-003",
+      "category": "sessions",
+      "requirement": "Full transcript can be copied",
+      "acceptance": "Copy all includes the selected conversation branch in chronological order with no hidden secrets or unrelated session content.",
+      "verification": "Branch/range/redaction clipboard tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-004",
+      "category": "sessions",
+      "requirement": "Session archive restores",
+      "acceptance": "Archive removes a session from active recents; restore returns the same identity and transcript after native reload.",
+      "verification": "Archive/restore/restart tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-005",
+      "category": "sessions",
+      "requirement": "Fork and branch retain lineage",
+      "acceptance": "Fork or branch from a chosen message creates distinct IDs and a parent anchor without changing the source session.",
+      "verification": "Native branch lineage and source-immutability tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-006",
+      "category": "sessions",
+      "requirement": "Move preserves session identity",
+      "acceptance": "Move between project and non-project scopes updates membership and retains messages, model and stable session ID.",
+      "verification": "Cross-scope move/reload/permission tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-007",
+      "category": "sessions",
+      "requirement": "Prompt delete and revert are distinct",
+      "acceptance": "Deleting a visible prompt and rewinding execution history use explicit user actions and retain recovery/audit semantics.",
+      "verification": "Delete/revert/undo/running-session tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-008",
+      "category": "sessions",
+      "requirement": "Retry states are explicit",
+      "acceptance": "Retry shows selected historical/current input policy, attempt ID and prior outcome; unknown acceptance does not auto-resend.",
+      "verification": "Retry lineage/idempotency/unknown-outcome tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-009",
+      "category": "sessions",
+      "requirement": "Session opens in a new tab",
+      "acceptance": "Open in new tab selects the same native session identity without sending a request; duplicate views and close-view retain data.",
+      "verification": "Tab open/close/reload/no-dispatch tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-010",
+      "category": "sessions",
+      "requirement": "Workspace hierarchy is durable",
+      "acceptance": "Workspace tabs contain project/non-project session tabs and IDE file tabs with independent order, selection and restore state.",
+      "verification": "Multi-workspace/multi-project tab/reload tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-011",
+      "category": "sessions",
+      "requirement": "Transcript export has a format matrix",
+      "acceptance": "JSON, Markdown, HTML and printable/PDF export declare supported paths, preserve lineage/citations and redact secrets.",
+      "verification": "Round-trip import and independent export rendering checks",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "SESSION-012",
+      "category": "sessions",
+      "requirement": "Btw is a separate side question",
+      "acceptance": "A Btw request has its own correlation and outcome and does not silently mutate the primary goal or pending prompt queue.",
+      "verification": "Concurrent primary/Btw lineage and cancellation tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_chat",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-001",
+      "category": "memory",
+      "requirement": "Every prompt resolves available capabilities",
+      "acceptance": "Prompt preparation records considered memory, skills, tools, MCP and plugins plus selected/omitted reasons within a bounded lookup budget.",
+      "verification": "Prompt-admission receipt and missing/cached-capability tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-002",
+      "category": "memory",
+      "requirement": "User can create memory or skill",
+      "acceptance": "A prompt can propose a memory or skill with editable content, scope and provenance; save/update/delete/revoke are inspectable.",
+      "verification": "Create/edit/delete/reload/permission tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-003",
+      "category": "memory",
+      "requirement": "Memory graph records evidence",
+      "acceptance": "Facts and relationships retain source IDs, confidence, scope and invalidation history; conflicting facts are surfaced.",
+      "verification": "Graph update/conflict/source-deletion tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-004",
+      "category": "memory",
+      "requirement": "Repeated feedback becomes a proposal",
+      "acceptance": "Repeated user corrections can produce a reviewable personalization proposal with cited feedback and opt-out, never silent behavior changes.",
+      "verification": "Feedback dedup/consent/rejection/reset tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-005",
+      "category": "memory",
+      "requirement": "Preference learning is measurable",
+      "acceptance": "Opt-in preference data is redacted and versioned; any learning/adapter experiment reports held-out evaluation and can be disabled or rolled back.",
+      "verification": "Dataset export/consent/reproducible evaluation/rollback receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-006",
+      "category": "memory",
+      "requirement": "Subagent context has a receipt",
+      "acceptance": "Parent-to-child context selection records included sources, omissions, compact summary and token/cache budget without leaking unrelated scopes.",
+      "verification": "Scoped handoff/cache invalidation and token-bound tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-007",
+      "category": "memory",
+      "requirement": "Cross-session retrieval is scoped",
+      "acceptance": "Authorized chat-history search returns bounded excerpts with conversation/message IDs and cannot read denied project/private scopes.",
+      "verification": "Cross-session allow/deny/reload and source-link tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "MEMORY-008",
+      "category": "memory",
+      "requirement": "Memory remains user-controlled",
+      "acceptance": "User can inspect/export/forget stored personalization and associated embeddings; deletion propagates through retrieval caches.",
+      "verification": "Native forget/export/cache invalidation tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-001",
+      "category": "domain-workflows",
+      "requirement": "Requested disciplines have a catalog",
+      "acceptance": "Catalog enumerates medicine, economics, politics/news, mathematics, physics, chemistry, biology, history, geography, software, systems, cyber and UI/UX with real workflow coverage and missing entries.",
+      "verification": "Catalog validation and workflow acceptance matrix",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-002",
+      "category": "domain-workflows",
+      "requirement": "Academic claims retain citations",
+      "acceptance": "Research output links claims to source/page/DOI when available and exposes uncertainty, conflicting evidence and publication/retrieval dates.",
+      "verification": "Citation resolution/contradiction/stale-paper evaluation",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-003",
+      "category": "domain-workflows",
+      "requirement": "News freshness is explicit",
+      "acceptance": "Current-information workflows run web search, preserve publish/update/retrieval timestamps and distinguish older background sources.",
+      "verification": "Timestamp parsing/timezone/stale-news/source conflict tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-004",
+      "category": "domain-workflows",
+      "requirement": "Math and science have executable checks",
+      "acceptance": "Relevant workflows can attach derivation/unit/numerical/code verification receipts and label unverified calculations.",
+      "verification": "Domain fixtures with independently checked answers",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-005",
+      "category": "domain-workflows",
+      "requirement": "Cyber workflows have scope",
+      "acceptance": "Security/system workflows show authorized target/capability scope and record tool actions and results in the request ledger.",
+      "verification": "Allow/deny/scope-expiry and output-redaction tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DOMAIN-006",
+      "category": "domain-workflows",
+      "requirement": "Domain skills are evaluated",
+      "acceptance": "Each advertised expert workflow has a pinned skill/tool inventory and task-specific minimum/advanced acceptance cases; names alone are not coverage.",
+      "verification": "Per-domain evaluation report and missing-capability ledger",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-001",
+      "category": "computer",
+      "requirement": "OS configuration actions are typed",
+      "acceptance": "Registry, service/startup, policy, Control Panel and Settings operations use declared capability contracts with read/write distinction, scope and rollback where possible.",
+      "verification": "Native authorized disposable-target allow/deny/rollback tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-002",
+      "category": "computer",
+      "requirement": "Accessibility precedes visual fallback",
+      "acceptance": "Computer workflows can inspect bounded accessibility/UIA data, escalate to image/OCR only as needed and record why fallback was selected.",
+      "verification": "UIA unavailable/custom-canvas and stale-handle tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-003",
+      "category": "computer",
+      "requirement": "Recording is an owned job",
+      "acceptance": "User can start/stop screen/window recording with visible capture scope, resource budget and timestamped media artifact linked to the session.",
+      "verification": "Start/stop/cancel/permission/reload media receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-004",
+      "category": "computer",
+      "requirement": "Browser developer tools are native contracts",
+      "acceptance": "DOM, console, network and runtime inspection use declared native/CDP contracts and bounded results instead of embedding external developer-tool UI.",
+      "verification": "Protocol capability/error/large-result tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-005",
+      "category": "computer",
+      "requirement": "Google and Bing search are real targets",
+      "acceptance": "Search can use configured Google/Bing web adapters without pretending internal index results are web search; unavailable/captcha/auth states remain visible.",
+      "verification": "Authorized engine query/result/citation target receipts",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-006",
+      "category": "computer",
+      "requirement": "Deep crawl has a frontier",
+      "acceptance": "Research crawl records visited URLs, depth, redirects, deduplication and budgets; unlimited depth is user-configurable while cancel/resource limits remain effective.",
+      "verification": "Cyclic-link/redirect/duplicate/large-frontier/cancel tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-007",
+      "category": "computer",
+      "requirement": "Browser groups and workspaces persist",
+      "acceptance": "Browser tab groups/workspaces restore order, labels, active tab and permissions without reviving released leases.",
+      "verification": "Native multi-group/restart/stale-lease tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "COMPUTER-008",
+      "category": "computer",
+      "requirement": "Downloader resumes safely",
+      "acceptance": "Range/chunk download validates server support, size/checksum and destination grant, supports pause/resume/cancel and handles mismatched partial files.",
+      "verification": "Range/no-range/network-drop/corrupt-partial/permission tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_browser",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "ADVSET-001",
+      "category": "advanced-settings",
+      "requirement": "Generation settings are per session",
+      "acceptance": "System instruction, generation limits, temperature/top-p and tool policy expose model-supported values and effective per-session overrides.",
+      "verification": "Invalid/supported/unsupported/hot-change tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/settings.test.ts",
+          "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No provider capability negotiation or native per-session runtime receipt.",
+          "attempts": [
+            "Validated schema and UI controls exist",
+            "Settings tests pass"
+          ],
+          "resolution": "Add native capability negotiation and hot-change receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add native capability negotiation and hot-change receipt."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-002",
+      "category": "advanced-settings",
+      "requirement": "Credentials stay in protected storage",
+      "acceptance": "Provider secrets use OS-protected storage and never appear in logs, exported settings, tool arguments or renderer snapshots.",
+      "verification": "Native key-store/redaction/export/revoke tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No OS-protected credential store or redaction runtime evidence in clean-room slice.",
+          "attempts": [
+            "Renderer settings avoid secrets",
+            "No native key-store command available in rebuild"
+          ],
+          "resolution": "Implement and test native protected storage/redaction.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Implement and test native protected storage/redaction."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-003",
+      "category": "advanced-settings",
+      "requirement": "Model discovery refreshes live",
+      "acceptance": "Model list refresh updates the picker without restart, preserves active running attempt metadata and reports disappeared/unsupported models.",
+      "verification": "Catalog change/running-attempt/failed-refresh tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No live model discovery/refresh contract.",
+          "attempts": [
+            "Model picker is local policy UI",
+            "No live catalog IPC in clean-room shell"
+          ],
+          "resolution": "Add provider catalog refresh and running-attempt preservation tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add provider catalog refresh and running-attempt preservation tests."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-004",
+      "category": "advanced-settings",
+      "requirement": "Roles accept prompt overrides",
+      "acceptance": "A user prompt can request role/model/effort changes through a validated proposal applied only to the selected goal/session.",
+      "verification": "Override parsing/precedence/denied-model tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No validated prompt role/model/effort override proposal flow.",
+          "attempts": [
+            "Per-session effort UI exists",
+            "No proposal parser or consent record"
+          ],
+          "resolution": "Implement schema-validated override proposal and denial tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Implement schema-validated override proposal and denial tests."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-005",
+      "category": "advanced-settings",
+      "requirement": "AI settings changes are reviewable",
+      "acceptance": "Prompt-based Omnia setting changes produce a schema-validated diff, effective scope and apply/revert result instead of unrestricted file edits.",
+      "verification": "Proposal validation/consent/conflict/revert tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No consented schema diff/apply/revert workflow.",
+          "attempts": [
+            "Import/export/reset are local",
+            "No scoped proposal lifecycle"
+          ],
+          "resolution": "Add diff, conflict, consent and revert implementation/tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add diff, conflict, consent and revert implementation/tests."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-006",
+      "category": "advanced-settings",
+      "requirement": "Local adapters are supported honestly",
+      "acceptance": "Ollama, LM Studio and custom compatible endpoints expose health, model capabilities and exact supported protocol behavior.",
+      "verification": "Local adapter fixture plus configured native target receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No Ollama/LM Studio/custom endpoint health or capability receipt.",
+          "attempts": [
+            "Provider order is configurable",
+            "No adapter health IPC"
+          ],
+          "resolution": "Add honest local adapter health/capability probes and receipts.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add honest local adapter health/capability probes and receipts."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-007",
+      "category": "advanced-settings",
+      "requirement": "Settings precedence is visible",
+      "acceptance": "Global/project/session/role values resolve deterministically with source, requested/effective state and rejected-value reason.",
+      "verification": "Precedence/cross-tab/file-hot-reload/conflict tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No global/project/session/role precedence source or test.",
+          "attempts": [
+            "Settings are versioned globally",
+            "No scope resolver in clean-room slice"
+          ],
+          "resolution": "Implement precedence resolver and conflict tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Implement precedence resolver and conflict tests."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-008",
+      "category": "advanced-settings",
+      "requirement": "Hardware profile affects budgets",
+      "acceptance": "Detected CPU/RAM/GPU/disk profile selects documented concurrency/index/capture/cache limits and allows user override.",
+      "verification": "Profile fixtures, resource budget enforcement and machine receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "No hardware profile detection or budget enforcement receipt.",
+          "attempts": [
+            "Concurrency limits are configurable",
+            "No machine profile native evidence"
+          ],
+          "resolution": "Add native resource profile and enforcement receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add native resource profile and enforcement receipt."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-009",
+      "category": "advanced-settings",
+      "requirement": "Retry progress is inspectable",
+      "acceptance": "Retry UI shows attempt count, elapsed time, next delay, reason and cancel; permanent/denied/unknown work does not busy-loop.",
+      "verification": "5s multiplier1/unlimited transient/cancel/permanent-error tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/settings.test.ts",
+          "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Policy defaults and controls exist; retry execution/cancel/permanent-error runtime behavior is absent.",
+          "attempts": [
+            "Defaults 5s/multiplier1/unlimited are tested",
+            "Settings UI exposes retry controls"
+          ],
+          "resolution": "Add retry executor with idempotency, cancellation and unknown-outcome tests.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add retry executor with idempotency, cancellation and unknown-outcome tests."
+        }
+      ]
+    },
+    {
+      "id": "ADVSET-010",
+      "category": "advanced-settings",
+      "requirement": "Settings have advanced search and portability",
+      "acceptance": "Every exposed setting has a stable schema key, searchable help, default/reset behavior and file import/export with validation.",
+      "verification": "Schema-to-control coverage and corrupt-import/reset tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_settings",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639",
+          "kind": "source"
+        },
+        {
+          "path": "src/rebuild/settings/settings.test.ts",
+          "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d",
+          "kind": "source"
+        }
+      ],
+      "blockers": [
+        {
+          "cause": "Search/import/export/reset are present; schema-to-control coverage and corrupt-import runtime receipt remain incomplete.",
+          "attempts": [
+            "Normalization and round-trip tests pass",
+            "Settings panel has search/export/import/reset"
+          ],
+          "resolution": "Add schema-to-control audit and corrupt import runtime receipt.",
+          "workaround": "Keep the affected capability in an explicit unavailable or preview state until the required runtime evidence exists.",
+          "nextAction": "Add schema-to-control audit and corrupt import runtime receipt."
+        }
+      ]
+    },
+    {
+      "id": "AUTOMATION-001",
+      "category": "automation",
+      "requirement": "Nested reports remain distinct",
+      "acceptance": "Goals contain subprompt plans and reports; finishing a child does not suppress the final outer-goal evidence report.",
+      "verification": "Nested goal/child-report/partial-completion tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-002",
+      "category": "automation",
+      "requirement": "Brainstorm decisions converge",
+      "acceptance": "Each pass records fix/add/optimize/remove or no-action with evidence; no-decision passes stop and iteration setting is bounded 0–10.",
+      "verification": "Default3/zero/max/no-new-decision tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-003",
+      "category": "automation",
+      "requirement": "Schedules are durable",
+      "acceptance": "Create/edit/pause/delete schedules preserve timezone, next run, missed-run policy and idempotency after native restart.",
+      "verification": "DST/restart/duplicate-dispatch/pause tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-004",
+      "category": "automation",
+      "requirement": "Self-improvement is isolated",
+      "acceptance": "Approved improvement builds a separate candidate with tests and snapshot; active sessions remain on the stable version until migration succeeds.",
+      "verification": "Candidate failure/consent rejection/active-session tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-005",
+      "category": "automation",
+      "requirement": "Migration is reversible",
+      "acceptance": "Versioned migrations preserve backup/tag and restore the prior state on failed health checks; restart requirements are honestly reported.",
+      "verification": "Rollback/failed-migration/restart receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-006",
+      "category": "automation",
+      "requirement": "Subagents can discuss within scope",
+      "acceptance": "Owned agents exchange bounded messages with sender/recipient/goal/role IDs and permission checks; denied scope never becomes a shared global channel.",
+      "verification": "Sibling discussion/cross-goal-deny/duplicate-message tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-007",
+      "category": "automation",
+      "requirement": "Multi-model collaboration has a real synthesis",
+      "acceptance": "Same-task agents may use different models; merged output cites selected attempts and a separate synthesis result with input/output hashes.",
+      "verification": "Distinct model fanout/partial failure/synthesis lineage tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "AUTOMATION-008",
+      "category": "automation",
+      "requirement": "Enhance prompt preserves original intent",
+      "acceptance": "Enhancement shows original and proposed prompt plus selected context; user can accept/edit/reject before dispatch.",
+      "verification": "Meaning-preservation/large-input/rejection/no-auto-send tests",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-001",
+      "category": "delivery",
+      "requirement": "Capture metadata is verified",
+      "acceptance": "README images are actual current app captures with measured dimensions, build/version/time/hash and no fixture/native scope confusion.",
+      "verification": "Read image dimensions and hash, packaged UI observation receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-002",
+      "category": "delivery",
+      "requirement": "UI behavior inventory is complete",
+      "acceptance": "Visible and keyboard-reachable controls have precondition/action/expected state/persistence/failure entries and direct tested evidence.",
+      "verification": "Control inventory against home/loading/error/modal/narrow/zoom states",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-003",
+      "category": "delivery",
+      "requirement": "Performance thresholds are explicit",
+      "acceptance": "Target machine reports startup p95<=1500ms, input p95<=16ms and idle working set<=350MB or retains a measured failed criterion with fix plan.",
+      "verification": "At least30 startup/input samples and environment-stamped memory receipt",
+      "requiredEvidence": [
+        "source",
+        "test",
+        "runtime"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-004",
+      "category": "delivery",
+      "requirement": "Capability coverage is enumerated",
+      "acceptance": "Supported formats, provider protocols, models, tools and domain workflows report exact tested counts and named missing cases.",
+      "verification": "Catalog-to-test traceability audit; no universal unsupported claim",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-005",
+      "category": "delivery",
+      "requirement": "README explains the product",
+      "acceptance": "README states what Omnia does, why it exists, setup/architecture, current evidence, limitations and current real screenshots.",
+      "verification": "Clean-profile setup and README link/image review",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "DELIVERY-006",
+      "category": "delivery",
+      "requirement": "Published revision is verified",
+      "acceptance": "Commit SHA, remote branch, version tag and release artifact hashes are checked after push; milestone preserves remaining criteria.",
+      "verification": "git show/ls-remote and artifact/version receipt",
+      "requiredEvidence": [
+        "source",
+        "test"
+      ],
+      "dependencies": [],
+      "owner": "/root/rebuild_independent_audit",
+      "status": "planned",
+      "evidence": [],
+      "blockers": []
+    }
+  ]
+}

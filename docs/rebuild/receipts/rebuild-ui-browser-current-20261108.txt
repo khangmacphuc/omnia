@@ -1,0 +1,50 @@
+Command: node tests/rebuild-ui-browser-independent.mjs
+Base URL: http://127.0.0.1:1432/
+Runtime: local Vite renderer, Chromium headless; no native mocks, provider dispatch, packaged Tauri or permission grant
+Viewport/theme matrix: 1440x900 and 800x600 × dark and light; Chat, Browser, IDE, Settings
+Exit: 1 (evidence collected with findings)
+Summary: 141 checks; 116 passed; 25 failed; 16 state captures
+Report: docs/rebuild/audit/ui-browser-20261108-current/report.json
+Report SHA-256 at capture: c53587ca6d72676b8fb6f86b149851e200fee3a3db2406db1301beb0d881fa6d
+
+Current findings:
+- `.settings-panel` still declares four grid tracks for five children; the section-tab row is visually absent and all five section tabs fail unforced pointer hit testing at both widths.
+- Light theme enabled primary action contrast is 3.81:1, below the 4.5:1 normal-text threshold.
+- Browser/IDE compact companion toggle is present; live draft continuity and Escape route pass in the updated source.
+- Modal focus trap/Escape/restore checks pass in the updated source.
+- Browser tablist critical semantics finding is resolved in the updated source.
+- Source-stability check failed once because `SettingsPanel.tsx` changed while the matrix was running; rerun after implementation settles is required.
+
+Evidence boundary: browser-renderer evidence only. This does not prove native WebView2, packaged desktop, provider execution, filesystem pointers, credential protection, permissions, or OS automation.
+
+Follow-up rerun (same source snapshot, 2026-11-08 11:52 Asia/Bangkok):
+- Command: `node tests/rebuild-ui-browser-independent.mjs`
+- Exit: 1 (evidence collected with the same findings)
+- Summary: 141 checks; 116 passed; 25 failed; 16 state captures
+- Report SHA-256: `c53587ca6d72676b8fb6f86b149851e200fee3a3db2406db1301beb0d881fa6d`
+- Source hashes were stable for the full follow-up capture. The earlier one-time SettingsPanel hash change is therefore not present in this rerun.
+- Remaining failures are unchanged: Settings section-tab pointer interception at both viewports/themes, light primary-action contrast (3.81:1), and one 1440x900 Chat document-overflow probe.
+- Additional gates after this capture: renderer Vitest 12 files/54 tests passed; independent boundary audit 6/6 passed; architecture guard passed; `git diff --check` passed. App typecheck currently fails in `src/rebuild/browser/browser-workspace.test.tsx` lines 49 and 52 because `getAllByRole("tab")` is not narrowed before `fireEvent.keyDown`.
+
+Follow-up rerun after Settings grid and Browser test fixes (2026-11-08 12:05 Asia/Bangkok):
+- Command: `node tests/rebuild-ui-browser-independent.mjs`
+- Exit: 1 (findings collected)
+- Summary: 141 checks; 136 passed; 5 failed; 16 state captures
+- Report SHA-256: `4a9e056404d773d222102d6d345816fb52c65ef85818bfd54b282f50fe7a7a9d`
+- Settings section-tab pointer checks now pass at both viewports/themes. Remaining failures: one 1440x900 Chat document-overflow probe (x=8,y=8), and light Browser/IDE `.rb-primary-button` color contrast 3.81:1 at both widths.
+- Renderer Vitest: 12 files/55 tests passed; Browser focused suite: 4/4; app typecheck: exit 0.
+- Source hashes remained stable during this follow-up capture.
+
+Repeated fresh-context confirmation (2026-11-08 12:11 Asia/Bangkok):
+- Command: `node tests/rebuild-ui-browser-independent.mjs`
+- Exit: 1; 141 checks, 136 passed, 5 failed, 16 state captures.
+- Report SHA-256: `104de37ece885df38d4db3776ddb4b3bb785d0d823ec39a1e9c58cc54e328904`.
+- The same five findings reproduce. A standalone fresh context confirms the 1440x900 Chat overflow is a first-load body-margin race: first `reducedMotion: reduce` context reports body margin 8px and document overflow +8; later contexts report 0px. The app should reset global geometry before the asynchronous renderer CSS is applied.
+
+Latest fresh-context confirmation (2026-11-08 05:23 UTC / 12:23 Asia/Bangkok):
+- Command: `node tests/rebuild-ui-browser-independent.mjs`
+- Exit: 1; 141 checks, 136 passed, 5 failed, 16 state captures.
+- Report SHA-256: `81b2350470150be73a26a80f17dd9ae41d35f472749ee465595c87bf4957a572`.
+- The five failures are unchanged: `1440x900-dark-chat/document-overflow` (`x=8,y=8`) and four light Browser/IDE axe color-contrast checks on `.rb-primary-button` (foreground `#071411`, background `#087f6b`, ratio `3.81:1`, required `4.5:1`).
+- Settings section-tab pointer checks remain passing at both viewports and themes; Browser focused tests and app typecheck remain passing in this source snapshot.
+- Source hashes remained stable during the full capture. This is still browser-renderer evidence only; it does not establish packaged/native/provider behavior.

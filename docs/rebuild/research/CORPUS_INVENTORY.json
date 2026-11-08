@@ -1,0 +1,3329 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-07T21:22:47.008Z",
+  "corpus": "D:\\Omnia\\repos\\omnia\\upstream_extractions",
+  "excludedModules": [
+    "desktop-apps/zalo-desktop"
+  ],
+  "safety": {
+    "maxDepth": 6,
+    "maxFilesPerModule": 2000,
+    "sampleLimit": 12,
+    "maxSampleBytes": 524288,
+    "skippedPathPatterns": [
+      "node_modules",
+      "assets",
+      "cache",
+      "cookies",
+      "profiles",
+      "sessions",
+      "target",
+      "credential-like paths"
+    ],
+    "sampledContentHashing": true,
+    "sensitiveContentNeverRead": true
+  },
+  "summary": {
+    "categories": 10,
+    "modules": 54,
+    "readableModules": 54,
+    "substantialModules": 21,
+    "truncatedModules": 14,
+    "hashedSamples": 393
+  },
+  "modules": [
+    {
+      "id": "browser/chrome-canary",
+      "category": "browser",
+      "module": "chrome-canary",
+      "observedFiles": 8,
+      "observedSourceFiles": 8,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "ARCHITECTURE_AND_CDP_SPEC.md",
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "browser/chrome-canary/ARCHITECTURE_AND_CDP_SPEC.md",
+          "bytes": 4464,
+          "sha256": "f995db39a186ae39de31251cc200f01dae6141ad99e5a371f743e6c0a07c3370",
+          "modifiedAt": "2026-11-02T19:06:43.493Z"
+        },
+        {
+          "path": "browser/chrome-canary/package.json",
+          "bytes": 501,
+          "sha256": "656a661464813401f616652f9c872a7562a25d8f6893dc533a0755941aad5d6b",
+          "modifiedAt": "2026-11-03T09:39:01.489Z"
+        },
+        {
+          "path": "browser/chrome-canary/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:39:01.489Z"
+        },
+        {
+          "path": "browser/chrome-canary/src/cdp-client.ts",
+          "bytes": 2086,
+          "sha256": "11e28dd53f7cfdfe098fa964aed7c644b7ba9fb4dfe558bf14c01c7a08ab632a",
+          "modifiedAt": "2026-11-03T09:39:01.490Z"
+        },
+        {
+          "path": "browser/chrome-canary/src/index.ts",
+          "bytes": 446,
+          "sha256": "95eaefd3f39f5d7d0ce18c510a0e430860fa866691bd1d4369b2e19dd1792e78",
+          "modifiedAt": "2026-11-03T09:39:01.491Z"
+        },
+        {
+          "path": "browser/chrome-canary/src/tab-strip-layout.ts",
+          "bytes": 862,
+          "sha256": "a526dafbf6fd40ca482e8573eee0d77f977cb74ab137359242f114585c9bce9a",
+          "modifiedAt": "2026-11-03T09:39:01.491Z"
+        },
+        {
+          "path": "browser/chrome-canary/src/vertical-tabs.ts",
+          "bytes": 2475,
+          "sha256": "7f9c988b199d552ba7df303a7409b3ce9b4585a4044989bf28fca598683140f8",
+          "modifiedAt": "2026-11-03T09:39:01.490Z"
+        },
+        {
+          "path": "browser/chrome-canary/src/ws-shim.d.ts",
+          "bytes": 558,
+          "sha256": "27231536ae73651311978c7a8136d7303159b92efc27d3c9d7ceec4a30b7185e",
+          "modifiedAt": "2026-11-05T21:59:36.664Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/agy-cli",
+      "category": "cli",
+      "module": "agy-cli",
+      "observedFiles": 8,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/agy-cli/cli.js",
+          "bytes": 518741,
+          "sha256": "ea3402a0cf9c2601fc3e4fd0adb84a54e0102dc369c5aaa3f8b6bb1ba94b6422",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "cli/agy-cli/package-lock.json",
+          "bytes": 1561,
+          "sha256": "c2c35df6cdd38beffeb6e62f3b846ecf8792b070d7b4ec2e6a46fde7855952c3",
+          "modifiedAt": "2026-11-05T21:56:55.908Z"
+        },
+        {
+          "path": "cli/agy-cli/package.json",
+          "bytes": 331,
+          "sha256": "cf0c45b0e988f9e8f6653c50d544e094287fe510f9f05a0a70bcbdd1de5cc228",
+          "modifiedAt": "2026-11-03T09:41:53.296Z"
+        },
+        {
+          "path": "cli/agy-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 281,
+          "sha256": "0c231847a6a07ddeef262ee85b0fe1a30acfe9ed0d59a2b489903aea8a09393f",
+          "modifiedAt": "2026-11-02T19:49:53.102Z"
+        },
+        {
+          "path": "cli/agy-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.296Z"
+        },
+        {
+          "path": "cli/agy-cli/src/cli.ts",
+          "bytes": 288,
+          "sha256": "a15d6a2fb842f02e0f59a31e8c0eec0700a22c380e13ca3b5025a04616414604",
+          "modifiedAt": "2026-11-03T09:41:53.296Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/claude-cli",
+      "category": "cli",
+      "module": "claude-cli",
+      "observedFiles": 7,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/claude-cli/package.json",
+          "bytes": 340,
+          "sha256": "373883344662f7c45312d05d573ffeb0ed51599f0a35450ae36b214d435f355b",
+          "modifiedAt": "2026-11-03T09:41:53.294Z"
+        },
+        {
+          "path": "cli/claude-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 643,
+          "sha256": "9d04e20763f7e9fcc844a8f8eb0ad3281d8b40062854166e891c34035a430d72",
+          "modifiedAt": "2026-11-02T19:49:53.101Z"
+        },
+        {
+          "path": "cli/claude-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.294Z"
+        },
+        {
+          "path": "cli/claude-cli/src/cli.ts",
+          "bytes": 1904,
+          "sha256": "c21576639d77d1c09f8004c2fe9acfbd1058fe1912f79508965d063c15ea1eba",
+          "modifiedAt": "2026-11-03T13:49:49.078Z"
+        },
+        {
+          "path": "cli/claude-cli/src/mcp-client.ts",
+          "bytes": 1496,
+          "sha256": "96fc13ce3026292976defaad611c6e41bea4f40deaa4e17d01f2c67969998706",
+          "modifiedAt": "2026-11-03T13:49:49.076Z"
+        },
+        {
+          "path": "cli/claude-cli/src/stream-parser.ts",
+          "bytes": 1351,
+          "sha256": "ef6bd2297bb801ffe50b211a7ba0f40002b1585c4253d3daf8d138da5d8697d1",
+          "modifiedAt": "2026-11-03T13:49:49.077Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/codex-cli",
+      "category": "cli",
+      "module": "codex-cli",
+      "observedFiles": 10,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/codex-cli/package.json",
+          "bytes": 337,
+          "sha256": "6155817abcc6b763d37e43f886d6a0011197727722054746df4264c1ee5a0b6b",
+          "modifiedAt": "2026-11-03T09:41:53.295Z"
+        },
+        {
+          "path": "cli/codex-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 345,
+          "sha256": "dd8d53c5341586f54ec9963b47c0cd062a889697e5d9d87cb55d3289252d1545",
+          "modifiedAt": "2026-11-02T19:49:53.101Z"
+        },
+        {
+          "path": "cli/codex-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.295Z"
+        },
+        {
+          "path": "cli/codex-cli/src/cli.ts",
+          "bytes": 1191,
+          "sha256": "836342969406a69b1ed752666b1dc575a306286d54fa257a11ca4b683a065565",
+          "modifiedAt": "2026-11-03T13:50:21.424Z"
+        },
+        {
+          "path": "cli/codex-cli/src/exec.ts",
+          "bytes": 767,
+          "sha256": "62445b58be677ba904849fe454e0cebfd12a1f49ae9527d89668ae9bff6606da",
+          "modifiedAt": "2026-11-03T13:50:21.423Z"
+        },
+        {
+          "path": "cli/codex-cli/src/sandbox.ts",
+          "bytes": 601,
+          "sha256": "bdfeb8e23879144ee137f630666d200b0acddb1399c5685833b551669db1de11",
+          "modifiedAt": "2026-11-03T13:50:21.421Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/hermes-cli",
+      "category": "cli",
+      "module": "hermes-cli",
+      "observedFiles": 5,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "README.md",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/hermes-cli/package.json",
+          "bytes": 353,
+          "sha256": "1c22ae1ca9792f4f24b0241fff3742d6d01817a0ff4491fbca69dc159026d2e0",
+          "modifiedAt": "2026-11-05T00:00:34.260Z"
+        },
+        {
+          "path": "cli/hermes-cli/README.md",
+          "bytes": 1237,
+          "sha256": "871ad4e7e9fd4ca56896d3c630c863bf6a9ce9e8b56ebfc0c374b4db93be9383",
+          "modifiedAt": "2026-11-05T00:00:34.260Z"
+        },
+        {
+          "path": "cli/hermes-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 281,
+          "sha256": "3275868340d16d15065e6b16d5cb8cd58262151be5e95cf9649e3a14e60c4bc6",
+          "modifiedAt": "2026-11-02T19:49:53.102Z"
+        },
+        {
+          "path": "cli/hermes-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.297Z"
+        },
+        {
+          "path": "cli/hermes-cli/src/cli.ts",
+          "bytes": 2134,
+          "sha256": "119c492341ca43367e77530fab758c0733e425bccb254420c3bcacc0e03b229e",
+          "modifiedAt": "2026-11-05T00:00:34.069Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/kimi-cli",
+      "category": "cli",
+      "module": "kimi-cli",
+      "observedFiles": 2000,
+      "observedSourceFiles": 991,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 13,
+      "manifests": [
+        "LICENSE",
+        "pyproject.toml",
+        "README.md",
+        "web/package.json",
+        "vis/package.json",
+        "tests_ai/accuracy_smoke/README.md",
+        "sdks/kimi-sdk/LICENSE",
+        "sdks/kimi-sdk/pyproject.toml",
+        "sdks/kimi-sdk/README.md",
+        "packages/kosong/LICENSE",
+        "packages/kosong/pyproject.toml",
+        "packages/kosong/README.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/kimi-cli/.pre-commit-config.yaml",
+          "bytes": 409,
+          "sha256": "3b145d8a8964ba757e9b4aeccbb72ce4ad8289865c5f4681887ba5096496df8f",
+          "modifiedAt": "2026-11-03T21:24:40.602Z"
+        },
+        {
+          "path": "cli/kimi-cli/AGENTS.md",
+          "bytes": 7550,
+          "sha256": "d41f0edf7a30eb825cc9f9b99eac001c14237bf9ab7f42b52ab515da1fb91ac8",
+          "modifiedAt": "2026-11-03T21:24:40.604Z"
+        },
+        {
+          "path": "cli/kimi-cli/CHANGELOG.md",
+          "bytes": 107647,
+          "sha256": "3ddd3918760a15c442331c176ea3df3df65d0f76bc5d3690ebb8cd57c3a2fac6",
+          "modifiedAt": "2026-11-03T21:24:40.606Z"
+        },
+        {
+          "path": "cli/kimi-cli/CONTRIBUTING.md",
+          "bytes": 463,
+          "sha256": "443ddc9a429b0e8c13bbea0110c9f5da337543344b848d0a5b22149cbab9d5d1",
+          "modifiedAt": "2026-11-03T21:24:40.606Z"
+        },
+        {
+          "path": "cli/kimi-cli/pyproject.toml",
+          "bytes": 3303,
+          "sha256": "a70c91f128f3401cc2328f67e659f89a194ce5752161c94fefd7e38b49dee79f",
+          "modifiedAt": "2026-11-03T21:24:40.918Z"
+        },
+        {
+          "path": "cli/kimi-cli/README.md",
+          "bytes": 8204,
+          "sha256": "890e96724007df8bd7cb32ddb11d7786847ca57f396f432a04afc3ad190af7ea",
+          "modifiedAt": "2026-11-03T21:24:40.608Z"
+        },
+        {
+          "path": "cli/kimi-cli/SECURITY.md",
+          "bytes": 796,
+          "sha256": "9132b5258ad33ca2366655c0b23ca15425ca607ccef30792662334fec17f0863",
+          "modifiedAt": "2026-11-03T21:24:40.608Z"
+        },
+        {
+          "path": "cli/kimi-cli/web/components.json",
+          "bytes": 535,
+          "sha256": "9c59d87e72e40d45013b61bfcf111abae40733cb52616d1fb65654754fdd9dd9",
+          "modifiedAt": "2026-11-03T21:24:41.373Z"
+        },
+        {
+          "path": "cli/kimi-cli/web/index.html",
+          "bytes": 414,
+          "sha256": "d5ae640f8a676c0fda9dd33a6ce911cbc9959b02c01813b2a6ed6c8f07ea4671",
+          "modifiedAt": "2026-11-03T21:24:41.373Z"
+        },
+        {
+          "path": "cli/kimi-cli/web/openapi.json",
+          "bytes": 36952,
+          "sha256": "bee2bd1bff1f9dffd253768fd53815499c68325b832dd97bd0ccba3fceae4ac8",
+          "modifiedAt": "2026-11-03T21:24:41.374Z"
+        },
+        {
+          "path": "cli/kimi-cli/web/openapitools.json",
+          "bytes": 161,
+          "sha256": "e23ef0f2fb9671ee140210db685ea7c6509006e9f9caf0b44fe350a6273f86f3",
+          "modifiedAt": "2026-11-03T21:24:41.374Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "cli/opencode-cli",
+      "category": "cli",
+      "module": "opencode-cli",
+      "observedFiles": 4,
+      "observedSourceFiles": 4,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/opencode-cli/package.json",
+          "bytes": 346,
+          "sha256": "88daeb00eb46c0b93a2de8d7a7557a1e333c8fa7463b6fef5beac9097799cfb9",
+          "modifiedAt": "2026-11-03T09:41:53.296Z"
+        },
+        {
+          "path": "cli/opencode-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 230,
+          "sha256": "b80c4a673dc4844c15a148bffbed02629bb76e1a7e9b352ac871f9121aea111f",
+          "modifiedAt": "2026-11-02T19:49:53.103Z"
+        },
+        {
+          "path": "cli/opencode-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.297Z"
+        },
+        {
+          "path": "cli/opencode-cli/src/cli.ts",
+          "bytes": 1080,
+          "sha256": "8318be4f160b2d6105c6525cf567d64375ae30b98e164c5a82d0f9f38abef232",
+          "modifiedAt": "2026-11-03T13:50:40.250Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "cli/orca-cli",
+      "category": "cli",
+      "module": "orca-cli",
+      "observedFiles": 4,
+      "observedSourceFiles": 4,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_PROTOCOL.md"
+      ],
+      "samples": [
+        {
+          "path": "cli/orca-cli/package.json",
+          "bytes": 334,
+          "sha256": "edccc05ae6f5f74c618c8dae2133e63bdadba6265aac7d894163abcd8964e5c1",
+          "modifiedAt": "2026-11-03T09:41:53.298Z"
+        },
+        {
+          "path": "cli/orca-cli/SPEC_AND_PROTOCOL.md",
+          "bytes": 219,
+          "sha256": "d841e68fc434b7cc38bd9ab46490902abd6be74f1a33e03f830932600aaf7551",
+          "modifiedAt": "2026-11-02T19:49:53.103Z"
+        },
+        {
+          "path": "cli/orca-cli/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.298Z"
+        },
+        {
+          "path": "cli/orca-cli/src/cli.ts",
+          "bytes": 482,
+          "sha256": "bd842e238bb299a3b93b8b754223bd865a1dc520d3002d55ff3c8e76714eece7",
+          "modifiedAt": "2026-11-03T13:50:40.251Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/agy-desktop",
+      "category": "desktop-apps",
+      "module": "agy-desktop",
+      "observedFiles": 7,
+      "observedSourceFiles": 4,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 4,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_ARCHITECTURE.md",
+        "app-companion-unpacked/package.json"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/agy-desktop/package.json",
+          "bytes": 241,
+          "sha256": "377c29df8f91cb81c7ca967c2d877343bf1823e1ccbe5a2e27251e4c3a90edbb",
+          "modifiedAt": "2026-11-03T09:42:22.756Z"
+        },
+        {
+          "path": "desktop-apps/agy-desktop/SPEC_AND_ARCHITECTURE.md",
+          "bytes": 192,
+          "sha256": "0d85a58c99e8b8100ded4bf37aae90bae05dc10492eca10b6c430cfe0d17b2dd",
+          "modifiedAt": "2026-11-02T19:49:53.105Z"
+        },
+        {
+          "path": "desktop-apps/agy-desktop/src/index.ts",
+          "bytes": 132,
+          "sha256": "32c5015f942a0b84b7a003fd40cb6af80916ad1f7b79cf024d3977e6b20008a0",
+          "modifiedAt": "2026-11-03T09:42:22.756Z"
+        },
+        {
+          "path": "desktop-apps/agy-desktop/app-companion-unpacked/package.json",
+          "bytes": 594,
+          "sha256": "7ea0adacdc71b02eb0bb6b79b8fa3de9330f8ba70861b1fa84d6a102333ab878",
+          "modifiedAt": "2026-11-03T19:44:30.032Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/chatgpt-desktop",
+      "category": "desktop-apps",
+      "module": "chatgpt-desktop",
+      "observedFiles": 8,
+      "observedSourceFiles": 8,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_ARCHITECTURE.md"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/chatgpt-desktop/package.json",
+          "bytes": 308,
+          "sha256": "015687d5b5d40364e83bc0801274aac2d5e72d70f419de7e7204235803ef39ea",
+          "modifiedAt": "2026-11-03T09:41:53.300Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/preview_server.cjs",
+          "bytes": 452,
+          "sha256": "75a0cf6d6cb9151a7bab44799b425f2d379c70e1bec5c1c85fca89631ea9bc5b",
+          "modifiedAt": "2026-11-04T13:04:06.520Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/SPEC_AND_ARCHITECTURE.md",
+          "bytes": 285,
+          "sha256": "776d74e74b647083162e51cc8b5003265db3aad016842f2bf901118aa585c110",
+          "modifiedAt": "2026-11-02T19:49:53.103Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.300Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/src/ipc-handlers.ts",
+          "bytes": 4202,
+          "sha256": "1d22948934b8112077541d6f518460a61e3d1090c22cc69f566586a0cfff3a11",
+          "modifiedAt": "2026-11-05T21:56:06.011Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/src/main.ts",
+          "bytes": 1140,
+          "sha256": "8ef04cb0b90ab9e76839ebb860098fd1ee0925d267c1fa08ca7671157686019c",
+          "modifiedAt": "2026-11-03T13:49:27.745Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/src/preload.ts",
+          "bytes": 923,
+          "sha256": "7e65fc72cedb36ed6ea1a332dca14cbdd0fc49c5d3e1bb303d6c0acef0df7e37",
+          "modifiedAt": "2026-11-03T21:27:56.934Z"
+        },
+        {
+          "path": "desktop-apps/chatgpt-desktop/src/window.ts",
+          "bytes": 1457,
+          "sha256": "f391bd710b18b151b686b345517eb34271c80309ef4743aa127d849a49985577",
+          "modifiedAt": "2026-11-03T13:49:27.744Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/cherry-studio",
+      "category": "desktop-apps",
+      "module": "cherry-studio",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1989,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 14,
+      "manifests": [
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "tests/__mocks__/README.md",
+        "tests/helpers/http/README.md",
+        "tests/e2e/README.md",
+        "tests/e2e/regression/README.md",
+        "tests/e2e/ondemand/README.md",
+        "tests/e2e/ondemand/specs/README.md",
+        "src/shared/utils/async/README.md",
+        "src/shared/data/README.md",
+        "src/shared/data/presets/README.md"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/cherry-studio/.oxfmtrc.json",
+          "bytes": 2336,
+          "sha256": "98bfa4710e44fba59dc11517086f8aaea7265c19677a1799431a5e95dba8dbd8",
+          "modifiedAt": "2026-11-03T21:24:04.156Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/.oxlintrc.json",
+          "bytes": 5393,
+          "sha256": "3ef4dab98a15829d48643b8115bab73de562240c124a637bab71a3bf386e8f4a",
+          "modifiedAt": "2026-11-03T21:24:04.157Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/.pre-commit-config.yaml",
+          "bytes": 2829,
+          "sha256": "f7dca940ddd60fb6c1f0f7668a741e0d6c320a4529f5e95bfacf33c6ecb3237f",
+          "modifiedAt": "2026-11-03T21:24:04.157Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/AGENTS.md",
+          "bytes": 9,
+          "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+          "modifiedAt": "2026-11-03T21:24:04.159Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/CLAUDE.md",
+          "bytes": 21922,
+          "sha256": "8ba0732d67c6af5bbd48c007401c3a14219da2b93b080e9d241ddc5811b84ba4",
+          "modifiedAt": "2026-11-03T21:24:04.159Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/CODE_OF_CONDUCT.md",
+          "bytes": 1860,
+          "sha256": "b0fbbc75a55a22285d1568059898facde6a694f35cf399c8f11b6b3d38e082aa",
+          "modifiedAt": "2026-11-03T21:24:04.159Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/CONTRIBUTING.i18n.yaml",
+          "bytes": 306,
+          "sha256": "90926c0812299c780c866fb2379c52449e141c7fffbd17d8064904e8fe5e7b6a",
+          "modifiedAt": "2026-11-03T21:24:04.160Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/CONTRIBUTING.md",
+          "bytes": 5821,
+          "sha256": "b7e99344636daf4f3eb8a6f1e9a2cdc3e9c1814b85c2bea18720a2602a6c4b43",
+          "modifiedAt": "2026-11-03T21:24:04.160Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/CONTRIBUTING.zh.md",
+          "bytes": 4545,
+          "sha256": "744f2eee0be7fdf12e8cdf6fef6e62192e644387b92e13fac690cf17a6347df0",
+          "modifiedAt": "2026-11-03T21:24:04.160Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/DESIGN.md",
+          "bytes": 10536,
+          "sha256": "ce5caecaf3bdc503ccaacda87c01deca8f91be9de15e019afdab4c3059e84375",
+          "modifiedAt": "2026-11-03T21:24:04.161Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/dev-app-update.yml",
+          "bytes": 231,
+          "sha256": "71aa1295a339207f81fe8c9385a49ae371d00539d556d19564f9c0e95774d648",
+          "modifiedAt": "2026-11-03T21:24:04.180Z"
+        },
+        {
+          "path": "desktop-apps/cherry-studio/electron-builder.cn.config.cjs",
+          "bytes": 564,
+          "sha256": "688a1b2dc9d673fc82ef131d8bd4dfab3567c59770f86744196e00e87707c563",
+          "modifiedAt": "2026-11-03T21:24:05.865Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "desktop-apps/claude-desktop",
+      "category": "desktop-apps",
+      "module": "claude-desktop",
+      "observedFiles": 294,
+      "observedSourceFiles": 168,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 20,
+      "manifests": [
+        "app-unpacked/package.json",
+        "app-unpacked/app/package.json"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/claude-desktop/preview_server.cjs",
+          "bytes": 451,
+          "sha256": "d8474ff12aba5a1d3e691a4ca880dd9cf4e54070da15c544e531b179b35b7479",
+          "modifiedAt": "2026-11-04T13:04:06.520Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/package.json",
+          "bytes": 1123,
+          "sha256": "45041f883a03b0c8ac0753201423018016532f81808a3eedf6dfb0fdb6889174",
+          "modifiedAt": "2026-11-02T19:30:00.911Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/claude-browser-shim.js",
+          "bytes": 6770,
+          "sha256": "35c4235dcd6013cbaa655933ae6b19464bd8620f069078e51a7b3f2dcaf8d188",
+          "modifiedAt": "2026-11-02T19:30:01.104Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/office365-mcp/pdfExtractorProcess.mjs",
+          "bytes": 426209,
+          "sha256": "a56724c14ea1659347efa7370f3dbf78416f37e396bcc084148de29de5866a08",
+          "modifiedAt": "2026-11-02T19:30:06.221Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/i18n/am.json",
+          "bytes": 84547,
+          "sha256": "0abda46fbb0d91e52f9b7fa461cee012b064a3cdf76fd27cdac1743e9b1b9f13",
+          "modifiedAt": "2026-11-02T19:30:05.627Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/i18n/bho.json",
+          "bytes": 110035,
+          "sha256": "9d4d5208d58f4230e6a1be72913e29f55b62f09121815c7d80fc2a672efedd6b",
+          "modifiedAt": "2026-11-02T19:30:05.628Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/i18n/bn.json",
+          "bytes": 117067,
+          "sha256": "e82051ca441835cbcdb1640860aa05ade796c2cc3d1688b122df5b324ed22179",
+          "modifiedAt": "2026-11-02T19:30:05.629Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/i18n/da.json",
+          "bytes": 56884,
+          "sha256": "b23f096682c2b704a1e25729aea9498e3f4affe0767d272d64ac9b332b268ae4",
+          "modifiedAt": "2026-11-02T19:30:05.630Z"
+        },
+        {
+          "path": "desktop-apps/claude-desktop/app-unpacked/resources/i18n/de-DE.json",
+          "bytes": 86261,
+          "sha256": "87214e188be31d39995ba7da0276857b3ce65a4596c976d4532452c05d8e9add",
+          "modifiedAt": "2026-11-02T19:30:05.631Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "desktop-apps/codex-desktop",
+      "category": "desktop-apps",
+      "module": "codex-desktop",
+      "observedFiles": 2,
+      "observedSourceFiles": 2,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/codex-desktop/package.json",
+          "bytes": 256,
+          "sha256": "58437684f9b464a08727cebbabee52f7102288cb225a3c13732ad033ae192bab",
+          "modifiedAt": "2026-11-03T09:42:22.755Z"
+        },
+        {
+          "path": "desktop-apps/codex-desktop/src/index.ts",
+          "bytes": 120,
+          "sha256": "011702d21e07c545a10d0c8e134ce798b81c7d9dad4a7d848076107a93c41272",
+          "modifiedAt": "2026-11-03T09:42:22.755Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/gemini-desktop",
+      "category": "desktop-apps",
+      "module": "gemini-desktop",
+      "observedFiles": 161,
+      "observedSourceFiles": 160,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "SPEC_AND_ARCHITECTURE.md",
+        "app-unpacked/package.json"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/gemini-desktop/SPEC_AND_ARCHITECTURE.md",
+          "bytes": 168,
+          "sha256": "55905009227788b2fbfcb1145780661bdcf7b0cd016315dd839fc908cb320074",
+          "modifiedAt": "2026-11-02T19:49:53.105Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/package.json",
+          "bytes": 1030,
+          "sha256": "76e1906ca4e197b086a3e2862942307ddbe8ed8b94e0bc5968f7ad71b817f0b9",
+          "modifiedAt": "2026-11-02T19:18:18.520Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/loading.html",
+          "bytes": 1238,
+          "sha256": "e2f616705c585a800e6623f65f17125bc2a69cc42622245ad2510076d3958cda",
+          "modifiedAt": "2026-11-02T19:18:18.827Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/main.js",
+          "bytes": 145374,
+          "sha256": "60094529ea0b388fed2cee14d8a1bae7ecdecca7d9dabe95f3b3524c37632735",
+          "modifiedAt": "2026-11-02T19:18:18.829Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/offline.html",
+          "bytes": 1557,
+          "sha256": "58c2ef142c2bb2657c3a8ec14be1e9becc9b9cd8d42038d47ee230b06d236a9f",
+          "modifiedAt": "2026-11-02T19:18:18.832Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/preload.js",
+          "bytes": 1680,
+          "sha256": "f879d3581886acfec98ed5b9320c35c2d0b8888f5e51eb7b20cafd5e51c9cde1",
+          "modifiedAt": "2026-11-02T19:18:18.835Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/streamz_client_bundle.js",
+          "bytes": 65617,
+          "sha256": "77288ad8fbdd2ff917faf9daf30a47d19ba4598a057232a2d35bb09669a47c43",
+          "modifiedAt": "2026-11-02T19:18:18.850Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/_locales/zu/messages.json",
+          "bytes": 14065,
+          "sha256": "79c76627ca5260d099ca47560a674b04be0da3dab859c3d5998d8208dfbf94c9",
+          "modifiedAt": "2026-11-02T19:18:18.807Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/_locales/zh_TW/messages.json",
+          "bytes": 17815,
+          "sha256": "57e132bfe53ac334219568adfa4e42b77f1d9b8b7c0bcf9a4f5e2011bf39cf6f",
+          "modifiedAt": "2026-11-02T19:18:18.804Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/_locales/zh_HK/messages.json",
+          "bytes": 17542,
+          "sha256": "93e64db0957ebb5d0b53423d4903e762d261ae0735a398e59b8c154e1f745e0f",
+          "modifiedAt": "2026-11-02T19:18:18.802Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/_locales/zh_CN/messages.json",
+          "bytes": 17489,
+          "sha256": "eeddc98993211f7f78d795f186d499e2e4d88a33bd688733fde862e22f225528",
+          "modifiedAt": "2026-11-02T19:18:18.801Z"
+        },
+        {
+          "path": "desktop-apps/gemini-desktop/app-unpacked/src/_locales/zh/messages.json",
+          "bytes": 17489,
+          "sha256": "eeddc98993211f7f78d795f186d499e2e4d88a33bd688733fde862e22f225528",
+          "modifiedAt": "2026-11-02T19:18:18.798Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "desktop-apps/herdr-app",
+      "category": "desktop-apps",
+      "module": "herdr-app",
+      "observedFiles": 2000,
+      "observedSourceFiles": 737,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 16,
+      "manifests": [
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "vendor/zed-xim/Cargo.toml",
+        "vendor/zed-xim/LICENSE",
+        "vendor/zed-xim/README.md",
+        "vendor/xim-ctext/Cargo.toml",
+        "vendor/xim-ctext/LICENSE",
+        "vendor/xim-ctext/README.md",
+        "vendor/taffy/Cargo.toml",
+        "vendor/taffy/LICENSE",
+        "vendor/taffy/README.md"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/herdr-app/about.toml",
+          "bytes": 338,
+          "sha256": "eb78e5c8577b48beec38ccbffbbc033f118e3dc9391ca76a9ea50da9bfb21c1b",
+          "modifiedAt": "2026-11-04T17:30:36.812Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/AGENTS.md",
+          "bytes": 5282,
+          "sha256": "6a53280adca3a85994153a978286f5102f78999a4feb58c9f0fc7f44f346f426",
+          "modifiedAt": "2026-11-04T17:30:36.803Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/build.rs",
+          "bytes": 2259,
+          "sha256": "9875bb1ae4c66c0318ee2fd730367c67e60f707c6165da994ebde812acc98d91",
+          "modifiedAt": "2026-11-04T17:30:36.850Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/Cargo.toml",
+          "bytes": 4480,
+          "sha256": "040e724e85f0d9217cf13a0f582667f7595db48ccc93020a4aa3f2332d45f1bf",
+          "modifiedAt": "2026-11-04T17:30:36.806Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/CHANGELOG.md",
+          "bytes": 14930,
+          "sha256": "400b78ca020162707973fd8e346cd8df6303b7d21055f4b697b0dd1103d4db3b",
+          "modifiedAt": "2026-11-04T17:30:36.803Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/CONTRIBUTING.md",
+          "bytes": 1518,
+          "sha256": "a7bfae414766bb0a0b040c351c364cbd55eaf5ceee7af723c5d57c323ce11e2a",
+          "modifiedAt": "2026-11-04T17:30:36.805Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/README.md",
+          "bytes": 7691,
+          "sha256": "5bcd1845613bcb4f3b586f4d232d7966f535277928693f0091e76ccf708c229e",
+          "modifiedAt": "2026-11-04T17:30:36.807Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/SECURITY.md",
+          "bytes": 514,
+          "sha256": "b0de9bb8ca285609b940e6ea144a3eb3d1bd673c32be887e3311cdc1fff06c0c",
+          "modifiedAt": "2026-11-04T17:30:36.807Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/vendor/zed-xim/Cargo.toml",
+          "bytes": 2648,
+          "sha256": "a088cade8a531fd021743b70e7a958adb72bdcf0449826f5d9233dda61f8a682",
+          "modifiedAt": "2026-11-04T17:30:37.334Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/vendor/zed-xim/README.md",
+          "bytes": 957,
+          "sha256": "2604d6c4a66ee11bb397f83e55f44b37c3a782a98413587020d5564055b5cae0",
+          "modifiedAt": "2026-11-04T17:30:37.335Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/vendor/zed-xim/src/client.rs",
+          "bytes": 18837,
+          "sha256": "1c88433a2a5b2f078933bdcdd9fc280fae8f916e3d99424e2c61ec5a5956c022",
+          "modifiedAt": "2026-11-04T17:30:37.338Z"
+        },
+        {
+          "path": "desktop-apps/herdr-app/vendor/zed-xim/src/lib.rs",
+          "bytes": 3195,
+          "sha256": "95f93e8e085893537081df3bec9b2b519ebf9f3084eadb85c0a57eb3815bc57e",
+          "modifiedAt": "2026-11-04T17:30:37.338Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "desktop-apps/hermes-desktop",
+      "category": "desktop-apps",
+      "module": "hermes-desktop",
+      "observedFiles": 10,
+      "observedSourceFiles": 10,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "README.md"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/hermes-desktop/package.json",
+          "bytes": 306,
+          "sha256": "334ab5da4ebb6d908063bf270da5bc549a36e6ac731e85c01f665d827f589724",
+          "modifiedAt": "2026-11-05T00:22:36.731Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/preview_server.cjs",
+          "bytes": 451,
+          "sha256": "77ab77592e5812282d71c773e638a007933d4321d78ec67647541d150195cbc0",
+          "modifiedAt": "2026-11-04T13:04:06.520Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/README.md",
+          "bytes": 2233,
+          "sha256": "1300793c911e5753b69fc6984aefbd7dd6cf743aeedcc46a9df6391c8e25072a",
+          "modifiedAt": "2026-11-05T00:31:33.103Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/server.cjs",
+          "bytes": 474,
+          "sha256": "711bbb508fe4e90398392b51549b1c34c5775feb525edc63321cb32d5ec05e9c",
+          "modifiedAt": "2026-11-05T00:37:57.974Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/tsconfig.json",
+          "bytes": 311,
+          "sha256": "af81e792fa382debfb5d59bf1aee52310ad862508576139dde4c8f9c414ee24b",
+          "modifiedAt": "2026-11-05T00:22:36.730Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/ui/app.js",
+          "bytes": 1877,
+          "sha256": "4584603ba25137d5dc897798429618fd439e8283712bcc52dfb077f1ea8e3ee9",
+          "modifiedAt": "2026-11-03T21:05:31.081Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/ui/index.html",
+          "bytes": 5403,
+          "sha256": "63ca82fa6cff7e30eef517549be46c88466a97c246b3bb4039569347f42e0994",
+          "modifiedAt": "2026-11-03T21:04:43.492Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/ui/styles.css",
+          "bytes": 6450,
+          "sha256": "1c140dbe48008d51258a6f37aec936b4102456f425a1932af39685d9c4d3ce7c",
+          "modifiedAt": "2026-11-03T21:05:28.950Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/src/main.ts",
+          "bytes": 2035,
+          "sha256": "a1db3b9852ee61e34654524079e51e646f374d6288e06655f240a401cb0753b7",
+          "modifiedAt": "2026-11-05T00:24:16.385Z"
+        },
+        {
+          "path": "desktop-apps/hermes-desktop/src/preload.ts",
+          "bytes": 771,
+          "sha256": "afcf78a3c7133aade5752c5aed43fdce3b9a77589aac98ba5de61118d78066ef",
+          "modifiedAt": "2026-11-05T00:22:36.668Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/opencode-desktop",
+      "category": "desktop-apps",
+      "module": "opencode-desktop",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json",
+        "README.md"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/opencode-desktop/package.json",
+          "bytes": 371,
+          "sha256": "4181b6fbcd232348a40f9785d147c323512b3e2db71ed6c2fae99dea5b770fc9",
+          "modifiedAt": "2026-11-05T00:42:36.022Z"
+        },
+        {
+          "path": "desktop-apps/opencode-desktop/preview_server.cjs",
+          "bytes": 453,
+          "sha256": "0ea8519c9528eb341a12fee6b59d3cb1ac7135b20984862ae6e42fdb6942c0b8",
+          "modifiedAt": "2026-11-04T13:04:06.520Z"
+        },
+        {
+          "path": "desktop-apps/opencode-desktop/README.md",
+          "bytes": 2896,
+          "sha256": "f2c092730739bc83561b620c0f782a5f30d128cc39128b231088cb149379a89e",
+          "modifiedAt": "2026-11-05T00:57:10.318Z"
+        },
+        {
+          "path": "desktop-apps/opencode-desktop/tsconfig.json",
+          "bytes": 311,
+          "sha256": "af81e792fa382debfb5d59bf1aee52310ad862508576139dde4c8f9c414ee24b",
+          "modifiedAt": "2026-11-05T00:42:36.023Z"
+        },
+        {
+          "path": "desktop-apps/opencode-desktop/src/main.ts",
+          "bytes": 2623,
+          "sha256": "38ba18d31ad5af047d427ccda328e869be95040c144ede52c56c2678eae18eb7",
+          "modifiedAt": "2026-11-05T00:47:06.914Z"
+        },
+        {
+          "path": "desktop-apps/opencode-desktop/src/preload.ts",
+          "bytes": 668,
+          "sha256": "d97f0e1aae1ee9afbde6232dec44090539b9d161c82126585b882513735e4a45",
+          "modifiedAt": "2026-11-05T00:43:02.394Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "desktop-apps/orca-desktop",
+      "category": "desktop-apps",
+      "module": "orca-desktop",
+      "observedFiles": 5,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "desktop-apps/orca-desktop/package.json",
+          "bytes": 302,
+          "sha256": "a89fd7d8230cdb2c4d190a3d9bcd7d3091eecf9f54ecbbc6d1c14aba6ca5d7b7",
+          "modifiedAt": "2026-11-03T09:41:53.302Z"
+        },
+        {
+          "path": "desktop-apps/orca-desktop/preview_server.cjs",
+          "bytes": 449,
+          "sha256": "369a0ef8021f575f740b80632821658939656b11a198a937db3b985e8f56390a",
+          "modifiedAt": "2026-11-04T13:04:06.521Z"
+        },
+        {
+          "path": "desktop-apps/orca-desktop/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:53.303Z"
+        },
+        {
+          "path": "desktop-apps/orca-desktop/src/main.ts",
+          "bytes": 904,
+          "sha256": "f7d3902469f4704fa4d23b906d2c9172dec01d26d67d435d17fee7621ac61f16",
+          "modifiedAt": "2026-11-03T13:51:29.457Z"
+        },
+        {
+          "path": "desktop-apps/orca-desktop/src/preload.ts",
+          "bytes": 647,
+          "sha256": "24b1fa7277c6a16f846f01b7c83af36ffa57e9d84fa3e76903cbfda4730a3860",
+          "modifiedAt": "2026-11-03T13:51:29.458Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "downloaders/gdrive-downloader",
+      "category": "downloaders",
+      "module": "gdrive-downloader",
+      "observedFiles": 2000,
+      "observedSourceFiles": 418,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 19,
+      "manifests": [
+        "package.json",
+        "README.md"
+      ],
+      "samples": [
+        {
+          "path": "downloaders/gdrive-downloader/config.json",
+          "bytes": 344,
+          "sha256": "61a7a891e608fa25241cc8b470377dcecf7218dd1b43b7cfbccb9267ed103e7c",
+          "modifiedAt": "2026-11-02T13:54:30.894Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/DOD.md",
+          "bytes": 9445,
+          "sha256": "4dcc1319dd6eab22e60d42f99e46796b4ede81fce6b39173351d55ee87e45f9e",
+          "modifiedAt": "2026-11-03T10:14:27.795Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/package-lock.json",
+          "bytes": 39576,
+          "sha256": "ab9f2cbe9d052a19ef9a7db6294e0d29daca7b804d5fee2c1d4867dfe31f93d8",
+          "modifiedAt": "2026-11-02T19:17:21.342Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/package.json",
+          "bytes": 699,
+          "sha256": "31d76d1a1a6bc81c3cccabb60e63b5ff9003ed82f43a8acef553d7f025279ed4",
+          "modifiedAt": "2026-11-02T19:17:21.308Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/README.md",
+          "bytes": 3832,
+          "sha256": "c642904b4db1598fa42f967753379f6c823ff24bd10c5e78914e105c7ee18adc",
+          "modifiedAt": "2026-11-02T11:18:30.802Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/server.js",
+          "bytes": 23386,
+          "sha256": "32c5736509d9395c9c26259383154b5a8cdfd852b8c923afe0140d73a1a4c8fd",
+          "modifiedAt": "2026-11-03T10:10:01.738Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/test/verify_all.js",
+          "bytes": 43432,
+          "sha256": "0ed49af04bb36636a1c16bd80747194ff28fd64dc70d0ccabb0baa49df8f6cb3",
+          "modifiedAt": "2026-11-03T10:39:24.824Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/src/browserManager.js",
+          "bytes": 16571,
+          "sha256": "192ad62f01bf404e6a1b403f6816d272a03a9fe48dde775525fa38cf79df6983",
+          "modifiedAt": "2026-11-02T14:26:14.449Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/src/downloadEngine.js",
+          "bytes": 65911,
+          "sha256": "87886896ca32bc6bb9b38951a4be1e9f782b3aa063aa7f597bf403eed7167276",
+          "modifiedAt": "2026-11-02T14:04:13.256Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/src/driveScanner.js",
+          "bytes": 23179,
+          "sha256": "b3c7b67a05b32a5319ced0ff7bd457307f234a7fe232851b74c233f2de171194",
+          "modifiedAt": "2026-11-02T12:56:22.684Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/src/hyperDownloader.js",
+          "bytes": 44269,
+          "sha256": "d36c289ed1819f4c5cff541a07ef7d24b31115a664825b7882c1a4956bd6e32d",
+          "modifiedAt": "2026-11-02T19:19:55.227Z"
+        },
+        {
+          "path": "downloaders/gdrive-downloader/src/queueManager.js",
+          "bytes": 13834,
+          "sha256": "5a21d694aa66bd4b9ac8cccfa5c61f3ae407cde2628f4aa776103ebc8ab04be7",
+          "modifiedAt": "2026-11-02T19:20:11.828Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "downloaders/idm-multistream",
+      "category": "downloaders",
+      "module": "idm-multistream",
+      "observedFiles": 969,
+      "observedSourceFiles": 349,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 5,
+      "manifests": [
+        "Cargo.toml",
+        "gui/package.json"
+      ],
+      "samples": [
+        {
+          "path": "downloaders/idm-multistream/ARCHITECTURE_AND_ALGORITHMS.md",
+          "bytes": 4422,
+          "sha256": "9560aad54166318acd2e005567fe64f72e292b479cc1e6ac38274666347264a8",
+          "modifiedAt": "2026-11-02T17:08:49.325Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/Cargo.toml",
+          "bytes": 519,
+          "sha256": "f9294dc613088cba00608175d98aef593f0a77b01f169a38374ff20a7badd5aa",
+          "modifiedAt": "2026-11-03T10:55:29.228Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_ar.json",
+          "bytes": 170934,
+          "sha256": "17dc8bb4ee64059da1781d26d56817d00016579cfe5384ab5ed1abc22749f521",
+          "modifiedAt": "2026-11-03T20:17:07.042Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_ba.json",
+          "bytes": 70432,
+          "sha256": "ae9b5f89572b1546879acd60e6ce3c8ae3c5e4af2770d6b3083449fb098aaeb5",
+          "modifiedAt": "2026-11-03T20:17:07.049Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_be.json",
+          "bytes": 130777,
+          "sha256": "06cc44111c7b2d345d298993067601e8c2d447761d69af15dcc6ec7b42e224d2",
+          "modifiedAt": "2026-11-03T20:17:07.056Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_bg.json",
+          "bytes": 164042,
+          "sha256": "85c995bef0650a114b26ce8ba758e2bbc9878bcc9d0098b5dc47226ddad1ab9f",
+          "modifiedAt": "2026-11-03T20:17:07.062Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_chn2.json",
+          "bytes": 114276,
+          "sha256": "c58e34919300517bf13ab992ccf4e55e8b33a2d8166470ca73fbf88e4099a25a",
+          "modifiedAt": "2026-11-03T20:17:07.068Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_cht.json",
+          "bytes": 127362,
+          "sha256": "21f91e717fe97deb74655a86ae34cfb36cf6fce1e396c35c5ccce8f916c35fad",
+          "modifiedAt": "2026-11-03T20:17:07.074Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_cz.json",
+          "bytes": 116718,
+          "sha256": "6888da9ef9eb81d7b52f3e55f414ad5319e5bf8f9be6bfb9ed57c7975bdba829",
+          "modifiedAt": "2026-11-03T20:17:07.081Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_de.json",
+          "bytes": 133351,
+          "sha256": "f720a2e50bcf6b7e8f24ee1d9d9c6c54a95e8370acc8fc3023cdd383e5c52ed5",
+          "modifiedAt": "2026-11-03T20:17:07.087Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_dk.json",
+          "bytes": 104238,
+          "sha256": "344f5d7005d5a9a60d141f24e2a7e8dd949676ed26b32342003b439b1253d078",
+          "modifiedAt": "2026-11-03T20:17:07.093Z"
+        },
+        {
+          "path": "downloaders/idm-multistream/unpacked_languages_json/idm_es.json",
+          "bytes": 138014,
+          "sha256": "f970d9d8c4a25cad40fc3ff46b2e6ae438035e5f903a5895854bfc6fd9c7b1a5",
+          "modifiedAt": "2026-11-03T20:17:07.100Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/agy-harness",
+      "category": "harnesses",
+      "module": "agy-harness",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/agy-harness/package-lock.json",
+          "bytes": 1513,
+          "sha256": "1a0b93dc6485f8f7bc5f5388f5f4117c81f854f77dd672dcc7e77b73c34d12ac",
+          "modifiedAt": "2026-11-05T21:58:49.196Z"
+        },
+        {
+          "path": "harnesses/agy-harness/package.json",
+          "bytes": 406,
+          "sha256": "debad0ec0cd32d66256d696c37d1c9e1c3e53632282c55582ee24d54500bd2d9",
+          "modifiedAt": "2026-11-03T09:41:13.538Z"
+        },
+        {
+          "path": "harnesses/agy-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.539Z"
+        },
+        {
+          "path": "harnesses/agy-harness/src/connect-rpc-bridge.ts",
+          "bytes": 973,
+          "sha256": "883606ae8c6cedfe5d72130a21d54a752a2db5a754d914ce56aaf3e7eae860c3",
+          "modifiedAt": "2026-11-03T09:41:13.539Z"
+        },
+        {
+          "path": "harnesses/agy-harness/src/index.ts",
+          "bytes": 272,
+          "sha256": "4e52ebfe3128edcb259cefedcbabddc7d642d30ee1c4cd695ebda6178988e68c",
+          "modifiedAt": "2026-11-03T09:41:13.539Z"
+        },
+        {
+          "path": "harnesses/agy-harness/src/jetski-agent.ts",
+          "bytes": 537,
+          "sha256": "53e99e289fbb5e668b9a4fbe99e97567cc07428d2acd35af454d5aef466fa4d2",
+          "modifiedAt": "2026-11-03T09:41:13.539Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/chatgpt-desktop",
+      "category": "harnesses",
+      "module": "chatgpt-desktop",
+      "observedFiles": 1,
+      "observedSourceFiles": 1,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [],
+      "samples": [
+        {
+          "path": "harnesses/chatgpt-desktop/CHATGPT_DESKTOP_SPEC.md",
+          "bytes": 1728,
+          "sha256": "b51fc36f307f9bb54762e6c357eaccbab47145b2de41d601f49e64b903187e2d",
+          "modifiedAt": "2026-11-02T19:07:57.430Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/claude-cli-desktop",
+      "category": "harnesses",
+      "module": "claude-cli-desktop",
+      "observedFiles": 1,
+      "observedSourceFiles": 1,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [],
+      "samples": [
+        {
+          "path": "harnesses/claude-cli-desktop/DAEMON_AND_SESSION_SPEC.md",
+          "bytes": 3362,
+          "sha256": "7dc9ae8cc37e233f1727a76d495ad98351db67b5711990d988348934e74177f1",
+          "modifiedAt": "2026-11-02T19:07:05.126Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/claude-harness",
+      "category": "harnesses",
+      "module": "claude-harness",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/claude-harness/package.json",
+          "bytes": 406,
+          "sha256": "52e06b18dfbd3587cc8b35336819705cd5482f96c78e7b68c79c85f85f46ba9e",
+          "modifiedAt": "2026-11-03T09:41:13.535Z"
+        },
+        {
+          "path": "harnesses/claude-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.536Z"
+        },
+        {
+          "path": "harnesses/claude-harness/src/artifacts-engine.ts",
+          "bytes": 1189,
+          "sha256": "3f1e1cf7ed836cb76c8bc77594a363683c30780b79b0efa33393e29c9ae4b6bd",
+          "modifiedAt": "2026-11-03T09:41:13.536Z"
+        },
+        {
+          "path": "harnesses/claude-harness/src/index.ts",
+          "bytes": 433,
+          "sha256": "8e5866a87e70c90a7df538ee6e902a4da83473ccec99fcc3cfd224e4ccb8156e",
+          "modifiedAt": "2026-11-03T09:41:13.537Z"
+        },
+        {
+          "path": "harnesses/claude-harness/src/prompt-caching.ts",
+          "bytes": 612,
+          "sha256": "a52831c63f5b70d6eb4f5b02dd63e4b79c3b66335e8cfbaaa5b79037083128bd",
+          "modifiedAt": "2026-11-03T09:41:13.536Z"
+        },
+        {
+          "path": "harnesses/claude-harness/src/thinking-blocks.ts",
+          "bytes": 514,
+          "sha256": "d725d2bea1757a4b3badc7ea2237fcaaf8e726acdb2ac275034ef2fb027640bb",
+          "modifiedAt": "2026-11-03T09:41:13.536Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/codex-app-unpacked",
+      "category": "harnesses",
+      "module": "codex-app-unpacked",
+      "observedFiles": 232,
+      "observedSourceFiles": 70,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 4,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/codex-app-unpacked/package.json",
+          "bytes": 12576,
+          "sha256": "fd3f547a9d2efe631a446e9930d072e0ea9919f85eb35e7fa66483908fa43049",
+          "modifiedAt": "2026-11-02T19:18:50.998Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/webview/detached-window.html",
+          "bytes": 2925,
+          "sha256": "0ac774e83681ff0b5dc84ab5c9cdc5023278834158516a2590314a90a9a0b711",
+          "modifiedAt": "2026-11-02T19:19:18.130Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/webview/index.html",
+          "bytes": 14051,
+          "sha256": "3d31c659b98762af1e3f4c5c35f2e5bb5bb3242af2e27740acfaecb46583102e",
+          "modifiedAt": "2026-11-02T19:19:18.362Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/webview/service-worker/events.js",
+          "bytes": 2969,
+          "sha256": "92f6f76bc9f1975123f6c7b37973b8277a320438b05e2d81b0b0b9396333df73",
+          "modifiedAt": "2026-11-02T19:19:18.363Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/webview/images/ecosystem/apps/asset_manifest.json",
+          "bytes": 5631,
+          "sha256": "832d53b61bdd6aa37e885225749c4cb2cbd94e37237876dcacfe3efcb0d1aeed",
+          "modifiedAt": "2026-11-02T19:19:18.142Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/webview/.well-known/assetlinks.json",
+          "bytes": 2864,
+          "sha256": "d9c74ec4d592dec63529818063c855b9cc318e5cd3937ec5ad974b4702dd353a",
+          "modifiedAt": "2026-11-02T19:18:51.003Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/am.json",
+          "bytes": 19512,
+          "sha256": "b600caafe70ac539145d3ccbaaf9abf0424a1fd32f583bf78881620c535d351d",
+          "modifiedAt": "2026-11-02T19:18:49.033Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/ar.json",
+          "bytes": 18962,
+          "sha256": "ddc09ac26fb0f5f7ec5e69adac4638ef23b548f61b1c899ebf9d5908b7bea5e9",
+          "modifiedAt": "2026-11-02T19:18:49.035Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/bg-BG.json",
+          "bytes": 21780,
+          "sha256": "1aa5a255589f554c524421a7026bdd2b79611a75e8f0f1f9aaa0adce948cf009",
+          "modifiedAt": "2026-11-02T19:18:49.036Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/bn-BD.json",
+          "bytes": 25175,
+          "sha256": "b2b10b26f1c6acdab8052587681bc90735692460af13274dbb2bcdd655ab3dde",
+          "modifiedAt": "2026-11-02T19:18:49.037Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/bs-BA.json",
+          "bytes": 15573,
+          "sha256": "1d14bd92e15e29826bec5c189cf680809dc81fe678742e4be99a5c747de5a7fe",
+          "modifiedAt": "2026-11-02T19:18:49.038Z"
+        },
+        {
+          "path": "harnesses/codex-app-unpacked/native-menu-locales/ca-ES.json",
+          "bytes": 16297,
+          "sha256": "810878ab7e830d2e889c87543ceb67a2aa53ca949c1c9714c63de7a1512822c8",
+          "modifiedAt": "2026-11-02T19:18:49.040Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/codex-cli",
+      "category": "harnesses",
+      "module": "codex-cli",
+      "observedFiles": 1,
+      "observedSourceFiles": 1,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [],
+      "samples": [
+        {
+          "path": "harnesses/codex-cli/EXECUTION_LOOP_AND_SANDBOX_SPEC.md",
+          "bytes": 5203,
+          "sha256": "ef3c4404c041331acfa2dfb960ea0c5e5fcc46748c43491ebaef833f6435f29f",
+          "modifiedAt": "2026-11-02T19:07:26.125Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/codex-harness",
+      "category": "harnesses",
+      "module": "codex-harness",
+      "observedFiles": 5,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/codex-harness/package.json",
+          "bytes": 409,
+          "sha256": "c51dc728ece138f1223aa4f4e3170b904d7cb94e8453dbb6c40f7ebd83d588f1",
+          "modifiedAt": "2026-11-03T09:41:13.537Z"
+        },
+        {
+          "path": "harnesses/codex-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.537Z"
+        },
+        {
+          "path": "harnesses/codex-harness/src/index.ts",
+          "bytes": 412,
+          "sha256": "73569f7d31593e3d1929c321586317c208cfdad89c38776c5120e6824f41aed1",
+          "modifiedAt": "2026-11-03T09:41:13.538Z"
+        },
+        {
+          "path": "harnesses/codex-harness/src/unified-exec.ts",
+          "bytes": 1423,
+          "sha256": "8e412ac462b35b8a3ce8070575767b698b832e78bf33d4e0539961da0df799c0",
+          "modifiedAt": "2026-11-03T09:41:13.538Z"
+        },
+        {
+          "path": "harnesses/codex-harness/src/worktree-manager.ts",
+          "bytes": 934,
+          "sha256": "35a2e6a4504a01a8c54aa900665187bffc49b15f1a4323d8a774a28160fe5b7f",
+          "modifiedAt": "2026-11-03T09:41:13.538Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/deepseek-harness",
+      "category": "harnesses",
+      "module": "deepseek-harness",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/deepseek-harness/HARNESS_SPEC.md",
+          "bytes": 456,
+          "sha256": "1d2c68687d00c3f263ecc54757312be7eddb50579335999b97e82963025c6cb6",
+          "modifiedAt": "2026-11-02T19:49:53.106Z"
+        },
+        {
+          "path": "harnesses/deepseek-harness/package.json",
+          "bytes": 434,
+          "sha256": "0d3c096c3924b40ed8a5c210b28a2adf44bd91e9b73916fe9f281e78c28e8324",
+          "modifiedAt": "2026-11-03T09:40:42.450Z"
+        },
+        {
+          "path": "harnesses/deepseek-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:40:42.450Z"
+        },
+        {
+          "path": "harnesses/deepseek-harness/src/index.ts",
+          "bytes": 283,
+          "sha256": "9f499d6c4bde4fd6480b2639fb9cc7961ca983f2012c28886091e80ab3710143",
+          "modifiedAt": "2026-11-03T09:40:42.451Z"
+        },
+        {
+          "path": "harnesses/deepseek-harness/src/reasoning-engine.ts",
+          "bytes": 456,
+          "sha256": "f88b3119dc5e408d8533cf23aca112d49da381865d10675703a0458e97048992",
+          "modifiedAt": "2026-11-03T09:40:42.451Z"
+        },
+        {
+          "path": "harnesses/deepseek-harness/src/think-extractor.ts",
+          "bytes": 2899,
+          "sha256": "9021b72c60f1b341e0c40393259e93a6d13429608b54f445c519e6c7618c22da",
+          "modifiedAt": "2026-11-03T09:40:42.450Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/droid-harness",
+      "category": "harnesses",
+      "module": "droid-harness",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/droid-harness/HARNESS_SPEC.md",
+          "bytes": 209,
+          "sha256": "7a4bd20ec6c210da8c162425eaedbd32e5b9c5f5868f97e3cc34ec65833d0969",
+          "modifiedAt": "2026-11-02T19:49:53.106Z"
+        },
+        {
+          "path": "harnesses/droid-harness/package.json",
+          "bytes": 418,
+          "sha256": "307d5296b7df21ed5ee3fdd02d47ba27635af395b8c384d617b6b8a25a762b00",
+          "modifiedAt": "2026-11-03T09:40:42.451Z"
+        },
+        {
+          "path": "harnesses/droid-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:40:42.452Z"
+        },
+        {
+          "path": "harnesses/droid-harness/src/index.ts",
+          "bytes": 415,
+          "sha256": "ca7b9a83460c319975d1a6483a2214057657486f70d8f662db0518b7efb657ca",
+          "modifiedAt": "2026-11-03T09:40:42.452Z"
+        },
+        {
+          "path": "harnesses/droid-harness/src/kd-tree-dag.ts",
+          "bytes": 2045,
+          "sha256": "fb0d4bece10baa3941f8a5a4c064698b546bf0edda066edb999daeb0044dad27",
+          "modifiedAt": "2026-11-03T09:40:42.452Z"
+        },
+        {
+          "path": "harnesses/droid-harness/src/mesh-router.ts",
+          "bytes": 1059,
+          "sha256": "e67455372dfe2f7c9c7c40de34b4677f87e60a50ecfa80fd264f00963055e742",
+          "modifiedAt": "2026-11-03T09:40:42.452Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/herdr-core",
+      "category": "harnesses",
+      "module": "herdr-core",
+      "observedFiles": 2000,
+      "observedSourceFiles": 150,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 11,
+      "manifests": [
+        "Cargo.toml",
+        "LICENSE",
+        "README.md",
+        "vendor/ghostty/LICENSE",
+        "vendor/ghostty/README.md",
+        "vendor/ghostty/zig-pkg/uucode-0.2.0-ZZjBPuuFVgC8YZ8eld4fOKsZANLIhTFMzULQxhkLi1C7/LICENSE.md",
+        "vendor/ghostty/zig-pkg/uucode-0.2.0-ZZjBPuuFVgC8YZ8eld4fOKsZANLIhTFMzULQxhkLi1C7/README.md",
+        "vendor/ghostty/zig-pkg/translate_c-0.0.0-Q_BUWhVNBwDOEcIqub4VFPJPB6D9dgwzUMHTX5KWr8Xr/LICENSE",
+        "vendor/ghostty/zig-pkg/translate_c-0.0.0-Q_BUWhVNBwDOEcIqub4VFPJPB6D9dgwzUMHTX5KWr8Xr/README.md",
+        "vendor/ghostty/zig-pkg/N-V-__8AAP5JWgCGP_AD0teWpa4krRvE9VPZzvviGdbmN4jI/LICENSE",
+        "vendor/ghostty/zig-pkg/N-V-__8AAP5JWgCGP_AD0teWpa4krRvE9VPZzvviGdbmN4jI/README.md",
+        "vendor/ghostty/zig-pkg/N-V-__8AAP5JWgCGP_AD0teWpa4krRvE9VPZzvviGdbmN4jI/release/c/README.md"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/herdr-core/AGENTS.md",
+          "bytes": 4276,
+          "sha256": "84e4a76afa328ef2160b17ae588362ff619813c8451e1596801cadeecdd14e1f",
+          "modifiedAt": "2026-11-04T18:36:22.359Z"
+        },
+        {
+          "path": "harnesses/herdr-core/Cargo.toml",
+          "bytes": 413,
+          "sha256": "1cdc26f93f14893ea2d88ce559099ca8eb68a2a54b6a1ab38bee6863ee5f859c",
+          "modifiedAt": "2026-11-04T18:36:22.365Z"
+        },
+        {
+          "path": "harnesses/herdr-core/CHANGELOG.md",
+          "bytes": 6316,
+          "sha256": "c8408464666a21fd33f812c3fa076ae55d22d1257e9568ca159fedd562798d69",
+          "modifiedAt": "2026-11-04T18:36:22.363Z"
+        },
+        {
+          "path": "harnesses/herdr-core/CONTRIBUTING.md",
+          "bytes": 1856,
+          "sha256": "24070936d88f28fec3aa6f94354524ad583e8c9b4e5c953e2d01dc8ff5797ab4",
+          "modifiedAt": "2026-11-04T18:36:22.364Z"
+        },
+        {
+          "path": "harnesses/herdr-core/deny.toml",
+          "bytes": 762,
+          "sha256": "930e6d37387cc121304da523edd6f074cdd262c6e55e5d0760bbf8abfb41ce31",
+          "modifiedAt": "2026-11-04T18:36:23.133Z"
+        },
+        {
+          "path": "harnesses/herdr-core/README.md",
+          "bytes": 5522,
+          "sha256": "1284fea9c0558fb5ba32b7379ccf9a3c6699f52afd942c8c18e51d744539057e",
+          "modifiedAt": "2026-11-04T18:36:22.365Z"
+        },
+        {
+          "path": "harnesses/herdr-core/rustfmt.toml",
+          "bytes": 71,
+          "sha256": "433ea356822f5cfb7a40649cafbfa55e495690709e9b54505aa81f581753e52d",
+          "modifiedAt": "2026-11-04T18:36:23.423Z"
+        },
+        {
+          "path": "harnesses/herdr-core/SECURITY.md",
+          "bytes": 602,
+          "sha256": "3362fbde9587b5a85416d9d3be4602369b8877a871db3b02661476f645aa6f1b",
+          "modifiedAt": "2026-11-04T18:36:22.366Z"
+        },
+        {
+          "path": "harnesses/herdr-core/vendor/ghostty/.swiftlint.yml",
+          "bytes": 51,
+          "sha256": "6aae51856fb3ab053ac2cd3cfc4886d1512474c644656c85887c1ad02a32db1b",
+          "modifiedAt": "2026-11-04T18:48:28.769Z"
+        },
+        {
+          "path": "harnesses/herdr-core/vendor/ghostty/AGENTS.md",
+          "bytes": 1388,
+          "sha256": "4939dae26b5551d1aee737e4cdae126499a1051585c8e72768c0b79f0b857121",
+          "modifiedAt": "2026-11-04T18:48:28.769Z"
+        },
+        {
+          "path": "harnesses/herdr-core/vendor/ghostty/AI_POLICY.md",
+          "bytes": 2989,
+          "sha256": "86a40f7eb792844bb5939b71cc9729356e2cd3c0a6519945138e05397506b886",
+          "modifiedAt": "2026-11-04T18:48:28.769Z"
+        },
+        {
+          "path": "harnesses/herdr-core/vendor/ghostty/build.zig.zon.json",
+          "bytes": 10083,
+          "sha256": "69134ac7eeb36c618a42e4ba1c5845709b8374ba4f8e0652c0855da34fa108f9",
+          "modifiedAt": "2026-11-04T18:48:28.773Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/hermes-agent",
+      "category": "harnesses",
+      "module": "hermes-agent",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1648,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 16,
+      "manifests": [
+        "LICENSE",
+        "package.json",
+        "pyproject.toml",
+        "README.md",
+        "website/package.json",
+        "website/README.md",
+        "web/package.json",
+        "web/README.md",
+        "ui-tui/package.json",
+        "ui-tui/README.md",
+        "ui-tui/packages/hermes-ink/package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/hermes-agent/.coderabbit.yaml",
+          "bytes": 788,
+          "sha256": "aa5269aee82a227956bdae08f7bbe82316aa4da5535faec74344045023b5cbc2",
+          "modifiedAt": "2026-11-02T19:17:29.662Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/.hadolint.yaml",
+          "bytes": 1683,
+          "sha256": "5bba63bc79b5f412c6d0e4654288e364f11fd619e449539ecefad31849406142",
+          "modifiedAt": "2026-11-02T19:17:29.736Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/AGENTS.md",
+          "bytes": 11952,
+          "sha256": "a8948f7bf162528ec9f2a9ca5f007e77f0c5f0901a428c92d0f77ef1185cfb38",
+          "modifiedAt": "2026-11-02T19:17:29.739Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/batch_runner.py",
+          "bytes": 49131,
+          "sha256": "ad264f0677272c4088889b5e1159108f276c014b96b3bbc2d460a5adb85a7e2a",
+          "modifiedAt": "2026-11-02T19:17:39.527Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/cli.py",
+          "bytes": 82448,
+          "sha256": "de7f37805b839d632b5e96e3fe3fefef9978e62599f53476222def34243e2832",
+          "modifiedAt": "2026-11-02T19:17:39.532Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/CONTRIBUTING.es.md",
+          "bytes": 29417,
+          "sha256": "d6d92b150d64224ef396f3f8565406823ef437c6d521acc9224b76203556a405",
+          "modifiedAt": "2026-11-02T19:17:29.739Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/CONTRIBUTING.md",
+          "bytes": 57145,
+          "sha256": "22292387802fbfc15b33fe184610cedc627300eb6229d5127b7aed955262fa2f",
+          "modifiedAt": "2026-11-02T19:17:29.740Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/docker-compose.windows.yml",
+          "bytes": 1073,
+          "sha256": "6893f7e6df21115fb1a92f8f2aafbe24e33b48b356d0e9b2fded68bdeb1d389e",
+          "modifiedAt": "2026-11-02T19:17:41.772Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/docker-compose.yml",
+          "bytes": 3454,
+          "sha256": "cf2cd030fcb516e904a422eb64619164636db3724199c912fa2883f072bcf9ad",
+          "modifiedAt": "2026-11-02T19:17:41.772Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/eslint.config.shared.mjs",
+          "bytes": 3501,
+          "sha256": "9ec870b511f516477a6f032349516432b78b9e94cbb963348c65a3a564e80e8b",
+          "modifiedAt": "2026-11-02T19:17:41.800Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/hermes_bootstrap.py",
+          "bytes": 29373,
+          "sha256": "f242036b2d35b92283b9a7e97c7059e537607fc4b02026f657a6d00cb4683f69",
+          "modifiedAt": "2026-11-02T19:17:42.947Z"
+        },
+        {
+          "path": "harnesses/hermes-agent/hermes_constants.py",
+          "bytes": 67659,
+          "sha256": "74d849629c176703d48f9aa43a245fd8819545ac908c805e347db7d691976510",
+          "modifiedAt": "2026-11-02T19:17:44.948Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/hermes-harness",
+      "category": "harnesses",
+      "module": "hermes-harness",
+      "observedFiles": 3,
+      "observedSourceFiles": 3,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/hermes-harness/package.json",
+          "bytes": 376,
+          "sha256": "04f524b119cea2a717641b16e9b175f188ae0cfc28a7a041167d5211ef9a538e",
+          "modifiedAt": "2026-11-03T09:41:13.541Z"
+        },
+        {
+          "path": "harnesses/hermes-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.541Z"
+        },
+        {
+          "path": "harnesses/hermes-harness/src/index.ts",
+          "bytes": 174,
+          "sha256": "ad65d23e6012b943491aabc55daa58ec06ce7eebbeca2bd796a51d65550a5aea",
+          "modifiedAt": "2026-11-03T09:41:13.541Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/kimi-code",
+      "category": "harnesses",
+      "module": "kimi-code",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1933,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 52,
+      "manifests": [
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "packages/tree-sitter-bash/package.json",
+        "packages/tree-sitter-bash/README.md",
+        "packages/tree-sitter-bash/test/fixtures/README.md",
+        "packages/tree-sitter-bash/test/fixtures/corpus/README.md",
+        "packages/transcript/package.json",
+        "packages/telemetry/package.json",
+        "packages/telemetry/README.md",
+        "packages/session-import/package.json",
+        "packages/session-import/README.md"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/kimi-code/.oxfmtrc.json",
+          "bytes": 536,
+          "sha256": "0c57bbcaa80787490b17a8ab2a332e2f33b8c8bc727dc838f22da03b4d5a131e",
+          "modifiedAt": "2026-11-03T21:24:34.945Z"
+        },
+        {
+          "path": "harnesses/kimi-code/.oxlintrc.json",
+          "bytes": 5991,
+          "sha256": "7410da438accc4ea89e884355f74833ee54ac61aba3a3ec63a9314a448379b9b",
+          "modifiedAt": "2026-11-03T21:24:34.946Z"
+        },
+        {
+          "path": "harnesses/kimi-code/AGENTS.md",
+          "bytes": 17069,
+          "sha256": "601f0a89951292f39c1845602acd41b9f85536d0a9a27efb944b816b9ebdfbb9",
+          "modifiedAt": "2026-11-03T21:24:34.947Z"
+        },
+        {
+          "path": "harnesses/kimi-code/CLAUDE.md",
+          "bytes": 9,
+          "sha256": "a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+          "modifiedAt": "2026-11-03T21:24:34.947Z"
+        },
+        {
+          "path": "harnesses/kimi-code/CONTRIBUTING.md",
+          "bytes": 6353,
+          "sha256": "64db7b89793594cf89368ad8baaacd906c7759bd784852ce34dc3e16933deb3a",
+          "modifiedAt": "2026-11-03T21:24:34.948Z"
+        },
+        {
+          "path": "harnesses/kimi-code/CONTRIBUTING.zh-CN.md",
+          "bytes": 5255,
+          "sha256": "c0d03202c319005f485b372e7db3287d7c40cc617593a7da8ac4da2d427ebb7a",
+          "modifiedAt": "2026-11-03T21:24:34.948Z"
+        },
+        {
+          "path": "harnesses/kimi-code/package.json",
+          "bytes": 2497,
+          "sha256": "a091947ec9650092dfd78459d07ca8c4dcd1e2a120945022df35aca04020b2da",
+          "modifiedAt": "2026-11-03T21:24:36.393Z"
+        },
+        {
+          "path": "harnesses/kimi-code/pnpm-workspace.yaml",
+          "bytes": 258,
+          "sha256": "22b61fe2bc87dc6972ff000169c61034917d5e2d0bca69d704b3076844061517",
+          "modifiedAt": "2026-11-05T18:00:25.330Z"
+        },
+        {
+          "path": "harnesses/kimi-code/README.md",
+          "bytes": 5334,
+          "sha256": "50ea102c7003c746244c69cb78cbd5b1e9158311e5e4e028aee8a2afee698c4c",
+          "modifiedAt": "2026-11-03T21:24:34.949Z"
+        },
+        {
+          "path": "harnesses/kimi-code/README.zh-CN.md",
+          "bytes": 5189,
+          "sha256": "c645aa4e3793a913b72c350056992bc7e20686e9af24dcddf5ac38eea0f7c92a",
+          "modifiedAt": "2026-11-03T21:24:34.950Z"
+        },
+        {
+          "path": "harnesses/kimi-code/SECURITY.md",
+          "bytes": 849,
+          "sha256": "95115fe8d278af89ebada04b17ab9179cb17871c77dfacdcbe5a678f8d461511",
+          "modifiedAt": "2026-11-03T21:24:34.950Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/opencode",
+      "category": "harnesses",
+      "module": "opencode",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1274,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 23,
+      "manifests": [
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "specs/v2/README.md",
+        "services/README.md",
+        "services/www/package.json",
+        "services/www/README.md",
+        "services/update/package.json",
+        "services/update/README.md",
+        "services/files/package.json",
+        "services/files/README.md",
+        "services/changelog/package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/opencode/.oxlintrc.json",
+          "bytes": 7032,
+          "sha256": "feb29af0dad1338bb517d5e94410bdb57584d94645df49d4436abc20c102e78c",
+          "modifiedAt": "2026-11-02T19:17:11.107Z"
+        },
+        {
+          "path": "harnesses/opencode/AGENTS.md",
+          "bytes": 16716,
+          "sha256": "179a409edd46c08867a3252941991f9fdcba9ad6ec5f83a08f488205493310d2",
+          "modifiedAt": "2026-11-02T19:17:11.109Z"
+        },
+        {
+          "path": "harnesses/opencode/bunfig.toml",
+          "bytes": 1513,
+          "sha256": "367583934e334f6ed8c6e57bc5fbdb9aefeecd3b215d5c91063bfc29a4209851",
+          "modifiedAt": "2026-11-02T19:17:11.128Z"
+        },
+        {
+          "path": "harnesses/opencode/CHANGELOG.md",
+          "bytes": 124568,
+          "sha256": "2a3009044bcfcc8b0befff71a7fd46c4a045c9e317428a73a5442965ddd6e830",
+          "modifiedAt": "2026-11-02T19:17:11.111Z"
+        },
+        {
+          "path": "harnesses/opencode/CONTRIBUTING.md",
+          "bytes": 4594,
+          "sha256": "77ceac148bf4838ee117e57a2a208c41235b5ea9fdafa4b76e31af41d4ec0a21",
+          "modifiedAt": "2026-11-02T19:17:11.111Z"
+        },
+        {
+          "path": "harnesses/opencode/package.json",
+          "bytes": 7802,
+          "sha256": "f9b3e91dacaa8908857f6603ca6cf929cd87cc9e76c79779ba091cad6a7fd3ee",
+          "modifiedAt": "2026-11-02T19:17:11.140Z"
+        },
+        {
+          "path": "harnesses/opencode/README.ar.md",
+          "bytes": 5329,
+          "sha256": "1ad0e12db292a2b3cf887ff7a516e1bf7cfd3692f6e388453b2a2799a2a4614d",
+          "modifiedAt": "2026-11-02T19:17:11.111Z"
+        },
+        {
+          "path": "harnesses/opencode/README.bn.md",
+          "bytes": 7093,
+          "sha256": "efdefef22467891bfda5def7ab906c79ecc01fb97d45ce478b527c8ca66c16f9",
+          "modifiedAt": "2026-11-02T19:17:11.112Z"
+        },
+        {
+          "path": "harnesses/opencode/README.br.md",
+          "bytes": 4945,
+          "sha256": "09cb05da6052178899f208c0c9c16ad7d1028b02438a9fdcf8be57bbf1617971",
+          "modifiedAt": "2026-11-02T19:17:11.112Z"
+        },
+        {
+          "path": "harnesses/opencode/README.bs.md",
+          "bytes": 4790,
+          "sha256": "4c2b6a386be7a48f0f720e89102d2e68a28735b9cb948ed2536d2bee62539757",
+          "modifiedAt": "2026-11-02T19:17:11.113Z"
+        },
+        {
+          "path": "harnesses/opencode/README.da.md",
+          "bytes": 4769,
+          "sha256": "ccbfd144c5c140c13dc8f14063a13469de0b6958118e85aff1a795ec488c733d",
+          "modifiedAt": "2026-11-02T19:17:11.114Z"
+        },
+        {
+          "path": "harnesses/opencode/README.de.md",
+          "bytes": 4930,
+          "sha256": "0dd9ce554cc0c3bfb4fe9020e499a99ce323782675591cc462a0b823f1bb3393",
+          "modifiedAt": "2026-11-02T19:17:11.114Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/opencode-harness",
+      "category": "harnesses",
+      "module": "opencode-harness",
+      "observedFiles": 3,
+      "observedSourceFiles": 3,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/opencode-harness/package.json",
+          "bytes": 380,
+          "sha256": "4ec4b4bdb9aa1c160756f21346b23a8ab32635b4e3ecf04fc5538c2e4aeb8d5c",
+          "modifiedAt": "2026-11-03T09:41:13.540Z"
+        },
+        {
+          "path": "harnesses/opencode-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.540Z"
+        },
+        {
+          "path": "harnesses/opencode-harness/src/index.ts",
+          "bytes": 180,
+          "sha256": "0c9960eb419d9d44ce9189b7bbcbb8f64ca9942b464bda3128a49ae7a87509ad",
+          "modifiedAt": "2026-11-03T09:41:13.541Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/openhands",
+      "category": "harnesses",
+      "module": "openhands",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1882,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 46,
+      "manifests": [
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "tests/e2e/live-acp/README.md",
+        "src/themes/README.md",
+        "src/fixtures/canvas-extensions/demo-page/README.md"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/openhands/.prettierrc.json",
+          "bytes": 31,
+          "sha256": "8304cab3cdecb07d5df99c6e211c2aff01f43d7aced35bc6a9c9c422cd5d4141",
+          "modifiedAt": "2026-11-03T21:23:50.513Z"
+        },
+        {
+          "path": "harnesses/openhands/.release-please-manifest.json",
+          "bytes": 20,
+          "sha256": "bf005fc31755f90e8cfab9de1db4b82a6056665b0dac9da4c7514d6b03783e55",
+          "modifiedAt": "2026-11-03T21:23:50.513Z"
+        },
+        {
+          "path": "harnesses/openhands/AGENTS.md",
+          "bytes": 10129,
+          "sha256": "69eae34c8f4cfdbb12234a6dd26e63f8997426779c76c67c60d6ffb11ffb53b6",
+          "modifiedAt": "2026-11-03T21:23:50.514Z"
+        },
+        {
+          "path": "harnesses/openhands/CHANGELOG.md",
+          "bytes": 1093,
+          "sha256": "40ab95676b52312bfdb40a20bdb0d6b4df708f65948f571469f4b24bde486e1c",
+          "modifiedAt": "2026-11-03T21:23:50.514Z"
+        },
+        {
+          "path": "harnesses/openhands/electron-builder.config.mjs",
+          "bytes": 22736,
+          "sha256": "59b688146943e26ec40663da614c3d4a3c65dcd3e7b4f427176f85d16c275589",
+          "modifiedAt": "2026-11-03T21:23:51.043Z"
+        },
+        {
+          "path": "harnesses/openhands/eslint.config.js",
+          "bytes": 21706,
+          "sha256": "e06b06149cec4edc30d4399126e8d7f9f551a5c8dcb4294dcc94147a94c90462",
+          "modifiedAt": "2026-11-03T21:23:51.049Z"
+        },
+        {
+          "path": "harnesses/openhands/global.d.ts",
+          "bytes": 380,
+          "sha256": "7f0a53f0e4a75fd759876f6cc10d3284019a2aa6d5d1bcffc4dcd16cad87bc97",
+          "modifiedAt": "2026-11-03T21:23:51.051Z"
+        },
+        {
+          "path": "harnesses/openhands/hero.ts",
+          "bytes": 2356,
+          "sha256": "5d45fb3b499ac5c93147f36d51bbf4e07b0a5bf0f51ff6a23e69508068c634f8",
+          "modifiedAt": "2026-11-03T21:23:51.056Z"
+        },
+        {
+          "path": "harnesses/openhands/package.json",
+          "bytes": 9875,
+          "sha256": "f476864048d2c0861f7d29d6aa6add3d64838167f1870ad6b04a104c3c90459a",
+          "modifiedAt": "2026-11-03T21:23:51.060Z"
+        },
+        {
+          "path": "harnesses/openhands/playwright.bind-policy.config.ts",
+          "bytes": 763,
+          "sha256": "ef5010fb1e25c70afde0a924d5a52fcd32718a9d5e17e97ba662d266f57ed0c0",
+          "modifiedAt": "2026-11-03T21:23:51.060Z"
+        },
+        {
+          "path": "harnesses/openhands/playwright.config.ts",
+          "bytes": 2588,
+          "sha256": "51efb17b1cecfc1d479dc6613d07c2005378f072efeefd33753c473e7c2f4536",
+          "modifiedAt": "2026-11-03T21:23:51.061Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/openhands-agent-sdk",
+      "category": "harnesses",
+      "module": "openhands-agent-sdk",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1487,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 56,
+      "manifests": [
+        "LICENSE",
+        "pyproject.toml",
+        "README.md",
+        "tests/README.md",
+        "tests/integration/README.md",
+        "tests/fixtures/plugins/agent_plugins/README.md",
+        "tests/fixtures/plugins/agent_plugins/agent-plugins-example/LICENSE",
+        "tests/fixtures/plugins/agent_plugins/agent-plugins-example/README.md",
+        "tests/fixtures/llm_data/README.md",
+        "scripts/event_sourcing_benchmarks/README.md",
+        "openhands-workspace/pyproject.toml",
+        "openhands-workspace/openhands/workspace/apptainer/README.md"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/openhands-agent-sdk/.pre-commit-config.yaml",
+          "bytes": 2232,
+          "sha256": "742cbad63684557f2b536204dcc9de3e3aba01445af6d18d335b3ae2526d18f4",
+          "modifiedAt": "2026-11-04T19:15:31.973Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/AGENTS.md",
+          "bytes": 39605,
+          "sha256": "6fe4b4df4deda2d571691aaa49f7a816b134edb6d6d05c5d29381a570dd774c5",
+          "modifiedAt": "2026-11-04T19:15:31.973Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/CONTRIBUTING.md",
+          "bytes": 6476,
+          "sha256": "e48f8ace47581b169206a5196e124699927293e181ad2aa535f9c7de4f2e5776",
+          "modifiedAt": "2026-11-04T19:15:31.974Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/DEVELOPMENT.md",
+          "bytes": 4083,
+          "sha256": "f628141759bd6d976b781e5b182f7614819b1e6501e28ac2bbec382a54149c69",
+          "modifiedAt": "2026-11-04T19:15:31.974Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/pyproject.toml",
+          "bytes": 4739,
+          "sha256": "30ffc55a5ed6252b65739bc25eb27cf0028d2a5f72dd99d0bccb129a6c62acde",
+          "modifiedAt": "2026-11-04T19:15:32.268Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/README.md",
+          "bytes": 11038,
+          "sha256": "bdc50c2993c8ac107c9d06e4ec41cefec3f1080115672a856f14b5f73ad7da3f",
+          "modifiedAt": "2026-11-04T19:15:31.975Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/setup.py",
+          "bytes": 103,
+          "sha256": "cb18ba22ad5c83150960b585807cbe690521ffb18248efeeb7bdcfbfa0f58cbb",
+          "modifiedAt": "2026-11-04T19:15:32.276Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/tests/command_utils.py",
+          "bytes": 790,
+          "sha256": "257ad39d31acacc3a76898c65864c1483217740b2319d92f5262c934c08d374b",
+          "modifiedAt": "2026-11-04T19:15:32.323Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/tests/conftest.py",
+          "bytes": 7024,
+          "sha256": "bd4243ec8c7a4aa8fb6b2437d0755d34ac4165e9be30a87fd16d3fb54722cbfc",
+          "modifiedAt": "2026-11-04T19:15:32.334Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/tests/platform_utils.py",
+          "bytes": 1893,
+          "sha256": "b65506363cf4424e4e47b294e69d8558adc7c525e0d4f0129a2e3c573e7f4cdf",
+          "modifiedAt": "2026-11-04T19:15:32.381Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/tests/README.md",
+          "bytes": 1282,
+          "sha256": "645297876e44857712c519fd413ee75f412c7a07957993f9a261d89a744cd2d5",
+          "modifiedAt": "2026-11-04T19:15:32.276Z"
+        },
+        {
+          "path": "harnesses/openhands-agent-sdk/tests/__init__.py",
+          "bytes": 17,
+          "sha256": "5d136e35f96a3c342ea5f8663d3a688e580fc87e4693498b29d57d71d7994cf5",
+          "modifiedAt": "2026-11-04T19:15:32.276Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/openhands-automation",
+      "category": "harnesses",
+      "module": "openhands-automation",
+      "observedFiles": 2000,
+      "observedSourceFiles": 851,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 19,
+      "manifests": [
+        "LICENSE",
+        "pyproject.toml",
+        "README.md",
+        "tests/fixtures/published_migrations/README.md",
+        ".venv/Lib/site-packages/zipp-3.23.1.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/yarl-1.25.1.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/wsproto-1.3.2.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/wrapt-1.17.3.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/websockets-16.0.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/watchfiles-1.1.1.dist-info/licenses/LICENSE",
+        ".venv/Lib/site-packages/uvicorn-0.45.0.dist-info/licenses/LICENSE.md",
+        ".venv/Lib/site-packages/uncalled_for-0.3.1.dist-info/licenses/LICENSE"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/openhands-automation/.pre-commit-config.yaml",
+          "bytes": 1537,
+          "sha256": "8a4b8a81e09759c84cae279f071f9b5f35859986853c4b9d2a79b2e08f0e0cbe",
+          "modifiedAt": "2026-11-04T19:15:30.823Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/.release-please-manifest.json",
+          "bytes": 23,
+          "sha256": "0ffbb01aae4b004ff8742c3554c6a95f16794d06c600902a17b938d44e125438",
+          "modifiedAt": "2026-11-04T19:15:30.823Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/AGENTS.md",
+          "bytes": 35225,
+          "sha256": "80dea8ef8c625af2541036554b326cb7bbb9e5b6d976647ab3cb2ebf6940f042",
+          "modifiedAt": "2026-11-04T19:15:30.824Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/pyproject.toml",
+          "bytes": 3591,
+          "sha256": "9746493fe32be9c74dfc8091d20824886f0150a490d3e086e29405470dd2a726",
+          "modifiedAt": "2026-11-04T19:15:30.877Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/README.md",
+          "bytes": 4069,
+          "sha256": "d8022dc97951b5def5d6cae15944539c6086d45190e70b62716e46bc67e4ca92",
+          "modifiedAt": "2026-11-04T19:15:30.824Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/release-please-config.json",
+          "bytes": 721,
+          "sha256": "095c379b1305f3415d36c4be77457faa1de4ade3442ce496eb014b2e27be9b9d",
+          "modifiedAt": "2026-11-04T19:15:30.877Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/conftest.py",
+          "bytes": 8495,
+          "sha256": "fe8d73f7e1e5240935482355a90e00baf2aa8979fe9b885e6f30c00ebb1ee96e",
+          "modifiedAt": "2026-11-04T19:15:30.880Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/test_ab_testing_integration.py",
+          "bytes": 19248,
+          "sha256": "02e3d81b776355c394da76fdbc61dc0f641f995ef4d4a74122445ce940f80976",
+          "modifiedAt": "2026-11-04T19:15:30.881Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/test_auth.py",
+          "bytes": 56483,
+          "sha256": "b4b402a4f228f36c3e88a1de60d8ae8e743ec1b687eeba696c7ca612fa2634e1",
+          "modifiedAt": "2026-11-04T19:15:30.882Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/test_automation_tags.py",
+          "bytes": 10645,
+          "sha256": "e38b07c6e2d92e3e959154998e80350771fcf4a61dc3c0242ca53ac26ab8709e",
+          "modifiedAt": "2026-11-04T19:15:30.882Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/test_backends.py",
+          "bytes": 31413,
+          "sha256": "40026534e0a0f3d7d20eec19bc5367057650df4a9353ada5f8aa9bb8a88a0963",
+          "modifiedAt": "2026-11-04T19:15:30.883Z"
+        },
+        {
+          "path": "harnesses/openhands-automation/tests/test_callback_error.py",
+          "bytes": 1545,
+          "sha256": "860905a7c3c19ed0a433e9da0040e6b5cc6e90e5387308f54d5d0c7d6e6224e7",
+          "modifiedAt": "2026-11-04T19:15:30.883Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "harnesses/orca-harness",
+      "category": "harnesses",
+      "module": "orca-harness",
+      "observedFiles": 3,
+      "observedSourceFiles": 3,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/orca-harness/package.json",
+          "bytes": 372,
+          "sha256": "0759cc25a0db83488953e72215f3e6f73a81a115923c8f9607cc91b385973a85",
+          "modifiedAt": "2026-11-03T09:41:13.540Z"
+        },
+        {
+          "path": "harnesses/orca-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:41:13.540Z"
+        },
+        {
+          "path": "harnesses/orca-harness/src/index.ts",
+          "bytes": 168,
+          "sha256": "41aaf01594e0103b65a9ae166634e6b447b288b5410c2154045c90414289a750",
+          "modifiedAt": "2026-11-03T09:41:13.540Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "harnesses/pi-harness",
+      "category": "harnesses",
+      "module": "pi-harness",
+      "observedFiles": 6,
+      "observedSourceFiles": 6,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "harnesses/pi-harness/HARNESS_SPEC.md",
+          "bytes": 241,
+          "sha256": "f75685b84ff870e9fb491ef8c0aa19b2b7e2362ad1133d1d463d4ea7a187bfd6",
+          "modifiedAt": "2026-11-02T19:49:53.106Z"
+        },
+        {
+          "path": "harnesses/pi-harness/package.json",
+          "bytes": 412,
+          "sha256": "b2357f3d78af81be017f793801a807963ac6296dd6e282dd2f2821bec9ec3a72",
+          "modifiedAt": "2026-11-03T09:40:42.452Z"
+        },
+        {
+          "path": "harnesses/pi-harness/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:40:42.453Z"
+        },
+        {
+          "path": "harnesses/pi-harness/src/index.ts",
+          "bytes": 363,
+          "sha256": "64a460c724d49f244a860df80f6790c57e60241ce991bb2914f80a677b37a104",
+          "modifiedAt": "2026-11-03T09:40:42.453Z"
+        },
+        {
+          "path": "harnesses/pi-harness/src/inflection-cache.ts",
+          "bytes": 769,
+          "sha256": "135e75d3fbd7e605e1c8a05fa4740dd2fbc3719d952de7fb54c845744bd1cfab",
+          "modifiedAt": "2026-11-03T09:40:42.453Z"
+        },
+        {
+          "path": "harnesses/pi-harness/src/pacer.ts",
+          "bytes": 641,
+          "sha256": "44bf1dabeb90a3e5f4a1c72aa5b66e518feded747b8bdce7acef31de2cc59e4d",
+          "modifiedAt": "2026-11-03T09:40:42.453Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "ide/antigravity-core",
+      "category": "ide",
+      "module": "antigravity-core",
+      "observedFiles": 4,
+      "observedSourceFiles": 1,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "app-unpacked/package.json"
+      ],
+      "samples": [
+        {
+          "path": "ide/antigravity-core/app-unpacked/package.json",
+          "bytes": 594,
+          "sha256": "7ea0adacdc71b02eb0bb6b79b8fa3de9330f8ba70861b1fa84d6a102333ab878",
+          "modifiedAt": "2026-11-02T19:02:50.250Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "ide/antigravity-ide",
+      "category": "ide",
+      "module": "antigravity-ide",
+      "observedFiles": 181,
+      "observedSourceFiles": 37,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 4,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "ide/antigravity-ide/package.json",
+          "bytes": 9591,
+          "sha256": "55a0f63d0fbb1022faf98afb31c62678d192f10073d5aa9f2637fc9ca63e3daa",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/preview_server.cjs",
+          "bytes": 549,
+          "sha256": "a6a92260436b579cdd8690b5152e2750fc93e49010b0be952cc211f991f2c0df",
+          "modifiedAt": "2026-11-04T13:47:44.272Z"
+        },
+        {
+          "path": "ide/antigravity-ide/product.json",
+          "bytes": 44752,
+          "sha256": "6de08e3527f0a79c783a1c0a1636527281031c5d3f39a6786d3a0e41b1b28bd5",
+          "modifiedAt": "2026-10-26T11:50:20.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/out/bootstrap-fork.js",
+          "bytes": 322151,
+          "sha256": "5768ba0628aaf01bacc3c8778f1a38e8d173171d8548b8c9eb1cec79f6ad40aa",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/out/cli.js",
+          "bytes": 518741,
+          "sha256": "ea3402a0cf9c2601fc3e4fd0adb84a54e0102dc369c5aaa3f8b6bb1ba94b6422",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/out/jetskiMain.tailwind.css",
+          "bytes": 150301,
+          "sha256": "abd75c4ad7710b6b4ad4e9e835a5987cb3d5d354962e0599545e36334f5b8815",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/out/nls.keys.json",
+          "bytes": 507987,
+          "sha256": "e356c25682f1c0b4e2d77488f7e00e7e83e5b8dbc42e5da236ac5af54abfd1cb",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        },
+        {
+          "path": "ide/antigravity-ide/out/tw-base.tailwind.css",
+          "bytes": 17007,
+          "sha256": "430cffe3c4691ec8946c39a468910d86454da810f69946b7d54deda74a4bff21",
+          "modifiedAt": "2026-10-26T11:50:08.000Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "ide/cursor",
+      "category": "ide",
+      "module": "cursor",
+      "observedFiles": 22,
+      "observedSourceFiles": 22,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json",
+        "SPEC_AND_ARCHITECTURE.md"
+      ],
+      "samples": [
+        {
+          "path": "ide/cursor/package.json",
+          "bytes": 432,
+          "sha256": "f2e5e27903b78d39e4a836c1c0ae761ede49887a7f09a652f3759957b7186fd0",
+          "modifiedAt": "2026-11-03T09:39:01.487Z"
+        },
+        {
+          "path": "ide/cursor/preview_server.cjs",
+          "bytes": 451,
+          "sha256": "92be3e2539274dbf45fa295b30f2b117e5974d3915170294453fe520faca9d77",
+          "modifiedAt": "2026-11-04T13:04:06.519Z"
+        },
+        {
+          "path": "ide/cursor/SPEC_AND_ARCHITECTURE.md",
+          "bytes": 2063,
+          "sha256": "bb3c99438e805e6de2d072dd3269f2aabb114f1478746843a11b3f52ba5c3409",
+          "modifiedAt": "2026-11-02T19:55:51.532Z"
+        },
+        {
+          "path": "ide/cursor/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:39:01.487Z"
+        },
+        {
+          "path": "ide/cursor/src/composer-engine.ts",
+          "bytes": 2511,
+          "sha256": "1bf496b55248666f02709eb3c877049d1e1b57a2dd9e2cca2740c645b2feb6b1",
+          "modifiedAt": "2026-11-03T09:39:01.488Z"
+        },
+        {
+          "path": "ide/cursor/src/cursorrules-parser.ts",
+          "bytes": 2393,
+          "sha256": "e01e8b9f1e49eebb084ff9ce61dbf8f1e942d80d153f9932ecfab84ec03a193e",
+          "modifiedAt": "2026-11-03T09:39:01.488Z"
+        },
+        {
+          "path": "ide/cursor/src/index.ts",
+          "bytes": 421,
+          "sha256": "7046873ecf7f85aba8bc818bf2ba695fa6822fe6f7c392844e987207d08cb731",
+          "modifiedAt": "2026-11-03T09:39:01.488Z"
+        },
+        {
+          "path": "ide/cursor/src/shadow-workspace.ts",
+          "bytes": 2657,
+          "sha256": "edc4f5179bc5222524f2c6aa740eef10738adb97285a4faed4c669b8f35f0889",
+          "modifiedAt": "2026-11-03T09:39:01.488Z"
+        },
+        {
+          "path": "ide/cursor/src/speculative-decoding.ts",
+          "bytes": 2084,
+          "sha256": "1888a72fd931b17da6dc199e18c812e973e437c9c72355da95e28a98a6fe8f44",
+          "modifiedAt": "2026-11-03T09:39:01.488Z"
+        },
+        {
+          "path": "ide/cursor/extracted_unbundled_ui/composer/deobfuscated.js",
+          "bytes": 10477,
+          "sha256": "3dfa030e756cf63be60ef4963b704471631f3a243b5a54acc37870fa98c49f46",
+          "modifiedAt": "2026-11-03T20:37:24.866Z"
+        },
+        {
+          "path": "ide/cursor/extracted_unbundled_ui/codeEditorWidget/deobfuscated.js",
+          "bytes": 262710,
+          "sha256": "6755c9bdc86bfcf1264e627577bc5110e972823ec12afd99983ec5d049d9c979",
+          "modifiedAt": "2026-11-03T20:38:34.067Z"
+        },
+        {
+          "path": "ide/cursor/extracted_unbundled_ui/CodeBlockChrome/deobfuscated.js",
+          "bytes": 3481,
+          "sha256": "4b23d0b29ae3644f9a599e3fdd9e60fb3517a1f994543a2e4379c85bb72593fc",
+          "modifiedAt": "2026-11-03T20:38:28.428Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "ide/vscode-core",
+      "category": "ide",
+      "module": "vscode-core",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1592,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 64,
+      "manifests": [
+        "package.json",
+        "node_modules_asar_unpacked/zod/LICENSE",
+        "node_modules_asar_unpacked/zod/package.json",
+        "node_modules_asar_unpacked/zod/v4-mini/package.json",
+        "node_modules_asar_unpacked/zod/v4/package.json",
+        "node_modules_asar_unpacked/zod/v4/mini/package.json",
+        "node_modules_asar_unpacked/zod/v4/locales/package.json",
+        "node_modules_asar_unpacked/zod/v4/core/package.json",
+        "node_modules_asar_unpacked/zod/v4/classic/package.json",
+        "node_modules_asar_unpacked/zod/v3/package.json",
+        "node_modules_asar_unpacked/zod/mini/package.json",
+        "node_modules_asar_unpacked/zod/locales/package.json"
+      ],
+      "samples": [
+        {
+          "path": "ide/vscode-core/CORE_LOGIC_SPEC.md",
+          "bytes": 2044,
+          "sha256": "9af242927b3129613326d8866700a22efc9e33c47930c6c9a546f76a29de7ad8",
+          "modifiedAt": "2026-11-02T19:55:51.531Z"
+        },
+        {
+          "path": "ide/vscode-core/package.json",
+          "bytes": 15780,
+          "sha256": "1d35e68fb72a8ad5e5006a29b577645326364b897818f99185be92862620516e",
+          "modifiedAt": "2026-11-01T22:12:08.000Z"
+        },
+        {
+          "path": "ide/vscode-core/product.json",
+          "bytes": 73866,
+          "sha256": "e11fa04ec19da22a4952921ebd4d34e9ffc9fc4e27bffcadb3cd36c24ab770d7",
+          "modifiedAt": "2026-11-01T22:30:50.000Z"
+        },
+        {
+          "path": "ide/vscode-core/out/bootstrap-fork.js",
+          "bytes": 125491,
+          "sha256": "5477346cf4266ed9a2f183d2e8b8c95d35e3807f961c981e752a15e11d0c277b",
+          "modifiedAt": "2026-11-01T22:12:08.000Z"
+        },
+        {
+          "path": "ide/vscode-core/out/cli.js",
+          "bytes": 277104,
+          "sha256": "92d35c0285dc274bf34b182ff8a12d644c150916a02ea3e9d6d98239a322af46",
+          "modifiedAt": "2026-11-01T22:12:08.000Z"
+        },
+        {
+          "path": "ide/vscode-core/out/main.js",
+          "bytes": 101007,
+          "sha256": "c93c8415f57e7fc4ea926d3d3f64b1316bf4e590c9408e216699b5f2e04b9f9c",
+          "modifiedAt": "2026-11-01T22:12:08.000Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "ide/windsurf",
+      "category": "ide",
+      "module": "windsurf",
+      "observedFiles": 1,
+      "observedSourceFiles": 1,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [],
+      "samples": [
+        {
+          "path": "ide/windsurf/preview_server.cjs",
+          "bytes": 453,
+          "sha256": "8839ff49568ace71738fc60b2fb7eaf3cf2691cfb93fffabbc3ccbe9aa71f300",
+          "modifiedAt": "2026-11-04T13:04:06.519Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "notebooks/gemini-desktop",
+      "category": "notebooks",
+      "module": "gemini-desktop",
+      "observedFiles": 160,
+      "observedSourceFiles": 159,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "app-unpacked/package.json"
+      ],
+      "samples": [
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/package.json",
+          "bytes": 1030,
+          "sha256": "76e1906ca4e197b086a3e2862942307ddbe8ed8b94e0bc5968f7ad71b817f0b9",
+          "modifiedAt": "2026-11-02T19:18:18.520Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/loading.html",
+          "bytes": 1238,
+          "sha256": "e2f616705c585a800e6623f65f17125bc2a69cc42622245ad2510076d3958cda",
+          "modifiedAt": "2026-11-02T19:18:18.827Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/main.js",
+          "bytes": 145374,
+          "sha256": "60094529ea0b388fed2cee14d8a1bae7ecdecca7d9dabe95f3b3524c37632735",
+          "modifiedAt": "2026-11-02T19:18:18.829Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/offline.html",
+          "bytes": 1557,
+          "sha256": "58c2ef142c2bb2657c3a8ec14be1e9becc9b9cd8d42038d47ee230b06d236a9f",
+          "modifiedAt": "2026-11-02T19:18:18.832Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/preload.js",
+          "bytes": 1680,
+          "sha256": "f879d3581886acfec98ed5b9320c35c2d0b8888f5e51eb7b20cafd5e51c9cde1",
+          "modifiedAt": "2026-11-02T19:18:18.835Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/streamz_client_bundle.js",
+          "bytes": 65617,
+          "sha256": "77288ad8fbdd2ff917faf9daf30a47d19ba4598a057232a2d35bb09669a47c43",
+          "modifiedAt": "2026-11-02T19:18:18.850Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/zu/messages.json",
+          "bytes": 14065,
+          "sha256": "79c76627ca5260d099ca47560a674b04be0da3dab859c3d5998d8208dfbf94c9",
+          "modifiedAt": "2026-11-02T19:18:18.807Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/zh_TW/messages.json",
+          "bytes": 17815,
+          "sha256": "57e132bfe53ac334219568adfa4e42b77f1d9b8b7c0bcf9a4f5e2011bf39cf6f",
+          "modifiedAt": "2026-11-02T19:18:18.804Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/zh_HK/messages.json",
+          "bytes": 17542,
+          "sha256": "93e64db0957ebb5d0b53423d4903e762d261ae0735a398e59b8c154e1f745e0f",
+          "modifiedAt": "2026-11-02T19:18:18.802Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/zh_CN/messages.json",
+          "bytes": 17489,
+          "sha256": "eeddc98993211f7f78d795f186d499e2e4d88a33bd688733fde862e22f225528",
+          "modifiedAt": "2026-11-02T19:18:18.801Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/zh/messages.json",
+          "bytes": 17489,
+          "sha256": "eeddc98993211f7f78d795f186d499e2e4d88a33bd688733fde862e22f225528",
+          "modifiedAt": "2026-11-02T19:18:18.798Z"
+        },
+        {
+          "path": "notebooks/gemini-desktop/app-unpacked/src/_locales/yo/messages.json",
+          "bytes": 23922,
+          "sha256": "fee1d02c09d0bac24cb098f29c4b0588bfc4f0c68b9bdd796f0b3d5448ab4051",
+          "modifiedAt": "2026-11-02T19:18:18.795Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "notebooks/gemini-notebook",
+      "category": "notebooks",
+      "module": "gemini-notebook",
+      "observedFiles": 2000,
+      "observedSourceFiles": 1914,
+      "truncated": true,
+      "skippedSensitiveOrGenerated": 22,
+      "manifests": [
+        "package.json",
+        "README.md"
+      ],
+      "samples": [
+        {
+          "path": "notebooks/gemini-notebook/extract_css.js",
+          "bytes": 1620,
+          "sha256": "acba9165608fb2c4ec97000a9cc9857e2f6b2d05a2f720328a63ffa380c06192",
+          "modifiedAt": "2026-11-03T09:46:46.575Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_details.js",
+          "bytes": 1936,
+          "sha256": "37da5a335097951987226dcf827a7fbd04af2ef14b1f46f2d93a8f9c29e03c02",
+          "modifiedAt": "2026-11-03T10:20:22.142Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_dialog.js",
+          "bytes": 1861,
+          "sha256": "619e5306e20264fd906331907d92090fbd525d6ed242db04184490a02ff86113",
+          "modifiedAt": "2026-11-03T09:24:28.311Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_header.js",
+          "bytes": 1140,
+          "sha256": "2360f7e115a43e62749556637852d0ae44902734944b71c491edf06fe77b0fad",
+          "modifiedAt": "2026-11-03T09:24:56.618Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_overlay.js",
+          "bytes": 938,
+          "sha256": "e05236fcc9f5abd9a356d247f4942358d933403c12ae84ddc482de8e29e66a91",
+          "modifiedAt": "2026-11-03T09:24:38.059Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_panels.js",
+          "bytes": 1451,
+          "sha256": "3c46a46f226ae709cb362f5dd2c3f02d5e8b7f93487695f8920ffd1dea29fa86",
+          "modifiedAt": "2026-11-03T09:25:20.080Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_pw.js",
+          "bytes": 1715,
+          "sha256": "e92609c0c5a9af4e0e63c8abdb5e91754e34b8d6113cd35273021165ffd54a10",
+          "modifiedAt": "2026-11-03T09:24:15.615Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_real_app.js",
+          "bytes": 2607,
+          "sha256": "09149abd0573424be930ec825be809d7357ad06180b7b769c28a6b1045c9fa50",
+          "modifiedAt": "2026-11-03T11:08:43.255Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_real_nb.js",
+          "bytes": 2057,
+          "sha256": "360820cc7806832f4c585ec56c85db5e91ee47c2311730d4b71e69a1523d89b5",
+          "modifiedAt": "2026-11-03T09:23:54.506Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_root.js",
+          "bytes": 1101,
+          "sha256": "c0d2ec49a14d8c5abcdc515f74eab3c4b31c5bde3e36963d4b6656e8a9a3e1c9",
+          "modifiedAt": "2026-11-03T09:24:47.346Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_styles.js",
+          "bytes": 1868,
+          "sha256": "fd1979eeb4c9e7ffc2f36343a97a6b515c8d03a30ee89c78711e724968988f41",
+          "modifiedAt": "2026-11-03T09:25:06.455Z"
+        },
+        {
+          "path": "notebooks/gemini-notebook/inspect_top.js",
+          "bytes": 1960,
+          "sha256": "ac1af96b72f72235aa3820ebfd0121d937dfb83daec42193865ca07939274a8f",
+          "modifiedAt": "2026-11-03T11:09:25.764Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "proxies/htmustc-proxy",
+      "category": "proxies",
+      "module": "htmustc-proxy",
+      "observedFiles": 611,
+      "observedSourceFiles": 471,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 8,
+      "manifests": [
+        "README.md"
+      ],
+      "samples": [
+        {
+          "path": "proxies/htmustc-proxy/design.md",
+          "bytes": 7457,
+          "sha256": "f2cf6ba124a90d1220e27da3a2a66c6ebf63ee43bffdfeccc6aa9ad430b37b72",
+          "modifiedAt": "2026-08-20T18:16:38.000Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/README.md",
+          "bytes": 5425,
+          "sha256": "653fef250b8253c12ca87b6ec16535241ccd7e399864778616f5acbce5126902",
+          "modifiedAt": "2026-10-19T17:08:40.509Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_cache_test.go",
+          "bytes": 2722,
+          "sha256": "1c04601baa1533895b1367ec576725b0a9c2b025c9de2b43ded98d7c8e61befa",
+          "modifiedAt": "2026-08-22T19:33:05.000Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_health.go",
+          "bytes": 7633,
+          "sha256": "a0e15bff2814773c0d36b3c463bb0678bd8b855ae6c9d2cd4713fcdc49667db2",
+          "modifiedAt": "2026-08-25T18:58:45.132Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_health_test.go",
+          "bytes": 8304,
+          "sha256": "d718a47b6edbef95dca16cede7471f10ce290b241e49c2a6a67306ace36db6ad",
+          "modifiedAt": "2026-08-23T03:51:15.000Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_quota.go",
+          "bytes": 4433,
+          "sha256": "6c92534d0106ca936f5ae0175528fb4e85167d3001ecd1969576394c7947e541",
+          "modifiedAt": "2026-09-03T04:57:05.126Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_quota_test.go",
+          "bytes": 4022,
+          "sha256": "0471ba1e6cb2f2c74035a71fd5d66cf66252e980f217d7413ca808c8d0fed5e1",
+          "modifiedAt": "2026-09-03T05:05:13.660Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/account_refs_test.go",
+          "bytes": 3942,
+          "sha256": "ce81b420f0b5a751a980787150c92cfc58b178173353669037a3a386abfe905d",
+          "modifiedAt": "2026-08-23T14:14:05.000Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/atomicwrite.go",
+          "bytes": 2042,
+          "sha256": "ddb659259d931ced506a5c036101b0a5e1d8214bb69b4e2927c4332d4f87c287",
+          "modifiedAt": "2026-09-10T09:10:55.991Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/atomicwrite_test.go",
+          "bytes": 4403,
+          "sha256": "7406e2b8aa73d2d935690cc7651ee794dacd0fc6f13c028b5d58a06fc1885d01",
+          "modifiedAt": "2026-09-10T09:10:55.991Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/close_test.go",
+          "bytes": 3836,
+          "sha256": "e01bdb67f9b26ff843e795a590b862805bc72e23ce5b33c83ee57317ca13144c",
+          "modifiedAt": "2026-08-23T10:52:27.000Z"
+        },
+        {
+          "path": "proxies/htmustc-proxy/internal/storage/file_storage.go",
+          "bytes": 44376,
+          "sha256": "c5972a26fc77083f73eb893e423fe42638adb13fe6f83d4c14146facd771e667",
+          "modifiedAt": "2026-09-10T09:10:55.992Z"
+        }
+      ],
+      "classification": "substantial-readable"
+    },
+    {
+      "id": "research/orca-debate",
+      "category": "research",
+      "module": "orca-debate",
+      "observedFiles": 7,
+      "observedSourceFiles": 7,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 3,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "research/orca-debate/MULTI_MODEL_DEBATE_SPEC.md",
+          "bytes": 4535,
+          "sha256": "b42d8ff5e821afc4eef663b5801f44512793e3849d4783842e406242851f16aa",
+          "modifiedAt": "2026-11-02T19:08:37.544Z"
+        },
+        {
+          "path": "research/orca-debate/package.json",
+          "bytes": 400,
+          "sha256": "3c4b4e7b0674dfd21128112d37fc78ce0f3eb5e85c13c99be2257d78d1a0549a",
+          "modifiedAt": "2026-11-03T09:40:42.448Z"
+        },
+        {
+          "path": "research/orca-debate/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:40:42.448Z"
+        },
+        {
+          "path": "research/orca-debate/src/debate-protocol.ts",
+          "bytes": 482,
+          "sha256": "1be9a868d6b98c3ea48d9fe4dc5f4eb140a2aa5ad019a4e61d5fe0af249e5f1f",
+          "modifiedAt": "2026-11-03T09:40:42.449Z"
+        },
+        {
+          "path": "research/orca-debate/src/debate.ts",
+          "bytes": 1284,
+          "sha256": "e31d8264b54c1f60e007adc28190df447f0f707a4ff15b4fe14f2aa5f91ee096",
+          "modifiedAt": "2026-11-03T09:40:42.449Z"
+        },
+        {
+          "path": "research/orca-debate/src/index.ts",
+          "bytes": 632,
+          "sha256": "2f1694249eadfdf7e14c6fb30313eed7e2ba441204541d9e23acd91a1bff9fc6",
+          "modifiedAt": "2026-11-03T09:40:42.450Z"
+        },
+        {
+          "path": "research/orca-debate/src/judge-arbiter.ts",
+          "bytes": 1428,
+          "sha256": "d9feb1306cb6c6fd73242277e15e59d5021e331a04c7015602c8feb13669b36b",
+          "modifiedAt": "2026-11-03T09:40:42.449Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "research/perplexity-synthesis",
+      "category": "research",
+      "module": "perplexity-synthesis",
+      "observedFiles": 7,
+      "observedSourceFiles": 7,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 2,
+      "manifests": [
+        "package.json"
+      ],
+      "samples": [
+        {
+          "path": "research/perplexity-synthesis/package.json",
+          "bytes": 425,
+          "sha256": "56cd62bd179f6b987d4195fc9359cc781e03b6b774380e1c1552e437747c6c9a",
+          "modifiedAt": "2026-11-03T09:40:42.446Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/RESEARCH_SYNTHESIS_SPEC.md",
+          "bytes": 4122,
+          "sha256": "d138628f377c7a51116decc6c6eb69702fad4a5ede4b0bee6c87b624446e3787",
+          "modifiedAt": "2026-11-02T19:08:16.446Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/tsconfig.json",
+          "bytes": 278,
+          "sha256": "265c256d73730b5d0cb925aad3665640903a672322a55aeda99610d20d62d139",
+          "modifiedAt": "2026-11-03T09:40:42.446Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/src/citation-graph.ts",
+          "bytes": 1817,
+          "sha256": "5a18c084210c26db89ea3820751fc067c1fd85fa8834fa1782c414a3f782d3cb",
+          "modifiedAt": "2026-11-03T09:40:42.447Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/src/index.ts",
+          "bytes": 339,
+          "sha256": "d22957875d5b1a36fec2fbf3e9d09b022938cfbfd79a0071649618548757a7a3",
+          "modifiedAt": "2026-11-03T09:40:42.448Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/src/query-fanout.ts",
+          "bytes": 1640,
+          "sha256": "ffaa6ac63977411c75886b5df38bf59df52e0b1cb210558c8bdea3badefda764",
+          "modifiedAt": "2026-11-03T09:40:42.446Z"
+        },
+        {
+          "path": "research/perplexity-synthesis/src/synthesis-engine.ts",
+          "bytes": 1323,
+          "sha256": "99154c54b1f1119677dc5e7ff8c00d1d7f099379fc6c0512cc74e9082ef6f868",
+          "modifiedAt": "2026-11-03T09:40:42.447Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "web-apis/chatgpt-web",
+      "category": "web-apis",
+      "module": "chatgpt-web",
+      "observedFiles": 6,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [
+        "Cargo.toml"
+      ],
+      "samples": [
+        {
+          "path": "web-apis/chatgpt-web/Cargo.toml",
+          "bytes": 424,
+          "sha256": "fdac95092527c655af23862854562be94a585483f351d89c19ee0814d2a60379",
+          "modifiedAt": "2026-11-03T09:41:35.291Z"
+        },
+        {
+          "path": "web-apis/chatgpt-web/SPEC_AND_ADAPTER.md",
+          "bytes": 1224,
+          "sha256": "4eda204367b5e55043a64e0a2e3a7dc2062ce7bb724e8863f4255fff0978381c",
+          "modifiedAt": "2026-11-02T19:49:53.100Z"
+        },
+        {
+          "path": "web-apis/chatgpt-web/src/client.rs",
+          "bytes": 2764,
+          "sha256": "fed22f3cded2f79c4076b7c98fe169d0d3fd9aeea57c938e29a1a2aaddee22ec",
+          "modifiedAt": "2026-11-05T21:59:14.493Z"
+        },
+        {
+          "path": "web-apis/chatgpt-web/src/lib.rs",
+          "bytes": 109,
+          "sha256": "ded42c326087985607e2dc411b3725b63eeeefb2229ba86afe962e39bcf2a251",
+          "modifiedAt": "2026-11-03T09:41:35.292Z"
+        },
+        {
+          "path": "web-apis/chatgpt-web/src/session.rs",
+          "bytes": 395,
+          "sha256": "169840ed0f93e3a97fc723744c61088c30ed5ad2142138911f6dc24e4861af07",
+          "modifiedAt": "2026-11-03T09:41:35.291Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "web-apis/claude-web",
+      "category": "web-apis",
+      "module": "claude-web",
+      "observedFiles": 6,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [
+        "Cargo.toml"
+      ],
+      "samples": [
+        {
+          "path": "web-apis/claude-web/Cargo.toml",
+          "bytes": 448,
+          "sha256": "1683effc43fcfab9fce8664d7ec67276d0b94a6786cfdd02620e5e5c5485f748",
+          "modifiedAt": "2026-11-03T09:41:35.290Z"
+        },
+        {
+          "path": "web-apis/claude-web/SPEC_AND_ADAPTER.md",
+          "bytes": 2139,
+          "sha256": "c7958c0b4f05c92527f6fe76058aa3f32dd2d9eed3a0de20dc6e94924ee44736",
+          "modifiedAt": "2026-11-02T19:49:53.099Z"
+        },
+        {
+          "path": "web-apis/claude-web/src/client.rs",
+          "bytes": 2963,
+          "sha256": "44c129fb17b79072bc17eb1c223abb66bb7b742b85710497d5454d2db73e1122",
+          "modifiedAt": "2026-11-05T21:59:14.495Z"
+        },
+        {
+          "path": "web-apis/claude-web/src/lib.rs",
+          "bytes": 107,
+          "sha256": "2673fecaf3c8350e5ac9440ab03123ab4eb40418ffd71fa6dac9ab1eb7fdca3d",
+          "modifiedAt": "2026-11-03T09:41:35.291Z"
+        },
+        {
+          "path": "web-apis/claude-web/src/session.rs",
+          "bytes": 562,
+          "sha256": "b032601e7de018bf278e2188858afdfe345d5c74839b0a58cb4e6bbab41cbb16",
+          "modifiedAt": "2026-11-03T09:41:35.291Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "web-apis/gemini-notebook-web",
+      "category": "web-apis",
+      "module": "gemini-notebook-web",
+      "observedFiles": 6,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [
+        "Cargo.toml"
+      ],
+      "samples": [
+        {
+          "path": "web-apis/gemini-notebook-web/Cargo.toml",
+          "bytes": 426,
+          "sha256": "4e46aaa6895e643a0e0b6cc86654d82bba0c9fda82b24ae459d2f5ccefb49f6d",
+          "modifiedAt": "2026-11-03T09:41:35.293Z"
+        },
+        {
+          "path": "web-apis/gemini-notebook-web/SPEC_AND_ADAPTER.md",
+          "bytes": 751,
+          "sha256": "ebdb4d213e71e0b8c6ea2591bac8cad8e6fa616ef8a1dc7a549783df991f89bf",
+          "modifiedAt": "2026-11-02T19:49:53.100Z"
+        },
+        {
+          "path": "web-apis/gemini-notebook-web/src/lib.rs",
+          "bytes": 109,
+          "sha256": "fd227f495e38a89c17fcb94574245a68aef95580555c2cb96541ef2561eef1e2",
+          "modifiedAt": "2026-11-03T09:41:35.294Z"
+        },
+        {
+          "path": "web-apis/gemini-notebook-web/src/notebook.rs",
+          "bytes": 2448,
+          "sha256": "f2c86efc301d16f7ac6e143cfd1a26242f4667589eab927581a1afe731fde82c",
+          "modifiedAt": "2026-11-05T22:11:40.171Z"
+        },
+        {
+          "path": "web-apis/gemini-notebook-web/src/session.rs",
+          "bytes": 296,
+          "sha256": "017e96bd30f2a6aae62d94fb73a4600ee4120fd408a8568226ab189b98b31298",
+          "modifiedAt": "2026-11-03T09:41:35.293Z"
+        }
+      ],
+      "classification": "small-readable"
+    },
+    {
+      "id": "web-apis/gemini-web",
+      "category": "web-apis",
+      "module": "gemini-web",
+      "observedFiles": 6,
+      "observedSourceFiles": 5,
+      "truncated": false,
+      "skippedSensitiveOrGenerated": 1,
+      "manifests": [
+        "Cargo.toml"
+      ],
+      "samples": [
+        {
+          "path": "web-apis/gemini-web/Cargo.toml",
+          "bytes": 389,
+          "sha256": "237da638219d69fe734f7828f9adf7fe80cee018d7b1b9e53052268662573975",
+          "modifiedAt": "2026-11-03T09:41:35.292Z"
+        },
+        {
+          "path": "web-apis/gemini-web/SPEC_AND_ADAPTER.md",
+          "bytes": 861,
+          "sha256": "c7a0c668ea51c92963d8c34ebecf712d39e4c48d5f1121bf766738b45b4b093a",
+          "modifiedAt": "2026-11-02T19:49:53.100Z"
+        },
+        {
+          "path": "web-apis/gemini-web/src/batchexecute.rs",
+          "bytes": 1264,
+          "sha256": "0416356f6442723e39d6506cb70b4c3a64098c36462122267b041ab67584a765",
+          "modifiedAt": "2026-11-04T23:10:13.392Z"
+        },
+        {
+          "path": "web-apis/gemini-web/src/lib.rs",
+          "bytes": 128,
+          "sha256": "fffe44c97a8017d0de2018b4c94806c561627bdf111fada068824388e12c46ad",
+          "modifiedAt": "2026-11-03T09:41:35.293Z"
+        },
+        {
+          "path": "web-apis/gemini-web/src/session.rs",
+          "bytes": 445,
+          "sha256": "b53316666df4a18ef60b2f55b3683690b627f1fd1d6a998151fc7bcabaf56deb",
+          "modifiedAt": "2026-11-03T09:41:35.292Z"
+        }
+      ],
+      "classification": "small-readable"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "stage": "implement",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:07:58.744Z",
+  "changes": [
+    {
+      "criteria": [
+        "UI-007",
+        "UI-013",
+        "UI-015"
+      ],
+      "owner": "/root",
+      "summary": "Added responsive Chat companion drawer, modal focus containment and restoration, canonical graphite/light tokens, and browser tab semantics.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/rebuild-app.tsx",
+          "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.css",
+          "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+        },
+        {
+          "path": "src/rebuild/use-modal-boundary.ts",
+          "sha256": "d9eeb9aeb73574bf13b2fcca3577651446aa1baabc8b2714c0308f6f941ad0f8"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.tsx",
+          "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+        }
+      ]
+    },
+    {
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "owner": "/root/settings_model_discovery_impl",
+      "summary": "Added provider profile/model discovery controller and panel with native IPC boundary, cancellation/stale guards and explicit unavailable state; fixed settings grid at narrow viewport.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/settings/model-discovery.ts",
+          "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
+        },
+        {
+          "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+          "sha256": "2d2b8fa63ef85ee5b65d6b6d351b20042673d132b5c98f6163a2bff7093dcecd"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+        },
+        {
+          "path": "src/rebuild/settings/settings.css",
+          "sha256": "36712f0c1f287da825a3f10a032b6c0d72708c91225bb48e6c9a4dbdfde41fcb"
+        }
+      ]
+    },
+    {
+      "criteria": [
+        "CHAT-008"
+      ],
+      "owner": "/root/ask_user_native_impl",
+      "summary": "Added run-bound native ask-user broker, journal-before-delivery events, answer/cancel ACK and Tauri command registration.",
+      "sourceFiles": [
+        {
+          "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+          "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
+        },
+        {
+          "path": "src-tauri/crates/omnia-harness/src/lib.rs",
+          "sha256": "83d8d9589962b4c036c29d63ed9418a2a5321b679508806c017080fdbd045c7c"
+        },
+        {
+          "path": "src-tauri/src/harness_bridge.rs",
+          "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+        },
+        {
+          "path": "src-tauri/src/lib.rs",
+          "sha256": "7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2"
+        }
+      ]
+    },
+    {
+      "criteria": [
+        "GOVERNANCE-004",
+        "GOVERNANCE-005",
+        "GOVERNANCE-007",
+        "GOVERNANCE-008",
+        "GOVERNANCE-009"
+      ],
+      "owner": "/root/workflow_force_impl",
+      "summary": "Hardened cycle, source, blocker, review, typed plan and publication gates with adversarial tests and active-cycle validation.",
+      "sourceFiles": [
+        {
+          "path": "scripts/rebuild/workflow.mjs",
+          "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1"
+        },
+        {
+          "path": "scripts/rebuild/check.mjs",
+          "sha256": "6ef62d57946ec25c53c941ec41d15a892404e3ec00a40a4341268b52dc1e8b05"
+        },
+        {
+          "path": "scripts/rebuild/validate.mjs",
+          "sha256": "ab9ad74218db8aeec3af127fd9c3557dbe0a7b8efe0804eeea8e5b055d9bc68a"
+        },
+        {
+          "path": "scripts/rebuild/workflow.test.mjs",
+          "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e"
+        },
+        {
+          "path": ".github/workflows/rebuild.yml",
+          "sha256": "61e896bb2f62d01e8927be560324bdcc94f6e330d68d49bbfe58c2d84d758eb8"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Native ask-user Cargo proof is not yet recorded in this cycle and must run in the serialized slot.",
+    "Provider model discovery has contract and focused renderer evidence but no live account/provider proof.",
+    "Browser/IDE preview and Vite captures do not prove packaged WebView2/UIA or OS automation.",
+    "Pointer/RAG runtime IPC callers, durable model routing and projectless native session continuity remain incomplete."
+  ]
+}

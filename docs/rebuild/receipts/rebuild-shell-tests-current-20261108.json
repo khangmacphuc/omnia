@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-shell-tests",
+  "recordedAt": "2026-11-08T04:07:27.3033515Z",
+  "command": "node --test tests/rebuild-independent-audit.test.mjs",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/rebuild-shell-tests-current-20261108.txt",
+    "sha256": "9653bbb444304a5f366e0f549d09b637242c6a4bf76ff6af1881e005c2f082a6"
+  },
+  "sourceFiles": [
+    {
+      "path": "tests/rebuild-independent-audit.test.mjs",
+      "sha256": "6064255064ec2dce7a295d4ea5988a8215efe135ecd5074abaf25e28d53c9091"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    }
+  ]
+}

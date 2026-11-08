@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-focused-tests",
+  "recordedAt": "2026-11-08T05:11:01.696Z",
+  "command": "npm.cmd exec -- vitest run src/rebuild --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle5-renderer-tests.txt",
+    "sha256": "dfd5f869f7758f66a9367faf9188ee7136e14af1f83d0cd63d127e9734a3b57d"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.test.ts",
+      "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.test.ts",
+      "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.test.tsx",
+      "sha256": "a563ef296fdb0f046e3a06269c997c1ab89da9eea3c321a513d6b3f58a019969"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery-native-bridge.test.ts",
+      "sha256": "6d58fc38a22a872b9900f63779b711f8a93ab7e45c31d710e17b3978f2f7f93f"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.test.ts",
+      "sha256": "a7926999c2c4c7f7896e0b284a5d217bb2d70c839139b2eda15e66db9f6944f2"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.test.tsx",
+      "sha256": "563fe99560a2f3dcbf90f82be18f78de0d7c52343771aec86d0d26f2512fb216"
+    },
+    {
+      "path": "src/rebuild/settings/settings.test.ts",
+      "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.test.tsx",
+      "sha256": "9f6f9d7c5dc19a03ea6092fcacb1a1cd6b42aee8889a0260fb0237f0d2ed3450"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/settings.css",
+      "sha256": "36712f0c1f287da825a3f10a032b6c0d72708c91225bb48e6c9a4dbdfde41fcb"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    }
+  ]
+}

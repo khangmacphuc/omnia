@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "result": "changes_required",
+  "reviewer": "/root/readme_release_evidence_audit",
+  "scope": "README, screenshots, versions, tags and publish readiness; read-only source/remote audit, no native or packaged runtime execution",
+  "recordedAt": "2026-11-08T04:26:25.988347+00:00",
+  "revision": "ca8dfa32a8221761383553780d13e61be053667d",
+  "workingTree": "uncommitted rebuild; receipt describes reviewed snapshot only",
+  "commands": [
+    {
+      "command": "npm.cmd run check",
+      "exitCode": 1,
+      "observed": "Stopped at tokens:check: src/styles/tokens.generated.css has drifted. Later full-check stages did not execute."
+    },
+    {
+      "command": "npm.cmd run rebuild:check --silent",
+      "exitCode": 0,
+      "observed": "passed structurally; complete=false; planned=215 partial=17 blocked=8 done=0 total=240 mandatoryDone=0"
+    },
+    {
+      "command": "git ls-remote --heads origin main codex/omnia-original-rebuild",
+      "exitCode": 0,
+      "observed": "main=ca8dfa32a8221761383553780d13e61be053667d; rebuild branch absent"
+    },
+    {
+      "command": "git ls-remote --tags origin v0.1.19-preview v0.1.20-preview",
+      "exitCode": 0,
+      "observed": "v0.1.19-preview annotated ref=abaa547bee4040ee26f6b706292e2c96cc104a51; v0.1.20-preview absent"
+    },
+    {
+      "command": "Release regex check against stable and prerelease tags",
+      "exitCode": 0,
+      "observed": "v0.1.0 accepted; v0.1.19-preview, v0.1.20-preview and v1.2.3-rc.1 rejected by current release.yml regex"
+    },
+    {
+      "command": "README local path existence, PNG dimensions, receipt media/source SHA-256 checks",
+      "exitCode": 0,
+      "observed": "All inspected local paths exist; four rebuild PNGs 1440x900; media hashes 4/4 match; preview source hashes 8/8 match. Browser/IDE visual contents omit the current companion ChatView/composer."
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "8194b99b4d7846cda1cab0b369950a5c1651da55a9cedaaeb378894339b23114"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "package.json",
+      "sha256": "58a3f459dfd44b75a11237b22dab66c219a8d528064e13f547d0e0f753634e7d"
+    },
+    {
+      "path": "src-tauri/tauri.conf.json",
+      "sha256": "90a6c3d32028b93ba36e26616ef6e441918706e2bdb6bbca1cb1e2a09ac1e4c8"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "sha256": "be8f4b3951849a5aa9113121cda7ba8102f98c4a6f3a8b558fcd29be5a416896"
+    },
+    {
+      "path": "src-tauri/Cargo.lock",
+      "sha256": "d0215ff81e82f72a223d232aeb5ffa089a7f296a8da1e23802403fd5f3e679d3"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "3e8798cf7be4c1f99b7929ba0e22b125c24fa2111a2f00ed9690399d4d2c1b0e"
+    },
+    {
+      "path": ".github/workflows/rebuild.yml",
+      "sha256": "61e896bb2f62d01e8927be560324bdcc94f6e330d68d49bbfe58c2d84d758eb8"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "77961433f3dddbacb3780a1b4d99220aac105f305e94acf025cbc224945c5946"
+    },
+    {
+      "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
+      "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a"
+    },
+    {
+      "path": "docs/rebuild/evidence/preview-ui-receipt-20261108.md",
+      "sha256": "9f42f600347741e6ed49b4d76389b6331913073a322be49df7ff8cf52118d2e2"
+    },
+    {
+      "path": "docs/rebuild/receipts/renderer-build-current-20261108.json",
+      "sha256": "3c016e7246b1d2e7be08ce8b1863c187842c32c78c6a99b47799a0a14f369a8a"
+    },
+    {
+      "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
+      "sha256": "a4885d85d12a024295c2c0eae3b9c5a128456807557365970e19899fe8bdfaad"
+    },
+    {
+      "path": "docs/rebuild/audit/README_RELEASE_AUDIT_20261108.md",
+      "sha256": "700f658725e083d69da09b86220f2a8cf070c56841e48edc8a5422b937611e65"
+    }
+  ],
+  "media": [
+    {
+      "path": "docs/assets/omnia-app-overview.png",
+      "sha256": "abad9bf5d89a5e0ba0dc9ee1f4325baa0b528de7b9e89e2a0d513a1b82fa3935"
+    },
+    {
+      "path": "docs/assets/omnia-rebuild-chat.png",
+      "sha256": "9d8fe3fa599d264b743a05afb8870098cc962db94ed3f81df9ddeb348b1443e1"
+    },
+    {
+      "path": "docs/assets/omnia-rebuild-browser.png",
+      "sha256": "209fce74cc297ee57a21685031704e76ec6cc24251a5177b225c2f25e94efd6e"
+    },
+    {
+      "path": "docs/assets/omnia-rebuild-ide.png",
+      "sha256": "b0d6a7947525dafd98e366b57390748d930fe3ef1d0020da938cc4741fe9e95a"
+    },
+    {
+      "path": "docs/assets/omnia-rebuild-settings.png",
+      "sha256": "6ce4967b0d7356431ec9096299a3e3a6fced64131fd1c79799ed2b21d8fe67c2"
+    }
+  ],
+  "limitations": [
+    "Historical build/test outputs were read, not rerun in this audit.",
+    "Current screenshot hashes do not prove that the PNG was rendered from the source hash later attached to the receipt.",
+    "No native/live/provider/packaged evidence was created.",
+    "No commit, tag or push was performed; current goal remains incomplete."
+  ],
+  "requiredRootActions": [
+    "Rewrite current clean-room README scope and authority",
+    "Recapture current Browser/IDE and replace historical hero",
+    "Align versions and prerelease tag validation",
+    "Resolve token drift full-gate failure",
+    "Verify current cycle and publish exact commit/tag/ref receipt"
+  ]
+}

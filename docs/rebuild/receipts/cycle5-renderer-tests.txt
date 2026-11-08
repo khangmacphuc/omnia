@@ -1,0 +1,3 @@
+npm.cmd exec -- vitest run src/rebuild --reporter=dot
+exitCode=0
+12 test files passed; 55 tests passed after companion, settings grid, model discovery and browser semantics fixes.

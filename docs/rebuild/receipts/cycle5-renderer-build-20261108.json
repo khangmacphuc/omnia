@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-build",
+  "recordedAt": "2026-11-08T05:06:16.690Z",
+  "command": "npm.cmd run build:renderer",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle5-renderer-build-20261108.txt",
+    "sha256": "70c63621b83ff281b5a41bd93da14071d92cc7351a1d7d068a503fda2b764762"
+  },
+  "sourceFiles": [
+    {
+      "path": "package.json",
+      "sha256": "58a3f459dfd44b75a11237b22dab66c219a8d528064e13f547d0e0f753634e7d"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "5ab587bfc300982112a19987334f7f5cf64fe9b5349f285cbaa0ddba5ec5cae4"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.tsx",
+      "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.css",
+      "sha256": "35f1d29b2fc040bdba4e7311ee0e8eaa165c74ac5db0f999d5945f3a2cfebabb"
+    },
+    {
+      "path": "src/rebuild/reference/reference-data.ts",
+      "sha256": "a676eb8c60e0531cab830dd49e1b2e4a5017203b2a359508bb2744e512e6c15b"
+    }
+  ]
+}

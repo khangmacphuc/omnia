@@ -1,0 +1,15 @@
+Omnia native ask-user verification receipt
+Recorded: 2026-11-08 12:39 Asia/Bangkok
+Workspace: C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+Command: cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input -- --nocapture
+Exit: 0
+Result: 10 passed; 0 failed; 313 filtered out; user_input broker/tool tests executed in native Rust crate.
+
+Claim boundary: This proves the provider-neutral native broker/tool unit behavior. It does not prove packaged Tauri command dispatch, Windows UI delivery, live provider execution, or browser/computer runtime.
+
+src-tauri/crates/omnia-harness/src/user_input.rs fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff
+src-tauri/crates/omnia-harness/src/user_input/tests.rs 8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1
+src-tauri/crates/omnia-harness/src/lib.rs 83d8d9589962b4c036c29d63ed9418a2a5321b679508806c017080fdbd045c7c
+src-tauri/src/harness_bridge.rs 045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b
+src-tauri/src/lib.rs 7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2

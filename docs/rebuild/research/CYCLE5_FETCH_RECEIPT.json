@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:02:08.793Z",
+  "query": "everything super power pro max agent checkpoint durable workflow OSS GitHub",
+  "canonicalRepo": "https://github.com/langchain-ai/langgraph",
+  "revision": "e5e37b5d70dbfd93c7006bd90a658c6179a95946",
+  "path": "libs/langgraph/langgraph/pregel/_checkpoint.py",
+  "url": "https://raw.githubusercontent.com/langchain-ai/langgraph/e5e37b5d70dbfd93c7006bd90a658c6179a95946/libs/langgraph/langgraph/pregel/_checkpoint.py",
+  "status": 200,
+  "license": "MIT",
+  "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8",
+  "sourceEvidence": {
+    "path": "docs/rebuild/research/snapshots/cycle5/langgraph-pregel-checkpoint.py.txt",
+    "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8"
+  },
+  "observation": "Durable checkpoint and state lineage primitives expose explicit persistence boundaries for long-running agent runs.",
+  "limitations": [
+    "Python graph runtime is not Windows Tauri evidence and requires adaptation; source inspection does not prove Omnia integration."
+  ]
+}

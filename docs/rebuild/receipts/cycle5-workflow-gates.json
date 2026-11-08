@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "rebuild-gates",
+  "recordedAt": "2026-11-08T05:11:01.696Z",
+  "command": "npm.cmd run test:rebuild-gates",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle5-workflow-gates.txt",
+    "sha256": "f3cd4ebf754443f65ac3a09b29ac9a930dd871182deb4de757ceda4225b30018"
+  },
+  "sourceFiles": [
+    {
+      "path": "scripts/rebuild/workflow.mjs",
+      "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1"
+    },
+    {
+      "path": "scripts/rebuild/check.mjs",
+      "sha256": "6ef62d57946ec25c53c941ec41d15a892404e3ec00a40a4341268b52dc1e8b05"
+    },
+    {
+      "path": "scripts/rebuild/validate.mjs",
+      "sha256": "ab9ad74218db8aeec3af127fd9c3557dbe0a7b8efe0804eeea8e5b055d9bc68a"
+    },
+    {
+      "path": "scripts/rebuild/workflow.test.mjs",
+      "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e"
+    },
+    {
+      "path": "scripts/rebuild/gate-lib.mjs",
+      "sha256": "1f1ba91fbc0ea8e11e726ad0d2414f85ebddac33773834a404628e375c3f9318"
+    },
+    {
+      "path": "scripts/rebuild/gate.test.mjs",
+      "sha256": "f4cc807a676c6b886c9898eacba62932d1fd99bc5d8587abe708da86d953c70f"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.test.mjs",
+      "sha256": "41f5670704b265d90132a0569787fe8e10e74373ac87d9c41d3d80b321fbbaed"
+    }
+  ]
+}

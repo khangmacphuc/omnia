@@ -1,0 +1,3275 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08",
+  "selectionPolicy": "Pinned source snapshots; project copies are explicit references, not automatic activation. Full source remains host-discoverable.",
+  "sources": [
+    {
+      "repo": "obra/superpowers",
+      "revision": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "license": "MIT",
+      "skills": [
+        "brainstorming",
+        "diagnosing-superpowers",
+        "dispatching-parallel-agents",
+        "executing-plans",
+        "finishing-a-development-branch",
+        "receiving-code-review",
+        "requesting-code-review",
+        "subagent-driven-development",
+        "systematic-debugging",
+        "test-driven-development",
+        "using-git-worktrees",
+        "using-superpowers",
+        "verification-before-completion",
+        "writing-plans",
+        "writing-skills"
+      ],
+      "researchDecision": "apply workflow/verification skills; preserve human approval boundaries",
+      "licenseUrl": "https://raw.githubusercontent.com/obra/superpowers/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE",
+      "licenseSha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "revision": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+      "license": "MIT",
+      "skills": [
+        "agent-architecture-audit",
+        "agent-eval",
+        "agent-harness-construction",
+        "agent-security-hardening"
+      ],
+      "researchDecision": "apply architecture/harness/evaluation/security concepts; inspect before use",
+      "licenseUrl": "https://raw.githubusercontent.com/affaan-m/ECC/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/LICENSE",
+      "licenseSha256": "326146379f01bb137c0a5d3c54770c1aa31076705c8b88a7f6b26a460f6221b2"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b",
+      "license": "MIT",
+      "skills": [
+        "ui-ux-pro-max",
+        "ui-styling",
+        "design-system"
+      ],
+      "researchDecision": "apply design-system/a11y guidance, never copy visual code",
+      "licenseUrl": "https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/4f2dbb67e64969a9a30ab00742f2d55d66ddec2b/LICENSE",
+      "licenseSha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014"
+    },
+    {
+      "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "revision": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+      "license": "MIT",
+      "skills": [
+        "advanced-evaluation",
+        "bdi-mental-states",
+        "context-compression",
+        "context-degradation",
+        "context-fundamentals",
+        "context-optimization",
+        "evaluation",
+        "filesystem-context",
+        "harness-engineering",
+        "hosted-agents",
+        "latent-briefing",
+        "long-horizon-prompting",
+        "memory-systems",
+        "multi-agent-patterns",
+        "project-development",
+        "self-improvement-loops",
+        "self-managed-context",
+        "tool-design"
+      ],
+      "researchDecision": "apply context/memory/evaluation workflow concepts",
+      "licenseUrl": "https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/9ff0c99108b36d3b886defd825d8ac1f47dba374/LICENSE",
+      "licenseSha256": "65bc33b0759a48b980962833b12bcb820404da9f5256bff39c00e89471bcf209"
+    },
+    {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "license": "MIT",
+      "skills": [
+        "scientific-brainstorming",
+        "scientific-critical-thinking",
+        "literature-review",
+        "research-lookup",
+        "scientific-writing",
+        "scientific-visualization",
+        "citation-management",
+        "paper-lookup",
+        "markdown-mermaid-writing",
+        "sympy"
+      ],
+      "researchDecision": "apply research/citation/science workflow concepts; do not imply domain verification",
+      "licenseFetchError": "HTTP Error 404: Not Found",
+      "licenseUrl": "https://raw.githubusercontent.com/K-Dense-AI/scientific-agent-skills/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/LICENSE.md",
+      "licenseSha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1"
+    }
+  ],
+  "skills": [
+    {
+      "name": "brainstorming",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\brainstorming",
+      "projectPath": ".agents/skills/upstream/brainstorming",
+      "skillSha256": "2c9ca71f94886f9ca9f4aef055f7cafb3e1a9bdf3aeebf8f4cb547c69405d207",
+      "bytes": 15190,
+      "frontmatter": "name: brainstorming\ndescription: \"You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).\"",
+      "files": [
+        {
+          "path": "builder-check-prompt.md",
+          "sha256": "36d51a4723d6f0a3ce5811a0ea3b3a8424f07533947e1355f5d8cb8cce40c55e",
+          "bytes": 881
+        },
+        {
+          "path": "scripts/frame-template.html",
+          "sha256": "6a8a4e58bd6a44b904e2e3c57de774481d909204597e1498de53f1b2fecc4c4e",
+          "bytes": 8094
+        },
+        {
+          "path": "scripts/helper.js",
+          "sha256": "43c6d69954a46ec34a2a262bcc62a9a7e83e839c739f199cb72646d397c686e3",
+          "bytes": 5615
+        },
+        {
+          "path": "scripts/server.cjs",
+          "sha256": "763abf96510e0b892a1141397b31aa82ef900cf87ed34dde94bc8782baf4a7ca",
+          "bytes": 25699
+        },
+        {
+          "path": "scripts/start-server.sh",
+          "sha256": "314dd68dc00e8dd94c7491aca8a5f004c7fddffc161e2b07482f29f48d13659a",
+          "bytes": 7315
+        },
+        {
+          "path": "scripts/stop-server.sh",
+          "sha256": "0b5ccbbd57f62d3ed88993f7940b5ee0e5c0fc9b21c550c623da4f6292e47daf",
+          "bytes": 3263
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2c9ca71f94886f9ca9f4aef055f7cafb3e1a9bdf3aeebf8f4cb547c69405d207",
+          "bytes": 15190
+        },
+        {
+          "path": "visual-companion.md",
+          "sha256": "6ffcb038b53254bd31debaa15e12dcd4ff24bd63d690e0b644ac6396701cf2e2",
+          "bytes": 13413
+        }
+      ],
+      "fileCount": 8
+    },
+    {
+      "name": "diagnosing-superpowers",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\diagnosing-superpowers",
+      "projectPath": ".agents/skills/upstream/diagnosing-superpowers",
+      "skillSha256": "3143de8695c5a2d63e8b1675f33837578076f464deb127c2ebdd0b46fceef886",
+      "bytes": 6941,
+      "frontmatter": "name: diagnosing-superpowers\ndescription: Use when a superpowers session went wrong and your human partner wants to know why \u2014 repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, \"it took too long\", \"why is it so expensive\", \"what is it doing\" \u2014 or wants to build a bug report for the superpowers maintainers, for the current session or a past one identified by id or path, on any harness.",
+      "files": [
+        {
+          "path": "prompts/analyst-common.md",
+          "sha256": "88801c36070be2a54a8a9a29632b01ab21db053e2e76ee49b5252a9b74ca4090",
+          "bytes": 1582
+        },
+        {
+          "path": "prompts/cost-and-time.md",
+          "sha256": "fe97a66d4db3b436816ef82694bda413b522b3a862dd41978da01e358fffecc4",
+          "bytes": 1640
+        },
+        {
+          "path": "prompts/plan-adherence.md",
+          "sha256": "1dcbab82033598a2e9c9ee42e950d4b1822d2c871c02cef9e102cdd5cbbda113",
+          "bytes": 1637
+        },
+        {
+          "path": "prompts/quality-evidence.md",
+          "sha256": "749d11cf678f379ed77a29274cad456634e0284aa523639a1a214a9f2b986eb1",
+          "bytes": 1476
+        },
+        {
+          "path": "prompts/repeated-work.md",
+          "sha256": "895027f2dfa4b1b8bcdb7ac9aec8d45a80bff212fad6ec6cad5ab38fa68322f5",
+          "bytes": 1469
+        },
+        {
+          "path": "prompts/request-conflicts.md",
+          "sha256": "e800e38d8b7752c212c76c5c3ed75cd78b749684263ea0c313586f26af6f4b5c",
+          "bytes": 1011
+        },
+        {
+          "path": "prompts/scrub-audit.md",
+          "sha256": "5cc48f05a7f81f5f7e05e0c7ceafc0fb8774bcaf75fe88dcb5c7e408026c70ad",
+          "bytes": 1363
+        },
+        {
+          "path": "prompts/scrub.md",
+          "sha256": "854cb3320cc5377b493cea2f72519d67983464882db68a0f408a7d0a0f040b8c",
+          "bytes": 1471
+        },
+        {
+          "path": "prompts/similar-session.md",
+          "sha256": "b190f713b463df2bb5ec3914647e204074d1bd50643a53159db6d13cace916c1",
+          "bytes": 1711
+        },
+        {
+          "path": "prompts/skill-timeline.md",
+          "sha256": "45d604d583b57a77b9033eced8eb875ef342af70fcd66cf7d15c6dc89964890f",
+          "bytes": 1646
+        },
+        {
+          "path": "prompts/stumbles.md",
+          "sha256": "1f2d1f048aff7b8b400006301f1ce8c232ecc7e9d5f705af27a849b2c03ea2e7",
+          "bytes": 1330
+        },
+        {
+          "path": "references/context-safety.md",
+          "sha256": "e6be2bd3495f454d4bedee9484d728d245d1fa656e11fc4ceec5693c16e4730a",
+          "bytes": 990
+        },
+        {
+          "path": "references/github-issues.md",
+          "sha256": "d26ef9197b4a6ae5159ae6d11abd162bcc624d95fc7ccf508e07b68f916a1b19",
+          "bytes": 1636
+        },
+        {
+          "path": "references/redaction-policy.md",
+          "sha256": "96b16f47074838fe2d7e609577d6f8b0ad460f8378b281a3f96ee23cb5a08bde",
+          "bytes": 2243
+        },
+        {
+          "path": "references/session-discovery.md",
+          "sha256": "6d1dced083e5d978448a78df298cf515531b0eb39b2854a4a2afbffeb69a7435",
+          "bytes": 1859
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "3143de8695c5a2d63e8b1675f33837578076f464deb127c2ebdd0b46fceef886",
+          "bytes": 6941
+        },
+        {
+          "path": "templates/bundle-README.md",
+          "sha256": "2e6ddc6b106028d5ebd00a50ad93a77111d675c219ee1273cd0857869e8d51ec",
+          "bytes": 3672
+        },
+        {
+          "path": "templates/case.md",
+          "sha256": "597892462be83bc478536ec91f7c285f6dd25d119c560734a3a180fe8471301d",
+          "bytes": 2983
+        },
+        {
+          "path": "templates/issue.md",
+          "sha256": "afd21779e5de5bc5adfe2f5a50a04e44ab8d50d9ad0f829243de248d6f023eed",
+          "bytes": 2680
+        },
+        {
+          "path": "templates/report.md",
+          "sha256": "38295d0fd785e8608f330815c59ebd7047942002ec7085aecbed54681f56b0c1",
+          "bytes": 2359
+        }
+      ],
+      "fileCount": 20
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\dispatching-parallel-agents",
+      "projectPath": ".agents/skills/upstream/dispatching-parallel-agents",
+      "skillSha256": "1968923066f3b707eb01d1992cdf4c42284c3855f70253b9cd5000ff45fca13c",
+      "bytes": 6078,
+      "frontmatter": "name: dispatching-parallel-agents\ndescription: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1968923066f3b707eb01d1992cdf4c42284c3855f70253b9cd5000ff45fca13c",
+          "bytes": 6078
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "executing-plans",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\executing-plans",
+      "projectPath": ".agents/skills/upstream/executing-plans",
+      "skillSha256": "deaf176fa179827e80f2ea3101db3ea90fdf562ebef340eba761e4687940f5f5",
+      "bytes": 18364,
+      "frontmatter": "name: executing-plans\ndescription: Use when executing an implementation plan in the current session as the implementer yourself \u2014 your human partner chose inline execution, or no subagent tool is available",
+      "files": [
+        {
+          "path": "scripts/task-done",
+          "sha256": "ac0b5ebafc7d471507b7e94d88da77a11f187ba277c8d48fefaf8ff3e4fee50e",
+          "bytes": 1900
+        },
+        {
+          "path": "scripts/task-start",
+          "sha256": "4ae7ce3b6777c3240af786197836a6b4bbf3b0ee831c25f147c149ea8db54a21",
+          "bytes": 1185
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "deaf176fa179827e80f2ea3101db3ea90fdf562ebef340eba761e4687940f5f5",
+          "bytes": 18364
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\finishing-a-development-branch",
+      "projectPath": ".agents/skills/upstream/finishing-a-development-branch",
+      "skillSha256": "8db5a922b242dd4e1bf824cb91c13b3e8d8e8a86d6ceaf7f0774eb9cce909d65",
+      "bytes": 7781,
+      "frontmatter": "name: finishing-a-development-branch\ndescription: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8db5a922b242dd4e1bf824cb91c13b3e8d8e8a86d6ceaf7f0774eb9cce909d65",
+          "bytes": 7781
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "receiving-code-review",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\receiving-code-review",
+      "projectPath": ".agents/skills/upstream/receiving-code-review",
+      "skillSha256": "091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438",
+      "bytes": 6203,
+      "frontmatter": "name: receiving-code-review\ndescription: Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438",
+          "bytes": 6203
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "requesting-code-review",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\requesting-code-review",
+      "projectPath": ".agents/skills/upstream/requesting-code-review",
+      "skillSha256": "2180e14a448e9410bec88e6646a2d1f0ce7fdd58de27388c1e052e929679d2bc",
+      "bytes": 2974,
+      "frontmatter": "name: requesting-code-review\ndescription: Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "files": [
+        {
+          "path": "code-reviewer.md",
+          "sha256": "82e370be6b3447523816286195571e4216ba56ba1ad6ad0e87862294c4c78dcb",
+          "bytes": 6449
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2180e14a448e9410bec88e6646a2d1f0ce7fdd58de27388c1e052e929679d2bc",
+          "bytes": 2974
+        }
+      ],
+      "fileCount": 2
+    },
+    {
+      "name": "subagent-driven-development",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\subagent-driven-development",
+      "projectPath": ".agents/skills/upstream/subagent-driven-development",
+      "skillSha256": "1baf70e307bde682c462513c86116333f1f066168c6710f45145bf5f0b00828d",
+      "bytes": 19740,
+      "frontmatter": "name: subagent-driven-development\ndescription: Use when executing implementation plans with independent tasks in the current session",
+      "files": [
+        {
+          "path": "implementer-prompt.md",
+          "sha256": "81dd9d5a3fb0b09b96b5829f03b9796842f3199ef7591d1ba1c2db2a515f64d0",
+          "bytes": 6335
+        },
+        {
+          "path": "re-review-prompt.md",
+          "sha256": "ad54d0a10f1c2c8e656456e0a46e654af5dfe5ee6bcef63428cfd69b8dcd9311",
+          "bytes": 4833
+        },
+        {
+          "path": "references/batching.md",
+          "sha256": "b54dc7e23dbfb90db89bcb2fb3af591aabf6a271a165fbc0da4c6f9439980eac",
+          "bytes": 583
+        },
+        {
+          "path": "references/cannot-verify.md",
+          "sha256": "e698713a15e0eabf1a2ab26ffe1bb04bf70c9d6d2e2060d44a0f9a1bdd4408bf",
+          "bytes": 513
+        },
+        {
+          "path": "references/final-review.md",
+          "sha256": "6c9e12093e46c4ad0a203bc07709c17e3470f855f1b78e55c5e7b722a012a32c",
+          "bytes": 2576
+        },
+        {
+          "path": "references/fix-loop.md",
+          "sha256": "1938ce707915efc44021e563ebc29666329e20ad861b6c50b89f305b8f4e8d8b",
+          "bytes": 4314
+        },
+        {
+          "path": "references/handling-reports.md",
+          "sha256": "8f759cdd4936220c38aab05b6d6c48c6df8ac8f146b0f37a6d2facbf87133c67",
+          "bytes": 1062
+        },
+        {
+          "path": "references/preflight.md",
+          "sha256": "3ea21c5fc1af1a190ac8a9d19ceb0849b47bf2ffe27b87dffcc21b6a0539776c",
+          "bytes": 1353
+        },
+        {
+          "path": "references/resuming.md",
+          "sha256": "ff6e38bde2276faa2a7e93513086caded0ea10edbf2ec7f349a7e3b0d7c668c4",
+          "bytes": 614
+        },
+        {
+          "path": "scripts/review-package",
+          "sha256": "aed7c6e09fc660417d28898ed975e84651cb9f18f4675141cd475edfb7037f3d",
+          "bytes": 2444
+        },
+        {
+          "path": "scripts/sdd-repo",
+          "sha256": "6f8256a776968d394bae679572e41ce572fd45c72074b98f9a8eb8b4f160e06f",
+          "bytes": 2356
+        },
+        {
+          "path": "scripts/sdd-workspace",
+          "sha256": "de3af5252fa595fc2000ba05cf69e06187d5c8aae9d283cced4c167ad1813061",
+          "bytes": 4823
+        },
+        {
+          "path": "scripts/task-brief",
+          "sha256": "0f244a12e146393c552ba62069d3eedcc85cb3f76de67b01f4e11219e5ebbcd8",
+          "bytes": 4769
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1baf70e307bde682c462513c86116333f1f066168c6710f45145bf5f0b00828d",
+          "bytes": 19740
+        },
+        {
+          "path": "task-reviewer-prompt.md",
+          "sha256": "61a04c2fb29907887d8babee1594f5e35ae26d461e7e584f5b7c283215165e08",
+          "bytes": 9175
+        }
+      ],
+      "fileCount": 15
+    },
+    {
+      "name": "systematic-debugging",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\systematic-debugging",
+      "projectPath": ".agents/skills/upstream/systematic-debugging",
+      "skillSha256": "51c6435d98c83c42c96ba7c35725a0b2c376cd487fb1a4e6bd0ddbe7e33ef202",
+      "bytes": 9530,
+      "frontmatter": "name: systematic-debugging\ndescription: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "files": [
+        {
+          "path": "condition-based-waiting-example.ts",
+          "sha256": "40ae5ebe497fdf310200e43fe986552546d0a22837c0d39e855db1cfd33eb88e",
+          "bytes": 5054
+        },
+        {
+          "path": "condition-based-waiting.md",
+          "sha256": "e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26",
+          "bytes": 3516
+        },
+        {
+          "path": "defense-in-depth.md",
+          "sha256": "1e175fb86fc357e58c6aebf5441e481e1b7868b4380c0456b63a17eefbd18ba7",
+          "bytes": 3650
+        },
+        {
+          "path": "find-polluter.sh",
+          "sha256": "dd7b8f13c4cc2a24b33ff87b18da9248f3e1c80a085c3316224f69ff0fa5c43c",
+          "bytes": 1986
+        },
+        {
+          "path": "root-cause-tracing.md",
+          "sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
+          "bytes": 5321
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "51c6435d98c83c42c96ba7c35725a0b2c376cd487fb1a4e6bd0ddbe7e33ef202",
+          "bytes": 9530
+        }
+      ],
+      "fileCount": 6
+    },
+    {
+      "name": "test-driven-development",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\test-driven-development",
+      "projectPath": ".agents/skills/upstream/test-driven-development",
+      "skillSha256": "64b03fce4aee5a97a93160cea8111f3ba13a17b7c001db4bd5836d67fd10705d",
+      "bytes": 9578,
+      "frontmatter": "name: test-driven-development\ndescription: Use when implementing any feature or bugfix, before writing implementation code",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "64b03fce4aee5a97a93160cea8111f3ba13a17b7c001db4bd5836d67fd10705d",
+          "bytes": 9578
+        },
+        {
+          "path": "writing-good-tests.md",
+          "sha256": "51471c853306ff92ca8bb41dcaea05f31c0e46b03651f8f3c99754b7172f4ae1",
+          "bytes": 8268
+        }
+      ],
+      "fileCount": 2
+    },
+    {
+      "name": "using-git-worktrees",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\using-git-worktrees",
+      "projectPath": ".agents/skills/upstream/using-git-worktrees",
+      "skillSha256": "8cfb86f121269e8f7f12361e6795c4f6738828340e28964c9229d365666c9edd",
+      "bytes": 6813,
+      "frontmatter": "name: using-git-worktrees\ndescription: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8cfb86f121269e8f7f12361e6795c4f6738828340e28964c9229d365666c9edd",
+          "bytes": 6813
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "using-superpowers",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\using-superpowers",
+      "projectPath": ".agents/skills/upstream/using-superpowers",
+      "skillSha256": "82c5c8866ad7f5dd4440ce66bd7806ba48a2f13771beae5cf112e53f08fe36ba",
+      "bytes": 3192,
+      "frontmatter": "name: using-superpowers\ndescription: Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
+      "files": [
+        {
+          "path": "references/antigravity-tools.md",
+          "sha256": "4880f6de3da4e32f9659ebe7a72b9e0ebfff04e028c2ed96173f86d0387a04c0",
+          "bytes": 1495
+        },
+        {
+          "path": "references/claude-code-tools.md",
+          "sha256": "21479a3fee27448cab8748a3b5687e53bb257883bda9c070426f9a1ab5cebf1b",
+          "bytes": 1469
+        },
+        {
+          "path": "references/codex-tools.md",
+          "sha256": "1a38ad9b188c393052f58d95657a1c35ea6aafc8b5a27f198f3922912f70bbe7",
+          "bytes": 4762
+        },
+        {
+          "path": "references/gemini-tools.md",
+          "sha256": "62b9157bcb0ee3c6784e3d0da0798ddfa5872f9e0c34bea48f3079dabea71965",
+          "bytes": 4598
+        },
+        {
+          "path": "references/hermes-tools.md",
+          "sha256": "e2185c976a3c87503910e05e2aea58cc89bc8e569bb624b93df9958ac47a9190",
+          "bytes": 1964
+        },
+        {
+          "path": "references/muse-tools.md",
+          "sha256": "5a1da5c575fe18456ca71cd47ebfd8a38c745f8d82a67fe64d5b83080000eeb3",
+          "bytes": 1908
+        },
+        {
+          "path": "references/pi-tools.md",
+          "sha256": "703dbc83d23ecab9c6f388460c38abc482e9dee2fe6772a8c7a255152ad3a4d5",
+          "bytes": 1242
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "82c5c8866ad7f5dd4440ce66bd7806ba48a2f13771beae5cf112e53f08fe36ba",
+          "bytes": 3192
+        }
+      ],
+      "fileCount": 8
+    },
+    {
+      "name": "verification-before-completion",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\verification-before-completion",
+      "projectPath": ".agents/skills/upstream/verification-before-completion",
+      "skillSha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3",
+      "bytes": 3646,
+      "frontmatter": "name: verification-before-completion\ndescription: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3",
+          "bytes": 3646
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "writing-plans",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\writing-plans",
+      "projectPath": ".agents/skills/upstream/writing-plans",
+      "skillSha256": "a6c67c1900064347c2a329990dd3c555657c51c3ec53b259a08aa01a2c26139a",
+      "bytes": 10335,
+      "frontmatter": "name: writing-plans\ndescription: Use when you have a spec or requirements for a multi-step task, before touching code",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a6c67c1900064347c2a329990dd3c555657c51c3ec53b259a08aa01a2c26139a",
+          "bytes": 10335
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "writing-skills",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\writing-skills",
+      "projectPath": ".agents/skills/upstream/writing-skills",
+      "skillSha256": "8cb3ac68c6d8c4bb46886b998b09af7989643cab8bd0e46ee86dd62e64546bbe",
+      "bytes": 16738,
+      "frontmatter": "name: writing-skills\ndescription: Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "files": [
+        {
+          "path": "references/anthropic-best-practices.md",
+          "sha256": "217629b356c09c9bd11017c9788e8fc654ca1b32c92d4a51cd490e16dd65e59a",
+          "bytes": 46197
+        },
+        {
+          "path": "references/bulletproofing.md",
+          "sha256": "9397023e6bc85b556a57f3097371363bf03e28e755c57f403f470bcda90e0a23",
+          "bytes": 2577
+        },
+        {
+          "path": "references/CLAUDE_MD_TESTING.md",
+          "sha256": "0b379a3415e185d3c434b3ad283d8aa132f3022c2a4f210f168865b5986bcef0",
+          "bytes": 5423
+        },
+        {
+          "path": "references/discovery.md",
+          "sha256": "c6bbc74af3be90f693f7cbc986af6fa94e8df75f65109b52e96032587f5b92af",
+          "bytes": 7616
+        },
+        {
+          "path": "references/flowcharts.md",
+          "sha256": "8b1f542391f274f0d33f3457ac099a3d317d6877eaa3b8d3b1ebef151b55fda7",
+          "bytes": 1262
+        },
+        {
+          "path": "references/graphviz-conventions.dot",
+          "sha256": "e2890a593c91370e384b42f2f67b1a6232c9e69dddea7891a0c1c46d7b20b694",
+          "bytes": 5970
+        },
+        {
+          "path": "references/persuasion-principles.md",
+          "sha256": "a51bc9bf75189ea73a27b3fb504a2fdfdb966fb1f7f1cdf03203230a216ccc03",
+          "bytes": 5901
+        },
+        {
+          "path": "references/testing-skills-with-subagents.md",
+          "sha256": "ed8a6862c085900135962390530d9dc7637ad6d650b4324ce3b051287a5c3f22",
+          "bytes": 12557
+        },
+        {
+          "path": "render-graphs.js",
+          "sha256": "c7f412cc629461c4d10287e668731874c0497707023e3e3f74a5355eb2cee196",
+          "bytes": 4968
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8cb3ac68c6d8c4bb46886b998b09af7989643cab8bd0e46ee86dd62e64546bbe",
+          "bytes": 16738
+        }
+      ],
+      "fileCount": 10
+    },
+    {
+      "name": "agent-architecture-audit",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\agent-architecture-audit",
+      "projectPath": ".agents/skills/upstream/agent-architecture-audit",
+      "skillSha256": "64f57e232c3533877403703bc95b3c75df9de23f657899a306f13c703009ff57",
+      "bytes": 10278,
+      "frontmatter": "name: agent-architecture-audit\ndescription: Full-stack diagnostic for agent and LLM applications. Audits the 12-layer agent stack for wrapper regression, memory pollution, tool discipline failures, hidden repair loops, and rendering corruption. Produces severity-ranked findings with code-first fixes. Essential for developers building agent applications, autonomous loops, or any LLM-powered feature. Use when an agent or LLM feature misbehaves and the failing layer is unknown, or before shipping an agent stack.\nmetadata:\n  origin: oh-my-agent-check\ntools: Read, Write, Edit, Bash, Grep, Glob",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "64f57e232c3533877403703bc95b3c75df9de23f657899a306f13c703009ff57",
+          "bytes": 10278
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "agent-eval",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\agent-eval",
+      "projectPath": ".agents/skills/upstream/agent-eval",
+      "skillSha256": "57fa683e356b6f5612bc6d7dc101ae39c126e6edf9a48f4ec53afea3e80d7e5d",
+      "bytes": 4696,
+      "frontmatter": "name: agent-eval\ndescription: Head-to-head comparison of coding agents (Claude Code, Aider, Codex, etc.) on custom tasks with pass rate, cost, time, and consistency metrics. Use when choosing between coding agents, or when a change to an agent setup needs measured pass rate, cost, and time rather than an impression.\nlicense: MIT\nmetadata:\n  origin: ECC\ntools: Read, Write, Edit, Bash, Grep, Glob",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "57fa683e356b6f5612bc6d7dc101ae39c126e6edf9a48f4ec53afea3e80d7e5d",
+          "bytes": 4696
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "agent-harness-construction",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\agent-harness-construction",
+      "projectPath": ".agents/skills/upstream/agent-harness-construction",
+      "skillSha256": "e7fb390a6663b46ea5d3c2876753a5ce32ba3bad1889686b21a42894caa1742d",
+      "bytes": 2100,
+      "frontmatter": "name: agent-harness-construction\ndescription: Design and optimize AI agent action spaces, tool definitions, and observation formatting for higher completion rates. Use when defining or revising an agent's tool set, action space, or observation format.\nmetadata:\n  origin: ECC",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e7fb390a6663b46ea5d3c2876753a5ce32ba3bad1889686b21a42894caa1742d",
+          "bytes": 2100
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "agent-security-hardening",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\agent-security-hardening",
+      "projectPath": ".agents/skills/upstream/agent-security-hardening",
+      "skillSha256": "0e0895ada90aa8fa085e4257961ebe15f2dff43b843785b1533d4c731186ad81",
+      "bytes": 10678,
+      "frontmatter": "name: agent-security-hardening\ndescription: Security hardening guidance for AI agent frameworks that process untrusted content, invoke tools, write workspace files, manage runtime identifiers, or handle credentials. Use when building or reviewing an agent runtime, autonomous worker, tool gateway, memory service, or multi-tenant agent deployment. Do not use for general web application security or offensive testing.\nmetadata:\n  origin: ECC",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0e0895ada90aa8fa085e4257961ebe15f2dff43b843785b1533d4c731186ad81",
+          "bytes": 10678
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\ui-ux-pro-max",
+      "projectPath": ".agents/skills/upstream/ui-ux-pro-max",
+      "skillSha256": "14f43337edfbf7822e091428e4ae0c6f92f86e3353deda6a30f6613121e2cf2d",
+      "bytes": 16646,
+      "frontmatter": "name: ui-ux-pro-max\ndescription: \"UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.\"",
+      "files": [
+        {
+          "path": "data/app-interface.csv",
+          "sha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08",
+          "bytes": 11046
+        },
+        {
+          "path": "data/catalog-summary.json",
+          "sha256": "b27655fbce8fec64b7ab7ec6ac11f079a0e6ab29a5c2785d624cedc96dd0742f",
+          "bytes": 2392
+        },
+        {
+          "path": "data/charts.csv",
+          "sha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a",
+          "bytes": 23365
+        },
+        {
+          "path": "data/colors.csv",
+          "sha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c",
+          "bytes": 37940
+        },
+        {
+          "path": "data/data-provenance.json",
+          "sha256": "e29a3aab8d8418a23f67e00a8e8f3064afe4eea1183540ec4af374ec6f4fc938",
+          "bytes": 38203
+        },
+        {
+          "path": "data/google-font-licenses.json",
+          "sha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a",
+          "bytes": 433127
+        },
+        {
+          "path": "data/google-fonts.csv",
+          "sha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03",
+          "bytes": 747241
+        },
+        {
+          "path": "data/icons.csv",
+          "sha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc",
+          "bytes": 57945
+        },
+        {
+          "path": "data/landing.csv",
+          "sha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0",
+          "bytes": 25449
+        },
+        {
+          "path": "data/motion.csv",
+          "sha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb",
+          "bytes": 14679
+        },
+        {
+          "path": "data/phosphor-icons-upstream.json",
+          "sha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236",
+          "bytes": 823933
+        },
+        {
+          "path": "data/products.csv",
+          "sha256": "5756125e2b0e0d2360926f175d0975c8cd846c7589e5e2ce02631ff645e66361",
+          "bytes": 76959
+        },
+        {
+          "path": "data/react-performance.csv",
+          "sha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734",
+          "bytes": 15080
+        },
+        {
+          "path": "data/stacks/angular.csv",
+          "sha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553",
+          "bytes": 19863
+        },
+        {
+          "path": "data/stacks/astro.csv",
+          "sha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6",
+          "bytes": 14591
+        },
+        {
+          "path": "data/stacks/avalonia.csv",
+          "sha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258",
+          "bytes": 27327
+        },
+        {
+          "path": "data/stacks/flutter.csv",
+          "sha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0",
+          "bytes": 14192
+        },
+        {
+          "path": "data/stacks/html-tailwind.csv",
+          "sha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee",
+          "bytes": 16551
+        },
+        {
+          "path": "data/stacks/javafx.csv",
+          "sha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869",
+          "bytes": 33577
+        },
+        {
+          "path": "data/stacks/jetpack-compose.csv",
+          "sha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a",
+          "bytes": 12295
+        },
+        {
+          "path": "data/stacks/laravel.csv",
+          "sha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9",
+          "bytes": 20163
+        },
+        {
+          "path": "data/stacks/nextjs.csv",
+          "sha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4",
+          "bytes": 18687
+        },
+        {
+          "path": "data/stacks/nuxt-ui.csv",
+          "sha256": "9c0179d559abe39ad63b958b54cb29c82be1dd20706430476096ea8967bfa328",
+          "bytes": 32292
+        },
+        {
+          "path": "data/stacks/nuxtjs.csv",
+          "sha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176",
+          "bytes": 23014
+        },
+        {
+          "path": "data/stacks/react-native.csv",
+          "sha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5",
+          "bytes": 14049
+        },
+        {
+          "path": "data/stacks/react.csv",
+          "sha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1",
+          "bytes": 21166
+        },
+        {
+          "path": "data/stacks/shadcn.csv",
+          "sha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51",
+          "bytes": 23184
+        },
+        {
+          "path": "data/stacks/svelte.csv",
+          "sha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db",
+          "bytes": 15078
+        },
+        {
+          "path": "data/stacks/swiftui.csv",
+          "sha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623",
+          "bytes": 15323
+        },
+        {
+          "path": "data/stacks/threejs.csv",
+          "sha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b",
+          "bytes": 46769
+        },
+        {
+          "path": "data/stacks/uno.csv",
+          "sha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48",
+          "bytes": 30091
+        },
+        {
+          "path": "data/stacks/uwp.csv",
+          "sha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c",
+          "bytes": 24692
+        },
+        {
+          "path": "data/stacks/vue.csv",
+          "sha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95",
+          "bytes": 12813
+        },
+        {
+          "path": "data/stacks/winui.csv",
+          "sha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85",
+          "bytes": 27890
+        },
+        {
+          "path": "data/stacks/wpf.csv",
+          "sha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7",
+          "bytes": 24158
+        },
+        {
+          "path": "data/styles.csv",
+          "sha256": "a9b6cadbd1cb9e7cb8398a3b445e0691d01e42ed5e5efa60a5d0c08c99c8100d",
+          "bytes": 152958
+        },
+        {
+          "path": "data/typography.csv",
+          "sha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8",
+          "bytes": 49997
+        },
+        {
+          "path": "data/ui-reasoning.csv",
+          "sha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a",
+          "bytes": 77360
+        },
+        {
+          "path": "data/ux-guidelines.csv",
+          "sha256": "d63dc39439cf615cdccfdf7acd2301e0c3ce5e1e56a89b60617fa190f7511512",
+          "bytes": 28310
+        },
+        {
+          "path": "references/pro-rules.md",
+          "sha256": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23",
+          "bytes": 10909
+        },
+        {
+          "path": "references/quick-reference.md",
+          "sha256": "fc53ccfafaa08d40d7326e34e88e9387df60b4256cd649d34dcae0284f247949",
+          "bytes": 24773
+        },
+        {
+          "path": "scripts/core.py",
+          "sha256": "caf92bdcf2579c9a7d6af4f53c54ee9d3c8f05472cfab77aaec38bef120ec63e",
+          "bytes": 43933
+        },
+        {
+          "path": "scripts/design_system.py",
+          "sha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103",
+          "bytes": 71537
+        },
+        {
+          "path": "scripts/reasoning_contract.py",
+          "sha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913",
+          "bytes": 5824
+        },
+        {
+          "path": "scripts/search.py",
+          "sha256": "9fd5acc991142fd43c3afe7be0f6720911b668f3988b34e74b5cbc41d58e7947",
+          "bytes": 10642
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-api.json",
+          "sha256": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176",
+          "bytes": 1079
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-catalog.json",
+          "sha256": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f",
+          "bytes": 1772
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-existing.csv",
+          "sha256": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b",
+          "bytes": 480
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-metadata.json",
+          "sha256": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba",
+          "bytes": 328
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-overrides.json",
+          "sha256": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b",
+          "bytes": 97
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/icons-curated.csv",
+          "sha256": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d",
+          "bytes": 495
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-core.json",
+          "sha256": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb",
+          "bytes": 571
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-package.json",
+          "sha256": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475",
+          "bytes": 370
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-react-exports.json",
+          "sha256": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded",
+          "bytes": 87
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-react-package.json",
+          "sha256": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec",
+          "bytes": 81
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-baseline.json",
+          "sha256": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe",
+          "bytes": 89426
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-cases.json",
+          "sha256": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646",
+          "bytes": 36734
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-thresholds.json",
+          "sha256": "8b1d1c87cecb51db673b7d50e5f6cf29169edfa857853accd1ed80fce3fb4e09",
+          "bytes": 5079
+        },
+        {
+          "path": "scripts/tests/test_catalog_refresh.py",
+          "sha256": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb",
+          "bytes": 19466
+        },
+        {
+          "path": "scripts/tests/test_catalog_summary_line_endings.py",
+          "sha256": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989",
+          "bytes": 2947
+        },
+        {
+          "path": "scripts/tests/test_core.py",
+          "sha256": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118",
+          "bytes": 16680
+        },
+        {
+          "path": "scripts/tests/test_core_data_quality.py",
+          "sha256": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5",
+          "bytes": 8954
+        },
+        {
+          "path": "scripts/tests/test_data_contracts.py",
+          "sha256": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a",
+          "bytes": 19513
+        },
+        {
+          "path": "scripts/tests/test_design_system_mode.py",
+          "sha256": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef",
+          "bytes": 9815
+        },
+        {
+          "path": "scripts/tests/test_design_system_stack.py",
+          "sha256": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38",
+          "bytes": 2261
+        },
+        {
+          "path": "scripts/tests/test_ime_composition.py",
+          "sha256": "6718a0420a5c791c912763ad9d1b66e824b3b55240bc91242a5cccf13482416d",
+          "bytes": 4675
+        },
+        {
+          "path": "scripts/tests/test_native_desktop_stack_freshness.py",
+          "sha256": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb",
+          "bytes": 8375
+        },
+        {
+          "path": "scripts/tests/test_relevance_evaluator.py",
+          "sha256": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f",
+          "bytes": 8430
+        },
+        {
+          "path": "scripts/tests/test_rtl_support.py",
+          "sha256": "fb1c42f782d1929959c5adaefb8169b187b1446a17720ed4f0691b1cd3bb7898",
+          "bytes": 6836
+        },
+        {
+          "path": "scripts/tests/test_skill_script_paths.py",
+          "sha256": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44",
+          "bytes": 4305
+        },
+        {
+          "path": "scripts/tests/test_style_taxonomy.py",
+          "sha256": "58c14be6c741de5382e3aeca858480570ba96d374532c3b22f44851a02d3076b",
+          "bytes": 7425
+        },
+        {
+          "path": "scripts/tests/test_text_layout_resilience.py",
+          "sha256": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4",
+          "bytes": 5874
+        },
+        {
+          "path": "scripts/tests/test_web_stack_freshness.py",
+          "sha256": "83a6d597410f442441cdb17d0913be151404a608ada6a2487dd2bfe2fbf31e5d",
+          "bytes": 8288
+        },
+        {
+          "path": "scripts/validate_data.py",
+          "sha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
+          "bytes": 52230
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "14f43337edfbf7822e091428e4ae0c6f92f86e3353deda6a30f6613121e2cf2d",
+          "bytes": 16646
+        }
+      ],
+      "fileCount": 75
+    },
+    {
+      "name": "ui-styling",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\ui-styling",
+      "projectPath": ".agents/skills/upstream/ui-styling",
+      "skillSha256": "625e302c60ee8f2e22d56cbe638c4a739e2657f566dae42689503ad517c30f1e",
+      "bytes": 10945,
+      "frontmatter": "name: ui-styling\ndescription: Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating responsive layouts, adding accessible components (dialogs, dropdowns, forms, tables), customizing themes and colors, implementing dark mode, generating visual designs and posters, or establishing consistent styling patterns across applications.\nargument-hint: \"[component or layout]\"\nlicense: MIT\nmetadata:\n  author: claudekit\n  version: \"1.0.0\"",
+      "files": [
+        {
+          "path": "canvas-fonts/ArsenalSC-OFL.txt",
+          "sha256": "8ddd61b18ba2c0d0dbe4a691cf5f1a0673f473d02fa0546e67ee88c006aeff6e",
+          "bytes": 4373
+        },
+        {
+          "path": "canvas-fonts/ArsenalSC-Regular.ttf",
+          "sha256": "65e6f89df58f68fd905b3add34a79dd6106aa3b3044df0dad9676fff53d504b9",
+          "bytes": 165848
+        },
+        {
+          "path": "canvas-fonts/BigShoulders-Bold.ttf",
+          "sha256": "b43bcd198b9fdf717dd42aa61a34dba32e01aceaeae659d689afd0ca52c37ea2",
+          "bytes": 94528
+        },
+        {
+          "path": "canvas-fonts/BigShoulders-OFL.txt",
+          "sha256": "fbc746aabf0eb1847dfd92e2efc4596d79fa897d60b8e64062a22f585508fb3f",
+          "bytes": 4397
+        },
+        {
+          "path": "canvas-fonts/BigShoulders-Regular.ttf",
+          "sha256": "18a879fc71978a4447150705caf880a9da3860083c259fd29e6dc03057b6842a",
+          "bytes": 94396
+        },
+        {
+          "path": "canvas-fonts/Boldonse-OFL.txt",
+          "sha256": "45cc82ab4032273c0924025ffcf8f0665a68e1a5955e3f7247e5daf1deeb1326",
+          "bytes": 4390
+        },
+        {
+          "path": "canvas-fonts/Boldonse-Regular.ttf",
+          "sha256": "cc2e540604565c0f90a7d8d46194a2f42fc9c45512cd2e39bf03b50eb68c35a4",
+          "bytes": 77168
+        },
+        {
+          "path": "canvas-fonts/BricolageGrotesque-Bold.ttf",
+          "sha256": "a737b146fe0d77ffe8a86e3cd16700dd431d3b1e420d4fd80e142cd68a1cb50d",
+          "bytes": 90952
+        },
+        {
+          "path": "canvas-fonts/BricolageGrotesque-OFL.txt",
+          "sha256": "0e4f4eb8534bc66a76aca13dd19c1f9731b2008866b29ccff182b764649df9b4",
+          "bytes": 4403
+        },
+        {
+          "path": "canvas-fonts/BricolageGrotesque-Regular.ttf",
+          "sha256": "972a6d098c9867ae131d0ea99e221e63976b11a19d4b931c2c7ace525674e4f6",
+          "bytes": 90920
+        },
+        {
+          "path": "canvas-fonts/CrimsonPro-Bold.ttf",
+          "sha256": "48f191e38355c8db100eb3ce157c20f9302a3b9a37b44a660f77ecfce3986609",
+          "bytes": 107352
+        },
+        {
+          "path": "canvas-fonts/CrimsonPro-Italic.ttf",
+          "sha256": "52318db3526b644e6efa60be0b3ca5a50e40fbe8bd026c261e0aa206f0772267",
+          "bytes": 108828
+        },
+        {
+          "path": "canvas-fonts/CrimsonPro-OFL.txt",
+          "sha256": "35680d14547b6748b6f362a052a46d22764ce5eccf96e18b74f567bb2ee58114",
+          "bytes": 4394
+        },
+        {
+          "path": "canvas-fonts/CrimsonPro-Regular.ttf",
+          "sha256": "48fad08cb1917a7b2f2c6fe5135d6c07743a6663cf7631ec4481108aaf081422",
+          "bytes": 106696
+        },
+        {
+          "path": "canvas-fonts/DMMono-OFL.txt",
+          "sha256": "bfe7842fcb88323e2981e24710c25202677385a8c75fb6a87217b275a0247ae3",
+          "bytes": 4392
+        },
+        {
+          "path": "canvas-fonts/DMMono-Regular.ttf",
+          "sha256": "f98ada968dc3b6b2c08d3f5caaf266977df0bfe0929372b93df5a06cf2ace450",
+          "bytes": 48852
+        },
+        {
+          "path": "canvas-fonts/EricaOne-OFL.txt",
+          "sha256": "e0de629968b52255548d5fafcf30b24ff9edae0eda362380755a75816404d0fa",
+          "bytes": 4410
+        },
+        {
+          "path": "canvas-fonts/EricaOne-Regular.ttf",
+          "sha256": "db1d89e80e33a8a01beaaac7a85df582857d24a43f1e181461aa7ff5d701476a",
+          "bytes": 24872
+        },
+        {
+          "path": "canvas-fonts/GeistMono-Bold.ttf",
+          "sha256": "75c0828d5c1ee44b9ef9f4df577bf41595ec362e2ea3f1e558590c9e92c7949d",
+          "bytes": 78304
+        },
+        {
+          "path": "canvas-fonts/GeistMono-OFL.txt",
+          "sha256": "6a873c900f584109b13ae0aaf81d6e3cf0a68751a216b03f7b6c68d547057bb4",
+          "bytes": 4388
+        },
+        {
+          "path": "canvas-fonts/GeistMono-Regular.ttf",
+          "sha256": "a55c1b51cda4afeab9e471e7947b85a20f7c8831d7e6b1470c1b7fbdc0f0f15e",
+          "bytes": 78232
+        },
+        {
+          "path": "canvas-fonts/Gloock-OFL.txt",
+          "sha256": "c0a3f3125ac491ef3d1f09f401be4834c646562f647e44f2bcbc49f0466c656d",
+          "bytes": 4381
+        },
+        {
+          "path": "canvas-fonts/Gloock-Regular.ttf",
+          "sha256": "e86b4ce66dbd3f1f83eee8db99ec96e0da1128c3f53df0e9b3b7472025dfe960",
+          "bytes": 95156
+        },
+        {
+          "path": "canvas-fonts/IBMPlexMono-Bold.ttf",
+          "sha256": "dbd2a2fb024579438d6400a84e57579bfd2dbe67c306c8fd9fde92a61e4f2eea",
+          "bytes": 136008
+        },
+        {
+          "path": "canvas-fonts/IBMPlexMono-OFL.txt",
+          "sha256": "5294ce778857e1eb02e830b6ab06435537d38f43055327e73d03a2d4d57d5123",
+          "bytes": 4363
+        },
+        {
+          "path": "canvas-fonts/IBMPlexMono-Regular.ttf",
+          "sha256": "ab08018ccd276b79fb2c636bb95b9c543598f9d50505fe92506fcb4dae7810cd",
+          "bytes": 133796
+        },
+        {
+          "path": "canvas-fonts/IBMPlexSerif-Bold.ttf",
+          "sha256": "b8d294e9b5c5a0940f167c3ced0f7ef2e3f57082ca3ff096ef30e86e26c1c159",
+          "bytes": 161000
+        },
+        {
+          "path": "canvas-fonts/IBMPlexSerif-BoldItalic.ttf",
+          "sha256": "da64b75f4284f53e7b5c71fa190a35b8bf3494fe19f1804c81c3a53340bca570",
+          "bytes": 169840
+        },
+        {
+          "path": "canvas-fonts/IBMPlexSerif-Italic.ttf",
+          "sha256": "b11f1048745e715a55c9d837b3f10226ca3d78867b7db7251ddad8f98dcf0f38",
+          "bytes": 170004
+        },
+        {
+          "path": "canvas-fonts/IBMPlexSerif-Regular.ttf",
+          "sha256": "77cd233a2af8dc6b1022faea3bb3b01f3c75af68bcf530cb6aeb15982ff3dbb7",
+          "bytes": 160380
+        },
+        {
+          "path": "canvas-fonts/InstrumentSans-Bold.ttf",
+          "sha256": "444f85bf1c4b0e1ce1ca624f6be54bcd832207714ccaf4ea99ee531341683bdf",
+          "bytes": 68084
+        },
+        {
+          "path": "canvas-fonts/InstrumentSans-BoldItalic.ttf",
+          "sha256": "3762f6cef95d6039489ad5ba5787d4c30f17a1ad01e9ac3c816ed69692722a68",
+          "bytes": 70004
+        },
+        {
+          "path": "canvas-fonts/InstrumentSans-Italic.ttf",
+          "sha256": "78e85858e371b2cb4e18f617c10f0f937c0e12a0887ffee98555b24ed305b3a7",
+          "bytes": 69900
+        },
+        {
+          "path": "canvas-fonts/InstrumentSans-OFL.txt",
+          "sha256": "bf4dc6d13a8cccd4807133c77a1ee9619a16b92cb23322258725ab6731c2f6e5",
+          "bytes": 4403
+        },
+        {
+          "path": "canvas-fonts/InstrumentSans-Regular.ttf",
+          "sha256": "a22cb26e48fd79bcb01bf2fc92d36785474dce36d9c544ab0a8868c2657c4a87",
+          "bytes": 68028
+        },
+        {
+          "path": "canvas-fonts/InstrumentSerif-Italic.ttf",
+          "sha256": "9c86e4d5a47b50224a2463a9eca8535835257c8e85c470c2c6b454b1af6f046e",
+          "bytes": 70868
+        },
+        {
+          "path": "canvas-fonts/InstrumentSerif-Regular.ttf",
+          "sha256": "56ac3be03ac3ba283196b3e77850ab2ffcf56cfb6fd3212c5620109a972f8c99",
+          "bytes": 69312
+        },
+        {
+          "path": "canvas-fonts/Italiana-OFL.txt",
+          "sha256": "8373b11312ace78c4cec2e8f9f6aa9f2330601107dac7bcf899c6f2dbd40c5a5",
+          "bytes": 4394
+        },
+        {
+          "path": "canvas-fonts/Italiana-Regular.ttf",
+          "sha256": "15c4dd6ab8cf4a29ba8826f65edcbe2f6c266c557d34d081f25072dfd5605fd2",
+          "bytes": 27184
+        },
+        {
+          "path": "canvas-fonts/JetBrainsMono-Bold.ttf",
+          "sha256": "a2349098b9e45419e7bf0e2958d6c4937a049dded37387b08be725be4c7615f3",
+          "bytes": 114828
+        },
+        {
+          "path": "canvas-fonts/JetBrainsMono-OFL.txt",
+          "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
+          "bytes": 4399
+        },
+        {
+          "path": "canvas-fonts/JetBrainsMono-Regular.ttf",
+          "sha256": "b6b1ff4ddefe36d7f2a6174e1d001cab374e594519ee9049af028d577b64c5f5",
+          "bytes": 114904
+        },
+        {
+          "path": "canvas-fonts/Jura-Light.ttf",
+          "sha256": "c891a381df056b2c4dfe85841e911bf45da0890fa21a7b2692cbe5ea1f505e1e",
+          "bytes": 154308
+        },
+        {
+          "path": "canvas-fonts/Jura-Medium.ttf",
+          "sha256": "c72965cb732a92872643819fd1734128238583cc36b116313859137a51d3368a",
+          "bytes": 154488
+        },
+        {
+          "path": "canvas-fonts/Jura-OFL.txt",
+          "sha256": "eaf9bdb675f6d87e5feb88199ab3ea581d3bd2082f426e384fa9c394576d7260",
+          "bytes": 4380
+        },
+        {
+          "path": "canvas-fonts/LibreBaskerville-OFL.txt",
+          "sha256": "55959eef5b0c3b2e3c1c7631b8ff0f9447d75de20f29cfa7db5bcfb026763343",
+          "bytes": 4449
+        },
+        {
+          "path": "canvas-fonts/LibreBaskerville-Regular.ttf",
+          "sha256": "2101302538d9e88adb679031c04623e4578b5745e89566284fd2c508d79acae0",
+          "bytes": 147584
+        },
+        {
+          "path": "canvas-fonts/Lora-Bold.ttf",
+          "sha256": "7d74015e950c2fb66519c7295b8155621d22200ae2ca2a4c6b43ce3c490cac87",
+          "bytes": 133828
+        },
+        {
+          "path": "canvas-fonts/Lora-BoldItalic.ttf",
+          "sha256": "152f87e71f5ddb60d5c57ecd9132807c947e65c42977193c9164e7c5a6690081",
+          "bytes": 140332
+        },
+        {
+          "path": "canvas-fonts/Lora-Italic.ttf",
+          "sha256": "be627e595184e8afe521f08da0607eee613f1997d423bc8dadc5798995581377",
+          "bytes": 139328
+        },
+        {
+          "path": "canvas-fonts/Lora-OFL.txt",
+          "sha256": "62e37a82d3f1ef2a70712885fa8b3144b65fd144d8e748d6196b690a354d792c",
+          "bytes": 4423
+        },
+        {
+          "path": "canvas-fonts/Lora-Regular.ttf",
+          "sha256": "7ed00e7c9cdf16ab7e2fd2361fe45d4f0b61263cd60aae398b27b7ee08108827",
+          "bytes": 133888
+        },
+        {
+          "path": "canvas-fonts/NationalPark-Bold.ttf",
+          "sha256": "69ac4c301c4a7233c6e602d12a92c54d7967b575f4449951c45ce773f7acff53",
+          "bytes": 79208
+        },
+        {
+          "path": "canvas-fonts/NationalPark-OFL.txt",
+          "sha256": "81c6c71d83b5b45d7344f96df12bb4a2477a5b092a9144757ee1d0f50f855175",
+          "bytes": 4399
+        },
+        {
+          "path": "canvas-fonts/NationalPark-Regular.ttf",
+          "sha256": "a477338b7e18308d476650dfe31235ef86a883572665e56ffb5fb80f82009b58",
+          "bytes": 76424
+        },
+        {
+          "path": "canvas-fonts/NothingYouCouldDo-OFL.txt",
+          "sha256": "7c2a6970584ddad04919816163746f83b378078015899b18468b40f05e9ce128",
+          "bytes": 4363
+        },
+        {
+          "path": "canvas-fonts/NothingYouCouldDo-Regular.ttf",
+          "sha256": "d866f985896d3280f4fce72db7e17302c24a0c1fdb0699b6b5ed3af14f944d57",
+          "bytes": 32020
+        },
+        {
+          "path": "canvas-fonts/Outfit-Bold.ttf",
+          "sha256": "6654b93d21301ec61887d3cedd6c11d9df1b1dfb63f9cf45ac7995f6e2235ab1",
+          "bytes": 55392
+        },
+        {
+          "path": "canvas-fonts/Outfit-OFL.txt",
+          "sha256": "1945b62cd76da9a3051a1660dde72afaa64ffc2666d30e7a78356d651653ba2f",
+          "bytes": 4389
+        },
+        {
+          "path": "canvas-fonts/Outfit-Regular.ttf",
+          "sha256": "f24945365147c9e783e91d8649959b59be6b00c9ee4ecd2f6b33afbb2dd871fe",
+          "bytes": 54912
+        },
+        {
+          "path": "canvas-fonts/PixelifySans-Medium.ttf",
+          "sha256": "38397504f71c122b03d234ea6f55118e3d5bdbddffd82bedddbd7755d3b3be82",
+          "bytes": 51072
+        },
+        {
+          "path": "canvas-fonts/PixelifySans-OFL.txt",
+          "sha256": "7f54d1d9f1ae1ba9f2722f978145f90324fea34ca3c2304b3a29cfa96ac6037e",
+          "bytes": 4395
+        },
+        {
+          "path": "canvas-fonts/PoiretOne-OFL.txt",
+          "sha256": "2eaf541f7eb8b512e4c757a5212060abf5b6edfef230e9d7640bf736b315c33a",
+          "bytes": 4366
+        },
+        {
+          "path": "canvas-fonts/PoiretOne-Regular.ttf",
+          "sha256": "9cf265b139648b36b6c0afdfeb0bf27f7e66db9a16094bc40f644d8da05bc318",
+          "bytes": 45244
+        },
+        {
+          "path": "canvas-fonts/RedHatMono-Bold.ttf",
+          "sha256": "7ef48353f4be5ddb90f000f6fad48f2b62b3e8c27d9818d8d45ff46c201065e0",
+          "bytes": 34420
+        },
+        {
+          "path": "canvas-fonts/RedHatMono-OFL.txt",
+          "sha256": "435fbfb7e66988b2a06686a4cb966faec733f35d8fe100a1601573c27f3e0bb8",
+          "bytes": 4394
+        },
+        {
+          "path": "canvas-fonts/RedHatMono-Regular.ttf",
+          "sha256": "452fe826871b37539f5212b20c87cf30f82f58dd2741f1c96edd1dcbdc0db6b4",
+          "bytes": 34488
+        },
+        {
+          "path": "canvas-fonts/Silkscreen-OFL.txt",
+          "sha256": "6b849745119bbe85ec01fd080c9cd50234da9f52ac6e48b55d1a424a0c4d7ca9",
+          "bytes": 4394
+        },
+        {
+          "path": "canvas-fonts/Silkscreen-Regular.ttf",
+          "sha256": "49567408600809e25147e9225ac4f37f410e2df45a750696c45027531fb65f1b",
+          "bytes": 31960
+        },
+        {
+          "path": "canvas-fonts/SmoochSans-Medium.ttf",
+          "sha256": "dd76e6e77cce82f827a8654cd906e9ce58f3aaf78adda63c4a7f655b8ecb41f0",
+          "bytes": 59704
+        },
+        {
+          "path": "canvas-fonts/SmoochSans-OFL.txt",
+          "sha256": "74c9c4eb88e891483e1b7bc54780b452cbf4f4df66d4e71881d7569aa2130749",
+          "bytes": 4396
+        },
+        {
+          "path": "canvas-fonts/Tektur-Medium.ttf",
+          "sha256": "52bbe8c9b057b3d2da4eeace31a524b1ea26a1375ae34319cf6900ccc57a4c82",
+          "bytes": 76248
+        },
+        {
+          "path": "canvas-fonts/Tektur-OFL.txt",
+          "sha256": "3f1466cb5438f31782eeb6e895f3a655bc4d090e24263e331f555357d1cb734e",
+          "bytes": 4385
+        },
+        {
+          "path": "canvas-fonts/Tektur-Regular.ttf",
+          "sha256": "162e1b36c4718c5b051b36c971ad7e50d341944f35618f480422ebbe72988f98",
+          "bytes": 75604
+        },
+        {
+          "path": "canvas-fonts/WorkSans-Bold.ttf",
+          "sha256": "240d125fc9f8561363dc1ea3f513501253bd70942f41468f48f0b0cafb0c82e2",
+          "bytes": 191304
+        },
+        {
+          "path": "canvas-fonts/WorkSans-BoldItalic.ttf",
+          "sha256": "a5b2cad813df0aaa7d16621f2e93b5117c25e9bc788bc9a3ad218e9d6348ce34",
+          "bytes": 175772
+        },
+        {
+          "path": "canvas-fonts/WorkSans-Italic.ttf",
+          "sha256": "6b7f7002e0b0c8b261fe878658ef5551e3e59d9f6b609b04efb90dde1e2c1ada",
+          "bytes": 174280
+        },
+        {
+          "path": "canvas-fonts/WorkSans-OFL.txt",
+          "sha256": "ace8c22a3326318b54e67c3691857929634205533f454a70ef5a3473ddb2e2ba",
+          "bytes": 4397
+        },
+        {
+          "path": "canvas-fonts/WorkSans-Regular.ttf",
+          "sha256": "e67985a843df0d3cdee51a3d0f329eb1774a344ad9ff0c9ab923751f1577e2a4",
+          "bytes": 188916
+        },
+        {
+          "path": "canvas-fonts/YoungSerif-OFL.txt",
+          "sha256": "cdcb8039606b40a027a6d24586ec62d5fe29c701343d82a048c829cb28a3dd28",
+          "bytes": 4398
+        },
+        {
+          "path": "canvas-fonts/YoungSerif-Regular.ttf",
+          "sha256": "f8dc08f77abad753a00670af70756a8ace938e5c3f0b770f4f4c2071c4bd8fc6",
+          "bytes": 105136
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "bytes": 11357
+        },
+        {
+          "path": "references/canvas-design-system.md",
+          "sha256": "f5de85ff39d9f3a8275c4164b921ba72d5e1d34b8d7a9243d9ee34b3870a4f5f",
+          "bytes": 7888
+        },
+        {
+          "path": "references/shadcn-accessibility.md",
+          "sha256": "a22cd4ccf82b635b2b2c4f12416a0c4f7edcd825d219d6089450fa797a0d9511",
+          "bytes": 9976
+        },
+        {
+          "path": "references/shadcn-components.md",
+          "sha256": "79c4f91cbf68993a43fa3a95889c35db73de45bdd3dfd83a6830863c01aa598a",
+          "bytes": 11155
+        },
+        {
+          "path": "references/shadcn-theming.md",
+          "sha256": "d17d641474221123ff0e0288043ca2f2dab3ac96908a19eed28d82f9e58865ed",
+          "bytes": 8672
+        },
+        {
+          "path": "references/tailwind-customization.md",
+          "sha256": "4c5adeed6263a274f74f6eb2c816ca420fd6ef4f35683582988bacd404799afe",
+          "bytes": 10171
+        },
+        {
+          "path": "references/tailwind-responsive.md",
+          "sha256": "8d00ae620df26daea4623c7bf996d6e612e09d359305fcfa2b40cab757ed840c",
+          "bytes": 8270
+        },
+        {
+          "path": "references/tailwind-utilities.md",
+          "sha256": "aba1c40ef84f43beea142ae310371e332541f39d973df90a71f1854823effda1",
+          "bytes": 9980
+        },
+        {
+          "path": "scripts/.coverage",
+          "sha256": "a1f68d7a1d6322975c40c893004bc5e811d455d3ab124dab5154aad7060e66f5",
+          "bytes": 53248
+        },
+        {
+          "path": "scripts/requirements.txt",
+          "sha256": "09402d2d274248e18bb5fd0a0267fd7cbf99b7a2440e73e87f054aa8f259f9da",
+          "bytes": 444
+        },
+        {
+          "path": "scripts/shadcn_add.py",
+          "sha256": "c634302efce1ec3aaecf7262c6782280cee6de68177ef11dd2a17fb70b4e3dfc",
+          "bytes": 8969
+        },
+        {
+          "path": "scripts/tailwind_config_gen.py",
+          "sha256": "7d9f7f459783526baae118e7e6f11c46d1fe039502ec402f31544b520d999bc5",
+          "bytes": 15730
+        },
+        {
+          "path": "scripts/tests/coverage-ui.json",
+          "sha256": "33bdc1f5998db9a38cac8e6128a82711f8f8b65fbb3dcb0c1680ae260441cbce",
+          "bytes": 35121
+        },
+        {
+          "path": "scripts/tests/requirements.txt",
+          "sha256": "80846c98ee02a7e9651ec4eee6709f840b785646b469aad5284ab7ab9b344f17",
+          "bytes": 52
+        },
+        {
+          "path": "scripts/tests/test_shadcn_add.py",
+          "sha256": "35f60ac5d74c4a7f950854a0337883c3e8dd812c58fcf6c5153876e43a6effa2",
+          "bytes": 9919
+        },
+        {
+          "path": "scripts/tests/test_tailwind_config_gen.py",
+          "sha256": "2d044e1a9e67d358e8f7f664eeaa588dbd0ef150daa91cdea71519d8d686e470",
+          "bytes": 19154
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "625e302c60ee8f2e22d56cbe638c4a739e2657f566dae42689503ad517c30f1e",
+          "bytes": 10945
+        }
+      ],
+      "fileCount": 98
+    },
+    {
+      "name": "design-system",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\design-system",
+      "projectPath": ".agents/skills/upstream/design-system",
+      "skillSha256": "8aa5ff93320559a6e5289d37b6b06b3307737dbfb4a6f3fc44135c705613c511",
+      "bytes": 7458,
+      "frontmatter": "name: design-system\ndescription: Token architecture, component specifications, and slide generation. Three-layer tokens (primitive\u2192semantic\u2192component), CSS variables, spacing/typography scales, component specs, strategic slide creation. Use for design tokens, systematic design, brand-compliant presentations.\nargument-hint: \"[component or token]\"\nlicense: MIT\nmetadata:\n  author: claudekit\n  version: \"1.0.0\"",
+      "files": [
+        {
+          "path": "data/slide-backgrounds.csv",
+          "sha256": "d1bb701b87bef493d72974d6fac1087c8ba4e2df14185fe3e0c36a13fe35f3d1",
+          "bytes": 1038
+        },
+        {
+          "path": "data/slide-charts.csv",
+          "sha256": "12ef876cd76e67a6553444bfa2ebf1d5d4d6216289d34db052a6e87421135033",
+          "bytes": 8631
+        },
+        {
+          "path": "data/slide-color-logic.csv",
+          "sha256": "ea68c737075f1615b2a7e461e2878c06bfe8f803dcabfbcc2977ffe5f9ec9ded",
+          "bytes": 877
+        },
+        {
+          "path": "data/slide-copy.csv",
+          "sha256": "43152937a0e598b3fbfdd418684311c105d44e3c5b333703ddb0b8cb28e40658",
+          "bytes": 6427
+        },
+        {
+          "path": "data/slide-layout-logic.csv",
+          "sha256": "26b5b75782d5aba89836c0479acd3111cc69b67853db9c2259b30ac1e966bc62",
+          "bytes": 981
+        },
+        {
+          "path": "data/slide-layouts.csv",
+          "sha256": "95d558c1b7d2552d7a75402dc68facbd16125e574985851db5729d1145e14896",
+          "bytes": 8760
+        },
+        {
+          "path": "data/slide-strategies.csv",
+          "sha256": "f656be0ab0b3a85fa7fc74202e9701a7236220412d67d5f63eb6dbb100bb2639",
+          "bytes": 8232
+        },
+        {
+          "path": "data/slide-typography.csv",
+          "sha256": "b96cd11dd4ff1dea8a9454b0b9e898e7f82f9243182f8f237af1f2c9b8824ce5",
+          "bytes": 735
+        },
+        {
+          "path": "references/component-specs.md",
+          "sha256": "b265d979a741dd748d4e595e6898ae430faeef4f6d13d7a634fa6241b91d2da4",
+          "bytes": 6914
+        },
+        {
+          "path": "references/component-tokens.md",
+          "sha256": "e27f8f5999badee425c98235eabbd2cb3ebe2a1a364766d5c7a6b3134ceaaec8",
+          "bytes": 4986
+        },
+        {
+          "path": "references/primitive-tokens.md",
+          "sha256": "91e6caa12646c08c8aadf8e09399aed65760a25c8d80595936d81a9131118fc3",
+          "bytes": 4562
+        },
+        {
+          "path": "references/semantic-tokens.md",
+          "sha256": "97e16d8061bbc22e82b51966a7015e3fc990932902e4647843506669a1cdebcc",
+          "bytes": 4245
+        },
+        {
+          "path": "references/states-and-variants.md",
+          "sha256": "8dacb95d57d4bb37d8a99cc55515ff26da272056f837d29abc74aedcaa3ba104",
+          "bytes": 4771
+        },
+        {
+          "path": "references/tailwind-integration.md",
+          "sha256": "6d01092db1479dbd2060567b4232bb2b4bc16e89730ab07e1f87a3e7f5c406b9",
+          "bytes": 5633
+        },
+        {
+          "path": "references/token-architecture.md",
+          "sha256": "925f4049c4c4313d9fd5df98cdfd52004112aca49fba1664ad85e76bc9dce4d3",
+          "bytes": 5365
+        },
+        {
+          "path": "scripts/embed-tokens.cjs",
+          "sha256": "8c8ad04c1f948402b80693b400047e716235654147a797e11f3ac0283e143486",
+          "bytes": 2726
+        },
+        {
+          "path": "scripts/fetch-background.py",
+          "sha256": "211c1702bf8492c2efa05d44c7012f8eaa47f540f9c0ddd22d30c35fbc54f3d2",
+          "bytes": 13152
+        },
+        {
+          "path": "scripts/generate-slide.py",
+          "sha256": "f827767f8f47eb3635d77aaeba700844b3a31e89d9201107f1da59f4d241eb09",
+          "bytes": 28613
+        },
+        {
+          "path": "scripts/generate-tokens.cjs",
+          "sha256": "aac8a0f4ec4dccf0d371f9ee5a9111e44977bb0cad7e40a3754aba5571aa1231",
+          "bytes": 4968
+        },
+        {
+          "path": "scripts/html-token-validator.py",
+          "sha256": "e876ae1a014a0709bff9798e9a56c27336c0fb04e847e563a053917ef0945d44",
+          "bytes": 13219
+        },
+        {
+          "path": "scripts/search-slides.py",
+          "sha256": "3d3d842d1c1daa26084a89aa7a41eb89d8c62b777f45cb4923b42aa10bb0b041",
+          "bytes": 9674
+        },
+        {
+          "path": "scripts/slide-token-validator.py",
+          "sha256": "66da5da5e8e659d405a89b342e13dd1e469e79726c46002d9d2368c3c7aaf945",
+          "bytes": 973
+        },
+        {
+          "path": "scripts/slide_search_core.py",
+          "sha256": "2464050ae338eb50728086046b644845fa7ae943f32efead3908fdbe1473edbe",
+          "bytes": 14756
+        },
+        {
+          "path": "scripts/tests/test_utf8_io.py",
+          "sha256": "304f4e3e918eda39e11ad80b80bca81a858264aaa8a4aaec34e2d30e267179b3",
+          "bytes": 2615
+        },
+        {
+          "path": "scripts/tests/test_validate_tokens.py",
+          "sha256": "43c56f6ecb89d4dd4010ccabcf047d2f3824d39bbbd5a1f6f697333ff27c59e6",
+          "bytes": 1895
+        },
+        {
+          "path": "scripts/validate-tokens.cjs",
+          "sha256": "65f03a29290b9029d8cc27537701f226de7bcffc303b3bc361648fadfa09b77d",
+          "bytes": 5942
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8aa5ff93320559a6e5289d37b6b06b3307737dbfb4a6f3fc44135c705613c511",
+          "bytes": 7458
+        },
+        {
+          "path": "templates/design-tokens-starter.json",
+          "sha256": "5444f477b06bab9c72e2cc289d4a9104efef653391c9639972bcb712d5f2d81e",
+          "bytes": 7184
+        }
+      ],
+      "fileCount": 28
+    },
+    {
+      "name": "advanced-evaluation",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\advanced-evaluation",
+      "projectPath": ".agents/skills/upstream/advanced-evaluation",
+      "skillSha256": "8b9e3d9de07a0505ae2b42df2e15dd75bab5f2486e336194481c558e0648ded0",
+      "bytes": 16990,
+      "frontmatter": "name: advanced-evaluation\ndescription: \"This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.\"",
+      "files": [
+        {
+          "path": "references/bias-mitigation.md",
+          "sha256": "bf43f18e5cc20f803546fece9e90fe032a2d54f6d4280dfd5cd2af3b0707fc17",
+          "bytes": 9078
+        },
+        {
+          "path": "references/evaluation-pipeline.md",
+          "sha256": "72e95259a14db1da9ddb3b979c71e821e75aa80d729da956eaaedc94a8e9b3d2",
+          "bytes": 2891
+        },
+        {
+          "path": "references/implementation-patterns.md",
+          "sha256": "73711fad51abf1bcc20a12491968baea65d6e16fde1a397be4f0648bd44fbec4",
+          "bytes": 9061
+        },
+        {
+          "path": "references/metrics-guide.md",
+          "sha256": "3882bf84692a82f33e3a2ffecdc94b475a4bd84545b0015cf38810c734a7bef8",
+          "bytes": 9333
+        },
+        {
+          "path": "scripts/evaluation_example.py",
+          "sha256": "4965a42dfbf0ba54e184d654e3c6a781ebf3915b8da5e6f3ee1b5819a23125f1",
+          "bytes": 13695
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8b9e3d9de07a0505ae2b42df2e15dd75bab5f2486e336194481c558e0648ded0",
+          "bytes": 16990
+        }
+      ],
+      "fileCount": 6
+    },
+    {
+      "name": "bdi-mental-states",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\bdi-mental-states",
+      "projectPath": ".agents/skills/upstream/bdi-mental-states",
+      "skillSha256": "2a68bf11815b166a508141c6ecb24a2007808e6d46557c0b111bb9b10b87cbe6",
+      "bytes": 17738,
+      "frontmatter": "name: bdi-mental-states\ndescription: \"This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.\"",
+      "files": [
+        {
+          "path": "references/bdi-ontology-core.md",
+          "sha256": "bfbd9ae465cb718eb931415b9f3a27a5e6d3886b4ee691b8d1be485891927b2a",
+          "bytes": 6482
+        },
+        {
+          "path": "references/framework-integration.md",
+          "sha256": "57076065f3ae2047d90ff879183ff9b86a3428abe8a1d154c0652df062205b18",
+          "bytes": 20983
+        },
+        {
+          "path": "references/rdf-examples.md",
+          "sha256": "d9de470b53f38d4f21f13f67ca5f12c3a2f13e33faf128e778ced063b28a4dc4",
+          "bytes": 11126
+        },
+        {
+          "path": "references/sparql-competency.md",
+          "sha256": "9e84de61bd0c9a7c37c185e12fa8c5713479be3ef6810b4cc02ee35c90f62527",
+          "bytes": 9382
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2a68bf11815b166a508141c6ecb24a2007808e6d46557c0b111bb9b10b87cbe6",
+          "bytes": 17738
+        }
+      ],
+      "fileCount": 5
+    },
+    {
+      "name": "context-compression",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\context-compression",
+      "projectPath": ".agents/skills/upstream/context-compression",
+      "skillSha256": "ab4fd1e1046db339d83ead5089d4cb9d9c487232945d4ff6be90e08a03f6cfea",
+      "bytes": 18507,
+      "frontmatter": "name: context-compression\ndescription: \"This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.\"",
+      "files": [
+        {
+          "path": "references/evaluation-framework.md",
+          "sha256": "2584d5ab6c1322c0df7a581a6f5354be052bae077e16f76ef7c772f750ef81d2",
+          "bytes": 8449
+        },
+        {
+          "path": "scripts/compression_evaluator.py",
+          "sha256": "425d07d73420073304ce58c078c561cddd61420816efdb080b40778f5c1ed350",
+          "bytes": 30303
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ab4fd1e1046db339d83ead5089d4cb9d9c487232945d4ff6be90e08a03f6cfea",
+          "bytes": 18507
+        },
+        {
+          "path": "tests/test_compression_evaluator.py",
+          "sha256": "8d0d4a83ac0b0eae25b2c270b54f0982e16be56a6dc935b73cd1411aa21ef829",
+          "bytes": 2095
+        }
+      ],
+      "fileCount": 4
+    },
+    {
+      "name": "context-degradation",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\context-degradation",
+      "projectPath": ".agents/skills/upstream/context-degradation",
+      "skillSha256": "4e1896f641ddc99cc9cb14322606c6133b9fd520c84d3af0541e64f553c7f928",
+      "bytes": 19180,
+      "frontmatter": "name: context-degradation\ndescription: \"This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.\"",
+      "files": [
+        {
+          "path": "references/patterns.md",
+          "sha256": "da00f69e62c1f0d9fecc7c890cd9e2bfc736282dc25c60db02bf75b24c349337",
+          "bytes": 9963
+        },
+        {
+          "path": "scripts/degradation_detector.py",
+          "sha256": "ec187d7798cc7fbc992cb7702358998c32e9aa9d34a486c0863757eb722f3591",
+          "bytes": 22496
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "4e1896f641ddc99cc9cb14322606c6133b9fd520c84d3af0541e64f553c7f928",
+          "bytes": 19180
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "context-fundamentals",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\context-fundamentals",
+      "projectPath": ".agents/skills/upstream/context-fundamentals",
+      "skillSha256": "03b56e1c40edc6314b1f204498c3ba40163a32e63bdbceaeba93513ccddcaba6",
+      "bytes": 17013,
+      "frontmatter": "name: context-fundamentals\ndescription: \"This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, the U-shaped attention curve, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.\"",
+      "files": [
+        {
+          "path": "references/context-components.md",
+          "sha256": "a2deabba79769ab610ce941a6d94ed769512842a639c87ef92fc29e68c25fc33",
+          "bytes": 7970
+        },
+        {
+          "path": "scripts/context_manager.py",
+          "sha256": "b2aa1bf10e677253abb017054f53168a094c096c7ef71fffe5151db6c74206cf",
+          "bytes": 18349
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "03b56e1c40edc6314b1f204498c3ba40163a32e63bdbceaeba93513ccddcaba6",
+          "bytes": 17013
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "context-optimization",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\context-optimization",
+      "projectPath": ".agents/skills/upstream/context-optimization",
+      "skillSha256": "96fbd47c16d163857b92d477ba5c7ec3ae947127772e327b8236d05d64d5b123",
+      "bytes": 16052,
+      "frontmatter": "name: context-optimization\ndescription: \"This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.\"",
+      "files": [
+        {
+          "path": "references/optimization_techniques.md",
+          "sha256": "8fa1c2eaca5965d5e9bdf1823236514f83ed8cf0f6b5a21511c139ffce061bec",
+          "bytes": 9347
+        },
+        {
+          "path": "scripts/compaction.py",
+          "sha256": "7d7986d82639e60cf6c8aca470fc8d2b80507e33340dc208b00d7727a168a978",
+          "bytes": 19723
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "96fbd47c16d163857b92d477ba5c7ec3ae947127772e327b8236d05d64d5b123",
+          "bytes": 16052
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "evaluation",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\evaluation",
+      "projectPath": ".agents/skills/upstream/evaluation",
+      "skillSha256": "1f31cda0910dfd48d928e1485b303b739608ceeb0babca0e9a6f821cbf4320ff",
+      "bytes": 16829,
+      "frontmatter": "name: evaluation\ndescription: \"This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.\"",
+      "files": [
+        {
+          "path": "references/metrics.md",
+          "sha256": "342db4111af7a627ea1ce90ac17a637d553ee3b8bcbcc3017b4cbc0c7695a4a8",
+          "bytes": 10139
+        },
+        {
+          "path": "scripts/evaluator.py",
+          "sha256": "c4736f9211cd494d1da594f1ecccd1a0ed8d95ee50a084561f4432b624328c67",
+          "bytes": 21487
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "1f31cda0910dfd48d928e1485b303b739608ceeb0babca0e9a6f821cbf4320ff",
+          "bytes": 16829
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "filesystem-context",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\filesystem-context",
+      "projectPath": ".agents/skills/upstream/filesystem-context",
+      "skillSha256": "91cd7f071e38dbeee15dbebd9dd549c9116affae939702f05409ed1952355f50",
+      "bytes": 16138,
+      "frontmatter": "name: filesystem-context\ndescription: \"This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.\"",
+      "files": [
+        {
+          "path": "references/implementation-patterns.md",
+          "sha256": "78380a2f426f43bcae4658d6498e0953470c3398673e807d861c268d9b96b6b2",
+          "bytes": 18228
+        },
+        {
+          "path": "scripts/filesystem_context.py",
+          "sha256": "daccf94285ec679ff39f28d3531dea92528a9443736009d8949e488bb21330bb",
+          "bytes": 15086
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "91cd7f071e38dbeee15dbebd9dd549c9116affae939702f05409ed1952355f50",
+          "bytes": 16138
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "harness-engineering",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\harness-engineering",
+      "projectPath": ".agents/skills/upstream/harness-engineering",
+      "skillSha256": "dde3d8f46d4d09dbab41358baa3e8310d7fdfcd2fbefa127153ac4f6b5ef7b16",
+      "bytes": 11413,
+      "frontmatter": "name: harness-engineering\ndescription: \"This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.\"",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "dde3d8f46d4d09dbab41358baa3e8310d7fdfcd2fbefa127153ac4f6b5ef7b16",
+          "bytes": 11413
+        }
+      ],
+      "fileCount": 1
+    },
+    {
+      "name": "hosted-agents",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\hosted-agents",
+      "projectPath": ".agents/skills/upstream/hosted-agents",
+      "skillSha256": "4786dad600b063378410de444a77f4b22cc80e673b5cd6e426cbe9d6fb2c0273",
+      "bytes": 17717,
+      "frontmatter": "name: hosted-agents\ndescription: \"This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.\"",
+      "files": [
+        {
+          "path": "references/infrastructure-patterns.md",
+          "sha256": "553a8f56d65c7ce790ffb171b8a6e1ccc85df5dbe38385c50de0ffc60b943222",
+          "bytes": 20449
+        },
+        {
+          "path": "scripts/sandbox_manager.py",
+          "sha256": "a559273ae214bd5903bb2826d8adff7c3d45b79f0ab74ed11a5bf1a1afd064ec",
+          "bytes": 18982
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "4786dad600b063378410de444a77f4b22cc80e673b5cd6e426cbe9d6fb2c0273",
+          "bytes": 17717
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "latent-briefing",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\latent-briefing",
+      "projectPath": ".agents/skills/upstream/latent-briefing",
+      "skillSha256": "d84e7abe51f037a353dc3ccf18498498099fc633373a0d223bd6cc45277fd0bd",
+      "bytes": 13029,
+      "frontmatter": "name: latent-briefing\ndescription: \"This skill should be used when the user asks to \\\"share memory between agents\\\", \\\"KV cache compaction for multi-agent\\\", \\\"orchestrator worker context\\\", \\\"latent briefing\\\", \\\"reduce worker tokens\\\", \\\"cross-agent memory without summarization\\\", or discusses Attention Matching compaction, recursive language models with workers, or token explosion in hierarchical agents.\"",
+      "files": [
+        {
+          "path": "references/attention-matching-formulation.md",
+          "sha256": "b5051c5da597bfacdfceb76119b661fce965843f1dd4510f0f6bac1593327983",
+          "bytes": 2962
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "d84e7abe51f037a353dc3ccf18498498099fc633373a0d223bd6cc45277fd0bd",
+          "bytes": 13029
+        }
+      ],
+      "fileCount": 2
+    },
+    {
+      "name": "long-horizon-prompting",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\long-horizon-prompting",
+      "projectPath": ".agents/skills/upstream/long-horizon-prompting",
+      "skillSha256": "63c5a2a26b007399a0c83916e228bd0b5596db978da1211c0270dfd811e08b59",
+      "bytes": 33489,
+      "frontmatter": "name: long-horizon-prompting\ndescription: \"This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.\"",
+      "files": [
+        {
+          "path": "references/cdc-prompt-annotated.md",
+          "sha256": "8bf5b451baa0b7cc971f305f9e3351f38cc2bc5429412770c89346129f8a0cb8",
+          "bytes": 10680
+        },
+        {
+          "path": "references/mass-handoff-contracts.md",
+          "sha256": "47bc160cd1939c18089fa6aba3326156810b4ba2804291d7bbd650d963dee899",
+          "bytes": 10802
+        },
+        {
+          "path": "references/research-evidence.md",
+          "sha256": "900f4f01d142e5e815658b9ba71c7e094dc928e9463bb222cca34c69ab4e938a",
+          "bytes": 12165
+        },
+        {
+          "path": "references/task-brief-template.md",
+          "sha256": "32f75f655394b5bae744b2dea4f4a6c18fb8de9851f983f5b01a20ec76ca1353",
+          "bytes": 11472
+        },
+        {
+          "path": "references/vendor-guidance.md",
+          "sha256": "6f24080ad7be4ab64bcbd59d07096ee43a5826f5ac6934a48be84f70ffe2eaa6",
+          "bytes": 10737
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "63c5a2a26b007399a0c83916e228bd0b5596db978da1211c0270dfd811e08b59",
+          "bytes": 33489
+        }
+      ],
+      "fileCount": 6
+    },
+    {
+      "name": "memory-systems",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\memory-systems",
+      "projectPath": ".agents/skills/upstream/memory-systems",
+      "skillSha256": "9e2b38ffe9474ba19c93b3d75c80e683705d82e8a4b59af16d603d133bab8d2f",
+      "bytes": 16554,
+      "frontmatter": "name: memory-systems\ndescription: \"This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.\"",
+      "files": [
+        {
+          "path": "references/implementation.md",
+          "sha256": "3bd3fa6464a42624f09a31ee262e2e76a4b1c4d10a8e677f398fd08f7b3fccc8",
+          "bytes": 18178
+        },
+        {
+          "path": "scripts/memory_store.py",
+          "sha256": "42fc44b2d7545de833b6c70f0ed711285dd3009e631f0711ffe48150ad2c795e",
+          "bytes": 21255
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9e2b38ffe9474ba19c93b3d75c80e683705d82e8a4b59af16d603d133bab8d2f",
+          "bytes": 16554
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "multi-agent-patterns",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\multi-agent-patterns",
+      "projectPath": ".agents/skills/upstream/multi-agent-patterns",
+      "skillSha256": "786ff9345eb49f1d8e1bc5183e437a6d882f15b50bdb2ce0055a9d54390a3ce2",
+      "bytes": 18649,
+      "frontmatter": "name: multi-agent-patterns\ndescription: \"This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.\"",
+      "files": [
+        {
+          "path": "references/frameworks.md",
+          "sha256": "9bdfc21927dba6390c8ca38b13b32601c2936a30e6821beff8466ad95e3beb76",
+          "bytes": 12482
+        },
+        {
+          "path": "scripts/coordination.py",
+          "sha256": "703848c18c1be4e1c2bb1d9eb30a267593c2523957b0e3e852912a0f61f2edf2",
+          "bytes": 20972
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "786ff9345eb49f1d8e1bc5183e437a6d882f15b50bdb2ce0055a9d54390a3ce2",
+          "bytes": 18649
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "project-development",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\project-development",
+      "projectPath": ".agents/skills/upstream/project-development",
+      "skillSha256": "acfeda3048cf6213be2d0c4699c1884914a1a044ca2707094483ca6423d17a11",
+      "bytes": 18960,
+      "frontmatter": "name: project-development\ndescription: \"This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, choosing between single-agent and multi-agent at the project level, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design and individual skill-loading or context-budget tactics to context-optimization.\"",
+      "files": [
+        {
+          "path": "references/case-studies.md",
+          "sha256": "243ee1adc820f6fef822334dd747dad6069cb22fee6f8e285bad1c8e5309357f",
+          "bytes": 14830
+        },
+        {
+          "path": "references/pipeline-patterns.md",
+          "sha256": "d27c755a0e8dcca6d2c92ff7260a0a884f5fe76fef0d492de6b8eecf8cc4619a",
+          "bytes": 16921
+        },
+        {
+          "path": "scripts/pipeline_template.py",
+          "sha256": "c57f8cd562f164b6bca66df3a12a55426d904bd649956b97ac1fbe8769dfcfff",
+          "bytes": 24138
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "acfeda3048cf6213be2d0c4699c1884914a1a044ca2707094483ca6423d17a11",
+          "bytes": 18960
+        }
+      ],
+      "fileCount": 4
+    },
+    {
+      "name": "self-improvement-loops",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\self-improvement-loops",
+      "projectPath": ".agents/skills/upstream/self-improvement-loops",
+      "skillSha256": "de088dd42e92de999da54c6d1a17bed7daf3404688888482735deaa4f482d846",
+      "bytes": 22494,
+      "frontmatter": "name: self-improvement-loops\ndescription: \"This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.\"",
+      "files": [
+        {
+          "path": "references/loop-design-evidence.md",
+          "sha256": "d68c7b33fa01466ec98f99b4cedc7c48ee8489ce1fe74045a8cd46fef717d255",
+          "bytes": 13672
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "de088dd42e92de999da54c6d1a17bed7daf3404688888482735deaa4f482d846",
+          "bytes": 22494
+        }
+      ],
+      "fileCount": 2
+    },
+    {
+      "name": "self-managed-context",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\self-managed-context",
+      "projectPath": ".agents/skills/upstream/self-managed-context",
+      "skillSha256": "0b077da6d7725af414a42a627321a11ce9ffc90b4c3e583a1ae126968a8bbd26",
+      "bytes": 24111,
+      "frontmatter": "name: self-managed-context\ndescription: \"This skill should be used when a model gets read-write control over its own live context window instead of a harness-scheduled compaction policy: the context exposed as an editable file the model rewrites with code tools, model-driven eviction and in-place updates, the harness invariants that keep self-editing safe (pinned prefix, edit gate, edit receipts, budget readouts, rollback on overflow), the prefix-cache cost of mid-context edits, and steering or training the model's own context-editing strategy. Route note content and fixed-threshold summarization to context-compression, cache-stable layout under harness control to context-optimization, file offloading to filesystem-context, and loop governance to self-improvement-loops.\"",
+      "files": [
+        {
+          "path": "references/evidence.md",
+          "sha256": "d5307b96aec0161dcb433d9bb1a975fcc911e09b9f046723f33d9d96964fb087",
+          "bytes": 10706
+        },
+        {
+          "path": "references/harness-protocol.md",
+          "sha256": "029484e7b1a695017f65b6125a5f231a3e27156aae9865b16a26079ad8794b2c",
+          "bytes": 12599
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "0b077da6d7725af414a42a627321a11ce9ffc90b4c3e583a1ae126968a8bbd26",
+          "bytes": 24111
+        }
+      ],
+      "fileCount": 3
+    },
+    {
+      "name": "tool-design",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\tool-design",
+      "projectPath": ".agents/skills/upstream/tool-design",
+      "skillSha256": "14f5a12b69113bc6450da69c5b4d408fe91601832ab1055ae25311339c84a06b",
+      "bytes": 20089,
+      "frontmatter": "name: tool-design\ndescription: \"This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.\"",
+      "files": [
+        {
+          "path": "references/architectural_reduction.md",
+          "sha256": "0d27e7991ccaac97f0db37c151837d5cc795075ba7b44a82560aeb45bb35b1c7",
+          "bytes": 8138
+        },
+        {
+          "path": "references/best_practices.md",
+          "sha256": "3dc82e05ba5f9e5d5e8b0f48e05241e5850130b9b0f365e032bf0635fd3380b6",
+          "bytes": 10510
+        },
+        {
+          "path": "scripts/description_generator.py",
+          "sha256": "ad20d1550dc41b6cbedba6c09f927765d54d1267bbe4bc8bfdf930b8987697ce",
+          "bytes": 18057
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "14f5a12b69113bc6450da69c5b4d408fe91601832ab1055ae25311339c84a06b",
+          "bytes": 20089
+        }
+      ],
+      "fileCount": 4
+    },
+    {
+      "name": "scientific-brainstorming",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\scientific-brainstorming",
+      "projectPath": ".agents/skills/upstream/scientific-brainstorming",
+      "skillSha256": "06f73b71556356a7f488c369b9445d7943543a3f14d159b2168fd3f621d6f8a9",
+      "bytes": 14658,
+      "frontmatter": "name: scientific-brainstorming\ndescription: Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision logs. Use for early-stage research brainstorming or prioritizing candidate directions; hand off empirical validation, study design, ethics or regulatory review, and clinical questions to appropriate experts or skills.\nlicense: MIT\ncompatibility: Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.\nmetadata:\n  version: \"1.4\"\n  skill-author: \"K-Dense Inc.\"\n  last-reviewed: \"2026-10-01\"",
+      "files": [
+        {
+          "path": "references/brainstorming_methods.md",
+          "sha256": "2c3749f38c4a9ba0f310b04679b870cbf603d923aa30b82dd92720a7d2977632",
+          "bytes": 12505
+        },
+        {
+          "path": "references/facilitation_workflows.md",
+          "sha256": "bfb2acc43472f4649b10f2c3db02180fa9c86636f375f82d8bc36b28075a5ccc",
+          "bytes": 10016
+        },
+        {
+          "path": "references/idea_evaluation.md",
+          "sha256": "5a5fcb319cdcc151a9acd17e0e501d270e55f7a9fb6a829c87c43af5b5705d14",
+          "bytes": 12165
+        },
+        {
+          "path": "references/responsible_ai.md",
+          "sha256": "d5b61b2555b72914d1e2cfb6e84496ce80fc2d24a3001c9eefa04cca336b9830",
+          "bytes": 10584
+        },
+        {
+          "path": "references/sources.md",
+          "sha256": "ab4ab107ea4f94b21ce85aec6e63d3701e56a546c4840ccfd8dab5f2cdd52210",
+          "bytes": 17660
+        },
+        {
+          "path": "scripts/_common.py",
+          "sha256": "271bc1a013d83dc1bab41dc3fd3d70bae3d6f7549db70c678debfc50251efe19",
+          "bytes": 9933
+        },
+        {
+          "path": "scripts/evaluate_matrix.py",
+          "sha256": "ed38f33a7b35045217fe40b6b57ebb370c584891392899b74f4e4530e72f2215",
+          "bytes": 20137
+        },
+        {
+          "path": "scripts/session_scaffold.py",
+          "sha256": "0af7b297a8f92f1c7456b7e14c717a017315b4a71b603ca5402434dee98db5ba",
+          "bytes": 7930
+        },
+        {
+          "path": "scripts/validate_register.py",
+          "sha256": "765e57854efe9e28b4965d23b073eb67ffdc8cc0c7ac0b47d9240e4cc8ea1bd5",
+          "bytes": 20872
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "06f73b71556356a7f488c369b9445d7943543a3f14d159b2168fd3f621d6f8a9",
+          "bytes": 14658
+        }
+      ],
+      "fileCount": 10
+    },
+    {
+      "name": "scientific-critical-thinking",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\scientific-critical-thinking",
+      "projectPath": ".agents/skills/upstream/scientific-critical-thinking",
+      "skillSha256": "563af70571b7dcd6a96bf2e303bedfdcba623b4e9f082d58f04aacbc961fdae4",
+      "bytes": 13146,
+      "frontmatter": "name: scientific-critical-thinking\ndescription: Evaluates scientific claims and evidence quality. Applies to experimental design validity, biases and confounders, statistical interpretation, evidence grading frameworks (GRADE, Cochrane Risk of Bias), and teaching critical analysis. Supports evidence appraisal and identifying flaws; formal peer review writing belongs to peer-review.\nallowed-tools: Read Write Edit\nlicense: MIT license\ncompatibility: Analytical guidance needs no network. Optional figures via the scientific-schematics skill require OPENROUTER_API_KEY and outbound API access to OpenRouter.\nmetadata:\n  version: \"1.5\"\n  last-reviewed: \"2026-10-01\"\n  skill-author: K-Dense Inc.",
+      "files": [
+        {
+          "path": "references/common_biases.md",
+          "sha256": "641e8e8e6dfadac1643ea8691b7d3e4e58cf013f134cd42c71301878096a5a39",
+          "bytes": 12368
+        },
+        {
+          "path": "references/core_capabilities.md",
+          "sha256": "0f337b96aa2d7453433a17824368fbd0638b9469d4f90a5fd23f4167c9dee180",
+          "bytes": 16975
+        },
+        {
+          "path": "references/evidence_hierarchy.md",
+          "sha256": "534fbe991ecfb2d162f755004dc528118ce74a78862917c2911595a522d76e6c",
+          "bytes": 17435
+        },
+        {
+          "path": "references/experimental_design.md",
+          "sha256": "eca7e42025393984c07676f3d4bc354d217e5604dc2209c76215d31953a7c74c",
+          "bytes": 18227
+        },
+        {
+          "path": "references/logical_fallacies.md",
+          "sha256": "becfc5bfac7b831dca67cc442cd0fcb42d8eea527a6fc2921c1b704e592ff593",
+          "bytes": 18659
+        },
+        {
+          "path": "references/review_sources.md",
+          "sha256": "71e75106f36f3e69b28959ad1fec503ccdb21b7f5361ab230173e4812accbf62",
+          "bytes": 7557
+        },
+        {
+          "path": "references/scientific_method.md",
+          "sha256": "5aa925b97c7a916f819dafc8b42a9c24e4bd3eb2836594e724f1e7f9ae75ea0f",
+          "bytes": 7641
+        },
+        {
+          "path": "references/statistical_pitfalls.md",
+          "sha256": "0c43204a0a81110cfeb7c982fa4caa89f274bdcebf096e09e5adfccf31241cb9",
+          "bytes": 21151
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "563af70571b7dcd6a96bf2e303bedfdcba623b4e9f082d58f04aacbc961fdae4",
+          "bytes": 13146
+        }
+      ],
+      "fileCount": 9
+    },
+    {
+      "name": "literature-review",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\literature-review",
+      "projectPath": ".agents/skills/upstream/literature-review",
+      "skillSha256": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+      "bytes": 12869,
+      "frontmatter": "name: literature-review\ndescription: Conducts systematic, scoping, and narrative literature reviews using PubMed, arXiv, bioRxiv, Semantic Scholar, and other appropriate sources. Use for research synthesis, reproducible literature searches, screening, citation checking, or preparing Markdown and PDF reviews. Tracks search coverage, records versus studies, and evidence limitations; supports meta-analysis planning but does not supply a meta-analysis engine.\nallowed-tools: Read Write Edit Bash\nlicense: MIT license\ncompatibility: Python 3.10+ with requests; network for DOI checks and searches. Optional parallel-cli requires Parallel authentication. PDF export needs Pandoc and XeLaTeX; AI schematics need OPENROUTER_API_KEY.\nmetadata:\n  version: \"1.11\"\n  last-reviewed: \"2026-09-30\"\n  skill-author: K-Dense Inc.\n  openclaw:\n    primaryEnv: OPENROUTER_API_KEY\n    envVars:\n    - name: OPENROUTER_API_KEY\n      required: false\n      description: OpenRouter API key for the skill's LLM-powered steps.",
+      "files": [
+        {
+          "path": "assets/review_template.md",
+          "sha256": "08671516976d01a7004f8ae7c944a50c253877504720c15d5fa24eed90889819",
+          "bytes": 13769
+        },
+        {
+          "path": "references/citation_styles.md",
+          "sha256": "2a50e43b18c2fff781e04406deb66186ba8f91ed28af32004aba63c63dcc1789",
+          "bytes": 7627
+        },
+        {
+          "path": "references/core_workflow.md",
+          "sha256": "4d63f1087c98efeec7c7bf622bed6e0456a9c7c3defe584995917f2de6f2c601",
+          "bytes": 11876
+        },
+        {
+          "path": "references/database_strategies.md",
+          "sha256": "24b56cd88128a9016520ed6b5e2abb79e19dc9b86cbf064927e9056aa1504f48",
+          "bytes": 10431
+        },
+        {
+          "path": "references/example_workflow.md",
+          "sha256": "86336c42f78ff282430a6cdd2282a99562cc9d5e46b62e70a33bd839f9ab726a",
+          "bytes": 3078
+        },
+        {
+          "path": "references/search_and_citation.md",
+          "sha256": "f33d671351989ee86066b9a21bdbf630a1f60001ada92fda4c942006d37b74fe",
+          "bytes": 4685
+        },
+        {
+          "path": "scripts/generate_pdf.py",
+          "sha256": "0ba1b16b196b64d4966e5f055a289f0c17e3579a84254abe47ff63be95b4f136",
+          "bytes": 4990
+        },
+        {
+          "path": "scripts/generate_schematic.py",
+          "sha256": "0c81ce099d5ab9aa3d3c486aa9bd3e81ee1117e18a54db14bb0a68de61eaa4bc",
+          "bytes": 7782
+        },
+        {
+          "path": "scripts/generate_schematic_ai.py",
+          "sha256": "7316f2df92f442b8c60a5dd2bd8b504e17449d4be89352e5af24be2239700046",
+          "bytes": 35684
+        },
+        {
+          "path": "scripts/search_databases.py",
+          "sha256": "76f47fd18ca28df4985ffc6d30d5ad659e67c8058bb3de8f385c2443752f4eaf",
+          "bytes": 8769
+        },
+        {
+          "path": "scripts/verify_citations.py",
+          "sha256": "4c8e8377718ddd47e9cd7cef706935b04910af5d13bfd920970dcf41d4ef3706",
+          "bytes": 9960
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+          "bytes": 12869
+        }
+      ],
+      "fileCount": 12
+    },
+    {
+      "name": "research-lookup",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\research-lookup",
+      "projectPath": ".agents/skills/upstream/research-lookup",
+      "skillSha256": "8da1618350bf3434e4569a180a15b7241a50118ee9b79bccc514fa1bf3b4a102",
+      "bytes": 17237,
+      "frontmatter": "name: research-lookup\ndescription: \"Compiles current scholarly evidence for a scientific manuscript or research brief when the user explicitly asks to gather literature, references, background evidence, competing findings, or a manuscript research packet. Uses Parallel Search by default, Parallel Extract for source retrieval, Parallel Research for explicitly deep/exhaustive work, optional explicit Parallel Chat, and optional Perplexity only when requested or allowed as a failure fallback.\"\nlicense: MIT license\ncompatibility: Requires Python 3.10+ and network access; targets parallel-web-tools CLI 0.9.3 for Search, Extract, and Research. Explicit Chat requires requests and PARALLEL_API_KEY; optional Perplexity through openrouter.ai requires requests and OPENROUTER_API_KEY.\nmetadata:\n  version: \"1.7\"\n  last-reviewed: \"2026-09-30\"\n  skill-author: K-Dense Inc.\n  openclaw:\n    primaryEnv: PARALLEL_API_KEY\n    envVars:\n    - name: PARALLEL_API_KEY\n      required: false\n      description: Parallel API key; CLI login may be used instead.\n    - name: OPENROUTER_API_KEY\n      required: false\n      description: Optional OpenRouter key for explicit Perplexity use.",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "279299d1307e84d126f90c055d2635780ceef1478af6b3668122b14e41cf53af",
+          "bytes": 4213
+        },
+        {
+          "path": "references/api-contracts.md",
+          "sha256": "4df0e547770fbccabb7a31d8c68a3a81343ce4f355eb6bb2c517ec3dd6d02b6f",
+          "bytes": 6607
+        },
+        {
+          "path": "scripts/manuscript_packet.py",
+          "sha256": "604ab0e92b6ba62de10f7a4c3bc52247a5e86e28d9e26c07fb49d215302f91cf",
+          "bytes": 28031
+        },
+        {
+          "path": "scripts/research_lookup.py",
+          "sha256": "626cdcd4a89f4c96ed4c117381612872fa5d65f2e1b8a5b6cbef69d5c36b9015",
+          "bytes": 48387
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8da1618350bf3434e4569a180a15b7241a50118ee9b79bccc514fa1bf3b4a102",
+          "bytes": 17237
+        }
+      ],
+      "fileCount": 5
+    },
+    {
+      "name": "scientific-writing",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\scientific-writing",
+      "projectPath": ".agents/skills/upstream/scientific-writing",
+      "skillSha256": "511a2096bebecd8cf0f8212b9d262d37154ae1ba566eb385d93ac968682edbd1",
+      "bytes": 14897,
+      "frontmatter": "name: scientific-writing\ndescription: Drafts, revises, and audits scientific manuscripts or reports with explicit evidence provenance, reporting-guideline coverage, authorship accountability, confidentiality controls, and local consistency checks. Use for manuscript sections, references, declarations, tables, figures, or submission preparation when scientific accuracy and traceability matter.\nlicense: MIT\ncompatibility: Requires Python 3.11+ only for optional dependency-free local CLIs; core guidance is platform-neutral. Bundled tools are offline and require no API keys.\nmetadata:\n  version: \"2.3\"\n  last-reviewed: \"2026-10-01\"\n  skill-author: K-Dense Inc.",
+      "files": [
+        {
+          "path": "assets/authorship_template.json",
+          "sha256": "04a590ac47ed61dcc7cd88a26d51243cf178fe6ada99d4000ca225e1b5f6f20a",
+          "bytes": 1239
+        },
+        {
+          "path": "assets/claim_evidence_template.csv",
+          "sha256": "cfb7a9f44cd1e5ef47ccdb3e32ac0a25b72d30e51343faace9bf07c00e3a0659",
+          "bytes": 218
+        },
+        {
+          "path": "assets/consistency_manifest_template.json",
+          "sha256": "2ea6f468ab6fab45c4db3616fbaddcc2ae706b3a26d6745b4cf74ddb53266872",
+          "bytes": 891
+        },
+        {
+          "path": "assets/manuscript_manifest_template.json",
+          "sha256": "914052ff25b44072a07dce2ae8171524b717894ad7d2103054356115b9dd6c22",
+          "bytes": 1012
+        },
+        {
+          "path": "assets/manuscript_scaffold.md",
+          "sha256": "55305ba311ff4e2459a31a99b3f1b9da44d79499332399a9216b5f92cb412ab2",
+          "bytes": 1979
+        },
+        {
+          "path": "assets/REPORT_FORMATTING_GUIDE.md",
+          "sha256": "2bb69499426ed6727c1701bae752c2e902151cbf69963f8bcf25b9e54cc20724",
+          "bytes": 2713
+        },
+        {
+          "path": "assets/reporting_coverage_template.json",
+          "sha256": "886ca599622c1dfaedde7649ec47e973b4fbe6081cac6a6afaf24ace899d46a9",
+          "bytes": 189
+        },
+        {
+          "path": "assets/reporting_guidelines.json",
+          "sha256": "215f8c55bd40bda0569f2e81556030ff575319e25276b1e1ae70e2cc7475ddcd",
+          "bytes": 16009
+        },
+        {
+          "path": "assets/source_manifest_template.json",
+          "sha256": "fc6f65a8571b717691ac717f325825a608190f271e8b79650b711cc95f5b0a36",
+          "bytes": 599
+        },
+        {
+          "path": "references/authorship_ai_confidentiality.md",
+          "sha256": "0200e3ad8eafaedec26bce2b9895cda81c6c9325790507509134373a0ca41fe2",
+          "bytes": 4919
+        },
+        {
+          "path": "references/citation_styles.md",
+          "sha256": "338c08d8fba6fbf7437aad4dd99db5bccf3f597fa6650c562fae0c7ca422e572",
+          "bytes": 3945
+        },
+        {
+          "path": "references/cli_reference.md",
+          "sha256": "05b15a587277e37dbc6161532dce58c8ccf647e22f21861ebcbac22954453e75",
+          "bytes": 4101
+        },
+        {
+          "path": "references/evidence_workflow.md",
+          "sha256": "346c867d71e8cf1db6e3684a64714925a3966fcaeb1db853d7ddb07c6a6f607b",
+          "bytes": 5033
+        },
+        {
+          "path": "references/figures_tables.md",
+          "sha256": "212d10f3e7a01325d2518c4aab54a4fc04a67e4aa94e959cead199c425a0f4d6",
+          "bytes": 3915
+        },
+        {
+          "path": "references/imrad_structure.md",
+          "sha256": "8a1201f8e58a045736a5bc65a47f239c894be6946716e969c0b77aa90a7e8e39",
+          "bytes": 4512
+        },
+        {
+          "path": "references/journal_policies.md",
+          "sha256": "aefbd73c5a8a23be076b210a910f026ece748a73b4593cb99e885879bd61d2c2",
+          "bytes": 3010
+        },
+        {
+          "path": "references/professional_report_formatting.md",
+          "sha256": "c269fd256bda6a9389bfd5ffefa8eff8876b96d92f8391e8a01fa80910bb35d3",
+          "bytes": 3230
+        },
+        {
+          "path": "references/reporting_guidelines.md",
+          "sha256": "4a74d4613742bb26fe3d74596998b9e75ea8a2694a012222b6d9636e121a1f0d",
+          "bytes": 4785
+        },
+        {
+          "path": "references/research_integrity_open_science.md",
+          "sha256": "f8f91010537acf4b78616d7410d23b85030f94d66e9d36db03d6e632ffb56100",
+          "bytes": 4149
+        },
+        {
+          "path": "references/source_ledger.md",
+          "sha256": "1692a3bea432dfde6eb1e7ca7054d0dd8652b1bef6b97322ea3c30f0ff68d5b3",
+          "bytes": 11473
+        },
+        {
+          "path": "references/writing_principles.md",
+          "sha256": "58d4b32f63446c0b082f163314fdcf0d41a50568ad392d34ba992e24fadae764",
+          "bytes": 3904
+        },
+        {
+          "path": "scripts/_common.py",
+          "sha256": "8cc192d82d219d1ec9720f8a8ab0c440fb35f2562fdeaeb7432a38d18e5e7b42",
+          "bytes": 7977
+        },
+        {
+          "path": "scripts/audit_claims.py",
+          "sha256": "6074f51663e6863cf28168824a3f440b5acce9734c3c3f72590ba89c88a23c06",
+          "bytes": 10039
+        },
+        {
+          "path": "scripts/check_consistency.py",
+          "sha256": "5bd1f0dcbcccdac31e422b5a7b220d1ab1272a7eed906a62c0a5f2518e495d87",
+          "bytes": 14209
+        },
+        {
+          "path": "scripts/check_references.py",
+          "sha256": "a262d6e935e69ec1c1f25a36b8a12b6905b3f3dee0a11d94557d3f69857c5f07",
+          "bytes": 7075
+        },
+        {
+          "path": "scripts/lint_manuscript.py",
+          "sha256": "08ff45315c4dadd1c91104e3639b6bec7a6086c000830dc9d0b2b965895b3398",
+          "bytes": 5881
+        },
+        {
+          "path": "scripts/scaffold_manuscript.py",
+          "sha256": "69e9a82c7d0608646872c0f4ad08b538f0c67175b48601d9d52ea527334ce4ae",
+          "bytes": 4328
+        },
+        {
+          "path": "scripts/select_reporting_guidelines.py",
+          "sha256": "d130036ab1df6486cb54431a168207af03a52c626459ba7471041b0ee5aab567",
+          "bytes": 7580
+        },
+        {
+          "path": "scripts/validate_authorship.py",
+          "sha256": "31572a61ff61fe58f0b3f4c5b0e0e44bd9de5b865772f563dd5413876c186788",
+          "bytes": 11518
+        },
+        {
+          "path": "scripts/validate_manifest.py",
+          "sha256": "6f87919db5aa5fb5ba929b6566c892a0d6881a9e46d8a9646186c6cac01e13d2",
+          "bytes": 14393
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "511a2096bebecd8cf0f8212b9d262d37154ae1ba566eb385d93ac968682edbd1",
+          "bytes": 14897
+        }
+      ],
+      "fileCount": 31
+    },
+    {
+      "name": "scientific-visualization",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\scientific-visualization",
+      "projectPath": ".agents/skills/upstream/scientific-visualization",
+      "skillSha256": "8cbde7cdc10d959cf72cfd08335cc8ce996247eee6ebdb900eb64a4cb0ff34a3",
+      "bytes": 15478,
+      "frontmatter": "name: scientific-visualization\ndescription: Creates and audits truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use it for figure design, multi-panel layouts, uncertainty and missing-data displays, color/contrast review, image metadata validation, and journal export planning.\nlicense: MIT\ncompatibility: Requires Python 3.11+ and uv for pinned examples. Bundled CLIs are network-free and load Matplotlib, Pillow, or pypdf only when needed. Plotly static export with Kaleido v1 requires a compatible Chrome/Chromium installation.\nallowed-tools: Read Write Edit Bash Glob Grep\nmetadata:\n  version: \"1.4\"\n  last-reviewed: \"2026-10-01\"\n  skill-author: K-Dense Inc.",
+      "files": [
+        {
+          "path": "assets/color_palettes.py",
+          "sha256": "98ee4aa4b9bbb010996d55144ea6bf45a0ab294009b9bb0ef6d9c5ec9fed5154",
+          "bytes": 6756
+        },
+        {
+          "path": "assets/nature.mplstyle",
+          "sha256": "f37a361cdda8846da0794fd879cc8173402094f110239d57e0227fdd8299a4f6",
+          "bytes": 1624
+        },
+        {
+          "path": "assets/presentation.mplstyle",
+          "sha256": "d0e5a768e5965aa3893b12c0f7decd4c3b09502044391a840ebdee37dfea44da",
+          "bytes": 1465
+        },
+        {
+          "path": "assets/publication.mplstyle",
+          "sha256": "eba3001f346649a9e41d9ac1d56101abbae10aefecdad3be9530f4c9cd9269b3",
+          "bytes": 1822
+        },
+        {
+          "path": "assets/publisher_profiles.json",
+          "sha256": "1e1b1b5a4e0e3dfc57877f2abf1e96888fe6b65617234b078f193b8f76e0ebe9",
+          "bytes": 10870
+        },
+        {
+          "path": "references/color_palettes.md",
+          "sha256": "c9b6a596dd1dd1e08050fdcbb304a0268ee515bce2120a9bbd3fba31cd7fa119",
+          "bytes": 9094
+        },
+        {
+          "path": "references/journal_requirements.md",
+          "sha256": "f7c4b6660eb70f7c5778d13908409e1dc690f00e3dfc8314f430feb89781740c",
+          "bytes": 11200
+        },
+        {
+          "path": "references/matplotlib_examples.md",
+          "sha256": "74fd5977ce57b09b476285309559bbcbe3b1748943b719844b28a6b61378c041",
+          "bytes": 12165
+        },
+        {
+          "path": "references/publication_guidelines.md",
+          "sha256": "5f70c6b22dbb5e0fae18b0f1197b8794896bf7afc059874bcf7afbd5aa86bbe5",
+          "bytes": 12853
+        },
+        {
+          "path": "references/sources.md",
+          "sha256": "3ff34759c0fed3baf33286a8005fd81f0c3466a554c8b0d45f43ad30b1e5b505",
+          "bytes": 10697
+        },
+        {
+          "path": "scripts/_common.py",
+          "sha256": "e4eea2c2e5f5d8cfa544c6bed152cdb88a3d7c7952df99bcd74b45077fd6f707",
+          "bytes": 4618
+        },
+        {
+          "path": "scripts/export_plan.py",
+          "sha256": "c20962bf4c624b9939c80bd16815fc0a18fe2be285f0654a6a53704c663add0e",
+          "bytes": 19682
+        },
+        {
+          "path": "scripts/figure_export.py",
+          "sha256": "fe9c77878da61297ce55224b67282d128631deb628d930aa1929c9eb7330bf79",
+          "bytes": 23652
+        },
+        {
+          "path": "scripts/image_metadata.py",
+          "sha256": "45f79cefd99b8e5dabcbfd1a29b7346363f383411cc43540bf9f73e67fed634e",
+          "bytes": 26596
+        },
+        {
+          "path": "scripts/palette_audit.py",
+          "sha256": "3a90b3c9a4a39dde6a341dc3de7b99cd2bca4773c66564fc90cdc2706a5a8165",
+          "bytes": 11654
+        },
+        {
+          "path": "scripts/style_presets.py",
+          "sha256": "8413cfae7f2cbc4a5dd9d4301d74b051fd8eb0c7a4b3375ae59e1da91db3a985",
+          "bytes": 16173
+        },
+        {
+          "path": "scripts/style_preview.py",
+          "sha256": "ca14e714dc2fb32541ff80292db97b3acbac074a65c4f2fb290f38354f880ba7",
+          "bytes": 7762
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8cbde7cdc10d959cf72cfd08335cc8ce996247eee6ebdb900eb64a4cb0ff34a3",
+          "bytes": 15478
+        }
+      ],
+      "fileCount": 18
+    },
+    {
+      "name": "citation-management",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\citation-management",
+      "projectPath": ".agents/skills/upstream/citation-management",
+      "skillSha256": "dc79fe1e8438dcf598040615d5323360c6a7ed0b868fc3ffc82512c871a1e3ff",
+      "bytes": 16630,
+      "frontmatter": "name: citation-management\ndescription: Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation information, convert DOIs to BibTeX, or ensure reference accuracy in scientific writing.\nallowed-tools: Read Write Edit Bash WebSearch WebFetch\nlicense: MIT License\ncompatibility: Requires Python 3.9+ with requests. Google Scholar search additionally needs scholarly. Needs network access to api.openalex.org, api.crossref.org, eutils.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov, doi.org, export.arxiv.org, and api.datacite.org.\nmetadata:\n  version: \"2.3\"\n  last-reviewed: \"2026-09-30\"\n  skill-author: K-Dense Inc.\n  openclaw:\n    envVars:\n    - name: NCBI_EMAIL\n      required: false\n      description: Email for NCBI Entrez identification.\n    - name: NCBI_API_KEY\n      required: false\n      description: NCBI API key to raise Entrez rate limits.\n    - name: OPENALEX_EMAIL\n      required: false\n      description: Optional contact email for OpenAlex.\n    - name: OPENALEX_API_KEY\n      required: false\n      description: Optional OpenAlex key for a higher account budget.",
+      "files": [
+        {
+          "path": "assets/bibtex_template.bib",
+          "sha256": "08e21647fa68cad1aa1658264798c7d24775ba89bfbd2723ea6bfe4b562e2be1",
+          "bytes": 9305
+        },
+        {
+          "path": "assets/citation_checklist.md",
+          "sha256": "ce7317f2983f8b7fd02949aad726ebd6188319c7e57c929fffe689d5ae18ce36",
+          "bytes": 10434
+        },
+        {
+          "path": "references/api_contracts.md",
+          "sha256": "3e82a14f77133a215831d2627b65c93199589782f6907fc42af3c75f2ab3c5a8",
+          "bytes": 6712
+        },
+        {
+          "path": "references/best_practices.md",
+          "sha256": "df90d19c8f639590a6a430a889160b478dce61f4a5c0a5a36df5ab1be749b6b1",
+          "bytes": 2723
+        },
+        {
+          "path": "references/bibtex_formatting.md",
+          "sha256": "6337a8d2b87de96bf0f72c076feb0fc5d61ed9c342d9c8f19b3633efbfec6fed",
+          "bytes": 19394
+        },
+        {
+          "path": "references/citation_validation.md",
+          "sha256": "f235f82e02db282f0abdd23fd8d2973d870d427d355979e869f736259ba95774",
+          "bytes": 18996
+        },
+        {
+          "path": "references/core_workflow.md",
+          "sha256": "19e8b52c43f5822163c79904236016616dc4515d21a01d29073d968c9251af8d",
+          "bytes": 20986
+        },
+        {
+          "path": "references/example_workflows.md",
+          "sha256": "01c0a15e08e8115e10a07623f63565d119812fd2bb68c669eac413db2f9cd482",
+          "bytes": 3382
+        },
+        {
+          "path": "references/google_scholar_search.md",
+          "sha256": "5b705ec8d6276ef83b819b737ed10bd991815ccb413de27e046b7bfdf4da8399",
+          "bytes": 17993
+        },
+        {
+          "path": "references/metadata_extraction.md",
+          "sha256": "68c27886aff0d4efbf3a6f7e0a318dedd706d4cfd0f55dd859466de36ed78d46",
+          "bytes": 21419
+        },
+        {
+          "path": "references/pubmed_search.md",
+          "sha256": "fab82cda700a0dfc6dccc9465c9cc60b9df68cb58d0bec9abe7b2d8748a49cd1",
+          "bytes": 19233
+        },
+        {
+          "path": "references/script_reference.md",
+          "sha256": "bd23683cb3a7edb932fc5a13bb9215969a834a778a8765eea82553bf1b8b3417",
+          "bytes": 7536
+        },
+        {
+          "path": "references/search_strategies.md",
+          "sha256": "776c0dd1cbaf0432004ae80273640ff324b570401c569413c674829436385c85",
+          "bytes": 2727
+        },
+        {
+          "path": "scripts/_common.py",
+          "sha256": "87540160163671b972c2fccb4d0a42db3cca2603c664d26d5da3ca5dbc7dfdd2",
+          "bytes": 10912
+        },
+        {
+          "path": "scripts/doi_to_bibtex.py",
+          "sha256": "1b7d1ab2e8bf9bcf5a7d49bf45496e0f8b7d8e0d0cda8efd8fce4e527082dc4b",
+          "bytes": 6783
+        },
+        {
+          "path": "scripts/extract_metadata.py",
+          "sha256": "bebc7835b5e659cdeee0087980e881635894330bac5eda4ce01f490fd41df781",
+          "bytes": 29650
+        },
+        {
+          "path": "scripts/format_bibtex.py",
+          "sha256": "cc74fdc4d5819df8db3999e59f96469cebfb353ecf406a49a5a0fc60896707cb",
+          "bytes": 11075
+        },
+        {
+          "path": "scripts/search_google_scholar.py",
+          "sha256": "05cfd67aea6475029d017f1b4ff68e7ba727e1fa9b52f1e614c80287940b4985",
+          "bytes": 8746
+        },
+        {
+          "path": "scripts/search_openalex.py",
+          "sha256": "538b2f086625fd1e9a2cb2fe8bd46ee852d888f17d2d1e889b8f50592594f693",
+          "bytes": 12055
+        },
+        {
+          "path": "scripts/search_pubmed.py",
+          "sha256": "4543b74bf773747bae47a2bbb18acf2a4a050071119d88d1711db6049d157116",
+          "bytes": 14912
+        },
+        {
+          "path": "scripts/validate_citations.py",
+          "sha256": "a08e8e0774287e9aca2bd87c3a66cd3dfc751018eafb6cdee37987e3f416d2b5",
+          "bytes": 28361
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "dc79fe1e8438dcf598040615d5323360c6a7ed0b868fc3ffc82512c871a1e3ff",
+          "bytes": 16630
+        }
+      ],
+      "fileCount": 22
+    },
+    {
+      "name": "paper-lookup",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\paper-lookup",
+      "projectPath": ".agents/skills/upstream/paper-lookup",
+      "skillSha256": "fac99456ad404ff9a0d3043709b956b5d6383838ae8e8394f274a5693d8bd294",
+      "bytes": 26136,
+      "frontmatter": "name: paper-lookup\ndescription: Searches 18 scholarly APIs for papers, preprints, citations, open-access full text, repository records, and journal OA status, and returns results with reproducible provenance. Covers PubMed, PMC, Europe PMC, bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall, OpenCitations, PubTator3, Zenodo, Figshare, ROR, BioStudies, and DOAJ. Use when searching for papers, citations, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, author publications, biomedical entity annotations, deposited records (Zenodo, Figshare, BioStudies), institution ROR IDs, or any scholarly literature query. Triggers on mentions of any supported database or requests like \"find papers on X\", \"look up this DOI\", \"who cites this paper\", or \"get me the PDF\".\nallowed-tools: Read Bash\nlicense: MIT\ncompatibility: Needs network access and curl. The bundled scripts require Python 3.11+ and use only the standard library. No credentials are required; NCBI_API_KEY, S2_API_KEY, CORE_API_KEY, and OPENALEX_API_KEY raise rate limits or unlock full text where noted.\nmetadata:\n  version: \"2.4\"\n  last-reviewed: \"2026-09-30\"\n  skill-author: \"K-Dense Inc.\"",
+      "files": [
+        {
+          "path": "references/arxiv.md",
+          "sha256": "79b76d17bbbd8bbed6fd38e2b5ec217f9ba5a8f58cbeaacf6cce25f546e6bbfa",
+          "bytes": 12155
+        },
+        {
+          "path": "references/biorxiv.md",
+          "sha256": "9617504b2d461c1bd8a5b373ba76fe08646151b7d06424aa8fd7e2124f697d4b",
+          "bytes": 6836
+        },
+        {
+          "path": "references/biostudies.md",
+          "sha256": "46693cba660c58b04f64b630c486930ce97cd86308ef9ff0d51eed5aa616a3c7",
+          "bytes": 4049
+        },
+        {
+          "path": "references/core.md",
+          "sha256": "295f9317145532e70210f6142a32c63b9be10a4a6aed6230e8b29075b539476e",
+          "bytes": 4757
+        },
+        {
+          "path": "references/crossref.md",
+          "sha256": "ad2da9d8fdf72ce920a023afdd5d659a01283f9b931ed31bc6e1522ff2ae3738",
+          "bytes": 5642
+        },
+        {
+          "path": "references/doaj.md",
+          "sha256": "cdbdd0c069454c4d0a56bed104183c649c86f2b8062c381e5d69b355d7f74839",
+          "bytes": 4348
+        },
+        {
+          "path": "references/europepmc.md",
+          "sha256": "d82114a183b7129900faff076eecebf19cdf56f0c591514059a296bba75bad75",
+          "bytes": 9215
+        },
+        {
+          "path": "references/figshare.md",
+          "sha256": "fb0f8dc48820f443af989543da4201f1996e1afc7ecfdb764da9962255543d08",
+          "bytes": 3125
+        },
+        {
+          "path": "references/medrxiv.md",
+          "sha256": "c98776db744065a7917604b1191aee3eeec8a206e436ba1cd510d1ffa17011f7",
+          "bytes": 5155
+        },
+        {
+          "path": "references/openalex.md",
+          "sha256": "1225cde541ceff6f6e42a65d435cf355a087a217a8a6048b6b040dc074715485",
+          "bytes": 5635
+        },
+        {
+          "path": "references/opencitations.md",
+          "sha256": "fc12339fa39534adbea464a14699260bfee8c3c865c8cd54ef16d2c10232c481",
+          "bytes": 4734
+        },
+        {
+          "path": "references/pmc.md",
+          "sha256": "0c16a75600e4ba795e83a784a94d23a7ce59066dcf660afdcfa118d1aa2c5a7e",
+          "bytes": 7288
+        },
+        {
+          "path": "references/pubmed.md",
+          "sha256": "98b744f3fc6663545bcd0d2f0aa8781b90f9c777878f60b5236d694c24e43f3c",
+          "bytes": 4654
+        },
+        {
+          "path": "references/pubtator.md",
+          "sha256": "20049fd2f2fe5954f1866c9d4b9bc8699d306de15602e7274e7a68b91b6c1e51",
+          "bytes": 4657
+        },
+        {
+          "path": "references/ror.md",
+          "sha256": "3b61cc80636b6696d770b4ba6609626c68ff9d3b434aa455ddeecd9c94533c37",
+          "bytes": 4348
+        },
+        {
+          "path": "references/semantic-scholar.md",
+          "sha256": "b2f0f4b238addf94097a58b8903463baca6fbfdc8cf15230e9720eb6ce5b1eab",
+          "bytes": 7220
+        },
+        {
+          "path": "references/unpaywall.md",
+          "sha256": "cdd3c21d1299e530b1b9f059bd82ae8f9bb2c52102a548a860327b9c2c13ae9d",
+          "bytes": 3572
+        },
+        {
+          "path": "references/zenodo.md",
+          "sha256": "10d83cc52ebd138c3934ed216fcd2e966381f164588a9d77d2cd996878cd3df1",
+          "bytes": 3928
+        },
+        {
+          "path": "scripts/_common.py",
+          "sha256": "4c6962ddbcb8cb89adc6c6ac02199835310f04b2ab93ffab9855adef38efd369",
+          "bytes": 8377
+        },
+        {
+          "path": "scripts/arxiv_atom.py",
+          "sha256": "15a62f0e4edf032f635cf1d2f17b9d5869af0def338ee0b05528e0bc1d8499d1",
+          "bytes": 8188
+        },
+        {
+          "path": "scripts/jats_to_text.py",
+          "sha256": "2185a4994dc41216e160ab173183cda42b5d3e5be82547f470df6dcd6fe3a53d",
+          "bytes": 11304
+        },
+        {
+          "path": "scripts/openalex_abstract.py",
+          "sha256": "414c681e5b89b1c8a06891d2bc69800571e7d08c4504c5496bd706738dfc2402",
+          "bytes": 6425
+        },
+        {
+          "path": "scripts/paginate.py",
+          "sha256": "3016350e4883535f0f9a767e5e65eec21b913ccbc9ce22d435a6fa86d330dfcf",
+          "bytes": 19657
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "fac99456ad404ff9a0d3043709b956b5d6383838ae8e8394f274a5693d8bd294",
+          "bytes": 26136
+        }
+      ],
+      "fileCount": 24
+    },
+    {
+      "name": "markdown-mermaid-writing",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\markdown-mermaid-writing",
+      "projectPath": ".agents/skills/upstream/markdown-mermaid-writing",
+      "skillSha256": "c28a9d602fc5b55e9fa80cff493b045bb70d3cec47e2288e38051744337214c4",
+      "bytes": 16691,
+      "frontmatter": "name: markdown-mermaid-writing\ndescription: Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, timelines, and schemas. Provides syntax references, document templates, accessibility guidance, and version-aware rendering checks. Use when a user requests Markdown, Mermaid, or a text-based structural diagram; quantitative scientific figures require suitable plotting tools.\nallowed-tools: Read Write Edit Bash\nlicense: Apache-2.0\ncompatibility: Markdown authoring needs no runtime. Local rendering targets Mermaid and Mermaid CLI 12.0.0, Node.js 22.13+ and a supported Chromium browser. Package or CDN installation needs network access; no credentials required.\nmetadata:\n  version: \"1.3\"\n  last-reviewed: \"2026-10-01\"\n  mermaid-tested: \"12.0.0\"\n  mermaid-cli-tested: \"12.0.0\"\n  skill-author: Clayton Young / Superior Byte Works, LLC (@borealBytes)\n  skill-source: https://github.com/SuperiorByteWorks-LLC/agent-project\n  skill-version: 1.0.0\n  skill-contributors: Clayton Young (Superior Byte Works, LLC / @borealBytes; Author and originator); K-Dense Team (K-Dense Inc.; Integration target and community feedback)",
+      "files": [
+        {
+          "path": "assets/examples/example-research-report.md",
+          "sha256": "af5844d2f8b2972d96ad85218b479367b1fa99cd718bd23be6027266079ec7de",
+          "bytes": 3509
+        },
+        {
+          "path": "references/current-rendering.md",
+          "sha256": "03b96222d08fffb254a1828f301af4ce8ebe099c9bc380ab21ad59888e0d3d51",
+          "bytes": 7744
+        },
+        {
+          "path": "references/diagrams/architecture.md",
+          "sha256": "b246d31c1b99d41a795d7df1c451b77f8bd1cf584561471bc3cd8874b3199376",
+          "bytes": 5092
+        },
+        {
+          "path": "references/diagrams/block.md",
+          "sha256": "02b2a095b4c8c6845c1fd9d3a3ca917113746517dcd224107f6c9c6bede8221c",
+          "bytes": 5138
+        },
+        {
+          "path": "references/diagrams/c4.md",
+          "sha256": "2f815d518f8715fa2968566c88edd146f760f33db3299704ff15614ec50df2d5",
+          "bytes": 6815
+        },
+        {
+          "path": "references/diagrams/class.md",
+          "sha256": "496286c007ab15dc5e875ff7e30ca2a2e6b69d8cf46bce4330a3e92eb9810c8b",
+          "bytes": 8840
+        },
+        {
+          "path": "references/diagrams/complex_examples.md",
+          "sha256": "1eddefc2e1e2717ac813b3488a1355fa9585b496c5d7bc9606121924c73b3c73",
+          "bytes": 17248
+        },
+        {
+          "path": "references/diagrams/er.md",
+          "sha256": "2086906f3c002837c5508205a81acc93cc2cc6166cea96d62f3836153a71f76e",
+          "bytes": 8237
+        },
+        {
+          "path": "references/diagrams/flowchart.md",
+          "sha256": "be90231d635aea2645fefd86c108a3a0f819e74929e30afe5b670702265e368e",
+          "bytes": 7203
+        },
+        {
+          "path": "references/diagrams/gantt.md",
+          "sha256": "c05da4e62a02f4ae4d01995a0de4272cc04f7609408d9ecc08345b1ff6e65914",
+          "bytes": 6101
+        },
+        {
+          "path": "references/diagrams/git_graph.md",
+          "sha256": "5992286cc0ac0b16020ef71fccb074eeb9b5c70d874fc08ef1b07672f550645e",
+          "bytes": 2294
+        },
+        {
+          "path": "references/diagrams/kanban.md",
+          "sha256": "acd582211a09ba799445a0d1fc7fb710149cd46ea71e4f17509ffce7733f142f",
+          "bytes": 4047
+        },
+        {
+          "path": "references/diagrams/mindmap.md",
+          "sha256": "79bbffa9faff776f832a77d7fbe29530b3f3aa45c60e08176e621c39c824dcee",
+          "bytes": 2516
+        },
+        {
+          "path": "references/diagrams/packet.md",
+          "sha256": "6d17b2b9dcb24d78538b3d14d06a53c51a06d5b7b81a191c1c923d85f90f07d2",
+          "bytes": 2485
+        },
+        {
+          "path": "references/diagrams/pie.md",
+          "sha256": "5c23d5928eea6cfaf3d6cdd7fc0306403abf8a1d5394dfea2d5f64bc30bc5f99",
+          "bytes": 1961
+        },
+        {
+          "path": "references/diagrams/quadrant.md",
+          "sha256": "14977d2d10cd6255afad2f9e6db92f21ece23cf50b0595928877a84125e340c6",
+          "bytes": 2702
+        },
+        {
+          "path": "references/diagrams/radar.md",
+          "sha256": "37bd437a3b99782b3a2adb5cbc7a9d888e99508f25539fbad53aa2ca12a9f03d",
+          "bytes": 2851
+        },
+        {
+          "path": "references/diagrams/requirement.md",
+          "sha256": "37da70b91532bf1c71925b75c1fe5424cb1637726765f285c7ee059231916941",
+          "bytes": 3121
+        },
+        {
+          "path": "references/diagrams/sankey.md",
+          "sha256": "28446f926580846fe9dffd8fc19d08d69aab010793520b2b41045a5e0d5e57e3",
+          "bytes": 2691
+        },
+        {
+          "path": "references/diagrams/sequence.md",
+          "sha256": "7eb7c9d4822de94a8c2e0fce23cd3c98a4eabfd72969ac1db5b774ba981ac1b0",
+          "bytes": 6052
+        },
+        {
+          "path": "references/diagrams/state.md",
+          "sha256": "6f4932b9e0f8b52eb1e364e54ce79d5051facf0706b8832d2fa1ec61b1c3d4dd",
+          "bytes": 5822
+        },
+        {
+          "path": "references/diagrams/timeline.md",
+          "sha256": "54989d17d5636c8cb4a32cd256f58857d63a78928d2b06a7bc204cd4bdbaca6c",
+          "bytes": 4583
+        },
+        {
+          "path": "references/diagrams/treemap.md",
+          "sha256": "2a52475aa915d9173ec506c8b71500ea8e6ebea48663c742c2a9b0d0b8c2e56d",
+          "bytes": 2652
+        },
+        {
+          "path": "references/diagrams/user_journey.md",
+          "sha256": "3e04d3e557732cd90f841e142f43bdb70d255bc9c7b9d148a609014aca56ca0f",
+          "bytes": 5302
+        },
+        {
+          "path": "references/diagrams/xy_chart.md",
+          "sha256": "642910cf5949017f15dfe8ecf46564e0697427072f66eebbcb33d8c0a35232c0",
+          "bytes": 2655
+        },
+        {
+          "path": "references/diagrams/zenuml.md",
+          "sha256": "319efbe76fd336bc4049f20a3139e51f3d4df6be2fcea421b85e4ca8c7e6441a",
+          "bytes": 2568
+        },
+        {
+          "path": "references/markdown_style_guide.md",
+          "sha256": "ecc85928c8ebcb4bbfd46556bb37269061e6f58504dfe3ffbaf29b7788d64248",
+          "bytes": 33195
+        },
+        {
+          "path": "references/mermaid_style_guide.md",
+          "sha256": "083ce0070bf3d8b4e64d9b946ab6eaec908168f0a3bb77926d720a4f767feaef",
+          "bytes": 27258
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c28a9d602fc5b55e9fa80cff493b045bb70d3cec47e2288e38051744337214c4",
+          "bytes": 16691
+        },
+        {
+          "path": "templates/decision_record.md",
+          "sha256": "da314705b15a2c4bb9fb6150222f9db5e8229da275481c4acfc9e8c7a0afdbbc",
+          "bytes": 7323
+        },
+        {
+          "path": "templates/how_to_guide.md",
+          "sha256": "1363b28cc6edd59f68ca81efe6e8723ad43008283acad23dcda45fa0e8c30848",
+          "bytes": 7295
+        },
+        {
+          "path": "templates/issue.md",
+          "sha256": "3ec84341c5a923f1dc9066e1c346533c7021602a6a8b17252d51dd4f40d0d1ec",
+          "bytes": 11915
+        },
+        {
+          "path": "templates/kanban.md",
+          "sha256": "213df6f39e2ef3e253b98fe6c3688322bb78e88f0f89d9cdbd23933774bc21e2",
+          "bytes": 10826
+        },
+        {
+          "path": "templates/presentation.md",
+          "sha256": "13494ab83e242fd4cb9fb3110d87a4f8aadcc8a4f520cb16acca4d8fdb8875cf",
+          "bytes": 8303
+        },
+        {
+          "path": "templates/project_documentation.md",
+          "sha256": "58da34425cabac1b859e8f43916bad215232e60ecefe031a959b729c1549f9df",
+          "bytes": 11795
+        },
+        {
+          "path": "templates/pull_request.md",
+          "sha256": "18828f680999f39bdb6f7ae7c175af507dbe945363f16962ddd019958751c499",
+          "bytes": 12131
+        },
+        {
+          "path": "templates/research_paper.md",
+          "sha256": "c795783bfde5fa07ccb29159ff5129d5ea0888d827cfa50548a9101e8c177c29",
+          "bytes": 10361
+        },
+        {
+          "path": "templates/status_report.md",
+          "sha256": "2cdf785affe8831d2fa1cb6e87cf33afbb5c3cb056575aa5ecb2b8b6bfbe3152",
+          "bytes": 7336
+        }
+      ],
+      "fileCount": 38
+    },
+    {
+      "name": "sympy",
+      "hostPath": "C:\\Users\\khang\\.codex\\skills\\sympy",
+      "projectPath": ".agents/skills/upstream/sympy",
+      "skillSha256": "bb97087bdddccc845401737ddc7f7a8da1c14ced5e8d40da01271c991ac46e23",
+      "bytes": 13293,
+      "frontmatter": "name: sympy\ndescription: Performs exact symbolic mathematics with SymPy for algebra, calculus, equation solving, symbolic linear algebra, physics, and lambdify or LaTeX code generation. Use when a task needs symbolic results, explicit assumptions, or exact arithmetic; use NumPy or SciPy for purely numerical workloads.\nlicense: https://github.com/sympy/sympy/blob/master/LICENSE\nallowed-tools: Read Write Edit Bash\ncompatibility: Requires Python 3.9+ and SymPy 1.14.0. Optional NumPy/SciPy/Matplotlib, IPython/ipywidgets, or ANTLR 4.11 parser runtime for relevant examples. Compiled wrappers need a C/Fortran compiler and backend packages; emitting source needs no compiler. Network only for installation/docs.\nmetadata:\n  version: \"1.5\"\n  last-reviewed: \"2026-10-01\"\n  upstream-version: \"1.14.0\"\n  skill-author: K-Dense Inc.",
+      "files": [
+        {
+          "path": "references/advanced-topics.md",
+          "sha256": "cff0c044c5d7c7f65235f35a7c0fe19e41a42c27393c9aa7f38a31f00ed28e81",
+          "bytes": 14192
+        },
+        {
+          "path": "references/code-generation-printing.md",
+          "sha256": "6a547f4dfd6975762d61d7effd47c9613e16d345e2e1dab89549bfc465f7e404",
+          "bytes": 15244
+        },
+        {
+          "path": "references/core-capabilities.md",
+          "sha256": "2c7d55c127ccd5d4d0792892025979c421573f2662c5cededb6cbcf80ee61888",
+          "bytes": 9601
+        },
+        {
+          "path": "references/core_capabilities.md",
+          "sha256": "69fffa94caf62276112108bbeff5b7dd4281a5b40c07e44eea381f46f00a6011",
+          "bytes": 5239
+        },
+        {
+          "path": "references/matrices-linear-algebra.md",
+          "sha256": "fd64e48e917cf0a71bb0d744e8cfee345a98284256a84fb55793fe4d9783272d",
+          "bytes": 10493
+        },
+        {
+          "path": "references/physics-mechanics.md",
+          "sha256": "0d015cf60861aa5fe1598a76e08d612a758f0c0895bbd1ce1dcbfbc9d4bfaf8c",
+          "bytes": 15004
+        },
+        {
+          "path": "references/review.md",
+          "sha256": "03d4db2d0432cf7ec3a21b2746da7b96809aa7613d17c101d16460f5ec732ab1",
+          "bytes": 6041
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "bb97087bdddccc845401737ddc7f7a8da1c14ced5e8d40da01271c991ac46e23",
+          "bytes": 13293
+        }
+      ],
+      "fileCount": 8
+    }
+  ]
+}

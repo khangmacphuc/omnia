@@ -24,6 +24,9 @@ use omnia_harness::permission::{PermissionMode, PermissionPolicy};
 use omnia_harness::prompt::{PromptInputs, SystemPromptConfig};
 use omnia_harness::skills::{self, SkillTool};
 use omnia_harness::subagent::{self, TaskTool};
+use omnia_harness::user_input::{
+    AskUserTool, PendingQuestion, QuestionBroker, QuestionError, QuestionReceipt,
+};
 use omnia_harness::{
     prompt, tools, Block, CheckpointScope, CheckpointStore, HarnessError, Message, RestoreReport,
     ToolContext, ToolRegistry,
@@ -120,6 +123,7 @@ struct ActiveRun {
     steer: SteerQueue,
     policy: Arc<Mutex<PermissionPolicy>>,
     approvals: Arc<DashMap<String, oneshot::Sender<ApprovalDecision>>>,
+    questions: Arc<QuestionBroker>,
     /// For each approval currently asked: the ids queued behind it.
     queued: Arc<DashMap<String, Vec<String>>>,
     /// Decisions already made for approvals that have not been asked yet
@@ -600,6 +604,9 @@ pub struct AgentSessionDetail {
     pub summary: AgentSessionSummary,
     pub messages: Vec<Message>,
     pub running: bool,
+    /// Only currently live senders are answerable. Historical journal requests
+    /// stay auditable but are never revived after a process restart.
+    pub pending_questions: Vec<PendingQuestion>,
     #[serde(flatten)]
     pub replay: crate::harness_store::RunReplay,
 }
@@ -623,6 +630,11 @@ pub(crate) fn read_session(
         messages,
         replay,
         running: hub.runs.contains_key(&id),
+        pending_questions: hub
+            .runs
+            .get(&id)
+            .map(|run| run.questions.pending())
+            .unwrap_or_default(),
     })
 }
 
@@ -636,8 +648,20 @@ pub fn agent_session_delete(
         .lifecycle
         .lock()
         .map_err(|_| NativeError::new("agent_lock_failed", "Lifecycle lock poisoned"))?;
-    if let Some((_, run)) = hub.runs.remove(&id) {
+    if let Some(run) = hub.runs.get(&id) {
         run.cancel.cancel();
+        run.approvals.clear();
+        // Session deletion is a terminal run boundary too. Resolve live
+        // question senders before deleting the journal row so a waiting tool
+        // cannot publish a late request or remain blocked after its session
+        // disappears. Keep the run reachable until this durable close
+        // succeeds; otherwise a journal failure would strand a cancelled run
+        // while the session still exists.
+        run.questions
+            .close("session_deleted")
+            .map_err(question_error)?;
+        drop(run);
+        hub.runs.remove(&id);
     }
     hub.services.retire(&id);
     crate::inspector::forget_session(&id);
@@ -825,12 +849,30 @@ pub(crate) async fn send_message(
         ctx.session_id = id.clone();
         ctx
     };
+    let questions = {
+        let app = app.clone();
+        let session_id = id.clone();
+        let store = Arc::clone(&hub.store);
+        let cancel = ctx.cancel.clone();
+        Arc::new(QuestionBroker::new(
+            id.clone(),
+            format!("run_{}", uuid::Uuid::new_v4().simple()),
+            ctx.cancel.clone(),
+            Arc::new(move |event| {
+                persist_emit(&store, &app, &session_id, event).map_err(|error| {
+                    cancel.cancel();
+                    error.to_string()
+                })
+            }),
+        ))
+    };
     let run = Arc::new(ActiveRun {
         cwd: cwd.clone(),
         cancel: ctx.cancel.clone(),
         steer: SteerQueue::default(),
         policy: Arc::clone(&policy),
         approvals: Arc::clone(&approvals),
+        questions,
         queued: Arc::clone(&queued),
         batch: Arc::clone(&batch),
         base_len: std::sync::atomic::AtomicUsize::new(base_len),
@@ -899,7 +941,12 @@ pub(crate) async fn send_message(
             }
         })?;
         // Journal event + running status are committed in one transaction.
-        persist_emit(&hub.store, &app, &id, json!({"type":"run_started"}))
+        persist_emit(
+            &hub.store,
+            &app,
+            &id,
+            json!({"type":"run_started", "runId":run.questions.run_id()}),
+        )
     })();
     if let Err(error) = prepare {
         hub.runs.remove(&id);
@@ -992,6 +1039,7 @@ pub(crate) async fn send_message(
 
         let plan_mode = policy.lock().await.mode == PermissionMode::Plan;
         let mut registry: ToolRegistry = tools::builtin_registry();
+        registry.register(Arc::new(AskUserTool::new(Arc::clone(&run.questions))));
         let service_guard: crate::agent_services::ServiceGuard = {
             let store = Arc::clone(&store);
             let id = id.clone();
@@ -1138,6 +1186,12 @@ pub(crate) async fn send_message(
         let finished = execution.unwrap_or_else(
             |error| json!({"type":"run_finished", "status":"failed", "message":error.to_string()}),
         );
+        let finished = match run.questions.close("run_finished") {
+            Ok(()) => finished,
+            Err(error) => {
+                json!({"type":"run_finished", "status":"failed", "message":error.to_string()})
+            }
+        };
         let finished_event = finished.clone();
         if let Err(error) = persist_emit(&store, &app, &id, finished) {
             emit(
@@ -1191,9 +1245,63 @@ pub(crate) fn interrupt_session(hub: &HarnessHub, request: AgentSessionRef) -> N
     if let Some(run) = hub.runs.get(&id) {
         run.cancel.cancel();
         run.approvals.clear();
+        let result = run.questions.close("run_interrupted");
+        hub.services.stop_session_computer(&id);
+        return result.map_err(question_error);
     }
     hub.services.stop_session_computer(&id);
     Ok(())
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub struct AgentUserInputRequest {
+    pub session_id: String,
+    pub request_id: String,
+    /// Optional for compatibility with older clean-room clients. Request UUIDs
+    /// remain scoped to the current run even when this field is omitted.
+    #[serde(default)]
+    pub run_id: Option<String>,
+    /// The outer option distinguishes an omitted field from an explicit JSON
+    /// `null`: null is the deliberate user-cancel acknowledgement, while an
+    /// omitted answer is malformed and must never be interpreted as cancel.
+    #[serde(deserialize_with = "deserialize_some")]
+    pub answer: Option<Option<String>>,
+}
+
+fn question_error(error: QuestionError) -> NativeError {
+    let code = match &error {
+        QuestionError::Invalid(_) => "user_input_invalid",
+        QuestionError::NotPending => "user_input_not_pending",
+        QuestionError::WrongRun => "user_input_wrong_run",
+        QuestionError::Closed => "agent_not_running",
+        QuestionError::Journal(_) => "harness_storage_failed",
+    };
+    NativeError::new(code, error.to_string())
+}
+
+#[tauri::command]
+pub fn agent_user_input(
+    hub: State<'_, HarnessHub>,
+    request: AgentUserInputRequest,
+) -> NativeResult<QuestionReceipt> {
+    let id = require_id(&request.session_id, "sessionId")?;
+    let request_id = require_id(&request.request_id, "requestId")?;
+    let run = hub.runs.get(&id).ok_or_else(|| {
+        NativeError::new(
+            "agent_not_running",
+            "That run is no longer active; historical questions cannot be answered",
+        )
+    })?;
+    let answer = request.answer.ok_or_else(|| {
+        NativeError::new(
+            "user_input_invalid",
+            "answer is required; use null to explicitly cancel the question",
+        )
+    })?;
+    run.questions
+        .answer(&request_id, request.run_id.as_deref(), answer)
+        .map_err(question_error)
 }
 
 #[derive(Debug, Deserialize)]
@@ -1675,6 +1783,7 @@ impl HarnessHub {
                 summary: self.store.summary(id)?,
                 messages,
                 running: false,
+                pending_questions: Vec::new(),
                 replay: self.store.replay(id)?,
             },
             file_restore,
@@ -1724,6 +1833,87 @@ pub fn agent_fork(
 mod tests {
     use super::*;
     use std::sync::atomic::{AtomicUsize, Ordering};
+
+    #[test]
+    fn user_input_requires_explicit_answer_and_keeps_null_as_cancel() {
+        let omitted = serde_json::from_value::<AgentUserInputRequest>(json!({
+            "sessionId": "session-a",
+            "requestId": "question-a"
+        }));
+        assert!(
+            omitted.is_err(),
+            "missing answer must not become an implicit cancel"
+        );
+
+        let cancelled = serde_json::from_value::<AgentUserInputRequest>(json!({
+            "sessionId": "session-a",
+            "requestId": "question-a",
+            "answer": null
+        }))
+        .unwrap();
+        assert_eq!(cancelled.answer, Some(None));
+
+        let answered = serde_json::from_value::<AgentUserInputRequest>(json!({
+            "sessionId": "session-a",
+            "requestId": "question-a",
+            "runId": "run-a",
+            "answer": "Workspace"
+        }))
+        .unwrap();
+        assert_eq!(answered.answer, Some(Some("Workspace".into())));
+        assert_eq!(answered.run_id.as_deref(), Some("run-a"));
+
+        let extra = serde_json::from_value::<AgentUserInputRequest>(json!({
+            "sessionId": "session-a",
+            "requestId": "question-a",
+            "answer": null,
+            "unexpected": true
+        }));
+        assert!(extra.is_err(), "unknown request fields must be rejected");
+    }
+
+    #[tokio::test]
+    async fn user_input_request_and_resolution_are_durable_store_events() {
+        let (root, hub, _) = rewind_failure_fixture();
+        let store = Arc::clone(&hub.store);
+        let broker = QuestionBroker::new(
+            "s1".into(),
+            "run-a".into(),
+            omnia_harness::CancellationToken::new(),
+            Arc::new(move |event| {
+                store
+                    .append_event("s1", &event)
+                    .map(|_| ())
+                    .map_err(|error| error.to_string())
+            }),
+        );
+        let input = omnia_harness::user_input::QuestionInput {
+            prompt: "Choose a scope".into(),
+            options: vec!["Workspace".into(), "File".into()],
+            recommended: vec!["Workspace".into()],
+        };
+        let (pending, receiver) = broker.begin("tool-a", input).unwrap();
+        broker
+            .answer(&pending.id, Some("run-a"), Some("File".into()))
+            .unwrap();
+        assert_eq!(receiver.await.unwrap(), Some("File".into()));
+
+        let replay = hub.store.replay("s1").unwrap();
+        assert_eq!(replay.events.len(), 2);
+        assert_eq!(replay.events[0].event["type"], "ask_user");
+        assert_eq!(replay.events[1].event["type"], "ask_user_resolved");
+        assert_eq!(replay.events[1].event["status"], "answered");
+        assert_eq!(replay.events[1].event["answer"], "File");
+        let data = root.join("data");
+        drop(broker);
+        drop(hub);
+        let reopened = HarnessStore::open(&data).unwrap();
+        let reloaded = reopened.replay("s1").unwrap();
+        assert_eq!(reloaded.events.len(), 2);
+        assert_eq!(reloaded.events[1].event["requestId"], pending.id);
+        drop(reopened);
+        let _ = std::fs::remove_dir_all(root);
+    }
 
     struct RealChildUsageProvider {
         mode: u8,

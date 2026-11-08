@@ -1,0 +1,3 @@
+npm.cmd run rebuild:architecture
+exitCode=0
+Clean-room import graph and legacy UI boundary guard passed with zero violations.

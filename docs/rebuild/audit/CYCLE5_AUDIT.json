@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "stage": "audit",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T04:59:14.704Z",
+  "criteria": [
+    "UI-007",
+    "UI-013",
+    "UI-015",
+    "ADVSET-003",
+    "CHAT-008",
+    "GOVERNANCE-004",
+    "GOVERNANCE-005",
+    "GOVERNANCE-007",
+    "GOVERNANCE-008",
+    "GOVERNANCE-009"
+  ],
+  "baseline": {
+    "counts": {
+      "planned": 215,
+      "partial": 17,
+      "blocked": 8
+    },
+    "total": 240
+  },
+  "findings": [
+    {
+      "id": "workflow-stale-history",
+      "severity": "P1",
+      "status": "addressed",
+      "evidence": "docs/rebuild/audit/WORKFLOW_FORCE_AUDIT_20261108.md",
+      "decision": "Create a fresh cycle instead of mutating the stale rebuild-0004 manifest."
+    },
+    {
+      "id": "ui-narrow-regressions",
+      "severity": "P1",
+      "status": "addressed",
+      "evidence": "docs/rebuild/audit/UI_QA_NARROW_20261108.md",
+      "decision": "Refresh browser QA after companion, modal focus, settings grid and tab semantics fixes."
+    },
+    {
+      "id": "native-boundaries",
+      "severity": "P1",
+      "status": "open",
+      "evidence": "docs/rebuild/audit/NATIVE_VERTICAL_SLICE_AUDIT_20261108.md",
+      "decision": "Keep native/provider/pointer/RAG claims incomplete until packaged evidence exists."
+    },
+    {
+      "id": "receipt-freshness",
+      "severity": "P1",
+      "status": "addressed",
+      "evidence": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
+      "decision": "Refresh source hashes and rerun the affected focused suite."
+    }
+  ],
+  "negativeCases": [
+    "stale cycle hash must fail default check",
+    "preview evidence must not satisfy native/live kinds",
+    "missing blocker workaround/nextAction must fail structural gate"
+  ],
+  "nextActions": [
+    "fetch a new OSS revision/path after cycle creation",
+    "complete independent source review and browser QA",
+    "run native ask-user and loader tests in serialized Cargo slot"
+  ]
+}

@@ -1,0 +1,9 @@
+Architecture guard failed:
+src/design-system/appearance.ts: legacy or unapproved renderer import
+src/visual-fixtures/visual-scenario.ts: legacy or unapproved renderer import
+src/agent/dev-mock/index.ts: legacy or unapproved renderer import
+src/visual-fixtures/visual-fixture-root.tsx: legacy or unapproved renderer import
+src/agent/agent-shell.tsx: legacy or unapproved renderer import
+src/styles/tokens.generated.css: legacy or unapproved renderer import
+src/styles/tokens.css: legacy or unapproved renderer import
+src/styles/base.css: legacy or unapproved renderer import

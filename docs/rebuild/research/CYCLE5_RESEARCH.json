@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "stage": "research",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:04:51.871Z",
+  "query": "everything super power pro max agent checkpoint durable workflow OSS GitHub",
+  "sources": [
+    {
+      "canonicalRepo": "https://github.com/langchain-ai/langgraph",
+      "revision": "e5e37b5d70dbfd93c7006bd90a658c6179a95946",
+      "path": "libs/langgraph/langgraph/pregel/_checkpoint.py",
+      "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8",
+      "license": "MIT",
+      "query": "everything super power pro max agent checkpoint durable workflow OSS GitHub",
+      "retrievedAt": "2026-11-08T05:02:08.793Z",
+      "observation": "The checkpoint module models durable state lineage, checkpoint identity and persistence boundaries independently from active execution.",
+      "strength": "Explicit checkpoint/state lineage helps replay and audit long-running workflows.",
+      "weakness": "Python implementation is not native Omnia runtime proof and its provider/runtime semantics differ.",
+      "impact": "Apply the contract vocabulary to session/workflow receipts while retaining Omnia-owned Rust/TypeScript implementation.",
+      "decision": "apply",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle5/langgraph-pregel-checkpoint.py.txt",
+        "sha256": "49065ded9a05d6a0df806449eea8ab9a59fe24f3ce1739e7e5c34725b3022fb8"
+      }
+    }
+  ],
+  "noveltyGate": "Repository/revision/path tuple is absent from the cycle baseline and was fetched after cycle creation.",
+  "limits": [
+    "Source inspection is reference evidence only; no upstream scripts were executed.",
+    "The Python checkpoint runtime does not establish Omnia native or packaged behavior."
+  ]
+}

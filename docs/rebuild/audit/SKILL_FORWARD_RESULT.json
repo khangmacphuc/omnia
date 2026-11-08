@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/rebuild_independent_audit",
+  "evaluatedAt": "2026-11-08T04:18:00+07:00",
+  "skill": ".agents/skills/omnia-evidence-loop/SKILL.md",
+  "scope": "harmless routing/evidence forward test; no product mutation",
+  "cases": [
+    {
+      "id": "A",
+      "nextActions": [
+        "Re-read AGENTS, skill, goal, workflow, spec, DOD, source register, checkpoint and git diff",
+        "Hash current canonical inputs and reject the stale pre-compact read snapshot",
+        "Audit the changed spec before implementation; create a new cycle generation if the old plan is invalid"
+      ],
+      "evidenceRequired": ["current document hash snapshot", "requirement-to-criterion diff", "new cycle manifest"],
+      "allowedClaimsNow": ["resume is blocked until current docs are read"],
+      "ambiguity": "The skill says read changed documents again but does not itself choose whether to increment a cycle generation; WORKFLOW failure reset supplies the safer interpretation."
+    },
+    {
+      "id": "B",
+      "nextActions": [
+        "Keep native browser criterion incomplete",
+        "Require a repository-relative native or packaged-desktop JSON receipt with command/output/source hashes and independent review",
+        "Continue a publish milestone only with explicit partial status"
+      ],
+      "evidenceRequired": ["native or packaged runtime receipt", "tested source hashes", "non-author review", "negative/cancel evidence"],
+      "allowedClaimsNow": ["mock/unit coverage exists", "an honest preview milestone may be published if all other gates pass"],
+      "ambiguity": "The skill distinguishes mock from native but does not define the minimum browser capture scenario; the DoD criterion must supply it."
+    },
+    {
+      "id": "C",
+      "nextActions": [
+        "Reject the renamed mirror as duplicate because repository revision/path or content hash was already reviewed",
+        "Record the duplicate as a no-novelty result",
+        "Review the unreviewed MCP source and record canonical repo, revision, license, exact file hash, observation and decision"
+      ],
+      "evidenceRequired": ["source-register baseline", "new MCP source snapshot", "query/timestamp/license/commit", "novelty decision"],
+      "allowedClaimsNow": ["the mirror is not new research", "the MCP candidate becomes new research only after exact source review"],
+      "ambiguity": "A repository identity versus content hash collision is not fully defined for forks; the workflow correctly requires both identity and hash deduplication, so the conservative result is reject."
+    },
+    {
+      "id": "D",
+      "nextActions": [
+        "Treat the latest human clean-room requirement as authoritative",
+        "Replace the entry graph and reject legacy iframe/activity-rail tests as new UI evidence",
+        "Record the conflict and preserve the historical spec for provenance"
+      ],
+      "evidenceRequired": ["new source graph audit", "no iframe/live editor result", "new UI interaction tests", "runtime capture"],
+      "allowedClaimsNow": ["legacy tests may remain historical", "no new UI criterion is Done before the original renderer is integrated"],
+      "ambiguity": "The workflow says external UI may be studied but not copied; exact copied-source detection needs hash/import audits in addition to prose review."
+    },
+    {
+      "id": "E",
+      "nextActions": [
+        "Keep native criteria blocked with cause, attempts, workaround and next resolution path",
+        "Publish only a clearly labeled fixture/preview milestone if its own gates pass",
+        "Retry only when the missing native dependency can be repaired or a supported machine is available"
+      ],
+      "evidenceRequired": ["two startup failure receipts", "environment/dependency details", "fixture receipt labeled preview", "resolution plan"],
+      "allowedClaimsNow": ["renderer fixture passes", "native runtime remains unverified"],
+      "ambiguity": "No ambiguity affects the decision: user explicitly requires native proof for 100%, and the skill forbids converting fixture evidence into native proof."
+    }
+  ],
+  "result": "passed_with_findings",
+  "findings": [
+    "The skill routes all five cases away from false Done claims.",
+    "A separate cycle-generation rule should be kept in WORKFLOW for spec changes during compact.",
+    "Independent source-boundary tests are required because a prose skill cannot inspect the entry graph by itself."
+  ]
+}

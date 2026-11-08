@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "stage": "synthesize",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:06:16.690Z",
+  "observations": [
+    {
+      "source": "https://github.com/langchain-ai/langgraph",
+      "observation": "Checkpoint lineage separates durable state identity from active execution.",
+      "strength": "Supports replayable workflow receipts and explicit persistence boundaries.",
+      "weakness": "Python graph runtime differs from Omnia native Tauri.",
+      "decision": "Adopt the contract concept only; implement independently.",
+      "criteria": [
+        "UI-007",
+        "UI-013",
+        "UI-015",
+        "ADVSET-003",
+        "CHAT-008",
+        "GOVERNANCE-004",
+        "GOVERNANCE-005",
+        "GOVERNANCE-007",
+        "GOVERNANCE-008",
+        "GOVERNANCE-009"
+      ]
+    }
+  ],
+  "workbench": {
+    "sourceFiles": [
+      {
+        "path": "src/rebuild/reference/reference-workbench.tsx",
+        "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+      },
+      {
+        "path": "src/rebuild/reference/reference-workbench.css",
+        "sha256": "35f1d29b2fc040bdba4e7311ee0e8eaa165c74ac5db0f999d5945f3a2cfebabb"
+      },
+      {
+        "path": "src/rebuild/reference/reference-data.ts",
+        "sha256": "a676eb8c60e0531cab830dd49e1b2e4a5017203b2a359508bb2744e512e6c15b"
+      }
+    ],
+    "buildEvidence": {
+      "path": "docs/rebuild/receipts/cycle5-renderer-build-20261108.json",
+      "sha256": "3f7f29efa4df2a999d3f1b18a6d01a3a2cb38a4435fb2b62efccaf82e4115e68",
+      "kind": "build"
+    }
+  }
+}

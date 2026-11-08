@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-typecheck",
+  "recordedAt": "2026-11-08T04:07:27.2714187Z",
+  "command": "node_modules/.bin/tsc -p tsconfig.app.json --noEmit --pretty false",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/typecheck-current-20261108.txt",
+    "sha256": "cc258d839e50d5e0cf220528399d5c29a6bcc5c3a9ee2616a915627e0363d91d"
+  },
+  "sourceFiles": [
+    {
+      "path": "tsconfig.app.json",
+      "sha256": "8baa6128d1097ce309632bab536b2b47b4c064ae673b5e60d91b5ddea7c2213e"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    }
+  ]
+}

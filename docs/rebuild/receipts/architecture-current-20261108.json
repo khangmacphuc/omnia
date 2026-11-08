@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-architecture",
+  "recordedAt": "2026-11-08T04:07:27.2120400Z",
+  "command": "npm.cmd run rebuild:architecture",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/architecture-current-20261108.txt",
+    "sha256": "327d0acd1079f954eea674c0db666ee7e931c5e54cf914dbe1289610ac0434b6"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+npm warn cli npm v12.2.1 does not support Node.js v27.0.0-nightly202610263983092f63. This version of npm supports the following node versions: `^22.22.2 || ^24.15.0 || >=26.0.0`. You can find the latest version at https://nodejs.org/.
+npm notice run omnia-desktop@0.1.0 build:renderer
+npm notice run vite build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 1686 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.56 kB │ gzip:  0.34 kB
+dist/.vite/manifest.json                  1.42 kB │ gzip:  0.38 kB
+dist/assets/rebuild-app-enOfKU_t.css     37.58 kB │ gzip:  7.62 kB
+dist/assets/core-protocol-BdhX-5SY.js     0.73 kB │ gzip:  0.40 kB
+dist/assets/vendor-tauri-BPbctHHY.js      1.11 kB │ gzip:  0.55 kB
+dist/assets/index-CKrLEc-_.js             1.69 kB │ gzip:  0.93 kB
+dist/assets/vendor-icons-VlZT-b2x.js     10.28 kB │ gzip:  3.86 kB
+dist/assets/desktop-client-CQa5nKw6.js   13.77 kB │ gzip:  3.77 kB
+dist/assets/rebuild-app-vHAsU1_V.js      88.90 kB │ gzip: 26.60 kB
+dist/assets/vendor-react-Diwmnjaz.js    187.13 kB │ gzip: 59.91 kB
+✓ built in 7.66s
+EXIT=0

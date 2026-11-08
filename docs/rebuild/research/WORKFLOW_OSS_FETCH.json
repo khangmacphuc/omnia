@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-11-07T21:13:05.272Z",
+  "scope": "new workflow research source acquisition; no upstream code executed",
+  "sources": [
+    {
+      "canonicalRepo": "https://github.com/github/spec-kit",
+      "revision": "c43849408ac0de2ca6a52f14eaae71449776057b",
+      "paths": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/LICENSE",
+          "localPath": "research/upstreams/novel/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/LICENSE",
+          "sha256": "2510b446bc1f0cf9702453075d20cd88631e20e5642658edb7325d9c1eb534f7",
+          "bytes": 1060
+        },
+        {
+          "path": "templates/commands/analyze.md",
+          "url": "https://raw.githubusercontent.com/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/analyze.md",
+          "localPath": "research/upstreams/novel/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/analyze.md",
+          "sha256": "ffe0640ebe778795737937f2d4ec6f0149d7d55b72692e25369a668f985d1dfe",
+          "bytes": 11764
+        },
+        {
+          "path": "templates/commands/checklist.md",
+          "url": "https://raw.githubusercontent.com/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/checklist.md",
+          "localPath": "research/upstreams/novel/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/checklist.md",
+          "sha256": "1192784f378fb977b408b72ca1bfb8fc55e129519f3f44bc5d0a7e152c480654",
+          "bytes": 22340
+        },
+        {
+          "path": "templates/commands/implement.md",
+          "url": "https://raw.githubusercontent.com/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/implement.md",
+          "localPath": "research/upstreams/novel/github/spec-kit/c43849408ac0de2ca6a52f14eaae71449776057b/templates/commands/implement.md",
+          "sha256": "feab334232940cfd4ecbcdae41cf63ccb7d581a60380230837385f296f7b49bd",
+          "bytes": 12779
+        }
+      ],
+      "errors": [
+        {
+          "message": "GitHub API revision lookup HTTP 403; trying read-only git ls-remote"
+        }
+      ]
+    },
+    {
+      "canonicalRepo": "https://github.com/gsd-build/get-shit-done",
+      "revision": "bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815",
+      "paths": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/LICENSE",
+          "localPath": "research/upstreams/novel/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/LICENSE",
+          "sha256": "af0d31f2550b534c14251e14020f3378cf17bd21af7660e7d7b1a2ead4fcdfb4",
+          "bytes": 1075
+        },
+        {
+          "path": "get-shit-done/workflows/verify-work.md",
+          "url": "https://raw.githubusercontent.com/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/workflows/verify-work.md",
+          "localPath": "research/upstreams/novel/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/workflows/verify-work.md",
+          "sha256": "99563cfdcc6607335aaeded2f40357be0e323d03e41c53787d15845127e228f4",
+          "bytes": 25846
+        },
+        {
+          "path": "get-shit-done/workflows/execute-plan.md",
+          "url": "https://raw.githubusercontent.com/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/workflows/execute-plan.md",
+          "localPath": "research/upstreams/novel/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/workflows/execute-plan.md",
+          "sha256": "3ff0d1689a22fd80760f97844dec651fa86b5445d70ee8c243a00bb30b70549b",
+          "bytes": 25595
+        },
+        {
+          "path": "get-shit-done/templates/phase-prompt.md",
+          "url": "https://raw.githubusercontent.com/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/templates/phase-prompt.md",
+          "localPath": "research/upstreams/novel/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/get-shit-done/templates/phase-prompt.md",
+          "sha256": "e0187f8f614a1263aa7848d154e4906872bd541864a8ba614299042afc6f5d80",
+          "bytes": 18567
+        }
+      ],
+      "errors": [
+        {
+          "message": "GitHub API revision lookup HTTP 403; trying read-only git ls-remote"
+        }
+      ]
+    },
+    {
+      "canonicalRepo": "https://github.com/affaan-m/everything-claude-code",
+      "revision": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+      "paths": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/LICENSE",
+          "localPath": "research/upstreams/novel/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/LICENSE",
+          "sha256": "326146379f01bb137c0a5d3c54770c1aa31076705c8b88a7f6b26a460f6221b2",
+          "bytes": 1071
+        },
+        {
+          "path": "skills/continuous-learning-v2/SKILL.md",
+          "url": "https://raw.githubusercontent.com/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/continuous-learning-v2/SKILL.md",
+          "localPath": "research/upstreams/novel/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/continuous-learning-v2/SKILL.md",
+          "sha256": "ddad12451a0d582c6ef1b197b7be193bef613cbc74eba4117fcb74fc7a4ecd00",
+          "bytes": 14149
+        },
+        {
+          "path": "skills/verification-loop/SKILL.md",
+          "url": "https://raw.githubusercontent.com/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/verification-loop/SKILL.md",
+          "localPath": "research/upstreams/novel/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/verification-loop/SKILL.md",
+          "sha256": "9ee288d426660b0c785f534a003a4960fb4d8083a21302d8a4fd9b035b2edbb1",
+          "bytes": 3972
+        },
+        {
+          "path": "skills/search-first/SKILL.md",
+          "url": "https://raw.githubusercontent.com/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/search-first/SKILL.md",
+          "localPath": "research/upstreams/novel/affaan-m/everything-claude-code/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/search-first/SKILL.md",
+          "sha256": "76835db48dd910061d2e4271b1151793d2fddbabeb2d2866eed068b3580c55d5",
+          "bytes": 8210
+        }
+      ],
+      "errors": [
+        {
+          "message": "GitHub API revision lookup HTTP 403; trying read-only git ls-remote"
+        }
+      ]
+    }
+  ]
+}

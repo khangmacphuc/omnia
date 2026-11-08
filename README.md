@@ -2,13 +2,32 @@
 
 **Local first AI workbench for chat, projects, IDE and browser workflows.**
 
-![Omnia app overview](docs/assets/omnia-app-overview.png)
+![Omnia rebuild Chat](docs/assets/omnia-rebuild-chat.png)
 
 Omnia is a Windows desktop AI workspace built for people who need more than a chat box. It combines durable conversations, project scoped context, provider neutral model routing, a native trust boundary, IDE and browser surfaces, and an inspectable harness for plans, tools, skills, MCP servers, plugins and subagents.
 
 The project exists to make advanced AI work reproducible. A run should show what was admitted, which provider was selected, which tools were allowed, how context was retrieved, what was persisted, and what still needs review. The native host owns credentials, storage, permissions and external process boundaries; the renderer owns presentation and interaction.
 
-> **Release snapshot:** Omnia 0.1.18 internal developer preview. The repository is actively being completed toward the DoD matrix in [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md). The ledger is the authority for done, partial and blocked criteria.
+> **Release snapshot:** Omnia 0.1.0 clean-room rebuild preview. The repository is actively being completed toward the 240-criterion DoD matrix in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json). The rebuild gate is the authority for done, partial, blocked and planned criteria.
+
+## Clean-room renderer preview
+
+The current rebuild is a fresh renderer under `src/rebuild`. It has one shared
+session model and exactly three top-level surfaces: **Chat**, **Browser** and
+**IDE**. These screenshots were captured from the local Vite preview at
+1440×900 on 2026-11-08. They are preview evidence, so the Browser image
+intentionally reports that the native WebView2 surface is unavailable outside
+the packaged desktop runtime.
+
+| Chat | Browser | IDE | Advanced settings |
+| --- | --- | --- | --- |
+| ![Omnia rebuild Chat preview](docs/assets/omnia-rebuild-chat.png) | ![Omnia rebuild Browser preview](docs/assets/omnia-rebuild-browser.png) | ![Omnia rebuild IDE preview](docs/assets/omnia-rebuild-ide.png) | ![Omnia rebuild settings preview](docs/assets/omnia-rebuild-settings.png) |
+
+The preview build verifies the navigation shell, non-project-first Chat,
+shared session sidebar, explicit unavailable native states, local IDE chrome,
+folder/file access boundaries and versioned advanced runtime settings. Native
+provider execution, durable native persistence and packaged WebView2 behavior
+remain separately tracked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
 
 ## Primary surfaces
 
@@ -85,7 +104,7 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
-The current snapshot also has dated focused receipts: the renderer build completed with 2,099 modules; the primary shell and command palette suites covered 36 tests; the browser surface suites covered 73 renderer tests and 24 native tests; the headless performance gate covered 76 samples with zero runtime errors and a 2,638 ms page ready p95; the supported native loader discovered 713 integration tests; and the native provider-lineage harness completed 713 tests while preserving context-manifest fields in secret-free receipts. These receipts cover local renderer and native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long running endurance evidence remain explicitly tracked as partial or blocked in the ledger.
+The current rebuild cycle has dated receipts for a 55-test renderer suite, TypeScript typecheck, renderer build, architecture/import guard, 32 workflow-gate tests, UI captures at 800×600 and 1440×900, and 10 native ask-user broker tests. These receipts cover local renderer and provider-neutral native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long-running endurance evidence remain explicitly tracked as partial or blocked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
 
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 
@@ -111,10 +130,11 @@ Useful shortcuts:
 
 ## Honest status and next work
 
-Omnia is intentionally reported as a matrix instead of a marketing claim. The completion ledger records implementation, focused tests, boundary evidence and same snapshot receipts for every criterion. Current remaining work includes packaged WebView2 capture/history/download evidence, live provider account billing reconciliation, packaged editor and DPI/accessibility evidence, long running native performance profiling, durable compare attempt journaling and a Windows loader issue in the unsupported library test target.
+Omnia is intentionally reported as a matrix instead of a marketing claim. The rebuild DoD records implementation, focused tests, boundary evidence and same-snapshot receipts for every criterion. The current cycle is **0/240 Done, 23 Partial, 8 Blocked and 209 Planned**. Remaining work includes packaged WebView2 capture/history/download evidence, live provider account billing reconciliation, packaged editor and DPI/accessibility evidence, long-running native performance profiling, durable compare attempt journaling, pointer/RAG runtime proof, and native model discovery refresh.
 
-- Completion matrix: [`docs/qa/OMNIA_COMPLETION_LEDGER.md`](docs/qa/OMNIA_COMPLETION_LEDGER.md)
-- Definition of Done: [`docs/qa/DEFINITION_OF_DONE.md`](docs/qa/DEFINITION_OF_DONE.md)
+- Rebuild completion matrix: [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json)
+- Rebuild workflow: [`docs/rebuild/WORKFLOW.md`](docs/rebuild/WORKFLOW.md)
+- Rebuild checkpoint: [`docs/rebuild/CHECKPOINT.md`](docs/rebuild/CHECKPOINT.md)
 - Product scope: [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md)
 - Harness architecture: [`docs/HARNESS_ARCHITECTURE.md`](docs/HARNESS_ARCHITECTURE.md)
 - Security and storage: [`docs/security-storage-architecture.md`](docs/security-storage-architecture.md)

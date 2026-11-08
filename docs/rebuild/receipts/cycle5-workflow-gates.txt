@@ -1,0 +1,3 @@
+npm.cmd run test:rebuild-gates
+exitCode=0
+32 Node workflow and architecture gate tests passed.

@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "stage": "plan",
+  "cycleId": "rebuild-0005",
+  "recordedAt": "2026-11-08T05:07:13.518Z",
+  "passBudget": 3,
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Bind every selected criterion to an owned slice and measurable runtime evidence."
+    },
+    {
+      "index": 2,
+      "decision": "Add negative and stale-receipt gates before any milestone claim."
+    },
+    {
+      "index": 3,
+      "decision": "Serialize native Cargo proof and keep preview/native/live scope labels explicit."
+    }
+  ],
+  "stopReason": "budget-exhausted",
+  "tasks": [
+    {
+      "id": "ui-evidence",
+      "criteria": [
+        "UI-007",
+        "UI-013",
+        "UI-015"
+      ],
+      "owner": "/root",
+      "dependencies": [],
+      "inputs": [
+        "src/rebuild/rebuild-app.tsx",
+        "src/rebuild/rebuild-app.css",
+        "docs/rebuild/audit/UI_QA_NARROW_20261108.md"
+      ],
+      "outputs": [
+        "src/rebuild/rebuild-app.tsx",
+        "src/rebuild/rebuild-app.css",
+        "docs/rebuild/receipts/ui-qa-cycle5-20261108.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "renderer focused tests",
+          "operator": "gte",
+          "value": 54
+        },
+        {
+          "metric": "critical axe violations after refresh",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "metric": "settings tab centerExposed false at 800x600",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd exec -- vitest run src/rebuild --reporter=dot",
+          "expectedExitCode": 0
+        },
+        {
+          "command": "node scripts/rebuild/architecture-guard.mjs",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "settings-discovery",
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "owner": "/root/settings_model_discovery_impl",
+      "dependencies": [
+        "ui-evidence"
+      ],
+      "inputs": [
+        "src/rebuild/settings/model-discovery.ts",
+        "src/rebuild/settings/SettingsPanel.tsx"
+      ],
+      "outputs": [
+        "src/rebuild/settings/model-discovery.ts",
+        "docs/rebuild/receipts/settings-model-discovery-20261108.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "focused discovery tests",
+          "operator": "gte",
+          "value": 25
+        },
+        {
+          "metric": "renderer credential fields",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd exec -- vitest run src/rebuild/settings/model-discovery.test.ts src/rebuild/settings/ModelDiscoveryPanel.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "native-ask-user",
+      "criteria": [
+        "CHAT-008"
+      ],
+      "owner": "/root/ask_user_native_impl",
+      "dependencies": [
+        "settings-discovery"
+      ],
+      "inputs": [
+        "src-tauri/crates/omnia-harness/src/user_input.rs",
+        "src-tauri/src/harness_bridge.rs"
+      ],
+      "outputs": [
+        "src-tauri/crates/omnia-harness/src/user_input.rs",
+        "docs/rebuild/receipts/ask-user-native-cycle5.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "native ask-user tests",
+          "operator": "gte",
+          "value": 8
+        },
+        {
+          "metric": "duplicate or stale answer acceptance",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "workflow-gates",
+      "criteria": [
+        "GOVERNANCE-004",
+        "GOVERNANCE-005",
+        "GOVERNANCE-007",
+        "GOVERNANCE-008",
+        "GOVERNANCE-009"
+      ],
+      "owner": "/root/workflow_force_impl",
+      "dependencies": [
+        "native-ask-user"
+      ],
+      "inputs": [
+        "scripts/rebuild/workflow.mjs",
+        "scripts/rebuild/check.mjs",
+        "docs/rebuild/DOD.json"
+      ],
+      "outputs": [
+        "scripts/rebuild/workflow.mjs",
+        "docs/rebuild/receipts/workflow-force-implementation-20261108.md"
+      ],
+      "acceptance": [
+        {
+          "metric": "rebuild gate tests",
+          "operator": "gte",
+          "value": 32
+        },
+        {
+          "metric": "invalid blocker records accepted",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "metric": "active cycle stale hash bypass",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run test:rebuild-gates",
+          "expectedExitCode": 0
+        },
+        {
+          "command": "npm.cmd run rebuild:check",
+          "expectedExitCode": 0
+        }
+      ]
+    }
+  ]
+}

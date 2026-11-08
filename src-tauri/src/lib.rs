@@ -210,6 +210,7 @@ fn build_core_command_handler() -> impl Fn(tauri::ipc::Invoke) -> bool {
         inspector::agent_inspector_clear,
         harness_bridge::agent_steer,
         harness_bridge::agent_interrupt,
+        harness_bridge::agent_user_input,
         harness_bridge::agent_approval_decide,
         harness_bridge::agent_rewind,
         harness_bridge::agent_fork,

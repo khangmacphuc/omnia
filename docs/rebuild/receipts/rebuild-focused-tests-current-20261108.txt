@@ -1,0 +1,17 @@
+
+ RUN  v3.2.7 C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+(node:20288) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17256) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7304) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+···································
+
+ Test Files  9 passed (9)
+      Tests  35 passed (35)
+   Start at  11:04:22
+   Duration  5.22s (transform 1.58s, setup 2.47s, collect 3.62s, tests 8.72s, environment 10.32s, prepare 1.84s)
+
+EXIT=0

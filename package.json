@@ -47,10 +47,15 @@
     "inventory:upstream": "node scripts/upstream-preview/build-upstream-inventory.cjs",
     "inventory:catalog": "node scripts/upstream-preview/generate-upstream-capability-catalog.cjs",
     "check:upstream-catalog": "node scripts/upstream-preview/generate-upstream-capability-catalog.cjs --check",
+    "rebuild:check": "node scripts/rebuild/check.mjs",
+    "rebuild:cycle": "node scripts/rebuild/cycle.mjs",
+    "rebuild:architecture": "node scripts/rebuild/architecture-guard.mjs",
+    "test:rebuild-gates": "node --test scripts/rebuild/*.test.mjs",
     "tauri": "tauri",
     "desktop:dev": "tauri dev",
     "desktop:build": "tauri build",
-    "check": "npm run tokens:check && npm run check:agent-catalog && npm run check:conversation-navigation && npm run check:source-ledger && npm run check:upstream-catalog && npm run check:acl && npm run check:typography && npm run check:hit-targets && npm run check:imports && npm run verify:cursor-authority && npm run verify:authoritative-root && npm run typecheck && npm run test && npm run build && npm run check:bundle"
+    "check": "npm run tokens:check && npm run check:agent-catalog && npm run check:conversation-navigation && npm run check:source-ledger && npm run check:upstream-catalog && npm run check:acl && npm run check:typography && npm run check:hit-targets && npm run check:imports && npm run verify:cursor-authority && npm run verify:authoritative-root && npm run typecheck && npm run test && npm run build && npm run check:bundle",
+    "rebuild:check:complete": "node scripts/rebuild/check.mjs --complete"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.85.5",

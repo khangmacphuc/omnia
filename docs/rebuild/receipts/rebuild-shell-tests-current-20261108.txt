@@ -1,0 +1,15 @@
+✔ actual application entry graph excludes historical renderer source (49.5897ms)
+✔ clean-room renderer has source before a Done claim (1.6214ms)
+✔ new renderer does not import historical UI modules or styles (4.8764ms)
+✔ new renderer does not introduce live editor or external iframe embedding (207.4895ms)
+✔ new source is not an exact file copy of the historical UI (191.9678ms)
+✔ canonical evidence documents exist before strict completion review (0.5427ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 789.7379
+EXIT=0

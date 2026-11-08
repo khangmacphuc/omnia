@@ -1,0 +1,22 @@
+Command: node tests/rebuild-ui-browser-independent.mjs
+Base URL: http://127.0.0.1:1432/
+Runtime: local Vite renderer, Chromium headless; no native mocks, provider dispatch, packaged Tauri or permission grant
+Viewport/theme matrix: 1440x900 and 800x600 × dark and light; Chat, Browser, IDE, Settings
+Exit: 1 (evidence collected with findings)
+Summary: 129 checks; 92 passed; 37 failed; 16 state captures
+
+Report: docs/rebuild/audit/ui-browser-20261108/report.json
+
+Observed findings:
+- Browser `.rb-browser__tabs` has role=tablist but contains a New browser tab button without role=tab; axe reports critical aria-required-children.
+- Light theme primary controls and settings inputs fail axe color-contrast (primary button 3.84:1; settings input sample 1.16:1).
+- Settings has no focus-on-open, Escape-close, or focus-restore behavior, and reverse Tab escapes the dialog.
+- Settings defines four grid tracks for five children. The section-tab row measures 3.34px desktop / 1px at800; each section tab fails unforced pointer hit testing at800 because the toolbar/tabpanel intercepts it.
+- At 800x600 the Browser and IDE companion chat is hidden by the <=1100px media rule; the composer is not accessible in those surfaces.
+- Header48 and sidebar240 pass desktop measurement. Browser tabs measure32, below the DoD36 geometry target.
+- Primary navigation focus passes in keyboard modality. An earlier mouse/programmatic-focus probe was excluded as a harness false positive.
+- The fresh shell source does render ChatView/composer beside Browser and IDE at desktop width; the older UI-007 finding claiming it was absent is stale.
+
+Evidence boundary: this receipt proves browser-renderer behavior and visual/a11y observations only. It does not prove native WebView2, packaged desktop, provider, filesystem, credential, or permission behavior.
+
+Current follow-up source state: companion toggle and modal boundary are implemented in source after the first baseline capture; see ui-browser-20261108-current/report.json for the post-change run. The current review intentionally retains the 141-check failure report as evidence until Settings CSS/theme defects are fixed and a stable rerun is captured.

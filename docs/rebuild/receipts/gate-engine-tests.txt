@@ -1,0 +1,22 @@
+✔ accepts an original rebuild entry and rejects legacy renderer import (103.7938ms)
+✔ rejects external app embedding and computed module paths (29.5634ms)
+✔ canonical repo and source identity normalization are stable (1.6175ms)
+✔ evidence hash changes when evidence changes (7.4379ms)
+✔ entry graph reports missing relative imports (4.4925ms)
+✔ canonical hashes include only existing documents (5.3188ms)
+✔ forged done criterion without evidence or independent review is rejected (2.592ms)
+✔ changed evidence is rejected by stored hash (8.3842ms)
+✔ stage jumps and initial non-resume transitions are rejected (0.4294ms)
+✔ research identity repeats are rejected (80.8881ms)
+✔ rejects forged Done without evidence and independent review (96.514ms)
+✔ rejects duplicate or pre-cycle research and requires source snapshot (16.724ms)
+✔ rejects skipped stages and cancellation requires a reason (24.1272ms)
+✔ cycle failure creates a new generation and returns to implementation (11.196ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2375.1659

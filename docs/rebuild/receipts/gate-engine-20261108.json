@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "result": "failed",
+  "scope": "rebuild-gate-engine",
+  "recordedAt": "2026-11-07T21:19:32.6283966Z",
+  "command": "node --test scripts/rebuild/*.test.mjs; node scripts/rebuild/architecture-guard.mjs; node --check scripts/rebuild/workflow.mjs",
+  "exitCode": 1,
+  "output": {
+    "sha256": "47303ed458a6cdaefc82d34728f0310a0fcb0dc463c7eaa85b3bcfdbfa376fa9",
+    "path": "docs/rebuild/receipts/gate-engine-tests.txt"
+  },
+  "architectureOutput": {
+    "sha256": "f45232f8d616e423c2cac7ab26c82170670d09efdbcec8377e009609a3105b75",
+    "path": "docs/rebuild/receipts/gate-engine-architecture.txt"
+  },
+  "sourceFiles": [
+    {
+      "path": "scripts/rebuild/workflow.mjs",
+      "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    },
+    {
+      "path": "scripts/rebuild/check.mjs",
+      "sha256": "6ef62d57946ec25c53c941ec41d15a892404e3ec00a40a4341268b52dc1e8b05"
+    },
+    {
+      "path": "scripts/rebuild/cycle.mjs",
+      "sha256": "b81f08b1dc00fc99e88bd0d1772c8caaa4042dbadf007d039d062521bf03bc5a"
+    },
+    {
+      "path": "scripts/rebuild/workflow.test.mjs",
+      "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.test.mjs",
+      "sha256": "41f5670704b265d90132a0569787fe8e10e74373ac87d9c41d3d80b321fbbaed"
+    },
+    {
+      "path": "scripts/rebuild/SCHEMA.md",
+      "sha256": "8f80b0c61c39c6a414e62247684754c673d60b02ccea5cc9375f2c2e58852e79"
+    },
+    {
+      "path": "package.json",
+      "sha256": "58a3f459dfd44b75a11237b22dab66c219a8d528064e13f547d0e0f753634e7d"
+    }
+  ],
+  "limitations": [
+    "Current main.tsx still uses the historical entry until root integrates the original renderer; architecture command output may be a failed baseline gate.",
+    "Structural gate does not prove native or live provider behavior."
+  ]
+}

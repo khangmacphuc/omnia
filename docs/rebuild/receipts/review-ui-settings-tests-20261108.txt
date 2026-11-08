@@ -1,0 +1,34 @@
+Command: node_modules/.bin/vitest run src/rebuild/rebuild-app.test.tsx src/rebuild/chat/chat-view.test.tsx src/rebuild/browser/browser-workspace.test.tsx src/rebuild/ide/ide-workspace.test.tsx src/rebuild/settings/settings.test.ts src/rebuild/settings/SettingsPanel.test.tsx --reporter=dot
+
+ RUN  v3.2.7 C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+(node:22236) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32652) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27280) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+······················
+
+ Test Files  6 passed (6)
+      Tests  22 passed (22)
+   Start at  11:05:25
+   Duration  5.23s (transform 1.93s, setup 2.13s, collect 4.08s, tests 5.25s, environment 7.87s, prepare 1.69s)
+
+EXIT=0
+Command: node --test tests/rebuild-independent-audit.test.mjs
+✔ actual application entry graph excludes historical renderer source (58.0408ms)
+✔ clean-room renderer has source before a Done claim (2.6253ms)
+✔ new renderer does not import historical UI modules or styles (7.0795ms)
+✔ new renderer does not introduce live editor or external iframe embedding (219.6866ms)
+✔ new source is not an exact file copy of the historical UI (212.3639ms)
+✔ canonical evidence documents exist before strict completion review (0.5608ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 933.5007
+EXIT=0

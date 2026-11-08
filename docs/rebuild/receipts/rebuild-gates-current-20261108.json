@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "rebuild-gate-tests",
+  "recordedAt": "2026-11-08T04:07:27.2642460Z",
+  "command": "npm.cmd run test:rebuild-gates",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/rebuild-gates-current-20261108.txt",
+    "sha256": "46873925b7db2ffb4c6d3bdfb99b42652c1d322e3a0928351124e7a77dc85c46"
+  },
+  "sourceFiles": [
+    {
+      "path": "scripts/rebuild/workflow.mjs",
+      "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1"
+    },
+    {
+      "path": "scripts/rebuild/gate-lib.mjs",
+      "sha256": "1f1ba91fbc0ea8e11e726ad0d2414f85ebddac33773834a404628e375c3f9318"
+    },
+    {
+      "path": "scripts/rebuild/workflow.test.mjs",
+      "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.test.mjs",
+      "sha256": "41f5670704b265d90132a0569787fe8e10e74373ac87d9c41d3d80b321fbbaed"
+    }
+  ]
+}

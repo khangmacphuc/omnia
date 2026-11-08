@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-08T04:39:10.555Z",
+  "findings": [
+    {
+      "sourceId": "oss-get-shit-done-verification-20261108",
+      "path": "commands/gsd/verify-work.md",
+      "previousDeclaredSha256": "not-hashed-web-search-observation",
+      "url": "https://raw.githubusercontent.com/gsd-build/get-shit-done/bdcaab2c752d9a33a1a1ca9acf3a3c81fb991815/commands/gsd/verify-work.md",
+      "status": 200,
+      "retrievedAt": "2026-11-08T04:39:07.898Z",
+      "sha256": "e51c337793b20f922c398a30a7036b616b8e1d2de48692093875c4e886ba8a7a",
+      "snapshot": "docs/rebuild/research/snapshots/cycle4/oss-get-shit-done-verification-20261108-commands_gsd_verify-work.md.txt"
+    },
+    {
+      "sourceId": "oss-power-agent-powershell-20261108",
+      "path": "README.md",
+      "previousDeclaredSha256": "0396A57DB2EDF08E0A03A0F0D73FF31F77BDDAA595F6BD218416B46F3A14BED",
+      "url": "https://raw.githubusercontent.com/nakasyou/power-agent/a258539983e3ffbcb04f7762d73f98b67940e5b8/README.md",
+      "status": 200,
+      "retrievedAt": "2026-11-08T04:39:08.321Z",
+      "sha256": "0396a57db2edf08e0a03a0f0d73ff31f77bddaa595f6bd218416b46ff3a14bed",
+      "snapshot": "docs/rebuild/research/snapshots/cycle4/oss-power-agent-powershell-20261108-README.md.txt"
+    },
+    {
+      "sourceId": "new-browser-use-terminal-cycle3-20261108",
+      "path": "README.md",
+      "previousDeclaredSha256": "51b335df27e00813d45b3898424adffd8edf0843eacf46a7072cb9dc8d77690",
+      "url": "https://raw.githubusercontent.com/browser-use/terminal/16cdd3ac47261292d88f410abb1f0234577850ce/README.md",
+      "status": 200,
+      "retrievedAt": "2026-11-08T04:39:08.718Z",
+      "sha256": "70392f0919aa417827ff3cb548a60efa6726ec1517d4a69542601608b5944240",
+      "snapshot": "docs/rebuild/research/snapshots/cycle4/new-browser-use-terminal-cycle3-20261108-README.md.txt"
+    },
+    {
+      "sourceId": "new-computer-agent-cycle3-20261108",
+      "path": "src-tauri/src/permissions.rs",
+      "previousDeclaredSha256": "deaa3232828485ab5f523c072ff1e4cb398a589ce19c1bf97392efc96a736ec",
+      "url": "https://raw.githubusercontent.com/suitedaces/computer-agent/92795e717b5bd254d1894d46d180eb29b690525b/src-tauri/src/permissions.rs",
+      "status": 200,
+      "retrievedAt": "2026-11-08T04:39:09.065Z",
+      "sha256": "53c87ccb63c129d7a0c7e7f07937e6b1a70af9adeec15939876b349a4a291274",
+      "snapshotOmitted": "Additional derivative license provisions; metadata/hash retained without vendored source."
+    },
+    {
+      "canonicalRepo": "https://github.com/deepseek-ai/deepseek-harness",
+      "revision": "fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159",
+      "path": "packages/goal/goal/src/index.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159/packages/goal/goal/src/index.ts",
+      "status": 200,
+      "retrievedAt": "2026-11-08T04:39:10.554Z",
+      "sha256": "b3ea2930458f67afb97e7929b957e5859c42ee16fde95e3247734e3789e9c134",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle4/deepseek-goal-index.ts.txt",
+        "sha256": "b3ea2930458f67afb97e7929b957e5859c42ee16fde95e3247734e3789e9c134"
+      },
+      "license": "MIT"
+    }
+  ]
+}

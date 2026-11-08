@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "browser-preview-renderer",
+  "recordedAt": "2026-11-08T04:40:52.9432442Z",
+  "command": "npm.cmd exec -- vitest run src/rebuild/settings/model-discovery.test.ts src/rebuild/settings/model-discovery-native-bridge.test.ts src/rebuild/settings/ModelDiscoveryPanel.test.tsx src/rebuild/settings/settings.test.ts src/rebuild/settings/SettingsPanel.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/settings-model-discovery-20261108.txt",
+    "sha256": "ac4b062b78fb4af35ac9aaf2ae1fc4ead35fa8a30ad3f0aef95a1ffec486e1c5"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/settings/index.ts",
+      "sha256": "17a04c721769fb06809727297225e8a9d12a12acab500331d53e3c80c0fc6430"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.test.tsx",
+      "sha256": "563fe99560a2f3dcbf90f82be18f78de0d7c52343771aec86d0d26f2512fb216"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "2d2b8fa63ef85ee5b65d6b6d351b20042673d132b5c98f6163a2bff7093dcecd"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.ts",
+      "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery-native-bridge.test.ts",
+      "sha256": "6d58fc38a22a872b9900f63779b711f8a93ab7e45c31d710e17b3978f2f7f93f"
+    },
+    {
+      "path": "src/rebuild/settings/settings.test.ts",
+      "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.test.ts",
+      "sha256": "a7926999c2c4c7f7896e0b284a5d217bb2d70c839139b2eda15e66db9f6944f2"
+    }
+  ],
+  "limitations": [
+    "Renderer and mocked bridge behavior; no packaged Tauri/native model request was executed in this receipt.",
+    "Native provider_models_list is available by contract and receives only opaque profileId; credentials/endpoints remain native-owned.",
+    "Stop waiting invalidates late UI results because no native abort IPC is present.",
+    "Full renderer typecheck remains blocked by unrelated undefined HTMLElement errors in src/rebuild/browser/browser-workspace.test.tsx:49,52."
+  ]
+}

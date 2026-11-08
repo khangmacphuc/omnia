@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "reviewer": "/root/cycle5_independent_review",
+  "author": "/root",
+  "reviewedAt": "2026-11-08T05:45:00.000Z",
+  "scope": "Independent cycle5 review after refreshed native ask-user evidence. Validates current implementation, renderer/native verification receipts and source bindings. This is evidence review, not a product-completion claim.",
+  "criteria": [
+    "UI-007",
+    "UI-013",
+    "UI-015",
+    "ADVSET-003",
+    "CHAT-008",
+    "GOVERNANCE-004",
+    "GOVERNANCE-005",
+    "GOVERNANCE-007",
+    "GOVERNANCE-008",
+    "GOVERNANCE-009"
+  ],
+  "sourceFiles": [
+    {
+      "path": ".github/workflows/rebuild.yml",
+      "sha256": "61e896bb2f62d01e8927be560324bdcc94f6e330d68d49bbfe58c2d84d758eb8"
+    },
+    {
+      "path": "package.json",
+      "sha256": "58a3f459dfd44b75a11237b22dab66c219a8d528064e13f547d0e0f753634e7d"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.test.mjs",
+      "sha256": "41f5670704b265d90132a0569787fe8e10e74373ac87d9c41d3d80b321fbbaed"
+    },
+    {
+      "path": "scripts/rebuild/check.mjs",
+      "sha256": "6ef62d57946ec25c53c941ec41d15a892404e3ec00a40a4341268b52dc1e8b05"
+    },
+    {
+      "path": "scripts/rebuild/gate-lib.mjs",
+      "sha256": "1f1ba91fbc0ea8e11e726ad0d2414f85ebddac33773834a404628e375c3f9318"
+    },
+    {
+      "path": "scripts/rebuild/gate.test.mjs",
+      "sha256": "f4cc807a676c6b886c9898eacba62932d1fd99bc5d8587abe708da86d953c70f"
+    },
+    {
+      "path": "scripts/rebuild/validate.mjs",
+      "sha256": "ab9ad74218db8aeec3af127fd9c3557dbe0a7b8efe0804eeea8e5b055d9bc68a"
+    },
+    {
+      "path": "scripts/rebuild/workflow.mjs",
+      "sha256": "4b4db55420205a5466440c5a79d070f5444591f21614962d76e4e4724fb2e2d1"
+    },
+    {
+      "path": "scripts/rebuild/workflow.test.mjs",
+      "sha256": "6fcc2b7509cd2fc52147b1ce6269c362696be216b33dfb6a8bc37c90a830af4e"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/lib.rs",
+      "sha256": "83d8d9589962b4c036c29d63ed9418a2a5321b679508806c017080fdbd045c7c"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+      "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/user_input/tests.rs",
+      "sha256": "8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1"
+    },
+    {
+      "path": "src-tauri/src/harness_bridge.rs",
+      "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+    },
+    {
+      "path": "src-tauri/src/lib.rs",
+      "sha256": "7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.test.ts",
+      "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.css",
+      "sha256": "4054fea4c3e335fefb019d86a8aeb2f7be8b01b7b219fd26f042282792073584"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.css",
+      "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.test.ts",
+      "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.css",
+      "sha256": "532b5f3c4c6dc8220ccbd69883b7d45335c37b0dd4b44f0e64ea405496869f83"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/reference/reference-data.ts",
+      "sha256": "a676eb8c60e0531cab830dd49e1b2e4a5017203b2a359508bb2744e512e6c15b"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.css",
+      "sha256": "35f1d29b2fc040bdba4e7311ee0e8eaa165c74ac5db0f999d5945f3a2cfebabb"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.test.tsx",
+      "sha256": "a563ef296fdb0f046e3a06269c997c1ab89da9eea3c321a513d6b3f58a019969"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.tsx",
+      "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.test.tsx",
+      "sha256": "563fe99560a2f3dcbf90f82be18f78de0d7c52343771aec86d0d26f2512fb216"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "2d2b8fa63ef85ee5b65d6b6d351b20042673d132b5c98f6163a2bff7093dcecd"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.test.tsx",
+      "sha256": "9f6f9d7c5dc19a03ea6092fcacb1a1cd6b42aee8889a0260fb0237f0d2ed3450"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery-native-bridge.test.ts",
+      "sha256": "6d58fc38a22a872b9900f63779b711f8a93ab7e45c31d710e17b3978f2f7f93f"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.test.ts",
+      "sha256": "a7926999c2c4c7f7896e0b284a5d217bb2d70c839139b2eda15e66db9f6944f2"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.ts",
+      "sha256": "21565624bf1d559cd6c4cd6f8b95f330d864bbae0e407f5e6355eabeee885b55"
+    },
+    {
+      "path": "src/rebuild/settings/settings.css",
+      "sha256": "36712f0c1f287da825a3f10a032b6c0d72708c91225bb48e6c9a4dbdfde41fcb"
+    },
+    {
+      "path": "src/rebuild/settings/settings.test.ts",
+      "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/use-modal-boundary.ts",
+      "sha256": "d9eeb9aeb73574bf13b2fcca3577651446aa1baabc8b2714c0308f6f941ad0f8"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "sha256": "8baa6128d1097ce309632bab536b2b47b4c064ae673b5e60d91b5ddea7c2213e"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "5ab587bfc300982112a19987334f7f5cf64fe9b5349f285cbaa0ddba5ec5cae4"
+    }
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/cycle5-renderer-tests.json",
+      "sha256": "49e68e05bd4a8f60740512e122e2bf09e030e4a118115019783365eaa5c5b355",
+      "kind": "test"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle5-typecheck.json",
+      "sha256": "b87bf7081090f06b604cb9a0f529366a2ee7917f93d907a1242d08f9d4f9a062",
+      "kind": "test"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle5-renderer-build.json",
+      "sha256": "b8e2b9593a9f975cd0f36dd6126982dc99ee902ada006f52d25f789e5d71f896",
+      "kind": "build"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle5-workflow-gates.json",
+      "sha256": "c917d3c000ba3259282ecb654de3d9dce11be083b4d07e412b98824ce928c11c",
+      "kind": "ci"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle5-architecture.json",
+      "sha256": "438b98780b26df9d857e768ffe0fed362353e1cd90be167824d25e31b85413be",
+      "kind": "ci"
+    },
+    {
+      "path": "docs/rebuild/receipts/ui-qa-cycle5-20261108.json",
+      "sha256": "c48d9bb0f55dd157eba70b8b784b8213495f3edbfa4f90c95dc7f58e350dfefb",
+      "kind": "capture"
+    },
+    {
+      "path": "docs/rebuild/receipts/ask-user-native-cycle5.json",
+      "sha256": "e6ac95b7bfe1a44771b17f1d4ef3383da9798bc6b07692577617c9d0ab7320e8",
+      "kind": "native"
+    }
+  ],
+  "canonicalInputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+    },
+    {
+      "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+      "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+    },
+    {
+      "path": "docs/rebuild/GOAL.md",
+      "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+    },
+    {
+      "path": "docs/rebuild/WORKFLOW.md",
+      "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+    },
+    {
+      "path": "docs/rebuild/SPEC.md",
+      "sha256": "39ed159f6a428f7a447c42357dc942b418c6ba3d071c761b719b075ed0b99ae0"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "e1d305f4e2773ae8c955a42d1368c80e2e419bd77cbf70d2135dc0f3b4d80e6c"
+    },
+    {
+      "path": "docs/rebuild/SOURCE_REGISTER.json",
+      "sha256": "8d021bf042e4bb799580d69e69641615493f404e84c924870333231615ab869a"
+    },
+    {
+      "path": "docs/rebuild/CHECKPOINT.md",
+      "sha256": "6f34f537d614b1e9902caa655583aa0684c3533810821c1eb09285e461e66601"
+    },
+    {
+      "path": "docs/rebuild/ASSIGNMENTS.md",
+      "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
+    }
+  ],
+  "observations": [
+    "Current generation implementation and verification artifact hashes are current; refreshed native ask-user receipt is bound to the implementation source.",
+    "Renderer-focused suite passed 55 tests across 12 files; app typecheck, renderer build, workflow gates (32 tests) and architecture guard passed.",
+    "UI QA receipt covers Chat, Browser, IDE and Settings at 800x600 and 1440x900 in dark/light scope with zero reported axe violations; this remains browser-preview evidence.",
+    "Native ask-user receipt reports 10 passed Rust tests for request publication ordering, free text/cancel, stale/duplicate/wrong-run rejection, bounds, cleanup and cancellation.",
+    "Workflow gate tests exercise ordered transitions, stale hashes, duplicate research, failure recovery, blocker schema, review source binding and publication metadata validation."
+  ],
+  "assessments": [
+    {
+      "id": "UI-007",
+      "status": "partial",
+      "evidenceScope": "Browser/IDE companion and composer are covered by renderer tests and preview capture; packaged/native session continuity remains open."
+    },
+    {
+      "id": "UI-013",
+      "status": "partial",
+      "evidenceScope": "Current UI QA and modal focus implementation cover tested keyboard/modal paths; complete packaged keyboard traversal remains open."
+    },
+    {
+      "id": "UI-015",
+      "status": "partial",
+      "evidenceScope": "800x600 preview capture and axe are present; packaged/native runtime is not proven."
+    },
+    {
+      "id": "ADVSET-003",
+      "status": "blocked",
+      "evidenceScope": "Renderer provider profile/model bridge tests are present; no live native provider refresh receipt."
+    },
+    {
+      "id": "CHAT-008",
+      "status": "partial",
+      "evidenceScope": "Native broker/tool unit behavior is now verified by 10 Rust tests; packaged Tauri command delivery and user-facing ask-user flow remain open."
+    },
+    {
+      "id": "GOVERNANCE-004",
+      "status": "partial",
+      "evidenceScope": "Gate source and 32 passing tests cover ordered transitions; DoD evidence update remains root-owned."
+    },
+    {
+      "id": "GOVERNANCE-005",
+      "status": "partial",
+      "evidenceScope": "Gate tests cover stale/read hash behavior; post-cycle document reread has not yet been recorded."
+    },
+    {
+      "id": "GOVERNANCE-007",
+      "status": "partial",
+      "evidenceScope": "Blocker schema is enforced by gate tests; current DoD blockers remain incomplete by design."
+    },
+    {
+      "id": "GOVERNANCE-008",
+      "status": "partial",
+      "evidenceScope": "No-false-complete gate tests pass; mandatory criteria are not all Done."
+    },
+    {
+      "id": "GOVERNANCE-009",
+      "status": "partial",
+      "evidenceScope": "Independent reviewer identity and source binding are verified for this cycle; criterion review records remain root-owned."
+    }
+  ],
+  "negativeCases": [
+    "Renderer tests include unavailable/native boundary behavior and browser tab lifecycle paths.",
+    "Gate suite rejects stale cycle hashes, malformed source hashes, duplicate research, skipped stages, invalid blocker records and unrelated review bindings.",
+    "Native ask-user tests reject stale, duplicate and wrong-run answers, invalid bounds and failed journals.",
+    "Architecture guard rejects legacy renderer imports, external live app embedding and missing relative imports."
+  ],
+  "claimBoundaries": [
+    "No packaged Tauri/WebView2 launch, native provider account, live web account or OS permission evidence was exercised by this review.",
+    "Native receipt proves provider-neutral broker/tool behavior only; it does not prove Windows UI delivery or live provider execution.",
+    "Current review is evidence-validity approval for cycle progression, not product completion approval."
+  ],
+  "unresolved": []
+}

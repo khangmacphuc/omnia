@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/rebuild_independent_audit",
+  "reviewedAt": "2026-11-08T04:33:33.2174049Z",
+  "scope": "Independent source, focused behavior and live Chromium renderer review after ask-user, ultra-effort, settings hot-reload and Browser/IDE companion slices. Matrix: dark/light, 1440x900/800x600, Chat/Browser/IDE/Settings. Native/live-provider/packaged claims excluded.",
+  "result": "failed_with_findings",
+  "authorOwners": [
+    "/root",
+    "/root/rebuild_settings",
+    "/root/rebuild_chat"
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/architecture-current-20261108.json",
+      "sha256": "dc43f31800d83211efcdb1031ef85c893784c31ca2358485a5c55cca9eaae203"
+    },
+    {
+      "path": "docs/rebuild/receipts/rebuild-gates-current-20261108.json",
+      "sha256": "7debb53cbb47a4912e40cc52c6eef5adc17f1b71c13fe5619b1217a0a0339242"
+    },
+    {
+      "path": "docs/rebuild/receipts/typecheck-current-20261108.json",
+      "sha256": "15ffe8c8dfbe969f208f2b69d8aee835a24e5150df4422dc56987e88711be0a2"
+    },
+    {
+      "path": "docs/rebuild/receipts/rebuild-focused-tests-current-20261108.json",
+      "sha256": "875bb6c748a0a68d361e774a5c6059013650e27b93aa5180e835604bc7623e41"
+    },
+    {
+      "path": "docs/rebuild/receipts/rebuild-shell-tests-current-20261108.json",
+      "sha256": "070574a880730a982fbb997e0d82381cfb9fb2cf11aa3d91653c55766c41d2d5"
+    },
+    {
+      "path": "docs/rebuild/receipts/renderer-build-current-20261108.json",
+      "sha256": "2e236cfcd0249302595ac41d6780287f83d0b26863a2673429aa0d9f9b1cb8c1"
+    },
+    {
+      "path": "docs/rebuild/receipts/preview-ui-current-20261108.json",
+      "sha256": "39d0f7af8e4105b227d977273d72a13b616d158005e72b0a04992149ecc64d5a"
+    },
+    {
+      "path": "docs/rebuild/receipts/review-ui-settings-tests-20261108.txt",
+      "sha256": "cc4bf6a26cfdc8d5a5c40910729f0fda7a32a07a441ef0a5d4f970becaa6fb0a"
+    },
+    {
+      "sha256": "27c98ac5d6ec8377770510d336c4fae186a794c118da5917e0c1da32c2e0c44e",
+      "path": "docs/rebuild/audit/ui-browser-20261108/report.json"
+    },
+    {
+      "sha256": "a501a8b09ea670f4e30d1186a84d8e3e9b341561be930f89e81cfb76291dc258",
+      "path": "docs/rebuild/audit/ui-browser-20261108/command.txt"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "UI-001",
+      "owner": "/root",
+      "result": "supported-preview",
+      "evidence": [
+        "src/rebuild/rebuild-app.tsx",
+        "src/rebuild/rebuild-app.test.tsx",
+        "docs/rebuild/receipts/rebuild-shell-tests-current-20261108.json",
+        "docs/rebuild/receipts/preview-ui-current-20261108.json"
+      ],
+      "unresolved": [
+        "Preview capture is not packaged desktop evidence."
+      ]
+    },
+    {
+      "id": "UI-002",
+      "owner": "/root",
+      "result": "supported-preview",
+      "evidence": [
+        "src/rebuild/rebuild-app.tsx",
+        "src/rebuild/rebuild-app.test.tsx",
+        "docs/rebuild/receipts/preview-ui-current-20261108.json"
+      ],
+      "unresolved": [
+        "Fresh native launch without a project is not runtime-proven."
+      ]
+    },
+    {
+      "id": "UI-003",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/chat/chat-controller.ts",
+        "src/rebuild/chat/chat-view.test.tsx"
+      ],
+      "unresolved": [
+        "No test proves project and non-project sessions coexist with pointer persistence and native reload semantics."
+      ]
+    },
+    {
+      "id": "UI-004",
+      "owner": "/root",
+      "result": "supported-structural",
+      "evidence": [
+        "src/main.tsx",
+        "src/rebuild/rebuild-app.tsx",
+        "docs/rebuild/receipts/architecture-current-20261108.json",
+        "docs/rebuild/receipts/rebuild-shell-tests-current-20261108.json"
+      ],
+      "unresolved": [
+        "Architecture guard proves entry graph only, not product parity."
+      ]
+    },
+    {
+      "id": "UI-005",
+      "owner": "/root",
+      "result": "supported-structural",
+      "evidence": [
+        "scripts/rebuild/architecture-guard.mjs",
+        "tests/rebuild-independent-audit.test.mjs",
+        "docs/rebuild/receipts/architecture-current-20261108.json"
+      ],
+      "unresolved": [
+        "Legacy source remains on disk by contract; exclusion is graph-scoped."
+      ]
+    },
+    {
+      "id": "UI-006",
+      "owner": "/root",
+      "result": "supported-structural",
+      "evidence": [
+        "src/rebuild/ide/ide-workspace.tsx",
+        "scripts/rebuild/architecture-guard.mjs",
+        "docs/rebuild/receipts/architecture-current-20261108.json"
+      ],
+      "unresolved": [
+        "No packaged IDE runtime receipt."
+      ]
+    },
+    {
+      "id": "UI-007",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.tsx",
+        "src/rebuild/rebuild-app.test.tsx",
+        "src/rebuild/chat/chat-view.tsx",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Desktop 1440x900 shows the selected session and ChatView/composer in Browser and IDE with draft continuity. At 800x600 the <=1100px media rule hides the companion, so no composer is accessible there. The prior absence-in-source finding was stale and is superseded."
+      ]
+    },
+    {
+      "id": "UI-008",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "docs/rebuild/receipts/preview-ui-current-20261108.json",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Dark contrast samples have no color-contrast violation, but Browser fails critical aria-required-children because New browser tab is an invalid child of role=tablist. Full affected-surface axe acceptance is incomplete."
+      ]
+    },
+    {
+      "id": "UI-009",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/rebuild-app.tsx",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Light primary action contrast is 3.84:1. Settings fields render #17212b on fallback #0a1118, ratio 1.16:1; axe reports serious color-contrast."
+      ]
+    },
+    {
+      "id": "UI-010",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/ide/ide-workspace.css",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Live computed-style inventory captures Segoe UI Variable controls and Cascadia Code settings fields; no populated IDE code/edit state typography coverage yet."
+      ]
+    },
+    {
+      "id": "UI-011",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/chat/chat-view.css"
+      ],
+      "unresolved": [
+        "Spacing is implemented as literal values; no token coverage test proves 4/8/12/16/24 usage."
+      ]
+    },
+    {
+      "id": "UI-012",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/chat/chat-view.css",
+        "src/rebuild/ide/ide-workspace.css",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Live desktop measurement proves header 48px and sidebar 240px. Browser tabs measure 32px rather than the required 36px; session/file-tab geometry is not fully covered."
+      ]
+    },
+    {
+      "id": "UI-013",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "src/rebuild/chat/chat-view.css",
+        "src/rebuild/settings/settings.css",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Keyboard-modality focus is visible on primary navigation in both themes. Settings fails focus-on-open, reverse-Tab containment, Escape-close and restore-to-origin behavior."
+      ]
+    },
+    {
+      "id": "UI-014",
+      "owner": "/root",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/rebuild-app.test.tsx",
+        "src/rebuild/chat/chat-view.test.tsx",
+        "src/rebuild/browser/browser-workspace.test.tsx",
+        "src/rebuild/ide/ide-workspace.test.tsx",
+        "src/rebuild/settings/SettingsPanel.test.tsx",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "16-state live control inventory exists, but all action/error/modal states are not covered. At 800x600 each Settings section tab is pointer-inaccessible because tabpanel/toolbar intercept clicks."
+      ]
+    },
+    {
+      "id": "UI-015",
+      "owner": "/root",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/rebuild-app.css",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "800x600 screenshots and live checks now exist and fail: Browser/IDE companion composer is hidden, and five Settings tabs are inaccessible. Fix actual responsive defects and rerun."
+      ]
+    },
+    {
+      "id": "ADVSET-001",
+      "owner": "/root/rebuild_settings",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/settings/settings.ts",
+        "src/rebuild/settings/SettingsPanel.tsx",
+        "src/rebuild/settings/settings.test.ts",
+        "docs/rebuild/receipts/review-ui-settings-tests-20261108.txt"
+      ],
+      "unresolved": [
+        "No provider capability negotiation or native per-session runtime receipt."
+      ]
+    },
+    {
+      "id": "ADVSET-002",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/SettingsPanel.tsx"
+      ],
+      "unresolved": [
+        "No OS-protected credential store or redaction runtime evidence in clean-room slice."
+      ]
+    },
+    {
+      "id": "ADVSET-003",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/SettingsPanel.tsx"
+      ],
+      "unresolved": [
+        "No live model discovery/refresh contract."
+      ]
+    },
+    {
+      "id": "ADVSET-004",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/settings.ts"
+      ],
+      "unresolved": [
+        "No validated prompt role/model/effort override proposal flow."
+      ]
+    },
+    {
+      "id": "ADVSET-005",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/settings.ts",
+        "src/rebuild/settings/SettingsPanel.tsx"
+      ],
+      "unresolved": [
+        "No consented schema diff/apply/revert workflow."
+      ]
+    },
+    {
+      "id": "ADVSET-006",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/settings.ts"
+      ],
+      "unresolved": [
+        "No Ollama/LM Studio/custom endpoint health or capability receipt."
+      ]
+    },
+    {
+      "id": "ADVSET-007",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/settings.ts"
+      ],
+      "unresolved": [
+        "No global/project/session/role precedence source or test."
+      ]
+    },
+    {
+      "id": "ADVSET-008",
+      "owner": "/root/rebuild_settings",
+      "result": "blocked",
+      "evidence": [
+        "src/rebuild/settings/settings.ts"
+      ],
+      "unresolved": [
+        "No hardware profile detection or budget enforcement receipt."
+      ]
+    },
+    {
+      "id": "ADVSET-009",
+      "owner": "/root/rebuild_settings",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/settings/settings.ts",
+        "src/rebuild/settings/SettingsPanel.tsx",
+        "src/rebuild/settings/settings.test.ts"
+      ],
+      "unresolved": [
+        "Policy defaults and controls exist; retry execution/cancel/permanent-error runtime behavior is absent."
+      ]
+    },
+    {
+      "id": "ADVSET-010",
+      "owner": "/root/rebuild_settings",
+      "result": "partial",
+      "evidence": [
+        "src/rebuild/settings/settings.ts",
+        "src/rebuild/settings/SettingsPanel.tsx",
+        "src/rebuild/settings/settings.test.ts",
+        "docs/rebuild/audit/ui-browser-20261108/report.json"
+      ],
+      "unresolved": [
+        "Search/import/export/reset and revisioned cross-tab persistence have focused tests. The Settings tab row is clipped to 3.34px desktop/1px at800 and all five section tabs fail unforced pointer hit testing at800. Schema-control/runtime coverage remains incomplete."
+      ]
+    }
+  ],
+  "findings": [
+    "UI-007 companion ChatView/composer exists and works at 1440x900, including retained draft; the prior review wording claiming source absence was stale. At 800x600 the companion is CSS-hidden and remains incomplete.",
+    "UI-015 has captured failing evidence, not just missing evidence: Browser/IDE composer and Settings tabs are inaccessible at minimum width.",
+    "Browser role=tablist contains a plain New browser tab button; axe reports critical aria-required-children in both themes and widths.",
+    "Light settings input contrast is 1.16:1 and enabled primary action contrast is 3.84:1, below 4.5:1.",
+    "Settings has five direct grid children but declares four row tracks; the tab row measures 3.34px desktop and 1px at800. All five section-tab unforced hit tests fail at800.",
+    "Settings fails initial focus, reverse-Tab containment, Escape-close and focus restoration. Primary navigation focus passes when tested in keyboard modality.",
+    "Header48 and sidebar240 are measured; Browser tab32 does not meet DoD36.",
+    "Native project pointer persistence, provider execution, Browser WebView2, computer harness and packaged runtime remain outside renderer receipts.",
+    "Advanced settings remain renderer-local; native credential, discovery, adapter, precedence and hardware contracts are absent.",
+    "Ask-user option/free-text/cancel actions have controller wiring and focused tests; native agent_user_input remains capability-gated and unverified.",
+    "Ultra intent and revisioned cross-tab persistence have renderer tests; native capability negotiation is not proven.",
+    "Focused UI/settings tests pass22/22, independent source audit6/6, architecture and typecheck pass. Live Chromium audit has92/129 passed checks and37 failing checks across16 states, exit1. Source hashes remained stable during capture."
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "f635a6c2578f1fe1282304e89f087faf0b8e30b4ee70095e675e1aeab1da2633"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/settings.test.ts",
+      "sha256": "520505900cb71ac8b9d5d3577671414d479c4a4eac0029afdd7c80f6c84a367d"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.test.tsx",
+      "sha256": "0eea53e2c53d375b866c3f64c0da2e9bd047356f6a6c385de0a86003259bac84"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.test.tsx",
+      "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    },
+    {
+      "path": "tests/rebuild-independent-audit.test.mjs",
+      "sha256": "6064255064ec2dce7a295d4ea5988a8215efe135ecd5074abaf25e28d53c9091"
+    },
+    {
+      "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d",
+      "path": "src/rebuild/chat/chat-view.css"
+    },
+    {
+      "sha256": "4054fea4c3e335fefb019d86a8aeb2f7be8b01b7b219fd26f042282792073584",
+      "path": "src/rebuild/browser/browser-workspace.css"
+    },
+    {
+      "sha256": "4b0d4764031a9f334e945e8bb220e87efb7e4b1b3ed40b30bcd2944a5532cce3",
+      "path": "src/rebuild/settings/settings.css"
+    },
+    {
+      "sha256": "e1575bc47e3a913f90cf63690a9cfb091679bab9ed1442dea4154e815ebae125",
+      "path": "tests/rebuild-ui-browser-independent.mjs"
+    }
+  ],
+  "canonicalInputs": [
+    {
+      "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8",
+      "path": "AGENTS.md"
+    },
+    {
+      "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6",
+      "path": ".agents/skills/omnia-evidence-loop/SKILL.md"
+    },
+    {
+      "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf",
+      "path": "docs/rebuild/GOAL.md"
+    },
+    {
+      "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9",
+      "path": "docs/rebuild/WORKFLOW.md"
+    },
+    {
+      "sha256": "39ed159f6a428f7a447c42357dc942b418c6ba3d071c761b719b075ed0b99ae0",
+      "path": "docs/rebuild/SPEC.md"
+    },
+    {
+      "sha256": "77961433f3dddbacb3780a1b4d99220aac105f305e94acf025cbc224945c5946",
+      "path": "docs/rebuild/DOD.json"
+    },
+    {
+      "sha256": "b8eeb1beb8d6f0ecbe018b65956eb639c85c3e2186e01dc9e78867d7a46b689f",
+      "path": "docs/rebuild/SOURCE_REGISTER.json"
+    },
+    {
+      "sha256": "6f34f537d614b1e9902caa655583aa0684c3533810821c1eb09285e461e66601",
+      "path": "docs/rebuild/CHECKPOINT.md"
+    },
+    {
+      "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de",
+      "path": "docs/rebuild/ASSIGNMENTS.md"
+    }
+  ],
+  "correctedPriorAssertion": "The earlier UI-007 review text was stale despite current source hashes. A direct source reread and live browser evidence supersede that statement; hashes alone do not prove review accuracy.",
+  "currentValidity": {
+    "result": "stale-after-implementation",
+    "changedSourceFiles": [
+      "src/rebuild/rebuild-app.tsx",
+      "src/rebuild/rebuild-app.css",
+      "src/rebuild/browser/browser-workspace.tsx",
+      "src/rebuild/browser/browser-workspace.test.tsx",
+      "src/rebuild/settings/settings.ts",
+      "src/rebuild/settings/settings.test.ts",
+      "src/rebuild/settings/SettingsPanel.tsx",
+      "src/rebuild/rebuild-app.test.tsx",
+      "src/rebuild/settings/settings.css",
+      "tests/rebuild-ui-browser-independent.mjs"
+    ],
+    "requiredNextAction": "Rerun source review, focused tests, browser matrix and hashes after ongoing implementation settles. This file is failure evidence for the recorded revisions, not approval of current source.",
+    "checkedAt": "2026-11-08T04:39:16.2909827Z"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "native",
+  "recordedAt": "2026-11-08T05:39:00.000Z",
+  "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-harness user_input -- --nocapture",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/ask-user-native-cycle5.txt",
+    "sha256": "afee01ed0c719589023178d831df97f02af752571eaa4e4cf1789d1017c83516"
+  },
+  "sourceFiles": [
+    {
+      "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+      "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/user_input/tests.rs",
+      "sha256": "8affa4c7bf72788bb810d9c3200b8ec7cc642c064e696896ef888ccd66161ee1"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/lib.rs",
+      "sha256": "83d8d9589962b4c036c29d63ed9418a2a5321b679508806c017080fdbd045c7c"
+    },
+    {
+      "path": "src-tauri/src/harness_bridge.rs",
+      "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+    },
+    {
+      "path": "src-tauri/src/lib.rs",
+      "sha256": "7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2"
+    }
+  ]
+}

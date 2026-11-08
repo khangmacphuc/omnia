@@ -1,0 +1,3975 @@
+{
+  "schemaVersion": 1,
+  "command": "node .omnia-ui-qa-final-temp.mjs",
+  "result": "passed_with_findings",
+  "asOf": "2026-11-08T04:29:37.529Z",
+  "revision": "ca8dfa32a8221761383553780d13e61be053667d",
+  "base": "http://127.0.0.1:1431/",
+  "environment": {
+    "kind": "vite-browser-preview",
+    "viewport": {
+      "width": 800,
+      "height": 600
+    },
+    "packaged": false,
+    "native": false,
+    "provider": false
+  },
+  "screens": [
+    {
+      "name": "800x600-dark",
+      "surface": "chat",
+      "theme": "dark",
+      "scroll": {
+        "body": {
+          "width": 800,
+          "height": 600
+        },
+        "html": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "controls": [
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Chat · Alt+1",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 103.515625,
+            "y": 0,
+            "width": 64.40625,
+            "height": 47,
+            "right": 167.921875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Browser · Alt+2",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 169.921875,
+            "y": 0,
+            "width": 82.296875,
+            "height": 47,
+            "right": 252.21875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "IDE · Alt+3",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 254.21875,
+            "y": 0,
+            "width": 57.6875,
+            "height": 47,
+            "right": 311.90625,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open reference workbench",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 686,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 716,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Toggle theme",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 720,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 750,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 754,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 784,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New chat",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 143,
+            "y": 102,
+            "width": 30,
+            "height": 30,
+            "right": 173,
+            "bottom": 132
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New conversationnon-project · unconfigured",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 8,
+            "y": 157,
+            "width": 173,
+            "height": 56.890625,
+            "right": 181,
+            "bottom": 213.890625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Workflow",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 569.078125,
+            "y": 110,
+            "width": 113.28125,
+            "height": 33.390625,
+            "right": 682.359375,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 690.359375,
+            "y": 110,
+            "width": 85.640625,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Rename session",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 746,
+            "y": 208.296875,
+            "width": 30,
+            "height": 30,
+            "right": 776,
+            "bottom": 238.296875
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Model Auto routeLocal modelFrontier pool",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 261.21875,
+            "y": 404.609375,
+            "width": 83,
+            "height": 17,
+            "right": 344.21875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Effort noneminimallowmediumhighxhighmaxultra · dynamic",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 387.671875,
+            "y": 404.609375,
+            "width": 92,
+            "height": 17,
+            "right": 479.671875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "textarea",
+          "role": null,
+          "name": "Message composer",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 214,
+            "y": 429.609375,
+            "width": 562,
+            "height": 100,
+            "right": 776,
+            "bottom": 529.609375
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach files",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 214,
+            "y": 540.296875,
+            "width": 30,
+            "height": 30,
+            "right": 244,
+            "bottom": 570.296875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Queue",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 249,
+            "y": 538.609375,
+            "width": 78.1875,
+            "height": 33.390625,
+            "right": 327.1875,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach project",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 332.1875,
+            "y": 538.609375,
+            "width": 117.65625,
+            "height": 33.390625,
+            "right": 449.84375,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Send",
+          "disabled": true,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 704.078125,
+            "y": 538.609375,
+            "width": 71.921875,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 572
+          }
+        }
+      ],
+      "companion": {
+        "present": false,
+        "displayed": false,
+        "display": null
+      },
+      "composerVisible": true,
+      "ariaSnapshot": "- banner:\n  - strong: OMNIA\n  - navigation \"Primary surfaces\":\n    - button \"Chat\"\n    - button \"Browser\"\n    - button \"IDE\"\n  - button \"Open reference workbench\"\n  - button \"Toggle theme\"\n  - button \"Open settings\"\n- text: Conversation New conversation\n- main:\n  - complementary \"Sessions\":\n    - text: Threads\n    - button \"New chat\"\n    - button \"New conversation non-project · unconfigured\":\n      - strong: New conversation\n      - text: non-project · unconfigured\n  - text: Non-project chat Draft workspace\n  - button \"Workflow\"\n  - button \"Settings\"\n  - region \"Chat workspace\":\n    - paragraph: Omnia workspace\n    - heading \"New conversation\" [level=1]\n    - paragraph: A single thread across projects, browser research and local files.\n    - button \"Rename session\"\n  - text: Ask for a plan Inspect a repository Research a paper Review a diff\n  - paragraph: Start in a non-project thread, then attach folders or files only when the task needs them.\n  - text: Model\n  - combobox \"Model\":\n    - option \"Auto route\" [selected]\n    - option \"Local model\"\n    - option \"Frontier pool\"\n  - text: Effort\n  - combobox \"Effort\":\n    - option \"none\"\n    - option \"minimal\"\n    - option \"low\"\n    - option \"medium\" [selected]\n    - option \"high\"\n    - option \"xhigh\"\n    - option \"max\"\n    - option \"ultra · dynamic\"\n  - textbox \"Message composer\":\n    - /placeholder: Describe what you want Omnia to investigate or build…\n  - button \"Attach files\"\n  - button \"Queue\"\n  - button \"Attach project\"\n  - text: Ctrl/⌘ + Enter\n  - button \"Send\" [disabled]",
+      "axe": {
+        "violations": [],
+        "passes": 18,
+        "incomplete": 1
+      }
+    },
+    {
+      "name": "800x600-light",
+      "surface": "chat",
+      "theme": "light",
+      "scroll": {
+        "body": {
+          "width": 800,
+          "height": 600
+        },
+        "html": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "controls": [
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Chat · Alt+1",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 103.515625,
+            "y": 0,
+            "width": 64.40625,
+            "height": 47,
+            "right": 167.921875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Browser · Alt+2",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 169.921875,
+            "y": 0,
+            "width": 82.296875,
+            "height": 47,
+            "right": 252.21875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "IDE · Alt+3",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 254.21875,
+            "y": 0,
+            "width": 57.6875,
+            "height": 47,
+            "right": 311.90625,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open reference workbench",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 686,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 716,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Toggle theme",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 720,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 750,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 754,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 784,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New chat",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 143,
+            "y": 102,
+            "width": 30,
+            "height": 30,
+            "right": 173,
+            "bottom": 132
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New conversationnon-project · unconfigured",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 8,
+            "y": 157,
+            "width": 173,
+            "height": 56.890625,
+            "right": 181,
+            "bottom": 213.890625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Workflow",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 569.078125,
+            "y": 110,
+            "width": 113.28125,
+            "height": 33.390625,
+            "right": 682.359375,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 690.359375,
+            "y": 110,
+            "width": 85.640625,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Rename session",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 746,
+            "y": 208.296875,
+            "width": 30,
+            "height": 30,
+            "right": 776,
+            "bottom": 238.296875
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Model Auto routeLocal modelFrontier pool",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 261.21875,
+            "y": 404.609375,
+            "width": 83,
+            "height": 17,
+            "right": 344.21875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Effort noneminimallowmediumhighxhighmaxultra · dynamic",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 387.671875,
+            "y": 404.609375,
+            "width": 92,
+            "height": 17,
+            "right": 479.671875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "textarea",
+          "role": null,
+          "name": "Message composer",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 214,
+            "y": 429.609375,
+            "width": 562,
+            "height": 100,
+            "right": 776,
+            "bottom": 529.609375
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach files",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 214,
+            "y": 540.296875,
+            "width": 30,
+            "height": 30,
+            "right": 244,
+            "bottom": 570.296875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Queue",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 249,
+            "y": 538.609375,
+            "width": 78.1875,
+            "height": 33.390625,
+            "right": 327.1875,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach project",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 332.1875,
+            "y": 538.609375,
+            "width": 117.65625,
+            "height": 33.390625,
+            "right": 449.84375,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Send",
+          "disabled": true,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 704.078125,
+            "y": 538.609375,
+            "width": 71.921875,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 572
+          }
+        }
+      ],
+      "companion": {
+        "present": false,
+        "displayed": false,
+        "display": null
+      },
+      "composerVisible": true,
+      "ariaSnapshot": "- banner:\n  - strong: OMNIA\n  - navigation \"Primary surfaces\":\n    - button \"Chat\"\n    - button \"Browser\"\n    - button \"IDE\"\n  - button \"Open reference workbench\"\n  - button \"Toggle theme\"\n  - button \"Open settings\"\n- text: Conversation New conversation\n- main:\n  - complementary \"Sessions\":\n    - text: Threads\n    - button \"New chat\"\n    - button \"New conversation non-project · unconfigured\":\n      - strong: New conversation\n      - text: non-project · unconfigured\n  - text: Non-project chat Draft workspace\n  - button \"Workflow\"\n  - button \"Settings\"\n  - region \"Chat workspace\":\n    - paragraph: Omnia workspace\n    - heading \"New conversation\" [level=1]\n    - paragraph: A single thread across projects, browser research and local files.\n    - button \"Rename session\"\n  - text: Ask for a plan Inspect a repository Research a paper Review a diff\n  - paragraph: Start in a non-project thread, then attach folders or files only when the task needs them.\n  - text: Model\n  - combobox \"Model\":\n    - option \"Auto route\" [selected]\n    - option \"Local model\"\n    - option \"Frontier pool\"\n  - text: Effort\n  - combobox \"Effort\":\n    - option \"none\"\n    - option \"minimal\"\n    - option \"low\"\n    - option \"medium\" [selected]\n    - option \"high\"\n    - option \"xhigh\"\n    - option \"max\"\n    - option \"ultra · dynamic\"\n  - textbox \"Message composer\":\n    - /placeholder: Describe what you want Omnia to investigate or build…\n  - button \"Attach files\"\n  - button \"Queue\"\n  - button \"Attach project\"\n  - text: Ctrl/⌘ + Enter\n  - button \"Send\" [disabled]",
+      "axe": {
+        "violations": [],
+        "passes": 18,
+        "incomplete": 1
+      }
+    },
+    {
+      "name": "800x600-browser-light",
+      "surface": "browser",
+      "theme": "light",
+      "scroll": {
+        "body": {
+          "width": 800,
+          "height": 600
+        },
+        "html": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "controls": [
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Chat · Alt+1",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 103.515625,
+            "y": 0,
+            "width": 64.40625,
+            "height": 47,
+            "right": 167.921875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Browser · Alt+2",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 169.921875,
+            "y": 0,
+            "width": 82.296875,
+            "height": 47,
+            "right": 252.21875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "IDE · Alt+3",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 254.21875,
+            "y": 0,
+            "width": 57.6875,
+            "height": 47,
+            "right": 311.90625,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open reference workbench",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 686,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 716,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Toggle theme",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 720,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 750,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 754,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 784,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New chat",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 143,
+            "y": 102,
+            "width": 30,
+            "height": 30,
+            "right": 173,
+            "bottom": 132
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New conversationnon-project · unconfigured",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 8,
+            "y": 157,
+            "width": 173,
+            "height": 56.890625,
+            "right": 181,
+            "bottom": 213.890625
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "New page",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 364.234375,
+            "y": 96,
+            "width": 110.203125,
+            "height": 32,
+            "right": 474.4375,
+            "bottom": 128
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New browser tab",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 477.4375,
+            "y": 96,
+            "width": 30,
+            "height": 32,
+            "right": 507.4375,
+            "bottom": 128
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Back",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 201,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 231,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Forward",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 236,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 266,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Reload",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 271,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 301,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Address",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 335,
+            "y": 144.5,
+            "width": 189.59375,
+            "height": 16,
+            "right": 524.59375,
+            "bottom": 160.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Navigate",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 531.59375,
+            "y": 142,
+            "width": 21,
+            "height": 21,
+            "right": 552.59375,
+            "bottom": 163
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Zoom out",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 566.59375,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 596.59375,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Zoom in",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 640.59375,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 670.59375,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Capture",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 675.59375,
+            "y": 137.5,
+            "width": 78.40625,
+            "height": 30,
+            "right": 754,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open native developer tools",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 759,
+            "y": 137.5,
+            "width": 30,
+            "height": 30,
+            "right": 789,
+            "bottom": 167.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Focus page",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 601.375,
+            "y": 574.796875,
+            "width": 85.109375,
+            "height": 17.390625,
+            "right": 686.484375,
+            "bottom": 592.1875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Reset zoom",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 700.484375,
+            "y": 574.796875,
+            "width": 86.515625,
+            "height": 17.390625,
+            "right": 787,
+            "bottom": 592.1875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Workflow",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Settings",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Rename session",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Model Auto routeLocal modelFrontier pool",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Effort noneminimallowmediumhighxhighmaxultra · dynamic",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "textarea",
+          "role": null,
+          "name": "Message composer",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach files",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Queue",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach project",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Send",
+          "disabled": true,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        }
+      ],
+      "companion": {
+        "present": true,
+        "displayed": false,
+        "display": "none"
+      },
+      "composerVisible": false,
+      "ariaSnapshot": "- banner:\n  - strong: OMNIA\n  - navigation \"Primary surfaces\":\n    - button \"Chat\"\n    - button \"Browser\"\n    - button \"IDE\"\n  - button \"Open reference workbench\"\n  - button \"Toggle theme\"\n  - button \"Open settings\"\n- text: Research surface New conversation\n- main:\n  - complementary \"Sessions\":\n    - text: Threads\n    - button \"New chat\"\n    - button \"New conversation non-project · unconfigured\":\n      - strong: New conversation\n      - text: non-project · unconfigured\n  - region \"Omnia native browser workspace\":\n    - text: Browser preview\n    - tablist \"Browser tabs\":\n      - tab \"New page Close New page\" [selected]: New page\n      - button \"New browser tab\"\n    - text: isolated page\n    - button \"Back\"\n    - button \"Forward\"\n    - button \"Reload\"\n    - textbox \"Address\": https://example.com/\n    - button \"Navigate\"\n    - button \"Zoom out\"\n    - text: 100%\n    - button \"Zoom in\"\n    - button \"Capture\"\n    - button \"Open native developer tools\"\n    - strong: Native WebView2 surface not connected\n    - paragraph: Run the packaged Omnia desktop to attach a real page. Preview never invents web content.\n    - text: browser.control · unavailable in preview Preview · native surface unavailable\n    - button \"Focus page\"\n    - button \"Reset zoom\"",
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-required-children",
+            "impact": "critical",
+            "help": "Certain ARIA roles must contain particular children",
+            "nodes": [
+              {
+                "target": [
+                  ".rb-browser__tabs"
+                ],
+                "summary": "Fix any of the following:\n  Element has children which are not allowed: button[aria-label]"
+              }
+            ]
+          }
+        ],
+        "passes": 21,
+        "incomplete": 1
+      }
+    },
+    {
+      "name": "800x600-ide-light",
+      "surface": "ide",
+      "theme": "light",
+      "scroll": {
+        "body": {
+          "width": 800,
+          "height": 600
+        },
+        "html": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "controls": [
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Chat · Alt+1",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 103.515625,
+            "y": 0,
+            "width": 64.40625,
+            "height": 47,
+            "right": 167.921875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Browser · Alt+2",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 169.921875,
+            "y": 0,
+            "width": 82.296875,
+            "height": 47,
+            "right": 252.21875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "IDE · Alt+3",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 254.21875,
+            "y": 0,
+            "width": 57.6875,
+            "height": 47,
+            "right": 311.90625,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open reference workbench",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 686,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 716,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Toggle theme",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 720,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 750,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 754,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 784,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New chat",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 143,
+            "y": 102,
+            "width": 30,
+            "height": 30,
+            "right": 173,
+            "bottom": 132
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New conversationnon-project · unconfigured",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 8,
+            "y": 157,
+            "width": 173,
+            "height": 56.890625,
+            "right": 181,
+            "bottom": 213.890625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open folder",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 638.328125,
+            "y": 92.796875,
+            "width": 105.671875,
+            "height": 33.390625,
+            "right": 744,
+            "bottom": 126.1875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Refresh roots",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 750,
+            "y": 94.484375,
+            "width": 30,
+            "height": 30,
+            "right": 780,
+            "bottom": 124.484375
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Filter files",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 367,
+            "y": 380.1875,
+            "width": 70,
+            "height": 15,
+            "right": 437,
+            "bottom": 395.1875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Workflow",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Settings",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Rename session",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Model Auto routeLocal modelFrontier pool",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Effort noneminimallowmediumhighxhighmaxultra · dynamic",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "textarea",
+          "role": null,
+          "name": "Message composer",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach files",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Queue",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach project",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Send",
+          "disabled": true,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        }
+      ],
+      "companion": {
+        "present": true,
+        "displayed": false,
+        "display": "none"
+      },
+      "composerVisible": false,
+      "ariaSnapshot": "- banner:\n  - strong: OMNIA\n  - navigation \"Primary surfaces\":\n    - button \"Chat\"\n    - button \"Browser\"\n    - button \"IDE\"\n  - button \"Open reference workbench\"\n  - button \"Toggle theme\"\n  - button \"Open settings\"\n- text: Code surface New conversation\n- main:\n  - complementary \"Sessions\":\n    - text: Threads\n    - button \"New chat\"\n    - button \"New conversation non-project · unconfigured\":\n      - strong: New conversation\n      - text: non-project · unconfigured\n  - region \"Omnia local IDE workspace\":\n    - strong: IDE\n    - text: local handles\n    - button \"Open folder\"\n    - button \"Refresh roots\"\n    - text: No folder attached. Choose one to inspect local files.\n    - complementary:\n      - text: Explorer\n      - textbox \"Filter files\":\n        - /placeholder: Filter\n    - main:\n      - strong: Select a file to inspect\n      - text: Omnia keeps local source access scoped to the selected grant.",
+      "axe": {
+        "violations": [],
+        "passes": 17,
+        "incomplete": 1
+      }
+    },
+    {
+      "name": "800x600-settings-light",
+      "surface": "chat",
+      "theme": "light",
+      "scroll": {
+        "body": {
+          "width": 800,
+          "height": 600
+        },
+        "html": {
+          "width": 800,
+          "height": 600
+        }
+      },
+      "controls": [
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Chat · Alt+1",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 103.515625,
+            "y": 0,
+            "width": 64.40625,
+            "height": 47,
+            "right": 167.921875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Browser · Alt+2",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 169.921875,
+            "y": 0,
+            "width": 82.296875,
+            "height": 47,
+            "right": 252.21875,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "IDE · Alt+3",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 254.21875,
+            "y": 0,
+            "width": 57.6875,
+            "height": 47,
+            "right": 311.90625,
+            "bottom": 47
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open reference workbench",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 686,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 716,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Toggle theme",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 720,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 750,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Open settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 754,
+            "y": 8.5,
+            "width": 30,
+            "height": 30,
+            "right": 784,
+            "bottom": 38.5
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New chat",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 143,
+            "y": 102,
+            "width": 30,
+            "height": 30,
+            "right": 173,
+            "bottom": 132
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "New conversationnon-project · unconfigured",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 8,
+            "y": 157,
+            "width": 173,
+            "height": 56.890625,
+            "right": 181,
+            "bottom": 213.890625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Workflow",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 569.078125,
+            "y": 110,
+            "width": 113.28125,
+            "height": 33.390625,
+            "right": 682.359375,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 690.359375,
+            "y": 110,
+            "width": 85.640625,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 143.390625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Rename session",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 746,
+            "y": 208.296875,
+            "width": 30,
+            "height": 30,
+            "right": 776,
+            "bottom": 238.296875
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Model Auto routeLocal modelFrontier pool",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 261.21875,
+            "y": 404.609375,
+            "width": 83,
+            "height": 17,
+            "right": 344.21875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Effort noneminimallowmediumhighxhighmaxultra · dynamic",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 387.671875,
+            "y": 404.609375,
+            "width": 92,
+            "height": 17,
+            "right": 479.671875,
+            "bottom": 421.609375
+          }
+        },
+        {
+          "tag": "textarea",
+          "role": null,
+          "name": "Message composer",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 214,
+            "y": 429.609375,
+            "width": 562,
+            "height": 100,
+            "right": 776,
+            "bottom": 529.609375
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach files",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 214,
+            "y": 540.296875,
+            "width": 30,
+            "height": 30,
+            "right": 244,
+            "bottom": 570.296875
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Queue",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 249,
+            "y": 538.609375,
+            "width": 78.1875,
+            "height": 33.390625,
+            "right": 327.1875,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Attach project",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 332.1875,
+            "y": 538.609375,
+            "width": 117.65625,
+            "height": 33.390625,
+            "right": 449.84375,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Send",
+          "disabled": true,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 704.078125,
+            "y": 538.609375,
+            "width": 71.921875,
+            "height": 33.390625,
+            "right": 776,
+            "bottom": 572
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Close settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 719,
+            "y": 47.484375,
+            "width": 34,
+            "height": 34,
+            "right": 753,
+            "bottom": 81.484375
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Search settings",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 47,
+            "y": 112.984375,
+            "width": 562.125,
+            "height": 40.296875,
+            "right": 609.125,
+            "bottom": 153.28125
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "Runtime",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 47,
+            "y": 166.28125,
+            "width": 68.34375,
+            "height": 23,
+            "right": 115.34375,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "Workflow",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 120.34375,
+            "y": 166.28125,
+            "width": 74.28125,
+            "height": 23,
+            "right": 194.625,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "Tools & RAG",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 199.625,
+            "y": 166.28125,
+            "width": 90.28125,
+            "height": 23,
+            "right": 289.90625,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "Privacy",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 294.90625,
+            "y": 166.28125,
+            "width": 61.015625,
+            "height": 23,
+            "right": 355.921875,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "tag": "button",
+          "role": "tab",
+          "name": "Appearance",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 360.921875,
+            "y": 166.28125,
+            "width": 87.125,
+            "height": 23,
+            "right": 448.046875,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Default model",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 47,
+            "y": 261.90625,
+            "width": 344,
+            "height": 51.390625,
+            "right": 391,
+            "bottom": 313.296875
+          }
+        },
+        {
+          "tag": "select",
+          "role": null,
+          "name": "Default reasoning effortnoneminimallowmediumhighxhighmaxultraUltra resolves to this model's highest supported effort and enables dynamic workflow esca",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 409,
+            "y": 242.515625,
+            "width": 344,
+            "height": 34,
+            "right": 753,
+            "bottom": 276.515625
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Compact context tokens",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 47,
+            "y": 348.6875,
+            "width": 344,
+            "height": 32,
+            "right": 391,
+            "bottom": 380.6875
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Tool output truncation",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 409,
+            "y": 348.6875,
+            "width": 344,
+            "height": 32,
+            "right": 753,
+            "bottom": 380.6875
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Ultra dynamic workflow",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 51,
+            "y": 423.96875,
+            "width": 13,
+            "height": 15,
+            "right": 64,
+            "bottom": 438.96875
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Allow per-session model hot swap",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 413,
+            "y": 423.96875,
+            "width": 15,
+            "height": 15,
+            "right": 428,
+            "bottom": 438.96875
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Retry incomplete work after any error",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 51,
+            "y": 535.59375,
+            "width": 13,
+            "height": 15,
+            "right": 64,
+            "bottom": 550.59375
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Initial retry delay (seconds)",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 409,
+            "y": 528.09375,
+            "width": 344,
+            "height": 32,
+            "right": 753,
+            "bottom": 560.09375
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Retry multiplier",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 47,
+            "y": 616.875,
+            "width": 344,
+            "height": 32,
+            "right": 391,
+            "bottom": 648.875
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Maximum attempts (0 = unlimited)",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 409,
+            "y": 627.5625,
+            "width": 344,
+            "height": 42.703125,
+            "right": 753,
+            "bottom": 670.265625
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Provider fallback",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 51,
+            "y": 691.765625,
+            "width": 15,
+            "height": 15,
+            "right": 66,
+            "bottom": 706.765625
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "Model fallback",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": false,
+          "rect": {
+            "x": 413,
+            "y": 691.765625,
+            "width": 15,
+            "height": 15,
+            "right": 428,
+            "bottom": 706.765625
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Reset defaults",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 47,
+            "y": 525.609375,
+            "width": 114.171875,
+            "height": 35.390625,
+            "right": 161.171875,
+            "bottom": 561
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Export JSON",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 170.171875,
+            "y": 525.609375,
+            "width": 106.171875,
+            "height": 35.390625,
+            "right": 276.34375,
+            "bottom": 561
+          }
+        },
+        {
+          "tag": "button",
+          "role": null,
+          "name": "Import JSON",
+          "disabled": false,
+          "shown": true,
+          "centerExposed": true,
+          "rect": {
+            "x": 285.34375,
+            "y": 525.609375,
+            "width": 108.109375,
+            "height": 35.390625,
+            "right": 393.453125,
+            "bottom": 561
+          }
+        },
+        {
+          "tag": "input",
+          "role": null,
+          "name": "",
+          "disabled": false,
+          "shown": false,
+          "centerExposed": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        }
+      ],
+      "companion": {
+        "present": false,
+        "displayed": false,
+        "display": null
+      },
+      "composerVisible": true,
+      "ariaSnapshot": "- banner:\n  - strong: OMNIA\n  - navigation \"Primary surfaces\":\n    - button \"Chat\"\n    - button \"Browser\"\n    - button \"IDE\"\n  - button \"Open reference workbench\"\n  - button \"Toggle theme\"\n  - button \"Open settings\"\n- text: Conversation New conversation\n- main:\n  - complementary \"Sessions\":\n    - text: Threads\n    - button \"New chat\"\n    - button \"New conversation non-project · unconfigured\":\n      - strong: New conversation\n      - text: non-project · unconfigured\n  - text: Non-project chat Draft workspace\n  - button \"Workflow\"\n  - button \"Settings\"\n  - region \"Chat workspace\":\n    - paragraph: Omnia workspace\n    - heading \"New conversation\" [level=1]\n    - paragraph: A single thread across projects, browser research and local files.\n    - button \"Rename session\"\n  - text: Ask for a plan Inspect a repository Research a paper Review a diff\n  - paragraph: Start in a non-project thread, then attach folders or files only when the task needs them.\n  - text: Model\n  - combobox \"Model\":\n    - option \"Auto route\" [selected]\n    - option \"Local model\"\n    - option \"Frontier pool\"\n  - text: Effort\n  - combobox \"Effort\":\n    - option \"none\"\n    - option \"minimal\"\n    - option \"low\"\n    - option \"medium\" [selected]\n    - option \"high\"\n    - option \"xhigh\"\n    - option \"max\"\n    - option \"ultra · dynamic\"\n  - textbox \"Message composer\":\n    - /placeholder: Describe what you want Omnia to investigate or build…\n  - button \"Attach files\"\n  - button \"Queue\"\n  - button \"Attach project\"\n  - text: Ctrl/⌘ + Enter\n  - button \"Send\" [disabled]\n- dialog \"Advanced runtime\":\n  - banner:\n    - heading \"Advanced runtime\" [level=2]\n    - paragraph: Versioned settings · hot applied across Omnia surfaces\n    - button \"Close settings\"\n  - textbox \"Search settings\":\n    - /placeholder: Search settings…\n  - text: Changes apply immediately\n  - tablist \"Settings sections\":\n    - tab \"Runtime\" [selected]\n    - tab \"Workflow\"\n    - tab \"Tools & RAG\"\n    - tab \"Privacy\"\n    - tab \"Appearance\"\n  - tabpanel:\n    - heading \"Context and model\" [level=3]\n    - text: Default model\n    - textbox \"Default model\": auto\n    - text: Default reasoning effort\n    - combobox \"Default reasoning effort Ultra resolves to this model's highest supported effort and enables dynamic workflow escalation.\":\n      - option \"none\"\n      - option \"minimal\"\n      - option \"low\"\n      - option \"medium\"\n      - option \"high\" [selected]\n      - option \"xhigh\"\n      - option \"max\"\n      - option \"ultra\"\n    - text: Ultra resolves to this model's highest supported effort and enables dynamic workflow escalation. Compact context tokens\n    - spinbutton \"Compact context tokens\": \"200000\"\n    - text: \"Requested default: 200,000; native model limits still apply. Tool output truncation\"\n    - spinbutton \"Tool output truncation\": \"10000\"\n    - text: \"Requested default: 10,000 tokens.\"\n    - checkbox \"Ultra dynamic workflow\" [checked]\n    - text: Ultra dynamic workflow Uses the model's highest supported effort plus workflow escalation.\n    - checkbox \"Allow per-session model hot swap\" [checked]\n    - text: Allow per-session model hot swap\n    - heading \"Retry and routing\" [level=3]\n    - checkbox \"Retry incomplete work after any error\" [checked]\n    - text: Retry incomplete work after any error Native idempotency and outcome-unknown guards remain authoritative. Initial retry delay (seconds)\n    - spinbutton \"Initial retry delay (seconds)\": \"5\"\n    - text: Default 5 seconds. Retry multiplier\n    - spinbutton \"Retry multiplier\": \"1\"\n    - text: Default 1; no backoff by default. Maximum attempts (0 = unlimited)\n    - spinbutton \"Maximum attempts (0 = unlimited)\": \"0\"\n    - checkbox \"Provider fallback\" [checked]\n    - text: Provider fallback\n    - checkbox \"Model fallback\" [checked]\n    - text: Model fallback\n  - contentinfo:\n    - button \"Reset defaults\"\n    - button \"Export JSON\"\n    - button \"Import JSON\"\n    - text: v1 · hot reload",
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodes": [
+              {
+                "target": [
+                  ".settings-search"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".settings-control"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".settings-select"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "input[aria-label=\"Compact context tokens\"]"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "input[aria-label=\"Tool output truncation\"]"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "input[aria-label=\"Initial retry delay (seconds)\"]"
+                ],
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #17212b, background color: #0a1118, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          }
+        ],
+        "passes": 25,
+        "incomplete": 1
+      }
+    }
+  ],
+  "keyboard": {
+    "mainFocus": [
+      {
+        "tag": "button",
+        "name": "Chat · Alt+1",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 103.515625,
+          "y": 0,
+          "width": 64.40625,
+          "height": 47,
+          "right": 167.921875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Browser · Alt+2",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 169.921875,
+          "y": 0,
+          "width": 82.296875,
+          "height": 47,
+          "right": 252.21875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "IDE · Alt+3",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 254.21875,
+          "y": 0,
+          "width": 57.6875,
+          "height": 47,
+          "right": 311.90625,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open reference workbench",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 686,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 716,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Toggle theme",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 720,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 750,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 754,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 784,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New chat",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 143,
+          "y": 102,
+          "width": 30,
+          "height": 30,
+          "right": 173,
+          "bottom": 132
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New conversationnon-project · unconfigured",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 8,
+          "y": 157,
+          "width": 173,
+          "height": 56.890625,
+          "right": 181,
+          "bottom": 213.890625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 569.078125,
+          "y": 110,
+          "width": 113.28125,
+          "height": 33.390625,
+          "right": 682.359375,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 690.359375,
+          "y": 110,
+          "width": 85.640625,
+          "height": 33.390625,
+          "right": 776,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Rename session",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 746,
+          "y": 208.296875,
+          "width": 30,
+          "height": 30,
+          "right": 776,
+          "bottom": 238.296875
+        }
+      },
+      {
+        "tag": "select",
+        "name": "Auto routeLocal modelFrontier pool",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 261.21875,
+          "y": 404.609375,
+          "width": 83,
+          "height": 17,
+          "right": 344.21875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "select",
+        "name": "noneminimallowmediumhighxhighmaxultra · dynamic",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 387.671875,
+          "y": 404.609375,
+          "width": 92,
+          "height": 17,
+          "right": 479.671875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "textarea",
+        "name": "Message composer",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 429.609375,
+          "width": 562,
+          "height": 100,
+          "right": 776,
+          "bottom": 529.609375
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach files",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 540.296875,
+          "width": 30,
+          "height": 30,
+          "right": 244,
+          "bottom": 570.296875
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Queue",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 249,
+          "y": 538.609375,
+          "width": 78.1875,
+          "height": 33.390625,
+          "right": 327.1875,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach project",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 332.1875,
+          "y": 538.609375,
+          "width": 117.65625,
+          "height": 33.390625,
+          "right": 449.84375,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "body",
+        "name": "OMNIArebuild / local-firstChatBrowserIDEConversationNew conversation 1 threadspreview / no providerThreadsNew conversationnon-project · unconfiguredNo",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 600,
+          "right": 800,
+          "bottom": 600
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Chat · Alt+1",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 103.515625,
+          "y": 0,
+          "width": 64.40625,
+          "height": 47,
+          "right": 167.921875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Browser · Alt+2",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 169.921875,
+          "y": 0,
+          "width": 82.296875,
+          "height": 47,
+          "right": 252.21875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "IDE · Alt+3",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 254.21875,
+          "y": 0,
+          "width": 57.6875,
+          "height": 47,
+          "right": 311.90625,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open reference workbench",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 686,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 716,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Toggle theme",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 720,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 750,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 754,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 784,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New chat",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 143,
+          "y": 102,
+          "width": 30,
+          "height": 30,
+          "right": 173,
+          "bottom": 132
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New conversationnon-project · unconfigured",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 8,
+          "y": 157,
+          "width": 173,
+          "height": 56.890625,
+          "right": 181,
+          "bottom": 213.890625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 569.078125,
+          "y": 110,
+          "width": 113.28125,
+          "height": 33.390625,
+          "right": 682.359375,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 690.359375,
+          "y": 110,
+          "width": 85.640625,
+          "height": 33.390625,
+          "right": 776,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Rename session",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 746,
+          "y": 208.296875,
+          "width": 30,
+          "height": 30,
+          "right": 776,
+          "bottom": 238.296875
+        }
+      },
+      {
+        "tag": "select",
+        "name": "Auto routeLocal modelFrontier pool",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 261.21875,
+          "y": 404.609375,
+          "width": 83,
+          "height": 17,
+          "right": 344.21875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "select",
+        "name": "noneminimallowmediumhighxhighmaxultra · dynamic",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 387.671875,
+          "y": 404.609375,
+          "width": 92,
+          "height": 17,
+          "right": 479.671875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "textarea",
+        "name": "Message composer",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 429.609375,
+          "width": 562,
+          "height": 100,
+          "right": 776,
+          "bottom": 529.609375
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach files",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 540.296875,
+          "width": 30,
+          "height": 30,
+          "right": 244,
+          "bottom": 570.296875
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Queue",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 249,
+          "y": 538.609375,
+          "width": 78.1875,
+          "height": 33.390625,
+          "right": 327.1875,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach project",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 332.1875,
+          "y": 538.609375,
+          "width": 117.65625,
+          "height": 33.390625,
+          "right": 449.84375,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "body",
+        "name": "OMNIArebuild / local-firstChatBrowserIDEConversationNew conversation 1 threadspreview / no providerThreadsNew conversationnon-project · unconfiguredNo",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 600,
+          "right": 800,
+          "bottom": 600
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Chat · Alt+1",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 103.515625,
+          "y": 0,
+          "width": 64.40625,
+          "height": 47,
+          "right": 167.921875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Browser · Alt+2",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 169.921875,
+          "y": 0,
+          "width": 82.296875,
+          "height": 47,
+          "right": 252.21875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "IDE · Alt+3",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 254.21875,
+          "y": 0,
+          "width": 57.6875,
+          "height": 47,
+          "right": 311.90625,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open reference workbench",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 686,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 716,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Toggle theme",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 720,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 750,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 754,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 784,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New chat",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 143,
+          "y": 102,
+          "width": 30,
+          "height": 30,
+          "right": 173,
+          "bottom": 132
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New conversationnon-project · unconfigured",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 8,
+          "y": 157,
+          "width": 173,
+          "height": 56.890625,
+          "right": 181,
+          "bottom": 213.890625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 569.078125,
+          "y": 110,
+          "width": 113.28125,
+          "height": 33.390625,
+          "right": 682.359375,
+          "bottom": 143.390625
+        }
+      }
+    ],
+    "alt3ChangedToIde": true,
+    "alt1ChangedToChat": true,
+    "focusOnSettingsOpen": {
+      "tag": "button",
+      "name": "Open settings",
+      "insideSettings": false,
+      "visible": true,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "rect": {
+        "x": 754,
+        "y": 8.5,
+        "width": 30,
+        "height": 30,
+        "right": 784,
+        "bottom": 38.5
+      }
+    },
+    "settingsFocus": [
+      {
+        "tag": "button",
+        "name": "New chat",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 143,
+          "y": 102,
+          "width": 30,
+          "height": 30,
+          "right": 173,
+          "bottom": 132
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New conversationnon-project · unconfigured",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 8,
+          "y": 157,
+          "width": 173,
+          "height": 56.890625,
+          "right": 181,
+          "bottom": 213.890625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 569.078125,
+          "y": 110,
+          "width": 113.28125,
+          "height": 33.390625,
+          "right": 682.359375,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 690.359375,
+          "y": 110,
+          "width": 85.640625,
+          "height": 33.390625,
+          "right": 776,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Rename session",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 746,
+          "y": 208.296875,
+          "width": 30,
+          "height": 30,
+          "right": 776,
+          "bottom": 238.296875
+        }
+      },
+      {
+        "tag": "select",
+        "name": "Auto routeLocal modelFrontier pool",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 261.21875,
+          "y": 404.609375,
+          "width": 83,
+          "height": 17,
+          "right": 344.21875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "select",
+        "name": "noneminimallowmediumhighxhighmaxultra · dynamic",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 387.671875,
+          "y": 404.609375,
+          "width": 92,
+          "height": 17,
+          "right": 479.671875,
+          "bottom": 421.609375
+        }
+      },
+      {
+        "tag": "textarea",
+        "name": "Message composer",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 429.609375,
+          "width": 562,
+          "height": 100,
+          "right": 776,
+          "bottom": 529.609375
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach files",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 214,
+          "y": 540.296875,
+          "width": 30,
+          "height": 30,
+          "right": 244,
+          "bottom": 570.296875
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Queue",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 249,
+          "y": 538.609375,
+          "width": 78.1875,
+          "height": 33.390625,
+          "right": 327.1875,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Attach project",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 332.1875,
+          "y": 538.609375,
+          "width": 117.65625,
+          "height": 33.390625,
+          "right": 449.84375,
+          "bottom": 572
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Close settings",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 719,
+          "y": 47.484375,
+          "width": 34,
+          "height": 34,
+          "right": 753,
+          "bottom": 81.484375
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Search settings",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 47,
+          "y": 112.984375,
+          "width": 562.125,
+          "height": 40.296875,
+          "right": 609.125,
+          "bottom": 153.28125
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Runtime",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 47,
+          "y": 166.28125,
+          "width": 68.34375,
+          "height": 23,
+          "right": 115.34375,
+          "bottom": 189.28125
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 120.34375,
+          "y": 166.28125,
+          "width": 74.28125,
+          "height": 23,
+          "right": 194.625,
+          "bottom": 189.28125
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Tools & RAG",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 199.625,
+          "y": 166.28125,
+          "width": 90.28125,
+          "height": 23,
+          "right": 289.90625,
+          "bottom": 189.28125
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Privacy",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 294.90625,
+          "y": 166.28125,
+          "width": 61.015625,
+          "height": 23,
+          "right": 355.921875,
+          "bottom": 189.28125
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Appearance",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 360.921875,
+          "y": 166.28125,
+          "width": 87.125,
+          "height": 23,
+          "right": 448.046875,
+          "bottom": 189.28125
+        }
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 47,
+          "y": 261.90625,
+          "width": 344,
+          "height": 51.390625,
+          "right": 391,
+          "bottom": 313.296875
+        }
+      },
+      {
+        "tag": "select",
+        "name": "noneminimallowmediumhighxhighmaxultra",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 409,
+          "y": 242.515625,
+          "width": 344,
+          "height": 34,
+          "right": 753,
+          "bottom": 276.515625
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Compact context tokens",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 47,
+          "y": 348.6875,
+          "width": 344,
+          "height": 32,
+          "right": 391,
+          "bottom": 380.6875
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Tool output truncation",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 409,
+          "y": 348.6875,
+          "width": 344,
+          "height": 32,
+          "right": 753,
+          "bottom": 380.6875
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Ultra dynamic workflow",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 51,
+          "y": 423.96875,
+          "width": 13,
+          "height": 15,
+          "right": 64,
+          "bottom": 438.96875
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Allow per-session model hot swap",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 413,
+          "y": 423.96875,
+          "width": 15,
+          "height": 15,
+          "right": 428,
+          "bottom": 438.96875
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Retry incomplete work after any error",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 51,
+          "y": 331.59375,
+          "width": 13,
+          "height": 15,
+          "right": 64,
+          "bottom": 346.59375
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Initial retry delay (seconds)",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 409,
+          "y": 324.09375,
+          "width": 344,
+          "height": 32,
+          "right": 753,
+          "bottom": 356.09375
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Retry multiplier",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 47,
+          "y": 412.875,
+          "width": 344,
+          "height": 32,
+          "right": 391,
+          "bottom": 444.875
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Maximum attempts (0 = unlimited)",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 409,
+          "y": 423.5625,
+          "width": 344,
+          "height": 42.703125,
+          "right": 753,
+          "bottom": 466.265625
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Provider fallback",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 51,
+          "y": 487.765625,
+          "width": 15,
+          "height": 15,
+          "right": 66,
+          "bottom": 502.765625
+        }
+      },
+      {
+        "tag": "input",
+        "name": "Model fallback",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 413,
+          "y": 487.765625,
+          "width": 15,
+          "height": 15,
+          "right": 428,
+          "bottom": 502.765625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Reset defaults",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 47,
+          "y": 525.609375,
+          "width": 114.171875,
+          "height": 35.390625,
+          "right": 161.171875,
+          "bottom": 561
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Export JSON",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 170.171875,
+          "y": 525.609375,
+          "width": 106.171875,
+          "height": 35.390625,
+          "right": 276.34375,
+          "bottom": 561
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Import JSON",
+        "insideSettings": true,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 285.34375,
+          "y": 525.609375,
+          "width": 108.109375,
+          "height": 35.390625,
+          "right": 393.453125,
+          "bottom": 561
+        }
+      },
+      {
+        "tag": "body",
+        "name": "OMNIArebuild / local-firstChatBrowserIDEConversationNew conversation 1 threadspreview / no providerThreadsNew conversationnon-project · unconfiguredNo",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 600,
+          "right": 800,
+          "bottom": 600
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Chat · Alt+1",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 103.515625,
+          "y": 0,
+          "width": 64.40625,
+          "height": 47,
+          "right": 167.921875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Browser · Alt+2",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 169.921875,
+          "y": 0,
+          "width": 82.296875,
+          "height": 47,
+          "right": 252.21875,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "IDE · Alt+3",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 254.21875,
+          "y": 0,
+          "width": 57.6875,
+          "height": 47,
+          "right": 311.90625,
+          "bottom": 47
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open reference workbench",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 686,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 716,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Toggle theme",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 720,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 750,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Open settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 754,
+          "y": 8.5,
+          "width": 30,
+          "height": 30,
+          "right": 784,
+          "bottom": 38.5
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New chat",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 143,
+          "y": 102,
+          "width": 30,
+          "height": 30,
+          "right": 173,
+          "bottom": 132
+        }
+      },
+      {
+        "tag": "button",
+        "name": "New conversationnon-project · unconfigured",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 8,
+          "y": 157,
+          "width": 173,
+          "height": 56.890625,
+          "right": 181,
+          "bottom": 213.890625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Workflow",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 569.078125,
+          "y": 110,
+          "width": 113.28125,
+          "height": 33.390625,
+          "right": 682.359375,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Settings",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 690.359375,
+          "y": 110,
+          "width": 85.640625,
+          "height": 33.390625,
+          "right": 776,
+          "bottom": 143.390625
+        }
+      },
+      {
+        "tag": "button",
+        "name": "Rename session",
+        "insideSettings": false,
+        "visible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "rect": {
+          "x": 746,
+          "y": 208.296875,
+          "width": 30,
+          "height": 30,
+          "right": 776,
+          "bottom": 238.296875
+        }
+      }
+    ],
+    "settingsRemainsAfterEscape": true,
+    "focusAfterSettingsClose": {
+      "tag": "body",
+      "name": "OMNIArebuild / local-firstChatBrowserIDEConversationNew conversation 1 threadspreview / no providerThreadsNew conversationnon-project · unconfiguredNo",
+      "insideSettings": false,
+      "visible": true,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 600,
+        "right": 800,
+        "bottom": 600
+      }
+    }
+  },
+  "events": {
+    "pageErrors": [],
+    "failedRequests": []
+  },
+  "captures": [
+    {
+      "path": "docs/rebuild/receipts/ui-qa-800x600-dark.png",
+      "sha256": "5705b6a1f73dedf9091f62d758406e5bcc5270d9d5fbf14fd08a2d3c3e1233a8",
+      "viewport": {
+        "width": 800,
+        "height": 600
+      },
+      "kind": "browser-preview"
+    },
+    {
+      "path": "docs/rebuild/receipts/ui-qa-800x600-light.png",
+      "sha256": "a17434d59df38f5101fc3c710de47a598235f48e35ac9d8215bdfb677789ece0",
+      "viewport": {
+        "width": 800,
+        "height": 600
+      },
+      "kind": "browser-preview"
+    },
+    {
+      "path": "docs/rebuild/receipts/ui-qa-800x600-browser-light.png",
+      "sha256": "8238da137b63f75fd3ab02592d4b25945a8a6e2d0462c2b340ca20c2def1a03e",
+      "viewport": {
+        "width": 800,
+        "height": 600
+      },
+      "kind": "browser-preview"
+    },
+    {
+      "path": "docs/rebuild/receipts/ui-qa-800x600-ide-light.png",
+      "sha256": "d24d19329418893c4e047ac94fd7271bad35856a47df30c56bdd9acd3660f772",
+      "viewport": {
+        "width": 800,
+        "height": 600
+      },
+      "kind": "browser-preview"
+    },
+    {
+      "path": "docs/rebuild/receipts/ui-qa-800x600-settings-light.png",
+      "sha256": "c120071c9f67d4881ca0e1dfa3d3daf2137640abc441da2d20f7d6483a29362b",
+      "viewport": {
+        "width": 800,
+        "height": 600
+      },
+      "kind": "browser-preview"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/main.tsx",
+      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.css",
+      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.css",
+      "sha256": "ff8c4d97717347c9171ac5a0d5a701b668afcc4dbb48bf2a11795b4bf9e2317d"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "88d1646713ab66a4d5670647de3a56e36073531b4eb0c66fb1053f3787a23639"
+    },
+    {
+      "path": "src/rebuild/settings/settings.css",
+      "sha256": "4b0d4764031a9f334e945e8bb220e87efb7e4b1b3ed40b30bcd2944a5532cce3"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    }
+  ],
+  "findings": [
+    {
+      "id": "companion-chat-hidden-at-800",
+      "screen": "800x600-browser-light",
+      "detail": "Companion chat exists in DOM but is display:none at <=1100px; no composer is accessible in this surface."
+    },
+    {
+      "id": "companion-chat-hidden-at-800",
+      "screen": "800x600-ide-light",
+      "detail": "Companion chat exists in DOM but is display:none at <=1100px; no composer is accessible in this surface."
+    },
+    {
+      "id": "settings-focus-escapes",
+      "detail": "Tab traversal reaches controls outside aria-modal dialog."
+    },
+    {
+      "id": "settings-focus-not-moved",
+      "detail": "Opening Settings does not move focus into dialog."
+    },
+    {
+      "id": "settings-escape-does-not-close",
+      "detail": "Escape leaves Settings open."
+    },
+    {
+      "id": "settings-tabs-obscured",
+      "detail": "All Settings section tabs have nonzero layout boxes but their hit-test centers are obscured by the body; the screenshot confirms no section tab labels are visible.",
+      "tabs": [
+        {
+          "name": "Runtime",
+          "centerExposed": false,
+          "rect": {
+            "x": 47,
+            "y": 166.28125,
+            "width": 68.34375,
+            "height": 23,
+            "right": 115.34375,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "name": "Workflow",
+          "centerExposed": false,
+          "rect": {
+            "x": 120.34375,
+            "y": 166.28125,
+            "width": 74.28125,
+            "height": 23,
+            "right": 194.625,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "name": "Tools & RAG",
+          "centerExposed": false,
+          "rect": {
+            "x": 199.625,
+            "y": 166.28125,
+            "width": 90.28125,
+            "height": 23,
+            "right": 289.90625,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "name": "Privacy",
+          "centerExposed": false,
+          "rect": {
+            "x": 294.90625,
+            "y": 166.28125,
+            "width": 61.015625,
+            "height": 23,
+            "right": 355.921875,
+            "bottom": 189.28125
+          }
+        },
+        {
+          "name": "Appearance",
+          "centerExposed": false,
+          "rect": {
+            "x": 360.921875,
+            "y": 166.28125,
+            "width": 87.125,
+            "height": 23,
+            "right": 448.046875,
+            "bottom": 189.28125
+          }
+        }
+      ]
+    },
+    {
+      "id": "axe-aria-required-children",
+      "screen": "800x600-browser-light",
+      "impact": "critical",
+      "nodes": 1
+    },
+    {
+      "id": "axe-color-contrast",
+      "screen": "800x600-settings-light",
+      "impact": "serious",
+      "nodes": 6
+    }
+  ],
+  "limitations": [
+    "Fresh disposable Chromium context; no mock/live provider or native Tauri APIs injected.",
+    "Preview captures and axe checks do not prove packaged Windows UIA/WebView2/native behavior.",
+    "No live provider, project pointer storage, RAG, OS automation, downloads, or plugin mutation tested.",
+    "UI controls existing only below the fold or behind dialog overlays are distinguished from exposed hit targets; a matching document size alone does not prove control accessibility."
+  ],
+  "themeAfterReload": "light",
+  "themeReloadPersisted": true,
+  "exitCode": 0,
+  "completedAt": "2026-11-08T04:29:43.371Z",
+  "scriptSource": "import { chromium } from '@playwright/test';\nimport AxeBuilder from '@axe-core/playwright';\nimport fs from 'node:fs/promises';\nimport crypto from 'node:crypto';\nimport { execFileSync } from 'node:child_process';\n\nconst base = 'http://127.0.0.1:1431/';\nconst out = 'docs/rebuild/receipts';\nconst browser = await chromium.launch({ headless: true });\nconst context = await browser.newContext({ viewport: { width: 800, height: 600 }, colorScheme: 'dark', locale: 'en-US' });\nconst page = await context.newPage();\nconst events = { pageErrors: [], failedRequests: [] };\npage.on('pageerror', (e) => events.pageErrors.push(e.message));\npage.on('requestfailed', (r) => events.failedRequests.push({ url: r.url(), failure: r.failure()?.errorText }));\nconst hash = (data) => crypto.createHash('sha256').update(data).digest('hex');\nconst result = { schemaVersion: 1, command: 'node .omnia-ui-qa-final-temp.mjs', result: 'passed_with_findings', asOf: new Date().toISOString(), revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), base, environment: { kind: 'vite-browser-preview', viewport: { width: 800, height: 600 }, packaged: false, native: false, provider: false }, screens: [], keyboard: {}, events, captures: [], sourceFiles: [], findings: [], limitations: ['Fresh disposable Chromium context; no mock/live provider or native Tauri APIs injected.', 'Preview captures and axe checks do not prove packaged Windows UIA/WebView2/native behavior.', 'No live provider, project pointer storage, RAG, OS automation, downloads, or plugin mutation tested.', 'UI controls existing only below the fold or behind dialog overlays are distinguished from exposed hit targets; a matching document size alone does not prove control accessibility.'] };\nconst sources = ['src/main.tsx','src/rebuild/rebuild-app.tsx','src/rebuild/rebuild-app.css','src/rebuild/chat/chat-view.tsx','src/rebuild/chat/chat-view.css','src/rebuild/settings/SettingsPanel.tsx','src/rebuild/settings/settings.css','src/rebuild/settings/settings.ts','src/rebuild/browser/browser-workspace.tsx','src/rebuild/ide/ide-workspace.tsx'];\nfor (const path of sources) { const data = await fs.readFile(path); result.sourceFiles.push({ path, sha256: hash(data) }); }\nconst inspect = () => page.evaluate(() => {\n  const controls = [...document.querySelectorAll('button,input,textarea,select,[role=button],[role=tab],[role=menuitem]')].map((e) => {\n    const r = e.getBoundingClientRect(); const s = getComputedStyle(e); const shown = r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none'; const x = r.x + r.width / 2; const y = r.y + r.height / 2; const top = shown && x >= 0 && x < innerWidth && y >= 0 && y < innerHeight ? document.elementFromPoint(x, y) : null;\n    const labels = e.labels ? [...e.labels].map((l) => l.textContent).join(' ') : '';\n    return { tag: e.tagName.toLowerCase(), role: e.getAttribute('role'), name: (e.getAttribute('aria-label') || labels || e.getAttribute('title') || e.textContent || '').replace(/\\s+/g,' ').trim().slice(0,150), disabled: e.hasAttribute('disabled') || e.getAttribute('aria-disabled') === 'true', shown, centerExposed: Boolean(top && (top === e || e.contains(top))), rect: { x: r.x, y: r.y, width: r.width, height: r.height, right: r.right, bottom: r.bottom } };\n  });\n  const companion = document.querySelector('.rb-companion-chat'); const cr = companion?.getBoundingClientRect();\n  return { surface: document.querySelector('.rb-app')?.getAttribute('data-surface'), theme: document.documentElement.dataset.rebuildTheme, scroll: { body: { width: document.body.scrollWidth, height: document.body.scrollHeight }, html: { width: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight } }, controls, companion: { present: Boolean(companion), displayed: Boolean(cr && cr.width > 0 && cr.height > 0), display: companion ? getComputedStyle(companion).display : null }, composerVisible: [...document.querySelectorAll('[aria-label=\"Message composer\"]')].some((e) => { const r=e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }) };\n});\nconst focus = () => page.evaluate(() => {\n  const e = document.activeElement; const r = e?.getBoundingClientRect(); const s = e ? getComputedStyle(e) : null;\n  return { tag: e?.tagName?.toLowerCase(), name: (e?.getAttribute?.('aria-label') || e?.getAttribute?.('title') || e?.textContent || '').replace(/\\s+/g,' ').trim().slice(0,150), insideSettings: Boolean(e?.closest?.('.settings-panel')), visible: Boolean(r && r.width > 0 && r.height > 0), outlineStyle: s?.outlineStyle, outlineWidth: s?.outlineWidth, rect: r ? { x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom } : null };\n});\nconst audit = async (name) => {\n  await page.waitForTimeout(150);\n  const snapshot = await inspect();\n  const axe = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();\n  const path = `${out}/ui-qa-${name}.png`;\n  await page.screenshot({ path, fullPage: true, animations: 'disabled' });\n  result.captures.push({ path, sha256: hash(await fs.readFile(path)), viewport: { width: 800, height: 600 }, kind: 'browser-preview' });\n  const screen = { name, ...snapshot, ariaSnapshot: await page.locator('body').ariaSnapshot(), axe: { violations: axe.violations.map((v) => ({ id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.map((n)=>({target:n.target,summary:n.failureSummary})) })), passes: axe.passes.length, incomplete: axe.incomplete.length } };\n  result.screens.push(screen);\n  return screen;\n};\ntry {\n  await page.emulateMedia({ reducedMotion:'reduce' });\n  await page.goto(base, { waitUntil:'networkidle' });\n  await page.getByRole('navigation', { name:'Primary surfaces' }).waitFor();\n  await audit('800x600-dark');\n  const mainFocus=[]; for(let i=0;i<45;i+=1){await page.keyboard.press('Tab');mainFocus.push(await focus());} result.keyboard.mainFocus=mainFocus;\n  await page.getByRole('button',{name:'Toggle theme'}).click();\n  await page.waitForFunction(()=>document.documentElement.dataset.rebuildTheme==='light');\n  await audit('800x600-light');\n  await page.getByRole('button',{name:'Browser',exact:true}).click();\n  await audit('800x600-browser-light');\n  await page.keyboard.press('Alt+3');\n  await page.waitForFunction(()=>document.querySelector('.rb-app')?.getAttribute('data-surface')==='ide');\n  await audit('800x600-ide-light');\n  result.keyboard.alt3ChangedToIde=true;\n  await page.keyboard.press('Alt+1');\n  await page.waitForFunction(()=>document.querySelector('.rb-app')?.getAttribute('data-surface')==='chat');\n  result.keyboard.alt1ChangedToChat=true;\n  await page.getByRole('button',{name:'Open settings'}).click();\n  await page.getByRole('dialog',{name:'Advanced runtime'}).waitFor();\n  result.keyboard.focusOnSettingsOpen=await focus();\n  await audit('800x600-settings-light');\n  const settingsFocus=[]; for(let i=0;i<45;i+=1){await page.keyboard.press('Tab');settingsFocus.push(await focus());} result.keyboard.settingsFocus=settingsFocus;\n  await page.keyboard.press('Escape');\n  result.keyboard.settingsRemainsAfterEscape=await page.getByRole('dialog',{name:'Advanced runtime'}).isVisible();\n  await page.getByRole('button',{name:'Close settings'}).click();\n  result.keyboard.focusAfterSettingsClose=await focus();\n  await page.reload({waitUntil:'networkidle'});\n  result.themeAfterReload=await page.evaluate(()=>document.documentElement.dataset.rebuildTheme);\n  result.themeReloadPersisted=result.themeAfterReload==='light';\n  for (const s of result.screens) if (s.scroll.html.width>800 || s.scroll.html.height>600) result.findings.push({id:'document-overflow',screen:s.name,detail:s.scroll});\n  for (const s of result.screens.filter((s)=>['browser','ide'].includes(s.surface))) if(!s.composerVisible) result.findings.push({id:'companion-chat-hidden-at-800',screen:s.name,detail:'Companion chat exists in DOM but is display:none at <=1100px; no composer is accessible in this surface.'});\n  if(result.keyboard.settingsFocus.some((f)=>!f.insideSettings)) result.findings.push({id:'settings-focus-escapes',detail:'Tab traversal reaches controls outside aria-modal dialog.'});\n  if(!result.keyboard.focusOnSettingsOpen.insideSettings) result.findings.push({id:'settings-focus-not-moved',detail:'Opening Settings does not move focus into dialog.'});\n  if(result.keyboard.settingsRemainsAfterEscape) result.findings.push({id:'settings-escape-does-not-close',detail:'Escape leaves Settings open.'});\n  const settingsScreen=result.screens.find((s)=>s.name==='800x600-settings-light');\n  if(settingsScreen?.controls.filter((c)=>c.role==='tab').some((c)=>!c.centerExposed)) result.findings.push({id:'settings-tabs-obscured',detail:'All Settings section tabs have nonzero layout boxes but their hit-test centers are obscured by the body; the screenshot confirms no section tab labels are visible.',tabs:settingsScreen.controls.filter((c)=>c.role==='tab').map((c)=>({name:c.name,centerExposed:c.centerExposed,rect:c.rect}))});\n  for(const s of result.screens) for(const v of s.axe.violations) result.findings.push({id:`axe-${v.id}`,screen:s.name,impact:v.impact,nodes:v.nodes.length});\n  result.exitCode=0;\n} catch(e) { result.result='failed';result.exitCode=1;result.error=String(e?.stack||e);process.exitCode=1; }\nfinally {\n  result.completedAt=new Date().toISOString();\n  result.scriptSource=await fs.readFile('.omnia-ui-qa-final-temp.mjs','utf8');\n  result.scriptSha256=hash(result.scriptSource);\n  const body=JSON.stringify(result,null,2)+'\\n';\n  await fs.writeFile(`${out}/ui-qa-narrow-accessibility-20261108.json`,body);\n  await fs.writeFile(`${out}/ui-qa-narrow-accessibility-20261108.sha256`,`${hash(body)}  ui-qa-narrow-accessibility-20261108.json\\n`);\n  console.log(JSON.stringify({result:result.result,findings:result.findings,screenSummary:result.screens.map((s)=>({name:s.name,controls:s.controls.length,axeViolations:s.axe.violations.length,composerVisible:s.composerVisible,scroll:s.scroll})),themeReloadPersisted:result.themeReloadPersisted,events:result.events,sha256:hash(body)},null,2));\n  await context.close();await browser.close();\n}\n",
+  "scriptSha256": "ba262dbbf2063bbbce2ed1921f5e88f92cc04bbe945a7042e68dc55c97ee16a4"
+}
