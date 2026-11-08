@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:44:31.913Z",
-  "cycle": "rebuild-0008",
+  "generatedAt": "2026-11-08T15:05:00Z",
+  "cycle": "rebuild-0009",
   "corpusInventory": {
     "path": "docs/rebuild/research/CORPUS_INVENTORY.json",
     "generatedBy": "scripts/rebuild/source-inventory.mjs",
@@ -1750,6 +1750,186 @@
       "omniaApplication": "Add stale-safe RAG checkpoints, bounded concurrency, cancellation and filter validation.",
       "evidence": [
         "docs/rebuild/research/NEW_RAG_MEMORY_CYCLE8_20261108.md"
+      ]
+    },
+    {
+      "id": "cycle9-stagehand",
+      "canonicalRepo": "https://github.com/browserbase/stagehand",
+      "revision": "310957518a931c1a84c5968b13282cc30acd1be9",
+      "license": "MIT",
+      "query": "everything agent harness browser open source; headless browser agent session manager open source",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "packages/cli/src/lib/driver/session-manager.ts",
+          "sha256": "61e05a6dd651596bf096ff037aadc42c06c06510d75e432155e92ddce5d210e7",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/stagehand-session-manager.ts",
+            "sha256": "61e05a6dd651596bf096ff037aadc42c06c06510d75e432155e92ddce5d210e7"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Explicit browser session ownership, teardown and retry reset"
+      ],
+      "weaknesses": [
+        "external service assumptions remain."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
+      ]
+    },
+    {
+      "id": "cycle9-gptme",
+      "canonicalRepo": "https://github.com/gptme/gptme",
+      "revision": "e555ceb2cc95879b05de5f53227fa2ff9d6b93a3",
+      "license": "MIT",
+      "query": "open source agent context compaction RAG everything super power pro max",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "gptme/context/adaptive_compressor.py",
+          "sha256": "173a118effbd0dcd740726d0f851b8d7ee3545cc06f11c8b0b6f1b80b1d6992c",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/gptme-adaptive-compressor.py",
+            "sha256": "173a118effbd0dcd740726d0f851b8d7ee3545cc06f11c8b0b6f1b80b1d6992c"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Auditable adaptive compression receipt fields"
+      ],
+      "weaknesses": [
+        "Python/tokenizer runtime is not Omnia proof."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
+      ]
+    },
+    {
+      "id": "cycle9-onlook",
+      "canonicalRepo": "https://github.com/onlook-dev/onlook",
+      "revision": "423e2e924366419e418ee049093872d535eea41a",
+      "license": "Apache-2.0",
+      "query": "AI IDE open source stars:>1000; everything agent IDE",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "apps/web/client/src/app/project/[id]/_components/left-panel/code-panel/code-tab/sidebar/file-tree.tsx",
+          "sha256": "3e31ccf88aa832bdada47892d8bf47221a87c5c9fd3db7124c9a3c241dfd2e65",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/onlook-file-tree.tsx",
+            "sha256": "3e31ccf88aa832bdada47892d8bf47221a87c5c9fd3db7124c9a3c241dfd2e65"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Flat path index projected into tree"
+      ],
+      "weaknesses": [
+        "native permission behavior remains unproven."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
+      ]
+    },
+    {
+      "id": "cycle9-mcp-gateway",
+      "canonicalRepo": "https://github.com/agentic-community/mcp-gateway-registry",
+      "revision": "3128817e70f62a8589349fc702a124b36e97e7c8",
+      "license": "Apache-2.0",
+      "query": "everything superpowers MCP server skills repository; open source MCP registry skills context memory",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "docs/design/agent-skills-architecture.md",
+          "sha256": "c281268b9eab17c9a4e1877ae878d1f4ca45bbedd8ceff8e2fad6962940acad3",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/mcp-gateway-skills-architecture.md",
+            "sha256": "c281268b9eab17c9a4e1877ae878d1f4ca45bbedd8ceff8e2fad6962940acad3"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Immutable skill identity and progressive disclosure"
+      ],
+      "weaknesses": [
+        "registry docs do not prove native transport."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
+      ]
+    },
+    {
+      "id": "cycle9-rag-hypnagonia",
+      "canonicalRepo": "https://github.com/hypnagonia/rag",
+      "revision": "2ed54730d49598a96a8ccab14b2aa35273d87b79",
+      "license": "MIT",
+      "query": "open source RAG memory agent everything super power pro max",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "internal/adapter/retriever/hybrid.go",
+          "sha256": "804817df3ef3dab99656e79295c5ff3d96fc384bd008d0e5b6f47943af5af1cc",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/rag-hybrid.go",
+            "sha256": "804817df3ef3dab99656e79295c5ff3d96fc384bd008d0e5b6f47943af5af1cc"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Hybrid lexical/vector arms expose candidate/error stats and thresholds"
+      ],
+      "weaknesses": [
+        "external embedding is not native proof."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
+      ]
+    },
+    {
+      "id": "cycle9-nextchat",
+      "canonicalRepo": "https://github.com/ChatGPTNextWeb/NextChat",
+      "revision": "1d3dc331512929a4b1d3e82354e72acce33b5c7a",
+      "license": "MIT",
+      "query": "open source AI chat UI model picker advanced settings; everything super power pro max",
+      "retrievedAt": "2026-11-08T14:32:16Z",
+      "paths": [
+        {
+          "path": "app/components/model-config.tsx",
+          "sha256": "963abc69524bb85dbe8a1713525f8f83095d99c27c211f5abd82c268d117e49f",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle9/nextchat-model-config.tsx",
+            "sha256": "963abc69524bb85dbe8a1713525f8f83095d99c27c211f5abd82c268d117e49f"
+          }
+        }
+      ],
+      "novelty": "New cycle-9 source/revision/path reviewed after prior register; exact tuple was not previously registered.",
+      "strengths": [
+        "Typed model/context controls"
+      ],
+      "weaknesses": [
+        "local picker is not live catalog persistence."
+      ],
+      "decision": "apply",
+      "omniaApplication": "Use the clean-room behavioral contract only; no upstream UI or runtime code is imported.",
+      "evidence": [
+        "docs/rebuild/research/RESEARCH_RECEIPT_CYCLE9.json"
       ]
     }
   ]

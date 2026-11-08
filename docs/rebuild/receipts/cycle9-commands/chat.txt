@@ -1,0 +1,13 @@
+npm warn cli npm v12.2.1 does not support Node.js v27.0.0-nightly202610263983092f63. This version of npm supports the following node versions: `^22.22.2 || ^24.15.0 || >=26.0.0`. You can find the latest version at https://nodejs.org/.
+npm notice run omnia-desktop@0.1.0 test
+npm notice run vitest run --run src/rebuild/chat/chat-view.test.tsx src/rebuild/chat/chat-controller.test.ts src/rebuild/chat/ask-user-envelope.test.ts --reporter=dot
+
+ RUN  v3.2.7 C:/Users/khang/.codex/worktrees/omnia-ui-rebuild/publish-worktree
+
+·····················
+
+ Test Files  3 passed (3)
+      Tests  21 passed (21)
+   Start at  22:18:11
+   Duration  1.41s (transform 235ms, setup 405ms, collect 483ms, tests 270ms, environment 1.24s, prepare 277ms)
+

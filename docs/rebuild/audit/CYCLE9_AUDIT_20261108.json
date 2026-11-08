@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "stage": "audit",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T15:05:00+07:00",
+  "result": "passed-with-open-evidence",
+  "criteria": [
+    {
+      "id": "CHAT-008",
+      "owner": "/root/rebuild_chat",
+      "status": "partial",
+      "sourceEvidence": ["src/rebuild/chat/chat-controller.ts", "src/rebuild/chat/chat-controller.test.ts", "src/rebuild/chat/chat-view.tsx"],
+      "behaviorEvidence": ["docs/rebuild/receipts/native-ask-user-cycle9.md"],
+      "threshold": "Renderer accepts one validated option/free-text response, rejects stale/duplicate/late events, and preserves run identity; packaged IPC and live provider evidence remain open.",
+      "gap": "No packaged Tauri Windows UI or live provider ask-user capture."
+    },
+    {
+      "id": "ADVSET-003",
+      "owner": "/root/rebuild_settings",
+      "status": "blocked",
+      "sourceEvidence": ["src/rebuild/settings/ModelDiscoveryPanel.tsx", "src/rebuild/settings/model-discovery.ts", "src/rebuild/settings/catalog-route-adapter.ts"],
+      "behaviorEvidence": [],
+      "threshold": "Catalog refresh updates picker without restart, preserves running attempt metadata, and reports disappeared/unsupported models with durable native snapshot lineage.",
+      "gap": "Native persistence, packaged refresh, and live provider evidence are not available; renderer-only catalog is insufficient."
+    },
+    {
+      "id": "RAG-001",
+      "owner": "/root",
+      "status": "partial",
+      "sourceEvidence": ["src-tauri/src/storage.rs", "src-tauri/src/workspace_indexer.rs"],
+      "behaviorEvidence": ["docs/rebuild/audit/POINTER_RAG_AUDIT_CYCLE9_20261108.md"],
+      "threshold": "Every accepted ingestion writes source hash, parser/version, timestamp, scope and omission/error receipt that survives restart.",
+      "gap": "Indexer and context envelope source exist, but packaged native ingestion receipt and restart persistence are unproven."
+    },
+    {
+      "id": "RAG-002",
+      "owner": "/root",
+      "status": "partial",
+      "sourceEvidence": ["src-tauri/src/workspace_indexer.rs", "src-tauri/src/storage.rs"],
+      "behaviorEvidence": ["docs/rebuild/audit/POINTER_RAG_AUDIT_CYCLE9_20261108.md"],
+      "threshold": "PDF, markdown, text, code and office inputs report bounded support/unsupported status without unbounded extraction.",
+      "gap": "Current native workspace indexer is text-oriented; packaged format matrix is not proven."
+    },
+    {
+      "id": "ROUTING-007",
+      "owner": "/root/cycle9_compare",
+      "status": "partial",
+      "sourceEvidence": ["src-tauri/src/native_compare.rs", "src-tauri/src/model_compare_receipt.rs", "src/lib/desktop.ts"],
+      "behaviorEvidence": [],
+      "threshold": "Accepted-then-failed dispatch records outcome-unknown and never blindly replays the same side effect; compare lineage remains durable.",
+      "gap": "Native contracts exist but renderer integration and failure test evidence are not yet bound."
+    },
+    {
+      "id": "BROWSER-001",
+      "owner": "/root/rebuild_browser",
+      "status": "partial",
+      "sourceEvidence": ["src/rebuild/browser/browser-controller.ts", "src/rebuild/browser/browser-workspace.tsx"],
+      "behaviorEvidence": ["docs/rebuild/audit/CYCLE9_BROWSER_PACKAGED_AUDIT_20261108.md"],
+      "threshold": "Attach/update/release is lease and tab guarded, with teardown and explicit unavailable state; packaged WebView2 capture required for Done.",
+      "gap": "Only renderer/controller tests are available; packaged WebView2/UIA evidence is missing."
+    },
+    {
+      "id": "COMPUTER-001",
+      "owner": "/root/rebuild_browser",
+      "status": "blocked",
+      "sourceEvidence": ["src-tauri/src/computer_surface.rs", "src-tauri/src/permissions.rs"],
+      "behaviorEvidence": [],
+      "threshold": "OS actions use typed capability contracts, read/write distinction, scope, approval and rollback on a disposable target.",
+      "gap": "No authorized disposable-target native runtime evidence; do not expose privileged actions as available in preview."
+    },
+    {
+      "id": "IDE-001",
+      "owner": "/root/rebuild_ide",
+      "status": "partial",
+      "sourceEvidence": ["src/rebuild/ide/ide-access.ts", "src/rebuild/ide/ide-workspace.tsx", "src/rebuild/ide/ide-model.ts"],
+      "behaviorEvidence": [],
+      "threshold": "Explorer exposes only approved roots and preserves path identity across read/edit/save/reload with explicit permission errors; packaged native picker required for Done.",
+      "gap": "Renderer path guards and tests exist, but packaged native root grant and live save evidence are open."
+    }
+  ],
+  "globalBlockers": [
+    "No packaged Tauri/WebView2/Windows UIA runtime capture in this cycle.",
+    "Cargo/native build is serialized and was not run by delegated reviewers.",
+    "Provider credentials and live network execution are intentionally absent from publishable evidence."
+  ],
+  "nextActions": [
+    "Bind fresh OSS research and synthesis receipts before leaving research/synthesize.",
+    "Run renderer focused tests, typecheck, build and architecture guard.",
+    "Perform independent review against these eight criteria and preserve open runtime gaps.",
+    "Update canonical docs and source hashes only after implementation evidence is stable."
+  ]
+}

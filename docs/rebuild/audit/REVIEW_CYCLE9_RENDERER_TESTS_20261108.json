@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "author": "khang",
+  "reviewer": "/root/cycle9_independent_review_now",
+  "reviewedAt": "2026-11-08T15:32:01.000Z",
+  "scope": "Independent Cycle 9 source, renderer behavior and evidence-integrity review. Renderer, architecture and stale receipt checks pass; the ask-user free-text and receipt staleness findings are resolved. This is not product completion.",
+  "criteria": [
+    {
+      "id": "CHAT-008",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Current renderer ask-user path is covered by source and 20 focused tests; run/session sequencing and explicit native-unavailable behavior are present. Packaged Tauri delivery and live provider execution remain open."
+    },
+    {
+      "id": "ADVSET-003",
+      "result": "passed",
+      "unresolved": [],
+      "status": "blocked",
+      "assessment": "Current model discovery source and route lineage are reviewed; fresh focused settings run passes after the previous async snapshot race was resolved. Native snapshot persistence and packaged/live refresh remain open."
+    },
+    {
+      "id": "RAG-001",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Native source adds explicit untrusted retrieval envelope and pointer/RAG audit records limits. Packaged ingestion receipt and restart persistence remain unproven."
+    },
+    {
+      "id": "RAG-002",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Indexer source explicitly bounds text/code support and extractor-required PDF/Office/image states. Packaged format matrix remains unproven."
+    },
+    {
+      "id": "ROUTING-007",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Native compare source and renderer policy classify accepted-then-failed attempts as outcome-unknown and prohibit automatic replay; Cargo/native execution remains open."
+    },
+    {
+      "id": "BROWSER-001",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Lease/tab lifecycle source and 9 focused tests pass; packaged WebView2/UIA capture is missing."
+    },
+    {
+      "id": "COMPUTER-001",
+      "result": "passed",
+      "unresolved": [],
+      "status": "blocked",
+      "assessment": "Preview explicitly avoids privileged actions and typecheck passes; no authorized disposable-target native runtime evidence."
+    },
+    {
+      "id": "IDE-001",
+      "result": "passed",
+      "unresolved": [],
+      "status": "partial",
+      "assessment": "Approved-root/path guard source and 7 focused tests pass; packaged native picker/save/reload evidence is missing."
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.test.ts",
+      "sha256": "842488610c99fe08e42881915940a4529c3474d94def727d8d610ddf994a3bfa"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "dbf5e169ca30fd6af807feb6e338923c8d8aee09640e8b657e27d417493bc597"
+    },
+    {
+      "path": "src-tauri/src/storage.rs",
+      "sha256": "868313f67a177d536c77e99dcc3485a613a2730658fadbb3e5b6aec239e695f7"
+    },
+    {
+      "path": "src-tauri/src/workspace_indexer.rs",
+      "sha256": "4289e151271203a5ada518205b62cf71b186a0bb930068033342001a707fb251"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.ts",
+      "sha256": "66b09d459b694fef5f1b3a147a665d3a1cb9801f6dcd9c48e7c09b011f90260b"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "07b7f2191064bd92bdca78ce5099e5473bf06a573b53465873021cf88cd4a92d"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.ts",
+      "sha256": "1d3afb6ceeade40910069cad3f14474439e25e63528337af55a830a22b23afb4"
+    },
+    {
+      "path": "src/rebuild/settings/settings.css",
+      "sha256": "b45f16ec8ccf731e717bc77b371c9f5a6a4dc7b0a133092690c57e916e2de9ba"
+    },
+    {
+      "path": "src/lib/desktop.ts",
+      "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+    },
+    {
+      "path": "src-tauri/src/native_compare.rs",
+      "sha256": "81c602a89d3875760acb95afb76b245c78ab3b27ceb8e68c1ae14a5fd6da4607"
+    },
+    {
+      "path": "src-tauri/src/model_compare_receipt.rs",
+      "sha256": "79667d127d873499fe20e7c67e50ae1d34ae1702c9214699ed2c69c546c35780"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.test.tsx",
+      "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.ts",
+      "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.test.ts",
+      "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src-tauri/src/harness_permissions.rs",
+      "sha256": "b9ba96d5c7703eeee2b10e67ce3b4c7c8eb3567cf4ac7283005cb5d4b405d908"
+    },
+    {
+      "path": "src/rebuild/ide/ide-access.ts",
+      "sha256": "0f1aaef60e1e2ebb4d25ac73bad419075307db4b37691907ff010adff5869389"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.ts",
+      "sha256": "2d976b896a4ff43e09459d506c1a3c7f52d0a04a195ec938b41726cc1c7c79c0"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.test.ts",
+      "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "da0b116757385179dba61e62ed48bbb61f70bad32e48493bf6e0f4fa67e4f5b8"
+    },
+    {
+      "path": "src/lib/desktop.compare.test.ts",
+      "sha256": "7646b36268ddc0beb2992550c2442608230685307749e578369fc1fd42504345"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    },
+    {
+      "path": "tests/rebuild-cycle9-independent-findings.test.mjs",
+      "sha256": "7f89b1a8e70bc25613d660a660676eb3b9ae411d1a944d40ae9dba818db3acb8"
+    }
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/chat-cycle9-verification.json",
+      "sha256": "8bb6fe8cd1e7c5fdda5a7b7713ca19df2d212eba450cb56c87ca67bc60d33e93"
+    },
+    {
+      "path": "docs/rebuild/receipts/settings-cycle9-verification.json",
+      "sha256": "db67ce5b7bf001449458110f6a0c2c500c8a2174b403d4647ed7f66570cee125"
+    },
+    {
+      "path": "docs/rebuild/receipts/rag-cycle9-verification.json",
+      "sha256": "5a9d396391e55fd3fd584fd1dff37cd09879875615d003c01cdc7e12adefbb20"
+    },
+    {
+      "path": "docs/rebuild/receipts/routing-cycle9-verification.json",
+      "sha256": "8af3330689b81edff26a111dc3d7323621c9511d1d088c7294cfc8eddf1a1a43"
+    },
+    {
+      "path": "docs/rebuild/receipts/browser-cycle9-verification.json",
+      "sha256": "17d3bccf1bb7e2d5dda34f1f5c65345df5af526911c53db7d79a733b282d3183"
+    },
+    {
+      "path": "docs/rebuild/receipts/computer-cycle9-verification.json",
+      "sha256": "bf46ec79eaa0884fbe90d7c6e5ace1928a634814d8aa22864a0b2ce386612747"
+    },
+    {
+      "path": "docs/rebuild/receipts/ide-cycle9-verification.json",
+      "sha256": "22929a97e7efb30b89830c5c5c7afea715358fe1605a7ff933dced313f529894"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle9-architecture-verification.json",
+      "sha256": "f13a733e4f43356933ede32f515d0d8de92ee9499af535277bf03d77f2e694b3"
+    }
+  ],
+  "observations": [
+    "Independent boundary test passes 6/6: entry excludes historical renderer, no legacy imports, no live external iframe/editor embed, no exact copied UI source, canonical docs present.",
+    "Architecture guard passes with zero violations.",
+    "Fresh focused clean-room renderer suite passes 14 files / 91 tests, including chat, ask-user, browser, IDE, settings/model discovery and reference workbench.",
+    "Current settings panel test specifically verifies unsupported models are disabled and disappeared selection is reported; this passed after the snapshot lineage effect was stabilized.",
+    "Cycle-9 receipt hashes and source bindings are current after regeneration of the settings verification receipt; the stale-evidence findings are resolved.",
+    "The cycle-9 pointer/RAG audit and native ask-user receipts scope packaged/native/live limits; no native/package/live claim is promoted.",
+    "The ask-user free-text capability finding is resolved in current ChatView source and test: input/submission are rendered only when allowFreeText === true; the new independent finding test passes."
+  ],
+  "negativeCases": [
+    "Boundary test rejects legacy UI source and unsafe iframe/live-app patterns.",
+    "ChatEventGate tests reject duplicate/out-of-order sequence and prior-run events.",
+    "Settings tests reject malformed/duplicate/oversized catalogs, stale provider results, cancellation and unavailable preview.",
+    "Browser tests cover lease/tab guard, cancellation and unavailable native state.",
+    "IDE tests cover traversal/approved-root and unavailable native state.",
+    "Compare source test adds accepted-then-stream-failure outcome-unknown rejection; no Cargo run in this review."
+  ],
+  "claimBoundaries": [
+    "No packaged Tauri/WebView2/Windows UIA launch or live provider account run was exercised.",
+    "No authorized disposable-target OS registry/service/policy operation was executed.",
+    "No Cargo/native test was run by this delegated reviewer; serialized native slot remains root-owned.",
+    "Browser-preview, renderer tests and source audits do not satisfy native/runtime/live required evidence.",
+    "Review receipt does not modify DoD statuses or claim product completion."
+  ],
+  "findings": [
+    {
+      "id": "C9-STALE-EVIDENCE",
+      "severity": "high",
+      "status": "resolved",
+      "summary": "DOD, cycle-6 capture and cycle-9 receipt hash bindings are current; the stale-evidence finding is resolved.",
+      "paths": [
+        "docs/rebuild/DOD.json",
+        "scripts/rebuild/check.mjs"
+      ]
+    },
+    {
+      "id": "C9-SETTINGS-RECEIPT-STALE",
+      "severity": "high",
+      "status": "resolved",
+      "summary": "settings-cycle9-verification.json was regenerated with the current settings source hashes and now matches the checkpoint binding.",
+      "paths": [
+        "docs/rebuild/receipts/settings-cycle9-verification.json",
+        "src/rebuild/settings/model-discovery.ts",
+        "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+        "src/rebuild/settings/catalog-route-adapter.ts"
+      ]
+    }
+  ],
+  "unresolved": []
+}

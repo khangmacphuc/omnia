@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "result": "passed",
-  "recordedAt": "2026-11-08T06:34:18.655Z",
+  "recordedAt": "2026-11-08T15:19:39.435Z",
   "scope": "Cycle 0006 UI blockers UI-009 light-theme contrast, UI-012 measurable geometry, and UI-015 800px responsive access; clean-room renderer in a fresh local Vite browser preview.",
   "criteria": [
     {
@@ -75,7 +75,7 @@
   "outputs": [
     {
       "path": "docs/rebuild/audit/ui-browser-20261108-current/report.json",
-      "sha256": "7882d4a5d876c0b7027305c704bb0953acb9439e277b30be6209b8aa7c593a9a"
+      "sha256": "aca74683ffbd5804d1f982516028d22f469c953ec9b49a91331a293f30910797"
     },
     {
       "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-browser.png",
@@ -166,7 +166,7 @@
   "media": [
     {
       "path": "docs/rebuild/audit/ui-browser-20261108-current/report.json",
-      "sha256": "7882d4a5d876c0b7027305c704bb0953acb9439e277b30be6209b8aa7c593a9a"
+      "sha256": "aca74683ffbd5804d1f982516028d22f469c953ec9b49a91331a293f30910797"
     },
     {
       "path": "docs/rebuild/audit/ui-browser-20261108-current/1440x900-dark-browser.png",

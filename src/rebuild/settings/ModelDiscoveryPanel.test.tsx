@@ -40,4 +40,24 @@ describe("ModelDiscoveryPanel", () => {
     fireEvent.click(screen.getByRole("button", { name: "Stop waiting for discovery" }));
     expect(screen.getByText(/A native request may still finish/)).toBeInTheDocument();
   });
+
+  it("disables unsupported models and reports a selected model that disappeared after refresh", async () => {
+    const unsupportedModel = { ...model, id: "unsupported-model", capabilities: { ...model.capabilities, streaming: false } };
+    const service = bridge();
+    service.listModels = vi.fn()
+      .mockResolvedValueOnce({ profileId: profile.id, discoveredAt: "2026-11-08T04:30:00.000Z", models: [model, unsupportedModel] })
+      .mockResolvedValueOnce({ profileId: profile.id, discoveredAt: "2026-11-08T04:31:00.000Z", models: [model] });
+    const choose = vi.fn();
+    const { rerender } = render(<ModelDiscoveryPanel service={service} currentModel={unsupportedModel.id} currentProfileId={profile.id} onChooseModel={choose} />);
+    await waitFor(() => expect(screen.getByRole("option", { name: /My local provider/ })).toBeInTheDocument());
+    fireEvent.change(screen.getByLabelText("Discovery provider"), { target: { value: profile.id } });
+    fireEvent.click(screen.getByRole("button", { name: "Discover models" }));
+    await waitFor(() => expect(screen.getByRole("option", { name: /unsupported-model/ })).toBeInTheDocument());
+    expect(screen.getByRole("option", { name: /unsupported-model/ })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Discover models" }));
+    await waitFor(() => expect(service.listModels).toHaveBeenCalledTimes(2));
+    rerender(<ModelDiscoveryPanel service={service} currentModel={unsupportedModel.id} currentProfileId={profile.id} onChooseModel={choose} />);
+    expect(await screen.findByRole("alert")).toHaveTextContent(/unavailable|unsupported|disappeared/i);
+    expect(choose).not.toHaveBeenCalled();
+  });
 });

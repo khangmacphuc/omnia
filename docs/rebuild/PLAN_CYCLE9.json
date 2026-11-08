@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "stage": "plan",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T14:40:00Z",
+  "result": "passed",
+  "passBudget": 3,
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Prioritize direct renderer/native boundary evidence and explicit unavailable states before any Done promotion."
+    },
+    {
+      "index": 2,
+      "decision": "Bind each selected criterion to one owner, measurable threshold and focused positive/negative verification."
+    },
+    {
+      "index": 3,
+      "decision": "Preserve packaged/native/live blockers and require independent review plus reread hashes before publish."
+    }
+  ],
+  "stopReason": "budget-exhausted",
+  "tasks": [
+    {
+      "id": "chat-ask-user-envelope",
+      "owner": "/root/rebuild_chat",
+      "dependencies": [],
+      "criteria": [
+        "CHAT-008"
+      ],
+      "inputs": [
+        "src/rebuild/chat/chat-controller.ts",
+        "src/rebuild/chat/chat-view.tsx"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/chat-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "renderer ask-user focused tests passed",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "fabricated assistant replies",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd test -- --run src/rebuild/chat/chat-controller.test.ts src/rebuild/chat/ask-user-envelope.test.ts src/rebuild/chat/chat-view.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "settings-discovery-boundary",
+      "owner": "/root/rebuild_settings",
+      "dependencies": [],
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "inputs": [
+        "src/rebuild/settings/model-discovery.ts",
+        "src/rebuild/settings/ModelDiscoveryPanel.tsx"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/settings-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "stale/unsupported model states exposed",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "browser preview fabricated catalogs",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd test -- --run src/rebuild/settings/model-discovery.test.ts src/rebuild/settings/ModelDiscoveryPanel.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "rag-envelope-boundary",
+      "owner": "/root",
+      "dependencies": [],
+      "criteria": [
+        "RAG-001",
+        "RAG-002"
+      ],
+      "inputs": [
+        "src-tauri/src/storage.rs",
+        "src-tauri/src/workspace_indexer.rs"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/rag-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "retrieved chunks wrapped as untrusted data",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "unbounded retrieval insertion paths",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "git diff --check -- src-tauri/src/storage.rs",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "routing-outcome-unknown",
+      "owner": "/root/cycle9_compare",
+      "dependencies": [],
+      "criteria": [
+        "ROUTING-007"
+      ],
+      "inputs": [
+        "src-tauri/src/native_compare.rs",
+        "src-tauri/src/model_compare_receipt.rs",
+        "src/lib/desktop.ts"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/routing-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "outcome-unknown replay guards",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "blind replay after unknown acceptance",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd test -- --run src/rebuild/rebuild-app.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "browser-lease-boundary",
+      "owner": "/root/rebuild_browser",
+      "dependencies": [],
+      "criteria": [
+        "BROWSER-001"
+      ],
+      "inputs": [
+        "src/rebuild/browser/browser-controller.ts",
+        "src/rebuild/browser/browser-workspace.tsx"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/browser-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "lease/tab guard tests",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "pretend native browser in preview",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd test -- --run src/rebuild/browser/browser-controller.test.ts src/rebuild/browser/browser-workspace.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "computer-capability-state",
+      "owner": "/root/rebuild_browser",
+      "dependencies": [
+        "browser-lease-boundary"
+      ],
+      "criteria": [
+        "COMPUTER-001"
+      ],
+      "inputs": [
+        "src/rebuild/browser/browser-controller.ts",
+        "src-tauri/src/permissions.rs"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/computer-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "explicit unavailable/permission states",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "privileged actions auto-enabled in preview",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run typecheck:app -- --pretty false",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "ide-approved-roots",
+      "owner": "/root/rebuild_ide",
+      "dependencies": [],
+      "criteria": [
+        "IDE-001"
+      ],
+      "inputs": [
+        "src/rebuild/ide/ide-access.ts",
+        "src/rebuild/ide/ide-workspace.tsx",
+        "src/rebuild/ide/ide-model.ts"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/ide-cycle9-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "path traversal rejection cases",
+          "operator": "gte",
+          "value": 1
+        },
+        {
+          "metric": "unapproved root exposure",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd test -- --run src/rebuild/ide/ide-model.test.ts src/rebuild/ide/ide-workspace.test.tsx --reporter=dot",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "cycle9-gates",
+      "owner": "/root",
+      "dependencies": [
+        "chat-ask-user-envelope",
+        "settings-discovery-boundary",
+        "rag-envelope-boundary",
+        "routing-outcome-unknown",
+        "browser-lease-boundary",
+        "computer-capability-state",
+        "ide-approved-roots"
+      ],
+      "criteria": [
+        "CHAT-008",
+        "ADVSET-003",
+        "RAG-001",
+        "RAG-002",
+        "ROUTING-007",
+        "BROWSER-001",
+        "COMPUTER-001",
+        "IDE-001"
+      ],
+      "inputs": [
+        "scripts/rebuild/check.mjs",
+        "scripts/rebuild/architecture-guard.mjs"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/cycle9-gates-verification.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "rebuild validator exit code",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "metric": "architecture guard exit code",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run rebuild:architecture",
+          "expectedExitCode": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "command": "npm.cmd test -- --run src/lib/desktop.compare.test.ts --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/routing-cycle9-verification.txt",
+    "sha256": "53990ac77ea36f7c9c276571fcaf9a28c3f09cafacc3a2bd71cf7255fb706693"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/lib/desktop.ts",
+      "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+    },
+    {
+      "path": "src/lib/desktop.compare.test.ts",
+      "sha256": "7646b36268ddc0beb2992550c2442608230685307749e578369fc1fd42504345"
+    },
+    {
+      "path": "src-tauri/src/native_compare.rs",
+      "sha256": "81c602a89d3875760acb95afb76b245c78ab3b27ceb8e68c1ae14a5fd6da4607"
+    },
+    {
+      "path": "src-tauri/src/model_compare_receipt.rs",
+      "sha256": "79667d127d873499fe20e7c67e50ae1d34ae1702c9214699ed2c69c546c35780"
+    }
+  ],
+  "limitations": [
+    "Cargo/native tests, packaged Tauri and live provider execution remain unavailable.",
+    "Unknown outcomes require reconciliation and never automatic replay."
+  ]
+}

@@ -1,0 +1,3 @@
+npm warn cli npm v12.2.1 does not support Node.js v27.0.0-nightly202610263983092f63. This version of npm supports the following node versions: `^22.22.2 || ^24.15.0 || >=26.0.0`. You can find the latest version at https://nodejs.org/.
+npm notice run omnia-desktop@0.1.0 typecheck:app
+npm notice run tsc -p tsconfig.app.json --noEmit --pretty false --pretty false

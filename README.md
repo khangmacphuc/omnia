@@ -104,7 +104,7 @@ cargo check --manifest-path src-tauri/Cargo.toml --offline
 cargo test --manifest-path src-tauri/Cargo.toml --workspace --all-features --offline
 ```
 
-The current rebuild cycle has dated receipts for a 63-test renderer suite, TypeScript typecheck, renderer build, architecture/import guard, 32 workflow-gate tests, UI captures at 800×600 and 1440×900, and 10 native ask-user broker tests plus the Cycle 7 renderer routing/ask-user contracts. These receipts cover local renderer and provider-neutral native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long-running endurance evidence remain explicitly tracked as partial or blocked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
+The current rebuild cycle has dated receipts for a 98-test renderer suite across 16 files, TypeScript typecheck, renderer build, architecture/import guard, workflow-gate validation, UI captures at 800×600 and 1440×900, and provider-neutral native ask-user/RAG contract evidence. These receipts cover local renderer and provider-neutral native contract paths. Packaged WebView2, live provider billing, GPU/DPI and long-running endurance evidence remain explicitly tracked as partial or blocked in [`docs/rebuild/DOD.json`](docs/rebuild/DOD.json).
 
 The canonical native integration target is the `omnia_native` test target. On some Windows setups, the legacy library-test executable can fail before discovery with `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)`; that environment limitation is tracked in the ledger and does not replace the supported integration target.
 

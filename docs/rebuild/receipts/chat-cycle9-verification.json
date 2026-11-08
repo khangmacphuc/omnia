@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T15:19:39.434Z",
+  "command": "npm.cmd test -- --run src/rebuild/chat/chat-controller.test.ts src/rebuild/chat/ask-user-envelope.test.ts src/rebuild/chat/chat-view.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/chat.txt",
+    "sha256": "0cc4c43c441e4888f335e3581247c08c3deda19df8a1af62a625919ae98b0e37"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.test.ts",
+      "sha256": "842488610c99fe08e42881915940a4529c3474d94def727d8d610ddf994a3bfa"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "dbf5e169ca30fd6af807feb6e338923c8d8aee09640e8b657e27d417493bc597"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "da0b116757385179dba61e62ed48bbb61f70bad32e48493bf6e0f4fa67e4f5b8"
+    }
+  ],
+  "limitations": [
+    "Packaged Tauri IPC, Windows UI automation and live provider ask-user remain unverified."
+  ]
+}

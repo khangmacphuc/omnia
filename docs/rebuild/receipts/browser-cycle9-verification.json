@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "command": "npm.cmd test -- --run src/rebuild/browser/browser-controller.test.ts src/rebuild/browser/browser-workspace.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/browser.txt",
+    "sha256": "f7f1a23ba9145c547e419c254cc0b4d1878dc76f810bda8b78716543ec7b381e"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/browser/browser-controller.ts",
+      "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.test.ts",
+      "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    }
+  ],
+  "limitations": [
+    "Packaged WebView2/UIA capture is unavailable."
+  ]
+}

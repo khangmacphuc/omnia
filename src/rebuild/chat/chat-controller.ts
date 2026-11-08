@@ -43,6 +43,12 @@ export interface ChatQuestion {
   prompt: string;
   options: string[];
   recommended?: string[];
+  /** Native run identity, when the question crossed the durable ask-user bridge. */
+  runId?: string;
+  /** Native request revision. Older cores omit this and default to one. */
+  revision?: number;
+  /** The native broker currently supports free text for every question. */
+  allowFreeText?: boolean;
 }
 
 export interface ChatController {
@@ -92,6 +98,54 @@ interface AgentEventPayload {
   sessionId?: string;
   event?: Record<string, unknown>;
   sequence?: number;
+}
+
+/**
+ * Rejects replayed and stale native events before they reach React state.
+ *
+ * The durable harness journal supplies a per-session sequence. A renderer can
+ * reconnect after a dropped event, so the gate is deliberately monotonic and
+ * does not assume that delivery order equals journal order. Run IDs provide a
+ * second fence for older cores that do not include a sequence on every event.
+ */
+export class ChatEventGate {
+  private readonly lastSequence = new Map<string, number>();
+  private readonly runIds = new Map<string, string>();
+
+  accept(payload: AgentEventPayload): boolean {
+    const sessionId = typeof payload.sessionId === "string" ? payload.sessionId.trim() : "";
+    const event = payload.event;
+    if (!sessionId || !event) return false;
+
+    const sequence = payload.sequence;
+    if (sequence !== undefined) {
+      if (!Number.isSafeInteger(sequence) || sequence < 0) return false;
+      const prior = this.lastSequence.get(sessionId);
+      if (prior !== undefined && sequence <= prior) return false;
+      this.lastSequence.set(sessionId, sequence);
+    }
+
+    const type = typeof event.type === "string" ? event.type : "";
+    const eventRunId = readRunId(event);
+    if (type === "run_started" || type === "turn_started") {
+      if (eventRunId) this.runIds.set(sessionId, eventRunId);
+      return true;
+    }
+
+    const currentRunId = this.runIds.get(sessionId);
+    if (eventRunId && currentRunId && eventRunId !== currentRunId) return false;
+    return true;
+  }
+
+  reset(sessionId?: string): void {
+    if (sessionId) {
+      this.lastSequence.delete(sessionId);
+      this.runIds.delete(sessionId);
+      return;
+    }
+    this.lastSequence.clear();
+    this.runIds.clear();
+  }
 }
 
 const STORAGE_KEY = "omnia.rebuild.chat.v1";
@@ -207,6 +261,20 @@ function eventText(event: Record<string, unknown>): string | null {
   return null;
 }
 
+function readRunId(event: Record<string, unknown>): string | undefined {
+  const direct = event.runId ?? event.run_id;
+  if (typeof direct === "string" && direct.trim()) return direct.trim();
+  for (const key of ["request", "question", "approval"]) {
+    const value = event[key];
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      const nested = value as Record<string, unknown>;
+      const id = nested.runId ?? nested.run_id;
+      if (typeof id === "string" && id.trim()) return id.trim();
+    }
+  }
+  return undefined;
+}
+
 export function useChatWorkspace(): ChatController {
   const stored = useMemo(readStoredState, []);
   const [sessions, setSessions] = useState<ChatSession[]>(() => [localSession()]);
@@ -219,13 +287,14 @@ export function useChatWorkspace(): ChatController {
   const [questions, setQuestions] = useState<Record<string, ChatQuestion[]>>({});
   const [native, setNative] = useState(isDesktopRuntime());
   const unlisten = useRef<UnlistenFn | null>(null);
+  const eventGate = useRef(new ChatEventGate());
   const sessionsRef = useRef(sessions);
   sessionsRef.current = sessions;
 
   const applyEvent = useCallback((payload: AgentEventPayload) => {
     const sessionId = payload.sessionId;
     const event = payload.event;
-    if (!sessionId || !event) return;
+    if (!sessionId || !event || !eventGate.current.accept(payload)) return;
     const type = typeof event.type === "string" ? event.type : "";
     const text = eventText(event);
     if (text) {
@@ -251,7 +320,9 @@ export function useChatWorkspace(): ChatController {
         ? event.recommended.filter((option): option is string => typeof option === "string")
         : undefined;
       const id = String(event.id ?? event.requestId ?? `question-${Date.now()}`);
-      setQuestions((current) => ({ ...current, [sessionId]: [...(current[sessionId] ?? []).filter((item) => item.id !== id), { id, prompt, options, ...(recommended?.length ? { recommended } : {}) }] }));
+      const runId = readRunId(event);
+      const revision = typeof event.revision === "number" && Number.isSafeInteger(event.revision) && event.revision > 0 ? event.revision : 1;
+      setQuestions((current) => ({ ...current, [sessionId]: [...(current[sessionId] ?? []).filter((item) => item.id !== id), { id, prompt, options, allowFreeText: event.allowFreeText !== false, revision, ...(runId ? { runId } : {}), ...(recommended?.length ? { recommended } : {}) }] }));
     }
     if (type === "ask_user_resolved" || type === "request_user_input_resolved" || type === "question_answered") {
       const id = typeof event.id === "string" ? event.id : typeof event.requestId === "string" ? event.requestId : "";
@@ -263,6 +334,7 @@ export function useChatWorkspace(): ChatController {
     }
     if (["run_completed", "error", "cancelled", "run_finished"].includes(type)) {
       setSessions((current) => current.map((session) => session.id === sessionId ? { ...session, running: false, updatedAtMs: Date.now() } : session));
+      setQuestions((current) => ({ ...current, [sessionId]: [] }));
       setStatus(type === "error" ? "error" : "ready");
     }
   }, []);
@@ -404,6 +476,11 @@ export function useChatWorkspace(): ChatController {
   const answerQuestion = useCallback(async (id: string, answer: string | null) => {
     const clean = answer?.trim() ?? "";
     if (!clean && answer !== null) return;
+    const question = questions[activeId]?.find((item) => item.id === id);
+    if (answer !== null && question?.allowFreeText === false) {
+      setError("Free-text answers are disabled for this question. Choose one of the provided options or cancel.");
+      return;
+    }
     if (activeSession.localOnly || !isDesktopRuntime()) {
       setError("Ask-user answers require the connected Omnia Core; this preview cannot submit them.");
       return;
@@ -412,13 +489,13 @@ export function useChatWorkspace(): ChatController {
       // The native command is intentionally capability-gated. Older cores do not
       // expose it; retaining the question on failure makes the missing capability
       // visible instead of silently claiming that an answer was accepted.
-      await invokeCore("agent_user_input", { request: { sessionId: activeId, requestId: id, answer: answer === null ? null : clean } });
+      await invokeCore("agent_user_input", { request: { sessionId: activeId, requestId: id, ...(question?.runId ? { runId: question.runId } : {}), answer: answer === null ? null : clean } });
       setQuestions((current) => ({ ...current, [activeId]: (current[activeId] ?? []).filter((item) => item.id !== id) }));
       setError(null);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "The connected core does not support ask-user answers yet.");
     }
-  }, [activeId, activeSession.localOnly]);
+  }, [activeId, activeSession.localOnly, questions]);
 
   return {
     sessions,

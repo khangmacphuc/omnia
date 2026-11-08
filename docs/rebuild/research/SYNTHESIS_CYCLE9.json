@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "stage": "synthesize",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T14:36:00Z",
+  "result": "passed",
+  "observations": [
+    {
+      "source": "https://github.com/browserbase/stagehand",
+      "observation": "Session manager owns lifecycle and resets retry after configuration changes.",
+      "strength": "Explicit lease ownership and teardown.",
+      "weakness": "External service assumptions.",
+      "decision": "Use a clean-room lease/teardown receipt and configuration-bound retry reset.",
+      "criteria": [
+        "BROWSER-001",
+        "COMPUTER-001"
+      ]
+    },
+    {
+      "source": "https://github.com/gptme/gptme",
+      "observation": "Adaptive compression exposes ratio, rationale, classification and token savings.",
+      "strength": "Auditable compaction receipt shape.",
+      "weakness": "Provider/tokenizer-specific.",
+      "decision": "Record bounded compaction receipts and fail-safe passthrough without claiming model parity.",
+      "criteria": [
+        "RAG-001",
+        "RAG-002"
+      ]
+    },
+    {
+      "source": "https://github.com/onlook-dev/onlook",
+      "observation": "Flat path index is projected into a hierarchical file tree.",
+      "strength": "Stable identity independent of visible tree depth.",
+      "weakness": "No native Windows permission proof.",
+      "decision": "Keep path identity separate from IDE tree rendering and pointer grants.",
+      "criteria": [
+        "IDE-001"
+      ]
+    },
+    {
+      "source": "https://github.com/agentic-community/mcp-gateway-registry",
+      "observation": "Skill cards use immutable identity and progressive metadata/instructions/resources.",
+      "strength": "Reduces context pressure and supports activation approval.",
+      "weakness": "Documentation does not prove native MCP transport.",
+      "decision": "Use origin/path/revision/digest manifests and explicit activation consent.",
+      "criteria": [
+        "ROUTING-007"
+      ]
+    },
+    {
+      "source": "https://github.com/hypnagonia/rag",
+      "observation": "Hybrid lexical/vector arms expose candidate/error stats and threshold decisions.",
+      "strength": "Degraded retrieval remains observable.",
+      "weakness": "External embedding/provider assumptions.",
+      "decision": "Bind arm stats, ranker/version, top-k and threshold to RAG receipts.",
+      "criteria": [
+        "RAG-001",
+        "RAG-002"
+      ]
+    },
+    {
+      "source": "https://github.com/ChatGPTNextWeb/NextChat",
+      "observation": "Typed model/context/compaction controls group provider choices and validation.",
+      "strength": "Discoverable per-session control surface.",
+      "weakness": "Local UI state is not native catalog lineage.",
+      "decision": "Expose requested/applied/unsupported state and preserve active route identity during refresh.",
+      "criteria": [
+        "ADVSET-003",
+        "ROUTING-007"
+      ]
+    }
+  ],
+  "workbench": {
+    "sourceFiles": [
+      {
+        "path": "src/rebuild/reference/reference-data.ts",
+        "sha256": "a676eb8c60e0531cab830dd49e1b2e4a5017203b2a359508bb2744e512e6c15b"
+      },
+      {
+        "path": "src/rebuild/reference/reference-workbench.tsx",
+        "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+      },
+      {
+        "path": "src/rebuild/reference/reference-workbench.css",
+        "sha256": "35f1d29b2fc040bdba4e7311ee0e8eaa165c74ac5db0f999d5945f3a2cfebabb"
+      },
+      {
+        "path": "src/rebuild/reference/reference-workbench.test.tsx",
+        "sha256": "a563ef296fdb0f046e3a06269c997c1ab89da9eea3c321a513d6b3f58a019969"
+      }
+    ],
+    "buildEvidence": {
+      "path": "docs/rebuild/receipts/cycle9-workbench-build.json",
+      "sha256": "92676a637be1a730dda665adca54d7d221c7da4449dbdc3b90b09c359c971d86",
+      "kind": "build"
+    }
+  }
+}

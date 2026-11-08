@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "stage": "implement",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "result": "passed-with-open-evidence",
+  "changes": [
+    {
+      "owner": "/root/rebuild_chat",
+      "criteria": [
+        "CHAT-008"
+      ],
+      "summary": "Hardened renderer chat event admission with per-session sequence/run identity gates, native ask-user run metadata, terminal cleanup and no fabricated responses.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108"
+        },
+        {
+          "path": "src/rebuild/chat/chat-controller.test.ts",
+          "sha256": "842488610c99fe08e42881915940a4529c3474d94def727d8d610ddf994a3bfa"
+        },
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.ts",
+          "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+        },
+        {
+          "path": "src/rebuild/chat/chat-view.tsx",
+          "sha256": "dbf5e169ca30fd6af807feb6e338923c8d8aee09640e8b657e27d417493bc597"
+        }
+      ]
+    },
+    {
+      "owner": "/root",
+      "criteria": [
+        "RAG-001",
+        "RAG-002"
+      ],
+      "summary": "Wrapped retrieved native workspace chunks in explicit untrusted-data delimiters after existing scope/hash/token validation.",
+      "sourceFiles": [
+        {
+          "path": "src-tauri/src/storage.rs",
+          "sha256": "868313f67a177d536c77e99dcc3485a613a2730658fadbb3e5b6aec239e695f7"
+        },
+        {
+          "path": "src-tauri/src/workspace_indexer.rs",
+          "sha256": "4289e151271203a5ada518205b62cf71b186a0bb930068033342001a707fb251"
+        }
+      ]
+    },
+    {
+      "owner": "/root/rebuild_settings",
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "summary": "Preserved the advanced settings and model discovery boundary: typed catalog validation, revision cancellation, stale/unknown route states, per-session hot-swap policy and explicit preview unavailability.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/settings/settings.ts",
+          "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+        },
+        {
+          "path": "src/rebuild/settings/SettingsPanel.tsx",
+          "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+        },
+        {
+          "path": "src/rebuild/settings/model-discovery.ts",
+          "sha256": "66b09d459b694fef5f1b3a147a665d3a1cb9801f6dcd9c48e7c09b011f90260b"
+        },
+        {
+          "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+          "sha256": "07b7f2191064bd92bdca78ce5099e5473bf06a573b53465873021cf88cd4a92d"
+        },
+        {
+          "path": "src/rebuild/settings/catalog-route-adapter.ts",
+          "sha256": "1d3afb6ceeade40910069cad3f14474439e25e63528337af55a830a22b23afb4"
+        },
+        {
+          "path": "src/rebuild/settings/settings.css",
+          "sha256": "b45f16ec8ccf731e717bc77b371c9f5a6a4dc7b0a133092690c57e916e2de9ba"
+        }
+      ]
+    },
+    {
+      "owner": "/root/cycle9_compare",
+      "criteria": [
+        "ROUTING-007"
+      ],
+      "summary": "Bound routing/compare implementation evidence to native prepared-attempt and model-compare receipt contracts; renderer verification keeps outcome-unknown and merge integration open rather than replaying blindly.",
+      "sourceFiles": [
+        {
+          "path": "src/lib/desktop.ts",
+          "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+        },
+        {
+          "path": "src-tauri/src/native_compare.rs",
+          "sha256": "81c602a89d3875760acb95afb76b245c78ab3b27ceb8e68c1ae14a5fd6da4607"
+        },
+        {
+          "path": "src-tauri/src/model_compare_receipt.rs",
+          "sha256": "79667d127d873499fe20e7c67e50ae1d34ae1702c9214699ed2c69c546c35780"
+        },
+        {
+          "path": "src/rebuild/rebuild-app.test.tsx",
+          "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40"
+        }
+      ]
+    },
+    {
+      "owner": "/root/rebuild_browser",
+      "criteria": [
+        "BROWSER-001"
+      ],
+      "summary": "Audited clean-room Browser controller/workspace lease lifecycle, tab guards, teardown and preview unavailable state against packaged audit.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/browser/browser-controller.ts",
+          "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.tsx",
+          "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+        },
+        {
+          "path": "src/rebuild/browser/browser-controller.test.ts",
+          "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.test.tsx",
+          "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+        }
+      ]
+    },
+    {
+      "owner": "/root/rebuild_browser",
+      "criteria": [
+        "COMPUTER-001"
+      ],
+      "summary": "Kept privileged OS automation capability-gated with typed native permission contracts; renderer preview never fabricates registry/service/policy actions.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/browser/browser-controller.ts",
+          "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+        },
+        {
+          "path": "src/rebuild/browser/browser-workspace.tsx",
+          "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+        },
+        {
+          "path": "src/lib/desktop.ts",
+          "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+        },
+        {
+          "path": "src-tauri/src/harness_permissions.rs",
+          "sha256": "b9ba96d5c7703eeee2b10e67ce3b4c7c8eb3567cf4ac7283005cb5d4b405d908"
+        }
+      ]
+    },
+    {
+      "owner": "/root/rebuild_ide",
+      "criteria": [
+        "IDE-001"
+      ],
+      "summary": "Audited approved-root IDE explorer/path guards, read/edit/save permission boundary and explicit native-unavailable state.",
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/ide/ide-access.ts",
+          "sha256": "0f1aaef60e1e2ebb4d25ac73bad419075307db4b37691907ff010adff5869389"
+        },
+        {
+          "path": "src/rebuild/ide/ide-model.ts",
+          "sha256": "2d976b896a4ff43e09459d506c1a3c7f52d0a04a195ec938b41726cc1c7c79c0"
+        },
+        {
+          "path": "src/rebuild/ide/ide-workspace.tsx",
+          "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+        },
+        {
+          "path": "src/rebuild/ide/ide-model.test.ts",
+          "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+        },
+        {
+          "path": "src/rebuild/ide/ide-workspace.test.tsx",
+          "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Chat and storage changes are source/renderer hardened but packaged Tauri/native/provider evidence is not available.",
+    "Settings discovery has typed renderer behavior but native snapshot persistence and live refresh are not proven.",
+    "Routing compare native contracts are bound; renderer durable compare merge receipt is still open.",
+    "Browser/IDE tests are renderer tests; packaged WebView2/UIA/root-grant evidence is open.",
+    "Cargo/native test/build was not run in this cycle due serialized build contract."
+  ]
+}

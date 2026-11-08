@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "command": "npm.cmd test -- --run src/rebuild/ide/ide-model.test.ts src/rebuild/ide/ide-workspace.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/ide.txt",
+    "sha256": "60d77e3d5ce1a7118409cae9a1e19afc4bb0ae4cd4387850e2599f4f5a8992cf"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/ide/ide-access.ts",
+      "sha256": "0f1aaef60e1e2ebb4d25ac73bad419075307db4b37691907ff010adff5869389"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.ts",
+      "sha256": "2d976b896a4ff43e09459d506c1a3c7f52d0a04a195ec938b41726cc1c7c79c0"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.test.ts",
+      "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    }
+  ],
+  "limitations": [
+    "Packaged native root-grant, save and reload evidence is unavailable."
+  ]
+}

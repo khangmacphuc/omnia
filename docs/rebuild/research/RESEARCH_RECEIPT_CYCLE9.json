@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "stage": "research",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T14:32:16Z",
+  "result": "passed",
+  "scope": "cycle9-open-source-research",
+  "queryFamilies": [
+    "everything",
+    "super",
+    "power",
+    "pro",
+    "max",
+    "IDE",
+    "browser",
+    "agent",
+    "harness",
+    "MCP",
+    "skills",
+    "workflow",
+    "architecture",
+    "RAG",
+    "memory",
+    "UI"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/stagehand-session-manager.ts",
+      "sha256": "61e05a6dd651596bf096ff037aadc42c06c06510d75e432155e92ddce5d210e7"
+    },
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/gptme-adaptive-compressor.py",
+      "sha256": "173a118effbd0dcd740726d0f851b8d7ee3545cc06f11c8b0b6f1b80b1d6992c"
+    },
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/onlook-file-tree.tsx",
+      "sha256": "3e31ccf88aa832bdada47892d8bf47221a87c5c9fd3db7124c9a3c241dfd2e65"
+    },
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/mcp-gateway-skills-architecture.md",
+      "sha256": "c281268b9eab17c9a4e1877ae878d1f4ca45bbedd8ceff8e2fad6962940acad3"
+    },
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/rag-hybrid.go",
+      "sha256": "804817df3ef3dab99656e79295c5ff3d96fc384bd008d0e5b6f47943af5af1cc"
+    },
+    {
+      "path": "docs/rebuild/research/snapshots/cycle9/nextchat-model-config.tsx",
+      "sha256": "963abc69524bb85dbe8a1713525f8f83095d99c27c211f5abd82c268d117e49f"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_HARNESS_CYCLE9_20261108.md",
+      "sha256": "9a4596c4fe011ac7cca76cf3002f07f6eeb05d1ac44e844df8c16b1512ed91e8"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_IDE_CYCLE9_20261108.md",
+      "sha256": "feda9e204e9fdb85122242b08f0584e55fdb007fd123e352b122b4833e435b68"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_MCP_CYCLE9_20261108.md",
+      "sha256": "bb1490c32ee4e02b2998ed514e7b8fb3f00a5467e8a60c0c961df5ff99706dc3"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_RAG_MEMORY_CYCLE9_20261108.md",
+      "sha256": "d2b1f16f2d7a195c4604f7e7ad1170cef34394161c358624c9005de7bd74338c"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_UI_CYCLE9_20261108.md",
+      "sha256": "6621c9af466873e9f443e3dbf02bc35a47f70bf858229ea75ed8b619494ccd8d"
+    }
+  ],
+  "limitations": [
+    "Two note-reported hashes differed from downloaded raw bytes for Stagehand and gptme; the actual pinned raw snapshot hashes are recorded and the discrepancy is retained in the synthesis.",
+    "GitHub API broad search was rate limited; source inspection used canonical raw URLs and no downloaded code was executed.",
+    "Research is design evidence and not Omnia runtime or packaged proof."
+  ]
+}

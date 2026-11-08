@@ -1553,6 +1553,14 @@ mod tests {
         calls: Arc<AtomicUsize>,
     }
 
+    /// Emits visible output and then loses the provider stream.  The request
+    /// has already crossed the provider boundary at this point, so the
+    /// compare reducer must classify the attempt as `Unknown` and prevent a
+    /// caller from treating the transport failure as a safe replay.
+    struct StreamErrorProvider {
+        calls: Arc<AtomicUsize>,
+    }
+
     #[async_trait]
     impl Provider for FixtureProvider {
         fn id(&self) -> &str {
@@ -1585,6 +1593,27 @@ mod tests {
         }
     }
 
+    #[async_trait]
+    impl Provider for StreamErrorProvider {
+        fn id(&self) -> &str {
+            "fixture-stream-error"
+        }
+
+        async fn stream(&self, _request: ProviderRequest) -> HarnessResult<ProviderStream> {
+            self.calls.fetch_add(1, Ordering::SeqCst);
+            Ok(Box::pin(stream::iter(vec![
+                Ok(StreamEvent::TextDelta {
+                    text: "partial provider output".to_owned(),
+                }),
+                Err(HarnessError::Provider {
+                    status: Some(503),
+                    message: "stream dropped after acceptance".to_owned(),
+                    retryable: true,
+                }),
+            ])))
+        }
+    }
+
     fn input() -> FrozenCompareInput {
         FrozenCompareInput::freeze(ProviderRequest {
             model: "ignored-by-compare".to_owned(),
@@ -1611,6 +1640,15 @@ mod tests {
                 delay_ms: if suffix == "a" { 20 } else { 0 },
                 calls,
             }),
+        }
+    }
+
+    fn stream_error_route(calls: Arc<AtomicUsize>) -> CompareRoute {
+        CompareRoute {
+            route_id: "route-stream-error".to_owned(),
+            provider_id: "provider-stream-error".to_owned(),
+            model_id: "model-stream-error".to_owned(),
+            provider: Arc::new(StreamErrorProvider { calls }),
         }
     }
 
@@ -1673,6 +1711,44 @@ mod tests {
             execution.attempts[1].status,
             CompareAttemptStatus::Completed
         );
+    }
+
+    #[tokio::test]
+    async fn accepted_then_stream_failure_is_unknown_and_cannot_be_merged() {
+        let calls = Arc::new(AtomicUsize::new(0));
+        let execution = execute_compare(
+            "compare-test",
+            input(),
+            vec![
+                stream_error_route(calls.clone()),
+                route("b", "answer-b", false, calls.clone()),
+            ],
+            None,
+        )
+        .await
+        .expect("compare execution should terminalize both routes");
+
+        let unknown = execution
+            .attempts
+            .iter()
+            .find(|attempt| attempt.route_id == "route-stream-error")
+            .expect("stream-error route should be present");
+        assert_eq!(unknown.status, CompareAttemptStatus::Unknown);
+        assert_eq!(unknown.error_code.as_deref(), Some("provider_stream_error"));
+        assert!(unknown.output.is_none());
+        assert!(execution.is_terminal());
+        assert_eq!(calls.load(Ordering::SeqCst), 2);
+
+        let error = create_merge_receipt(
+            &execution,
+            &[unknown.attempt_id.clone()],
+            CompareMergeStrategy::BestOf,
+            "must not select an outcome-unknown attempt",
+            &unknown.attempt_id,
+            None,
+        )
+        .expect_err("unknown provider outcome must require reconciliation");
+        assert_eq!(error.code, "compare_selection_invalid");
     }
 
     #[tokio::test]

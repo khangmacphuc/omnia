@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "stage": "document",
+  "cycleId": "rebuild-0009",
+  "recordedAt": "2026-11-08T15:31:51.657Z",
+  "result": "passed",
+  "checklist": {
+    "requirements_traced": true,
+    "input_changes_reviewed": true,
+    "contracts_and_resources": true,
+    "ui_states_and_tokens": true,
+    "tests_match_source": true,
+    "claims_are_scoped": true,
+    "negative_cases_and_gaps": true,
+    "independent_review": true,
+    "canonical_docs_reread": true,
+    "readme_release_consistent": true
+  },
+  "readDocuments": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+    },
+    {
+      "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+      "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+    },
+    {
+      "path": "docs/rebuild/GOAL.md",
+      "sha256": "3d29db9e65606969bc1219f35e6be6daebfe326702d2ed622994ccf8dd982bcf"
+    },
+    {
+      "path": "docs/rebuild/WORKFLOW.md",
+      "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+    },
+    {
+      "path": "docs/rebuild/SPEC.md",
+      "sha256": "8438828f3d8eeb1fa0a66b677127848dba0d549672d94207cae14f025663d611"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "deb97bdadf26b88b8a75f391048a4ebf7b4ae71e07e836a8a472e620fcd5178b"
+    },
+    {
+      "path": "docs/rebuild/SOURCE_REGISTER.json",
+      "sha256": "854c4a83e67dd49756423ce12e3bb16c1d0002de019ce8b3311ac93f4d380995"
+    },
+    {
+      "path": "docs/rebuild/CHECKPOINT.md",
+      "sha256": "bfbf495d2d9415d60128cce30e34bc0f2731f1729c465bd32e3acd1984502ae2"
+    },
+    {
+      "path": "docs/rebuild/ASSIGNMENTS.md",
+      "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
+    }
+  ],
+  "notes": [
+    "Cycle 9 selected criteria remain incomplete where native/package/live evidence is absent.",
+    "Source register includes six new pinned research tuples and local snapshots.",
+    "DoD evidence hashes were refreshed after current source changes."
+  ]
+}

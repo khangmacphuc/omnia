@@ -1,7 +1,7 @@
 # Omnia rebuild checkpoint
 
-Updated: 2026-11-08. Cycle: **rebuild-0006**. Stage: **next**. Status:
-**completed**; the product goal is not complete.
+Updated: 2026-11-08. Cycle: **rebuild-0009**. Stage: **publish**. Status:
+**active**; Cycle 9 is publishable, but the product goal is not complete.
 
 ## Current truth
 
@@ -28,6 +28,11 @@ Updated: 2026-11-08. Cycle: **rebuild-0006**. Stage: **next**. Status:
   evidence-integrity review. It does not promote incomplete DoD criteria to Done.
 - Current DoD counts are **0 Done / 24 Partial / 7 Blocked / 209 Planned
   (240 total; 0/240 mandatory Done)**.
+- Cycle 9 verification covers 98 renderer tests across 16 files, a passing
+  architecture guard, passing app typecheck, refreshed settings/chat/capture
+  receipt hashes, and an independent review with no unresolved findings. These
+  remain renderer or provider-neutral evidence; packaged/live/native gaps are
+  still open.
 - Historical and dirty checkouts remain preserved. No credentials, cookies,
   browser profiles or private chat history are publishable evidence.
 
@@ -53,6 +58,11 @@ Cycle 0006 receipts add the Mastra and Monaco research snapshots, current
 renderer test/build/typecheck outputs, the 153-check browser preview capture,
 the native ask-user rerun and an independent UI evidence review. They remain
 explicitly scoped: browser preview is not packaged/native/live provider proof.
+
+Cycle 0009 receipts add fresh harness/IDE/MCP/RAG/UI research snapshots,
+chat sequencing and ask-user capability gating, model discovery lineage,
+native retrieval envelopes and compare outcome-unknown guards. The current
+cycle is at the publish stage; it has not completed the product goal.
 
 ## Open findings carried forward
 
@@ -147,3 +157,8 @@ Cycle `rebuild-0008` completed its research, synthesis, plan, implementation, na
 The independent Cycle 8 review is `docs/rebuild/audit/REVIEW_CYCLE8_20261108.json`; it approves evidence integrity and keeps product boundaries explicit. `ADVSET-001` now has native capability evidence but remains incomplete for packaged/live delivery. `ADVSET-003` remains incomplete because packaged IPC, failed-refresh preservation, running-attempt snapshot retention and live refresh are not evidenced. `CHAT-008` remains incomplete because packaged Tauri command/UI and live provider ask-user execution are not evidenced. DoD remains **0 Done / 24 Partial / 7 Blocked / 209 Planned (240 total)**.
 
 The cycle is at the document stage pending canonical reread and release consistency checks. No preview, source test or native harness result is promoted to packaged Windows or live-provider completion.
+
+
+## Cycle 9 update (2026-11-08)
+
+Cycle 9 added explicit chat event/run guards, native RAG untrusted-data envelopes, model discovery snapshot/attempt lineage, outcome-unknown compare replay guards, and fresh OSS synthesis. Renderer tests and typecheck/build receipts are recorded under docs/rebuild/receipts/. Packaged Tauri/WebView2, Windows UIA, native Cargo, provider/live RAG and privileged computer-use evidence remain open; selected criteria stay Partial or Blocked.

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "source-audit",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "command": "git diff --check -- src-tauri/src/storage.rs",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/scoped-diff-check.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sourceFiles": [
+    {
+      "path": "src-tauri/src/storage.rs",
+      "sha256": "868313f67a177d536c77e99dcc3485a613a2730658fadbb3e5b6aec239e695f7"
+    },
+    {
+      "path": "src-tauri/src/workspace_indexer.rs",
+      "sha256": "4289e151271203a5ada518205b62cf71b186a0bb930068033342001a707fb251"
+    }
+  ],
+  "limitations": [
+    "No Cargo/native packaged test was run; this receipt proves only clean source diff and envelope binding."
+  ]
+}

@@ -1,0 +1,15 @@
+✔ ask-user UI gates free-text submission by the native capability (0.946ms)
+✔ actual application entry graph excludes historical renderer source (48.1863ms)
+✔ clean-room renderer has source before a Done claim (1.4705ms)
+✔ new renderer does not import historical UI modules or styles (4.7245ms)
+✔ new renderer does not introduce live editor or external iframe embedding (157.1234ms)
+✔ new source is not an exact file copy of the historical UI (133.3417ms)
+✔ canonical evidence documents exist before strict completion review (0.2991ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 631.8132

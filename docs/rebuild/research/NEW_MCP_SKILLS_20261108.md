@@ -108,3 +108,64 @@ decisions. It does **not** claim that Omnia has implemented the adapters, that
 the sources are all production-ready, or that any skill has been installed or
 activated. Product criteria remain Planned/Partial until code and runtime/test
 receipts exist.
+
+## Cycle 9 fresh research (2026-11-08 16:52:36 Asia/Bangkok)
+
+This cycle searched for additional MCP, skill, workflow, context and memory
+projects with the required `everything`, `super`, `power`, `pro` and `max`
+terms. Query families included `site:github.com open source MCP skills workflow
+memory context agent "everything"`, `site:github.com MCP tool registry skill
+workflow "super" "power"`, `site:github.com open source agent memory context
+workflow MCP "pro" "max"`, and `site:github.com model context protocol
+workflow memory skills Rust TypeScript`.
+
+Search results were checked against `docs/rebuild/SOURCE_REGISTER.json` and prior
+research notes. `Monishkumarvr/agent-history-mcp`, `richarvey/OmniMem`, and
+dcc-mcp/dcc-mcp-core are distinct repositories and were not present in the
+register at this cycle. Repository heads were obtained with
+`git clone --filter=blob:none --no-checkout --depth=1 --no-tags`; source was
+read with `git cat-file blob` at the pinned head. No downloaded code was
+executed and no credentials, profiles or private history were read.
+
+### MCP-CYCLE9-01 — agent-history-mcp
+
+- Canonical repository: <https://github.com/Monishkumarvr/agent-history-mcp>
+- Revision: `96e08288f265341a60516254d4435c5fa67f3ed3`
+- License: MIT (`LICENSE` SHA-256 `a6e313d42dfe7320709b96d4f7588e0c8498dd2a05a5de1e73b8038352589753`)
+- Exact source read: `README.md` SHA-256 `950a80596fc4548b0b05f1bb61110f63969a0acb3803bc7b083ffb08570fada2`; `src/agent_history_mcp/compaction.py` SHA-256 `9c23da0274e46cfa29953d9cb46f134550a58c162e3f311f8157d441287cfea2`; `src/agent_history_mcp/skill_store.py` SHA-256 `83bbec3b09787538c3a7e71e9a62734b53fb1ea3065f5d498ada5de0e34964d2`; `src/agent_history_mcp/server.py` SHA-256 `bd76befbf3f4c81734f67e44fe1e6b6aed4d923ff5af0fce6ef8966c1ef71144`.
+- Observation: local MCP indexes multiple agent histories; compaction writes bounded pre-compaction checkpoints and restores them on session start; skill discovery validates frontmatter and records installed hashes. Installation supports dry-run and explicit apply.
+- Strength: deterministic local-only context bridge with read-only history and opt-in writes.
+- Weakness/gap: adapters and hooks are implementation-specific; source does not prove Omnia native session persistence or cross-device conflict handling.
+- Decision: **Apply conceptually**. Add bounded checkpoint/replay projection and a skill usage ledger with content digests. Keep Omnia native permission review and session store authoritative; do not copy hooks or silently write instruction files.
+
+### MCP-CYCLE9-02 — OmniMem
+
+- Canonical repository: <https://github.com/richarvey/OmniMem>
+- Revision: `3cadc848833ff0f867903c95f4b70760a1ee6f20`
+- License: MIT (`LICENSE` SHA-256 `8ee486b679b7b9c2c873d64427852d69f2f09d014281aa926f9108e04aea2527`)
+- Exact source read: `README.md` SHA-256 `854b5d9161868f46996d4b5889aac8b54a463c97231749c741cbcd27757c264f`; `crates/omnimem-engine/src/skill_tools.rs` SHA-256 `c560d1888beeb1f872b075a5aba4f84e3ce21d64b2e800ec84dd2cf42e00fc68`; `crates/omnimem-engine/src/audit.rs` SHA-256 `7d3bc39571ae1c9955239a5266f9f3b58446b2d2e43ed2bb7249f2134ed11823`; `crates/omnimem-engine/src/recall.rs` SHA-256 `ff715ffb1d2b17168d7a0f37dbca19f7eec4308411427d7c8963e582920a0416`.
+- Observation: Rust engine exposes active skill discovery with domain/semantic matching and explicit low-confidence warnings; audit APIs bound namespaces and limits; recall and audit remain separate surfaces.
+- Strength: typed local-first memory with bounded audits and visible weak-match handling.
+- Weakness/gap: thresholds and storage behavior are not validated against Omnia's corpus; source inspection cannot establish Tauri integration or retrieval quality.
+- Decision: **Apply conceptually and benchmark first**. Preserve weak-match/no-result states and bounded audit receipts in Omnia RAG. Do not adopt thresholds without fixture measurements.
+
+### MCP-CYCLE9-03 — dcc-mcp-core
+
+- Canonical repository: <https://github.com/dcc-mcp/dcc-mcp-core>
+- Revision: `3ea1ca16430a02cbf1bd50fa66a0d871333baa49`
+- License: MIT (`LICENSE` SHA-256 `b497f43f3f2affae408c4926dfcef62b5725e231a2976f2f24ee4aa3f2e152a7`)
+- Exact source read: `README.md` SHA-256 `dd98ffb324bf2e0aef52d2dec5b5345465dd486cb206721f1ec9af7f9095a3ee`; `docs/guide/agents-reference.md` SHA-256 `3b3855294dfdc879916f15403abfdd46ac62ca718d9d9cc79200c87fefc96fa3`; `AGENTS.md` SHA-256 `f307394255493ae51bebbc4de92ef82b43b2cd476447ab6a81a551d8e032d98a`.
+- Observation: async calls return a core job ID and typed status metadata; parent cancellation cascades to core child jobs, while adapter-owned follow-ups require their own typed status/cancel contract. Skill extensions use `metadata.dcc-mcp` pointers to sibling files, preserving standards-compliant `SKILL.md` frontmatter and progressive disclosure. Tool responses require request-ID correlation and fail closed on transport desynchronization.
+- Strength: explicit async/cancellation correlation and a concrete sibling-file skill packaging rule.
+- Weakness/gap: DCC adapter lifecycle and gateway policy are domain-specific; documentation is not proof of Omnia runtime behavior.
+- Decision: **Apply protocol decisions**. Require request IDs, parent/child cancellation semantics, typed follow-up polling and fail-closed desync handling in native tool bridges. Use sibling-file pointers for large skill extensions; reject DCC-specific adapters and UI replication.
+
+### Cycle 9 synthesis and test implications
+
+These sources add three distinct decisions: a bounded local checkpoint projection
+that survives compaction, explicit weak-match/audit states for memory and skill
+retrieval, and request correlation plus parent cancellation for asynchronous MCP
+work. Add negative tests for digest mismatch, weak/no skill matches, stale
+checkpoint replay, response-ID mismatch, child cancellation and adapter-owned
+job cancellation. This cycle remains source evidence only; no provider, MCP
+server or remote memory service was run.

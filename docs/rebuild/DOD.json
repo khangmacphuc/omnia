@@ -551,12 +551,12 @@
       "evidence": [
         {
           "path": "src/rebuild/chat/chat-controller.ts",
-          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
+          "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108",
           "kind": "source"
         },
         {
           "path": "src/rebuild/chat/chat-view.test.tsx",
-          "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3",
+          "sha256": "da0b116757385179dba61e62ed48bbb61f70bad32e48493bf6e0f4fa67e4f5b8",
           "kind": "source"
         }
       ],
@@ -789,7 +789,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
-          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "sha256": "4a26056fd8f56e3e0d006544734c365f645c920f91d7b2284bb5ca124b7f4ed7",
           "kind": "capture"
         }
       ],
@@ -928,7 +928,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
-          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "sha256": "4a26056fd8f56e3e0d006544734c365f645c920f91d7b2284bb5ca124b7f4ed7",
           "kind": "capture"
         }
       ],
@@ -971,7 +971,7 @@
         },
         {
           "path": "src/rebuild/settings/settings.css",
-          "sha256": "36712f0c1f287da825a3f10a032b6c0d72708c91225bb48e6c9a4dbdfde41fcb",
+          "sha256": "b45f16ec8ccf731e717bc77b371c9f5a6a4dc7b0a133092690c57e916e2de9ba",
           "kind": "source"
         }
       ],
@@ -1009,7 +1009,7 @@
         },
         {
           "path": "src/rebuild/chat/chat-view.test.tsx",
-          "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3",
+          "sha256": "da0b116757385179dba61e62ed48bbb61f70bad32e48493bf6e0f4fa67e4f5b8",
           "kind": "source"
         },
         {
@@ -1087,7 +1087,7 @@
         },
         {
           "path": "docs/rebuild/receipts/cycle6-ui-20261108.json",
-          "sha256": "2cd051d89a1972f08e2fbea645bcb550470829a9a5d491dff2ca6491272632c5",
+          "sha256": "4a26056fd8f56e3e0d006544734c365f645c920f91d7b2284bb5ca124b7f4ed7",
           "kind": "capture"
         }
       ],
@@ -1261,8 +1261,8 @@
           "kind": "source"
         },
         {
-          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
-          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+          "path": "docs/rebuild/receipts/chat-cycle9-verification.json",
+          "sha256": "8bb6fe8cd1e7c5fdda5a7b7713ca19df2d212eba450cb56c87ca67bc60d33e93",
           "kind": "test"
         }
       ],
@@ -4292,7 +4292,7 @@
         },
         {
           "path": "src/rebuild/chat/chat-controller.ts",
-          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
+          "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108",
           "kind": "source"
         },
         {
@@ -4301,14 +4301,14 @@
           "kind": "source"
         },
         {
-          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
-          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
-          "kind": "test"
-        },
-        {
           "path": "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md",
           "sha256": "8a3db7b7660500c0f8e8e25a5787c9fa3f587054a3d8870c3c94e4ddd5a7bef5",
           "kind": "audit"
+        },
+        {
+          "path": "docs/rebuild/receipts/settings-cycle9-verification.json",
+          "sha256": "db67ce5b7bf001449458110f6a0c2c500c8a2174b403d4647ed7f66570cee125",
+          "kind": "test"
         }
       ],
       "blockers": [
@@ -4382,17 +4382,17 @@
         },
         {
           "path": "src/rebuild/settings/catalog-route-adapter.ts",
-          "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8",
+          "sha256": "1d3afb6ceeade40910069cad3f14474439e25e63528337af55a830a22b23afb4",
           "kind": "source"
         },
         {
           "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
-          "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff",
+          "sha256": "76fa21899c4393f1a4d2e52d3e6a70c480d3d41e7500c6f8a7c230f46ee355d0",
           "kind": "source"
         },
         {
           "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
-          "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c",
+          "sha256": "07b7f2191064bd92bdca78ce5099e5473bf06a573b53465873021cf88cd4a92d",
           "kind": "source"
         },
         {
@@ -4402,7 +4402,7 @@
         },
         {
           "path": "src/rebuild/chat/chat-controller.ts",
-          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c",
+          "sha256": "63d22d67508d1dd95eeb686e55dc6041b9bccff8fcf23a9fe2f7c578aa1c0108",
           "kind": "source"
         },
         {
@@ -4416,14 +4416,14 @@
           "kind": "source"
         },
         {
-          "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
-          "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
-          "kind": "test"
-        },
-        {
           "path": "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md",
           "sha256": "8a3db7b7660500c0f8e8e25a5787c9fa3f587054a3d8870c3c94e4ddd5a7bef5",
           "kind": "audit"
+        },
+        {
+          "path": "docs/rebuild/receipts/settings-cycle9-verification.json",
+          "sha256": "db67ce5b7bf001449458110f6a0c2c500c8a2174b403d4647ed7f66570cee125",
+          "kind": "test"
         }
       ],
       "blockers": [
@@ -4939,5 +4939,7 @@
       "evidence": [],
       "blockers": []
     }
-  ]
+  ],
+  "updatedAt": "2026-11-08T15:05:00Z",
+  "lastCycle": "rebuild-0009"
 }

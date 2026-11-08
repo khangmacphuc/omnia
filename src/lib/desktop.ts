@@ -1902,6 +1902,92 @@ export interface NativeCompareExecutePreparedResult {
   completedAtMs: number;
 }
 
+/**
+ * Renderer policy for a completed native compare fan-out.
+ *
+ * A compare attempt can have reached a provider before its terminal outcome
+ * was observed.  The native projection marks that attempt `unknown`; the
+ * renderer must keep the compare visible for reconciliation and must never
+ * turn the result into an automatic retry.  Definitive failures are also
+ * returned with `no_automatic_replay`: retrying is a user/workflow decision
+ * that must create a fresh prepared attempt rather than replaying opaque
+ * identifiers from this result.
+ */
+export type NativeCompareReplayDisposition =
+  | "no_automatic_replay"
+  | "reconciliation_required";
+
+export interface NativeCompareReplayAssessment {
+  compareId: string;
+  disposition: NativeCompareReplayDisposition;
+  automaticRetryAllowed: false;
+  unknownAttemptIds: string[];
+  definitiveFailureAttemptIds: string[];
+  completedAttemptIds: string[];
+  cancelledAttemptIds: string[];
+  reason: string;
+}
+
+/**
+ * Derives the fail-closed replay policy from a native compare projection.
+ *
+ * This is intentionally a pure reducer so it can be applied after a native
+ * response, after journal replay, and in browser-preview tests without
+ * fabricating a provider result.  The native command remains authoritative
+ * for attempt state; this helper only decides whether the renderer may offer
+ * an automatic replay affordance.
+ */
+export function assessNativeCompareReplay(
+  result: NativeCompareExecutePreparedResult,
+): NativeCompareReplayAssessment {
+  const unknownAttemptIds: string[] = [];
+  const definitiveFailureAttemptIds: string[] = [];
+  const completedAttemptIds: string[] = [];
+  const cancelledAttemptIds: string[] = [];
+
+  for (const attempt of result.attempts) {
+    if (attempt.status === "unknown") unknownAttemptIds.push(attempt.attemptId);
+    else if (attempt.status === "failed") definitiveFailureAttemptIds.push(attempt.attemptId);
+    else if (attempt.status === "completed") completedAttemptIds.push(attempt.attemptId);
+    else if (attempt.status === "cancelled") cancelledAttemptIds.push(attempt.attemptId);
+  }
+
+  const reconciliationRequired = unknownAttemptIds.length > 0;
+  return {
+    compareId: result.compareId,
+    disposition: reconciliationRequired ? "reconciliation_required" : "no_automatic_replay",
+    automaticRetryAllowed: false,
+    unknownAttemptIds,
+    definitiveFailureAttemptIds,
+    completedAttemptIds,
+    cancelledAttemptIds,
+    reason: reconciliationRequired
+      ? "One or more provider attempts were accepted but their terminal outcome is unknown. Reconcile the durable attempt before creating any new side effect."
+      : "The compare is terminal. Any retry must be an explicit new prepared attempt; opaque compare attempt identities are never replayed automatically.",
+  };
+}
+
+/**
+ * Guard used by renderer flows before exposing a replay action.  Unknown
+ * outcomes are a hard stop: callers must reconcile the native journal first.
+ * The return value for definitive terminal results is still a policy object so
+ * a caller cannot accidentally interpret this helper as permission to replay.
+ */
+export function requireNativeCompareReconciliation(
+  result: NativeCompareExecutePreparedResult,
+): NativeCompareReplayAssessment {
+  const assessment = assessNativeCompareReplay(result);
+  if (assessment.disposition === "reconciliation_required") {
+    const error = new Error(assessment.reason) as Error & Partial<NativeCommandError>;
+    error.name = "NativeCompareOutcomeUnknown";
+    error.code = "compare_outcome_unknown";
+    error.retryable = false;
+    error.acceptance = "unknown";
+    throw error;
+  }
+  return assessment;
+}
+
 /** Renderer-safe projection of one broker-fed native download job. */
 export type DownloadJobState =
   | "queued"

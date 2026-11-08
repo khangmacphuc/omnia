@@ -68,6 +68,19 @@ describe("catalog route adapter", () => {
     expect(resolveCatalogRoute(routes, { providerProfileId: "profile-local", modelId: "alpha" })).toMatchObject({ dispatchable: true, state: "available" });
   });
 
+  it("marks models without streaming support unsupported and non-dispatchable", async () => {
+    const snapshot = await createCatalogSnapshot(catalog([model("alpha", { capabilities: { streaming: false, tools: null, vision: null, reasoning: null, source: "provider-metadata" } })]));
+    const routes = reconcileCatalogRoutes(snapshot, undefined, Date.parse(snapshot.discoveredAt));
+    expect(resolveCatalogRoute(routes, { providerProfileId: "profile-local", modelId: "alpha" })).toMatchObject({ dispatchable: false, state: "unsupported" });
+  });
+
+  it("uses native snapshot identity and hash when the catalog supplies them", async () => {
+    const nativeId = "catalog_snapshot_0123456789abcdef0123456789abcdef";
+    const nativeHash = "c".repeat(64);
+    const snapshot = await createCatalogSnapshot({ ...catalog(), snapshotId: nativeId, snapshotSha256: nativeHash });
+    expect(snapshot).toMatchObject({ snapshotId: nativeId, snapshotHash: nativeHash, snapshotAuthority: "native" });
+  });
+
   it("does not resolve a model from a different provider profile", async () => {
     const snapshot = await createCatalogSnapshot(catalog());
     const routes = reconcileCatalogRoutes(snapshot, undefined, Date.parse(snapshot.discoveredAt));

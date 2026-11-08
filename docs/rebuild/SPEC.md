@@ -161,3 +161,8 @@ the blocker with a fresh attempt and next action.
 ## Cycle 0008 evidence update
 
 Native capability and provider catalog contracts now have current Rust harness receipts. Capability negotiation accepts the eight requested effort policies with `ultra` gated by dynamic workflow support, and catalog snapshots are immutable, hashed and bound to prepared provider lineage. These receipts establish native source behavior only. The packaged Tauri/WebView2, Windows UI automation and live-provider boundary remains explicit in the DoD and must be tested before any criterion is marked Done.
+
+
+## Cycle 9 update (2026-11-08)
+
+Cycle 9 added explicit chat event/run guards, native RAG untrusted-data envelopes, model discovery snapshot/attempt lineage, outcome-unknown compare replay guards, and fresh OSS synthesis. Renderer tests and typecheck/build receipts are recorded under docs/rebuild/receipts/. Packaged Tauri/WebView2, Windows UIA, native Cargo, provider/live RAG and privileged computer-use evidence remain open; selected criteria stay Partial or Blocked.

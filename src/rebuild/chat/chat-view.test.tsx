@@ -71,7 +71,7 @@ describe("rebuild chat view", () => {
 
   it("submits a recommended option and a free-text ask-user answer", () => {
     const answerQuestion = vi.fn(async () => undefined);
-    render(<ChatView controller={controller({ answerQuestion, questions: [{ id: "q-1", prompt: "Which scope?", options: ["Repository", "Single file"], recommended: ["Repository"] }] })} />);
+    render(<ChatView controller={controller({ answerQuestion, questions: [{ id: "q-1", prompt: "Which scope?", options: ["Repository", "Single file"], recommended: ["Repository"], allowFreeText: true }] })} />);
     fireEvent.click(screen.getByRole("button", { name: /Recommended · Repository/i }));
     expect(answerQuestion).toHaveBeenCalledWith("q-1", "Repository");
     const input = screen.getByRole("textbox", { name: "Answer q-1" });
@@ -85,6 +85,14 @@ describe("rebuild chat view", () => {
     render(<ChatView controller={controller({ answerQuestion, questions: [{ id: "q-2", prompt: "Continue?", options: ["Yes"] }] })} />);
     fireEvent.click(screen.getByRole("button", { name: /^Cancel$/i }));
     expect(answerQuestion).toHaveBeenCalledWith("q-2", null);
+  });
+
+  it("fails closed when native ask-user metadata disables free text", () => {
+    const answerQuestion = vi.fn(async () => undefined);
+    render(<ChatView controller={controller({ answerQuestion, questions: [{ id: "q-3", prompt: "Choose a mode", options: ["Safe"], allowFreeText: false }] })} />);
+    expect(screen.queryByRole("textbox", { name: "Answer q-3" })).not.toBeInTheDocument();
+    expect(screen.getByText("Free-text answers are disabled for this question.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Safe/i })).toBeInTheDocument();
   });
 });
 

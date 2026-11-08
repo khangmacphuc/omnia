@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T15:19:39.431Z",
+  "command": "npm.cmd test -- --run src/rebuild/settings/settings.test.ts src/rebuild/settings/SettingsPanel.test.tsx src/rebuild/settings/model-discovery.test.ts src/rebuild/settings/ModelDiscoveryPanel.test.tsx --reporter=dot",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/settings.txt",
+    "sha256": "d10af40709be4eeac656a5c38768d089c7c90183848471bc51942359a66b242a"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.ts",
+      "sha256": "66b09d459b694fef5f1b3a147a665d3a1cb9801f6dcd9c48e7c09b011f90260b"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "07b7f2191064bd92bdca78ce5099e5473bf06a573b53465873021cf88cd4a92d"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.ts",
+      "sha256": "1d3afb6ceeade40910069cad3f14474439e25e63528337af55a830a22b23afb4"
+    }
+  ],
+  "limitations": [
+    "Native catalog snapshot persistence and packaged/live refresh are unverified."
+  ]
+}

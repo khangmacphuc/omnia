@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer",
+  "recordedAt": "2026-11-08T14:55:00Z",
+  "command": "npm.cmd run typecheck:app -- --pretty false",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-commands/typecheck.txt",
+    "sha256": "5ef9b7cf8398618b69b691dfcecdcd59f00a561cefce323cd83e3762f214b2b4"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/browser/browser-controller.ts",
+      "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/lib/desktop.ts",
+      "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+    },
+    {
+      "path": "src-tauri/src/harness_permissions.rs",
+      "sha256": "b9ba96d5c7703eeee2b10e67ce3b4c7c8eb3567cf4ac7283005cb5d4b405d908"
+    }
+  ],
+  "limitations": [
+    "No authorized disposable-target registry/service/policy/control-panel action was executed."
+  ]
+}

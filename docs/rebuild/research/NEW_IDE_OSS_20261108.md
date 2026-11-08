@@ -1,3 +1,56 @@
+# Cycle 9 IDE and agent-workspace OSS research (2026-11-08)
+
+## Scope, novelty and query ledger
+
+- Retrieved: 2026-11-08 (Asia/Bangkok), cycle `rebuild-0007` follow-up.
+- Queries issued: `open source everything super power pro max AI IDE editor workspace 2026`; `GitHub open source agent IDE workspace session persistence retrieval`; `GitHub Void Continue CodeEdit OpenHands architecture workspace files agent`; `open source local IDE file watcher dirty tabs permission-safe editor`.
+- Discovery used GitHub `git ls-remote` and pinned raw source reads. No downloaded scripts, installers or postinstall hooks were executed; no credentials, browser profiles or private data were accessed.
+- Deduplication: the repository/revision/path tuples below were checked against `docs/rebuild/SOURCE_REGISTER.json`, `NEW_IDE_CYCLE8_20261108.md`, and the earlier `NEW_IDE_OSS_20261108.md`. These exact tuples are new for this cycle. Existing Omnia extraction modules and prior Zed/Lapce/Theia/Proliferate/Volt/CodeEdit-related paths were not counted again.
+- A repository name or README is discovery evidence only. Decisions below are based on the exact pinned files and retain their runtime/license limits.
+
+## Reviewed sources
+
+| Repository / revision | License evidence | Exact source path (SHA-256) | Observed contract | Omnia decision |
+|---|---|---|---|---|
+| [voideditor/void](https://github.com/voideditor/void) `b3166e7ef2aefbdfeb139445fdf248a561b85d4d` | Apache-2.0, `LICENSE.txt` (`955973b68db7484ca639f6797b5f6ebf01c2b693f87fa93dd6ccf2b0aec333a7`) | `src/vs/workbench/contrib/void/browser/void.contribution.ts` (`f03636cae7fc3f7d0ac1f1fb0555d1ea1d53e3b0d38428157c21f968bff71fbc`); `README.md` (`2c777505f607e418aa3744aa6544a1670338db5a851e3e1a6f2f099d1812feb9`) | The contribution entrypoint registers inline edit diffs, sidebar actions/pane, quick edit, autocomplete and settings as separate workbench contributions. README states the project is deprecated and no longer accepts contributions. | **Apply contract only:** keep IDE features split into independently registered capability modules and expose unavailable/deprecated provider state. **Reject** VS Code source/UI reuse and any claim that deprecation implies a supported provider. Add an Omnia test that a missing native capability yields an explicit unavailable state rather than a dead control. |
+| [continuedev/continue](https://github.com/continuedev/continue) `5522c6f44ca0ac3528b37244818fbfa39b5af470` | Apache-2.0, `LICENSE` (`b14a17598cb08c4c7c82c070731126304e0a75d001ed59fb9ea3955a0b561802`) | `core/context/retrieval/retrieval.ts` (`bda6b3fee1698163de63040f2f7af20bd932086eb1c008178980553f078af399`); `core/core.ts` (`e073a7f5bc20d5920e5472b6d434118418deb7207336ff74800ce64b79c8e934`) | Retrieval receives workspace directories and configuration, supports optional embeddings/reranking and a bounded default final count (`DEFAULT_N_FINAL = 25`). The core composes indexing, context, history, compaction, tools and model configuration as separate services. | **Apply bounded retrieval and provenance:** IDE file context should record workspace scope, provider/configuration, selected count, truncation and unavailable embedding state; keep a hard top-k limit and cancellation. **Reject** Continue's service/UI code and provider assumptions. Add a negative test for a missing embeddings provider and a receipt showing the selected workspace roots. |
+| [CodeEditApp/CodeEdit](https://github.com/CodeEditApp/CodeEdit) `fa2aebd86373211c78626074b53ab75010767575` | MIT, `LICENSE.md` (`a1c7f7ef3f326384c8edb428c9698654a4df4a4339149b4eccdac532f832678e`) | `CodeEdit/Features/CEWorkspace/Models/CEWorkspaceFileManager.swift` (`ea3e86053b12f47f278ef46107ba50222a59f3bb93a3da4610d473358d2dedfd`); `CodeEdit/Features/Documents/WorkspaceDocument/WorkspaceDocument.swift` (`d0c7f2f60290f60e40f6fde8a150569b342a1b751d8029ef0e23a52aa3833d9c`) | The file manager documents lazy tree caching, navigation/modification/listening to filesystem updates; only requested entries are materialized to avoid loading an entire large tree. The workspace document persists per-file URL state and exposes navigator/source-control filters. | **Apply behavior:** lazy directory expansion, explicit filesystem event refresh, stable workspace-scoped UI state and dirty/reload conflict handling. Add an acceptance check that opening a root does not enumerate all descendants, and that an external rename/delete produces a visible stale/missing pointer. **Reject** Swift/AppKit implementation and macOS-specific UI. |
+| [All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands) `b8e87db15c5e204ad66a372970cbf25b2e486d31` | MIT, `LICENSE` (`e1d1fa9f3a8d7bef24449d488fcd8f00f8f272cac297bb9bed161eb6175b876`) | `src/api/event-service/event-service.api.ts` (`ca15c3a5180405ea21bbcf52901b64aa355f02cccbd82541562c205203065650`); `src/api/conversation-workspace.ts` (`7e6a640651cc571d7497c0bc82fd3b94ad24875ff44b12c7f1a98e0f2e918f36`) | Event history and live runtime endpoints are intentionally split across hosts; comments distinguish persisted event search from runtime event count/confirmation. Workspace helpers detect isolated Docker runtimes and resolve conversation working directories under a workspace root. | **Apply boundary and receipt ideas:** keep persisted replay/history separate from live native runtime events; include host/runtime and workspace-root identifiers on event receipts, and mark isolated/non-isolated workspace mode. Require confirmation for path-sensitive actions and distinguish unavailable runtime from empty history. **Reject** cloud API/client code and Docker assumptions; this is not Tauri or Windows proof. |
+
+## Source notes and limitations
+
+### Void
+The exact contribution file is a registration surface, not the implementation of each editor feature. Its modular imports support a capability registry, but do not prove activation order, native permissions or runtime correctness. The README's deprecation notice is a product-lifecycle warning, not a reason to depend on Void. Omnia will use the modular boundary only.
+
+### Continue
+The retrieval function shows bounded selection and workspace-aware context inputs; the core import graph shows separation of indexing, context, history, compaction and tools. These TypeScript files do not prove retrieval quality, security of provider credentials, native file permissions or Tauri behavior. Omnia must capture actual local file reads and explicit unavailable/error receipts.
+
+### CodeEdit
+The lazy file-manager contract is useful for large trees and the workspace document stores state by workspace URL. Swift/AppKit observation does not establish Windows filesystem semantics, watcher reliability or conflict resolution. Omnia needs native path validation, traversal tests, external-change detection and reload evidence.
+
+### OpenHands
+The event service comments and workspace helper establish a useful persisted/live split and isolated workspace decision, but they are cloud/runtime contracts. They do not prove local-first storage, Windows permissions, lease teardown or event ordering. Omnia must test replay gaps, cancellation, confirmation denial and missing workspace roots in its own native bridge.
+
+## Cross-source synthesis: original Omnia decisions
+
+1. **Capability registration:** IDE actions (picker, explorer, editor, find, preview, save) are independently registered capabilities with requested → active | unavailable | failed | stopped state and a reason receipt. A disabled native capability never renders as a successful action.
+2. **Bounded context receipts:** every file-context or retrieval request records root IDs, provider/configuration, selection limit, truncation and cancellation/error outcome. Default limits remain bounded; no hidden “all files” expansion.
+3. **Lazy explorer and pointer safety:** expand directories on demand, retain stable pointer IDs plus the latest path/snapshot, and surface rename/delete conflicts. Root selection never silently changes to another user folder.
+4. **Persisted vs live events:** persisted replay/history and live native events are separate channels with cursors and explicit replay-gap/runtime-unavailable states. Each event includes session, workspace and runtime identity where known.
+5. **Clean-room boundary:** these are source observations and contract decisions only. Do not vendor, import, copy, or iframe upstream editors, VS Code workbench code, Swift/AppKit code, cloud clients or visual assets.
+
+## Evidence and follow-up
+
+- This note is the owned artifact for `/root/new_research_ide`; no product source files were changed.
+- Follow-up implementation evidence: `src/rebuild/ide/*` should add tests for lazy tree expansion, traversal rejection, dirty save conflict, missing workspace, retrieval truncation/unavailable provider, and persisted/live event replay gap. Native Windows captures remain required before any live/runtime claim.
+- Registry integration is owned by `/root/rebuild_source_research`; this note intentionally records the exact source evidence so it can add entries without guessing hashes.
+
+---
+
+---
+
+# Preserved prior IDE research (pre-cycle-9)
+
 # New OSS IDE and agent-workspace research
 
 Cycle: `rebuild-0001`  

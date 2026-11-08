@@ -99,4 +99,42 @@ describe("clean-room native model discovery", () => {
     expect(controller.getSnapshot().phase).toBe("ready"); expect(controller.getSnapshot().error).toBeNull();
     expect(controller.getSnapshot().catalog?.profileId).toBe("remote");
   });
+
+  it("keeps the last successful catalog and active attempt metadata when refresh fails", async () => {
+    const bridge = service({ listModels: vi.fn().mockResolvedValueOnce(catalog()).mockRejectedValueOnce(new Error("provider timeout")) });
+    const controller = new ModelDiscoveryController(bridge); await controller.refreshProfiles();
+    controller.selectProfile("local"); await controller.refreshModels();
+    controller.setActiveAttempt({
+      attemptId: "attempt_1234567890abcdef",
+      providerProfileId: "local",
+      modelId: "model-a",
+      snapshotId: "catalog_snapshot_0123456789abcdef0123456789abcdef",
+      snapshotSha256: "a".repeat(64),
+      startedAt: "2026-11-08T04:31:00.000Z",
+    });
+    await controller.refreshModels();
+    expect(controller.getSnapshot()).toMatchObject({ phase: "error", catalogStatus: "refresh-failed", error: expect.stringMatching(/Check the provider/), activeAttempt: { attemptId: "attempt_1234567890abcdef", modelId: "model-a" } });
+    expect(controller.getSnapshot().catalog?.models[0]?.id).toBe("model-a");
+  });
+
+  it("retains the last successful catalog when the user cancels a refresh", async () => {
+    const pending = deferred<unknown>();
+    const bridge = service({ listModels: vi.fn().mockResolvedValueOnce(catalog()).mockReturnValueOnce(pending.promise) });
+    const controller = new ModelDiscoveryController(bridge); await controller.refreshProfiles(); controller.selectProfile("local"); await controller.refreshModels();
+    const request = controller.refreshModels(); controller.cancel(); pending.resolve(catalog("local", "late-model")); await request;
+    expect(controller.getSnapshot().phase).toBe("cancelled");
+    expect(controller.getSnapshot().catalog?.models[0]?.id).toBe("model-a");
+    expect(controller.getSnapshot().catalogStatus).toBe("cancelled");
+  });
+
+  it("accepts native catalog snapshot lineage while preserving the model rows", async () => {
+    const nativeSnapshot = {
+      ...catalog(),
+      snapshotId: "catalog_snapshot_0123456789abcdef0123456789abcdef",
+      snapshotSha256: "b".repeat(64),
+    };
+    const controller = new ModelDiscoveryController(service({ listModels: vi.fn().mockResolvedValue(nativeSnapshot) }));
+    await controller.refreshProfiles(); controller.selectProfile("local"); await controller.refreshModels();
+    expect(controller.getSnapshot().catalog).toMatchObject({ snapshotId: nativeSnapshot.snapshotId, snapshotSha256: nativeSnapshot.snapshotSha256 });
+  });
 });

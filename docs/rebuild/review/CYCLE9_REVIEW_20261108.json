@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "author": "khang",
+  "reviewer": "/root/cycle9_independent_review_fallback",
+  "reviewedAt": "2026-11-08T15:00:00Z",
+  "criteria": [
+    "CHAT-008",
+    "ADVSET-003",
+    "RAG-001",
+    "RAG-002",
+    "ROUTING-007",
+    "BROWSER-001",
+    "COMPUTER-001",
+    "IDE-001"
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "c8492e3bc61fca68fe94e8c962e17256534288a369adf048934cc6b8be3a4744"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.test.ts",
+      "sha256": "842488610c99fe08e42881915940a4529c3474d94def727d8d610ddf994a3bfa"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src-tauri/src/storage.rs",
+      "sha256": "868313f67a177d536c77e99dcc3485a613a2730658fadbb3e5b6aec239e695f7"
+    },
+    {
+      "path": "src-tauri/src/workspace_indexer.rs",
+      "sha256": "4289e151271203a5ada518205b62cf71b186a0bb930068033342001a707fb251"
+    },
+    {
+      "path": "src/rebuild/settings/settings.ts",
+      "sha256": "470f1b1ab415457ee349aadeafd0d796ad1a6cc1f2e1679dbb63862f30235601"
+    },
+    {
+      "path": "src/rebuild/settings/SettingsPanel.tsx",
+      "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
+    },
+    {
+      "path": "src/rebuild/settings/model-discovery.ts",
+      "sha256": "66b09d459b694fef5f1b3a147a665d3a1cb9801f6dcd9c48e7c09b011f90260b"
+    },
+    {
+      "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
+      "sha256": "07b7f2191064bd92bdca78ce5099e5473bf06a573b53465873021cf88cd4a92d"
+    },
+    {
+      "path": "src/rebuild/settings/catalog-route-adapter.ts",
+      "sha256": "1d3afb6ceeade40910069cad3f14474439e25e63528337af55a830a22b23afb4"
+    },
+    {
+      "path": "src/rebuild/settings/settings.css",
+      "sha256": "b45f16ec8ccf731e717bc77b371c9f5a6a4dc7b0a133092690c57e916e2de9ba"
+    },
+    {
+      "path": "src/lib/desktop.ts",
+      "sha256": "4aa4ddce7c618d41e6692ee3ae602daa55a47e49478d412c71fe73cffb5ae1f3"
+    },
+    {
+      "path": "src-tauri/src/native_compare.rs",
+      "sha256": "81c602a89d3875760acb95afb76b245c78ab3b27ceb8e68c1ae14a5fd6da4607"
+    },
+    {
+      "path": "src-tauri/src/model_compare_receipt.rs",
+      "sha256": "79667d127d873499fe20e7c67e50ae1d34ae1702c9214699ed2c69c546c35780"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.test.tsx",
+      "sha256": "658e64339732594f876d5a8f721076232e42018a97ac5ab1ac10fefae2af3f40"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.ts",
+      "sha256": "e383306303ba857c8247c54b5747a64a1961030956ab7b8b954a42b37c551b39"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.tsx",
+      "sha256": "c0d3a99717881c3acd5b9451d4301155b353b2659508e9f830719f54dc8691ab"
+    },
+    {
+      "path": "src/rebuild/browser/browser-controller.test.ts",
+      "sha256": "f3aac136dd871464f8c54431eaddccf24322a2c4ddd56778526dc9e54f89ab68"
+    },
+    {
+      "path": "src/rebuild/browser/browser-workspace.test.tsx",
+      "sha256": "c39d06da3551d9cd1d9d3786acc3b3026a42a7c861a813f6a07fc6811664dc06"
+    },
+    {
+      "path": "src-tauri/src/harness_permissions.rs",
+      "sha256": "b9ba96d5c7703eeee2b10e67ce3b4c7c8eb3567cf4ac7283005cb5d4b405d908"
+    },
+    {
+      "path": "src/rebuild/ide/ide-access.ts",
+      "sha256": "0f1aaef60e1e2ebb4d25ac73bad419075307db4b37691907ff010adff5869389"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.ts",
+      "sha256": "2d976b896a4ff43e09459d506c1a3c7f52d0a04a195ec938b41726cc1c7c79c0"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.tsx",
+      "sha256": "9ad1a3a4f61abdc6578be19be5c7b9e94f8cc6ca4817fe09dd210dd160264d78"
+    },
+    {
+      "path": "src/rebuild/ide/ide-model.test.ts",
+      "sha256": "73edf32a6b7eb9a528d7dc26896c9d767c381f4035d66140ff9df9b9bd2a4207"
+    },
+    {
+      "path": "src/rebuild/ide/ide-workspace.test.tsx",
+      "sha256": "c707eea731ed11412165ed007c107f8ab59bab302473647725de8367c16927f3"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    },
+    {
+      "path": "src/lib/desktop.compare.test.ts",
+      "sha256": "7646b36268ddc0beb2992550c2442608230685307749e578369fc1fd42504345"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+    },
+    {
+      "path": "src/rebuild/rebuild-app.tsx",
+      "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+    },
+    {
+      "path": "scripts/rebuild/architecture-guard.mjs",
+      "sha256": "93a5927184b0016333d96861a1c5ccb7c6a39479961a20b05b0b4d8486e654fc"
+    }
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/chat-cycle9-verification.json",
+      "sha256": "afed39db18e55edf47b4c402e7871d0bedb5ee86ee59a01bf8c3e08816932a27"
+    },
+    {
+      "path": "docs/rebuild/receipts/settings-cycle9-verification.json",
+      "sha256": "7d24c936c2f784a6e966ae0670756fa3a51450c1d2ff8895142c4b338de6c838"
+    },
+    {
+      "path": "docs/rebuild/receipts/rag-cycle9-verification.json",
+      "sha256": "5a9d396391e55fd3fd584fd1dff37cd09879875615d003c01cdc7e12adefbb20"
+    },
+    {
+      "path": "docs/rebuild/receipts/routing-cycle9-verification.json",
+      "sha256": "8af3330689b81edff26a111dc3d7323621c9511d1d088c7294cfc8eddf1a1a43"
+    },
+    {
+      "path": "docs/rebuild/receipts/browser-cycle9-verification.json",
+      "sha256": "17d3bccf1bb7e2d5dda34f1f5c65345df5af526911c53db7d79a733b282d3183"
+    },
+    {
+      "path": "docs/rebuild/receipts/computer-cycle9-verification.json",
+      "sha256": "bf46ec79eaa0884fbe90d7c6e5ace1928a634814d8aa22864a0b2ce386612747"
+    },
+    {
+      "path": "docs/rebuild/receipts/ide-cycle9-verification.json",
+      "sha256": "22929a97e7efb30b89830c5c5c7afea715358fe1605a7ff933dced313f529894"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle9-architecture-verification.json",
+      "sha256": "f13a733e4f43356933ede32f515d0d8de92ee9499af535277bf03d77f2e694b3"
+    }
+  ],
+  "unresolved": [],
+  "findings": [
+    {
+      "severity": "open-evidence",
+      "criterion": "CHAT-008",
+      "finding": "Renderer ask-user ordering and stale/run guards pass focused tests; packaged Tauri/UIA/live provider evidence remains absent.",
+      "resolution": "Keep Partial and schedule packaged/live capture."
+    },
+    {
+      "severity": "open-evidence",
+      "criterion": "ADVSET-003",
+      "finding": "Catalog refresh now preserves last successful catalog, active attempt metadata, native lineage and unsupported/disappeared states; native persistence/live refresh remains unverified.",
+      "resolution": "Keep Blocked until native snapshot/package/live evidence."
+    },
+    {
+      "severity": "open-evidence",
+      "criterion": "RAG-001/RAG-002",
+      "finding": "Native source envelope and bounded indexer are audited, but Cargo/package/restart/format matrix evidence is absent.",
+      "resolution": "Keep Partial and run serialized native tests/package capture."
+    },
+    {
+      "severity": "open-evidence",
+      "criterion": "ROUTING-007",
+      "finding": "Pure renderer replay guard and compare tests pass; native Cargo/provider failure execution is absent.",
+      "resolution": "Keep Partial."
+    },
+    {
+      "severity": "open-evidence",
+      "criterion": "BROWSER-001/COMPUTER-001/IDE-001",
+      "finding": "Renderer/controller and path guard tests pass; packaged WebView2/UIA/OS capability/root grant evidence is absent.",
+      "resolution": "Keep Partial/Blocked."
+    }
+  ]
+}

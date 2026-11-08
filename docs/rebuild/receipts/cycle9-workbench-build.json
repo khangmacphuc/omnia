@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "renderer-build",
+  "recordedAt": "2026-11-08T14:36:00Z",
+  "command": "npm.cmd run build:renderer",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle9-workbench-build-output.txt",
+    "sha256": "3e83a2eb781a08817dad8a9479fb9c2eb5e99b1f6317e4f3d37ca9c5f52898b5"
+  },
+  "sourceFiles": [
+    {
+      "path": "src/rebuild/reference/reference-data.ts",
+      "sha256": "a676eb8c60e0531cab830dd49e1b2e4a5017203b2a359508bb2744e512e6c15b"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.tsx",
+      "sha256": "5934c5326b6e211c9b9ad5b0cc9af82236a230d72b1fcc2b9943951e3de52d36"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.css",
+      "sha256": "35f1d29b2fc040bdba4e7311ee0e8eaa165c74ac5db0f999d5945f3a2cfebabb"
+    },
+    {
+      "path": "src/rebuild/reference/reference-workbench.test.tsx",
+      "sha256": "a563ef296fdb0f046e3a06269c997c1ab89da9eea3c321a513d6b3f58a019969"
+    }
+  ]
+}

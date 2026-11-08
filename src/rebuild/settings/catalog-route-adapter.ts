@@ -9,7 +9,7 @@ export interface CatalogRouteIdentity {
   modelId: string;
 }
 
-export type CatalogRouteState = "available" | "stale" | "disappeared";
+export type CatalogRouteState = "available" | "stale" | "disappeared" | "unsupported";
 
 export interface CatalogSnapshot {
   profileId: string;
@@ -18,6 +18,7 @@ export interface CatalogSnapshot {
   snapshotId: string;
   snapshotHash: string;
   hashAlgorithm: "sha256" | "fnv1a32-fallback";
+  snapshotAuthority: "native" | "renderer";
   previousSnapshotId?: string;
 }
 
@@ -25,6 +26,7 @@ export interface CatalogRoute {
   identity: CatalogRouteIdentity;
   snapshotId: string;
   snapshotHash: string;
+  snapshotAuthority: CatalogSnapshot["snapshotAuthority"];
   model: DiscoveryModel;
   state: CatalogRouteState;
   reason: string | null;
@@ -85,6 +87,13 @@ function canonicalCatalog(catalog: DiscoveryCatalog): string {
   return JSON.stringify({ profileId, discoveredAt, models });
 }
 
+function nativeSnapshotLineage(catalog: DiscoveryCatalog): { id: string; hash: string } | null {
+  if (catalog.snapshotId == null && catalog.snapshotSha256 == null) return null;
+  if (typeof catalog.snapshotId !== "string" || !/^[A-Za-z0-9_.:-]{1,256}$/.test(catalog.snapshotId)) throw new Error("Invalid native snapshot id");
+  if (typeof catalog.snapshotSha256 !== "string" || !/^[a-f0-9]{64}$/i.test(catalog.snapshotSha256)) throw new Error("Invalid native snapshot hash");
+  return { id: catalog.snapshotId, hash: catalog.snapshotSha256.toLowerCase() };
+}
+
 function fnv1a32(value: string): string {
   let hash = 0x811c9dc5;
   for (let index = 0; index < value.length; index += 1) {
@@ -109,13 +118,15 @@ export async function createCatalogSnapshot(catalog: DiscoveryCatalog, previousS
   const canonical = canonicalCatalog(catalog);
   const parsed = JSON.parse(canonical) as Pick<DiscoveryCatalog, "profileId" | "discoveredAt" | "models">;
   const digest = await digestCanonical(canonical);
+  const native = nativeSnapshotLineage(catalog);
   return {
     profileId: parsed.profileId,
     discoveredAt: parsed.discoveredAt,
     models: parsed.models,
-    snapshotId: `catalog:${parsed.profileId}:${digest.hash.slice(0, 16)}`,
-    snapshotHash: digest.hash,
+    snapshotId: native?.id ?? `catalog:${parsed.profileId}:${digest.hash.slice(0, 16)}`,
+    snapshotHash: native?.hash ?? digest.hash,
     hashAlgorithm: digest.algorithm,
+    snapshotAuthority: native ? "native" : "renderer",
     ...(previousSnapshotId ? { previousSnapshotId: text(previousSnapshotId, "previous snapshot id", 256) } : {}),
   };
 }
@@ -139,9 +150,12 @@ export function reconcileCatalogRoutes(current: CatalogSnapshot, previous?: Cata
       identity,
       snapshotId: current.snapshotId,
       snapshotHash: current.snapshotHash,
+      snapshotAuthority: current.snapshotAuthority,
       model,
-      state: snapshotState,
-      reason: snapshotState === "stale" ? "Catalog snapshot is older than the freshness window." : null,
+      state: model.capabilities.streaming === false ? "unsupported" : snapshotState,
+      reason: model.capabilities.streaming === false
+        ? "The provider did not advertise streaming support for this model."
+        : snapshotState === "stale" ? "Catalog snapshot is older than the freshness window." : null,
     });
   }
   if (previous && previous.profileId === current.profileId) {
@@ -152,6 +166,7 @@ export function reconcileCatalogRoutes(current: CatalogSnapshot, previous?: Cata
         identity,
         snapshotId: previous.snapshotId,
         snapshotHash: previous.snapshotHash,
+        snapshotAuthority: previous.snapshotAuthority,
         model,
         state: "disappeared",
         reason: "The latest provider catalog no longer advertises this model.",
