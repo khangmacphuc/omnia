@@ -1,0 +1,20 @@
+Omnia rebuild cycle 9 publication evidence
+recordedAt=2026-11-08T15:55:00Z
+
+command: git -c credential.interactive=never -c http.version=HTTP/1.1 push --porcelain --progress https://khangmacphuc@github.com/khangmacphuc/omnia.git HEAD:codex/omnia-original-rebuild
+exitCode=0
+result: HEAD:refs/heads/codex/omnia-original-rebuild 5479ef236bc35616f70234fad6f25eb31c4e1e80..ebf59a0b6551f8f9320d030ded5298dbaac5dfa5
+
+command: git -c credential.interactive=never -c http.version=HTTP/1.1 push --porcelain https://khangmacphuc@github.com/khangmacphuc/omnia.git refs/tags/v0.1.0-rebuild-0009
+exitCode=0
+result: refs/tags/v0.1.0-rebuild-0009 -> refs/tags/v0.1.0-rebuild-0009
+
+command: git ls-remote origin refs/heads/codex/omnia-original-rebuild refs/tags/v0.1.0-rebuild-0009 refs/tags/v0.1.0-rebuild-0009^{}
+exitCode=0
+output:
+ebf59a0b6551f8f9320d030ded5298dbaac5dfa5	refs/heads/codex/omnia-original-rebuild
+a91eb2d1f725d13506f3cf788449ee3f017fc35b	refs/tags/v0.1.0-rebuild-0009
+ebf59a0b6551f8f9320d030ded5298dbaac5dfa5	refs/tags/v0.1.0-rebuild-0009^{}
+
+remoteCommit=ebf59a0b6551f8f9320d030ded5298dbaac5dfa5
+tagCommit=ebf59a0b6551f8f9320d030ded5298dbaac5dfa5

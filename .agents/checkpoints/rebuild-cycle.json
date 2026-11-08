@@ -1156,6 +1156,13 @@
       "path": "docs/rebuild/audit/REVIEW_CYCLE9_RENDERER_TESTS_20261108.json",
       "sha256": "070965ba663e9becb301afa00653c00a721ce94b0c5bab6931067f807c8dbed3",
       "kind": "test"
+    },
+    {
+      "stage": "publish",
+      "generation": 1,
+      "path": "docs/rebuild/receipts/cycle9-publication.json",
+      "sha256": "51b5f9f68d79531b4ddedb4b09ad6778315d2d387304e81d7890343d4c947e32",
+      "kind": "publication"
     }
   ],
   "checklist": {
