@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "stage": "plan",
+  "cycleId": "rebuild-0008",
+  "recordedAt": "2026-11-08T09:24:51.794Z",
+  "passBudget": 3,
+  "stopReason": "budget-exhausted",
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Bind native catalog and capability receipts to the three selected criteria and preserve explicit packaged/live gaps."
+    },
+    {
+      "index": 2,
+      "decision": "Serialize focused native suites and renderer/static gates with source-hash receipts before any milestone claim."
+    },
+    {
+      "index": 3,
+      "decision": "Keep ADVSET-003, ADVSET-001 and CHAT-008 open where packaged/live behavior is absent; define next evidence tasks rather than promoting preview to Done."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "c8-capability-native",
+      "owner": "/root",
+      "dependencies": [],
+      "criteria": [
+        "ADVSET-001"
+      ],
+      "inputs": [
+        "src-tauri/src/capability_runtime.rs",
+        "src-tauri/src/lib.rs"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/cycle8-native-capability.md"
+      ],
+      "acceptance": [
+        {
+          "metric": "native capability tests passed",
+          "operator": "eq",
+          "value": 14
+        },
+        {
+          "metric": "unsupported effort fail-closed",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "verification": [
+        {
+          "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features capability_runtime -- --nocapture",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "c8-catalog-native",
+      "owner": "/root",
+      "dependencies": [],
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "inputs": [
+        "src-tauri/src/storage.rs",
+        "src-tauri/src/provider_gateway.rs",
+        "docs/storage-schema.sql"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/cycle8-native-catalog.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "catalog persistence tests passed",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "metric": "provider gateway tests passed",
+          "operator": "gte",
+          "value": 64
+        }
+      ],
+      "verification": [
+        {
+          "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features provider_catalog_snapshot -- --nocapture",
+          "expectedExitCode": 0
+        },
+        {
+          "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features provider_gateway::tests:: -- --nocapture",
+          "expectedExitCode": 0
+        }
+      ]
+    },
+    {
+      "id": "c8-ask-user-boundary",
+      "owner": "/root",
+      "dependencies": [
+        "c8-capability-native"
+      ],
+      "criteria": [
+        "CHAT-008"
+      ],
+      "inputs": [
+        "src/rebuild/chat/ask-user-envelope.ts",
+        "src/rebuild/chat/chat-controller.ts",
+        "src-tauri/src/harness_bridge.rs"
+      ],
+      "outputs": [
+        "docs/rebuild/receipts/cycle8-ask-user-packaged-audit-20261108.json"
+      ],
+      "acceptance": [
+        {
+          "metric": "renderer ask-user tests passed",
+          "operator": "eq",
+          "value": 16
+        },
+        {
+          "metric": "packaged/live blocker count retained",
+          "operator": "gte",
+          "value": 3
+        }
+      ],
+      "verification": [
+        {
+          "command": "npm.cmd run test:rebuild-gates",
+          "expectedExitCode": 0
+        }
+      ]
+    }
+  ]
+}

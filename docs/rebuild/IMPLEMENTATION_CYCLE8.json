@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "stage": "implement",
+  "cycleId": "rebuild-0008",
+  "recordedAt": "2026-11-08T09:25:31.905Z",
+  "changes": [
+    {
+      "owner": "/root",
+      "summary": "Native capability negotiation now validates per-session model effort including xhigh/ultra, preserves rejected lineage and rejects tampered/stale scope changes.",
+      "criteria": [
+        "ADVSET-001"
+      ],
+      "sourceFiles": [
+        {
+          "path": "src-tauri/src/capability_runtime.rs",
+          "sha256": "dfe48a747298e24e85de3ca0943dcc3400635ba8306f890960a974dc723d5408"
+        },
+        {
+          "path": "src-tauri/src/lib.rs",
+          "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
+        }
+      ]
+    },
+    {
+      "owner": "/root",
+      "summary": "Provider catalog snapshots now persist immutable sanitized model JSON with SHA-256 integrity and bind current model lineage into prepared attempts.",
+      "criteria": [
+        "ADVSET-003"
+      ],
+      "sourceFiles": [
+        {
+          "path": "src-tauri/src/storage.rs",
+          "sha256": "3b58e2183dc99352d4176d81b44ee692885590998698ea527015991811e59583"
+        },
+        {
+          "path": "src-tauri/src/provider_gateway.rs",
+          "sha256": "7438900e520cc9698e5b94007cfda12c0040e5d2965ce2079c270a9a32a560b2"
+        },
+        {
+          "path": "docs/storage-schema.sql",
+          "sha256": "93ef8d1f22cafdf9ea3f476559248a256010b97325edc050a3cce5fab279367c"
+        }
+      ]
+    },
+    {
+      "owner": "/root",
+      "summary": "Ask-user renderer/native envelope remains typed and bounded with explicit packaged/live evidence boundary retained for unresolved delivery.",
+      "criteria": [
+        "CHAT-008"
+      ],
+      "sourceFiles": [
+        {
+          "path": "src/rebuild/chat/ask-user-envelope.ts",
+          "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+        },
+        {
+          "path": "src/rebuild/chat/chat-controller.ts",
+          "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+        },
+        {
+          "path": "src-tauri/src/harness_bridge.rs",
+          "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Packaged Tauri IPC and Windows UI automation have not been exercised in this cycle.",
+    "Live provider model refresh and ask-user execution remain unverified.",
+    "Renderer compare UI is not yet wired to durable native compare lineage."
+  ]
+}

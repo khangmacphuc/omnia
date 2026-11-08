@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "native",
+  "recordedAt": "2026-11-08T09:26:09.065Z",
+  "command": "cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features capability_runtime -- --nocapture",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle8-capability-test-output.txt",
+    "sha256": "04e48d38676e7a0201041749b1fe0f8dab40c55c0f417e7eb4a135ea051b47aa"
+  },
+  "sourceFiles": [
+    {
+      "path": "src-tauri/src/capability_runtime.rs",
+      "sha256": "dfe48a747298e24e85de3ca0943dcc3400635ba8306f890960a974dc723d5408"
+    },
+    {
+      "path": "src-tauri/src/lib.rs",
+      "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
+    },
+    {
+      "path": "src-tauri/src/storage.rs",
+      "sha256": "3b58e2183dc99352d4176d81b44ee692885590998698ea527015991811e59583"
+    }
+  ]
+}

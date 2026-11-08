@@ -4543,3 +4543,62 @@ END;
 -- Omnia schema v21: run-scoped retrieval receipt lifecycle.
 -- Retrieval evidence is append-only and remains bound to the exact prepared
 -- attempt. It carries hashes and bounded identifiers, never source content.
+
+-- Omnia schema v22: immutable provider catalog snapshots.
+--
+-- A successful provider discovery is retained as bounded, content-free
+-- provenance for routing and prepared-attempt lineage. The model descriptor
+-- JSON contains only the sanitized catalog projection produced by the native
+-- adapter; credentials, headers, URLs, cookies and response bodies never
+-- cross this boundary. Snapshots are immutable and deduplicated by profile
+-- and content hash, so a failed refresh leaves the last known catalog intact.
+CREATE TABLE provider_catalog_snapshots (
+    id TEXT PRIMARY KEY
+        CHECK (length(id) BETWEEN 17 AND 512
+               AND substr(id, 1, 17) = 'catalog_snapshot_'),
+    schema_version INTEGER NOT NULL CHECK (schema_version = 1),
+    provider_profile_id TEXT NOT NULL
+        REFERENCES provider_profiles(id) ON DELETE RESTRICT,
+    snapshot_sha256 TEXT NOT NULL CHECK (
+        length(snapshot_sha256) = 64
+        AND snapshot_sha256 = lower(snapshot_sha256)
+        AND snapshot_sha256 NOT GLOB '*[^0-9a-f]*'
+    ),
+    models_json TEXT NOT NULL CHECK (
+        json_valid(models_json)
+        AND json_type(models_json) = 'array'
+        AND length(CAST(models_json AS BLOB)) BETWEEN 2 AND 524288
+    ),
+    discovered_at_ms INTEGER NOT NULL CHECK (discovered_at_ms > 0)
+) STRICT;
+
+CREATE UNIQUE INDEX provider_catalog_snapshots_profile_hash_idx
+    ON provider_catalog_snapshots(provider_profile_id, snapshot_sha256);
+CREATE INDEX provider_catalog_snapshots_profile_idx
+    ON provider_catalog_snapshots(provider_profile_id, discovered_at_ms DESC, id DESC);
+
+CREATE TRIGGER provider_catalog_snapshots_scope_guard_insert
+BEFORE INSERT ON provider_catalog_snapshots
+BEGIN
+    SELECT CASE WHEN NOT EXISTS (
+        SELECT 1 FROM provider_profiles profile
+        WHERE profile.id = NEW.provider_profile_id
+          AND profile.deleted_at_ms IS NULL
+    ) THEN RAISE(ABORT, 'provider catalog snapshot profile scope conflict') END;
+    SELECT CASE WHEN NEW.snapshot_sha256 <> lower(NEW.snapshot_sha256)
+                      OR length(NEW.snapshot_sha256) <> 64
+                      OR NEW.snapshot_sha256 GLOB '*[^0-9a-f]*'
+        THEN RAISE(ABORT, 'provider catalog snapshot hash is invalid') END;
+END;
+
+CREATE TRIGGER provider_catalog_snapshots_immutable_update
+BEFORE UPDATE ON provider_catalog_snapshots
+BEGIN
+    SELECT RAISE(ABORT, 'provider catalog snapshots are immutable');
+END;
+
+CREATE TRIGGER provider_catalog_snapshots_immutable_delete
+BEFORE DELETE ON provider_catalog_snapshots
+BEGIN
+    SELECT RAISE(ABORT, 'provider catalog snapshots are immutable');
+END;

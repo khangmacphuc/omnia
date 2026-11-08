@@ -54,7 +54,7 @@ use crate::{
 #[cfg(test)]
 use crate::run_journal::{ProviderAttemptFailureEvidence, ProviderUsageSnapshot};
 
-const SCHEMA_VERSION: i64 = 21;
+const SCHEMA_VERSION: i64 = 22;
 const PHASE2_SCHEMA_MARKER: &str =
     "-- Omnia schema v3: encrypted content, indexing, frozen context, and citations.";
 const ATTACHMENT_DRAFT_SCHEMA_MARKER: &str =
@@ -93,6 +93,8 @@ const PROVIDER_DEFINITION_REVISION_SCHEMA_MARKER: &str =
     "-- Omnia schema v20: immutable provider-definition revisions.";
 const RUN_RETRIEVAL_RECEIPT_SCHEMA_MARKER: &str =
     "-- Omnia schema v21: run-scoped retrieval receipt lifecycle.";
+const PROVIDER_CATALOG_SCHEMA_MARKER: &str =
+    "-- Omnia schema v22: immutable provider catalog snapshots.";
 const PROVIDER_DEFINITION_REVISION_PREFIX: &str = "provider_definition_revision_";
 const DEFAULT_PROFILE_ID: &str = "profile_default";
 const DEFAULT_PROFILE_NAME: &str = "Local profile";
@@ -8751,6 +8753,81 @@ impl Storage {
         let connection = self.lock()?;
         operation(&connection)
     }
+
+    /// Persists one sanitized provider model catalog as an immutable native
+    /// snapshot. Re-discovering an identical catalog is idempotent; a failed
+    /// refresh never mutates or removes the previous snapshot.
+    pub(crate) fn persist_provider_catalog_snapshot(
+        &self,
+        provider_profile_id: &str,
+        snapshot_id: &str,
+        snapshot_sha256: &str,
+        models_json: &str,
+        discovered_at_ms: i64,
+    ) -> NativeResult<()> {
+        validate_id("providerProfileId", provider_profile_id, "provider_")?;
+        validate_id("catalogSnapshotId", snapshot_id, "catalog_snapshot_")?;
+        validate_sha256("catalogSnapshotSha256", snapshot_sha256)?;
+        if discovered_at_ms <= 0 {
+            return Err(NativeError::invalid(
+                "discoveredAtMs",
+                "must be a positive Unix timestamp",
+            ));
+        }
+        if models_json.len() > 524_288 {
+            return Err(NativeError::new(
+                "provider_catalog_too_large",
+                "The sanitized provider catalog exceeds the native storage bound",
+            ));
+        }
+        let value: serde_json::Value = serde_json::from_str(models_json).map_err(|_| {
+            NativeError::new(
+                "provider_catalog_invalid",
+                "The sanitized provider catalog is not valid JSON",
+            )
+        })?;
+        if !value.as_array().is_some_and(|models| !models.is_empty()) || models_json.len() < 2 {
+            return Err(NativeError::new(
+                "provider_catalog_invalid",
+                "The sanitized provider catalog must be a non-empty JSON array",
+            ));
+        }
+        if sha256_hex(models_json.as_bytes()) != snapshot_sha256 {
+            return Err(NativeError::new(
+                "provider_catalog_integrity_failed",
+                "The provider catalog hash does not match its canonical JSON",
+            ));
+        }
+        self.with_immediate_transaction(|transaction| {
+            transaction.execute(
+                "INSERT OR IGNORE INTO provider_catalog_snapshots (
+                    id, schema_version, provider_profile_id, snapshot_sha256,
+                    models_json, discovered_at_ms
+                 ) VALUES (?1, 1, ?2, ?3, ?4, ?5)",
+                params![
+                    snapshot_id,
+                    provider_profile_id,
+                    snapshot_sha256,
+                    models_json,
+                    discovered_at_ms
+                ],
+            )?;
+            let persisted: (String, String) = transaction.query_row(
+                "SELECT snapshot_sha256, models_json
+                 FROM provider_catalog_snapshots
+                 WHERE id = ?1 AND provider_profile_id = ?2",
+                params![snapshot_id, provider_profile_id],
+                |row| Ok((row.get(0)?, row.get(1)?)),
+            )?;
+            if persisted.0 != snapshot_sha256 || persisted.1 != models_json {
+                return Err(NativeError::new(
+                    "provider_catalog_integrity_failed",
+                    "An existing provider catalog snapshot disagrees with the requested content",
+                ));
+            }
+            Ok(())
+        })
+    }
 }
 
 /// Validates the only attachment-related values accepted from a renderer during
@@ -9107,6 +9184,9 @@ fn migrate(connection: &mut Connection) -> NativeResult<()> {
             if current_version < 21 {
                 apply_v21(transaction)?;
             }
+            if current_version < 22 {
+                apply_v22(transaction)?;
+            }
             transaction.pragma_update(None, "user_version", SCHEMA_VERSION)?;
             Ok(())
         })?;
@@ -9185,6 +9265,7 @@ fn apply_current_schema(transaction: &Transaction<'_>) -> NativeResult<()> {
     transaction.execute_batch(split_authoritative_root_receipt_schema(CURRENT_SCHEMA)?)?;
     transaction.execute_batch(split_authoritative_root_dependency_schema(CURRENT_SCHEMA)?)?;
     transaction.execute_batch(split_provider_definition_revision_schema(CURRENT_SCHEMA)?)?;
+    transaction.execute_batch(split_provider_catalog_schema(CURRENT_SCHEMA)?)?;
 
     let now = now_ms();
     transaction.execute(
@@ -10285,6 +10366,10 @@ fn apply_v21(transaction: &Transaction<'_>) -> NativeResult<()> {
                 "The run retrieval receipt storage migration marker is missing",
             )
         })?;
+    let retrieval_schema = retrieval_schema
+        .split_once(PROVIDER_CATALOG_SCHEMA_MARKER)
+        .map(|(schema, _)| schema)
+        .unwrap_or(retrieval_schema);
     // SQLite cannot alter a CHECK constraint in place. Rebuild the small
     // append-only event table so v20 databases accept the new receipt event
     // while preserving every existing event and all journal invariants.
@@ -10383,6 +10468,55 @@ fn apply_v21(transaction: &Transaction<'_>) -> NativeResult<()> {
              duration_ms, app_version
          ) VALUES ('0021_run_retrieval_receipts', ?1, ?2, ?2, 0, '0.20.0')",
         params![sha256_hex(retrieval_schema.as_bytes()), now],
+    )?;
+    Ok(())
+}
+
+fn apply_v22(transaction: &Transaction<'_>) -> NativeResult<()> {
+    const CURRENT_SCHEMA: &str = include_str!("../../docs/storage-schema.sql");
+    let catalog_schema = CURRENT_SCHEMA
+        .split_once(PROVIDER_CATALOG_SCHEMA_MARKER)
+        .map(|(_, schema)| schema)
+        .ok_or_else(|| {
+            NativeError::new(
+                "schema_definition_invalid",
+                "The provider catalog snapshot storage migration marker is missing",
+            )
+        })?;
+    transaction.execute_batch(catalog_schema)?;
+    for object in [
+        "provider_catalog_snapshots",
+        "provider_catalog_snapshots_profile_idx",
+        "provider_catalog_snapshots_immutable_update",
+        "provider_catalog_snapshots_immutable_delete",
+    ] {
+        let (kind, name) = if object.ends_with("_idx") {
+            ("index", object)
+        } else if object.ends_with("_update") || object.ends_with("_delete") {
+            ("trigger", object)
+        } else {
+            ("table", object)
+        };
+        if !schema_object_exists_in_transaction(transaction, kind, name)? {
+            return Err(NativeError::new(
+                "provider_catalog_schema_migration_failed",
+                "The provider catalog snapshot table was not installed completely",
+            ));
+        }
+    }
+    let now = now_ms();
+    transaction.execute(
+        "UPDATE schema_meta
+         SET schema_version = ?1, min_app_version = '0.21.0', updated_at_ms = ?2
+         WHERE singleton = 1",
+        params![22_i64, now],
+    )?;
+    transaction.execute(
+        "INSERT INTO schema_migrations (
+             migration_id, checksum_sha256, started_at_ms, completed_at_ms,
+             duration_ms, app_version
+         ) VALUES ('0022_provider_catalog_snapshots', ?1, ?2, ?2, 0, '0.21.0')",
+        params![sha256_hex(catalog_schema.as_bytes()), now],
     )?;
     Ok(())
 }
@@ -10854,13 +10988,29 @@ fn split_authoritative_root_dependency_schema(current_schema: &str) -> NativeRes
 }
 
 fn split_provider_definition_revision_schema(current_schema: &str) -> NativeResult<&str> {
-    current_schema
+    let schema = current_schema
         .split_once(PROVIDER_DEFINITION_REVISION_SCHEMA_MARKER)
         .map(|(_, schema)| schema)
         .ok_or_else(|| {
             NativeError::new(
                 "schema_definition_invalid",
                 "The provider-definition revision storage migration marker is missing",
+            )
+        })?;
+    Ok(schema
+        .split_once(RUN_RETRIEVAL_RECEIPT_SCHEMA_MARKER)
+        .map(|(schema, _)| schema)
+        .unwrap_or(schema))
+}
+
+fn split_provider_catalog_schema(current_schema: &str) -> NativeResult<&str> {
+    current_schema
+        .split_once(PROVIDER_CATALOG_SCHEMA_MARKER)
+        .map(|(_, schema)| schema)
+        .ok_or_else(|| {
+            NativeError::new(
+                "schema_definition_invalid",
+                "The provider catalog storage migration marker is missing",
             )
         })
 }
@@ -21084,6 +21234,22 @@ fn is_sha256_hex(value: &str) -> bool {
         && value == value.to_ascii_lowercase()
 }
 
+/// Validate a persisted SHA-256 integrity address at the native boundary.
+///
+/// Catalog snapshots are addressed by their digest and must never accept an
+/// alternate encoding or a silently truncated value. Keep this helper close to
+/// the existing representation predicate so every storage caller shares the
+/// same fail-closed rule and returns the standard field validation error.
+fn validate_sha256(field: &'static str, value: &str) -> NativeResult<()> {
+    if !is_sha256_hex(value) {
+        return Err(NativeError::invalid(
+            field,
+            "must be a 64-character lower-case hexadecimal SHA-256 digest",
+        ));
+    }
+    Ok(())
+}
+
 fn parse_run_control_operation_state(value: &str) -> NativeResult<RunControlOperationState> {
     match value {
         "resolved" => Ok(RunControlOperationState::Resolved),
@@ -22033,6 +22199,15 @@ fn persist_provider_attempt_lineage_fact(
         effective_effort: effective_effort.as_deref(),
         created_at_ms,
     })?;
+    if let Some((snapshot_id, snapshot_sha256)) = latest_provider_catalog_snapshot_for_model(
+        transaction,
+        &input.provider_profile_id,
+        &input.model,
+    )? {
+        fact.catalog_snapshot_id = Some(snapshot_id);
+        fact.catalog_snapshot_sha256 = Some(snapshot_sha256);
+        fact.lineage_sha256 = fact.compute_lineage_hash()?;
+    }
     if let Some(plan) = cache_plan {
         fact.cache_policy_revision_id = Some(plan.policy_revision_id);
         fact.cache_plan_id = Some(plan.plan_id);
@@ -22109,6 +22284,52 @@ fn persist_provider_attempt_lineage_fact(
         ],
     )?;
     Ok(())
+}
+
+/// Finds the newest immutable catalog that explicitly described the selected
+/// model. A stale or disappeared model therefore retains the historical
+/// snapshot it was prepared against, while a never-discovered model remains
+/// unbound and is handled by the normal provider dispatch guard.
+fn latest_provider_catalog_snapshot_for_model(
+    transaction: &Transaction<'_>,
+    provider_profile_id: &str,
+    model_id: &str,
+) -> NativeResult<Option<(String, String)>> {
+    let mut statement = transaction.prepare(
+        "SELECT id, snapshot_sha256, models_json
+         FROM provider_catalog_snapshots
+         WHERE provider_profile_id = ?1
+         ORDER BY discovered_at_ms DESC, id DESC
+         LIMIT 128",
+    )?;
+    let rows = statement.query_map([provider_profile_id], |row| {
+        Ok((
+            row.get::<_, String>(0)?,
+            row.get::<_, String>(1)?,
+            row.get::<_, String>(2)?,
+        ))
+    })?;
+    for row in rows {
+        let (id, hash, models_json) = row?;
+        let models: serde_json::Value = serde_json::from_str(&models_json).map_err(|_| {
+            NativeError::new(
+                "provider_catalog_integrity_failed",
+                "A persisted provider catalog snapshot is not valid JSON",
+            )
+        })?;
+        let contains_model = models.as_array().is_some_and(|entries| {
+            entries.iter().any(|entry| {
+                entry
+                    .get("id")
+                    .and_then(serde_json::Value::as_str)
+                    .is_some_and(|id| id == model_id)
+            })
+        });
+        if contains_model {
+            return Ok(Some((id, hash)));
+        }
+    }
+    Ok(None)
 }
 
 /// Persists one immutable, native-only provider-definition revision and
@@ -22926,6 +23147,83 @@ mod tests {
             lineage_context.1.as_deref(),
             Some(snapshot_state.1.as_str())
         );
+    }
+
+    #[test]
+    fn provider_catalog_snapshot_is_durable_and_bound_to_prepared_lineage() {
+        let storage = Storage::in_memory().expect("storage should initialize");
+        let provider = create_test_provider(&storage, "Catalog lineage provider");
+        let models_json = r#"[{"id":"prepared-model","displayName":"Prepared model","capabilities":{"streaming":true,"source":"live"}}]"#;
+        let snapshot_sha256 = sha256_hex(models_json.as_bytes());
+        let snapshot_id = format!("catalog_snapshot_{}", &snapshot_sha256[..32]);
+        storage
+            .persist_provider_catalog_snapshot(
+                &provider.id,
+                &snapshot_id,
+                &snapshot_sha256,
+                models_json,
+                now_ms(),
+            )
+            .expect("catalog snapshot should persist");
+        storage
+            .persist_provider_catalog_snapshot(
+                &provider.id,
+                &snapshot_id,
+                &snapshot_sha256,
+                models_json,
+                now_ms() + 1,
+            )
+            .expect("identical catalog snapshot should be idempotent");
+
+        let (_conversation_id, prepared) =
+            prepare_test_run(&storage, &provider.id, 'e', "Catalog lineage request");
+        let lineage: (Option<String>, Option<String>) = storage
+            .with_connection(|connection| {
+                connection
+                    .query_row(
+                        "SELECT catalog_snapshot_id, catalog_snapshot_sha256
+                         FROM provider_attempt_lineage_facts
+                         WHERE frozen_provider_input_id = ?1",
+                        [&prepared.provider_input.id],
+                        |row| Ok((row.get(0)?, row.get(1)?)),
+                    )
+                    .map_err(Into::into)
+            })
+            .expect("catalog lineage should be readable");
+        assert_eq!(lineage.0.as_deref(), Some(snapshot_id.as_str()));
+        assert_eq!(lineage.1.as_deref(), Some(snapshot_sha256.as_str()));
+
+        let count: i64 = storage
+            .with_connection(|connection| {
+                connection
+                    .query_row(
+                        "SELECT COUNT(*) FROM provider_catalog_snapshots
+                         WHERE provider_profile_id = ?1",
+                        [&provider.id],
+                        |row| row.get(0),
+                    )
+                    .map_err(Into::into)
+            })
+            .expect("catalog snapshot count should be readable");
+        assert_eq!(count, 1, "same content hash must not duplicate snapshots");
+    }
+
+    #[test]
+    fn provider_catalog_snapshot_rejects_hash_or_json_drift() {
+        let storage = Storage::in_memory().expect("storage should initialize");
+        let provider = create_test_provider(&storage, "Catalog integrity provider");
+        let models_json = r#"[{"id":"model-a"}]"#;
+        let snapshot_id = "catalog_snapshot_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        let error = storage
+            .persist_provider_catalog_snapshot(
+                &provider.id,
+                snapshot_id,
+                &"b".repeat(64),
+                models_json,
+                now_ms(),
+            )
+            .expect_err("mismatched catalog hash must fail closed");
+        assert_eq!(error.code, "provider_catalog_integrity_failed");
     }
 
     fn test_run_ids(suffix: char) -> (String, String, String, String) {

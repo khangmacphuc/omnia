@@ -1,0 +1,77 @@
+{
+  "auditedAt": "2026-11-08T15:37:19+07:00",
+  "results": [
+    {
+      "scope": "renderer test environment",
+      "exitCode": 0,
+      "observation": "2 files, 16 tests passed",
+      "command": "npm.cmd exec -- vitest run src/rebuild/chat/ask-user-envelope.test.ts src/rebuild/chat/chat-view.test.tsx --reporter=dot"
+    },
+    {
+      "scope": "static command boundary",
+      "exitCode": 0,
+      "observation": "189 renderer calls, 192 registered commands, 192 production definitions",
+      "command": "npm.cmd run check:command-parity"
+    },
+    {
+      "scope": "static ACL boundary",
+      "exitCode": 0,
+      "observation": "one main webview capability, 7 reviewed permissions",
+      "command": "npm.cmd run check:acl"
+    },
+    {
+      "scope": "packaged artifact availability",
+      "exitCode": 0,
+      "observation": "False",
+      "command": "Test-Path src-tauri/target/release/bundle/msi"
+    },
+    {
+      "scope": "packaged artifact availability",
+      "exitCode": 0,
+      "observation": "False",
+      "command": "Test-Path src-tauri/target/release/bundle/nsis"
+    }
+  ],
+  "blocked": [
+    "packaged Tauri command delivery not exercised",
+    "Windows UI capture not available",
+    "live provider ask-user execution not evidenced"
+  ],
+  "auditor": "/root/cycle8_packaged_ask_user",
+  "status": "partial",
+  "auditSha256": "7a9f9396c112821bf30362482aa0599e0ca0cd86e5e7d3b0742858bfc7d1c5a5",
+  "criterion": "CHAT-008",
+  "audit": "docs/rebuild/audit/CYCLE8_ASK_USER_PACKAGED_AUDIT_20261108.md",
+  "schemaVersion": 1,
+  "sourceFiles": [
+    {
+      "path": "src-tauri/src/harness_bridge.rs",
+      "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+    },
+    {
+      "path": "src-tauri/src/lib.rs",
+      "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
+    },
+    {
+      "path": "src-tauri/crates/omnia-harness/src/user_input.rs",
+      "sha256": "fda59cf273ab5eebabb29d23631bc8ffda47ad9a7c17d12d89175809ea21b6ff"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.tsx",
+      "sha256": "6ed807e0f4ce0987c19d33a98523715cd8e6544bc04b831aae66f654d7b085b7"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/chat-view.test.tsx",
+      "sha256": "9029b5b387bbf8687989a457e81d2e392beac72cf6e4207a4901ffd846ab68f3"
+    }
+  ],
+  "cycle": "rebuild-0008"
+}

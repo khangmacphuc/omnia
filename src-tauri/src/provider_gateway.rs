@@ -28,7 +28,7 @@ use crate::{
     },
     secret_store::SecretPurpose,
     state::AppState,
-    storage::{now_ms, ProviderProfileRecord},
+    storage::{now_ms, sha256_hex, ProviderProfileRecord},
 };
 
 const RUN_EVENT: &str = "omnia://run-event";
@@ -117,21 +117,21 @@ impl FrozenProviderInput {
 #[derive(Clone, Debug, Serialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct ProviderModel {
-    id: String,
-    display_name: String,
-    owned_by: Option<String>,
-    created_at: Option<i64>,
-    capabilities: ProviderModelCapabilities,
+    pub(crate) id: String,
+    pub(crate) display_name: String,
+    pub(crate) owned_by: Option<String>,
+    pub(crate) created_at: Option<i64>,
+    pub(crate) capabilities: ProviderModelCapabilities,
 }
 
 #[derive(Clone, Debug, Serialize, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct ProviderModelCapabilities {
-    streaming: bool,
-    tools: Option<bool>,
-    vision: Option<bool>,
-    reasoning: Option<bool>,
-    source: &'static str,
+    pub(crate) streaming: bool,
+    pub(crate) tools: Option<bool>,
+    pub(crate) vision: Option<bool>,
+    pub(crate) reasoning: Option<bool>,
+    pub(crate) source: &'static str,
 }
 
 #[derive(Debug, Serialize)]
@@ -140,6 +140,8 @@ pub struct ProviderModelList {
     profile_id: String,
     models: Vec<ProviderModel>,
     discovered_at: String,
+    snapshot_id: String,
+    snapshot_sha256: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -600,10 +602,28 @@ pub async fn provider_models_list(
     let models = discover_models(&state, &client, &profile)
         .await
         .map_err(native_provider_error)?;
+    let models_json = serde_json::to_string(&models).map_err(|_| {
+        NativeError::new(
+            "provider_catalog_serialization_failed",
+            "The sanitized provider catalog could not be serialized",
+        )
+    })?;
+    let snapshot_sha256 = sha256_hex(models_json.as_bytes());
+    let snapshot_id = format!("catalog_snapshot_{}", &snapshot_sha256[..32]);
+    let discovered_at_ms = now_ms();
+    state.storage.persist_provider_catalog_snapshot(
+        &profile.id,
+        &snapshot_id,
+        &snapshot_sha256,
+        &models_json,
+        discovered_at_ms,
+    )?;
     Ok(ProviderModelList {
         profile_id: profile.id,
         models,
         discovered_at: Utc::now().to_rfc3339(),
+        snapshot_id,
+        snapshot_sha256,
     })
 }
 

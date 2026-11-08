@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "author": "/root",
+  "reviewer": "/root/cycle8_independent_review",
+  "reviewedAt": "2026-11-08T09:27:12.855Z",
+  "scope": "Independent Cycle 8 source/evidence integrity review of native capability negotiation, provider catalog persistence/lineage and ask-user boundary. Review progression only; no product completion claim.",
+  "criteria": [
+    {
+      "id": "ADVSET-003",
+      "result": "passed",
+      "unresolved": []
+    },
+    {
+      "id": "ADVSET-001",
+      "result": "passed",
+      "unresolved": []
+    },
+    {
+      "id": "CHAT-008",
+      "result": "passed",
+      "unresolved": []
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src-tauri/src/capability_runtime.rs",
+      "sha256": "dfe48a747298e24e85de3ca0943dcc3400635ba8306f890960a974dc723d5408"
+    },
+    {
+      "path": "src-tauri/src/lib.rs",
+      "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
+    },
+    {
+      "path": "src-tauri/src/storage.rs",
+      "sha256": "3b58e2183dc99352d4176d81b44ee692885590998698ea527015991811e59583"
+    },
+    {
+      "path": "src-tauri/src/provider_gateway.rs",
+      "sha256": "7438900e520cc9698e5b94007cfda12c0040e5d2965ce2079c270a9a32a560b2"
+    },
+    {
+      "path": "docs/storage-schema.sql",
+      "sha256": "93ef8d1f22cafdf9ea3f476559248a256010b97325edc050a3cce5fab279367c"
+    },
+    {
+      "path": "src/rebuild/chat/ask-user-envelope.ts",
+      "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
+    },
+    {
+      "path": "src/rebuild/chat/chat-controller.ts",
+      "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
+    },
+    {
+      "path": "src-tauri/src/harness_bridge.rs",
+      "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
+    }
+  ],
+  "testEvidence": [
+    {
+      "path": "docs/rebuild/receipts/cycle8-native-capability-test.json",
+      "sha256": "601b1a6cb35b7ea545fffa3cc35b1bfc76cad7589a2ffafefc5c09a7c185625a"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle8-native-catalog-tests.json",
+      "sha256": "1d80656bfb7dc5c270c7c361e78dbd27b78dccd9de97f8f7ac04d1ddcbde1b4b"
+    }
+  ],
+  "observations": [
+    "Native capability receipt is bound to current source and reports 14/14 native tests passing, including xhigh/ultra and tamper/stale cases.",
+    "Native catalog receipt is bound to current storage/provider source and reports 64 provider gateway tests plus 2 snapshot lineage tests passing.",
+    "Ask-user source remains bounded and typed; packaged Tauri, Windows UI and live provider delivery are explicitly outside evidence and remain open in DoD.",
+    "Cycle review checks direct source hashes and zero-exit native command receipts; no source or receipt mismatch was found in this review."
+  ],
+  "negativeCases": [
+    "Unsupported effort and ultra without dynamic workflow fail closed.",
+    "Catalog hash/JSON drift, immutable-row mutation and unknown model lineage are rejected.",
+    "Ask-user stale/duplicate/unknown/cancel semantics remain covered by existing renderer/native receipts."
+  ],
+  "claimBoundaries": [
+    "No packaged Tauri IPC invocation, Windows UI automation or live provider account run was exercised.",
+    "ADVSET-003 and CHAT-008 must remain incomplete in DoD until packaged/live behavior is evidenced.",
+    "Review approval is evidence integrity only, not a 100% product completion claim."
+  ],
+  "findings": [],
+  "unresolved": []
+}

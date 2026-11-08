@@ -139,3 +139,11 @@ verified against GitHub. The milestone preserves the open matrix rather than
 claiming product completion: **0 Done / 24 Partial / 7 Blocked / 209 Planned**.
 The next cycle starts with native catalog snapshot persistence and route lineage,
 native effort capability receipts, and packaged/live ask-user evidence.
+
+## Cycle 0008 evidence update (2026-11-08)
+
+Cycle `rebuild-0008` completed its research, synthesis, plan, implementation, native verification and independent review gates for `ADVSET-003`, `ADVSET-001` and `CHAT-008`. New OSS research is recorded in `docs/rebuild/research/` with 23 novel path-level entries and pinned snapshot hashes. Native capability negotiation passed **14/14** tests, including `xhigh`, `ultra`, dynamic workflow gating, stale revision, tamper detection and journal restore. Native catalog/provider verification passed **64/64** provider gateway tests plus **2/2** durable snapshot/lineage tests. Renderer gates passed **32/32**, architecture guard passed, app typecheck and renderer build passed.
+
+The independent Cycle 8 review is `docs/rebuild/audit/REVIEW_CYCLE8_20261108.json`; it approves evidence integrity and keeps product boundaries explicit. `ADVSET-001` now has native capability evidence but remains incomplete for packaged/live delivery. `ADVSET-003` remains incomplete because packaged IPC, failed-refresh preservation, running-attempt snapshot retention and live refresh are not evidenced. `CHAT-008` remains incomplete because packaged Tauri command/UI and live provider ask-user execution are not evidenced. DoD remains **0 Done / 24 Partial / 7 Blocked / 209 Planned (240 total)**.
+
+The cycle is at the document stage pending canonical reread and release consistency checks. No preview, source test or native harness result is promoted to packaged Windows or live-provider completion.

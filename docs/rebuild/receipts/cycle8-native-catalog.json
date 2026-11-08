@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "cycle": "rebuild-0008",
+  "criterion": "ADVSET-003",
+  "slice": "native-provider-catalog-persistence-and-lineage",
+  "status": "native-tests-verified-runtime-pending",
+  "author": "/root/cycle8_native_catalog",
+  "files": [
+    "docs/storage-schema.sql",
+    "src-tauri/src/storage.rs",
+    "src-tauri/src/provider_gateway.rs"
+  ],
+  "sourceSha256": {
+    "docs/storage-schema.sql": "93ef8d1f22cafdf9ea3f476559248a256010b97325edc050a3cce5fab279367c",
+    "src-tauri/src/storage.rs": "3b58e2183dc99352d4176d81b44ee692885590998698ea527015991811e59583",
+    "src-tauri/src/provider_gateway.rs": "7438900e520cc9698e5b94007cfda12c0040e5d2965ce2079c270a9a32a560b2"
+  },
+  "implementation": [
+    "Schema v22 adds immutable provider_catalog_snapshots with provider scope, content hash, bounded sanitized models JSON, timestamp and append-only triggers.",
+    "provider_models_list persists successful sanitized discovery idempotently and returns deterministic snapshotId plus snapshotSha256.",
+    "Prepared provider lineage binds the newest persisted snapshot that explicitly contains the selected model; unknown models remain unbound and dispatch remains fail-closed.",
+    "Migration split boundaries prevent v20/v21 upgrade paths from installing v22 objects before the v22 migration."
+  ],
+  "verification": [
+    {"command":"cargo fmt --manifest-path src-tauri/Cargo.toml -- --check","exitCode":0,"result":"pass"},
+    {"command":"git diff --check -- docs/storage-schema.sql src-tauri/src/storage.rs src-tauri/src/provider_gateway.rs","exitCode":0,"result":"pass"},
+    {"command":"cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features provider_gateway::tests:: -- --nocapture","exitCode":0,"result":"64 passed, 0 failed, 667 filtered out; native provider gateway suite"},
+    {"command":"cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features provider_catalog_snapshot -- --nocapture","exitCode":0,"result":"2 passed, 0 failed, 729 filtered out; native durable snapshot and hash-drift suite"},
+    {"command":"cargo test --manifest-path src-tauri/Cargo.toml -p omnia-desktop --test omnia_native --all-features migrations_and_health_are_available -- --nocapture","exitCode":0,"result":"1 passed, 0 failed, 730 filtered out; schema migration/health smoke"}
+  ],
+  "negativeCases": [
+    "Hash mismatch is rejected before insertion.",
+    "Malformed/non-array/empty/oversized catalog JSON is rejected.",
+    "Identical snapshot content is idempotent and does not duplicate rows.",
+    "Existing snapshot rows are immutable via SQLite triggers.",
+    "No matching model leaves lineage catalog fields unset rather than inventing a route."
+  ],
+  "claimBoundary": "This receipt now proves source, formatting and the two focused native test suites. Packaged desktop IPC, live provider refresh, failed-refresh preservation, running-attempt snapshot retention and disappeared-model reporting remain unproven; ADVSET-003 must remain Partial until those runtime boundaries have direct evidence."
+}

@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "cycle": "rebuild-0008",
+  "stage": "research",
+  "passBudget": 3,
+  "stopReason": "budget-exhausted",
+  "passes": [
+    {
+      "index": 1,
+      "decision": "Select five new sources spanning computer harness, multi-agent orchestration, IDE state loops, skill governance and dynamic MCP retrieval."
+    },
+    {
+      "index": 2,
+      "decision": "Reject live embedding and vendoring; retain original Omnia contracts with provenance and permission boundaries."
+    },
+    {
+      "index": 3,
+      "decision": "Bind findings to ADVSET-003, ADVSET-001 and CHAT-008 while preserving native/live evidence limits."
+    }
+  ],
+  "querySet": [
+    "GitHub open source agent harness everything super power pro max browser computer",
+    "GitHub open source IDE workspace agent protocol everything super power max",
+    "GitHub open source MCP skills workflow memory RAG everything super power pro max"
+  ],
+  "sources": [
+    {
+      "sourceId": "new-open-computer-use-cycle8-20261108",
+      "canonicalRepo": "https://github.com/opensymph/open-computer-use",
+      "revision": "e551c13e7082ce4c097234137582fbf4a1bc647a",
+      "license": "MIT",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "cbd3be5f2f32f5b033a04819f93757fc2ee89c1d3c71e21a7784f808abd3d139",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/opensymph__open-computer-use__README.md",
+            "sha256": "cbd3be5f2f32f5b033a04819f93757fc2ee89c1d3c71e21a7784f808abd3d139"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "87fca66dc41f3b74c3a09cd14a3f80e3c0ce4c150927f34479690b6829026a0c",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/opensymph__open-computer-use__LICENSE",
+            "sha256": "87fca66dc41f3b74c3a09cd14a3f80e3c0ce4c150927f34479690b6829026a0c"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strengths": [
+        "Accessibility-tree observations with platform-specific actions",
+        "Local-first Windows/macOS/Linux MCP surface"
+      ],
+      "weaknesses": [
+        "MCP source is not packaged Omnia evidence",
+        "Screenshot fallback can be less deterministic than structured UIA"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md"
+      ]
+    },
+    {
+      "sourceId": "new-openharness-cycle8-20261108",
+      "canonicalRepo": "https://github.com/autonomous-ai/openharness",
+      "revision": "d8fda0c681a61470d12daffaccdb6d964c5f39b5",
+      "license": "MIT",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "6db5f5aa1c33e2caebf7e9ce48f36af6d8f37d0b4a26c7172789413984884bce",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/autonomous-ai__openharness__README.md",
+            "sha256": "6db5f5aa1c33e2caebf7e9ce48f36af6d8f37d0b4a26c7172789413984884bce"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c534961655bcd54bc25655accd21e6cd936ad6191751b16dd8ba8e23472babda",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/autonomous-ai__openharness__LICENSE",
+            "sha256": "c534961655bcd54bc25655accd21e6cd936ad6191751b16dd8ba8e23472babda"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strengths": [
+        "Side-by-side agents and machines",
+        "Keyboard-first attention routing and remapping"
+      ],
+      "weaknesses": [
+        "Remote machine orchestration needs strong permission and trust boundaries",
+        "README does not prove Omnia runtime"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md"
+      ]
+    },
+    {
+      "sourceId": "new-async-ide-cycle8-20261108",
+      "canonicalRepo": "https://github.com/x-man-git/Async",
+      "revision": "2c18a43c0711d1f991a6eabd913831f9c82794b0",
+      "license": "Apache-2.0",
+      "query": "GitHub open source IDE workspace agent protocol everything super power max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "792ed314795c6d847bf2a7fe063c9c4c0f5f0962e6c75daadc45dd5c093e4f55",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/x-man-git__Async__README.md",
+            "sha256": "792ed314795c6d847bf2a7fe063c9c4c0f5f0962e6c75daadc45dd5c093e4f55"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/x-man-git__Async__LICENSE",
+            "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strengths": [
+        "Agent-first desktop shell with editor/Git/terminal",
+        "Visible Think-Plan-Execute-Observe loop with steering"
+      ],
+      "weaknesses": [
+        "Electron/Monaco architecture is not Omnia Tauri proof",
+        "Reference UI cannot be copied"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md"
+      ]
+    },
+    {
+      "sourceId": "new-superskill-cycle8-20261108",
+      "canonicalRepo": "https://github.com/permanu/superskill",
+      "revision": "147322324b072b6d52d04c72259c6d1f73ae283f",
+      "license": "Apache-2.0",
+      "query": "GitHub open source MCP skills workflow memory everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "415efe26d3609c72c9696ae7a51f1a3a1406cc1914ae88470e063d84c1fdf658",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/permanu__superskill__README.md",
+            "sha256": "415efe26d3609c72c9696ae7a51f1a3a1406cc1914ae88470e063d84c1fdf658"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/permanu__superskill__LICENSE",
+            "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strengths": [
+        "Project-jailed vault with derived SQLite FTS/graph",
+        "Deterministic rule planning and evidence gates"
+      ],
+      "weaknesses": [
+        "Node/SQLite implementation is not Omnia native proof",
+        "Private trajectory handling needs explicit consent and portability policy"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md"
+      ]
+    },
+    {
+      "sourceId": "new-mcp-skillset-cycle8-20261108",
+      "canonicalRepo": "https://github.com/bobmatnyc/mcp-skillset",
+      "revision": "f99a26ce71171bd881142ac8bc3a5a4d24f94d8b",
+      "license": "MIT",
+      "query": "GitHub open source MCP skills workflow memory RAG everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "paths": [
+        {
+          "path": "README.md",
+          "sha256": "b4813f8a56b07779f86f3a44bb4e629a87ed126ff27fd2835ce3272cb698239b",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/bobmatnyc__mcp-skillset__README.md",
+            "sha256": "b4813f8a56b07779f86f3a44bb4e629a87ed126ff27fd2835ce3272cb698239b"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "cead05085657a143296fb1bfb641880d3e337a6aeccba512b5896123157f5c7f",
+          "sourceEvidence": {
+            "path": "docs/rebuild/research/snapshots/cycle8/bobmatnyc__mcp-skillset__LICENSE",
+            "sha256": "cead05085657a143296fb1bfb641880d3e337a6aeccba512b5896123157f5c7f"
+          }
+        }
+      ],
+      "novelty": "New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strengths": [
+        "Hybrid vector plus graph skill discovery",
+        "On-demand loading and prompt-injection validation"
+      ],
+      "weaknesses": [
+        "Python MCP source is not Windows packaged evidence",
+        "External skill repositories remain untrusted inputs"
+      ],
+      "decision": "apply-as-reference",
+      "evidence": [
+        "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "README/license source inspection does not prove packaged Windows or live-provider behavior.",
+    "No credentials, profiles, cookies or arbitrary downloaded scripts were used."
+  ]
+}

@@ -157,3 +157,7 @@ provider evidence. Therefore `ADVSET-003` remains Blocked, `ADVSET-001` remains
 Partial and `CHAT-008` remains Partial. These are explicit blockers, not preview
 claims. The next cycle must add native persistence/capability receipts or retain
 the blocker with a fresh attempt and next action.
+
+## Cycle 0008 evidence update
+
+Native capability and provider catalog contracts now have current Rust harness receipts. Capability negotiation accepts the eight requested effort policies with `ultra` gated by dynamic workflow support, and catalog snapshots are immutable, hashed and bound to prepared provider lineage. These receipts establish native source behavior only. The packaged Tauri/WebView2, Windows UI automation and live-provider boundary remains explicit in the DoD and must be tested before any criterion is marked Done.

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "cycle": "rebuild-0008",
+  "stage": "audit",
+  "createdAt": "2026-11-08T08:25:00Z",
+  "author": "/root",
+  "criteria": [
+    "ADVSET-003",
+    "ADVSET-001",
+    "CHAT-008"
+  ],
+  "statusCounts": {
+    "done": 0,
+    "partial": 24,
+    "blocked": 7,
+    "planned": 209,
+    "in_progress": 0,
+    "total": 240
+  },
+  "findings": [
+    {
+      "criterion": "ADVSET-003",
+      "status": "blocked",
+      "gap": "Native provider catalog snapshots are not durably persisted or bound to prepared-attempt lineage; packaged/live refresh evidence is absent.",
+      "evidence": [
+        "src/rebuild/settings/catalog-route-adapter.ts",
+        "src/rebuild/settings/catalog-route-adapter.test.ts",
+        "src-tauri/src/provider_gateway.rs",
+        "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md"
+      ],
+      "nextAction": "Add native snapshot journal and bind snapshot id/hash to prepared attempts; run native and packaged refresh preservation checks."
+    },
+    {
+      "criterion": "ADVSET-001",
+      "status": "partial",
+      "gap": "Renderer effort resolution is tested, but native capability negotiation, per-session runtime receipt and explicit xhigh/ultra adapter proof are absent.",
+      "evidence": [
+        "src/rebuild/settings/effort-resolution.ts",
+        "src/rebuild/settings/effort-resolution.test.ts",
+        "src-tauri/src/provider_gateway.rs",
+        "docs/rebuild/audit/NATIVE_CAPABILITY_AUDIT_CYCLE7_20261108.md"
+      ],
+      "nextAction": "Add capability negotiation receipt and per-session runtime lineage with fail-closed unsupported values."
+    },
+    {
+      "criterion": "CHAT-008",
+      "status": "partial",
+      "gap": "Native broker and renderer envelope are verified, but packaged Tauri command/UI delivery and live provider ask-user execution remain unproven.",
+      "evidence": [
+        "src/rebuild/chat/ask-user-envelope.ts",
+        "src/rebuild/chat/ask-user-envelope.test.ts",
+        "src-tauri/crates/omnia-harness/src/user_input.rs",
+        "src-tauri/src/harness_bridge.rs"
+      ],
+      "nextAction": "Exercise packaged command/UI boundary and provider-neutral runtime harness, preserving explicit unavailable state when live provider is not configured."
+    }
+  ],
+  "constraints": [
+    "No legacy renderer imports or UI replication",
+    "No credentials, profiles, cookies or private chat history",
+    "Cargo builds serialized",
+    "Preview/mock evidence cannot promote native/live claims"
+  ]
+}

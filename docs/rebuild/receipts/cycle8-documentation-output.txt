@@ -1,0 +1,3 @@
+node scripts/rebuild/cycle.mjs --validate
+result: passed
+stage: document

@@ -169,3 +169,25 @@ persistence, native `xhigh`/`ultra` adapter behavior, packaged Windows ask-user
 UI and live provider execution remain open in the DoD. A stale catalog model can
 remain a requested default for continuity, but dispatch remains guarded until a
 fresh route is available.
+
+### Rebuild cycle 0008 status
+
+Cycle 0008 adds a new research and native evidence loop for the three highest
+current gaps. The cycle records 23 novel path-level OSS research entries with
+pinned snapshots, a typed synthesis and a three-pass atomic plan. Native
+capability negotiation now has a durable per-session receipt chain and passes
+**14/14** focused `omnia_native` tests, including `xhigh`, `ultra`, dynamic
+workflow gating, stale revision and tamper rejection. Provider catalog
+snapshots are immutable, hashed and bound to prepared-attempt lineage; the
+provider gateway suite passes **64/64** tests and the catalog persistence suite
+passes **2/2**.
+
+The workflow and renderer gates also pass: **32/32** rebuild gate tests,
+architecture/import guard, app typecheck, renderer build and cycle validation.
+An independent review is recorded in
+[`docs/rebuild/audit/REVIEW_CYCLE8_20261108.json`](docs/rebuild/audit/REVIEW_CYCLE8_20261108.json).
+These receipts prove source and provider-neutral native behavior. Packaged
+Tauri IPC, Windows UI automation, live provider refresh/ask-user execution,
+running-attempt snapshot retention and failed-refresh preservation remain
+explicitly open in the DoD; the cycle keeps the matrix at **0/240 Done, 24
+Partial, 7 Blocked and 209 Planned**.

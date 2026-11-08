@@ -20,15 +20,15 @@
     },
     {
       "path": "src/main.tsx",
-      "sha256": "417de67989ac71cc4299d3b4766d656c020ceff3901e9e47a7b57b7263d04398"
+      "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
     },
     {
       "path": "src/rebuild/rebuild-app.tsx",
-      "sha256": "c140d92c64981dc9697eb5621f7caccb1c2a11ccfcc6f502e6b76d3784874189"
+      "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
     },
     {
       "path": "src/rebuild/rebuild-app.css",
-      "sha256": "b9a6a05807da9825ed8ebbd1cd2e1aeb5552e836b18c477ff611df212676e22e"
+      "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
     }
   ]
 }

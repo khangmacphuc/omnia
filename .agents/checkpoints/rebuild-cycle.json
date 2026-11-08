@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "rebuild-0007",
+  "id": "rebuild-0008",
   "author": "/root",
   "criteria": [
     "ADVSET-003",
@@ -8,75 +8,69 @@
     "CHAT-008"
   ],
   "revision": null,
-  "createdAt": "2026-11-08T06:46:38.998Z",
-  "status": "completed",
-  "stage": "next",
+  "createdAt": "2026-11-08T08:23:19.383Z",
+  "status": "active",
+  "stage": "publish",
   "generation": 1,
   "history": [
     {
       "stage": "resume",
       "generation": 1,
-      "at": "2026-11-08T06:46:38.998Z",
+      "at": "2026-11-08T08:23:19.383Z",
       "event": "started"
     },
     {
       "stage": "audit",
       "generation": 1,
-      "at": "2026-11-08T06:46:55.474Z",
+      "at": "2026-11-08T08:24:09.293Z",
       "event": "advance"
     },
     {
       "stage": "research",
       "generation": 1,
-      "at": "2026-11-08T06:47:30.552Z",
+      "at": "2026-11-08T08:32:39.241Z",
       "event": "advance"
     },
     {
       "stage": "synthesize",
       "generation": 1,
-      "at": "2026-11-08T06:57:52.092Z",
+      "at": "2026-11-08T09:22:13.024Z",
       "event": "advance"
     },
     {
       "stage": "plan",
       "generation": 1,
-      "at": "2026-11-08T07:00:25.875Z",
+      "at": "2026-11-08T09:23:58.009Z",
       "event": "advance"
     },
     {
       "stage": "implement",
       "generation": 1,
-      "at": "2026-11-08T07:03:01.204Z",
+      "at": "2026-11-08T09:24:52.018Z",
       "event": "advance"
     },
     {
       "stage": "verify",
       "generation": 1,
-      "at": "2026-11-08T07:29:38.742Z",
+      "at": "2026-11-08T09:25:31.982Z",
       "event": "advance"
     },
     {
       "stage": "review",
       "generation": 1,
-      "at": "2026-11-08T07:30:00.808Z",
+      "at": "2026-11-08T09:26:09.173Z",
       "event": "advance"
     },
     {
       "stage": "document",
       "generation": 1,
-      "at": "2026-11-08T07:46:21.941Z",
+      "at": "2026-11-08T09:29:28.251Z",
       "event": "advance"
     },
     {
       "stage": "publish",
       "generation": 1,
-      "at": "2026-11-08T07:53:21.973Z",
-      "event": "advance"
-    },
-    {
-      "stage": "next",
-      "generation": 1,
-      "at": "2026-11-08T08:15:09.325Z",
+      "at": "2026-11-08T09:32:00.434Z",
       "event": "advance"
     }
   ],
@@ -92,7 +86,7 @@
       },
       {
         "path": "docs/rebuild/GOAL.md",
-        "sha256": "c168ea23eb684ea99d4fbe1560d155a1266e03e84220a7f9e7c8d6515d1697bf"
+        "sha256": "3d29db9e65606969bc1219f35e6be6daebfe326702d2ed622994ccf8dd982bcf"
       },
       {
         "path": "docs/rebuild/WORKFLOW.md",
@@ -100,19 +94,19 @@
       },
       {
         "path": "docs/rebuild/SPEC.md",
-        "sha256": "fcacb907aa71f709d79c2e9e35f60134a63f28591c007006e5973eb0f847cfd1"
+        "sha256": "c137ad2c96cfe3b76e0350d8c21c5a6bff8459768603b473a0b5ef81ce398e2c"
       },
       {
         "path": "docs/rebuild/DOD.json",
-        "sha256": "2a074c6a701081fdebe22070cdeb1c69c434fb379e4f696c22f163aa835c9764"
+        "sha256": "9ac236b9c407c65ee97c98ca7251c789b79fb3ecdc6c74e094d80b692ce49d58"
       },
       {
         "path": "docs/rebuild/SOURCE_REGISTER.json",
-        "sha256": "9ce90cc65486ea900b86b71265920bf56dd14c64e184fb0eaf53c2db1d01a789"
+        "sha256": "7d899534d9719c0e15a54abd65e7ad3425d5750189142273cce477038f073914"
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "84ef5ca8624c1fedce2a9d50506286b747290a8e640777d4bab27b1c83e30ebb"
+        "sha256": "1477a9ad3d7cb9ecc37f01c0e68a3dff83886e9bdbfe959c64b2f090cfd4f090"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
@@ -138,19 +132,19 @@
       },
       {
         "path": "docs/rebuild/SPEC.md",
-        "sha256": "c137ad2c96cfe3b76e0350d8c21c5a6bff8459768603b473a0b5ef81ce398e2c"
+        "sha256": "2b9f2a79474e5d7c8700783982a2795c8dc3b5e6bacb9ce03220836e3912f62c"
       },
       {
         "path": "docs/rebuild/DOD.json",
-        "sha256": "a53df33b0f681c136fd5a15f1729a11a0957499d1fac3b2855489f3df2272588"
+        "sha256": "9ac236b9c407c65ee97c98ca7251c789b79fb3ecdc6c74e094d80b692ce49d58"
       },
       {
         "path": "docs/rebuild/SOURCE_REGISTER.json",
-        "sha256": "9ce90cc65486ea900b86b71265920bf56dd14c64e184fb0eaf53c2db1d01a789"
+        "sha256": "7d899534d9719c0e15a54abd65e7ad3425d5750189142273cce477038f073914"
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "1477a9ad3d7cb9ecc37f01c0e68a3dff83886e9bdbfe959c64b2f090cfd4f090"
+        "sha256": "51760b30228bb922c4c6ef24c5814d7e4a90a05959a6eee1ed7f6e0030558736"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
@@ -452,141 +446,643 @@
       "revision": "5359a3330383137dfdf8897ba1d93d943fec4027",
       "path": "src/languages/register.all.ts",
       "sha256": "de2e073bb967d66e295116512e69e9c6d162f51ae077d63e6e83c1aa17ed89d3"
+    },
+    {
+      "sourceId": "new-litellm-routing-cycle7-20261108",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "LICENSE",
+      "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273"
+    },
+    {
+      "sourceId": "new-litellm-routing-cycle7-20261108",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "README.md",
+      "sha256": "374d8fdb228a6d528cdcf075aa807b43c5cec7669ee3adf0b21aedbbafd90e7b"
+    },
+    {
+      "sourceId": "new-litellm-routing-cycle7-20261108",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "litellm/router.py",
+      "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8"
+    },
+    {
+      "sourceId": "new-litellm-routing-cycle7-20261108",
+      "canonicalRepo": "https://github.com/BerriAI/litellm",
+      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
+      "path": "litellm/router_strategy/lowest_latency.py",
+      "sha256": "4c4b703ed7ab5f9986405625fbcd07b6607f36e1908d5be1a4d6654d4e56d05b"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "LICENSE",
+      "sha256": "398f82aee5bd500f39ec1cc84e2b878a34a78be1bc1e6da038f7e73a758bca0a"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/agent/abstract.py",
+      "sha256": "a9c6706a17a6136f0685a9b1af3c5750ba7cb58c699cac6a90b2f98ca667db86"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/models/_abstract.py",
+      "sha256": "1ffb7dec8c323eaa18cdafb48ca40648232ec8bde0709182acff727e72c0d433"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/models/fallback.py",
+      "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "docs/harness/approval-reviewer.md",
+      "sha256": "39dac7d85bd63ca1f2c6948bdec8bc19f02d3493f4f8038019212ad508755da1"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "src/pydantic_ai_harness/pydantic_ai_harness/ask_user/_toolset.py",
+      "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "src/pydantic_ai_harness/pydantic_ai_harness/approval_reviewer/_capability.py",
+      "sha256": "b3f944a8d055b76120d003ac00abd9972e2a8af02ea753d8bf15e470dc669dd2"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "pydantic_ai_slim/pydantic_ai/toolsets/approval_required.py",
+      "sha256": "cf2606131d95aa9acb79dd7a397835416afcd6b9c00740a60334dec9027d038a"
+    },
+    {
+      "sourceId": "new-pydantic-ai-workflow-cycle7-20261108",
+      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
+      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
+      "path": "examples/pydantic_ai_examples/ag_ui/api/tool_approval.py",
+      "sha256": "d53ed0053b0a35086013576ef42aa5dcb489e69d5bfea7d78fa20f1bb9a5b992"
     }
   ],
   "research": [
     {
-      "canonicalRepo": "https://github.com/BerriAI/litellm",
-      "revision": "cb7c3a65c6e480fc26e97617fca5ec9b76fd0979",
-      "path": "litellm/router.py",
-      "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8",
-      "sourceEvidence": {
-        "path": "docs/rebuild/research/snapshots/cycle7/litellm/router.py",
-        "sha256": "9ac88f94eb8a3f0b82bf7a88c3afaa428f8f0f15eb4820c531c6a4c7cc780ac8"
-      },
+      "sourceId": "new-open-computer-use-cycle8-20261108",
+      "canonicalRepo": "https://github.com/opensymph/open-computer-use",
+      "revision": "e551c13e7082ce4c097234137582fbf4a1bc647a",
+      "path": "README.md",
+      "sha256": "cbd3be5f2f32f5b033a04819f93757fc2ee89c1d3c71e21a7784f808abd3d139",
       "license": "MIT",
-      "query": "open source everything super power pro max model routing provider catalog retries cooldown latency routing architecture",
-      "retrievedAt": "2026-11-08T06:54:40.18Z",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
       "decision": "apply",
-      "observation": "Router makes model alias identity, retry, cooldown, fallback, health and bounded routing strategy explicit.",
-      "strength": "Typed routing and bounded samples are inspectable.",
-      "weakness": "Python gateway and live provider behavior are not Omnia native proof.",
-      "impact": "Use stable profile/model route identity, snapshot lineage, stale state and typed retry/fallback in the catalog adapter."
+      "observation": "Cycle 8 reviewed README.md; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Accessibility-tree observations with platform-specific actions",
+      "weakness": "MCP source is not packaged Omnia evidence",
+      "impact": "new-open-computer-use-cycle8-20261108: Use layered UIA/DOM observation, explicit leases, permission checks and bounded captures in Omnia-owned computer/browser harnesses without vendoring source.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/opensymph__open-computer-use__README.md",
+        "sha256": "cbd3be5f2f32f5b033a04819f93757fc2ee89c1d3c71e21a7784f808abd3d139"
+      }
     },
     {
-      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
-      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
-      "path": "pydantic_ai_slim/pydantic_ai/models/fallback.py",
-      "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf",
-      "sourceEvidence": {
-        "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/models-fallback.py.txt",
-        "sha256": "0cacab614e6f24111fc2790f3014785cee2dfe71bae9225126667ec27f478bbf"
-      },
+      "sourceId": "new-open-computer-use-cycle8-20261108",
+      "canonicalRepo": "https://github.com/opensymph/open-computer-use",
+      "revision": "e551c13e7082ce4c097234137582fbf4a1bc647a",
+      "path": "LICENSE",
+      "sha256": "87fca66dc41f3b74c3a09cd14a3f80e3c0ce4c150927f34479690b6829026a0c",
       "license": "MIT",
-      "query": "everything super power pro max open source agent workflow model routing fallback capability negotiation PydanticAI",
-      "retrievedAt": "2026-11-08T06:54:40.181Z",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
       "decision": "apply",
-      "observation": "Fallback uses typed exception/response predicates with continuation and cancellation lineage.",
-      "strength": "Retry and fallback decisions are explicit and cancellable.",
-      "weakness": "Python adapter cannot prove Omnia native provider safety.",
-      "impact": "Resolve effort and retry from typed capabilities and retain retryable/permanent/cancelled/unknown outcome receipts."
+      "observation": "Cycle 8 reviewed LICENSE; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Accessibility-tree observations with platform-specific actions",
+      "weakness": "MCP source is not packaged Omnia evidence",
+      "impact": "new-open-computer-use-cycle8-20261108: Use layered UIA/DOM observation, explicit leases, permission checks and bounded captures in Omnia-owned computer/browser harnesses without vendoring source.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/opensymph__open-computer-use__LICENSE",
+        "sha256": "87fca66dc41f3b74c3a09cd14a3f80e3c0ce4c150927f34479690b6829026a0c"
+      }
     },
     {
-      "canonicalRepo": "https://github.com/pydantic/pydantic-ai",
-      "revision": "0f7648a1b0685389ea368ea4f7b754b393cea8c7",
-      "path": "src/pydantic_ai_harness/pydantic_ai_harness/ask_user/_toolset.py",
-      "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944",
-      "sourceEvidence": {
-        "path": "docs/rebuild/research/snapshots/cycle7/pydantic-ai/src__pydantic_ai_harness__pydantic_ai_harness__ask_user___toolset.py.txt",
-        "sha256": "b68b59a122ac6904fae3c10b928dacad41656387de95a92269d7db3e1c41e944"
-      },
+      "sourceId": "new-openharness-cycle8-20261108",
+      "canonicalRepo": "https://github.com/autonomous-ai/openharness",
+      "revision": "d8fda0c681a61470d12daffaccdb6d964c5f39b5",
+      "path": "README.md",
+      "sha256": "6db5f5aa1c33e2caebf7e9ce48f36af6d8f37d0b4a26c7172789413984884bce",
       "license": "MIT",
-      "query": "site:github.com pydantic-ai harness approval reviewer ask user human in the loop tool approval everything super power pro max model workflow architecture open source",
-      "retrievedAt": "2026-11-08T06:54:40.181Z",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
       "decision": "apply",
-      "observation": "Ask-user is a typed toolset boundary with structured options, free text and continuation.",
-      "strength": "Suspension/resume avoids parsing text sentinels.",
-      "weakness": "Transport still needs lease/run/session validation and stale decision rejection.",
-      "impact": "Adopt typed ask-user envelopes and explicit approve/reject/edit/cancel decisions while keeping packaged evidence blocked."
+      "observation": "Cycle 8 reviewed README.md; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Side-by-side agents and machines",
+      "weakness": "Remote machine orchestration needs strong permission and trust boundaries",
+      "impact": "new-openharness-cycle8-20261108: Model agent/machine/session identity, attention queues and keyboard navigation as contracts; implement independently with native permissions.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/autonomous-ai__openharness__README.md",
+        "sha256": "6db5f5aa1c33e2caebf7e9ce48f36af6d8f37d0b4a26c7172789413984884bce"
+      }
+    },
+    {
+      "sourceId": "new-openharness-cycle8-20261108",
+      "canonicalRepo": "https://github.com/autonomous-ai/openharness",
+      "revision": "d8fda0c681a61470d12daffaccdb6d964c5f39b5",
+      "path": "LICENSE",
+      "sha256": "c534961655bcd54bc25655accd21e6cd936ad6191751b16dd8ba8e23472babda",
+      "license": "MIT",
+      "query": "GitHub open source agent harness everything super power pro max browser computer",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed LICENSE; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Side-by-side agents and machines",
+      "weakness": "Remote machine orchestration needs strong permission and trust boundaries",
+      "impact": "new-openharness-cycle8-20261108: Model agent/machine/session identity, attention queues and keyboard navigation as contracts; implement independently with native permissions.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/autonomous-ai__openharness__LICENSE",
+        "sha256": "c534961655bcd54bc25655accd21e6cd936ad6191751b16dd8ba8e23472babda"
+      }
+    },
+    {
+      "sourceId": "new-async-ide-cycle8-20261108",
+      "canonicalRepo": "https://github.com/x-man-git/Async",
+      "revision": "2c18a43c0711d1f991a6eabd913831f9c82794b0",
+      "path": "README.md",
+      "sha256": "792ed314795c6d847bf2a7fe063c9c4c0f5f0962e6c75daadc45dd5c093e4f55",
+      "license": "Apache-2.0",
+      "query": "GitHub open source IDE workspace agent protocol everything super power max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Agent-first desktop shell with editor/Git/terminal",
+      "weakness": "Electron/Monaco architecture is not Omnia Tauri proof",
+      "impact": "new-async-ide-cycle8-20261108: Bind transparent plan/execute/observe states, interruption and tool receipts to Omnia sessions while preserving clean-room UI.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/x-man-git__Async__README.md",
+        "sha256": "792ed314795c6d847bf2a7fe063c9c4c0f5f0962e6c75daadc45dd5c093e4f55"
+      }
+    },
+    {
+      "sourceId": "new-async-ide-cycle8-20261108",
+      "canonicalRepo": "https://github.com/x-man-git/Async",
+      "revision": "2c18a43c0711d1f991a6eabd913831f9c82794b0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "license": "Apache-2.0",
+      "query": "GitHub open source IDE workspace agent protocol everything super power max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed LICENSE; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Agent-first desktop shell with editor/Git/terminal",
+      "weakness": "Electron/Monaco architecture is not Omnia Tauri proof",
+      "impact": "new-async-ide-cycle8-20261108: Bind transparent plan/execute/observe states, interruption and tool receipts to Omnia sessions while preserving clean-room UI.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/x-man-git__Async__LICENSE",
+        "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+      }
+    },
+    {
+      "sourceId": "new-superskill-cycle8-20261108",
+      "canonicalRepo": "https://github.com/permanu/superskill",
+      "revision": "147322324b072b6d52d04c72259c6d1f73ae283f",
+      "path": "README.md",
+      "sha256": "415efe26d3609c72c9696ae7a51f1a3a1406cc1914ae88470e063d84c1fdf658",
+      "license": "Apache-2.0",
+      "query": "GitHub open source MCP skills workflow memory everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Project-jailed vault with derived SQLite FTS/graph",
+      "weakness": "Node/SQLite implementation is not Omnia native proof",
+      "impact": "new-superskill-cycle8-20261108: Use project-scoped memory, derived indexes, deterministic plan/DoD and safe cache sharing concepts without importing implementation.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/permanu__superskill__README.md",
+        "sha256": "415efe26d3609c72c9696ae7a51f1a3a1406cc1914ae88470e063d84c1fdf658"
+      }
+    },
+    {
+      "sourceId": "new-superskill-cycle8-20261108",
+      "canonicalRepo": "https://github.com/permanu/superskill",
+      "revision": "147322324b072b6d52d04c72259c6d1f73ae283f",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "license": "Apache-2.0",
+      "query": "GitHub open source MCP skills workflow memory everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed LICENSE; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Project-jailed vault with derived SQLite FTS/graph",
+      "weakness": "Node/SQLite implementation is not Omnia native proof",
+      "impact": "new-superskill-cycle8-20261108: Use project-scoped memory, derived indexes, deterministic plan/DoD and safe cache sharing concepts without importing implementation.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/permanu__superskill__LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    },
+    {
+      "sourceId": "new-mcp-skillset-cycle8-20261108",
+      "canonicalRepo": "https://github.com/bobmatnyc/mcp-skillset",
+      "revision": "f99a26ce71171bd881142ac8bc3a5a4d24f94d8b",
+      "path": "README.md",
+      "sha256": "b4813f8a56b07779f86f3a44bb4e629a87ed126ff27fd2835ce3272cb698239b",
+      "license": "MIT",
+      "query": "GitHub open source MCP skills workflow memory RAG everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Hybrid vector plus graph skill discovery",
+      "weakness": "Python MCP source is not Windows packaged evidence",
+      "impact": "new-mcp-skillset-cycle8-20261108: Adopt lazy skill loading, hybrid retrieval receipts, trust validation and explicit unavailable/error states for Omnia skills/MCP.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/bobmatnyc__mcp-skillset__README.md",
+        "sha256": "b4813f8a56b07779f86f3a44bb4e629a87ed126ff27fd2835ce3272cb698239b"
+      }
+    },
+    {
+      "sourceId": "new-mcp-skillset-cycle8-20261108",
+      "canonicalRepo": "https://github.com/bobmatnyc/mcp-skillset",
+      "revision": "f99a26ce71171bd881142ac8bc3a5a4d24f94d8b",
+      "path": "LICENSE",
+      "sha256": "cead05085657a143296fb1bfb641880d3e337a6aeccba512b5896123157f5c7f",
+      "license": "MIT",
+      "query": "GitHub open source MCP skills workflow memory RAG everything super power pro max",
+      "retrievedAt": "2026-11-08T08:31:00Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed LICENSE; New repository/revision/path tuple in rebuild-0008; absent from prior registry.",
+      "strength": "Hybrid vector plus graph skill discovery",
+      "weakness": "Python MCP source is not Windows packaged evidence",
+      "impact": "new-mcp-skillset-cycle8-20261108: Adopt lazy skill loading, hybrid retrieval receipts, trust validation and explicit unavailable/error states for Omnia skills/MCP.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/bobmatnyc__mcp-skillset__LICENSE",
+        "sha256": "cead05085657a143296fb1bfb641880d3e337a6aeccba512b5896123157f5c7f"
+      }
+    },
+    {
+      "sourceId": "new-ufo-cycle8-20261108",
+      "canonicalRepo": "https://github.com/microsoft/UFO",
+      "revision": "eae3c0a8d168c47cb10df0652e293e092eda1078",
+      "path": "documents/docs/client/computer_manager.md",
+      "sha256": "c12c63df2a8206af319c0ca7ff0db0f23701905aed16e5dfa449b69230d79686",
+      "license": "MIT",
+      "query": "site:github.com microsoft UFO Windows computer agent harness state trajectory MCP",
+      "retrievedAt": "2026-11-08T08:37:16Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed documents/docs/client/computer_manager.md; New Cycle8 repository/revision/path tuples; absent from registry.",
+      "strength": "Windows computer leases",
+      "weakness": "Python/Windows source is not Omnia Rust/Tauri proof",
+      "impact": "new-ufo-cycle8-20261108: Use typed leases, owner/session state and append-only action receipts without vendoring UFO.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/ufo-computer-manager.md",
+        "sha256": "c12c63df2a8206af319c0ca7ff0db0f23701905aed16e5dfa449b69230d79686"
+      }
+    },
+    {
+      "sourceId": "new-llamaindex-cycle8-20261108",
+      "canonicalRepo": "https://github.com/run-llama/llama_index",
+      "revision": "444fdf0684707de62ebb447d658dba137dd9cb99",
+      "path": "README.md",
+      "sha256": "625c49e7dedf84826b350be28d118e7823e669504689105611e91ff709406d1f",
+      "license": "MIT",
+      "query": "open source everything super power pro max document indexing retrieval persistence refresh reference docs",
+      "retrievedAt": "2026-11-08T08:37:16Z",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New Cycle8 repository/revision/path tuples; absent from registry.",
+      "strength": "Reference-document hash refresh and lineage",
+      "weakness": "Hash comparison alone cannot prove pointer rename/delete",
+      "impact": "new-llamaindex-cycle8-20261108: Use incremental ingestion, source hashes and deterministic stale/deleted handling.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/llama-index__README.md",
+        "sha256": "625c49e7dedf84826b350be28d118e7823e669504689105611e91ff709406d1f"
+      }
+    },
+    {
+      "sourceId": "new-graphiti-cycle8-20261108",
+      "canonicalRepo": "https://github.com/getzep/graphiti",
+      "revision": "024b83679e48e41d59a7d1714ac0870aff2e4676",
+      "path": "README.md",
+      "sha256": "831ab734e5b6713741dbfc15712f01f78fff7e0d6b5be86c5c20acd17c4249e4",
+      "license": "Apache-2.0",
+      "query": "open source graph memory RAG provenance temporal episodes everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New cycle-8 graph memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Transactional graph persistence",
+      "weakness": "Neo4j/provider extraction are not native Omnia proof",
+      "impact": "new-graphiti-cycle8-20261108: Use immutable memory receipts, deterministic identity dedupe and native permission-bound persistence.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/graphiti__README.md",
+        "sha256": "831ab734e5b6713741dbfc15712f01f78fff7e0d6b5be86c5c20acd17c4249e4"
+      }
+    },
+    {
+      "sourceId": "new-graphiti-cycle8-20261108",
+      "canonicalRepo": "https://github.com/getzep/graphiti",
+      "revision": "024b83679e48e41d59a7d1714ac0870aff2e4676",
+      "path": "graphiti_core/driver/neo4j_driver.py",
+      "sha256": "44101e499c0c0764741736da4a91c2cf7fd0917adc22e1db7b9a316cbfb7e6d2",
+      "license": "Apache-2.0",
+      "query": "open source graph memory RAG provenance temporal episodes everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed graphiti_core/driver/neo4j_driver.py; New cycle-8 graph memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Transactional graph persistence",
+      "weakness": "Neo4j/provider extraction are not native Omnia proof",
+      "impact": "new-graphiti-cycle8-20261108: Use immutable memory receipts, deterministic identity dedupe and native permission-bound persistence.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/graphiti__graphiti_core__driver__neo4j_driver.py",
+        "sha256": "44101e499c0c0764741736da4a91c2cf7fd0917adc22e1db7b9a316cbfb7e6d2"
+      }
+    },
+    {
+      "sourceId": "new-graphiti-cycle8-20261108",
+      "canonicalRepo": "https://github.com/getzep/graphiti",
+      "revision": "024b83679e48e41d59a7d1714ac0870aff2e4676",
+      "path": "graphiti_core/utils/maintenance/node_operations.py",
+      "sha256": "1bcfb52cee7115075409834f6a1692767bd8fecd7f8dc9fc9ca46f9402ce2973",
+      "license": "Apache-2.0",
+      "query": "open source graph memory RAG provenance temporal episodes everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed graphiti_core/utils/maintenance/node_operations.py; New cycle-8 graph memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Transactional graph persistence",
+      "weakness": "Neo4j/provider extraction are not native Omnia proof",
+      "impact": "new-graphiti-cycle8-20261108: Use immutable memory receipts, deterministic identity dedupe and native permission-bound persistence.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/graphiti__graphiti_core__utils__maintenance__node_operations.py",
+        "sha256": "1bcfb52cee7115075409834f6a1692767bd8fecd7f8dc9fc9ca46f9402ce2973"
+      }
+    },
+    {
+      "sourceId": "new-cognee-cycle8-20261108",
+      "canonicalRepo": "https://github.com/topoteretes/cognee",
+      "revision": "8853378eae5366addb064e758e560a456146ae1a",
+      "path": "LICENSE",
+      "sha256": "a471e34908f50c3f120e9a56f3c30cb34e133e4ede01a9cbd5ce718fc358ecd4",
+      "license": "Apache-2.0",
+      "query": "open source agent memory session context permissions RAG skills everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed LICENSE; New cycle-8 session-memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Deterministic budgeted context ranking",
+      "weakness": "Python/cache/graph runtime is not native proof",
+      "impact": "new-cognee-cycle8-20261108: Record bounded retrieval receipts with scope, rank inputs, truncation and served timestamps.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/cognee__LICENSE",
+        "sha256": "a471e34908f50c3f120e9a56f3c30cb34e133e4ede01a9cbd5ce718fc358ecd4"
+      }
+    },
+    {
+      "sourceId": "new-cognee-cycle8-20261108",
+      "canonicalRepo": "https://github.com/topoteretes/cognee",
+      "revision": "8853378eae5366addb064e758e560a456146ae1a",
+      "path": "README.md",
+      "sha256": "371945db13ce593ecb6298ad1188c57bfb1a6e89a8435f4bc421abfa427c09f2",
+      "license": "Apache-2.0",
+      "query": "open source agent memory session context permissions RAG skills everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New cycle-8 session-memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Deterministic budgeted context ranking",
+      "weakness": "Python/cache/graph runtime is not native proof",
+      "impact": "new-cognee-cycle8-20261108: Record bounded retrieval receipts with scope, rank inputs, truncation and served timestamps.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/cognee__README.md",
+        "sha256": "371945db13ce593ecb6298ad1188c57bfb1a6e89a8435f4bc421abfa427c09f2"
+      }
+    },
+    {
+      "sourceId": "new-cognee-cycle8-20261108",
+      "canonicalRepo": "https://github.com/topoteretes/cognee",
+      "revision": "8853378eae5366addb064e758e560a456146ae1a",
+      "path": "cognee/infrastructure/session/session_context_builder.py",
+      "sha256": "006e775ed7a5b303e91dca28c7b5ccfb365fd804cb2aedb852f9faca3d2fdba0",
+      "license": "Apache-2.0",
+      "query": "open source agent memory session context permissions RAG skills everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed cognee/infrastructure/session/session_context_builder.py; New cycle-8 session-memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Deterministic budgeted context ranking",
+      "weakness": "Python/cache/graph runtime is not native proof",
+      "impact": "new-cognee-cycle8-20261108: Record bounded retrieval receipts with scope, rank inputs, truncation and served timestamps.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/cognee__session_context_builder.py",
+        "sha256": "006e775ed7a5b303e91dca28c7b5ccfb365fd804cb2aedb852f9faca3d2fdba0"
+      }
+    },
+    {
+      "sourceId": "new-cognee-cycle8-20261108",
+      "canonicalRepo": "https://github.com/topoteretes/cognee",
+      "revision": "8853378eae5366addb064e758e560a456146ae1a",
+      "path": "cognee/modules/agent_memory/runtime.py",
+      "sha256": "25682d6b7635679c1f79ce16bbba87d5487814a37892c65500206690905143ac",
+      "license": "Apache-2.0",
+      "query": "open source agent memory session context permissions RAG skills everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed cognee/modules/agent_memory/runtime.py; New cycle-8 session-memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Deterministic budgeted context ranking",
+      "weakness": "Python/cache/graph runtime is not native proof",
+      "impact": "new-cognee-cycle8-20261108: Record bounded retrieval receipts with scope, rank inputs, truncation and served timestamps.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/cognee__agent_memory_runtime.py",
+        "sha256": "25682d6b7635679c1f79ce16bbba87d5487814a37892c65500206690905143ac"
+      }
+    },
+    {
+      "sourceId": "new-cognee-cycle8-20261108",
+      "canonicalRepo": "https://github.com/topoteretes/cognee",
+      "revision": "8853378eae5366addb064e758e560a456146ae1a",
+      "path": "cognee-mcp/src/retrieval_utils.py",
+      "sha256": "b0031300ef60b959e18c7af788313bcd6e0b70a195d98cbefdccb9f1d91848c3",
+      "license": "Apache-2.0",
+      "query": "open source agent memory session context permissions RAG skills everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed cognee-mcp/src/retrieval_utils.py; New cycle-8 session-memory source; repo/revision/path tuples absent from prior register.",
+      "strength": "Deterministic budgeted context ranking",
+      "weakness": "Python/cache/graph runtime is not native proof",
+      "impact": "new-cognee-cycle8-20261108: Record bounded retrieval receipts with scope, rank inputs, truncation and served timestamps.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/cognee__retrieval_utils.py",
+        "sha256": "b0031300ef60b959e18c7af788313bcd6e0b70a195d98cbefdccb9f1d91848c3"
+      }
+    },
+    {
+      "sourceId": "new-haystack-cycle8-20261108",
+      "canonicalRepo": "https://github.com/deepset-ai/haystack",
+      "revision": "0ad74747ffd7d9f9b092db97ba2e222080992c2e",
+      "path": "README.md",
+      "sha256": "e016e944fa840265e85e73520522c6152798330720d53d3d64fdffcc448554e6",
+      "license": "Apache-2.0",
+      "query": "open source resumable RAG pipeline snapshots cancellation streaming retrieval everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed README.md; New cycle-8 resumable pipeline source; repo/revision/path tuples absent from prior register.",
+      "strength": "Checkpoint graph/version validation",
+      "weakness": "Python semantics are not Rust/Tauri runtime proof",
+      "impact": "new-haystack-cycle8-20261108: Add stale-safe RAG checkpoints, bounded concurrency, cancellation and filter validation.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/haystack__README.md",
+        "sha256": "e016e944fa840265e85e73520522c6152798330720d53d3d64fdffcc448554e6"
+      }
+    },
+    {
+      "sourceId": "new-haystack-cycle8-20261108",
+      "canonicalRepo": "https://github.com/deepset-ai/haystack",
+      "revision": "0ad74747ffd7d9f9b092db97ba2e222080992c2e",
+      "path": "haystack/core/pipeline/pipeline.py",
+      "sha256": "5260957fbf291dd43337a534a8daba2c8005579ed778924f3b043c8bfa72d7ac",
+      "license": "Apache-2.0",
+      "query": "open source resumable RAG pipeline snapshots cancellation streaming retrieval everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed haystack/core/pipeline/pipeline.py; New cycle-8 resumable pipeline source; repo/revision/path tuples absent from prior register.",
+      "strength": "Checkpoint graph/version validation",
+      "weakness": "Python semantics are not Rust/Tauri runtime proof",
+      "impact": "new-haystack-cycle8-20261108: Add stale-safe RAG checkpoints, bounded concurrency, cancellation and filter validation.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/haystack__pipeline.py",
+        "sha256": "5260957fbf291dd43337a534a8daba2c8005579ed778924f3b043c8bfa72d7ac"
+      }
+    },
+    {
+      "sourceId": "new-haystack-cycle8-20261108",
+      "canonicalRepo": "https://github.com/deepset-ai/haystack",
+      "revision": "0ad74747ffd7d9f9b092db97ba2e222080992c2e",
+      "path": "haystack/components/retrievers/in_memory/bm25_retriever.py",
+      "sha256": "79c830b6405863e863bcf9786b7611af5984d19188f8653048ddd1bedbd7e465",
+      "license": "Apache-2.0",
+      "query": "open source resumable RAG pipeline snapshots cancellation streaming retrieval everything super power pro max",
+      "retrievedAt": "2026-11-08T15:41:00+07:00",
+      "decision": "apply",
+      "observation": "Cycle 8 reviewed haystack/components/retrievers/in_memory/bm25_retriever.py; New cycle-8 resumable pipeline source; repo/revision/path tuples absent from prior register.",
+      "strength": "Checkpoint graph/version validation",
+      "weakness": "Python semantics are not Rust/Tauri runtime proof",
+      "impact": "new-haystack-cycle8-20261108: Add stale-safe RAG checkpoints, bounded concurrency, cancellation and filter validation.",
+      "sourceEvidence": {
+        "path": "docs/rebuild/research/snapshots/cycle8/rag-memory/haystack__bm25_retriever.py",
+        "sha256": "79c830b6405863e863bcf9786b7611af5984d19188f8653048ddd1bedbd7e465"
+      }
     }
   ],
   "artifacts": [
     {
-      "path": "docs/rebuild/audit/CYCLE7_AUDIT_20261108.json",
-      "sha256": "67ff11d32278be14bd75acdc1aaa405cadf24beb612ba86fae41bf118ad28361",
+      "path": "docs/rebuild/audit/CYCLE8_AUDIT_20261108.json",
+      "sha256": "fd3dad9be3665baee2f821495521ea340a11d4dd9552eb9f5132d5be2f589fd8",
       "stage": "audit",
       "generation": 1,
       "kind": "audit"
     },
     {
-      "path": "docs/rebuild/research/NEW_ROUTING_OSS_20261108.md",
-      "sha256": "26ea940fed49f6c57703124b69305996725daf673ed9b6dd660990dd523c5d36",
+      "path": "docs/rebuild/research/CYCLE8_DIRECT_RESEARCH.json",
+      "sha256": "cd8072ee45faa92b5d330e0436dd825317b57bf3e11e96dd6a0929bbfe5174b3",
       "stage": "research",
       "generation": 1,
       "kind": "research"
     },
     {
-      "path": "docs/rebuild/research/NEW_WORKFLOW_OSS_20261108.md",
-      "sha256": "f9e3ebe18c42e5d9373566e08391228928d3c97f25625a8444779eefdd0e9344",
+      "path": "docs/rebuild/research/NEW_DIRECT_OSS_CYCLE8_20261108.md",
+      "sha256": "cb862fedef19cc3d02ea6f2288a92065449099dbdc88375fd6fd03f72d60b305",
       "stage": "research",
       "generation": 1,
       "kind": "research"
     },
     {
-      "path": "docs/rebuild/research/NEW_ASK_USER_OSS_20261108.md",
-      "sha256": "77f9fc3d2b781c44131d88bd6808f203f32508b3bc27202ff63a8ea46462af0e",
+      "path": "docs/rebuild/research/NEW_HARNESS_CYCLE8_20261108.md",
+      "sha256": "e4102cc2ee54a237ae8c7a6e6ddd85f7471bc31b4628e75bc291733e711f200a",
       "stage": "research",
       "generation": 1,
       "kind": "research"
     },
     {
-      "path": "docs/rebuild/synthesis-cycle7.json",
-      "sha256": "0e003b0ab22a9c3e56885e71d9ce1209258b8e73230eddd6eaaf054420531909",
+      "path": "docs/rebuild/research/NEW_IDE_CYCLE8_20261108.md",
+      "sha256": "a7207a7cd6f59248a273f70b6c908567e52ae6204668584c55a2b830869c9b7b",
+      "stage": "research",
+      "generation": 1,
+      "kind": "research"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_MCP_SKILLS_CYCLE8_20261108.md",
+      "sha256": "6799cb9f71b03e2c4b82878f4b327e2bde5da0384d5e7416c48bbef44ce347b3",
+      "stage": "research",
+      "generation": 1,
+      "kind": "research"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_RAG_MEMORY_CYCLE8_20261108.md",
+      "sha256": "80f4b576e1b52fb3815e92f778dadc58b4ca25a16056cd712cdb048d7f7f6e0e",
+      "stage": "research",
+      "generation": 1,
+      "kind": "research"
+    },
+    {
+      "path": "docs/rebuild/research/NEW_UI_CYCLE8_20261108.md",
+      "sha256": "cbf20836d79a9e0d13e4c78307b124e4953ab7075e56b76dd4b5e61dcfbdfa84",
+      "stage": "research",
+      "generation": 1,
+      "kind": "research"
+    },
+    {
+      "path": "docs/rebuild/research/SYNTHESIS_CYCLE8.json",
+      "sha256": "6bb179e69b63ba76af7efffccc545bff10f06f2db1bb94de8c3aedb1cb0162d5",
       "stage": "synthesize",
       "generation": 1,
       "kind": "synthesis"
     },
     {
-      "path": "docs/rebuild/plan-cycle7.json",
-      "sha256": "8c9b59c6a45e9b6975824d06a1acfffcd43c573c752c3d31c1c62c8e7c54f105",
+      "path": "docs/rebuild/PLAN_CYCLE8.json",
+      "sha256": "35f9c426acbe817b768670ac4d6687ae0d6fb3ca78f5a59956e7696077526ed0",
       "stage": "plan",
       "generation": 1,
       "kind": "plan"
     },
     {
-      "path": "docs/rebuild/implementation-cycle7.json",
-      "sha256": "6b88916f258aefbbcb0e5a6df0c2af43c69dd8f0f1eb1884d9747bde59d16361",
+      "path": "docs/rebuild/IMPLEMENTATION_CYCLE8.json",
+      "sha256": "8b5697f40b53a0bf4c8e1aa63620d3cbd3d95d62c6c463d3e988943c32a507dc",
       "stage": "implement",
       "generation": 1,
       "kind": "implementation"
     },
     {
-      "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
-      "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6",
+      "path": "docs/rebuild/receipts/cycle8-native-capability-test.json",
+      "sha256": "601b1a6cb35b7ea545fffa3cc35b1bfc76cad7589a2ffafefc5c09a7c185625a",
       "stage": "verify",
       "generation": 1,
-      "kind": "test"
+      "kind": "native"
     },
     {
-      "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
-      "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c",
+      "path": "docs/rebuild/receipts/cycle8-native-catalog-tests.json",
+      "sha256": "1d80656bfb7dc5c270c7c361e78dbd27b78dccd9de97f8f7ac04d1ddcbde1b4b",
       "stage": "verify",
       "generation": 1,
-      "kind": "build"
+      "kind": "native"
     },
     {
-      "path": "docs/rebuild/receipts/cycle7-document.json",
-      "sha256": "d3a013ab87a3978672146d59e6e160bc17702cf28bd7aca65ef611b804a9298d",
+      "path": "docs/rebuild/audit/REVIEW_CYCLE8_20261108.json",
+      "sha256": "a18e0389ea36220d7740db27b10bafc3dafe8f7a90224a69f3246c56b5a94a12",
+      "stage": "review",
+      "generation": 1,
+      "kind": "review"
+    },
+    {
+      "path": "docs/rebuild/receipts/cycle8-documentation.json",
+      "sha256": "269278fa4f3f33870d5e5bd51d906543e6bb702f541696824ccbae988d941e70",
       "stage": "document",
       "generation": 1,
-      "kind": "document"
-    },
-    {
-      "path": "docs/rebuild/receipts/cycle7-publication.json",
-      "sha256": "14d50f1524cff05928848c1ba3dc17f2304d7c0baf4e4a9565a1288ac9abc8e7",
-      "stage": "publish",
-      "generation": 1,
-      "kind": "publish"
+      "kind": "documentation"
     }
   ],
   "checklist": {
@@ -602,70 +1098,57 @@
     "readme_release_consistent": true
   },
   "review": {
+    "reviewer": "/root/cycle8_independent_review",
     "author": "/root",
-    "reviewer": "/root/cycle7_review_replacement",
-    "reviewedAt": "2026-11-08T07:40:25.1029441Z",
+    "reviewedAt": "2026-11-08T09:27:12.855Z",
     "result": "passed",
     "unresolved": [],
     "evidence": {
-      "path": "docs/rebuild/audit/REVIEW_CYCLE7_20261108.json",
-      "sha256": "7b30d67e17bb4eb7d372254ec90b1f00ee4840df99a709ded081d2dd723af0a3",
-      "kind": "review"
+      "path": "docs/rebuild/audit/REVIEW_CYCLE8_20261108.json",
+      "sha256": "a18e0389ea36220d7740db27b10bafc3dafe8f7a90224a69f3246c56b5a94a12"
     },
     "sourceFiles": [
       {
+        "path": "src-tauri/src/capability_runtime.rs",
+        "sha256": "dfe48a747298e24e85de3ca0943dcc3400635ba8306f890960a974dc723d5408"
+      },
+      {
+        "path": "src-tauri/src/lib.rs",
+        "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
+      },
+      {
+        "path": "src-tauri/src/storage.rs",
+        "sha256": "3b58e2183dc99352d4176d81b44ee692885590998698ea527015991811e59583"
+      },
+      {
+        "path": "src-tauri/src/provider_gateway.rs",
+        "sha256": "7438900e520cc9698e5b94007cfda12c0040e5d2965ce2079c270a9a32a560b2"
+      },
+      {
+        "path": "docs/storage-schema.sql",
+        "sha256": "93ef8d1f22cafdf9ea3f476559248a256010b97325edc050a3cce5fab279367c"
+      },
+      {
         "path": "src/rebuild/chat/ask-user-envelope.ts",
         "sha256": "f2e3788d732d8e03590f932a84e35b5a7f9b22159c06fbf650ec05d09779cad0"
-      },
-      {
-        "path": "src/rebuild/chat/ask-user-envelope.test.ts",
-        "sha256": "8e57e88aa28ffb5a7be42842505e2f75941bccecccecdff98ac926fce9846e8a"
-      },
-      {
-        "path": "src/rebuild/settings/catalog-route-adapter.ts",
-        "sha256": "891585852559a2318189ad37c988a3aa31292018ff6e7718a9354282182cb4b8"
-      },
-      {
-        "path": "src/rebuild/settings/catalog-route-adapter.test.ts",
-        "sha256": "fabc2fa1bccef34aabeb8300756e628e82189a65762caa1f8984a6da67e1b2ff"
-      },
-      {
-        "path": "src/rebuild/settings/effort-resolution.ts",
-        "sha256": "d16c917f7a91a4d30b4ef216dd4a072fafd611dbb2f6fb0ed13e619a2582fce6"
-      },
-      {
-        "path": "src/rebuild/settings/effort-resolution.test.ts",
-        "sha256": "5645c92e2e40d84aa5ed048a2f28bd6059037ea9e57975711394f28d1eca7690"
-      },
-      {
-        "path": "src/rebuild/settings/ModelDiscoveryPanel.tsx",
-        "sha256": "7ab9e9e38590b3645a9ae26032350ce28a5f416ed30b8792b808668c23402e8c"
-      },
-      {
-        "path": "src/rebuild/settings/SettingsPanel.tsx",
-        "sha256": "66a7908c679c140c150e533b93426e44c6147375abd9c76cdbafba6ed5885f08"
-      },
-      {
-        "path": "src/rebuild/settings/index.ts",
-        "sha256": "48f542b41ccbbb40c95ac5bb4cc9e576a9fc08801c068a9b621efb94b754c3ac"
       },
       {
         "path": "src/rebuild/chat/chat-controller.ts",
         "sha256": "4e7df585c834ec22bccab5a3b2bd53937b5c65d23df1795b57b2dee79ebae24c"
       },
       {
-        "path": "src/rebuild/rebuild-app.tsx",
-        "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+        "path": "src-tauri/src/harness_bridge.rs",
+        "sha256": "045bc0b9b8fe590998fcdc772d001e353fad81a5fa9e553685fe06e6ce58da3b"
       }
     ],
     "testEvidence": [
       {
-        "path": "docs/rebuild/receipts/cycle7-rebuild-tests.json",
-        "sha256": "d506889ac82571bc3594267eea8c3effbea89a94e1fe18f120f5889c955b3ef6"
+        "path": "docs/rebuild/receipts/cycle8-native-capability-test.json",
+        "sha256": "601b1a6cb35b7ea545fffa3cc35b1bfc76cad7589a2ffafefc5c09a7c185625a"
       },
       {
-        "path": "docs/rebuild/receipts/cycle7-renderer-build.json",
-        "sha256": "66556f090f346addb783d943de24de67c696c4a9b65fbf8f197acf88fa11814c"
+        "path": "docs/rebuild/receipts/cycle8-native-catalog-tests.json",
+        "sha256": "1d80656bfb7dc5c270c7c361e78dbd27b78dccd9de97f8f7ac04d1ddcbde1b4b"
       }
     ]
   }

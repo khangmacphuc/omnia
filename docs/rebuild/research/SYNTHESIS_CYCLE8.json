@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "stage": "synthesize",
+  "cycleId": "rebuild-0008",
+  "recordedAt": "2026-11-08T09:07:32.031Z",
+  "observations": [
+    {
+      "source": "https://github.com/opensymph/open-computer-use",
+      "observation": "Accessibility-tree and bounded screenshot actions provide structured desktop control without taking over physical input.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Source inspection is not packaged Omnia proof.",
+      "decision": "apply",
+      "criteria": [
+        "CHAT-008"
+      ]
+    },
+    {
+      "source": "https://github.com/autonomous-ai/openharness",
+      "observation": "Side-by-side agents/machines and keyboard-first attention routing make active work discoverable.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Remote orchestration trust boundary remains Omnia-specific.",
+      "decision": "apply",
+      "criteria": [
+        "ADVSET-001"
+      ]
+    },
+    {
+      "source": "https://github.com/x-man-git/Async",
+      "observation": "Visible Think-Plan-Execute-Observe with interruption clarifies runtime state.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Electron/Monaco source cannot prove Tauri behavior.",
+      "decision": "apply",
+      "criteria": [
+        "ADVSET-001"
+      ]
+    },
+    {
+      "source": "https://github.com/permanu/superskill",
+      "observation": "Project-jailed vault plus derived FTS/graph avoids loading private memory globally.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Node/SQLite source is design input only.",
+      "decision": "apply",
+      "criteria": [
+        "ADVSET-003"
+      ]
+    },
+    {
+      "source": "https://github.com/bobmatnyc/mcp-skillset",
+      "observation": "On-demand hybrid skill retrieval and injection validation reduce context load and untrusted skill risk.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Python MCP runtime not packaged Windows evidence.",
+      "decision": "apply",
+      "criteria": [
+        "ADVSET-003"
+      ]
+    },
+    {
+      "source": "https://github.com/microsoft/UFO",
+      "observation": "Managed Windows computer leases and blackboard state separate ownership from actions.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Python implementation is not Omnia native proof.",
+      "decision": "apply",
+      "criteria": [
+        "CHAT-008"
+      ]
+    },
+    {
+      "source": "https://github.com/run-llama/llama_index",
+      "observation": "Reference-document hashes enable incremental refresh and lineage.",
+      "strength": "Pinned source path reviewed",
+      "weakness": "Hash alone does not prove pointer rename.",
+      "decision": "apply",
+      "criteria": [
+        "ADVSET-003"
+      ]
+    }
+  ],
+  "workbench": {
+    "sourceFiles": [
+      {
+        "path": "package.json",
+        "sha256": "58a3f459dfd44b75a11237b22dab66c219a8d528064e13f547d0e0f753634e7d"
+      },
+      {
+        "path": "vite.config.ts",
+        "sha256": "5ab587bfc300982112a19987334f7f5cf64fe9b5349f285cbaa0ddba5ec5cae4"
+      },
+      {
+        "path": "src/main.tsx",
+        "sha256": "9fb670938f45a856115679b1f73844963846ce3d9ebb762b07ba6ca11c361246"
+      },
+      {
+        "path": "src/rebuild/rebuild-app.tsx",
+        "sha256": "6d51a84ca557d699616b34e4a4c521e42d793aee0bb4b01717f6b472f500d1da"
+      },
+      {
+        "path": "src/rebuild/rebuild-app.css",
+        "sha256": "67de3614fea65a95175855b5582d08acb56ce96be6904f67c3719819237b4bb6"
+      }
+    ],
+    "buildEvidence": {
+      "path": "docs/rebuild/receipts/renderer-build-current-20261108.json",
+      "sha256": "81450903ca584c28d1b267a157db0f38827cc57055a9acbeaca8623c54e27efb",
+      "kind": "build"
+    }
+  }
+}

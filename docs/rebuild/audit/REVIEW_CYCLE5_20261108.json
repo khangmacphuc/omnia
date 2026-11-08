@@ -76,7 +76,7 @@
     },
     {
       "path": "src-tauri/src/lib.rs",
-      "sha256": "7dc1b9aca25722b4c6f7e936171264137d1c09dea7f69ffeee67912028381af2"
+      "sha256": "c9bb1d8c58d953cff62f9bae78e4d8dd905a4365d136a60ca659ef88d9265d8a"
     },
     {
       "path": "src/main.tsx",
@@ -236,7 +236,7 @@
     },
     {
       "path": "docs/rebuild/receipts/ask-user-native-cycle5.json",
-      "sha256": "e6ac95b7bfe1a44771b17f1d4ef3383da9798bc6b07692577617c9d0ab7320e8",
+      "sha256": "7d65901c9c894cd2bee8b7292a121e57eb11fbdbae838f85d3f41633368c5e1f",
       "kind": "native"
     }
   ],

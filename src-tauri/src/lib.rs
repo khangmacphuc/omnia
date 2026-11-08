@@ -7,6 +7,7 @@ pub(crate) mod authority_continuity;
 mod blob_key_broker;
 mod browser_profile;
 mod browser_surface;
+mod capability_runtime;
 mod commands;
 mod content_store;
 mod core_protocol;

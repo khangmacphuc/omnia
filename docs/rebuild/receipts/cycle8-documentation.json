@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "result": "passed",
+  "scope": "documentation",
+  "recordedAt": "2026-11-08T09:30:21.275Z",
+  "command": "node scripts/rebuild/cycle.mjs --validate",
+  "exitCode": 0,
+  "output": {
+    "path": "docs/rebuild/receipts/cycle8-documentation-output.txt",
+    "sha256": "2802622c161ab8ec2efaf00ea947c61d1fd89c104bee1d7f4cf9b993b8dc19cb"
+  },
+  "sourceFiles": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4841902ff1830d8bd59531c8cd1dfccfe7082deffdc694263be038b08afb70c8"
+    },
+    {
+      "path": ".agents/skills/omnia-evidence-loop/SKILL.md",
+      "sha256": "a03964248bd0d2ed64a672f34e038ad5dcd44438f8b73fc64e08fd2e6f227ce6"
+    },
+    {
+      "path": "docs/rebuild/GOAL.md",
+      "sha256": "3d29db9e65606969bc1219f35e6be6daebfe326702d2ed622994ccf8dd982bcf"
+    },
+    {
+      "path": "docs/rebuild/WORKFLOW.md",
+      "sha256": "7d52f5bea6a524664e1d7d3e74a07f2a23d926cba75584a73925f1b78a2b1fb9"
+    },
+    {
+      "path": "docs/rebuild/SPEC.md",
+      "sha256": "2b9f2a79474e5d7c8700783982a2795c8dc3b5e6bacb9ce03220836e3912f62c"
+    },
+    {
+      "path": "docs/rebuild/DOD.json",
+      "sha256": "9ac236b9c407c65ee97c98ca7251c789b79fb3ecdc6c74e094d80b692ce49d58"
+    },
+    {
+      "path": "docs/rebuild/SOURCE_REGISTER.json",
+      "sha256": "7d899534d9719c0e15a54abd65e7ad3425d5750189142273cce477038f073914"
+    },
+    {
+      "path": "docs/rebuild/CHECKPOINT.md",
+      "sha256": "51760b30228bb922c4c6ef24c5814d7e4a90a05959a6eee1ed7f6e0030558736"
+    },
+    {
+      "path": "docs/rebuild/ASSIGNMENTS.md",
+      "sha256": "ff697992887667f7a61326f9c013a301850385a7f31940d53aa179d308b151de"
+    }
+  ]
+}
