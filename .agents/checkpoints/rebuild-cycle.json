@@ -130,7 +130,7 @@
       },
       {
         "path": "docs/rebuild/GOAL.md",
-        "sha256": "ce1d87564ee9404b5bdd9a7224d68dd2bfa4225df71c861bfe3698399759fce6"
+        "sha256": "3d29db9e65606969bc1219f35e6be6daebfe326702d2ed622994ccf8dd982bcf"
       },
       {
         "path": "docs/rebuild/WORKFLOW.md",
@@ -150,7 +150,7 @@
       },
       {
         "path": "docs/rebuild/CHECKPOINT.md",
-        "sha256": "564fc32baf0253440e4c2f9f91abb607646c019c90b06fb1f2c7e3c95f2a7f19"
+        "sha256": "1477a9ad3d7cb9ecc37f01c0e68a3dff83886e9bdbfe959c64b2f090cfd4f090"
       },
       {
         "path": "docs/rebuild/ASSIGNMENTS.md",
